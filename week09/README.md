@@ -1,0 +1,59 @@
+# Looking for controls - a different approach
+    
+Now we’re going to try something different. This time, we’ll ask the AI to act like a researcher and help us find control variables for estimating a simple relationship.
+    
+But here’s the twist: we’ll run **two sessions** (or use two different models). One will give us a list of controls, and the other will act as a kind of “adversarial LLM” that pushes back and questions those choices. Think of it like a debate between two AIs: one helpful, one suspicious.
+    
+## Recap
+    
+Discuss: confounders, bad controls: what are they? how to treat them?
+    
+We will use the [World Management Survey data](https://osf.io/t6zdp/files/osfstorage) and explore this question:
+> Do firms with better management export more of their production?
+    
+    
+## Prompt construction
+    
+Again, let’s try to run the following prompts: the first and the last in the same session, and the middle in a separate session. But first, let’s look at the [codebook](https://osf.io/emh5u) together.
+As you run the prompts, think about:  
+  - How do the answers differ from the previous prompting approach?
+  - What do you think of the proposed variables? Would you include them all? Are there any left out.
+
+> 🤖 **Prompt 1.** You are a researcher who wants to find control variables to estimate the association between percent of production exported and management quality. Production exported is your outcome variable and management quality is your variable of interest. Attached is a codebook of variables that we have access to. Choose variables that could be included in a multivariate OLS regression.
+>
+> Return a list of variables and explanation, including the expected direction of associations. At the end of your response, include a plain list of variable names in a copyable format (no bullets, no numbers, just one variable per line).
+
+    
+> 😈 **Prompt 2. Adversarial LLM in a separate session**
+Below are a list of variables that I want to include in a regression to estimate the relationship between percent of production exported and management quality. Argue for each variable why I should not include it in the regression.
+> [list of variables by Original LLM]
+
+
+> 🤖 **Prompt 3. Feed Adversarial LLM’s response back to Original LLM** Below are counter-arguments for each of your previous answers. Based on these arguments, revise your selection and provide a list: [the arguments by Adversary LLM]
+
+    
+
+# Assignment
+
+Political communication on social media is ever-increasing, but does it actually have an effect on overall political activation? Are more people voting because of social media, or does it only affect incumbent voters? In this assignment, you will examine the relationship between social media use and political participation.
+
+**Tasks:** 
+
+1. Take the [World Values Survey codebook (7th wave)](https://osf.io/9wp2z) and come up with a regression model that describes this relationship and controls for all possible confounders. Think in terms of demographics, socioeconomic variables, and any relevant attitudes and values in the **Core Variables section** of the codebook.
+2. Use AI to help come up with the model. Write prompts based on what we learned and make notes of your experience with them. 
+    1. Extra points will be given if you experimented with both approaches learned in class.
+
+**Note:** you should not run any regressions for this assignment!
+
+**To submit:**
+
+- **1-page document** (maximum length for full points) that includes:
+    - Your complete regression equation
+    - Detailed reasoning for each variable included in the model
+    - Specific justification for each confounder with:
+        - Concrete examples of how the variable might influence the relationship
+        - Expected direction of association (positive/negative)
+        - Theoretical basis for inclusion
+- Link to the chat(s) you used to get the variables.
+
+**Note**: Extra points will be awarded for particularly insightful examples and well-reasoned predictions about the direction of associations between variables.
