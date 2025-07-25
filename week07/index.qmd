@@ -1,15 +1,17 @@
 ---
-title: "Creating dashboards and online simulation apps"
+title: "Week 07: AI-Assisted Data Collection"
+subtitle: "Collecting and combining data from online sources"
+date: "2025-06-01"
 ---
 
-TBA
+:::::: hero-section
+::::: container
+::: hero-title
+Week 07: AI-Assisted Data Collectionü
+:::
 
-
-## Part I Dashboard to illustrate economics 
-
-TBA
-
-
-## Part II Simulation app for a statistical property
-
-TBA
+::: hero-subtitle
+Collecting and combining data from online sources
+:::
+:::::
+::::::
