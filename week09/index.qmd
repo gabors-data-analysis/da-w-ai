@@ -1,5 +1,5 @@
 ---
-title: "AI as research companion: designing "Z"
+title: "AI as research companion: designing Z "
 subtitle: "Getting closer to causality by deciding on control variables"
 date: "2025-08-01"
 ---

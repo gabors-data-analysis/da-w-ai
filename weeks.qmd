@@ -63,7 +63,7 @@ Case study: football post-game interviews. Data is at [interviews](data/intervie
 
 TBA
 
-## Week08: Natural language query in a data warehouse
+## Week08: SQL like natural language query in a data warehouse
 
 TBA
 

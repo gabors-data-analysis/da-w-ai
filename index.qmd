@@ -82,9 +82,14 @@ But, anyone can use it with adequate background.
 - **Week 2:** Use AI to understand and document the World Values Survey dataset
 - **Week 3:** AI-assisted report writing with WVS data
 - **Week 4:** Multi-table joins with Austrian hotel data
-- **Weeks 5-6:** Text analysis of football manager interviews
-- **Week 7:** Developing dashboards
-- **Week 7:** AI as applied metrics consultant
+- **Weeks 5:** Text analysis 1: basics
+- **Weeks 6:** Text analysis 2: sentiment analysis
+- **Week 7:** AI-Assisted Data Collection
+- **Week 8:** SQL like natural language query in a data warehouse
+- **Week 9:**  AI as research companion 1: Control variables
+- **Week 10:** AI as research companion 2: Instrumental Variables
+- **Week 11:** AI as research companion 3: Difference in differences
+- **Week 12:** Developing dashboards
 
 
 **Skills Development Arc:**
@@ -94,6 +99,9 @@ But, anyone can use it with adequate background.
 - **Weeks 3-4:** Core analysis (reporting, data wrangling)  
 - **Weeks 5-6:** Advanced applications (text analysis, APIs)
 - **Weeks 5-6:** Helping research and presentation 
+- **Week 7-8:** AI to help for big data / data science  
+- **Week 9-11:** AI as applied metrics consultant, agents
+- **Week 12:** Developing dashboards
 
 
 **Assignments**
@@ -104,72 +112,87 @@ Important to note for assignments:
 * Use AI but do not submit something that was created by AI. AI is your assistant.
 * One of the goals of the course is to practice this. 
 
-## Detailed overview
-
 ### Week00: AI for coding
 
 Using AI for code. May not be covered in this class, as it had often been already covered in coding classes. 
 
-[Content](/week00)
+[Content](week00)
 
-### Week01: LLM Review
+## Week01: LLM Review
 
 What are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to. 
 
-[Content](/week01)
+[Content](week01/)
 
-**Which AI?** 
+**Which AI?** See [my take on current models](week01/assets/which-ai.html). As of *May 2025*. 
 
-See [my take on current models](week01/assets/which-ai.html). As of *May 2025*. 
-
-
-### Week02: Data and code discovery and documentation with AI
+## Week02: Data and code discovery and documentation with AI
 
 Learn how to write a clear and professional code and data documentation. LLMs are great help once you know the basics. 
 
-Case study: World Values Survey. Data is at [WVS](/data/VWS)
+Case study: World Values Survey. Data is at [WVS](data/VWS)
 
-[Content](/week02)
+[Content](week02/)
 
-
-### Week 03: Writing Reports
+## Week 03: Writing Reports
 
 You have your data and task, and need to write a short report. We compare different options with LLM, from one-shot prompt to iteration. 
 
-Case study: World Values Survey. Data is at [WVS](/data/VWS)
+Case study: World Values Survey. Data is at [WVS](data/VWS)
 
-[Content](/week03)
+[Content](week03/)
 
+## Week04: Data wrangling, joining tables
 
-### Week04: Data wrangling, joining tables
+When asked about what I shall add to my textbook, David Card, the Nobel winning empirical economist told me that I shall spend time with joining tables. Here we go. 
 
-Joining data tables is maybe the most basic yet rather complicated part of data wrangling. 
+Case study: simulated Austrian hotels. Data is at [hotels](data/austria-hotels)
 
-Case study: simulated Austrian hotels. Data is at [hotels](/data/austria-hotels)
+[Content](week04/)
 
-[Content](/week04)
-
-### Week05: Text as data 1 -- intro lecture
+## Week05: Text as data 1 -- intro lecture
 
 No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing. 
 
-Case study: football post-game interviews. Data is at [interviews](/data/interviews)
+Case study: football post-game interviews. Data is at [interviews](data/interviews)
 
-[Content](/week05)
+[Content](week05/)
 
-### Week06: Text as data 2 -- practice
+## Week06: Sentiment Analysis with AI
 
 Second class, now we are in action. How does LLM compare to humans? 
 
-Case study: football post-game interviews. Data is at [interviews](/data/interviews)
+Case study: football post-game interviews. Data is at [interviews](data/interviews)
 
-[Content](/week06)
+[Content](week06/)
 
-### Week07: Creating simulations with apps and dashboards
+
+
+## Week07: AI-Assisted Data Collection
 
 TBA
 
-### Week08: AI as research companion
+## Week08: SQL like natural language query in a data warehouse
+
+TBA
+
+## Week09: AI as research companion: Control variables
+
+[Content](week09/)
+
+
+## Week10: AI as research companion: Instrumental variables
+
+[Content](week10/)
+
+
+## Week11: AI as research companion: Differences in differences
+
+TBA
+
+## Week12: Creating simulations with apps and dashboards
+
+[Content](week12/)
 
 TBA
 
