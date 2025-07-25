@@ -7,7 +7,7 @@ date: "2025-06-01"
 :::::: hero-section
 ::::: container
 ::: hero-title
-Week 07: AI-Assisted Data Collectionü
+Week 07: AI-Assisted Data Collection
 :::
 
 ::: hero-subtitle

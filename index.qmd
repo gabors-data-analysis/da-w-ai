@@ -104,7 +104,7 @@ But, anyone can use it with adequate background.
 - **Week 12:** Developing dashboards
 
 
-**Assignments**
+## Assignments
 
 Assignments are available for all classes
 
@@ -112,21 +112,25 @@ Important to note for assignments:
 * Use AI but do not submit something that was created by AI. AI is your assistant.
 * One of the goals of the course is to practice this. 
 
-### Week00: AI for coding
+## Content
+
+**Week00: AI for coding**
 
 Using AI for code. May not be covered in this class, as it had often been already covered in coding classes. 
 
 [Content](week00)
 
-## Week01: LLM Review
+**Week01: LLM Review**
 
 What are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to. 
 
 [Content](week01/)
 
-**Which AI?** See [my take on current models](week01/assets/which-ai.html). As of *May 2025*. 
+**Which AI?** 
 
-## Week02: Data and code discovery and documentation with AI
+See [my take on current models](week01/assets/which-ai.html). As of *May 2025*. 
+
+**Week02**: Data and code discovery and documentation with AI
 
 Learn how to write a clear and professional code and data documentation. LLMs are great help once you know the basics. 
 
@@ -134,7 +138,7 @@ Case study: World Values Survey. Data is at [WVS](data/VWS)
 
 [Content](week02/)
 
-## Week 03: Writing Reports
+**Week 03**: Writing Reports
 
 You have your data and task, and need to write a short report. We compare different options with LLM, from one-shot prompt to iteration. 
 
@@ -142,7 +146,7 @@ Case study: World Values Survey. Data is at [WVS](data/VWS)
 
 [Content](week03/)
 
-## Week04: Data wrangling, joining tables
+**Week04**: Data wrangling, joining tables
 
 When asked about what I shall add to my textbook, David Card, the Nobel winning empirical economist told me that I shall spend time with joining tables. Here we go. 
 
@@ -150,7 +154,7 @@ Case study: simulated Austrian hotels. Data is at [hotels](data/austria-hotels)
 
 [Content](week04/)
 
-## Week05: Text as data 1 -- intro lecture
+**Week05**: Text as data 1 -- intro lecture
 
 No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing. 
 
@@ -158,7 +162,7 @@ Case study: football post-game interviews. Data is at [interviews](data/intervie
 
 [Content](week05/)
 
-## Week06: Sentiment Analysis with AI
+**Week06**: Sentiment Analysis with AI
 
 Second class, now we are in action. How does LLM compare to humans? 
 
@@ -168,29 +172,29 @@ Case study: football post-game interviews. Data is at [interviews](data/intervie
 
 
 
-## Week07: AI-Assisted Data Collection
+**Week07**: AI-Assisted Data Collection
 
 TBA
 
-## Week08: SQL like natural language query in a data warehouse
+**Week08**: SQL like natural language query in a data warehouse
 
 TBA
 
-## Week09: AI as research companion: Control variables
+**Week09**: AI as research companion: Control variables
 
 [Content](week09/)
 
 
-## Week10: AI as research companion: Instrumental variables
+**Week10**: AI as research companion: Instrumental variables
 
 [Content](week10/)
 
 
-## Week11: AI as research companion: Differences in differences
+**Week11**: AI as research companion: Differences in differences
 
 TBA
 
-## Week12: Creating simulations with apps and dashboards
+**Week12**: Creating simulations with apps and dashboards
 
 [Content](week12/)
 

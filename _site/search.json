@@ -18,7 +18,7 @@
     "href": "index.html#course-description",
     "title": "Doing Data Analysis with AI",
     "section": "Course description",
-    "text": "Course description\n\nContent\nThe course focuses on using large language models (LLMs) such as OpenAI’s ChatGPT, Anthropic Claude.ai, Mistral’s Le Chat, and Google’s Gemini) to carry out tasks in data analysis. It includes topics like data extraction and wrangling, data exploration and descriptive statistics, and creating reports as well as turning text to data.\nThere are three case studies that we use (1) a simulated set of data tables on hotels in Austria, (2) The World Value Survey, and (3) A series of interview textst.\nThe course material includes weekly practice assignments. It also has a learning more collection – to see what is beyond core material with blogs, papers, and video recommendations.\n\n\nBackground: data analysis / econometrics\nYou need a background in Data Analysis / Econometrics, a good introductory course is enough. I, of course, suggest Chapters 1-12 and 19 of Data Analysis for Business, Economics and Policy (Cambridge UP, 2021). Full slideshows, data and code are open source. But consider buying the book!🤝\nIn particular, the course builds on Chapters 1-6 and 7-10, and 19 of Data Analysis but other Introductory Econometrics + basics of data science knowledge is ok.\n\n\nBackground: coding\nStudents are expected to have some basic coding knowledge in Python or R (Stata also fine mostly).\n\n\nRelevance\nAI is everywhere and has become essential, most analytic work will be using it. It’s like the Internet a while back. Does not solve all problems, but almost all intellectual tasks will rely on inputs from it.\n\n\nLearning Outcomes\nKey outcomes. By the end of the course, students will be able to\n\nGain experience and confidence using genAI to carry out key tasks in data analysis.\nBuild AI in coding practice including data wrangling, description and reporting and text analysis\nHave some idea of use cases when AI assistance is (1) greatly useful, (2) helpful, (3) currently problematic.\nHave some idea of use cases when AI assistance is OK to use as is vs needs strong human supervision\nHave an understanding of resources to follow for updates.\n\n\n\nTarget audience\nThis is a course aimed at 3rd (2nd?) year BA and MA students in any program with required background. Economics, Quantitative Social science, Political Science, Sociology, History. To be frank, all students shall learn data analysis and be comfortable using AI.\nBut, anyone can use it with adequate background.\n\n\nCourse Context & Trajectory\nWhat’s Coming Next:\n\nWeek 0: Using AI for Coding – this may not be part of the curriculum\nWeek 1: LLM Review and short task to recrate a graph\nWeek 2: Use AI to understand and document the World Values Survey dataset\nWeek 3: AI-assisted report writing with WVS data\nWeek 4: Multi-table joins with Austrian hotel data\nWeeks 5-6: Text analysis of football manager interviews\nWeek 7: Developing dashboards\nWeek 7: AI as applied metrics consultant\n\nSkills Development Arc:\n\nWeeks 0:  Background prep: Writing code with AI\nWeeks 1-2: Foundation (AI concepts, data exploration)\nWeeks 3-4: Core analysis (reporting, data wrangling)\n\nWeeks 5-6: Advanced applications (text analysis, APIs)\nWeeks 5-6: Helping research and presentation\n\nAssignments\nAssignments are available for all classes\nImportant to note for assignments: * Use AI but do not submit something that was created by AI. AI is your assistant. * One of the goals of the course is to practice this."
+    "text": "Course description\n\nContent\nThe course focuses on using large language models (LLMs) such as OpenAI’s ChatGPT, Anthropic Claude.ai, Mistral’s Le Chat, and Google’s Gemini) to carry out tasks in data analysis. It includes topics like data extraction and wrangling, data exploration and descriptive statistics, and creating reports as well as turning text to data.\nThere are three case studies that we use (1) a simulated set of data tables on hotels in Austria, (2) The World Value Survey, and (3) A series of interview textst.\nThe course material includes weekly practice assignments. It also has a learning more collection – to see what is beyond core material with blogs, papers, and video recommendations.\n\n\nBackground: data analysis / econometrics\nYou need a background in Data Analysis / Econometrics, a good introductory course is enough. I, of course, suggest Chapters 1-12 and 19 of Data Analysis for Business, Economics and Policy (Cambridge UP, 2021). Full slideshows, data and code are open source. But consider buying the book!🤝\nIn particular, the course builds on Chapters 1-6 and 7-10, and 19 of Data Analysis but other Introductory Econometrics + basics of data science knowledge is ok.\n\n\nBackground: coding\nStudents are expected to have some basic coding knowledge in Python or R (Stata also fine mostly).\n\n\nRelevance\nAI is everywhere and has become essential, most analytic work will be using it. It’s like the Internet a while back. Does not solve all problems, but almost all intellectual tasks will rely on inputs from it.\n\n\nLearning Outcomes\nKey outcomes. By the end of the course, students will be able to\n\nGain experience and confidence using genAI to carry out key tasks in data analysis.\nBuild AI in coding practice including data wrangling, description and reporting and text analysis\nHave some idea of use cases when AI assistance is (1) greatly useful, (2) helpful, (3) currently problematic.\nHave some idea of use cases when AI assistance is OK to use as is vs needs strong human supervision\nHave an understanding of resources to follow for updates.\n\n\n\nTarget audience\nThis is a course aimed at 3rd (2nd?) year BA and MA students in any program with required background. Economics, Quantitative Social science, Political Science, Sociology, History. To be frank, all students shall learn data analysis and be comfortable using AI.\nBut, anyone can use it with adequate background.\n\n\nCourse Context & Trajectory\nWhat’s Coming Next:\n\nWeek 0: Using AI for Coding – this may not be part of the curriculum\nWeek 1: LLM Review and short task to recrate a graph\nWeek 2: Use AI to understand and document the World Values Survey dataset\nWeek 3: AI-assisted report writing with WVS data\nWeek 4: Multi-table joins with Austrian hotel data\nWeeks 5: Text analysis 1: basics\nWeeks 6: Text analysis 2: sentiment analysis\nWeek 7: AI-Assisted Data Collection\nWeek 8: SQL like natural language query in a data warehouse\nWeek 9: AI as research companion 1: Control variables\nWeek 10: AI as research companion 2: Instrumental Variables\nWeek 11: AI as research companion 3: Difference in differences\nWeek 12: Developing dashboards\n\nSkills Development Arc:\n\nWeeks 0:  Background prep: Writing code with AI\nWeeks 1-2: Foundation (AI concepts, data exploration)\nWeeks 3-4: Core analysis (reporting, data wrangling)\n\nWeeks 5-6: Advanced applications (text analysis, APIs)\nWeeks 5-6: Helping research and presentation\nWeek 7-8: AI to help for big data / data science\n\nWeek 9-11: AI as applied metrics consultant, agents\nWeek 12: Developing dashboards\n\nAssignments\nAssignments are available for all classes\nImportant to note for assignments: * Use AI but do not submit something that was created by AI. AI is your assistant. * One of the goals of the course is to practice this.\nWeek00: AI for coding\nUsing AI for code. May not be covered in this class, as it had often been already covered in coding classes.\nContent\nWeek01: LLM Review\nWhat are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to.\nContent\nWhich AI?\nSee my take on current models. As of May 2025.\nWeek02: Data and code discovery and documentation with AI\nLearn how to write a clear and professional code and data documentation. LLMs are great help once you know the basics.\nCase study: World Values Survey. Data is at WVS\nContent\nWeek 03: Writing Reports\nYou have your data and task, and need to write a short report. We compare different options with LLM, from one-shot prompt to iteration.\nCase study: World Values Survey. Data is at WVS\nContent\nWeek04: Data wrangling, joining tables\nWhen asked about what I shall add to my textbook, David Card, the Nobel winning empirical economist told me that I shall spend time with joining tables. Here we go.\nCase study: simulated Austrian hotels. Data is at hotels\nContent\nWeek05: Text as data 1 – intro lecture\nNo course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.\nCase study: football post-game interviews. Data is at interviews\nContent\nWeek06: Sentiment Analysis with AI\nSecond class, now we are in action. How does LLM compare to humans?\nCase study: football post-game interviews. Data is at interviews\nContent\nWeek07: AI-Assisted Data Collection\nTBA\nWeek08: SQL like natural language query in a data warehouse\nTBA\nWeek09: AI as research companion: Control variables\nContent\nWeek10: AI as research companion: Instrumental variables\nContent\nWeek11: AI as research companion: Differences in differences\nTBA\nWeek12: Creating simulations with apps and dashboards\nContent\nTBA"
   },
   {
     "objectID": "index.html#week01-llm-review",
@@ -1726,9 +1726,9 @@
   {
     "objectID": "week07/index.html",
     "href": "week07/index.html",
-    "title": "Creating dashboards and online simulation apps",
+    "title": "Week 07: AI-Assisted Data Collection",
     "section": "",
-    "text": "TBA",
+    "text": "Week 07: AI-Assisted Data Collection\n\n\nCollecting and combining data from online sources",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -1952,7 +1952,7 @@
     "href": "week01/index.html#class-material",
     "title": "Week 01: LLM Review",
     "section": "Class Material",
-    "text": "Class Material\n\n\n📊 Core LLM Concepts (60 min)\n\n\nSlideshow: LLM Concepts and Applications\nKey Topics Covered:\n\nWhat are LLMs? Statistical models predicting next tokens from massive training data\nThe Transformer Revolution: How 2017’s “Attention is All You Need” changed everything\nContext Windows: why this matters for data analysis\nTraining Process: Resources and human feedback\nCollaborative Frameworks: How to integrate human and AI work\n\n\n\n\n\n🔧 Hands-on: FT Graph Challenge (25 min)\n\n\nThe Challenge:\nRecreate the Financial Times tariff/yield visualization as accurately as possible using AI assistance.\n\nNote the sophisticated design: multiple data series, annotations, professional styling\nConsider: What would you need to recreate this manually vs. with AI assistance?\n\nLearning Approach:\n\nAnalyze the original - what data sources, what design elements?\nUse AI to find data and generate initial code\nIterate and refine based on results",
+    "text": "Class Material\n\n\n📊 Core LLM Concepts (60 min)\n\n\nSlideshow: LLM Concepts and Applications\nKey Topics Covered:\n\nWhat are LLMs? Statistical models predicting next tokens from massive training data\nThe Transformer Revolution: How 2017’s “Attention is All You Need” changed everything\nContext Windows: why this matters for data analysis\nTraining Process: Resources and human feedback\nCollaborative Frameworks: How to integrate human and AI work\n\n\n\n\n\n🔧 Hands-on: Data search (15 min)\n\n\nExample\nTry this in Claude Opus 4 (or ChatGPT3 and Canvas)\nGet me an income dataset by planning regions (county) in Connecticut for 2023. Present the results as a table in an artifact.\nThe result is remarkable\n\n\n\nCalude Opus 4, 2025-06-13\n\n\nThe Task:\nGet AI put to create a table of data of your choice. Think of a table that can be created, ie data shall be available online\n\nTry different models, prompts\nrefine your question, try be specific\n\n\n\n\n\n🔧 Hands-on: FT Graph Challenge (25 min)\n\n\nThe Challenge:\nRecreate the Financial Times tariff/yield visualization as accurately as possible using AI assistance.\n\nNote the sophisticated design: multiple data series, annotations, professional styling\nConsider: What would you need to recreate this manually vs. with AI assistance?\n\nLearning Approach:\n\nAnalyze the original - what data sources, what design elements?\nUse AI to find data and generate initial code\nIterate and refine based on results",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -2869,5 +2869,194 @@
     "title": "Creating Graphs",
     "section": "Key Findings",
     "text": "Key Findings\nThis visualization reveals several important patterns in the 2014 labor market:\n\nClear Education Gradient: Higher education levels consistently associate with higher earnings\nHours Variation: More educated workers tend to work slightly longer hours\nWithin-Group Variation: Substantial earnings variation exists within each education category\nAge Effects: Older workers (larger circles) often earn more within education levels\n\n\n\n\n\n\n\nNote\n\n\n\nThe college earnings premium shown here (47%) aligns with established labor economics research on returns to education.\n\n\nNot perfect. But amazing."
+  },
+  {
+    "objectID": "week09/index.html",
+    "href": "week09/index.html",
+    "title": "AI as research companion: designing Z",
+    "section": "",
+    "text": "Week 09: AI as research companion: designing “Z”\n\n\nGetting closer to causality by deciding on control variables\nNow we’re going to try something different. This time, we’ll ask the AI to act like a researcher and help us find control variables for estimating a simple relationship."
+  },
+  {
+    "objectID": "week09/index.html#recap",
+    "href": "week09/index.html#recap",
+    "title": "AI as research companion: designing Z",
+    "section": "Recap",
+    "text": "Recap\nDiscuss: confounders, bad controls: what are they? how to treat them?\nWe will use the World Management Survey data and explore this question: &gt; Do firms with better management export more of their production?\nMORE to be added here"
+  },
+  {
+    "objectID": "week09/index.html#the-basic-idea",
+    "href": "week09/index.html#the-basic-idea",
+    "title": "AI as research companion: designing Z",
+    "section": "The basic idea",
+    "text": "The basic idea\nBut here’s the twist: we’ll run two sessions (or use two different models). One will give us a list of controls, and the other will act as a kind of “adversarial LLM” that pushes back and questions those choices. Think of it like a debate between two AIs: one helpful, one suspicious."
+  },
+  {
+    "objectID": "week09/index.html#prompt-construction",
+    "href": "week09/index.html#prompt-construction",
+    "title": "AI as research companion: designing Z",
+    "section": "Prompt construction",
+    "text": "Prompt construction\nAgain, let’s try to run the following prompts: the first and the last in the same session, and the middle in a separate session. But first, let’s look at the codebook together. As you run the prompts, think about:\n- How do the answers differ from the previous prompting approach? - What do you think of the proposed variables? Would you include them all? Are there any left out.\n\n🤖 Prompt 1. You are a researcher who wants to find control variables to estimate the association between percent of production exported and management quality. Production exported is your outcome variable and management quality is your variable of interest. Attached is a codebook of variables that we have access to. Choose variables that could be included in a multivariate OLS regression.\nReturn a list of variables and explanation, including the expected direction of associations. At the end of your response, include a plain list of variable names in a copyable format (no bullets, no numbers, just one variable per line).\n\n\n😈 Prompt 2. Adversarial LLM in a separate session Below are a list of variables that I want to include in a regression to estimate the relationship between percent of production exported and management quality. Argue for each variable why I should not include it in the regression. [list of variables by Original LLM]\n\n\n🤖 Prompt 3. Feed Adversarial LLM’s response back to Original LLM Below are counter-arguments for each of your previous answers. Based on these arguments, revise your selection and provide a list: [the arguments by Adversary LLM]"
+  },
+  {
+    "objectID": "index.html#week06-sentiment-analysis-with-ai",
+    "href": "index.html#week06-sentiment-analysis-with-ai",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week06: Sentiment Analysis with AI",
+    "text": "Week06: Sentiment Analysis with AI\nSecond class, now we are in action. How does LLM compare to humans?\nCase study: football post-game interviews. Data is at interviews\nContent"
+  },
+  {
+    "objectID": "index.html#week07-ai-assisted-data-collection",
+    "href": "index.html#week07-ai-assisted-data-collection",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week07: AI-Assisted Data Collection",
+    "text": "Week07: AI-Assisted Data Collection\nTBA"
+  },
+  {
+    "objectID": "index.html#week08-sql-like-natural-language-query-in-a-data-warehouse",
+    "href": "index.html#week08-sql-like-natural-language-query-in-a-data-warehouse",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week08: SQL like natural language query in a data warehouse",
+    "text": "Week08: SQL like natural language query in a data warehouse\nTBA"
+  },
+  {
+    "objectID": "index.html#week09-ai-as-research-companion-control-variables",
+    "href": "index.html#week09-ai-as-research-companion-control-variables",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week09: AI as research companion: Control variables",
+    "text": "Week09: AI as research companion: Control variables\nContent"
+  },
+  {
+    "objectID": "index.html#week10-ai-as-research-companion-instrumental-variables",
+    "href": "index.html#week10-ai-as-research-companion-instrumental-variables",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week10: AI as research companion: Instrumental variables",
+    "text": "Week10: AI as research companion: Instrumental variables\nContent"
+  },
+  {
+    "objectID": "index.html#week11-ai-as-research-companion-differences-in-differences",
+    "href": "index.html#week11-ai-as-research-companion-differences-in-differences",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week11: AI as research companion: Differences in differences",
+    "text": "Week11: AI as research companion: Differences in differences\nTBA"
+  },
+  {
+    "objectID": "index.html#week12-creating-simulations-with-apps-and-dashboards",
+    "href": "index.html#week12-creating-simulations-with-apps-and-dashboards",
+    "title": "Doing Data Analysis with AI",
+    "section": "Week12: Creating simulations with apps and dashboards",
+    "text": "Week12: Creating simulations with apps and dashboards\nContent\nTBA"
+  },
+  {
+    "objectID": "week10/index.html",
+    "href": "week10/index.html",
+    "title": "Week 10: AI as research companion: Instrumental Variables",
+    "section": "",
+    "text": "Week 10: AI as research companion: Instrumental Variables\n\n\nGetting closer to causality by deciding on control variables\nIn this course, we discuss how AI can be used to support economics research: help design causal identification. Here we focus on instrumental variables."
+  },
+  {
+    "objectID": "week10/index.html#recap-10-mins",
+    "href": "week10/index.html#recap-10-mins",
+    "title": "Week 10: AI as research companion: Instrumental Variables",
+    "section": "Recap (10 mins)",
+    "text": "Recap (10 mins)\n\nWhat are instrumental variables? What are they good for?\nList examples?\n\n\nIV assumptions\nHint: get AI to explain these 3 assumptions!\n\nRelevance (REL)\n\n\\[\nCov(Z_i, D_i \\mid X_i) \\neq 0\n\\]\n\nExclusion (EX)\n\n\\[\nY_i(D,1) = Y_i(D,0) \\quad \\text{for all} \\quad D = 0,1\n\\]\n\nIndependence (IND)\n\n\\[\n(Y_i(1), Y_i(0), D_i(1), D_i(0)) ⊥ Z_i|X_i\n\\]"
+  },
+  {
+    "objectID": "week10/index.html#prompt-construction",
+    "href": "week10/index.html#prompt-construction",
+    "title": "Week 10: AI as research companion: Instrumental Variables",
+    "section": "Prompt construction",
+    "text": "Prompt construction\nFinding IVs using AI is not just about asking the model for a list. That usually gives you textbook examples with no connection to your actual setting. Instead, we can guide the model through a more structured reasoning process, one that mimics how we would think about instruments ourselves.\n\nPrompt Chaining is a good approach to find possible IVs\n\nPrompt Chaining means breaking down a complex question (like finding an IV) into smaller steps that help the AI reason its way through the problem\nInstead of asking for an instrument directly, we start by mapping out the relationships between variables, then gradually narrow down which ones could work as instruments.\nGoal: 1) avoid generic answers and 2) get the AI to reason more like we would starting from the setting and building up to the econometrics.\n\n\n\nThe 2-step approach\nBefore start, note that the prompting approaches and examples below are adapted from and motivated by Sukjin Han (2024) “Mining Causality: AI-Assisted Search for Instrumental Variables\nWe will use Prompt Chaining to find IVs with two consecutive prompts.\nStep 1: Look for IVs that satisfies the verbal description of REL and EX\n\n🤖 Prompt 1 (Search for IVs). You are [agent] who needs to make a [treatment] decision in [scenario]. What are factors that can determine your decision but do not directly affect your [outcome], except through [treatment] (that is, factors that affect your [outcome] only through [treatment])? list [K 0] factors that are quantifiable. Explain the answers.\n\n\nWhich parts of the prompt satisfy REL and EX?\n\nStep 2: Refine by choosing from the IVs in Step 1 that satisfy a verbal description of IND\n\n🤖 Prompt 2 (Refine IVs). You are [agent] in [scenario], as previously described. Among the [K 0] factors listed above, choose [K] factors that are most likely to be unassociated with [confounders], which determine your [outcome]. the chosen factors can still influence your [treatment]. for each chosen factor, explain your reasoning.\n\n\nWhich parts of the prompt satisfy IND?\n\n\n\nWhy we don’t tell the AI we’re looking for IVs\nIf we say from the start that we’re looking for instrumental variables, the AI often jumps to textbook examples, things like weather shocks or distance to school, without really thinking through the context. These are generic and not always helpful.\n\nWe risk getting shallow suggestions that ignore the specifics of our data or setting.\nSome variables might sound like good instruments but don’t actually satisfy the IV assumptions\nIt also introduces bias from training data: the model might overuse popular examples instead of reasoning from first principles.\n\nSo instead of asking directly for IVs, it’s better to guide the model step-by-step through the structure of the problem."
+  },
+  {
+    "objectID": "week10/index.html#examples-on-finding-ivs",
+    "href": "week10/index.html#examples-on-finding-ivs",
+    "title": "Week 10: AI as research companion: Instrumental Variables",
+    "section": "Examples on finding IVs",
+    "text": "Examples on finding IVs\nLet’s try out the prompts below and review the results together. As we go through them, think about the following:\n\nDoes it seem like the AI believes we’re just asking a regular question, or does it seem to realize we’re testing something deeper?\nAre the IVs it gives us realistic? Which ones make sense, and which ones don’t seem believable?\n\nImportant: Before running the prompts, turn off the option that lets the AI remember your chat history.\n\nExample 1: Demand estimation\n\n🤖 Prompt 1 You are a bar owner at the Copacabana Beach. You need to set the price of draft beer. What would be factors that can determine your decision but that do not directly affect the customers’ demand for draft beer, except through the price you set (that is, that affect the demand only through the price of draft beer).\nList forty factors that are quantifiable. Explain your answer for each factor and present these in a table.\n\n\n🤖 Prompt 2 Suppose you are a bar owner at the Copacabana Beach and is setting the price of draft beer on a day of the week. Among the factors listed above, choose all factors are not influenced by market conditions of draft beer or customers’ characteristics that determine demand for draft beer. For each factor chosen, explain your reasoning.\n\n\n\nExample 2: Peer effects on microfinance adoption\n\n🤖 Prompt 1 You live in a village in rural India. You recently joined a microfinance program and started using small loans to invest in your household or business. You want to influence others in your village to also join the program. What would be factors (about yourself, your household, or the village) that determine your influence on peers, but that do not directly affect your peers’ decisions to join microfinance, except through your influence? That is, factors that affect your peers’ adoption only through your influence.\nList twenty factors that are quantifiable. Explain your answer.\n\n\n🤖 Prompt 2 Suppose you are a 40-year-old female resident of the village using small loans from the microfinance program. Among the factors you listed above, which ones are not influenced by the same factors (e.g., shared background, preferences, or location) that brought you and your peers into the same social network or neighborhood in the first place? For each factor you choose, explain your reasoning."
+  },
+  {
+    "objectID": "week10/index.html#work-together-find-an-iv-for-a-research-question",
+    "href": "week10/index.html#work-together-find-an-iv-for-a-research-question",
+    "title": "Week 10: AI as research companion: Instrumental Variables",
+    "section": "Work together: Find an IV for a research question",
+    "text": "Work together: Find an IV for a research question\n\nForm groups of 3-4.\nWe want to answer the research question: What is the effect of migration on wages in the target country?\nThink about context: which country (from \\(\\rightarrow\\) to), which industry (from \\(\\rightarrow\\) to), which type of people, what period in time, what kind of migration, skill characteristics, etc.\nPrepare Prompt 1 and Prompt 2\n\nRun Prompt 1\nWhich one would you keep? Collect them in a separate table.\nRun Prompt 2\nSee which ones AI kept - are they the same? If not, ask why it didn’t include the ones you did/ why it in included the ones you didn’t."
+  },
+  {
+    "objectID": "week10/index.html#assignment",
+    "href": "week10/index.html#assignment",
+    "title": "Week 10: AI as research companion: Instrumental Variables",
+    "section": "assignment",
+    "text": "assignment"
+  },
+  {
+    "objectID": "week12/index.html",
+    "href": "week12/index.html",
+    "title": "Week12 Creating dashboards and online simulation apps",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "week12/index.html#part-i-dashboard-to-illustrate-economics",
+    "href": "week12/index.html#part-i-dashboard-to-illustrate-economics",
+    "title": "Week12 Creating dashboards and online simulation apps",
+    "section": "Part I Dashboard to illustrate economics",
+    "text": "Part I Dashboard to illustrate economics\nTBA"
+  },
+  {
+    "objectID": "week12/index.html#part-ii-simulation-app-for-a-statistical-property",
+    "href": "week12/index.html#part-ii-simulation-app-for-a-statistical-property",
+    "title": "Week12 Creating dashboards and online simulation apps",
+    "section": "Part II Simulation app for a statistical property",
+    "text": "Part II Simulation app for a statistical property\nTBA"
+  },
+  {
+    "objectID": "weeks.html#week06-sentiment-analysis-with-ai",
+    "href": "weeks.html#week06-sentiment-analysis-with-ai",
+    "title": "Weekly Content",
+    "section": "Week06: Sentiment Analysis with AI",
+    "text": "Week06: Sentiment Analysis with AI\nSecond class, now we are in action. How does LLM compare to humans?\nCase study: football post-game interviews. Data is at interviews\nContent"
+  },
+  {
+    "objectID": "weeks.html#week07-ai-assisted-data-collection",
+    "href": "weeks.html#week07-ai-assisted-data-collection",
+    "title": "Weekly Content",
+    "section": "Week07: AI-Assisted Data Collection",
+    "text": "Week07: AI-Assisted Data Collection\nTBA"
+  },
+  {
+    "objectID": "weeks.html#week08-sql-like-natural-language-query-in-a-data-warehouse",
+    "href": "weeks.html#week08-sql-like-natural-language-query-in-a-data-warehouse",
+    "title": "Weekly Content",
+    "section": "Week08: SQL like natural language query in a data warehouse",
+    "text": "Week08: SQL like natural language query in a data warehouse\nTBA"
+  },
+  {
+    "objectID": "weeks.html#week09-ai-as-research-companion-control-variables",
+    "href": "weeks.html#week09-ai-as-research-companion-control-variables",
+    "title": "Weekly Content",
+    "section": "Week09: AI as research companion: Control variables",
+    "text": "Week09: AI as research companion: Control variables\nContent"
+  },
+  {
+    "objectID": "weeks.html#week10-ai-as-research-companion-instrumental-variables",
+    "href": "weeks.html#week10-ai-as-research-companion-instrumental-variables",
+    "title": "Weekly Content",
+    "section": "Week10: AI as research companion: Instrumental variables",
+    "text": "Week10: AI as research companion: Instrumental variables\nContent"
+  },
+  {
+    "objectID": "weeks.html#week11-ai-as-research-companion-differences-in-differences",
+    "href": "weeks.html#week11-ai-as-research-companion-differences-in-differences",
+    "title": "Weekly Content",
+    "section": "Week11: AI as research companion: Differences in differences",
+    "text": "Week11: AI as research companion: Differences in differences\nTBA"
+  },
+  {
+    "objectID": "weeks.html#week12-creating-simulations-with-apps-and-dashboards",
+    "href": "weeks.html#week12-creating-simulations-with-apps-and-dashboards",
+    "title": "Weekly Content",
+    "section": "Week12: Creating simulations with apps and dashboards",
+    "text": "Week12: Creating simulations with apps and dashboards\nContent\nTBA"
   }
 ]
