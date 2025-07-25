@@ -1,4 +1,22 @@
-# AI as Research companion: IV
+---
+title: "Week 10: AI as research companion: Instrumental Variables "
+subtitle: "Identifying Instrumental variables"
+date: "2025-08-01"
+---
+
+:::::: hero-section
+::::: container
+::: hero-title
+Week 10: AI as research companion: Instrumental Variables 
+:::
+
+::: hero-subtitle
+Getting closer to causality by deciding on control variables
+:::
+:::::
+::::::
+
+
 
 In this course, we discuss how AI can be used to support economics research: help design causal identification. Here we focus on instrumental variables. 
 
