@@ -1,8 +1,7 @@
-# Looking for controls - a different approach
+# AI as research companion: designing "Z" -- what "controls" to have
     
 Now we’re going to try something different. This time, we’ll ask the AI to act like a researcher and help us find control variables for estimating a simple relationship.
-    
-But here’s the twist: we’ll run **two sessions** (or use two different models). One will give us a list of controls, and the other will act as a kind of “adversarial LLM” that pushes back and questions those choices. Think of it like a debate between two AIs: one helpful, one suspicious.
+
     
 ## Recap
     
@@ -11,6 +10,11 @@ Discuss: confounders, bad controls: what are they? how to treat them?
 We will use the [World Management Survey data](https://osf.io/t6zdp/files/osfstorage) and explore this question:
 > Do firms with better management export more of their production?
     
+MORE to be added here
+
+## The basic idea
+    
+But here’s the twist: we’ll run **two sessions** (or use two different models). One will give us a list of controls, and the other will act as a kind of “adversarial LLM” that pushes back and questions those choices. Think of it like a debate between two AIs: one helpful, one suspicious.
     
 ## Prompt construction
     
