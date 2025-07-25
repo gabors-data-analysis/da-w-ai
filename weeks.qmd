@@ -49,7 +49,7 @@ Case study: football post-game interviews. Data is at [interviews](data/intervie
 
 [Content](week05/)
 
-## Week06: Text as data 2 -- practice
+## Week06: Sentiment Analysis with AI
 
 Second class, now we are in action. How does LLM compare to humans? 
 
@@ -57,11 +57,32 @@ Case study: football post-game interviews. Data is at [interviews](data/intervie
 
 [Content](week06/)
 
-## Week07: Creating simulations with apps and dashboards
+
+
+## Week07: AI-Assisted Data Collection
 
 TBA
 
-## Week08: AI as research companion
+## Week08: Natural language query in a data warehouse
 
 TBA
 
+## Week09: AI as research companion: Control variables
+
+[Content](week09/)
+
+
+## Week10: AI as research companion: Instrumental variables
+
+[Content](week10/)
+
+
+## Week11: AI as research companion: Differences in differences
+
+TBA
+
+## Week12: Creating simulations with apps and dashboards
+
+[Content](week12/)
+
+TBA
