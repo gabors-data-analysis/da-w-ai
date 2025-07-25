@@ -1,7 +1,7 @@
 ---
 title: "Week 01: LLM Review"
 subtitle: "Introduction to Large Language Models and AI in Data Analysis"
-date: "2025-03-20"
+date: "2025-06-13"
 ---
 
 ::: {.hero-section}
@@ -72,6 +72,40 @@ By the end of this session, students will:
 
 :::
 :::
+
+
+::: {.week-card .card}
+::: {.card-header}
+🔧 **Hands-on: Data search (15 min)**
+:::
+::: {.card-body}
+
+**Example**
+
+Try this in *Claude Opus 4* (or ChatGPT3 and Canvas)
+
+```
+Get me an income dataset by planning regions (county) in Connecticut for 2023. Present the results as a table in an artifact.
+```
+
+The result is remarkable
+
+![Calude Opus 4, 2025-06-13](../images//claude-connecticut-2025-06-13.png)
+
+
+
+**The Task:**
+
+Get AI put to create a table of data of your choice. Think of a table that *can* be created, ie data shall be available online
+
+* Try different models, prompts
+* refine your question, try be specific
+
+
+:::
+:::
+
+
 
 ::: {.week-card .card}
 ::: {.card-header}
