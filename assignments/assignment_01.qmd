@@ -4,23 +4,14 @@ title: "Reproduce an FT graph"
 
 Look at [this graph](/week01/assets/ft-liberation-day-usd-yield-2025-04-11.jpg) from Financial Times. Your task is to recreate this figure using real-world data. 
 
-### Option A (easy)
-
 Use AI as your assistant to find real-world data that matches or closely resembles the one used in the FT graph, and recreate the same chart using that data.
 
 **what to submit**
 
 * Graph: A PDF version of your recreated graph, name it: "lastname_firstname_dawai_week01_ftfigure.pdf"
-* Data: A CSV file with the data used to create the graph, with the name ("lastname_firstname_dawai_week01_ftdata.pdf")
-
-### Option B (advanced)
-
-Use AI as your assistant to build an interactive app (dashboard) that mimics the FT graph. 
-
-* Minimum requirement: the you shall be able to set dates, and hover around values
-* Ideal: get the app update data and graph dynamically.
- * could be upload new data
- * best: automatic via API
+* Data: A CSV file with the data used to create the graph, with the name ("lastname_firstname_dawai_week01_ftdata.csv")
+* One para text on experience with AI: what model you used, was easy, where was human interaction needed. ("lastname_firstname_dawai_week01_ftdata.txt or .md")
+* Code (any language) ("lastname_firstname_dawai_week01_ftdata.py or .R"), scripts or notebooks also OK. 
 
 ### Grading
 
@@ -33,9 +24,3 @@ Use AI as your assistant to build an interactive app (dashboard) that mimics the
 - Problem-solving approach with AI assistance
 - Quality of human oversight and iteration
 - Documentation of AI usage and limitations
-
-
-**what to submit**
-
-* link to app
-* you can use tools like steamlit (Python), shinyapps (R), etc
