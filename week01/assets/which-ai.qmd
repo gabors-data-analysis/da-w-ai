@@ -1,9 +1,12 @@
 ---
 title: "Which AI model shall we chose?"
-date: "2025-05-22"
+date: "2026-01-12"
 ---
 
-In what follows, here is my personal take as of `date:2025-05-22`
+In what follows, here is my personal take as of `date:2026-01-12`.
+
+
+## Basics
 
 Generative AI based on Large Language Models (genAI) is great for many tasks. In this course we only focus on aspects of Data Analysis:
 
@@ -17,101 +20,99 @@ Generative AI based on Large Language Models (genAI) is great for many tasks. In
 * writing reports and presentations
 
 
-## Different AI providers and their models
+## Basics
 
-### OpenAI ChatGPT
-
-The main current models are `4o`, `o3`, and `4.1`
-
-Here's an updated, compact guide including **o3**, **o4-mini-high**, **GPT-4.5**, and **Deep Research**:
-
-*Here ChatGPT's quick guide to when and why to use which model*
-
-#### 🔍 **Model Overview**
-
-| **Model**            | **Strengths**                                                          | **Use When**                                    |
-| -------------------- | ---------------------------------------------------------------------- | ----------------------------------------------- |
-| **GPT-4-turbo (4o)** | Fast, accurate, handles long prompts and code well                     | Default for coding, EDA, modeling, teaching     |
-| **GPT-4.5**          | Slightly better reasoning and math; not always faster                  | More complex logic, multi-step planning         |
-| **GPT-4 (base)**     | Stable, reliable for structured work                                   | You need consistent responses (e.g., templates) |
-| **o3**               | Compact, efficient, more creative but can be fuzzy                     | Brainstorming, creative prompt design           |
-| **o4-mini-high**     | Lightweight, fast, good for quick checks or when resources are limited | Instant feedback, code sketching                |
-| **Deep Research**    | Access to full documents, citations, deep factual retrieval            | Literature reviews, technical deep-dives        |
-
-
-### ✅ **Best Model by Task**
-
-| **Task**                      | **Best Model(s)**           | **Notes**                                                 |
-| ----------------------------- | --------------------------- | --------------------------------------------------------- |
-| Designing analysis            | 4o / GPT-4.5                | Handles multi-step reasoning well                         |
-| Writing code (R, Python, SQL) | 4o / GPT-4.5 / o4-mini-high | Use 4o for tidyverse-heavy tasks; o4-mini for quick draft |
-| Data wrangling                | 4o                          | Very good with `dplyr`, `data.table`, `pandas`            |
-| Exploratory data analysis     | 4o + code interpreter       | Visuals, summaries, and diagnostics                       |
-| Modeling (ML, regressions)    | GPT-4.5 / 4o                | Clear, structured models and diagnostics                  |
-| Causal inference              | GPT-4.5 / 4o                | Handles DiD, IV, RDD, matching logic well                 |
-| Creating tables and graphs    | 4o / GPT-4.5                | Knows LaTeX, Markdown, ggplot2, matplotlib formatting     |
-| Writing reports / slides      | 4o / GPT-4 / o3             | 4o for clarity, o3 for more creative text generation      |
-| Literature search / citations | **Deep Research**           | Finds, summarizes, and cites academic papers              |
+* Most models have a free and paid tiers. Free ones are good as kind of Google search replacement. For serious work you'll be better off with paid tiers. 
+* As of now the leading models are Google's Gemini 3.0, OpenAI's GPT-5.2, and Anthropic's Claude Opus 4.5.
+* Each model have faster (cheaper) and thinking (more expensive) variants. For data analysis work, the thinking variants are recommended.
+* All major models have deep research 
+* All major models support tool use (e.g. web browsing, code execution) and agentic patterns (multi-step workflows with memory and tool use).
+* Open weights models are also quite good, Deepseek and Q. You can even run a 7bn parameter model on an expensive computer
 
 
 
+# Flagship models: 2026 January 12 {.white background-color="#3b528b"} 
 
-### Anthropic Claude
+## landscape overview
 
-The main current model is Claude Sonnet 3.7. 
+| Feature | **GPT-5.2** | **o3** (reasoning) | **Gemini 3 Deep Think** | **Claude Opus 4.5** |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| **Design focus** | Flagship multimodal with native reasoning | Deep reasoning for complex tasks | 1M token context with extended thinking | Coding & complex instruction following |
+| **Multimodality** | Text + images + audio + video (I/O) | Text + tool calls | Text + images + video | Text + images + Computer Use 2.0 |
+| **Browsing / tools** | Integrated search + MCP support | Auto-search for up-to-date facts | Grounded in Google Search | Deep integration with MCP & OS |
+| **Default style** | Balanced, adaptive | Concise, source-cited | Thorough, exploratory | Professional, highly structured |
+| **Context window** | 400k tokens | 128k tokens | 1M tokens | 500k tokens |
+| **Strengths** | All-rounder, agentic workflows | Step-wise analysis, audit trail | Long-context research | Coding agents, OS automation |
+| **Weak spots** | Expensive for simple tasks | No native media I/O | Slower response times | Slower than Haiku/Sonnet |
 
-Key tools
-* Projects: organize files, allow inquiry. One example is full codebase. 
+## Models for data analysis
 
-### Others
+For data-analysis projects, the recommended approach is:
 
-There are many other models, but I have much less experience. 
+-   **Reasoning models (o3, Deep Think)** for complex analysis requiring accuracy
+-   **GPT-5.2** for agentic workflows and multimodal tasks\
+-   **Gemini 3** for long-context document analysis (entire datasets, reports)
+-   **Claude Opus 4.5** for coding and complex technical writing
 
-## Free vs Pro? 
+All major models now support tool use (MCP) and agentic patterns.
 
-The current free models are great for many tasks such as coding, idea generation.
+## Research & Writing {background-color="#f8f9fa"}
 
-### ChatGPT
+* **Synthesis Over Summarization**: AI tools increasingly synthesize multi-source inputs into structured insights rather than paraphrasing single documents.
+* **Security & Privacy**: Modern workspaces rely on **isolated execution contexts**; strong non-training guarantees apply primarily to paid and enterprise tiers.
+* **Multimodal Capability**: AI can interpret charts, screenshots, and handwritten notes and incorporate them into drafts.
 
-The free version offers: access to GPT‑4.1 mini, real-time data from the web with search. Plus
-* Limited access to GPT‑4o, OpenAI o4-mini, and deep research
-* Limited access to file uploads, data analysis,
+## For data analysis workspaces -- comparison 
 
-The [Plus version](https://openai.com/chatgpt/pricing/) offers
+| Workspace | 2026 Key Features |
+|:---|:---|
+| **Anthropic Claude Artifacts** | • Creates **interactive applications** (tutors, calculators) within the output window.<br>• Real-time iteration on complex document structures. |
+| **OpenAI ChatGPT Canvas** | • Advanced frontier models with contextual persistence for tone and style.<br>• Inline editing with granular control over specific sections. |
+| **Google NotebookLM** | • **Interactive Audio Overviews** with user interruption and questioning.<br>• Grounded citations linked directly to uploaded source segments. |
+| **Perplexity Pages** | • Multi-source synthesis using live web retrieval.<br>• Inline citation and consistency checking against sources. |
 
-* access to reasoning models  (OpenAI o3, OpenAI o4-mini, and OpenAI o4-mini-high)
-* access Deep Research
-* higher limits on advanced features:  file uploads, and data analysis
-* access to a research preview of GPT‑4.5
-* access to GPT‑4.1, a model optimized for coding tasks
-* can create and use projects, tasks, 
 
-### Claude
+## Data Analysis details {background-color="#f8f9fa"}
 
-The free model can be used for chat and data analysis. 
+* **Sandboxed Execution**: Code runs in secure, ephemeral environments with no local system access.
+* **Statistical Rigor**: Strong support for Python-based libraries (e.g. pandas, scikit-learn) for exploratory and predictive analysis.
+* **Direct Integration**: AI can manipulate data directly within spreadsheets or dedicated analysis windows.
+* **Limits**: Reproducibility, package versions, and state persistence remain constrained relative to local workflows.
 
-The paid tier for Claude
+## Data Analysis details {background-color="#f8f9fa"}
 
-* More usage -- for details see [limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices)
-* access to Projects to organize chats and documents
-* web access
-* extended thinking for complex work
+| Workspace | 2026 Key Features for Analysis |
+|:---|:---|
+| **ChatGPT Data Analysis** | • Executes Python in managed compute environments for multi-file datasets.<br>• Assisted data cleaning and predictive modeling workflows. |
+| **Claude Analysis** | • High-fidelity **SVG and lightweight interactive output**.<br>• Fast iteration on statistical tables with publication-ready formatting. |
+| **Google Gemini in Sheets** | • **Multimodal cleaning**: converts screenshots or PDFs into structured tables.<br>• Natural-language formula generation and transformations. |
+| **Microsoft Copilot in Excel** | • **Native Python-in-Excel** for statistical scripts inside spreadsheets.<br>• Automated pivots, summaries, and forecasting via prompts. |
 
-## Other cool stuff I use
 
-### Notebook LM
+## Coding Assistance {background-color="#f8f9fa"}
 
-[Google's Notebook LM] (https://notebooklm.google/) is able to "understand" and summarize any material (such as research paper) and relate it to other topics. Can create fun audo summaries like a podcast. Here is one on a [research paper of mine on cultural homophily](https://notebooklm.google.com/notebook/655d48f9-bff7-4ac3-908b-5b9bc48e5be4/audio). 
+* **Agent-Assisted Workflows**: AI can coordinate multi-step tasks such as refactoring or bug fixing across large codebases, with human review.
+* **Environment Security**: Code is tested in **secure sandboxes** before changes are proposed.
+* **Interconnected Tools**: Integrated with development and collaboration platforms (e.g. Jira, Slack).
 
-### Github Copilot
 
-Github Copilot goes inside your code editor such as Rstudio, VSCode, Jupyter Notebook and helps writing code. Great to write frequent stuff like loops or graphs. 
+## Coding Assistance --- comparison {background-color="#f8f9fa"}
 
-It has an Education -- free access for students: [GithubEducation](https://github.com/education/students)
+| Workspace | 2026 Key Features for Developers |
+|:---|:---|
+| **Anthropic Claude Code** | • Native **VS Code extension** with agent-style workflows and inline diffs.<br>• Supports complex multi-file edits and testing assistance. |
+| **GitHub Copilot** | • Uses **Extensions** to interact with external dev tools (Azure, Slack, Jira).<br>• Deep context from local and remote repositories. |
+| **Cursor** | • AI-first editor with awareness of project-wide dependencies.<br>• Strong support for iterative refactors across files. |
+| **Windsurf (Codeium)** | • **Cascade mode** for orchestrating large-scale refactors.<br>• Robust free tier for students and individual users. |
 
-### Cursor 
+**Security note:** SOC2 compliance is common; strict zero-retention guarantees typically apply to enterprise or explicitly configured accounts.
 
-[Cursor AI](https://www.cursor.com/) is the most popular AI code editor, I have very limited experience, but is favored by software developers. 
+
+## What changed from 2025 Q2
+
+* No need to think much re which models to use. 
+* Leading models similar capability, but different. Not really sure how... 
+
 
 ## Feedback
 Dear Reader. I have limited experience. Suggestions are welcome, please post an issue.

@@ -1,7 +1,7 @@
 ---
 title: "Week 01: LLM Review"
 subtitle: "Introduction to Large Language Models and AI in Data Analysis"
-date: "2025-06-13"
+date: "2026-01-12"
 ---
 
 ::: {.hero-section}
@@ -24,12 +24,10 @@ Introduction to Large Language Models and their applications in data analysis
 
 By the end of this session, students will:
 
-- Understand core concepts and architecture behind large language models (LLMs)
-- Learn how to incorporate AI into data analysis workflows effectively
--  Distinguish between "Cyborg" and "Centaur" approaches to AI collaboration
+- Understand core concepts of large language models (LLMs)
+- Distinguish between "Cyborg" and "Centaur" approaches to AI collaboration
 - Experience the "jagged frontier" of LLM capabilities through hands-on practice
 - Critically assess capabilities and limitations of AI tools in academic contexts
--  Develop foundational prompt engineering skills for data analysis tasks
 
 ## Preparation / Before Class
 
@@ -44,7 +42,7 @@ By the end of this session, students will:
 
 - Think about your current experience with AI tools (if any)
 - Consider examples where you've encountered AI in your work/studies
--  Identify one data analysis task you find time-consuming or repetitive
+- Identify one data analysis task you find time-consuming or repetitive
 
 **Optional Background:**
 
@@ -82,24 +80,15 @@ By the end of this session, students will:
 
 **Example**
 
-Try this in *Claude Opus 4* (or ChatGPT3 and Canvas)
+Try this in a chat
 
 ```
-Get me an income dataset by planning regions (county) in Connecticut for 2023. Present the results as a table in an artifact.
+Get me an income dataset by planning regions (county) in Connecticut for 2023. Present the results as a table I can copy and edit..
 ```
 
-The result is remarkable
-
-![Calude Opus 4, 2025-06-13](../images//claude-connecticut-2025-06-13.png)
-
-
-
-**The Task:**
-
-Get AI put to create a table of data of your choice. Think of a table that *can* be created, ie data shall be available online
-
-* Try different models, prompts
-* refine your question, try be specific
+* Now try find the actual data and compare. 
+* Try multiple times in different models
+* Try modifying the prompt to be more specific or different
 
 
 :::
@@ -107,27 +96,6 @@ Get AI put to create a table of data of your choice. Think of a table that *can*
 
 
 
-::: {.week-card .card}
-::: {.card-header}
-🔧 **Hands-on: FT Graph Challenge (25 min)**
-:::
-::: {.card-body}
-**The Challenge:**
-
-Recreate the [Financial Times tariff/yield visualization](assets/ft-liberation-day-usd-yield-2025-04-11.jpg) as accurately as possible using AI assistance.
-
-- Note the sophisticated design: multiple data series, annotations, professional styling
-- Consider: What would you need to recreate this manually vs. with AI assistance?
-
-
-**Learning Approach:**
-
-- Analyze the original - what data sources, what design elements?
-- Use AI to find data and generate initial code
-- Iterate and refine based on results
-
-:::
-:::
 
 ## Discussion Questions
 
@@ -145,37 +113,14 @@ Recreate the [Financial Times tariff/yield visualization](assets/ft-liberation-d
 ::: {.callout-note icon="📝"}
 ## Assignment 1: Reproduce the FT Graph
 
-**Due:** Before Week 2
-
-**Choose your approach:**
-
-- **Option A (Standard):** Use AI to find data and recreate the visualization with same design principles
-- **Option B (Advanced):** Build an interactive dashboard that updates dynamically
-
+**Due:** Sunday 23.55 before Week 2 (on moodle)
 
 [Full Assignment Details](../assignments/assignment_01.html){.assignment-badge}
 :::
 
 ## Background, Tools and Resources
 
-🤖 **Recommended for Data Analysis:**
-
-| Platform | Strengths | Best For | Cost |
-|----------|-----------|----------|------|
-| **ChatGPT 4o/o1** | Excellent coding, data analysis tools | R/Python code, statistical methods | $20/month |
-| **Claude 4 Sonnet** | Great reasoning, document analysis | Research, writing, complex prompts | $20/month |
-| **GitHub Copilot** | Integrated coding assistance | Real-time code completion | $10/month |
-
-**Free Tier Capabilities:**
-
-- Most course tasks achievable with free versions
-- Paid subscriptions recommended for intensive work -- maybe try during this course
-- Start free, upgrade if you hit limits
-
-**Detailed Comparison:** 
-
 [AI Model Selection Guide](assets/which-ai.html)
-
 
 
 ### Academic Integrity and AI use
@@ -185,13 +130,13 @@ Recreate the [Financial Times tariff/yield visualization](assets/ft-liberation-d
 - **AI as Assistant:** Use AI to enhance your capabilities, not replace your thinking
 - **Maintain Authority:** You remain responsible for all outputs and interpretations
 - **Verify Everything:** Always validate AI suggestions, especially statistical claims
-- **Document Usage:** Keep track of how AI helped -- useful for methodology sections
+- **Document Usage:** Keep track of how AI helped -- to learn (and for transparency)
 
 **Red Lines:**
 
 - Never submit unverified AI output as your own work
 - Always understand the analysis you're presenting
-- Cite AI assistance appropriately (we'll discuss standards as they evolve)
+- Avoid over-reliance on AI for critical thinking or interpretation (**you be you**)
 
 **The Goal:** 
 
@@ -203,5 +148,5 @@ Become a more capable data analyst who can leverage AI tools effectively while m
 
 ## Some personal comments on AI and this class
 
-* I needed to rewrite, edit the slideshow every other month. Bloody hell, this course material is tricky. (While [Gosset's t-test](https://en.wikipedia.org/wiki/Student%27s_t-test) has been around since 1908...)
-* It was an AI (Claude Sonnet 4.0) that suggest to include the last bit on Academic Integrity and it wrote many lines such as having red lines. Hahh. 
+* I needed to rewrite, edit the slideshow frequently. Bloody hell, this course material is tricky. (While [Gosset's t-test](https://en.wikipedia.org/wiki/Student%27s_t-test) has been around since 1908...)
+* It was an AI (Claude Sonnet 4.0) that suggest to include the last bit on Academic Integrity and red lines. Hahh. 
