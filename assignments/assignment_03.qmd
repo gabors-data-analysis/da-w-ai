@@ -1,18 +1,12 @@
 ---
-title: "Creating a report"
+title: "Assignment 03 -- Creating a data analysis report"
 ---
 
-Continue with the research question you had chosen in class. 
+This is a **group** assignment.  Continue with the research question you had chosen in class. 
 
-Use AI iteratively to **help** you create a report. 
-
-**Important** 
-
-* AI is your assistant, use it as input not as output. Don't submit an AI-generated report as such, always author, review, edit. 
+Use AI iteratively to *help* you create a report. 
 
 ### Tasks
-
-**Option A (easy)**
 
   * Think in terms of two variables ($x$ and $y$). 
     * Pick a single variable or a combined index of variables
@@ -21,23 +15,18 @@ Use AI iteratively to **help** you create a report.
   * Create one carefully designed graph to illustrate the relationship (Graph 1)
   * At each step, explain your choices/decisions (ie why you chose a certain variable)
   * Create a Conclusion paragraph where you summarize your work and results in 80-100 words.
-   
-  
-**Option B (advanced)**
-
-* **In addition to the tasks in Option A**,  create another graph to show heterogeneity of country size groups using population (Graph 2)
-* Run a regression and interpret the coefficient. 
+* create another graph to show heterogeneity of country size groups using population (Graph 2)
+* Run a regression and interpret the coefficient. Make sure they are precise. 
 
 ### To submit
 
-* Submission 1:  Submit a maximum 1-1.5 page report in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)
-* Submission 2: Submit your code (or aprovide a link). (4p)
-* Submission 3:
-  What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week01_advice.txt) (4p)
-    * List 2–3 pieces of advice based on your own experience using AI for this specific task.
+1. report of maximum 1-1.5 page in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)
+2. your code (or aprovide a link). (4p)
+3. Text: What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week03_advice.txt) (4p) -- List 2–3 pieces of advice based on your own experience using AI for this specific task.
     
-**Important:** 
+* Upload your report to the `student folder called Reports` at moodle or similar service if applicable. This is for the next class --- each group will read another groups report and discuss the good and bad aspects of the report.
 
-* Upload your report to the `student folder called Reports` at moodle or similar service if applicable. This is for the next class
-* Important: Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.
-*  Next class in the first 20 mins each group will read another groups report and discuss the good and bad aspects of the report.
+### AI use restrictions
+
+* For the report, use AI as your assistant, use it as *input* not as *output*. Don't submit an AI-generated report as such, always author, review, edit. 
+* Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.
