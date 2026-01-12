@@ -1,8 +1,8 @@
 ---
 title: "Doing Data Analysis with AI"
-subtitle: "A short course"
+subtitle: "A short(ish) course"
 author: "[Gábor Békés](https://sites.google.com/site/bekesg/), Central European University (Austria, EU)"
-date: "2025-06-06"
+date: "2025-07-25"
 ---
 
 ![Gabor's Data Analysis with AI](images/gabors-data-analysis-with-ai.png)
@@ -13,7 +13,9 @@ This course will equip students, who are already versed in core data analysis me
 
 As AI becomes more and more powerful, it is also important to provide a platform to **discuss human agency in data analysis**. So a key element of the course and its instructor to lead discussions on the role of AI and humans in various aspects of data analysis. 
 
-**This is the 2025 Spring edition release**
+**This is the 2025 Summer edition release**
+
+Week 00 to 06 is ready and tested. The rest is in development. 
 
 ### For whom?
 
