@@ -1,37 +1,33 @@
 ---
-title: "Research presentation after joining tables"
+title: "Assignment 04 Research presentation after joining tables"
 ---
 
-Create groups of 2-3 people who use the same coding language.
+This is a **group** assignment (people shall use the same coding language.)
 
 ### Task
 
 Ask AI to give you a list of research questions that can be answered using many (at least 4) of the hotel data sets provided. Iterate with AI to find an interesting question using a persona.
 * Write code that joins the required data
 
-**Option A (easy)**
+** Part 1**
 
 * Write code to do the analysis (conditional comparison / some simple regression)
 * Produce a single figure that shows the answer (or a simple version of the answer) to the research question (e.g. scatterplot and regression line, or boxplot, etc)
-Create a min. 6 - max. 10 pages slide show to illustrate the research question, the merging process, the figure and the conclusion.
+* Create a min. 6 - max. 10 pages slide show to illustrate the research question, the merging process, the figure and the conclusion. For example, you can use the following slide show structure, each bit is 1-2 slides:
+  * Research question and why/for whom you picked it
+  * Data and variables
+  * Detailed steps of joining tables to get to the work data (here be specific, include schema, keys used, join types, 2-4 slides)
+  * Steps of creating your variables for analysis
+  * Result and interpretation
 
-For example, you can use the following slide show structure, each bit is 1-2 slides:
+** Part 2**
 
-* Research question and why/for whom you picked it
-* Data and variables
-* Detailed steps of joining tables to get to the work data (here be specific, include schema, keys used, join types, 2-4 slides)
-* Steps of creating your variables for analysis
-* Result and interpretation
-  
-**Option B (advanced)**
-
-* **In addition to the tasks in Option A**, choose another real-world dataset that could be merged with the hotel data.
+* choose another real-world dataset that could be merged with the hotel data.
 * Choose an additional question that can be answered using the hotel data and the newly merged dataset.
 * Add two slides where you 1) describe how you joined the two datasets and 2) include a figure that shows your finding
 
 
-
 ### Submit:
 
-* Slideshow in pdf format: "lastname1_lastname2_lastname3_slides.pdf"
-* Reproducible code "lastname1_lastname2_lastname3_code.pdf"
+* Slideshow in pdf format: "lastname1_lastname2_lastname3_week04_slides.pdf"
+* Reproducible code "lastname1_lastname2_lastname3_week04_code.pdf"
