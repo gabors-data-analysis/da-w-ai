@@ -1,0 +1,5 @@
+Explain the very basic difference in differences setup in this paper. Tell me
+(1) what is the unit of observation
+(2) what is the comparison, what is in the treated and control group
+(3) What is the before and after period for units
+(4) What is the intervention, is it uniform or vary across units

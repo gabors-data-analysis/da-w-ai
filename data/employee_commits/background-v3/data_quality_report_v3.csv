@@ -1,0 +1,59 @@
+i,x,y,department,seniority,role,data_issue
+EMP_0152,283,6800,Analytics,Junior,Data_Scientist,ERROR: Impossibly high (decimal/aggregation error)
+EMP_0055,180,12000,IT,Junior,DevOps,ERROR: Impossibly high (decimal/aggregation error)
+EMP_0390,960,8500,IT,Mid,DevOps,ERROR: Impossibly high (decimal/aggregation error)
+EMP_0579,19500,18,IT,Junior,Developer,ERROR: Impossibly long tenure (date entry error)
+EMP_0377,22000,33,Analytics,Mid,Data_Scientist,ERROR: Impossibly long tenure (date entry error)
+EMP_0543,1188,-15,IT,Mid,DevOps,ERROR: Negative commits (data pipeline bug)
+EMP_0298,687,-8,Analytics,Junior,Data_Scientist,ERROR: Negative commits (data pipeline bug)
+EMP_0522,-120,7,Analytics,Junior,Data_Scientist,ERROR: Negative tenure (date calculation error)
+EMP_0296,242,165,IT,Junior,Developer,EXTREME: High commits for junior (real: internal transfer from other division)
+EMP_0206,106,182,IT,Junior,DevOps,EXTREME: High commits for junior (real: internal transfer from other division)
+EMP_0399,339,195,Analytics,Junior,Analyst,EXTREME: High commits for junior (real: internal transfer from other division)
+EMP_0066,215,179,Analytics,Junior,Data_Scientist,EXTREME: High commits for junior (real: internal transfer from other division)
+EMP_0045,264,193,IT,Junior,Developer,EXTREME: High commits for junior (real: internal transfer from other division)
+EMP_0278,1242,85,IT,Mid,Infrastructure,"EXTREME: High for infrastructure (real: IaC enthusiast, everything in Git)"
+EMP_0093,825,98,IT,Mid,Infrastructure,"EXTREME: High for infrastructure (real: IaC enthusiast, everything in Git)"
+EMP_0215,4522,108,IT,Senior,Infrastructure,"EXTREME: High for infrastructure (real: IaC enthusiast, everything in Git)"
+EMP_0397,1874,104,IT,Senior,Infrastructure,"EXTREME: High for infrastructure (real: IaC enthusiast, everything in Git)"
+EMP_0148,2315,105,IT,Senior,Infrastructure,"EXTREME: High for infrastructure (real: IaC enthusiast, everything in Git)"
+EMP_0539,557,396,IT,Junior,DevOps,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0517,1303,447,IT,Mid,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0516,2254,291,IT,Senior,Infrastructure,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0309,2382,282,IT,Senior,Infrastructure,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0318,1529,383,Analytics,Mid,Data_Scientist,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0479,7,204,Analytics,Junior,Data_Engineer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0386,22,293,Analytics,Junior,Data_Scientist,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0500,300,300,Analytics,Junior,Data_Engineer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0289,1070,231,IT,Mid,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0439,1282,228,Analytics,Mid,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0478,986,357,Analytics,Mid,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0330,2760,250,IT,Senior,Infrastructure,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0513,215,273,Analytics,Junior,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0009,3209,323,IT,Senior,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0563,1430,230,Analytics,Mid,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0017,260,347,IT,Junior,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0039,1008,349,Analytics,Mid,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0042,2084,298,Analytics,Senior,Data_Scientist,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0044,9,334,IT,Junior,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0052,581,216,Analytics,Junior,Data_Scientist,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0081,1423,286,IT,Mid,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0090,2354,260,Analytics,Senior,Data_Engineer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0114,962,444,Analytics,Mid,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0098,320,368,Analytics,Junior,Data_Scientist,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0126,236,303,Analytics,Junior,Data_Scientist,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0154,493,359,Analytics,Junior,Analyst,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0157,356,277,Analytics,Junior,Data_Engineer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0193,62,391,IT,Junior,Developer,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0123,3100,410,IT,Senior,Infrastructure,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0239,80,236,IT,Junior,DevOps,EXTREME: Very high commits (possible: bot-assisted or granular style)
+EMP_0426,2608,0,Analytics,Senior,Analyst,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0271,2522,0,IT,Senior,DevOps,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0469,3565,0,IT,Senior,DevOps,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0134,3794,0,Analytics,Senior,Analyst,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0065,2159,0,Analytics,Senior,Data_Scientist,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0367,2115,0,IT,Senior,Infrastructure,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0164,3191,0,IT,Senior,Developer,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0523,2943,0,IT,Senior,Infrastructure,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0029,2069,0,Analytics,Senior,Data_Scientist,"EXTREME: Zero commits, long tenure (real: moved to management)"
+EMP_0218,2268,0,IT,Senior,Developer,"EXTREME: Zero commits, long tenure (real: moved to management)"

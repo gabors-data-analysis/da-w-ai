@@ -6,21 +6,16 @@ Look at [this graph](/week01/assets/ft-liberation-day-usd-yield-2025-04-11.jpg) 
 
 Use AI as your assistant to find real-world data that matches or closely resembles the one used in the FT graph, and recreate the same chart using that data.
 
-**what to submit**
-
-* Graph: A PDF version of your recreated graph, name it: "lastname_firstname_dawai_week01_ftfigure.pdf"
-* Data: A CSV file with the data used to create the graph, with the name ("lastname_firstname_dawai_week01_ftdata.csv")
-* One para text on experience with AI: what model you used, was easy, where was human interaction needed. ("lastname_firstname_dawai_week01_ftdata.txt or .md")
-* Code (any language) ("lastname_firstname_dawai_week01_ftdata.py or .R"), scripts or notebooks also OK. 
-
-### Grading
-
 **Success Criteria:**
+
 - **Data accuracy:** Real Treasury yield and tariff announcement data
 - **Design fidelity:** Similar visual style, annotations, and layout
 - **Code quality:** Reproducible workflow with clear documentation
 
- **What we're evaluating:**
-- Problem-solving approach with AI assistance
-- Quality of human oversight and iteration
-- Documentation of AI usage and limitations
+
+**what to submit and grading**
+
+* Graph: A PDF version of your recreated graph, name it: "lastname_firstname_dawai_week01_ftfigure.pdf" (10p)
+* Data: A CSV file with the data used to create the graph, with the name ("lastname_firstname_dawai_week01_ftdata.csv") (4p)
+* Code (any language) ("lastname_firstname_dawai_week01_ftdata.py or .R"), scripts or notebooks also OK. (2p)
+* One para text on experience with AI: what model you used, was easy, where was human interaction needed. ("lastname_firstname_dawai_week01_ftdata.txt or .md") (4p)

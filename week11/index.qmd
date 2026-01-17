@@ -1,0 +1,18 @@
+
+---
+title: "Week 11: AI as research companion: Difference in differences "
+subtitle: "Building Difference in differences models"
+date: "2025-08-01"
+---
+
+:::::: hero-section
+::::: container
+::: hero-title
+Week 11: AI as research companion: Difference in differences 
+:::
+
+::: hero-subtitle
+Getting closer to causality by building Difference in differences models
+:::
+:::::
+::::::

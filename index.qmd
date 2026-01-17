@@ -2,7 +2,7 @@
 title: "Doing Data Analysis with AI"
 subtitle: "A short(ish) course"
 author: "[Gábor Békés](https://sites.google.com/site/bekesg/), Central European University (Austria, EU)"
-date: "2025-07-25"
+date: "2026-01-13"
 ---
 
 ![Gabor's Data Analysis with AI](images/gabors-data-analysis-with-ai.png)
@@ -13,9 +13,7 @@ This course will equip students, who are already versed in core data analysis me
 
 As AI becomes more and more powerful, it is also important to provide a platform to **discuss human agency in data analysis**. So a key element of the course and its instructor to lead discussions on the role of AI and humans in various aspects of data analysis. 
 
-**This is the 2025 Summer edition release**
-
-Week 00 to 06 is ready and tested. The rest is in development. 
+**This is the 2026 Winter edition release**
 
 ### For whom?
 
@@ -64,7 +62,6 @@ Key outcomes. By the end of the course, students will be able to
 
 * Gain experience and confidence using genAI to carry out key tasks in data analysis.
 * Build AI in coding practice including data wrangling, description and reporting and text analysis
-* Have some idea of use cases when AI assistance is (1) greatly useful, (2) helpful, (3) currently problematic. 
 * Have some idea of use cases when AI assistance is OK to use as is vs needs strong human supervision
 * Have an understanding of resources to follow for updates. 
 
@@ -86,24 +83,30 @@ But, anyone can use it with adequate background.
 - **Week 4:** Multi-table joins with Austrian hotel data
 - **Weeks 5:** Text analysis 1: basics
 - **Weeks 6:** Text analysis 2: sentiment analysis
-- **Week 7:** AI-Assisted Data Collection
+- **Week 7:** TBD
 - **Week 8:** SQL like natural language query in a data warehouse
 - **Week 9:**  AI as research companion 1: Control variables
 - **Week 10:** AI as research companion 2: Instrumental Variables
 - **Week 11:** AI as research companion 3: Difference in differences
-- **Week 12:** Developing dashboards
+- **Week 12:** TBD
 
 
-**Skills Development Arc:**
 
-- **Weeks 0:  ** Background prep: Writing code with AI
-- **Weeks 1-2:** Foundation (AI concepts, data exploration)
-- **Weeks 3-4:** Core analysis (reporting, data wrangling)  
-- **Weeks 5-6:** Advanced applications (text analysis, APIs)
-- **Weeks 5-6:** Helping research and presentation 
-- **Week 7-8:** AI to help for big data / data science  
-- **Week 9-11:** AI as applied metrics consultant, agents
-- **Week 12:** Developing dashboards
+**AI use experience**
+
+
+-   Chat -- conversational interface
+-   Data Analysis -- direct code execution / shared canvases
+-   Context window management
+-   Tools to connect to sources (Github, Google drive)
+-   Talk to AI via API calls
+-   skills and context management
+    -   "my system prompt" (user specific)
+    -   skills use and generation (gems / prompt template): gabors exploratory data analysis skill (sharable)
+-   deep research
+-   Gemini CLI / Claude Code
+-   MCP (connect to folders on your computer)
+-   vibe coding an app: the-human-sql-translator
 
 
 ## Assignments

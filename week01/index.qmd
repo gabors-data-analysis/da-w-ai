@@ -146,6 +146,11 @@ Become a more capable data analyst who can leverage AI tools effectively while m
 
 [Week 2 - Data Discovery and Documentation](../week02/) where we'll use AI to understand and document complex datasets.
 
+## Read more
+
+* [Ethan Mollick update on Jagged Frontier](https://www.oneusefulthing.org/p/the-shape-of-ai-jaggedness-bottlenecks)
+
+
 ## Some personal comments on AI and this class
 
 * I needed to rewrite, edit the slideshow frequently. Bloody hell, this course material is tricky. (While [Gosset's t-test](https://en.wikipedia.org/wiki/Student%27s_t-test) has been around since 1908...)
