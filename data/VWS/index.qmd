@@ -11,9 +11,9 @@ This folder contains cleaned and processed data from the 7th Wave of the World V
 ## Files
 
 ### Processed Data
-- **`WVS_random_subset2000.csv`** - Random subset of 2,000 respondents stratified by country
-- **`WVS_GDP_merged_data.csv`** - Country-level aggregated data merged with GDP and population indicators
-- **`WVS_subset.csv`** - Selected variables from full dataset (all respondents, waves 1-7)
+- **`WVS_random_subset2000.csv`** - Random subset of 2,000 respondents stratified by country [download](https://gabors-data-analysis.com/ai-course/data/VWS/WVS_random_subset2000.csv)
+- **`WVS_GDP_merged_data.csv`** - Country-level aggregated data merged with GDP and population indicators [Download](https://gabors-data-analysis.com/ai-course/data/VWS/WVS_GDP_merged_data.csv)
+- **`WVS_subset.csv`** - Selected variables from full dataset (all respondents, waves 1-7) [Download data (OSF.io)](https://osf.io/mfd6s/files/67pje)
 
 ### Documentation
 - **`codebook.pdf`** - Official WVS codebook with variable definitions and survey methodology
