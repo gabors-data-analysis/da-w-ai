@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-01-12">
+<meta name="dcterms.date" content="2026-01-17">
 
-<title>Week 01: LLM Review – Doing Data Analysis with AI</title>
+<title>Documentation Fundamentals – Doing Data Analysis with AI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../week00/index.html">Course Weeks</a></li><li class="breadcrumb-item"><a href="../week01/index.html">Week 1: LLM Review</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Documentation Fundamentals</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -180,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../week01/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../week01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1: LLM Review</span></a>
   </div>
 </li>
@@ -297,27 +297,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#preparation-before-class" id="toc-preparation-before-class" class="nav-link" data-scroll-target="#preparation-before-class">Preparation / Before Class</a></li>
-  <li><a href="#class-material" id="toc-class-material" class="nav-link" data-scroll-target="#class-material">Class Material</a></li>
-  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions">Discussion Questions</a></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
-  <li><a href="#background-tools-and-resources" id="toc-background-tools-and-resources" class="nav-link" data-scroll-target="#background-tools-and-resources">Background, Tools and Resources</a>
+  <li><a href="#documentation-fundamentals" id="toc-documentation-fundamentals" class="nav-link active" data-scroll-target="#documentation-fundamentals">Documentation Fundamentals</a>
   <ul class="collapse">
-  <li><a href="#academic-integrity-and-ai-use" id="toc-academic-integrity-and-ai-use" class="nav-link" data-scroll-target="#academic-integrity-and-ai-use">Academic Integrity and AI use</a></li>
+  <li><a href="#about-markdown" id="toc-about-markdown" class="nav-link" data-scroll-target="#about-markdown">About Markdown</a></li>
+  <li><a href="#what-is-a-good-readme" id="toc-what-is-a-good-readme" class="nav-link" data-scroll-target="#what-is-a-good-readme">What is a good readme?</a></li>
+  <li><a href="#what-is-a-variable-dictionary-also-called-codebook" id="toc-what-is-a-variable-dictionary-also-called-codebook" class="nav-link" data-scroll-target="#what-is-a-variable-dictionary-also-called-codebook">What is a variable dictionary (also called codebook)</a></li>
   </ul></li>
-  <li><a href="#read-more" id="toc-read-more" class="nav-link" data-scroll-target="#read-more">Read more</a></li>
-  <li><a href="#some-personal-comments-on-ai-and-this-class" id="toc-some-personal-comments-on-ai-and-this-class" class="nav-link" data-scroll-target="#some-personal-comments-on-ai-and-this-class">Some personal comments on AI and this class</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../week00/index.html">Course Weeks</a></li><li class="breadcrumb-item"><a href="../week01/index.html">Week 1: LLM Review</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Week 01: LLM Review</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Introduction to Large Language Models and AI in Data Analysis</p>
+<div class="quarto-title-block"><div><h1 class="title">Documentation Fundamentals</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Markdown, readme and more</p>
 </div>
 
 
@@ -328,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 12, 2026</p>
+      <p class="date">January 17, 2026</p>
     </div>
   </div>
   
@@ -340,149 +335,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="hero-section">
-<div class="container">
-<div class="hero-title">
-<p>Week 01: LLM Review</p>
-</div>
-<div class="hero-subtitle">
-<p>Introduction to Large Language Models and their applications in data analysis</p>
-</div>
-</div>
-</div>
-<hr>
-<p><img src="../images/week1_pic.png" class="img-fluid"></p>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<p>By the end of this session, students will:</p>
+<p>title: “Documentation Fundamentals” subtitle: “Markdown, readme and more” date: “2026-01-17” —</p>
+<section id="documentation-fundamentals" class="level2">
+<h2 class="anchored" data-anchor-id="documentation-fundamentals">Documentation Fundamentals</h2>
+<section id="about-markdown" class="level3">
+<h3 class="anchored" data-anchor-id="about-markdown">About Markdown</h3>
 <ul>
-<li>Understand core concepts of large language models (LLMs)</li>
-<li>Distinguish between “Cyborg” and “Centaur” approaches to AI collaboration</li>
-<li>Experience the “jagged frontier” of LLM capabilities through hands-on practice</li>
-<li>Critically assess capabilities and limitations of AI tools in academic contexts</li>
+<li>Editor in R, Python <a href="https://quarto.org/">Quarto</a></li>
+<li>Online <a href="https://jbt.github.io/markdown-editor/">Markdown editor</a></li>
+<li>Also: <a href="https://pandoc.org/">Pandoc</a></li>
 </ul>
 </section>
-<section id="preparation-before-class" class="level2">
-<h2 class="anchored" data-anchor-id="preparation-before-class">Preparation / Before Class</h2>
-<div class="week-card card">
-<div class="card-header">
-<p>📚 <strong>No Required Reading</strong></p>
-</div>
-<div class="card-body">
-<p><strong>This is Week 1</strong> - come ready to explore and discuss!</p>
-<p><strong>Reflection Preparation:</strong></p>
+<section id="what-is-a-good-readme" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-good-readme">What is a good readme?</h3>
+<p><strong>Some examples for reproduction package</strong></p>
 <ul>
-<li>Think about your current experience with AI tools (if any)</li>
-<li>Consider examples where you’ve encountered AI in your work/studies</li>
-<li>Identify one data analysis task you find time-consuming or repetitive</li>
+<li><p>Békés-Kézdi (2021) <a href="https://gabors-data-analysis.com/datasets/hotels-europe/">Hotels dataset</a> – show basics</p></li>
+<li><p>Koren-Pető (2021) <a href="https://zenodo.org/records/4016325/preview/README.md?include_deleted=0">Business disruptions from social distancing</a> as <a href="https://zenodo.org/records/4016325/files/README.pdf?download=1">PDF</a></p></li>
+<li><p>Some ideas on readme: <a href="https://www.makeareadme.com/">Makereadme</a>, <a href="https://social-science-data-editors.github.io/template_README/">Social Science Editors</a></p></li>
 </ul>
-<p><strong>Optional Background:</strong></p>
+<p><strong>Key ingredients</strong></p>
 <ul>
-<li>Ethan Mollick: “Co-Intelligence: Living and Working with AI” (Chapters 1-2)</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="class-material" class="level2">
-<h2 class="anchored" data-anchor-id="class-material">Class Material</h2>
-<div class="week-card card">
-<div class="card-header">
-<p>📊 <strong>Core LLM Concepts (60 min)</strong></p>
-</div>
-<div class="card-body">
-<p><strong><a href="https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-01-llm-course.html">Slideshow: LLM Concepts and Applications</a></strong></p>
-<p><strong>Key Topics Covered:</strong></p>
+<li>Overview of project</li>
+<li>license</li>
+<li>All datasets (data tables) separately discussed</li>
+<li>All key variables described (name, content, type, coverage (% share missing)
 <ul>
-<li><strong>What are LLMs?</strong> Statistical models predicting next tokens from massive training data</li>
-<li><strong>The Transformer Revolution:</strong> How 2017’s “Attention is All You Need” changed everything</li>
-<li><strong>Context Windows:</strong> why this matters for data analysis</li>
-<li><strong>Training Process:</strong> Resources and human feedback</li>
-<li><strong>Collaborative Frameworks:</strong> How to integrate human and AI work</li>
-</ul>
-</div>
-</div>
-<div class="week-card card">
-<div class="card-header">
-<p>🔧 <strong>Hands-on: Data search (15 min)</strong></p>
-</div>
-<div class="card-body">
-<p><strong>Example</strong></p>
-<p>Try this in a chat</p>
-<pre><code>Get me an income dataset by planning regions (county) in Connecticut for 2023. Present the results as a table I can copy and edit..</code></pre>
-<ul>
-<li>Now try find the actual data and compare.</li>
-<li>Try multiple times in different models</li>
-<li>Try modifying the prompt to be more specific or different</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="discussion-questions" class="level2">
-<h2 class="anchored" data-anchor-id="discussion-questions">Discussion Questions</h2>
-<p><strong>End of Week Reflection:</strong></p>
-<ol type="1">
-<li><p><strong>Personal AI Experience:</strong> How have you already incorporated AI into your routine? Which model feels most natural to you?</p></li>
-<li><p><strong>Error Management:</strong> How do you currently deal with AI hallucinations or imperfect answers? What strategies emerged during the FT graph exercise?</p></li>
-<li><p><strong>The Jagged Frontier:</strong> What tasks do you expect AI to excel at? Where do you think it will struggle? Did the visualization exercise match your expectations?</p></li>
-</ol>
-</section>
-<section id="assignment" class="level2">
-<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Assignment 1: Reproduce the FT Graph
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Due:</strong> Sunday 23.55 before Week 2 (on moodle)</p>
-<p><a href="../assignments/assignment_01.html" class="assignment-badge">Full Assignment Details</a></p>
-</div>
-</div>
-</section>
-<section id="background-tools-and-resources" class="level2">
-<h2 class="anchored" data-anchor-id="background-tools-and-resources">Background, Tools and Resources</h2>
-<p><a href="assets/which-ai.html">AI Model Selection Guide</a></p>
-<section id="academic-integrity-and-ai-use" class="level3">
-<h3 class="anchored" data-anchor-id="academic-integrity-and-ai-use">Academic Integrity and AI use</h3>
-<p><strong>Course Philosophy:</strong></p>
-<ul>
-<li><strong>AI as Assistant:</strong> Use AI to enhance your capabilities, not replace your thinking</li>
-<li><strong>Maintain Authority:</strong> You remain responsible for all outputs and interpretations</li>
-<li><strong>Verify Everything:</strong> Always validate AI suggestions, especially statistical claims</li>
-<li><strong>Document Usage:</strong> Keep track of how AI helped – to learn (and for transparency)</li>
-</ul>
-<p><strong>Red Lines:</strong></p>
-<ul>
-<li>Never submit unverified AI output as your own work</li>
-<li>Always understand the analysis you’re presenting</li>
-<li>Avoid over-reliance on AI for critical thinking or interpretation (<strong>you be you</strong>)</li>
-</ul>
-<p><strong>The Goal:</strong></p>
-<p>Become a more capable data analyst who can leverage AI tools effectively while maintaining scientific rigor.</p>
-<p><strong>Next Week:</strong></p>
-<p><a href="../week02/">Week 2 - Data Discovery and Documentation</a> where we’ll use AI to understand and document complex datasets.</p>
-</section>
-</section>
-<section id="read-more" class="level2">
-<h2 class="anchored" data-anchor-id="read-more">Read more</h2>
-<ul>
-<li><a href="https://www.oneusefulthing.org/p/the-shape-of-ai-jaggedness-bottlenecks">Ethan Mollick update on Jagged Frontier</a></li>
+<li>maybe also: source, extension (csv / xlsx/ parquet)</li>
+</ul></li>
+<li>Data lineage “provenance” : source → processing → final structure</li>
 </ul>
 </section>
-<section id="some-personal-comments-on-ai-and-this-class" class="level2">
-<h2 class="anchored" data-anchor-id="some-personal-comments-on-ai-and-this-class">Some personal comments on AI and this class</h2>
+<section id="what-is-a-variable-dictionary-also-called-codebook" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-a-variable-dictionary-also-called-codebook">What is a variable dictionary (also called codebook)</h3>
 <ul>
-<li>I needed to rewrite, edit the slideshow frequently. Bloody hell, this course material is tricky. (While <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">Gosset’s t-test</a> has been around since 1908…)</li>
-<li>It was an AI (Claude Sonnet 4.0) that suggest to include the last bit on Academic Integrity and red lines. Hahh.</li>
+<li>more details of a dataset, often as xlsx</li>
+<li>metric (euro, %), meaning of values if categorical</li>
+<li>maybe even mean, min, max</li>
+</ul>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Békés-Kézdi (2021) <a href="https://osf.io/9a3t4">Bisnode dataset variables</a></li>
+<li>Reif (2022) <a href="https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt">illinois-wellness-data</a></li>
+</ul>
+<p><strong>Oh, but there is one we created we created</strong></p>
+<ul>
+<li><a href="..\week00/assets/variable-dictionary-claude4.html">On earnings data, by Claude</a></li>
 </ul>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -936,163 +840,57 @@ Assignment 1: Reproduce the FT Graph
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Week 01: LLM Review"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Introduction to Large Language Models and AI in Data Analysis"</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-01-12"</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>::: {.hero-section}</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>::: {.container}</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>::: {.hero-title}</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>Week 01: LLM Review</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>::: {.hero-subtitle}</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>Introduction to Large Language Models and their applications in data analysis</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="al">![](../images/week1_pic.png)</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>By the end of this session, students will:</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Understand core concepts of large language models (LLMs)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Distinguish between "Cyborg" and "Centaur" approaches to AI collaboration</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Experience the "jagged frontier" of LLM capabilities through hands-on practice</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Critically assess capabilities and limitations of AI tools in academic contexts</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Preparation / Before Class</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>::: {.week-card .card}</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>::: {.card-header}</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>📚 **No Required Reading**</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>::: {.card-body}</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>**This is Week 1** - come ready to explore and discuss!</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a> **Reflection Preparation:**</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Think about your current experience with AI tools (if any)</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Consider examples where you've encountered AI in your work/studies</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identify one data analysis task you find time-consuming or repetitive</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>**Optional Background:**</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Ethan Mollick: "Co-Intelligence: Living and Working with AI" (Chapters 1-2)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Class Material</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>::: {.week-card .card}</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>::: {.card-header}</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>📊 **Core LLM Concepts (60 min)**</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>::: {.card-body}</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>**[Slideshow: LLM Concepts and Applications](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-01-llm-course.html)**</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>**Key Topics Covered:**</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**What are LLMs?** Statistical models predicting next tokens from massive training data</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**The Transformer Revolution:** How 2017's "Attention is All You Need" changed everything</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Context Windows:** why this matters for data analysis</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Training Process:** Resources and human feedback</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>**Collaborative Frameworks:** How to integrate human and AI work</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>::: {.week-card .card}</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>::: {.card-header}</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>🔧 **Hands-on: Data search (15 min)**</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>::: {.card-body}</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>**Example**</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>Try this in a chat</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="in">Get me an income dataset by planning regions (county) in Connecticut for 2023. Present the results as a table I can copy and edit..</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Now try find the actual data and compare. </span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Try multiple times in different models</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Try modifying the prompt to be more specific or different</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## Discussion Questions</span></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>**End of Week Reflection:**</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Personal AI Experience:** How have you already incorporated AI into your routine? Which model feels most natural to you?</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Error Management:** How do you currently deal with AI hallucinations or imperfect answers?  What strategies emerged during the FT graph exercise?</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**The Jagged Frontier:** What tasks do you expect AI to excel at? Where do you think it will struggle?  Did the visualization exercise match your expectations?</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>::: {.callout-note icon="📝"}</span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Assignment 1: Reproduce the FT Graph</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>**Due:** Sunday 23.55 before Week 2 (on moodle)</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Full Assignment Details</span><span class="co">](../assignments/assignment_01.html)</span>{.assignment-badge}</span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Background, Tools and Resources</span></span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">AI Model Selection Guide</span><span class="co">](assets/which-ai.html)</span></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a><span class="fu">### Academic Integrity and AI use</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>**Course Philosophy:**</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**AI as Assistant:** Use AI to enhance your capabilities, not replace your thinking</span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Maintain Authority:** You remain responsible for all outputs and interpretations</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Verify Everything:** Always validate AI suggestions, especially statistical claims</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Document Usage:** Keep track of how AI helped -- to learn (and for transparency)</span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>**Red Lines:**</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Never submit unverified AI output as your own work</span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Always understand the analysis you're presenting</span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avoid over-reliance on AI for critical thinking or interpretation (**you be you**)</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>**The Goal:** </span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>Become a more capable data analyst who can leverage AI tools effectively while maintaining scientific rigor.</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>**Next Week:** </span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Week 2 - Data Discovery and Documentation</span><span class="co">](../week02/)</span> where we'll use AI to understand and document complex datasets.</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Read more</span></span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span><span class="co">[</span><span class="ot">Ethan Mollick update on Jagged Frontier</span><span class="co">](https://www.oneusefulthing.org/p/the-shape-of-ai-jaggedness-bottlenecks)</span></span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Some personal comments on AI and this class</span></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>I needed to rewrite, edit the slideshow frequently. Bloody hell, this course material is tricky. (While <span class="co">[</span><span class="ot">Gosset's t-test</span><span class="co">](https://en.wikipedia.org/wiki/Student%27s_t-test)</span> has been around since 1908...)</span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>It was an AI (Claude Sonnet 4.0) that suggest to include the last bit on Academic Integrity and red lines. Hahh. </span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>title: "Documentation Fundamentals"</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>subtitle: "Markdown, readme and more"</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>date: "2026-01-17"</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## Documentation Fundamentals</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### About Markdown</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Editor in R, Python <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Online <span class="co">[</span><span class="ot">Markdown editor</span><span class="co">](https://jbt.github.io/markdown-editor/)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Also: <span class="co">[</span><span class="ot">Pandoc</span><span class="co">](https://pandoc.org/)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### What is a good readme?</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Some examples for reproduction package**</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Békés-Kézdi (2021) <span class="co">[</span><span class="ot">Hotels dataset</span><span class="co">](https://gabors-data-analysis.com/datasets/hotels-europe/)</span> -- show basics</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Koren-Pető (2021) <span class="co">[</span><span class="ot">Business disruptions from social distancing</span><span class="co">](https://zenodo.org/records/4016325/preview/README.md?include_deleted=0)</span> as <span class="co">[</span><span class="ot">PDF</span><span class="co">](https://zenodo.org/records/4016325/files/README.pdf?download=1)</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Some ideas on readme: <span class="co">[</span><span class="ot">Makereadme</span><span class="co">](https://www.makeareadme.com/)</span>, <span class="co">[</span><span class="ot">Social Science Editors</span><span class="co">](https://social-science-data-editors.github.io/template_README/)</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**Key ingredients**</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Overview of project</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>license</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>All datasets (data tables) separately discussed</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>All key variables described (name, content, type, coverage (% share missing)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>maybe also: source, extension (csv / xlsx/ parquet)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Data lineage "provenance" : source → processing → final structure</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### What is a variable dictionary (also called codebook)</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>more details of a dataset, often as xlsx</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>metric (euro, %), meaning of values if categorical</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>maybe even mean, min, max</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**Examples**</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Békés-Kézdi (2021) <span class="co">[</span><span class="ot">Bisnode dataset variables</span><span class="co">](https://osf.io/9a3t4)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Reif (2022) <span class="co">[</span><span class="ot">illinois-wellness-data</span><span class="co">](https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt)</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**Oh, but there is one we created we created**</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">On earnings data, by Claude</span><span class="co">](/week00/assets/variable-dictionary-claude4.html)</span></span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

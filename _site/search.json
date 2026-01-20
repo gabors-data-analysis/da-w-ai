@@ -440,7 +440,7 @@
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -452,7 +452,7 @@
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -464,7 +464,7 @@
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -472,11 +472,11 @@
     "href": "week03/index.html#class-plan",
     "title": "Week 03: Reporting your data analysis",
     "section": "Class plan",
-    "text": "Class plan\n\n\n🤝 Review on readmes (30 min)\n\n\n\nReview Readme assignment\n\nQ+A\nCommon AI errors in data documentation?\nVerify, verify, verify (AI is good but rarely perfect)\n\n\n\nStarting presentation about prompting\nslideshow\n\n\nHow does a good report look like?\n\nHow to write a good short report: structure\ngood graphs and tables\n\nMake sure precise language. Recap on causal language.\n\n\n\n\nProblems with AI generated reports.\nUse AI as input (like advanced google search) not as output writer, because\n\nCreates “average” / generic / bland / repetitive text\nConvincing but not precise\nNot your style and not your exact plan\nToo broad (like adds further research)\nnot precise enough, especially using causal language inappropriately.\n\n\n\n\n\n\n🤝 No AI vs AI prompting strategies to create a report (50 min)\n\n\n\nNO AI\nForm 2-3 member groups freely\n\nEach group: Choose one these pre-defined research questions:\n\n\nIs there a relationship between income level and trust?\nIs there a relationship between income level and happiness?\nIs there a relationship between income level and gender attitudes?\n\n\nChoose the relevant variables to answer your question (you can use AI to understand variables like in week2 (Use your Week 2 AI skills to understand complex variable definitions.)\nDesign a plan for a report on the topic: list of exhibits (graphs, tables). Do not write code (yet)\nDiscuss plans\n\n\n\nAI 1\nTry get a report with a single prompt. * Hint 1: translate your plan into a prompt using ideas from the intro. * Hint 2: Look for impressive-looking but problematic results.\n\n\nAI 2\n\nShowcase an iterative process where key exhibits are created\nHint 3: get AI to create precisely the exhibits you designed, not what it thinks you need.",
+    "text": "Class plan\n\n\n🤝 Review on readmes (30 min)\n\n\n\nReview Readme assignment\n\nQ+A\nCommon AI errors in data documentation?\nVerify, verify, verify (AI is good but rarely perfect)\n\n\n\nHow does a good report look like?\n\nHow to write a good short report: structure\ngood graphs and tables\n\nMake sure precise language. Recap on causal language.\n\n\n\n\nProblems with AI generated reports.\nUse AI as input (like advanced google search) not as output writer, because\n\nCreates “average” / generic / bland / repetitive text\nConvincing but not precise\nNot your style and not your exact plan\nToo broad (like adds further research)\nnot precise enough, especially using causal language inappropriately.\n\n\n\n\n\n\n🤝 No AI vs AI prompting strategies to create a report (50 min)\n\n\n\nNO AI\nForm 2-3 member groups freely\n\nEach group: Choose one these pre-defined research questions:\n\n\nIs there a relationship between income level and trust?\nIs there a relationship between income level and happiness?\nIs there a relationship between income level and gender attitudes?\n\n\nChoose the relevant variables to answer your question (you can use AI to understand variables like in week2 (Use your Week 2 AI skills to understand complex variable definitions.)\nDesign a plan for a report on the topic: list of exhibits (graphs, tables). Do not write code (yet)\nDiscuss plans\n\n\n\nAI 1\nTry get a report with a single prompt. * Hint 1: translate your plan into a prompt using ideas from the intro. * Hint 2: Look for impressive-looking but problematic results.\n\n\nAI 2\n\nShowcase an iterative process where key exhibits are created\nHint 3: get AI to create precisely the exhibits you designed, not what it thinks you need.",
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -488,7 +488,7 @@
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -559,7 +559,7 @@
     "href": "week02/index.html",
     "title": "Week02: Discovery and documentation",
     "section": "",
-    "text": "Week02: Discovery and documentation\n\n\nData discovery and data and code documentation with AI",
+    "text": "Week02: Discovery and documentation\n\n\nStarting from scratch: Data discovery and documentation with AI",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -571,7 +571,7 @@
     "href": "week02/index.html#summary",
     "title": "Week02: Discovery and documentation",
     "section": "Summary",
-    "text": "Summary\nSometimes data is large and discovery is hard. Sometimes you need to write data documentation. LLMs can help. You will learn how to write a clear and professional README. We use a cleaned subset of the 7th Wave of the World Values Survey (WVS). We’ll also talk some tech on documentation. We’ll use AI as a research assistantto bravely face a codebook with hundreds of variables.",
+    "text": "Summary\nSometimes data is messy and discovery is hard. Sometimes you need to write data documentation from scratch without deep knowledge of data. LLMs can help. You will learn how to write a clear and professional README. We use the 7th Wave of the World Values Survey (WVS) and rely on AI as a research assistant to bravely face a codebook with hundreds of variables.",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -583,7 +583,7 @@
     "href": "week02/index.html#learning-objectives",
     "title": "Week02: Discovery and documentation",
     "section": "Learning Objectives:",
-    "text": "Learning Objectives:\n\nUnderstand how to document a new dataset using as an example th WVS 7th wave data.\nCreate a README that describes data.\nLearn to refine documentation by incorporating iterative feedback from peers and AI tools.\nDevelop skills in using AI to translate complex materials into accessible documentation",
+    "text": "Learning Objectives:\n\nLearn using AI with the context window effectively to understand complex data structure and do search.\nUnderstand how to document a new dataset using as an example th WVS 7th wave data.\nCreate a README that describes data.\nLearn to refine documentation by incorporating iterative feedback from peers and AI tools.\nDevelop skills in using AI to translate complex materials into accessible documentation",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -643,7 +643,7 @@
     "href": "week02/index.html#end-of-week-discussion-points",
     "title": "Week02: Discovery and documentation",
     "section": "End of Week Discussion points",
-    "text": "End of Week Discussion points\nEnd of Week Reflection:\n\nWhat was the biggest contribution of AI?\nFirst result vs after iterations – what did improve?\nHow do you feel about learning from AI vs human instructor? Pros and cons?",
+    "text": "End of Week Discussion points\nEnd of Week Reflection:\n\nIs there any benefit of looking at it without AI?\nWhat was the biggest contribution of AI?\nFirst result vs after iterations – what did improve?\nHow do you feel about learning from AI vs human instructor? Pros and cons?",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -1053,14 +1053,9 @@
   {
     "objectID": "assignments/assignment_03.html",
     "href": "assignments/assignment_03.html",
-    "title": "Creating a report",
+    "title": "Assignment 03 – Creating a data analysis report",
     "section": "",
-    "text": "Continue with the research question you had chosen in class.\nUse AI iteratively to help you create a report.\nImportant\n\nAI is your assistant, use it as input not as output. Don’t submit an AI-generated report as such, always author, review, edit.\n\n\nTasks\nOption A (easy)\n\nThink in terms of two variables (\\(x\\) and \\(y\\)).\n\nPick a single variable or a combined index of variables\nPick a GDP variable\nThink about a causal link.\n\nCreate one carefully designed graph to illustrate the relationship (Graph 1)\nAt each step, explain your choices/decisions (ie why you chose a certain variable)\nCreate a Conclusion paragraph where you summarize your work and results in 80-100 words.\n\nOption B (advanced)\n\nIn addition to the tasks in Option A, create another graph to show heterogeneity of country size groups using population (Graph 2)\nRun a regression and interpret the coefficient.\n\n\n\nTo submit\n\nSubmission 1: Submit a maximum 1-1.5 page report in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)\nSubmission 2: Submit your code (or aprovide a link). (4p)\nSubmission 3: What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week01_advice.txt) (4p)\n\nList 2–3 pieces of advice based on your own experience using AI for this specific task.\n\n\nImportant:\n\nUpload your report to the student folder called Reports at moodle or similar service if applicable. This is for the next class\nImportant: Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.\nNext class in the first 20 mins each group will read another groups report and discuss the good and bad aspects of the report.",
-    "crumbs": [
-      "Home",
-      "Assignments",
-      "Assignment 3"
-    ]
+    "text": "This is a group assignment. Continue with the research question you had chosen in class.\nUse AI iteratively to help you create a report.\n\nCore tasks\n\nThink in terms of two variables (\\(x\\) and \\(y\\)).\n\nPick a single variable or a combined index of variables\nPick a GDP variable\nThink about a causal link.\n\nCreate one carefully designed graph to illustrate the relationship (Graph 1)\nAt each step, explain your choices/decisions (ie why you chose a certain variable)\nCreate a Conclusion paragraph where you summarize your work and results in 80-100 words.\ncreate another graph to show heterogeneity of country size groups using population (Graph 2)\nRun a regression and interpret the coefficient. Make sure they are precise.\nUse AI to get a well cratfted folder structure\n\n\n\nRevision\n\nOnce you have a draft, Upload some data analysis slides. and ask to follow it and revise report.\n\n\n\nTo submit\n\nreport of maximum 1-1.5 page in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)\nyour code (or aprovide a link). (4p)\nText: What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week03_advice.txt) (4p) – List 2–3 pieces of advice based on your own experience using AI for this specific task. Discuss also the role of adding material.\n\n\nUpload your report to the student folder called Reports at moodle or similar service if applicable. This is for the next class — each group will read another groups report and discuss the good and bad aspects of the report.\n\n\n\nAI use restrictions\n\nFor the report, use AI as your assistant, use it as input not as output. Don’t submit an AI-generated report as such, always author, review, edit.\nDo not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions."
   },
   {
     "objectID": "assignments/assignment_01.html",
@@ -1072,14 +1067,9 @@
   {
     "objectID": "assignments/assignment_02.html",
     "href": "assignments/assignment_02.html",
-    "title": "Assignment 2: Creating a readme doc",
+    "title": "Assignment 2: Data exploration and documentation",
     "section": "",
-    "text": "Task\nIn this assignment, you will create a readme document by asking for AI assistance.\n\nFirst, consider the VWS Survey we used in class: Codebook, sample data\nSecond, choose a research question using the VWS data. It can be broad or specific. Ask AI for ideas.\nWhat variables would you use to investigate the research question? Pick the most relevant ones (min 8, max 25)\nConsidering these variables only create a single README.md (in markdown). In the readme, include:\n\nOption A (easy)\n\nkey info on the dataset itself (you need to figure out what this key info is based on the lecture and examples)\nkey variables description\ntable with descriptive statistics for the 5 most important selected variables\n\nOption B (advanced)\n\nin addition to the points in Option A, describe the folder structure you would use to work with this data\n\n\n\nTo submit\n\nSubmission 1: a finalized README.md file and code. (lastname_firstname_dawai_week01_readme.md) (16p)\nSubmission 2: What advice would you give to a fellow data analysis student on using AI to create README documents? (lastname_firstname_dawai_week01_advice.txt) (4p)\n\nList 2–3 pieces of advice based on your own experience using AI for this specific task.\n\n\nImportant notice\n\nDo not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.",
-    "crumbs": [
-      "Home",
-      "Assignments",
-      "Assignment 2"
-    ]
+    "text": "Task\nIn this assignment, you will continue exploring the data, and create a readme document. This is an individual assignment.\n\nReview good practices for readme and data documentation\nFirst, consider the VWS Survey we used in class: Codebook, sample data Link it to your AI. (Can move to google drive. )\nSecond, choose a research question using the VWS data. It can be broad or specific. Ask AI for ideas.\nWhat variables would you use to investigate the research question? Pick the most relevant ones (min 8, max 25)\nReview survey timing and discuss consequences\nConsidering these variables only create a single README.md (in markdown).\n\nThe readme\nIn the readme, include:\n\nkey info on the dataset itself (you need to figure out what this key info is based on the lecture and examples)\nkey variables description\ntable with descriptive statistics for the 5 most important selected variables\n\n\n\nTo submit\n\nREADME.md file. (lastname_firstname_dawai_week02_readme.md) (16p)\nWhat advice would you give to a fellow data analysis student on using AI to create README documents? (lastname_firstname_dawai_week02_advice.txt) (4p)\n\nList 2–3 pieces of advice based on your own experience using AI for this specific task.\n\n\n\n\nAI use restrictions\n\nDo not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions."
   },
   {
     "objectID": "assignments/assignment_04.html",
@@ -1253,7 +1243,7 @@
     "href": "data/VWS/index.html#files",
     "title": "World Values Survey (WVS) Data",
     "section": "Files",
-    "text": "Files\n\nProcessed Data\n\nWVS_random_subset2000.csv - Random subset of 2,000 respondents stratified by country\nWVS_GDP_merged_data.csv - Country-level aggregated data merged with GDP and population indicators\nWVS_subset.csv - Selected variables from full dataset (all respondents, waves 1-7)\n\n\n\nDocumentation\n\ncodebook.pdf - Official WVS codebook with variable definitions and survey methodology\nREADME_WVS.md - Data processing documentation and variable descriptions\n\n\n\nCode\n\ncleaning.R - R script that processes raw WVS data and creates the cleaned datasets"
+    "text": "Files\n\nProcessed Data\n\nWVS_random_subset2000.csv - Random subset of 2,000 respondents stratified by country download\nWVS_GDP_merged_data.csv - Country-level aggregated data merged with GDP and population indicators Download\nWVS_subset.csv - Selected variables from full dataset (all respondents, waves 1-7) Download data (OSF.io)\n\n\n\nDocumentation\n\ncodebook.pdf - Official WVS codebook with variable definitions and survey methodology\nREADME_WVS.md - Data processing documentation and variable descriptions\n\n\n\nCode\n\ncleaning.R - R script that processes raw WVS data and creates the cleaned datasets"
   },
   {
     "objectID": "data/VWS/index.html#data-structure",
@@ -2132,7 +2122,7 @@
     "href": "week02/index.html#class-material",
     "title": "Week02: Discovery and documentation",
     "section": "Class Material",
-    "text": "Class Material\n\n\n📈 Assignment Review (10 min)\n\n\n\nFollow instructions.\nHow to get close to original, different ways\nWhy do an app? What to expect from an app\n\nstreamlit\nshinyapps\n\nHow was AI assistance helpful?\n\n\n\n\n\n📖 Documentation Fundamentals (20 min)\n\n\n\nAbout Markdown\n\nEditor in R, Python Quarto\nOnline Markdown editor\nAlso: Pandoc\n\n\n\nWhat is a good readme?\nSome examples for reproduction package\n\nBékés-Kézdi (2021) Hotels dataset – show basics\nKoren-Pető (2021) Business disruptions from social distancing as PDF\nSome ideas on readme: Makereadme, Social Science Editors\n\nKey ingredients\n\nOverview of project\nlicense\nAll datasets (data tables) separately discussed\nAll key variables described (name, content, type, coverage (% share missing)\n\nmaybe also: source, extension (csv / xlsx/ parquet)\n\nData lineage “provenance” : source → processing → final structure\n\n\n\nWhat is a variable dictionary (also called codebook)\n\nmore details of a dataset, often as xlsx\nmetric (euro, %), meaning of values if categorical\nmaybe even mean, min, max\n\nExamples\n\nBékés-Kézdi (2021) Bisnode dataset variables\nReif (2022) illinois-wellness-data\n\nOh, but there is one we created we created in Week00\n\nOn earnings data, by Claude\n\n\n\n\n\n\n🤝 Hands-on Documentation Workshop (50 min)\n\n\n\nNo AI\n\nDownload and look at the Random Subset data\nStart collecting some info on the data without AI\nStart thinking about an interesting research question (find \\(y\\) and \\(x\\))\nIdentify 3 variables that seem important but are unclear from names alone.\n\n\n\nAI: let AI teach you also about\n\nStart asking for skeleton readme, ask about advice\nTest AI’s understanding: “Explain the difference between Q6 and Q7 in simple terms” - this reveals whether AI actually understands the codebook.\nDiscussion\n\n\n\nAI: Learning and idea generation\n\nTell AI about your plan and need for a readme\n\nexperiment with one-shot vs interaction\n\nDiscussion\n\n\n\nCyborg mode: create a readme with AI\n\nUpload the codebook + random subset data\nGet AI to design a README TEMPLATE for this task.\nGet a draft\nFocus on the “Variables” section - this is where AI excels at summarizing complex definitions while you provide oversight for accuracy.\nUnderstand and edit draft\n\n\n\nIII additional idea\n\nSometimes, complicated projects have extensive folder structure. Use A to design a folder structure",
+    "text": "Class Material\n\n\n📈 Assignment 01 (Graph reproduction) Review (10 min)\n\n\n\nFollow instructions.\nHow to get close to original, different ways\nHow was AI assistance helpful?\n\n\n\n\n\n📖 Documentation Fundamentals (20 min)\n\n\n\nAbout Markdown\n\nEditor in R, Python Quarto\nOnline Markdown editor\nAlso: Pandoc\n\n\n\nWhat is a good readme?\nSome examples for reproduction package\n\nBékés-Kézdi (2021) Hotels dataset – show basics\nKoren-Pető (2021) Business disruptions from social distancing as PDF\nSome ideas on readme: Makereadme, Social Science Editors\n\nKey ingredients\n\nOverview of project\nlicense\nAll datasets (data tables) separately discussed\nAll key variables described (name, content, type, coverage (% share missing)\n\nmaybe also: source, extension (csv / xlsx/ parquet)\n\nData lineage “provenance” : source → processing → final structure\n\n\n\nWhat is a variable dictionary (also called codebook)\n\nmore details of a dataset, often as xlsx\nmetric (euro, %), meaning of values if categorical\nmaybe even mean, min, max\n\nExamples\n\nBékés-Kézdi (2021) Bisnode dataset variables\nReif (2022) illinois-wellness-data\n\nOh, but there is one we created we created\n\nOn earnings data, by Claude\n\n\n\n\n\n\n🤝 Hands-on Documentation Workshop (50 min)\n\n\n\nNo AI\n\nDownload and look at the Random Subset data\nStart collecting some info on the data without AI\nStart thinking about an interesting research question (find \\(y\\) and \\(x\\))\nIdentify 3 variables that seem important but are unclear from names alone.\n\n\n\nAI: let AI teach you also about\n\nStart asking for skeleton readme for a general purpose data project, ask about advice\n\n\n\nAI: Learning and idea generation\n\n\nRQ refine\n\nUpload codebook (pdf) + random subset data (csv)\nTest AI’s understanding: “Explain the difference between Q6 and Q7 in simple terms” - this reveals whether AI actually understands the codebook.\nget AI help you refine the question, rethink \\(y\\) and \\(x\\)\n\n\n\nREADME\n\nGet AI to design a README for this task (the question you settle on)\nIterate with AI to improve README structure and content. Focus on clarity and user friendliness\n\n\n\nFolders\n\nExplain a simple project, and use AI to get you design a folder structure",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -2156,7 +2146,7 @@
     "href": "week02/index.html#assignment",
     "title": "Week02: Discovery and documentation",
     "section": "Assignment",
-    "text": "Assignment\n\n\n\n\n\n\nAssignment 2: Creating Documentation\n\n\n\nDue: Before Week 3\nChoose a research question using the WVS data and create professional documentation focusing on relevant variables.\nFull Assignment Details",
+    "text": "Assignment\n\n\n\n\n\n\nAssignment 2: Creating Documentation\n\n\n\nDue: Before Week 3\nFull Assignment Details",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -2180,7 +2170,7 @@
     "href": "week02/index.html#some-personal-comments-on-ai-and-this-class",
     "title": "Week02: Discovery and documentation",
     "section": "Some personal comments on AI and this class",
-    "text": "Some personal comments on AI and this class\n\nWe (Zsuzsi and me) first developed this material in August 2024. At that time, there were many hiccups in variable understanding and selection. I was gonna suggest careful human oversight. By the time of first teaching it in February 2025, AI got extremely good at reading a 400 page codebook.\nAI suggested the point “Test AI’s understanding”",
+    "text": "Some personal comments on AI and this class\n\nWith my Phd student, (Zsuzsi we first developed this material in August 2024. At that time, there were many hiccups in variable understanding and selection. I was gonna suggest careful human oversight. By the time of first teaching it in February 2025, AI got extremely good at reading a 400 page codebook. By 2026 it could work with larger material and more or larger files.",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -2344,7 +2334,7 @@
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -2356,7 +2346,7 @@
     "crumbs": [
       "Home",
       "Course Weeks",
-      "Week 3: Writing Reports"
+      "Week 3: Reports"
     ]
   },
   {
@@ -3464,5 +3454,67 @@
       "Resources",
       "Learn More"
     ]
+  },
+  {
+    "objectID": "week01/index.html#read-more",
+    "href": "week01/index.html#read-more",
+    "title": "Week 01: LLM Review",
+    "section": "Read more",
+    "text": "Read more\n\nEthan Mollick update on Jagged Frontier",
+    "crumbs": [
+      "Home",
+      "Course Weeks",
+      "Week 1: LLM Review"
+    ]
+  },
+  {
+    "objectID": "week02/index.html#starting-presentation-about-prompting-and-context-window-management",
+    "href": "week02/index.html#starting-presentation-about-prompting-and-context-window-management",
+    "title": "Week02: Discovery and documentation",
+    "section": "Starting presentation about prompting and context window management",
+    "text": "Starting presentation about prompting and context window management\nslideshow",
+    "crumbs": [
+      "Home",
+      "Course Weeks",
+      "Week 2: Documentation"
+    ]
+  },
+  {
+    "objectID": "week02/index.html#assignment-01-graph-reproduction-review",
+    "href": "week02/index.html#assignment-01-graph-reproduction-review",
+    "title": "Week02: Discovery and documentation",
+    "section": "Assignment 01 (Graph reproduction) Review",
+    "text": "Assignment 01 (Graph reproduction) Review\n\nFollow instructions.\nHow to get close to original, different ways\nHow was AI assistance helpful?",
+    "crumbs": [
+      "Home",
+      "Course Weeks",
+      "Week 2: Documentation"
+    ]
+  },
+  {
+    "objectID": "week02/index.html#preparation",
+    "href": "week02/index.html#preparation",
+    "title": "Week02: Discovery and documentation",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n📚 Required Reading\n\n\nmain\n\nData documentation basics: Data Documentation 101 – please check it out for assignment!!!!\n\nBackground reading: \n\nBékés-Kézdi (2021) Chapters 1-3, in particular core background info. Focus on Chapter 2 sections on data structure and variable types - this becomes crucial when documenting data.\nSome discussion of data types Data Management in Large-Scale Education Research by Crystal Lewis\n\n\n\n\n\n📊 Data Setup\n\n\nAccess the VWS dataset\n\nDownload data: WVS_random_subset.csv - random subset (N=2000) - covering all countries\nDownload its official codebook documentation\n\nThe full dataset is at OSF, Gabors Data Analysis / World Values Survey\n\n\n::: :::::\n\n\n🤝 Hands-on Documentation Workshop (50 min)\n\n\n\nNo AI\n\nDownload and look at data and codebook\nStart collecting some info on the data without AI\nStart thinking about an interesting research question (find \\(y\\) and \\(x\\))\nWhat would be next step without AI\n\n\n\nUnderstanding wih AI\n\nUpload codebook (pdf) + random subset data (csv)\nUse AI to learn about data and variables\nTest AI’s understanding: “Explain the difference between Q6 and Q7 in simple terms” - this reveals whether AI actually understands the codebook.\nget AI help you refine the question, rethink \\(y\\) and \\(x\\)\n\n\n\nAI: let AI teach you also about data\n\nStart asking for help with documentation.\nCheck how AI understands nuances of encoding\ncheck consistency across variable descriptions\n\nAlways verify technical details, because AI makes some mistakes.",
+    "crumbs": [
+      "Home",
+      "Course Weeks",
+      "Week 2: Documentation"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html",
+    "href": "da-knowledge/documentation-readme.html",
+    "title": "Documentation Fundamentals",
+    "section": "",
+    "text": "title: “Documentation Fundamentals” subtitle: “Markdown, readme and more” date: “2026-01-17” —"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#documentation-fundamentals",
+    "href": "da-knowledge/documentation-readme.html#documentation-fundamentals",
+    "title": "Documentation Fundamentals",
+    "section": "Documentation Fundamentals",
+    "text": "Documentation Fundamentals\n\nAbout Markdown\n\nEditor in R, Python Quarto\nOnline Markdown editor\nAlso: Pandoc\n\n\n\nWhat is a good readme?\nSome examples for reproduction package\n\nBékés-Kézdi (2021) Hotels dataset – show basics\nKoren-Pető (2021) Business disruptions from social distancing as PDF\nSome ideas on readme: Makereadme, Social Science Editors\n\nKey ingredients\n\nOverview of project\nlicense\nAll datasets (data tables) separately discussed\nAll key variables described (name, content, type, coverage (% share missing)\n\nmaybe also: source, extension (csv / xlsx/ parquet)\n\nData lineage “provenance” : source → processing → final structure\n\n\n\nWhat is a variable dictionary (also called codebook)\n\nmore details of a dataset, often as xlsx\nmetric (euro, %), meaning of values if categorical\nmaybe even mean, min, max\n\nExamples\n\nBékés-Kézdi (2021) Bisnode dataset variables\nReif (2022) illinois-wellness-data\n\nOh, but there is one we created we created\n\nOn earnings data, by Claude"
   }
 ]

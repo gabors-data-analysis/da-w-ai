@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2026-01-17">
 
 <title>Assignment 03 – Creating a data analysis report – Doing Data Analysis with AI</title>
 <style>
@@ -325,7 +326,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link active" data-scroll-target="#tasks">Tasks</a></li>
+  <li><a href="#core-tasks" id="toc-core-tasks" class="nav-link active" data-scroll-target="#core-tasks">Core tasks</a></li>
+  <li><a href="#revision" id="toc-revision" class="nav-link" data-scroll-target="#revision">Revision</a></li>
   <li><a href="#to-submit" id="toc-to-submit" class="nav-link" data-scroll-target="#to-submit">To submit</a></li>
   <li><a href="#ai-use-restrictions" id="toc-ai-use-restrictions" class="nav-link" data-scroll-target="#ai-use-restrictions">AI use restrictions</a></li>
   </ul>
@@ -344,6 +346,12 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 17, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -355,8 +363,8 @@ window.Quarto = {
 
 <p>This is a <strong>group</strong> assignment. Continue with the research question you had chosen in class.</p>
 <p>Use AI iteratively to <em>help</em> you create a report.</p>
-<section id="tasks" class="level3">
-<h3 class="anchored" data-anchor-id="tasks">Tasks</h3>
+<section id="core-tasks" class="level3">
+<h3 class="anchored" data-anchor-id="core-tasks">Core tasks</h3>
 <ul>
 <li>Think in terms of two variables (<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>).
 <ul>
@@ -369,6 +377,13 @@ window.Quarto = {
 <li>Create a Conclusion paragraph where you summarize your work and results in 80-100 words.</li>
 <li>create another graph to show heterogeneity of country size groups using population (Graph 2)</li>
 <li>Run a regression and interpret the coefficient. Make sure they are precise.</li>
+<li>Use AI to get a well cratfted folder structure</li>
+</ul>
+</section>
+<section id="revision" class="level3">
+<h3 class="anchored" data-anchor-id="revision">Revision</h3>
+<ul>
+<li>Once you have a draft, Upload some <a href="https://gabors-data-analysis.com/chapters/">data analysis slides</a>. and ask to follow it and revise report.</li>
 </ul>
 </section>
 <section id="to-submit" class="level3">
@@ -376,7 +391,7 @@ window.Quarto = {
 <ol type="1">
 <li>report of maximum 1-1.5 page in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)</li>
 <li>your code (or aprovide a link). (4p)</li>
-<li>Text: What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week03_advice.txt) (4p) – List 2–3 pieces of advice based on your own experience using AI for this specific task.</li>
+<li>Text: What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week03_advice.txt) (4p) – List 2–3 pieces of advice based on your own experience using AI for this specific task. Discuss also the role of adding material.</li>
 </ol>
 <ul>
 <li>Upload your report to the <code>student folder called Reports</code> at moodle or similar service if applicable. This is for the next class — each group will read another groups report and discuss the good and bad aspects of the report.</li>
@@ -847,36 +862,42 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Assignment 03 -- Creating a data analysis report"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>This is a **group** assignment.  Continue with the research question you had chosen in class. </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Use AI iteratively to *help* you create a report. </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tasks</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Think in terms of two variables ($x$ and $y$). </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pick a single variable or a combined index of variables</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pick a GDP variable</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Think about a causal link. </span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Create one carefully designed graph to illustrate the relationship (Graph 1)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>At each step, explain your choices/decisions (ie why you chose a certain variable)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Create a Conclusion paragraph where you summarize your work and results in 80-100 words.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>create another graph to show heterogeneity of country size groups using population (Graph 2)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Run a regression and interpret the coefficient. Make sure they are precise. </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### To submit</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2026-01-17"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>This is a **group** assignment.  Continue with the research question you had chosen in class. </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Use AI iteratively to *help* you create a report. </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">### Core tasks</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Think in terms of two variables ($x$ and $y$). </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pick a single variable or a combined index of variables</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Pick a GDP variable</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    * </span>Think about a causal link. </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Create one carefully designed graph to illustrate the relationship (Graph 1)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>At each step, explain your choices/decisions (ie why you chose a certain variable)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Create a Conclusion paragraph where you summarize your work and results in 80-100 words.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>create another graph to show heterogeneity of country size groups using population (Graph 2)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Run a regression and interpret the coefficient. Make sure they are precise. </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Use AI to get a well cratfted folder structure</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>report of maximum 1-1.5 page in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>your code (or aprovide a link). (4p)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Text: What advice would you give to a fellow data analysis student on using AI to create a report? (lastname_firstname_dawai_week03_advice.txt) (4p) -- List 2–3 pieces of advice based on your own experience using AI for this specific task.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Upload your report to the <span class="in">`student folder called Reports`</span> at moodle or similar service if applicable. This is for the next class --- each group will read another groups report and discuss the good and bad aspects of the report.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">### Revision</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Once you have a draft, Upload some <span class="co">[</span><span class="ot">data analysis slides</span><span class="co">](https://gabors-data-analysis.com/chapters/)</span>.  and ask to follow it and revise report. </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### To submit</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### AI use restrictions</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>For the report, use AI as your assistant, use it as *input* not as *output*. Don't submit an AI-generated report as such, always author, review, edit. </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>report of maximum 1-1.5 page in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>your code (or aprovide a link). (4p)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Text: What advice would you give to a fellow data analysis student on using AI to create a report?  (lastname_firstname_dawai_week03_advice.txt) (4p) -- List 2–3 pieces of advice based on your own experience using AI for this specific task. Discuss also the role of adding material. </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Upload your report to the <span class="in">`student folder called Reports`</span> at moodle or similar service if applicable. This is for the next class --- each group will read another groups report and discuss the good and bad aspects of the report.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### AI use restrictions</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>For the report, use AI as your assistant, use it as *input* not as *output*. Don't submit an AI-generated report as such, always author, review, edit. </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
