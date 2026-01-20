@@ -1,0 +1,51 @@
+---
+---
+title: "Documentation Fundamentals"
+subtitle: "Markdown, readme and more"
+date: "2026-01-17"
+---
+
+
+
+## Documentation Fundamentals
+
+
+### About Markdown
+
+-   Editor in R, Python [Quarto](https://quarto.org/)
+-   Online [Markdown editor](https://jbt.github.io/markdown-editor/)
+-   Also: [Pandoc](https://pandoc.org/)
+
+### What is a good readme?
+
+**Some examples for reproduction package**
+
+-   Békés-Kézdi (2021) [Hotels dataset](https://gabors-data-analysis.com/datasets/hotels-europe/) -- show basics
+
+-   Koren-Pető (2021) [Business disruptions from social distancing](https://zenodo.org/records/4016325/preview/README.md?include_deleted=0) as [PDF](https://zenodo.org/records/4016325/files/README.pdf?download=1)
+
+-   Some ideas on readme: [Makereadme](https://www.makeareadme.com/), [Social Science Editors](https://social-science-data-editors.github.io/template_README/)
+
+**Key ingredients**
+
+-   Overview of project
+-   license
+-   All datasets (data tables) separately discussed
+-   All key variables described (name, content, type, coverage (% share missing)
+    -   maybe also: source, extension (csv / xlsx/ parquet)
+-   Data lineage "provenance" : source → processing → final structure
+
+### What is a variable dictionary (also called codebook)
+
+-   more details of a dataset, often as xlsx
+-   metric (euro, %), meaning of values if categorical
+-   maybe even mean, min, max
+
+**Examples**
+
+-   Békés-Kézdi (2021) [Bisnode dataset variables](https://osf.io/9a3t4)
+-   Reif (2022) [illinois-wellness-data](https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt)
+
+**Oh, but there is one we created we created**
+
+-   [On earnings data, by Claude](/week00/assets/variable-dictionary-claude4.html)

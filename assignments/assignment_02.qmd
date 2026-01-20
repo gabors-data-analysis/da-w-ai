@@ -1,22 +1,27 @@
 ---
-title: "Assignment 2: Creating a readme doc"
+title: "Assignment 2: Data exploration and documentation"
+date: "2026-01-17"
 ---
 
 ### Task
 
-In this assignment, you will create a readme document by asking for AI assistance. This is an **individual** assignment. 
+In this assignment, you will continue exploring the data, and create a readme document. This is an **individual** assignment. 
 
-* First, consider the VWS Survey we used in class: [Codebook](/data/VWS/codebook.pdf), [sample data](/data/WVS_random_subset500.csv) Link it to your AI. (Can move to google drive. )
+* Review good practices for readme and data documentation
+* First, consider the VWS Survey we used in class: [Codebook](/data/VWS/codebook.pdf), [sample data](/data/WVS_random_subset2000.csv) Link it to your AI. (Can move to google drive. )
 * Second, choose a research question using the VWS data. It can be broad or specific. Ask AI for ideas.
 * What variables would you use to investigate the research question? Pick the most relevant ones (min 8, max 25)
-* Considering these variables **only** create a single README.md (in markdown). In the readme, include:
+* Review survey timing and discuss consequences
+* Considering these variables **only** create a single README.md (in markdown). 
 
-### Tasks
+
+**The readme**
+
+In the readme, include:
 
 * key info on the dataset itself (you need to figure out what this key info is based on the lecture and examples)
 * key variables description
 * table with descriptive statistics for the 5 most important selected variables
-* describe the folder structure you would use to work with this data
 
 
 ### To submit

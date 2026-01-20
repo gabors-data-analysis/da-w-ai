@@ -61,10 +61,6 @@ The class will exlopre how we can use AI to assist in these tasks, and get the d
 * Common AI errors in data documentation?
 * Verify, verify, verify (AI is good but rarely perfect)
 
-### Starting presentation about prompting
-
-[slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting)
-
 ### How does a good report look like?
 
   *	How to write a good short report: structure

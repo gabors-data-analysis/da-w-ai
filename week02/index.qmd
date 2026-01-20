@@ -1,175 +1,133 @@
 ---
 title: "Week02: Discovery and documentation"
 subtitle: "Data discovery and data and code documentation with AI"
-date: "2025-03-20"
+date: "2026-01-17"
 ---
 
-::: {.hero-section}
-::: {.container}
-::: {.hero-title}
+:::::: hero-section
+::::: container
+::: hero-title
 Week02: Discovery and documentation
 :::
-::: {.hero-subtitle}
-Data discovery and data and code documentation with AI
-:::
-:::
-:::
----
 
+::: hero-subtitle
+Starting from scratch: Data discovery and documentation with AI
+:::
+:::::
+::::::
+
+------------------------------------------------------------------------
 
 ![](../images/week2_pic.png)
 
-
-# Objectives 
+# Objectives
 
 ## Summary
 
-Sometimes data is large and discovery is hard. Sometimes you need to write data documentation. LLMs can help. You will learn how to write a clear and professional README. We use a cleaned subset of the 7th Wave of the World Values Survey (WVS). We'll also talk some tech on documentation. We'll use AI as a research assistantto bravely face a codebook with hundreds of variables.
+Sometimes data is messy and discovery is hard. Sometimes you need to write data documentation from scratch without deep knowledge of data. LLMs can help. You will learn how to write a clear and professional README. We use the 7th Wave of the World Values Survey (WVS) and rely on AI as a research assistant to bravely face a codebook with hundreds of variables.
 
 ## Learning Objectives:
 
-* Understand how to document a new dataset using as an example th WVS 7th wave data.
-* Create a README that describes data.
-* Learn to refine documentation by incorporating iterative feedback from peers and AI tools.
-*  Develop skills in using AI to translate complex materials into accessible documentation
+-   Learn using AI with the context window effectively to understand complex data structure and do search.
+-   Understand how to document a new dataset using as an example th WVS 7th wave data.
+-   Create a README that describes data.
+-   Learn to refine documentation by incorporating iterative feedback from peers and AI tools.
+-   Develop skills in using AI to translate complex materials into accessible documentation
 
-## Preparation / Before Class
+## Starting presentation about prompting and context window management
 
-::: {.week-card .card}
-::: {.card-header}
+[slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html)
+
+
+## Assignment 01 (Graph reproduction) Review
+
+-   Follow instructions.
+-   How to get close to original, different ways
+-   How was AI assistance helpful?
+
+
+## Preparation 
+
+::::: {.week-card .card}
+::: card-header
 📚 **Required Reading**
 :::
-::: {.card-body}
-* Background reading: Békés-Kézdi (2021) Chapters 1-3, in particular [core background info](/week02/assets/da-background.html). Focus on Chapter 2 sections on data structure and variable types - this becomes crucial when documenting  data.
-* Some discussion of data types [Data Management in Large-Scale Education Research](https://datamgmtinedresearch.com/structure) by Crystal Lewis
-:::
-:::
 
-::: {.week-card .card}
-::: {.card-header}
+::: card-body
+
+**main**
+
+-   Data documentation basics: [Data Documentation 101](/da-knowledge/documentation-readme.html) -- please check it out for assignment!!!!
+
+**Background reading: **
+
+-   Békés-Kézdi (2021) Chapters 1-3, in particular [core background info](/week02/assets/da-background.html). Focus on Chapter 2 sections on data structure and variable types - this becomes crucial when documenting data.
+-   Some discussion of data types [Data Management in Large-Scale Education Research](https://datamgmtinedresearch.com/structure) by Crystal Lewis
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
 📊 **Data Setup**
 :::
-::: {.card-body}
+
+::: card-body
 Access the [VWS dataset](/data/VWS)
 
-1. Data: [WVS_random_subset.csv](/data/VWS/WVS_random_subset2000.csv) - random subset (N=2000) - covering all countries
-2. Download its official [codebook documentation](/data/VWS/codebook.pdf) 
-3. Take 10 minutes to browse the data structure before class - note what confuses you about variable names and definitions.
+1.  Download data: [WVS_random_subset.csv](/data/VWS/WVS_random_subset2000.csv) - random subset (N=2000) - covering all countries
+2.  Download its official [codebook documentation](/data/VWS/codebook.pdf)
 
-If you prefer datasets are also at [OSF, Gabors Data Analysis / World Values Survey](https://osf.io/mfd6s/)
+The full dataset is at [OSF, Gabors Data Analysis / World Values Survey](https://osf.io/mfd6s/)
 :::
-:::
-
-## Class Material
-
-::: {.week-card .card}
-::: {.card-header}
-📈 **Assignment Review (10 min)**
-:::
-::: {.card-body}
-* Follow instructions.
-* How to get close to original, different ways
-* Why do an app? What to expect from an app
-  * streamlit
-  * shinyapps 
-* How was AI assistance helpful?
+:::::
 
 :::
-:::
-
-::: {.week-card .card}
-::: {.card-header}
-📖 **Documentation Fundamentals (20 min)**
-:::
-::: {.card-body}
-### About Markdown
-
-* Editor in R, Python [Quarto](https://quarto.org/)
-* Online [Markdown editor](https://jbt.github.io/markdown-editor/)
-* Also: [Pandoc](https://pandoc.org/) 
-
-### What is a good readme?
-
-**Some examples for reproduction package**
-
-* Békés-Kézdi (2021) [Hotels dataset](https://gabors-data-analysis.com/datasets/hotels-europe/) -- show basics
-* Koren-Pető (2021) [Business disruptions from social distancing](https://zenodo.org/records/4016325/preview/README.md?include_deleted=0) as [PDF](https://zenodo.org/records/4016325/files/README.pdf?download=1)
-
-* Some ideas on readme:  [Makereadme](https://www.makeareadme.com/), [Social Science Editors](https://social-science-data-editors.github.io/template_README/)
-
-**Key ingredients**
-
-* Overview of project
-* license 
-* All datasets (data tables) separately discussed
-* All key variables described (name, content, type, coverage (% share missing)
-  * maybe also: source, extension (csv / xlsx/ parquet)
-* Data lineage "provenance" : source → processing → final structure
-
-### What is a variable dictionary (also called codebook)
-
-* more details of a dataset, often as xlsx
-* metric (euro, %), meaning of values if categorical
-* maybe even mean, min, max
-
-**Examples**
-
-* Békés-Kézdi (2021) [Bisnode dataset variables](https://osf.io/9a3t4)
-* Reif (2022) [illinois-wellness-data](https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt)
+:::::
 
 
-**Oh, but there is one we created we created in Week00**
 
-* [On earnings data, by Claude](/week00/assets/variable-dictionary-claude4.html)
-
-:::
-:::
-
-::: {.week-card .card}
-::: {.card-header}
+::::: {.week-card .card}
+::: card-header
 🤝 **Hands-on Documentation Workshop (50 min)**
 :::
-::: {.card-body}
+
+::: card-body
 ### No AI
 
-* Download and look at the Random Subset data
-* Start collecting some info on the data without AI
-* Start thinking about an interesting research question (find $y$ and $x$)
-* Identify 3 variables that seem important but are unclear from names alone.
+-   Download and look at data and codebook
+-   Start collecting some info on the data without AI
+-   Start thinking about an interesting research question (find $y$ and $x$)
+-   What would be next step without AI
 
-### AI: let AI teach you also about
+### Understanding wih AI
 
-* Start asking for skeleton readme, ask about advice 
-* Test AI's understanding: "Explain the difference between Q6 and Q7 in simple terms" - this reveals whether AI actually understands the codebook.
-* Discussion
+-   Upload codebook (pdf) + random subset data (csv)
+-   Use AI to learn about data and variables
+-   Test AI's understanding: "Explain the difference between Q6 and Q7 in simple terms" - this reveals whether AI actually understands the codebook.
+-   get AI help you refine the question, rethink $y$ and $x$
 
-### AI: Learning and idea generation
+### AI: let AI teach you also about data
 
-* Tell AI about your plan and need for a readme
-  * experiment with one-shot vs interaction
-* Discussion
+-   Start asking for help with documentation. 
+-   Check how AI understands nuances of encoding
+-   check consistency across variable descriptions
 
-### Cyborg mode: create a readme with AI
+Always verify technical details, because AI makes *some* mistakes.
 
-* Upload the codebook + random subset data
-* Get AI to design a README TEMPLATE for this task. 
-* Get a draft
-* Focus on the "Variables" section - this is where **AI** excels at summarizing complex definitions while **you** provide oversight for accuracy.
-* Understand and edit draft
 
-### III additional idea
 
-* Sometimes, complicated projects have extensive folder structure. Use A to design a folder structure
 :::
-:::
+:::::
 
 ## End of Week Discussion points
 
 **End of Week Reflection:**
 
-* What was the biggest contribution of AI?
-* First result vs after iterations -- what did improve? 
-* How do you feel about learning from AI vs human instructor? Pros and cons?
+-   Is there any benefit of looking at it without AI?
+-   What was the biggest contribution of AI?
+-   First result vs after iterations -- what did improve?
+-   How do you feel about learning from AI vs human instructor? Pros and cons?
 
 ## Assignment
 
@@ -178,28 +136,10 @@ If you prefer datasets are also at [OSF, Gabors Data Analysis / World Values Sur
 
 **Due:** Before Week 3
 
-Choose a research question using the WVS data and create professional documentation focusing on relevant variables.
 
 [Full Assignment Details](../assignments/assignment_02.html){.assignment-badge}
 :::
 
-## Background, Tools and Resources
-
-**WVS Data Specifics:**
-
-* Check how AI understands nuances of encoding
-* Review survey timing and discuss consequences
-
-**AI-Assisted Documentation Workflow, use AI to:**
-
-* convert dense codebook language into accessible descriptions.
-* suggest folder structures for complex projects.
-* check consistency across variable descriptions
-
-Always verify technical details, because AI makes *some* mistakes. 
-
-
 ## Some personal comments on AI and this class
 
-* We ([Zsuzsi](https://bsky.app/profile/zsuzsannavadle.bsky.social) and me) first developed this material in August 2024. At that time, there were many hiccups in variable understanding and selection. I was gonna suggest careful human oversight. By the time of first teaching it in February 2025, AI got extremely good at reading a 400 page codebook. 
-* AI suggested the point "Test AI's understanding"
+-   With my Phd student, ([Zsuzsi](https://bsky.app/profile/zsuzsannavadle.bsky.social) we first developed this material in August 2024. At that time, there were many hiccups in variable understanding and selection. I was gonna suggest careful human oversight. By the time of first teaching it in February 2025, AI got extremely good at reading a 400 page codebook. By 2026 it could work with larger material and more or larger files. 
