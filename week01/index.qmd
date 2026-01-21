@@ -120,8 +120,9 @@ Get me an income dataset by planning regions (county) in Connecticut for 2023. P
 
 ## Background, Tools and Resources
 
-[AI Model Selection Guide](assets/which-ai.html)
+[AI Model Selection Guide](da-knowledge/which-ai.html)
 
+[Glossary of key terms](da-knowledge/technical-terms-page.html)
 
 ### Academic Integrity and AI use
 

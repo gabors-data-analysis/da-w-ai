@@ -2,7 +2,7 @@
 title: "Doing Data Analysis with AI"
 subtitle: "A short(ish) course"
 author: "[Gábor Békés](https://sites.google.com/site/bekesg/), Central European University (Austria, EU)"
-date: "2026-01-13"
+date: "2026-01-20"
 ---
 
 ![Gabor's Data Analysis with AI](images/gabors-data-analysis-with-ai.png)
@@ -216,7 +216,7 @@ I'm adding material to [learn-more](/learn-more) folder. You can start with the 
 
 ## You can use it to teach and learn freely
 
-**Attribution**: Békés, Gábor: "Doing Data Analysis with AI: a short course", available at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/), v1.0. 2025-06-04. 
+**Attribution**: Békés, Gábor: "Doing Data Analysis with AI: a short course", available at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/), v2.0. 2026-01-20. 
 
 You can fork it from the Github Repo.  [github.com/gabors-data-analysis/da-w-ai/](https://github.com/gabors-data-analysis/da-w-ai/)
 

@@ -1,51 +1,147 @@
 ---
----
 title: "Documentation Fundamentals"
-subtitle: "Markdown, readme and more"
+subtitle: "Markdown, README, and Codebooks"
 date: "2026-01-17"
 ---
 
+## Why Documentation Matters
+
+Good documentation essential for reproducible research. Without it, even you won't understand your own work six months later. Documentation serves three audiences: your future self, your collaborators, and the broader research community.
 
 
-## Documentation Fundamentals
+## Key Definitions
+
+Before diving in, let's clarify terms that are often used interchangeably but mean different things:
+
+| Term | What it is | Typical format |
+|------|------------|----------------|
+| **README** | Project overview and setup instructions | .md, .txt, .pdf |
+| **Codebook** | Detailed variable-level documentation | .pdf, .xlsx |
+| **Data dictionary** | Technical specification of variables (often synonymous with codebook) | .xlsx, .csv, .txt |
+| **Data lineage** | The path data takes from source to final form | Diagram or narrative |
+| **Metadata** | Data about data (when collected, by whom, how) | Various |
 
 
-### About Markdown
+## About Markdown
 
--   Editor in R, Python [Quarto](https://quarto.org/)
--   Online [Markdown editor](https://jbt.github.io/markdown-editor/)
--   Also: [Pandoc](https://pandoc.org/)
+Markdown is a lightweight markup language that's become the standard for documentation in data science. It's readable as plain text but renders nicely in browsers and editors.
 
-### What is a good readme?
+**Tools for working with Markdown**
 
-**Some examples for reproduction package**
+-   [Quarto](https://quarto.org/) — the successor to R Markdown, works with R, Python, Julia
+-   Online [Markdown editor](https://jbt.github.io/markdown-editor/) — for quick testing
+-   [Pandoc](https://pandoc.org/) — converts between formats (md → docx, pdf, html)
+-   [Dillinger](https://dillinger.io/) — another online editor with live preview
 
--   Békés-Kézdi (2021) [Hotels dataset](https://gabors-data-analysis.com/datasets/hotels-europe/) -- show basics
+**Quick Markdown reference**
 
--   Koren-Pető (2021) [Business disruptions from social distancing](https://zenodo.org/records/4016325/preview/README.md?include_deleted=0) as [PDF](https://zenodo.org/records/4016325/files/README.pdf?download=1)
+```markdown
+# Heading 1
+## Heading 2
+**bold** and *italic*
+- bullet point
+1. numbered list
+[link text](url)
+`inline code`
+```
 
--   Some ideas on readme: [Makereadme](https://www.makeareadme.com/), [Social Science Editors](https://social-science-data-editors.github.io/template_README/)
 
-**Key ingredients**
+## What is a Good README?
 
--   Overview of project
--   license
--   All datasets (data tables) separately discussed
--   All key variables described (name, content, type, coverage (% share missing)
-    -   maybe also: source, extension (csv / xlsx/ parquet)
--   Data lineage "provenance" : source → processing → final structure
+A README is the front door to your project. Someone should be able to understand what your project does, how to use it, and where to find things—all from reading the README.
 
-### What is a variable dictionary (also called codebook)
+### Key Ingredients
 
--   more details of a dataset, often as xlsx
--   metric (euro, %), meaning of values if categorical
--   maybe even mean, min, max
+A complete README for a research project should include:
 
-**Examples**
+1. **Overview** — What is this project? What question does it answer?
+2. **Data sources** — Where does the data come from? Any access restrictions?
+3. **File structure** — What's in each folder? Which scripts run in what order?
+4. **Requirements** — Software, packages, and versions needed
+5. **Instructions** — How to run the analysis from start to finish
+6. **License** — Terms for reuse (MIT, CC-BY, etc.)
+7. **Contact** — Who to ask questions
 
--   Békés-Kézdi (2021) [Bisnode dataset variables](https://osf.io/9a3t4)
--   Reif (2022) [illinois-wellness-data](https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt)
+### Data Description Checklist
 
-**Oh, but there is one we created we created**
+For each dataset in your project, document:
 
--   [On earnings data, by Claude](/week00/assets/variable-dictionary-claude4.html)
+-   Name and file format (csv, parquet, xlsx)
+-   Number of observations and variables
+-   Unit of observation (person, firm-year, country-month)
+-   Time coverage and geographic scope
+-   Key variables with brief descriptions
+-   Missing data: how much and why
+-   Data lineage: source → processing → final structure
+
+### Examples of Good READMEs
+
+**Reproduction packages**
+
+-   Békés-Kézdi (2021) [Hotels dataset](https://gabors-data-analysis.com/datasets/hotels-europe/) — clean, minimal, effective
+-   Koren-Pető (2021) [Business disruptions from social distancing](https://zenodo.org/records/4016325/preview/README.md?include_deleted=0) | [PDF version](https://zenodo.org/records/4016325/files/README.pdf?download=1) — comprehensive research package
+
+**Templates and guides**
+
+-   [Make a README](https://www.makeareadme.com/) — interactive guide with examples
+-   [Social Science Data Editors Template](https://social-science-data-editors.github.io/template_README/) — journal-standard template
+-   [AEA Data Editor guidance](https://aeadataeditor.github.io/aea-de-guidance/) — requirements for top economics journals
+
+
+## What is a Codebook (Variable Dictionary)?
+
+A codebook provides detailed, variable-level documentation. While the README gives the big picture, the codebook tells you exactly what `Q47_recoded` means.
+
+### What to Include for Each Variable
+
+| Element | Example |
+|---------|---------|
+| Variable name | `income_hh` |
+| Label | Household monthly income |
+| Type | Numeric (continuous) |
+| Unit/metric | EUR, monthly |
+| Valid range | 0–999999 |
+| Coding for categories | 1=Low, 2=Medium, 3=High |
+| Missing values | -99 = refused, NA = not asked |
+| Share missing | 4.2% |
+| Notes | Top-coded at 99th percentile |
+
+### Examples of Good Codebooks
+
+-   Békés-Kézdi (2021) [Bisnode dataset variables](https://osf.io/9a3t4) — clean spreadsheet format
+-   Reif (2022) [Illinois Wellness codebook](https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt) — plain text, version controlled
+-   [On earnings data](/week00/assets/variable-dictionary-claude4.html) -- used in this course
+
+
+## Tips for AI-Assisted Documentation
+
+LLMs can significantly speed up documentation, but require careful verification.
+
+**What AI does well**
+
+-   Summarizing long codebooks
+-   Generating first drafts of variable descriptions
+-   Suggesting what's missing from your documentation
+-   Converting between formats (e.g., codebook PDF → markdown table)
+
+**What requires human oversight**
+
+-   Verifying variable definitions match actual data
+-   Checking that coded values (1, 2, 3...) match the stated meaning
+-   Ensuring coverage statistics are accurate
+-   Confirming data lineage is correct
+
+**A practical workflow**
+
+1. Start by having a first look to get a feel. Look at documensts, check the index. Open data. 
+2. Upload your codebook/data to the LLM
+3. Ask for a structured summary
+4. Verify 3-5 variables manually against the source
+5. Iterate: ask AI to fix errors you find
+6. Final human review before publishing
+
+
+## Further Reading
+
+-   Crystal Lewis, [Data Management in Large-Scale Education Research](https://datamgmtinedresearch.com/structure) — practical guide to data structure
+-   [TIER Protocol](https://www.projecttier.org/) — comprehensive reproducibility framework

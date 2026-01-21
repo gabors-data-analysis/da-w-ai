@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/index.html</loc>
-    <lastmod>2026-01-12T14:50:45.751Z</lastmod>
+    <lastmod>2026-01-20T15:39:03.243Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/weeks.html</loc>
@@ -118,15 +118,15 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/learn-more/beyond.html</loc>
-    <lastmod>2026-01-10T08:31:49.304Z</lastmod>
+    <lastmod>2026-01-20T13:46:02.168Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/resources.html</loc>
-    <lastmod>2025-05-26T07:04:36.835Z</lastmod>
+    <lastmod>2026-01-20T15:06:10.268Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week01/index.html</loc>
-    <lastmod>2026-01-13T14:44:07.405Z</lastmod>
+    <lastmod>2026-01-20T15:15:29.032Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week02/assets/da-background.html</loc>
@@ -262,6 +262,22 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/documentation-readme.html</loc>
+    <lastmod>2026-01-20T13:42:46.636Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/documentation-readme-old.html</loc>
     <lastmod>2026-01-19T15:45:08.680Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/technical-terms.html</loc>
+    <lastmod>2026-01-20T14:36:35.324Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/technical-terms-page.html</loc>
+    <lastmod>2026-01-20T14:51:57.944Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/which-ai.html</loc>
+    <lastmod>2026-01-12T13:37:28.118Z</lastmod>
   </url>
 </urlset>

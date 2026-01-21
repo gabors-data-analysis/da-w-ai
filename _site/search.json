@@ -81,7 +81,7 @@
     "href": "index.html#you-can-use-it-to-teach-and-learn-freely",
     "title": "Doing Data Analysis with AI",
     "section": "You can use it to teach and learn freely",
-    "text": "You can use it to teach and learn freely\nAttribution: Békés, Gábor: “Doing Data Analysis with AI: a short course”, available at gabors-data-analysis.com/ai-course/, v1.0. 2025-06-04.\nYou can fork it from the Github Repo. github.com/gabors-data-analysis/da-w-ai/\nLicense: CC BY-NC-SA 4.0 – share, attribute, non-commercial (contact me for corporate gigs)\nTextbook Please check out the textbook behind all this, buy it if you can. If interested teaching contact the Cambridge UP or me."
+    "text": "You can use it to teach and learn freely\nAttribution: Békés, Gábor: “Doing Data Analysis with AI: a short course”, available at gabors-data-analysis.com/ai-course/, v2.0. 2026-01-20.\nYou can fork it from the Github Repo. github.com/gabors-data-analysis/da-w-ai/\nLicense: CC BY-NC-SA 4.0 – share, attribute, non-commercial (contact me for corporate gigs)\nTextbook Please check out the textbook behind all this, buy it if you can. If interested teaching contact the Cambridge UP or me."
   },
   {
     "objectID": "index.html#thanks",
@@ -1283,7 +1283,7 @@
     "href": "learn-more/beyond.html#basics",
     "title": "Beyond: suggested readings and resources to learn more",
     "section": "Basics",
-    "text": "Basics\n\nCore readings\n\nEthan Mollick “Co-Intelligence: Living and Working with AI” Penguin Random House 2024\nAnton Korinek “Generative AI for Economic Research: Use Cases and Implications for Economists,” Journal of Economic Literature 61(4) December 2024 Update 1–74\n\n\n\nImportant reviews\n\nReview of LLMs by Simon Willison\nMachines of Loving Grace Dario Amodei\n\n\n\nPrompting\n\nAI Frontiers in Plain English: Prompt Engineering guide from Google with LM Notebook Part 1. LLM output configurations + others\n\n\n\nUnderstanding LLMs\n\nGlossary of LLM terms Glossary of LLM Terms\nFinancial Times: How AI Large Language Models Work\nThe Economist: How Large Language Models Work\nThinking like AI\nWhat’s an LLM context window and why is it getting larger? IBM research on context window\n\n\n\nAI and business / management\n\nStrategy in business Build a winning AI strategy, HBR 2023\nInterview with Rafella Sadun on Reskilling workforce with AI from MIT Sloan Review",
+    "text": "Basics\n\nCore readings\n\nEthan Mollick “Co-Intelligence: Living and Working with AI” Penguin Random House 2024\nAnton Korinek “Generative AI for Economic Research: Use Cases and Implications for Economists,” Journal of Economic Literature 61(4) December 2024 Update 1–74\n\n\n\nImportant reviews\n\nReview of LLMs by Simon Willison\nMachines of Loving Grace Dario Amodei\n\n\n\nPrompting and context management\n\nAI Frontiers in Plain English: Prompt Engineering guide from Google with LM Notebook Part 1. LLM output configurations + others\n\n\n\nUnderstanding LLMs\n\nGlossary of LLM terms Glossary of LLM Terms\nFinancial Times: How AI Large Language Models Work\nThe Economist: How Large Language Models Work\nThinking like AI\nWhat’s an LLM context window and why is it getting larger? IBM research on context window\n\n\n\nAI and business / management\n\nStrategy in business Build a winning AI strategy, HBR 2023\nInterview with Rafella Sadun on Reskilling workforce with AI from MIT Sloan Review",
     "crumbs": [
       "Home",
       "Resources",
@@ -1319,7 +1319,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "I’m adding material to learn-more folder. You can start with the beyond page."
+    "text": "Glossary of technical terms used in various presentations or in class\nLLM Glossary\nWhich AI – the 2026 January comparsion"
   },
   {
     "objectID": "resources.html#learn-more",
@@ -1959,7 +1959,7 @@
     "href": "week01/index.html#background-tools-and-resources",
     "title": "Week 01: LLM Review",
     "section": "Background, Tools and Resources",
-    "text": "Background, Tools and Resources\nAI Model Selection Guide\n\nAcademic Integrity and AI use\nCourse Philosophy:\n\nAI as Assistant: Use AI to enhance your capabilities, not replace your thinking\nMaintain Authority: You remain responsible for all outputs and interpretations\nVerify Everything: Always validate AI suggestions, especially statistical claims\nDocument Usage: Keep track of how AI helped – to learn (and for transparency)\n\nRed Lines:\n\nNever submit unverified AI output as your own work\nAlways understand the analysis you’re presenting\nAvoid over-reliance on AI for critical thinking or interpretation (you be you)\n\nThe Goal:\nBecome a more capable data analyst who can leverage AI tools effectively while maintaining scientific rigor.\nNext Week:\nWeek 2 - Data Discovery and Documentation where we’ll use AI to understand and document complex datasets.",
+    "text": "Background, Tools and Resources\nAI Model Selection Guide\nGlossary of key terms\n\nAcademic Integrity and AI use\nCourse Philosophy:\n\nAI as Assistant: Use AI to enhance your capabilities, not replace your thinking\nMaintain Authority: You remain responsible for all outputs and interpretations\nVerify Everything: Always validate AI suggestions, especially statistical claims\nDocument Usage: Keep track of how AI helped – to learn (and for transparency)\n\nRed Lines:\n\nNever submit unverified AI output as your own work\nAlways understand the analysis you’re presenting\nAvoid over-reliance on AI for critical thinking or interpretation (you be you)\n\nThe Goal:\nBecome a more capable data analyst who can leverage AI tools effectively while maintaining scientific rigor.\nNext Week:\nWeek 2 - Data Discovery and Documentation where we’ll use AI to understand and document complex datasets.",
     "crumbs": [
       "Home",
       "Course Weeks",
@@ -3436,7 +3436,7 @@
     "href": "learn-more/beyond.html#new-methods-and-tools",
     "title": "Beyond: suggested readings and resources to learn more",
     "section": "New methods and tools",
-    "text": "New methods and tools\n\nBest video series on introduction to neural networks and LLMs. [3blue1brown youtube playlist] (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 7 times 20-30mins videos, from zero to conversational understanding\nVery usefil video on skills and Claude’s skill creator.",
+    "text": "New methods and tools\n\nBest video series on introduction to neural networks and LLMs. [3blue1brown youtube playlist] (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 7 times 20-30mins videos, from zero to conversational understanding\nVery usefil video on skills and Claude’s skill creator.\nAgents – Google’s seminar on agents at work – requires registration",
     "crumbs": [
       "Home",
       "Resources",
@@ -3508,7 +3508,7 @@
     "href": "da-knowledge/documentation-readme.html",
     "title": "Documentation Fundamentals",
     "section": "",
-    "text": "title: “Documentation Fundamentals” subtitle: “Markdown, readme and more” date: “2026-01-17” —"
+    "text": "Good documentation essential for reproducible research. Without it, even you won’t understand your own work six months later. Documentation serves three audiences: your future self, your collaborators, and the broader research community."
   },
   {
     "objectID": "da-knowledge/documentation-readme.html#documentation-fundamentals",
@@ -3516,5 +3516,803 @@
     "title": "Documentation Fundamentals",
     "section": "Documentation Fundamentals",
     "text": "Documentation Fundamentals\n\nAbout Markdown\n\nEditor in R, Python Quarto\nOnline Markdown editor\nAlso: Pandoc\n\n\n\nWhat is a good readme?\nSome examples for reproduction package\n\nBékés-Kézdi (2021) Hotels dataset – show basics\nKoren-Pető (2021) Business disruptions from social distancing as PDF\nSome ideas on readme: Makereadme, Social Science Editors\n\nKey ingredients\n\nOverview of project\nlicense\nAll datasets (data tables) separately discussed\nAll key variables described (name, content, type, coverage (% share missing)\n\nmaybe also: source, extension (csv / xlsx/ parquet)\n\nData lineage “provenance” : source → processing → final structure\n\n\n\nWhat is a variable dictionary (also called codebook)\n\nmore details of a dataset, often as xlsx\nmetric (euro, %), meaning of values if categorical\nmaybe even mean, min, max\n\nExamples\n\nBékés-Kézdi (2021) Bisnode dataset variables\nReif (2022) illinois-wellness-data\n\nOh, but there is one we created we created\n\nOn earnings data, by Claude"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#why-documentation-matters",
+    "href": "da-knowledge/documentation-readme.html#why-documentation-matters",
+    "title": "Documentation Fundamentals",
+    "section": "",
+    "text": "Good documentation essential for reproducible research. Without it, even you won’t understand your own work six months later. Documentation serves three audiences: your future self, your collaborators, and the broader research community."
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#key-definitions",
+    "href": "da-knowledge/documentation-readme.html#key-definitions",
+    "title": "Documentation Fundamentals",
+    "section": "Key Definitions",
+    "text": "Key Definitions\nBefore diving in, let’s clarify terms that are often used interchangeably but mean different things:\n\n\n\n\n\n\n\n\nTerm\nWhat it is\nTypical format\n\n\n\n\nREADME\nProject overview and setup instructions\n.md, .txt, .pdf\n\n\nCodebook\nDetailed variable-level documentation\n.pdf, .xlsx\n\n\nData dictionary\nTechnical specification of variables (often synonymous with codebook)\n.xlsx, .csv, .txt\n\n\nData lineage\nThe path data takes from source to final form\nDiagram or narrative\n\n\nMetadata\nData about data (when collected, by whom, how)\nVarious"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#about-markdown",
+    "href": "da-knowledge/documentation-readme.html#about-markdown",
+    "title": "Documentation Fundamentals",
+    "section": "About Markdown",
+    "text": "About Markdown\nMarkdown is a lightweight markup language that’s become the standard for documentation in data science. It’s readable as plain text but renders nicely in browsers and editors.\nTools for working with Markdown\n\nQuarto — the successor to R Markdown, works with R, Python, Julia\nOnline Markdown editor — for quick testing\nPandoc — converts between formats (md → docx, pdf, html)\nDillinger — another online editor with live preview\n\nQuick Markdown reference\n# Heading 1\n## Heading 2\n**bold** and *italic*\n- bullet point\n1. numbered list\n[link text](url)\n`inline code`"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#what-is-a-good-readme",
+    "href": "da-knowledge/documentation-readme.html#what-is-a-good-readme",
+    "title": "Documentation Fundamentals",
+    "section": "What is a Good README?",
+    "text": "What is a Good README?\nA README is the front door to your project. Someone should be able to understand what your project does, how to use it, and where to find things—all from reading the README.\n\nKey Ingredients\nA complete README for a research project should include:\n\nOverview — What is this project? What question does it answer?\nData sources — Where does the data come from? Any access restrictions?\nFile structure — What’s in each folder? Which scripts run in what order?\nRequirements — Software, packages, and versions needed\nInstructions — How to run the analysis from start to finish\nLicense — Terms for reuse (MIT, CC-BY, etc.)\nContact — Who to ask questions\n\n\n\nData Description Checklist\nFor each dataset in your project, document:\n\nName and file format (csv, parquet, xlsx)\nNumber of observations and variables\nUnit of observation (person, firm-year, country-month)\nTime coverage and geographic scope\nKey variables with brief descriptions\nMissing data: how much and why\nData lineage: source → processing → final structure\n\n\n\nExamples of Good READMEs\nReproduction packages\n\nBékés-Kézdi (2021) Hotels dataset — clean, minimal, effective\nKoren-Pető (2021) Business disruptions from social distancing | PDF version — comprehensive research package\n\nTemplates and guides\n\nMake a README — interactive guide with examples\nSocial Science Data Editors Template — journal-standard template\nAEA Data Editor guidance — requirements for top economics journals"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#what-is-a-codebook-variable-dictionary",
+    "href": "da-knowledge/documentation-readme.html#what-is-a-codebook-variable-dictionary",
+    "title": "Documentation Fundamentals",
+    "section": "What is a Codebook (Variable Dictionary)?",
+    "text": "What is a Codebook (Variable Dictionary)?\nA codebook provides detailed, variable-level documentation. While the README gives the big picture, the codebook tells you exactly what Q47_recoded means.\n\nWhat to Include for Each Variable\n\n\n\nElement\nExample\n\n\n\n\nVariable name\nincome_hh\n\n\nLabel\nHousehold monthly income\n\n\nType\nNumeric (continuous)\n\n\nUnit/metric\nEUR, monthly\n\n\nValid range\n0–999999\n\n\nCoding for categories\n1=Low, 2=Medium, 3=High\n\n\nMissing values\n-99 = refused, NA = not asked\n\n\nShare missing\n4.2%\n\n\nNotes\nTop-coded at 99th percentile\n\n\n\n\n\nExamples of Good Codebooks\n\nBékés-Kézdi (2021) Bisnode dataset variables — clean spreadsheet format\nReif (2022) Illinois Wellness codebook — plain text, version controlled\nOn earnings data – used in this course"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#tips-for-ai-assisted-documentation",
+    "href": "da-knowledge/documentation-readme.html#tips-for-ai-assisted-documentation",
+    "title": "Documentation Fundamentals",
+    "section": "Tips for AI-Assisted Documentation",
+    "text": "Tips for AI-Assisted Documentation\nLLMs can significantly speed up documentation, but require careful verification.\nWhat AI does well\n\nSummarizing long codebooks\nGenerating first drafts of variable descriptions\nSuggesting what’s missing from your documentation\nConverting between formats (e.g., codebook PDF → markdown table)\n\nWhat requires human oversight\n\nVerifying variable definitions match actual data\nChecking that coded values (1, 2, 3…) match the stated meaning\nEnsuring coverage statistics are accurate\nConfirming data lineage is correct\n\nA practical workflow\n\nStart by having a first look to get a feel. Look at documensts, check the index. Open data.\nUpload your codebook/data to the LLM\nAsk for a structured summary\nVerify 3-5 variables manually against the source\nIterate: ask AI to fix errors you find\nFinal human review before publishing"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme.html#further-reading",
+    "href": "da-knowledge/documentation-readme.html#further-reading",
+    "title": "Documentation Fundamentals",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nCrystal Lewis, Data Management in Large-Scale Education Research — practical guide to data structure\nTIER Protocol — comprehensive reproducibility framework"
+  },
+  {
+    "objectID": "learn-more/beyond.html#claude-code-and-clis",
+    "href": "learn-more/beyond.html#claude-code-and-clis",
+    "title": "Beyond: suggested readings and resources to learn more",
+    "section": "Claude Code and CLIs",
+    "text": "Claude Code and CLIs\n\nIntro videos and use\n\nGetting started with Claude Code 2.0 – great 30 mins intro by Anthropic’s dev\nSankalp on Claude Code – list – great collection of links and ideas",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Learn More"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme-old.html",
+    "href": "da-knowledge/documentation-readme-old.html",
+    "title": "Documentation Fundamentals",
+    "section": "",
+    "text": "title: “Documentation Fundamentals” subtitle: “Markdown, readme and more” date: “2026-01-17” —"
+  },
+  {
+    "objectID": "da-knowledge/documentation-readme-old.html#documentation-fundamentals",
+    "href": "da-knowledge/documentation-readme-old.html#documentation-fundamentals",
+    "title": "Documentation Fundamentals",
+    "section": "Documentation Fundamentals",
+    "text": "Documentation Fundamentals\n\nAbout Markdown\n\nEditor in R, Python Quarto\nOnline Markdown editor\nAlso: Pandoc\n\n\n\nWhat is a good readme?\nSome examples for reproduction package\n\nBékés-Kézdi (2021) Hotels dataset – show basics\nKoren-Pető (2021) Business disruptions from social distancing as PDF\nSome ideas on readme: Makereadme, Social Science Editors\n\nKey ingredients\n\nOverview of project\nlicense\nAll datasets (data tables) separately discussed\nAll key variables described (name, content, type, coverage (% share missing)\n\nmaybe also: source, extension (csv / xlsx/ parquet)\n\nData lineage “provenance” : source → processing → final structure\n\n\n\nWhat is a variable dictionary (also called codebook)\n\nmore details of a dataset, often as xlsx\nmetric (euro, %), meaning of values if categorical\nmaybe even mean, min, max\n\nExamples\n\nBékés-Kézdi (2021) Bisnode dataset variables\nReif (2022) illinois-wellness-data\n\nOh, but there is one we created we created\n\nOn earnings data, by Claude"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#purpose",
+    "href": "da-knowledge/technical-terms.html#purpose",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Purpose",
+    "text": "Purpose\nThis glossary provides brief definitions of key technical terms used throughout the Data Analysis with AI course.\nUse this as a reference when you encounter unfamiliar terminology."
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#token",
+    "href": "da-knowledge/technical-terms.html#token",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Token",
+    "text": "Token\nThe basic unit of text that LLMs process.\n\nRoughly 4 characters or ¾ of a word in English\n“Hello world” ≈ 2 tokens\nPricing and limits are measured in tokens"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#context-window",
+    "href": "da-knowledge/technical-terms.html#context-window",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Context Window",
+    "text": "Context Window\nThe maximum amount of text (in tokens) an LLM can consider at once.\n\nIncludes: system prompt + your messages + AI responses + uploads\nGPT-5.2: ~400k tokens; Gemini 3: ~1M tokens\nExceeding the limit causes the model to “forget” earlier content"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#inference",
+    "href": "da-knowledge/technical-terms.html#inference",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Inference",
+    "text": "Inference\nThe process of generating output from a trained model.\n\nInput goes in → model processes → output comes out\nDistinct from training (which creates the model)\nWhat happens every time you send a message"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#latency",
+    "href": "da-knowledge/technical-terms.html#latency",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Latency",
+    "text": "Latency\nThe time delay between sending a request and receiving a response.\n\nMeasured in milliseconds or seconds\nAffected by: model size, input length, server load\nTrade-off: faster models are often less capable"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#llm-large-language-model",
+    "href": "da-knowledge/technical-terms.html#llm-large-language-model",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "LLM (Large Language Model)",
+    "text": "LLM (Large Language Model)\nA neural network trained on massive text data to predict and generate language.\n\n“Large” = billions of parameters\nLearns patterns from training data\nExamples: GPT-5, Claude 4.5, Gemini 3"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#transformer",
+    "href": "da-knowledge/technical-terms.html#transformer",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Transformer",
+    "text": "Transformer\nThe neural network architecture underlying modern LLMs.\n\nIntroduced in 2017 (“Attention Is All You Need”)\nKey innovation: self-attention mechanism\nEnables parallel processing of sequences"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#parameters",
+    "href": "da-knowledge/technical-terms.html#parameters",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Parameters",
+    "text": "Parameters\nThe learned values (weights) inside a neural network.\n\nMore parameters ≈ more capacity to learn patterns\nGPT-4: ~1 trillion parameters (estimated)\nTrade-off: larger models are slower and more expensive"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#mixture-of-experts-moe",
+    "href": "da-knowledge/technical-terms.html#mixture-of-experts-moe",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Mixture of Experts (MoE)",
+    "text": "Mixture of Experts (MoE)\n\nThe architecture behind Gemini 3, featuring over 1 trillion parameters.\nOnly a subset of these parameters (“experts”) is activated for any single query, which balances deep intelligence with faster response times."
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#system-prompt",
+    "href": "da-knowledge/technical-terms.html#system-prompt",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "System Prompt",
+    "text": "System Prompt\nHidden instructions given to the AI before your conversation.\n\nDefines persona, constraints, behavior\nSet by platform or user (Custom Instructions, Projects)\nThe AI “sees” this before your first message"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#context-engineering",
+    "href": "da-knowledge/technical-terms.html#context-engineering",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Context Engineering",
+    "text": "Context Engineering\nThe practice of curating all information the model receives to optimize performance.\n\nGoes beyond prompt engineering\nIncludes: system prompt, memory, tools, retrieved documents\nKey skill for building reliable AI applications\n\nLearn more: Anthropic’s context engineering guide"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#rag-retrieval-augmented-generation",
+    "href": "da-knowledge/technical-terms.html#rag-retrieval-augmented-generation",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "RAG (Retrieval-Augmented Generation)",
+    "text": "RAG (Retrieval-Augmented Generation)\nA technique that retrieves relevant documents and adds them to the prompt.\n\nHelps ground responses in specific data\nReduces hallucinations\nPowers many enterprise AI applications"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#chain-of-thought-cot",
+    "href": "da-knowledge/technical-terms.html#chain-of-thought-cot",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Chain-of-Thought (CoT)",
+    "text": "Chain-of-Thought (CoT)\nA prompting technique where the model shows intermediate reasoning steps.\n\n“Let’s think step by step”\nImproves accuracy on complex tasks\nCan be prompted or built into the model"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#reasoning-model",
+    "href": "da-knowledge/technical-terms.html#reasoning-model",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Reasoning Model",
+    "text": "Reasoning Model\nA model specifically trained to “think” before responding.\n\nExamples: OpenAI o3, o4-mini; Claude with extended thinking\nInternal deliberation, then final answer\nBetter for math, logic, multi-step problems"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#extended-thinking",
+    "href": "da-knowledge/technical-terms.html#extended-thinking",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Extended Thinking",
+    "text": "Extended Thinking\nA mode where the model explicitly reasons through problems.\n\nVisible chain of thought (unlike o3)\nConfigurable thinking “budget”\nTrade-off: higher latency and cost"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#thinking-levels",
+    "href": "da-knowledge/technical-terms.html#thinking-levels",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Thinking Levels",
+    "text": "Thinking Levels\nGemini 3’s approach to controlling reasoning depth.\n\nLOW: Fast, minimal deliberation\nMEDIUM: Balanced (default)\nHIGH: Deep reasoning, higher latency\n\nUses parallel thinking and “self-correction” signatures to solve complex logic or math problems. %Gemini"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#agent",
+    "href": "da-knowledge/technical-terms.html#agent",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Agent",
+    "text": "Agent\nAn AI system that can take actions, not just generate text.\n\nUses tools (code execution, web search, file access)\nOperates semi-autonomously\nMay involve multiple steps and decisions"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#agentic-workflow",
+    "href": "da-knowledge/technical-terms.html#agentic-workflow",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Agentic Workflow",
+    "text": "Agentic Workflow\nA process where AI acts across multiple steps with tool use.\n\nExample: Search → Analyze → Write → Review\nLess human intervention between steps\nRequires careful design and guardrails"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#mcp-model-context-protocol",
+    "href": "da-knowledge/technical-terms.html#mcp-model-context-protocol",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "MCP (Model Context Protocol)",
+    "text": "MCP (Model Context Protocol)\nAn open standard for connecting AI to external tools and data.\n\n“USB-C for AI applications”\nDeveloped by Anthropic, adopted broadly\nEnables secure access to files, databases, APIs\n\nLearn more: MCP documentation"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#tool-use-function-calling",
+    "href": "da-knowledge/technical-terms.html#tool-use-function-calling",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Tool Use / Function Calling",
+    "text": "Tool Use / Function Calling\nThe ability of an AI to invoke external functions or APIs.\n\nModel outputs structured “tool call”\nSystem executes the tool\nResult fed back to model"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#hallucination",
+    "href": "da-knowledge/technical-terms.html#hallucination",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Hallucination",
+    "text": "Hallucination\nWhen an AI generates plausible-sounding but false information.\n\nFabricated facts, fake references, incorrect code\nReduced but not eliminated in modern models\nMitigated by grounding, RAG, verification"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#grounding",
+    "href": "da-knowledge/technical-terms.html#grounding",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Grounding",
+    "text": "Grounding\nConnecting AI responses to verified sources of truth.\n\nWeb search, document retrieval, database queries\nReduces hallucinations\nEnables citations"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#rlhf-reinforcement-learning-from-human-feedback",
+    "href": "da-knowledge/technical-terms.html#rlhf-reinforcement-learning-from-human-feedback",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "RLHF (Reinforcement Learning from Human Feedback)",
+    "text": "RLHF (Reinforcement Learning from Human Feedback)\nA training technique where models learn from human preferences.\n\nHumans rate model outputs\nModel learns to produce preferred responses\nKey to making models “helpful and harmless”"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#constitutional-ai",
+    "href": "da-knowledge/technical-terms.html#constitutional-ai",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Constitutional AI",
+    "text": "Constitutional AI\nAnthropic’s approach to training models with explicit principles.\n\nModel trained to follow a “constitution” of rules\nSelf-improvement through AI feedback\nAlternative to pure RLHF"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#skills-claude",
+    "href": "da-knowledge/technical-terms.html#skills-claude",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Skills (Claude)",
+    "text": "Skills (Claude)\nReusable, modular instruction packages in Claude.\n\nPre-defined workflows and behaviors\nShareable across conversations\nCan be combined for complex tasks"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#gems-gemini",
+    "href": "da-knowledge/technical-terms.html#gems-gemini",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Gems (Gemini)",
+    "text": "Gems (Gemini)\nCustom AI assistants in Gemini Advanced.\n\nUser-defined personas and instructions\nPersistent across conversations\nShareable with team"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#projects-claude",
+    "href": "da-knowledge/technical-terms.html#projects-claude",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Projects (Claude)",
+    "text": "Projects (Claude)\nWorkspaces with shared context across conversations.\n\nPersistent system prompt\nUploaded knowledge files\nAll chats share the same context"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#canvas-artifacts",
+    "href": "da-knowledge/technical-terms.html#canvas-artifacts",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Canvas / Artifacts",
+    "text": "Canvas / Artifacts\nInteractive workspaces for editing AI-generated content.\n\nChatGPT Canvas, Claude Artifacts\nSide-by-side editing\nGood for code and documents"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#temperature",
+    "href": "da-knowledge/technical-terms.html#temperature",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Temperature",
+    "text": "Temperature\nA parameter controlling randomness in model outputs.\n\n0 = deterministic (same input → same output)\n1 = default, balanced creativity\nHigher = more random/creative\n\nNote: Gemini 3 and reasoning models work best at default (1.0)"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#context-rot",
+    "href": "da-knowledge/technical-terms.html#context-rot",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Context Rot",
+    "text": "Context Rot\nPerformance degradation as the context window fills up.\n\nModel becomes less accurate over long conversations\nEven within technical limits\nSolution: start fresh, use memory tools"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#kv-cache",
+    "href": "da-knowledge/technical-terms.html#kv-cache",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "KV-Cache",
+    "text": "KV-Cache\nA technical optimization that speeds up repeated inference.\n\nCaches intermediate computations\nFaster response for repeated prefixes\nWhy stable prompt prefixes matter for cost"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#vibe-coding",
+    "href": "da-knowledge/technical-terms.html#vibe-coding",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Vibe Coding",
+    "text": "Vibe Coding\nDescribing desired behavior in natural language rather than writing syntax.\n\n“Make this chart interactive with company colors”\nAI translates intent to code\nRequires human review and iteration"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#claude.md",
+    "href": "da-knowledge/technical-terms.html#claude.md",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "CLAUDE.md",
+    "text": "CLAUDE.md\nA convention for providing project context to Claude Code.\n\nMarkdown file in project root\nContains: file descriptions, conventions, current task\nAutomatically read by Claude Code CLI"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#prompt-chaining",
+    "href": "da-knowledge/technical-terms.html#prompt-chaining",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Prompt Chaining",
+    "text": "Prompt Chaining\nBreaking complex tasks into sequential prompts.\n\nOutput of step N becomes input to step N+1\nMore reliable than single complex prompt\nEnables debugging at each stage"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#inputoutput-tokens",
+    "href": "da-knowledge/technical-terms.html#inputoutput-tokens",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Input/Output Tokens",
+    "text": "Input/Output Tokens\nTokens are billed separately for input (prompt) and output (response).\n\nInput: what you send (including context)\nOutput: what the model generates\nOutput tokens typically cost more"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#rate-limiting",
+    "href": "da-knowledge/technical-terms.html#rate-limiting",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Rate Limiting",
+    "text": "Rate Limiting\nRestrictions on how many requests you can make.\n\nRequests per minute (RPM)\nTokens per minute (TPM)\nPrevents abuse and ensures fair access"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#prompt-caching",
+    "href": "da-knowledge/technical-terms.html#prompt-caching",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Prompt Caching",
+    "text": "Prompt Caching\nStoring and reusing processed prompts to reduce cost.\n\nSame prefix → cached, cheaper\nUseful for repeated system prompts\nRequires stable prompt structure"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#quick-reference",
+    "href": "da-knowledge/technical-terms.html#quick-reference",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Quick Reference",
+    "text": "Quick Reference\n\n\n\nTerm\nOne-liner\n\n\n\n\nToken\nBasic text unit (~4 characters)\n\n\nContext window\nMax tokens model can see at once\n\n\nInference\nGenerating output from input\n\n\nAgent\nAI that takes actions via tools\n\n\nMCP\nStandard for AI tool connections\n\n\nHallucination\nAI-generated false information\n\n\nRAG\nRetrieval + generation technique"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#resources-for-learning-more",
+    "href": "da-knowledge/technical-terms.html#resources-for-learning-more",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Resources for Learning More",
+    "text": "Resources for Learning More\n\nAnthropic Glossary\nOpenAI Documentation\nGoogle AI for Developers\nMCP Documentation\n3Blue1Brown Neural Networks"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms.html#date-stamp",
+    "href": "da-knowledge/technical-terms.html#date-stamp",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Date stamp",
+    "text": "Date stamp\nThis version: 2026-01-19 (v0.1.0)\nbekesg@ceu.edu"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html",
+    "href": "da-knowledge/technical-terms-page.html",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "",
+    "text": "This glossary provides brief definitions of key technical terms used throughout the Data Analysis with AI course. Use it as a reference when you encounter unfamiliar terminology.\nTip: Use the search box above to quickly find terms, or browse by category using the sidebar.\n\n\n\nType to filter terms instantly\n\n\n\nNo matching terms found. Try a different search."
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#purpose",
+    "href": "da-knowledge/technical-terms-page.html#purpose",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "",
+    "text": "This glossary provides brief definitions of key technical terms used throughout the Data Analysis with AI course. Use it as a reference when you encounter unfamiliar terminology.\nTip: Use the search box above to quickly find terms, or browse by category using the sidebar.\n\n\n\nType to filter terms instantly\n\n\n\nNo matching terms found. Try a different search."
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#token",
+    "href": "da-knowledge/technical-terms-page.html#token",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Token",
+    "text": "Token\nThe basic unit of text that LLMs process.\n\nRoughly 4 characters or ¾ of a word in English\n“Hello world” ≈ 2 tokens\nPricing and limits are measured in tokens"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#context-window",
+    "href": "da-knowledge/technical-terms-page.html#context-window",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Context Window",
+    "text": "Context Window\nThe maximum amount of text (in tokens) an LLM can consider at once.\n\nIncludes: system prompt + your messages + AI responses + uploads\nGPT-5.2: ~400k tokens; Gemini 3: ~1M tokens\nExceeding the limit causes the model to “forget” earlier content"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#inference",
+    "href": "da-knowledge/technical-terms-page.html#inference",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Inference",
+    "text": "Inference\nThe process of generating output from a trained model.\n\nInput goes in → model processes → output comes out\nDistinct from training (which creates the model)\nWhat happens every time you send a message"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#latency",
+    "href": "da-knowledge/technical-terms-page.html#latency",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Latency",
+    "text": "Latency\nThe time delay between sending a request and receiving a response.\n\nMeasured in milliseconds or seconds\nAffected by: model size, input length, server load\nTrade-off: faster models are often less capable"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#llm-large-language-model",
+    "href": "da-knowledge/technical-terms-page.html#llm-large-language-model",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "LLM (Large Language Model)",
+    "text": "LLM (Large Language Model)\nA neural network trained on massive text data to predict and generate language.\n\n“Large” = billions of parameters\nLearns patterns from training data\nExamples: GPT-5, Claude 4.5, Gemini 3"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#transformer",
+    "href": "da-knowledge/technical-terms-page.html#transformer",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Transformer",
+    "text": "Transformer\nThe neural network architecture underlying modern LLMs.\n\nIntroduced in 2017 (“Attention Is All You Need”)\nKey innovation: self-attention mechanism\nEnables parallel processing of sequences"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#parameters",
+    "href": "da-knowledge/technical-terms-page.html#parameters",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Parameters",
+    "text": "Parameters\nThe learned values (weights) inside a neural network.\n\nMore parameters ≈ more capacity to learn patterns\nGPT-4: ~1 trillion parameters (estimated)\nTrade-off: larger models are slower and more expensive"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#mixture-of-experts-moe",
+    "href": "da-knowledge/technical-terms-page.html#mixture-of-experts-moe",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Mixture of Experts (MoE)",
+    "text": "Mixture of Experts (MoE)\nAn architecture that activates only a subset of parameters for each query.\n\nUsed by Gemini 3 (over 1 trillion total parameters)\nOnly relevant “experts” are activated per query\nBalances deep intelligence with faster response times"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#system-prompt",
+    "href": "da-knowledge/technical-terms-page.html#system-prompt",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "System Prompt",
+    "text": "System Prompt\nHidden instructions given to the AI before your conversation.\n\nDefines persona, constraints, behavior\nSet by platform or user (Custom Instructions, Projects)\nThe AI “sees” this before your first message"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#context-engineering",
+    "href": "da-knowledge/technical-terms-page.html#context-engineering",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Context Engineering",
+    "text": "Context Engineering\nThe practice of curating all information the model receives to optimize performance.\n\nGoes beyond prompt engineering\nIncludes: system prompt, memory, tools, retrieved documents\nKey skill for building reliable AI applications\n\nLearn more: Anthropic’s context engineering guide"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#rag-retrieval-augmented-generation",
+    "href": "da-knowledge/technical-terms-page.html#rag-retrieval-augmented-generation",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "RAG (Retrieval-Augmented Generation)",
+    "text": "RAG (Retrieval-Augmented Generation)\nA technique that retrieves relevant documents and adds them to the prompt.\n\nHelps ground responses in specific data\nReduces hallucinations\nPowers many enterprise AI applications"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#chain-of-thought-cot",
+    "href": "da-knowledge/technical-terms-page.html#chain-of-thought-cot",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Chain-of-Thought (CoT)",
+    "text": "Chain-of-Thought (CoT)\nA prompting technique where the model shows intermediate reasoning steps.\n\n“Let’s think step by step”\nImproves accuracy on complex tasks\nCan be prompted or built into the model"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#reasoning-model",
+    "href": "da-knowledge/technical-terms-page.html#reasoning-model",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Reasoning Model",
+    "text": "Reasoning Model\nA model specifically trained to “think” before responding.\n\nExamples: OpenAI o3, o4-mini; Claude with extended thinking\nInternal deliberation, then final answer\nBetter for math, logic, multi-step problems"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#extended-thinking",
+    "href": "da-knowledge/technical-terms-page.html#extended-thinking",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Extended Thinking",
+    "text": "Extended Thinking\nA mode where the model explicitly reasons through problems.\n\nVisible chain of thought (unlike o3)\nConfigurable thinking “budget”\nTrade-off: higher latency and cost"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#thinking-levels",
+    "href": "da-knowledge/technical-terms-page.html#thinking-levels",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Thinking Levels",
+    "text": "Thinking Levels\nGemini 3’s approach to controlling reasoning depth.\n\nLOW: Fast, minimal deliberation\nMEDIUM: Balanced (default)\nHIGH: Deep reasoning, higher latency — uses parallel thinking and “self-correction” signatures to solve complex logic or math problems"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#agent",
+    "href": "da-knowledge/technical-terms-page.html#agent",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Agent",
+    "text": "Agent\nAn AI system that can take actions, not just generate text.\n\nUses tools (code execution, web search, file access)\nOperates semi-autonomously\nMay involve multiple steps and decisions"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#agentic-workflow",
+    "href": "da-knowledge/technical-terms-page.html#agentic-workflow",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Agentic Workflow",
+    "text": "Agentic Workflow\nA process where AI acts across multiple steps with tool use.\n\nExample: Search → Analyze → Write → Review\nLess human intervention between steps\nRequires careful design and guardrails"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#mcp-model-context-protocol",
+    "href": "da-knowledge/technical-terms-page.html#mcp-model-context-protocol",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "MCP (Model Context Protocol)",
+    "text": "MCP (Model Context Protocol)\nAn open standard for connecting AI to external tools and data.\n\n“USB-C for AI applications”\nDeveloped by Anthropic, adopted broadly\nEnables secure access to files, databases, APIs\n\nLearn more: MCP documentation"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#tool-use-function-calling",
+    "href": "da-knowledge/technical-terms-page.html#tool-use-function-calling",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Tool Use / Function Calling",
+    "text": "Tool Use / Function Calling\nThe ability of an AI to invoke external functions or APIs.\n\nModel outputs structured “tool call”\nSystem executes the tool\nResult fed back to model"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#hallucination",
+    "href": "da-knowledge/technical-terms-page.html#hallucination",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Hallucination",
+    "text": "Hallucination\nWhen an AI generates plausible-sounding but false information.\n\nFabricated facts, fake references, incorrect code\nReduced but not eliminated in modern models\nMitigated by grounding, RAG, verification"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#grounding",
+    "href": "da-knowledge/technical-terms-page.html#grounding",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Grounding",
+    "text": "Grounding\nConnecting AI responses to verified sources of truth.\n\nWeb search, document retrieval, database queries\nReduces hallucinations\nEnables citations"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#rlhf-reinforcement-learning-from-human-feedback",
+    "href": "da-knowledge/technical-terms-page.html#rlhf-reinforcement-learning-from-human-feedback",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "RLHF (Reinforcement Learning from Human Feedback)",
+    "text": "RLHF (Reinforcement Learning from Human Feedback)\nA training technique where models learn from human preferences.\n\nHumans rate model outputs\nModel learns to produce preferred responses\nKey to making models “helpful and harmless”"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#constitutional-ai",
+    "href": "da-knowledge/technical-terms-page.html#constitutional-ai",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Constitutional AI",
+    "text": "Constitutional AI\nAnthropic’s approach to training models with explicit principles.\n\nModel trained to follow a “constitution” of rules\nSelf-improvement through AI feedback\nAlternative to pure RLHF"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#skills-claude",
+    "href": "da-knowledge/technical-terms-page.html#skills-claude",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Skills (Claude)",
+    "text": "Skills (Claude)\nReusable, modular instruction packages in Claude.\n\nPre-defined workflows and behaviors\nShareable across conversations\nCan be combined for complex tasks"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#gems-gemini",
+    "href": "da-knowledge/technical-terms-page.html#gems-gemini",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Gems (Gemini)",
+    "text": "Gems (Gemini)\nCustom AI assistants in Gemini Advanced.\n\nUser-defined personas and instructions\nPersistent across conversations\nShareable with team"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#projects-claude",
+    "href": "da-knowledge/technical-terms-page.html#projects-claude",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Projects (Claude)",
+    "text": "Projects (Claude)\nWorkspaces with shared context across conversations.\n\nPersistent system prompt\nUploaded knowledge files\nAll chats share the same context"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#canvas-artifacts",
+    "href": "da-knowledge/technical-terms-page.html#canvas-artifacts",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Canvas / Artifacts",
+    "text": "Canvas / Artifacts\nInteractive workspaces for editing AI-generated content.\n\nChatGPT Canvas, Claude Artifacts\nSide-by-side editing\nGood for code and documents"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#temperature",
+    "href": "da-knowledge/technical-terms-page.html#temperature",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Temperature",
+    "text": "Temperature\nA parameter controlling randomness in model outputs.\n\n0 = deterministic (same input → same output)\n1 = default, balanced creativity\nHigher = more random/creative\n\nNote: Gemini 3 and reasoning models work best at default (1.0)"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#context-rot",
+    "href": "da-knowledge/technical-terms-page.html#context-rot",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Context Rot",
+    "text": "Context Rot\nPerformance degradation as the context window fills up.\n\nModel becomes less accurate over long conversations\nEven within technical limits\nSolution: start fresh, use memory tools"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#kv-cache",
+    "href": "da-knowledge/technical-terms-page.html#kv-cache",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "KV-Cache",
+    "text": "KV-Cache\nA technical optimization that speeds up repeated inference.\n\nCaches intermediate computations\nFaster response for repeated prefixes\nWhy stable prompt prefixes matter for cost"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#vibe-coding",
+    "href": "da-knowledge/technical-terms-page.html#vibe-coding",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Vibe Coding",
+    "text": "Vibe Coding\nDescribing desired behavior in natural language rather than writing syntax.\n\n“Make this chart interactive with company colors”\nAI translates intent to code\nRequires human review and iteration"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#claude.md",
+    "href": "da-knowledge/technical-terms-page.html#claude.md",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "CLAUDE.md",
+    "text": "CLAUDE.md\nA convention for providing project context to Claude Code.\n\nMarkdown file in project root\nContains: file descriptions, conventions, current task\nAutomatically read by Claude Code CLI"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#prompt-chaining",
+    "href": "da-knowledge/technical-terms-page.html#prompt-chaining",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Prompt Chaining",
+    "text": "Prompt Chaining\nBreaking complex tasks into sequential prompts.\n\nOutput of step N becomes input to step N+1\nMore reliable than single complex prompt\nEnables debugging at each stage"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#inputoutput-tokens",
+    "href": "da-knowledge/technical-terms-page.html#inputoutput-tokens",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Input/Output Tokens",
+    "text": "Input/Output Tokens\nTokens are billed separately for input (prompt) and output (response).\n\nInput: what you send (including context)\nOutput: what the model generates\nOutput tokens typically cost more"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#rate-limiting",
+    "href": "da-knowledge/technical-terms-page.html#rate-limiting",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Rate Limiting",
+    "text": "Rate Limiting\nRestrictions on how many requests you can make.\n\nRequests per minute (RPM)\nTokens per minute (TPM)\nPrevents abuse and ensures fair access"
+  },
+  {
+    "objectID": "da-knowledge/technical-terms-page.html#prompt-caching",
+    "href": "da-knowledge/technical-terms-page.html#prompt-caching",
+    "title": "Data Analysis with AI: Technical Terms",
+    "section": "Prompt Caching",
+    "text": "Prompt Caching\nStoring and reusing processed prompts to reduce cost.\n\nSame prefix → cached, cheaper\nUseful for repeated system prompts\nRequires stable prompt structure"
+  },
+  {
+    "objectID": "resources.html#llm-technical-terms",
+    "href": "resources.html#llm-technical-terms",
+    "title": "Resources",
+    "section": "",
+    "text": "Glossary of technical terms used in various presentations or in class\nLLM Glossary\nWhich AI – the 2026 January comparsion"
+  },
+  {
+    "objectID": "resources.html#beyond-the-material-learn-more",
+    "href": "resources.html#beyond-the-material-learn-more",
+    "title": "Resources",
+    "section": "Beyond (the material) — Learn more",
+    "text": "Beyond (the material) — Learn more\nI’m collecting videos, papers in the beyond page. Check them out. Regular updates."
+  },
+  {
+    "objectID": "resources.html#various-data-analysis-related-pages-referenced-in-class",
+    "href": "resources.html#various-data-analysis-related-pages-referenced-in-class",
+    "title": "Resources",
+    "section": "Various data analysis related pages referenced in class",
+    "text": "Various data analysis related pages referenced in class\nDocumentation and readme Good report ideas"
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html",
+    "href": "da-knowledge/which-ai.html",
+    "title": "Which AI model shall we chose?",
+    "section": "",
+    "text": "In what follows, here is my personal take as of date:2026-01-12.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#basics",
+    "href": "da-knowledge/which-ai.html#basics",
+    "title": "Which AI model shall we chose?",
+    "section": "Basics",
+    "text": "Basics\nGenerative AI based on Large Language Models (genAI) is great for many tasks. In this course we only focus on aspects of Data Analysis:\n\ndesigning analysis\nwriting code\ndata wrangling such as joining tables, sample design, variable transformations\nexploratory data analysis\nmodelling, regressions, machine learning\ncausal inference\ncreating tables and graphs\nwriting reports and presentations",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#basics-1",
+    "href": "da-knowledge/which-ai.html#basics-1",
+    "title": "Which AI model shall we chose?",
+    "section": "Basics",
+    "text": "Basics\n\nMost models have a free and paid tiers. Free ones are good as kind of Google search replacement. For serious work you’ll be better off with paid tiers.\nAs of now the leading models are Google’s Gemini 3.0, OpenAI’s GPT-5.2, and Anthropic’s Claude Opus 4.5.\nEach model have faster (cheaper) and thinking (more expensive) variants. For data analysis work, the thinking variants are recommended.\nAll major models have deep research\nAll major models support tool use (e.g. web browsing, code execution) and agentic patterns (multi-step workflows with memory and tool use).\nOpen weights models are also quite good, Deepseek and Q. You can even run a 7bn parameter model on an expensive computer",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#landscape-overview",
+    "href": "da-knowledge/which-ai.html#landscape-overview",
+    "title": "Which AI model shall we chose?",
+    "section": "landscape overview",
+    "text": "landscape overview\n\n\n\n\n\n\n\n\n\n\nFeature\nGPT-5.2\no3 (reasoning)\nGemini 3 Deep Think\nClaude Opus 4.5\n\n\n\n\nDesign focus\nFlagship multimodal with native reasoning\nDeep reasoning for complex tasks\n1M token context with extended thinking\nCoding & complex instruction following\n\n\nMultimodality\nText + images + audio + video (I/O)\nText + tool calls\nText + images + video\nText + images + Computer Use 2.0\n\n\nBrowsing / tools\nIntegrated search + MCP support\nAuto-search for up-to-date facts\nGrounded in Google Search\nDeep integration with MCP & OS\n\n\nDefault style\nBalanced, adaptive\nConcise, source-cited\nThorough, exploratory\nProfessional, highly structured\n\n\nContext window\n400k tokens\n128k tokens\n1M tokens\n500k tokens\n\n\nStrengths\nAll-rounder, agentic workflows\nStep-wise analysis, audit trail\nLong-context research\nCoding agents, OS automation\n\n\nWeak spots\nExpensive for simple tasks\nNo native media I/O\nSlower response times\nSlower than Haiku/Sonnet",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#models-for-data-analysis",
+    "href": "da-knowledge/which-ai.html#models-for-data-analysis",
+    "title": "Which AI model shall we chose?",
+    "section": "Models for data analysis",
+    "text": "Models for data analysis\nFor data-analysis projects, the recommended approach is:\n\nReasoning models (o3, Deep Think) for complex analysis requiring accuracy\nGPT-5.2 for agentic workflows and multimodal tasks\n\nGemini 3 for long-context document analysis (entire datasets, reports)\nClaude Opus 4.5 for coding and complex technical writing\n\nAll major models now support tool use (MCP) and agentic patterns.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#research-writing",
+    "href": "da-knowledge/which-ai.html#research-writing",
+    "title": "Which AI model shall we chose?",
+    "section": "Research & Writing",
+    "text": "Research & Writing\n\nSynthesis Over Summarization: AI tools increasingly synthesize multi-source inputs into structured insights rather than paraphrasing single documents.\nSecurity & Privacy: Modern workspaces rely on isolated execution contexts; strong non-training guarantees apply primarily to paid and enterprise tiers.\nMultimodal Capability: AI can interpret charts, screenshots, and handwritten notes and incorporate them into drafts.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#for-data-analysis-workspaces-comparison",
+    "href": "da-knowledge/which-ai.html#for-data-analysis-workspaces-comparison",
+    "title": "Which AI model shall we chose?",
+    "section": "For data analysis workspaces – comparison",
+    "text": "For data analysis workspaces – comparison\n\n\n\n\n\n\n\nWorkspace\n2026 Key Features\n\n\n\n\nAnthropic Claude Artifacts\n• Creates interactive applications (tutors, calculators) within the output window.• Real-time iteration on complex document structures.\n\n\nOpenAI ChatGPT Canvas\n• Advanced frontier models with contextual persistence for tone and style.• Inline editing with granular control over specific sections.\n\n\nGoogle NotebookLM\n• Interactive Audio Overviews with user interruption and questioning.• Grounded citations linked directly to uploaded source segments.\n\n\nPerplexity Pages\n• Multi-source synthesis using live web retrieval.• Inline citation and consistency checking against sources.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#data-analysis-details",
+    "href": "da-knowledge/which-ai.html#data-analysis-details",
+    "title": "Which AI model shall we chose?",
+    "section": "Data Analysis details",
+    "text": "Data Analysis details\n\nSandboxed Execution: Code runs in secure, ephemeral environments with no local system access.\nStatistical Rigor: Strong support for Python-based libraries (e.g. pandas, scikit-learn) for exploratory and predictive analysis.\nDirect Integration: AI can manipulate data directly within spreadsheets or dedicated analysis windows.\nLimits: Reproducibility, package versions, and state persistence remain constrained relative to local workflows.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#data-analysis-details-1",
+    "href": "da-knowledge/which-ai.html#data-analysis-details-1",
+    "title": "Which AI model shall we chose?",
+    "section": "Data Analysis details",
+    "text": "Data Analysis details\n\n\n\n\n\n\n\nWorkspace\n2026 Key Features for Analysis\n\n\n\n\nChatGPT Data Analysis\n• Executes Python in managed compute environments for multi-file datasets.• Assisted data cleaning and predictive modeling workflows.\n\n\nClaude Analysis\n• High-fidelity SVG and lightweight interactive output.• Fast iteration on statistical tables with publication-ready formatting.\n\n\nGoogle Gemini in Sheets\n• Multimodal cleaning: converts screenshots or PDFs into structured tables.• Natural-language formula generation and transformations.\n\n\nMicrosoft Copilot in Excel\n• Native Python-in-Excel for statistical scripts inside spreadsheets.• Automated pivots, summaries, and forecasting via prompts.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#coding-assistance",
+    "href": "da-knowledge/which-ai.html#coding-assistance",
+    "title": "Which AI model shall we chose?",
+    "section": "Coding Assistance",
+    "text": "Coding Assistance\n\nAgent-Assisted Workflows: AI can coordinate multi-step tasks such as refactoring or bug fixing across large codebases, with human review.\nEnvironment Security: Code is tested in secure sandboxes before changes are proposed.\nInterconnected Tools: Integrated with development and collaboration platforms (e.g. Jira, Slack).",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#coding-assistance-comparison",
+    "href": "da-knowledge/which-ai.html#coding-assistance-comparison",
+    "title": "Which AI model shall we chose?",
+    "section": "Coding Assistance — comparison",
+    "text": "Coding Assistance — comparison\n\n\n\n\n\n\n\nWorkspace\n2026 Key Features for Developers\n\n\n\n\nAnthropic Claude Code\n• Native VS Code extension with agent-style workflows and inline diffs.• Supports complex multi-file edits and testing assistance.\n\n\nGitHub Copilot\n• Uses Extensions to interact with external dev tools (Azure, Slack, Jira).• Deep context from local and remote repositories.\n\n\nCursor\n• AI-first editor with awareness of project-wide dependencies.• Strong support for iterative refactors across files.\n\n\nWindsurf (Codeium)\n• Cascade mode for orchestrating large-scale refactors.• Robust free tier for students and individual users.\n\n\n\nSecurity note: SOC2 compliance is common; strict zero-retention guarantees typically apply to enterprise or explicitly configured accounts.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#what-changed-from-2025-q2",
+    "href": "da-knowledge/which-ai.html#what-changed-from-2025-q2",
+    "title": "Which AI model shall we chose?",
+    "section": "What changed from 2025 Q2",
+    "text": "What changed from 2025 Q2\n\nNo need to think much re which models to use.\nLeading models similar capability, but different. Not really sure how…",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
+  },
+  {
+    "objectID": "da-knowledge/which-ai.html#feedback",
+    "href": "da-knowledge/which-ai.html#feedback",
+    "title": "Which AI model shall we chose?",
+    "section": "Feedback",
+    "text": "Feedback\nDear Reader. I have limited experience. Suggestions are welcome, please post an issue.",
+    "crumbs": [
+      "Home",
+      "Resources",
+      "Which AI"
+    ]
   }
 ]

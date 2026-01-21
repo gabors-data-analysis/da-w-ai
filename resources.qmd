@@ -2,9 +2,22 @@
 title: "Resources"
 ---
 
-## Learn more
+## LLM Technical terms
 
-I'm adding material to [learn-more](learn-more/) folder. You can start with the [beyond](learn-more/beyond.html) page. 
+Glossary of technical terms used in various presentations or in class
+
+[LLM Glossary](da-knowledge/technical-terms-page.html)
+
+[Which AI](da-knowledge/which-ai.html) -- the 2026 January comparsion
+
+## Beyond (the material) --- Learn more
+
+I'm collecting videos, papers in the [beyond](learn-more/beyond.html) page. Check them out. Regular updates. 
+
+## Various data analysis related pages referenced in class
+
+[Documentation and readme](da-knowledge/documentation-readme.html)
+[Good report ideas](week03/ideas-good-report.html)
 
 ## Data
 

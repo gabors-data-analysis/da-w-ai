@@ -32,7 +32,7 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 - Review of LLMs by [Simon Willison](https://simonwillison.net/2024/Dec/31/llms-in-2024/)
 - Machines of Loving Grace [Dario Amodei](https://darioamodei.com/machines-of-loving-grace) 
 
-### Prompting
+### Prompting and context management
 
 * AI Frontiers in Plain English: Prompt Engineering guide from Google with LM Notebook [Part 1. LLM output configurations](https://creators.spotify.com/pod/profile/steven-ge/episodes/Prompt-Engineering-guide-from-Google-Part-1--LLM-output-configurations-e31eqel) + others
 
@@ -55,7 +55,13 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 
 * Best video series on introduction to neural networks and LLMs. [3blue1brown youtube playlist] (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 7 times 20-30mins videos, from zero to conversational understanding
 * Very usefil video on [skills](https://www.youtube.com/watch?v=MMpaPV3KMFI) and Claude's skill creator. 
+* Agents -- [Google's seminar on agents at work](https://cloudonair.withgoogle.com/events/gemini-at-work-deep-dives ) -- requires registration
 
+## Claude Code and CLIs
+
+### Intro videos and use
+- [Getting started with Claude Code 2.0](https://www.youtube.com/watch?v=6eBSHbLKuN0) -- great 30 mins intro by Anthropic's dev
+- [Sankalp on Claude Code -- list](https://sankalp.bearblog.dev/my-experience-with-claude-code-20-and-how-to-get-better-at-using-coding-agents/) -- great collection of links and ideas
 
 
 ## Additional content

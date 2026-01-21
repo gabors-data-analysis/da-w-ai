@@ -1,0 +1,585 @@
+---
+title: "Data Analysis with AI: Technical Terms"
+subtitle: "A Glossary of Key Concepts"
+author: "Gábor Békés (CEU)"
+date: "2026-01-19"
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+    toc-location: right
+    toc-title: "Terms"
+    number-sections: false
+    smooth-scroll: true
+    anchor-sections: true
+    link-external-newwindow: true
+    code-copy: true
+    include-in-header:
+      - text: |
+          <style>
+          /* Search box styling */
+          .search-container {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 100;
+          }
+          #glossary-search {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #21918c;
+            border-radius: 8px;
+            outline: none;
+          }
+          #glossary-search:focus {
+            border-color: #3b528b;
+            box-shadow: 0 0 5px rgba(59, 82, 139, 0.3);
+          }
+          .search-hint {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+          }
+          /* Term styling */
+          .term-section {
+            margin-bottom: 1.5em;
+            padding: 15px;
+            border-left: 3px solid #21918c;
+            background: #f8f9fa;
+            border-radius: 0 8px 8px 0;
+          }
+          .term-section h2 {
+            color: #3b528b;
+            margin-top: 0;
+            font-size: 1.3em;
+          }
+          .term-section.hidden {
+            display: none;
+          }
+          /* Category headers */
+          h1 {
+            color: #3b528b;
+            border-bottom: 2px solid #21918c;
+            padding-bottom: 10px;
+            margin-top: 2em;
+          }
+          /* Links */
+          a {
+            color: #21918c;
+          }
+          a:hover {
+            color: #3b528b;
+          }
+          /* Quick reference table */
+          table {
+            width: 100%;
+          }
+          th {
+            background: #3b528b;
+            color: white;
+          }
+          /* No results message */
+          #no-results {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+          }
+          </style>
+    include-after-body:
+      - text: |
+          <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('glossary-search');
+            const termSections = document.querySelectorAll('.term-section');
+            const categoryHeaders = document.querySelectorAll('h1');
+            const noResults = document.getElementById('no-results');
+            
+            searchInput.addEventListener('input', function() {
+              const searchTerm = this.value.toLowerCase().trim();
+              let visibleCount = 0;
+              
+              termSections.forEach(function(section) {
+                const text = section.textContent.toLowerCase();
+                const title = section.querySelector('h2')?.textContent.toLowerCase() || '';
+                
+                if (searchTerm === '' || text.includes(searchTerm) || title.includes(searchTerm)) {
+                  section.classList.remove('hidden');
+                  visibleCount++;
+                } else {
+                  section.classList.add('hidden');
+                }
+              });
+              
+              // Show/hide category headers based on visible children
+              categoryHeaders.forEach(function(header) {
+                let nextEl = header.nextElementSibling;
+                let hasVisibleTerms = false;
+                
+                while (nextEl && nextEl.tagName !== 'H1') {
+                  if (nextEl.classList.contains('term-section') && !nextEl.classList.contains('hidden')) {
+                    hasVisibleTerms = true;
+                    break;
+                  }
+                  nextEl = nextEl.nextElementSibling;
+                }
+                
+                header.style.display = (searchTerm === '' || hasVisibleTerms) ? 'block' : 'none';
+              });
+              
+              // Show no results message
+              if (noResults) {
+                noResults.style.display = (visibleCount === 0 && searchTerm !== '') ? 'block' : 'none';
+              }
+            });
+          });
+          </script>
+---
+
+## Purpose {.unnumbered}
+
+This glossary provides brief definitions of key technical terms used throughout the Data Analysis with AI course. Use it as a reference when you encounter unfamiliar terminology.
+
+**Tip:** Use the search box above to quickly find terms, or browse by category using the sidebar.
+
+
+::: {.search-container}
+<input type="text" id="glossary-search" placeholder="🔍 Search terms (e.g., token, agent, RAG...)">
+<div class="search-hint">Type to filter terms instantly</div>
+:::
+
+<div id="no-results">No matching terms found. Try a different search.</div>
+
+
+# Core Concepts
+
+::: {.term-section}
+## Token
+
+The basic unit of text that LLMs process. 
+
+- Roughly 4 characters or ¾ of a word in English
+- "Hello world" ≈ 2 tokens
+- Pricing and limits are measured in tokens
+:::
+
+::: {.term-section}
+## Context Window
+
+The maximum amount of text (in tokens) an LLM can consider at once.
+
+- Includes: system prompt + your messages + AI responses + uploads
+- GPT-5.2: ~400k tokens; Gemini 3: ~1M tokens
+- Exceeding the limit causes the model to "forget" earlier content
+:::
+
+::: {.term-section}
+## Inference
+
+The process of generating output from a trained model.
+
+- Input goes in → model processes → output comes out
+- Distinct from *training* (which creates the model)
+- What happens every time you send a message
+:::
+
+::: {.term-section}
+## Latency
+
+The time delay between sending a request and receiving a response.
+
+- Measured in milliseconds or seconds
+- Affected by: model size, input length, server load
+- Trade-off: faster models are often less capable
+:::
+
+# Model Architecture
+
+::: {.term-section}
+## LLM (Large Language Model)
+
+A neural network trained on massive text data to predict and generate language.
+
+- "Large" = billions of parameters
+- Learns patterns from training data
+- Examples: GPT-5, Claude 4.5, Gemini 3
+:::
+
+::: {.term-section}
+## Transformer
+
+The neural network architecture underlying modern LLMs.
+
+- Introduced in 2017 ("Attention Is All You Need")
+- Key innovation: self-attention mechanism
+- Enables parallel processing of sequences
+:::
+
+::: {.term-section}
+## Parameters
+
+The learned values (weights) inside a neural network.
+
+- More parameters ≈ more capacity to learn patterns
+- GPT-4: ~1 trillion parameters (estimated)
+- Trade-off: larger models are slower and more expensive
+:::
+
+::: {.term-section}
+## Mixture of Experts (MoE)
+
+An architecture that activates only a subset of parameters for each query.
+
+- Used by Gemini 3 (over 1 trillion total parameters)
+- Only relevant "experts" are activated per query
+- Balances deep intelligence with faster response times
+:::
+
+# Prompting & Context
+
+::: {.term-section}
+## System Prompt
+
+Hidden instructions given to the AI before your conversation.
+
+- Defines persona, constraints, behavior
+- Set by platform or user (Custom Instructions, Projects)
+- The AI "sees" this before your first message
+:::
+
+::: {.term-section}
+## Context Engineering
+
+The practice of curating all information the model receives to optimize performance.
+
+- Goes beyond prompt engineering
+- Includes: system prompt, memory, tools, retrieved documents
+- Key skill for building reliable AI applications
+
+[Learn more: Anthropic's context engineering guide](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+:::
+
+::: {.term-section}
+## RAG (Retrieval-Augmented Generation)
+
+A technique that retrieves relevant documents and adds them to the prompt.
+
+- Helps ground responses in specific data
+- Reduces hallucinations
+- Powers many enterprise AI applications
+:::
+
+# Reasoning & Thinking
+
+::: {.term-section}
+## Chain-of-Thought (CoT)
+
+A prompting technique where the model shows intermediate reasoning steps.
+
+- "Let's think step by step"
+- Improves accuracy on complex tasks
+- Can be prompted or built into the model
+:::
+
+::: {.term-section}
+## Reasoning Model
+
+A model specifically trained to "think" before responding.
+
+- Examples: OpenAI o3, o4-mini; Claude with extended thinking
+- Internal deliberation, then final answer
+- Better for math, logic, multi-step problems
+:::
+
+::: {.term-section}
+## Extended Thinking
+
+A mode where the model explicitly reasons through problems.
+
+- Visible chain of thought (unlike o3)
+- Configurable thinking "budget"
+- Trade-off: higher latency and cost
+:::
+
+::: {.term-section}
+## Thinking Levels
+
+Gemini 3's approach to controlling reasoning depth.
+
+- **LOW**: Fast, minimal deliberation
+- **MEDIUM**: Balanced (default)
+- **HIGH**: Deep reasoning, higher latency — uses parallel thinking and "self-correction" signatures to solve complex logic or math problems
+:::
+
+# Tools & Agents
+
+::: {.term-section}
+## Agent
+
+An AI system that can take actions, not just generate text.
+
+- Uses tools (code execution, web search, file access)
+- Operates semi-autonomously
+- May involve multiple steps and decisions
+:::
+
+::: {.term-section}
+## Agentic Workflow
+
+A process where AI acts across multiple steps with tool use.
+
+- Example: Search → Analyze → Write → Review
+- Less human intervention between steps
+- Requires careful design and guardrails
+:::
+
+::: {.term-section}
+## MCP (Model Context Protocol)
+
+An open standard for connecting AI to external tools and data.
+
+- "USB-C for AI applications"
+- Developed by Anthropic, adopted broadly
+- Enables secure access to files, databases, APIs
+
+[Learn more: MCP documentation](https://modelcontextprotocol.io/)
+:::
+
+::: {.term-section}
+## Tool Use / Function Calling
+
+The ability of an AI to invoke external functions or APIs.
+
+- Model outputs structured "tool call"
+- System executes the tool
+- Result fed back to model
+:::
+
+# Quality & Safety
+
+::: {.term-section}
+## Hallucination
+
+When an AI generates plausible-sounding but false information.
+
+- Fabricated facts, fake references, incorrect code
+- Reduced but not eliminated in modern models
+- Mitigated by grounding, RAG, verification
+:::
+
+::: {.term-section}
+## Grounding
+
+Connecting AI responses to verified sources of truth.
+
+- Web search, document retrieval, database queries
+- Reduces hallucinations
+- Enables citations
+:::
+
+::: {.term-section}
+## RLHF (Reinforcement Learning from Human Feedback)
+
+A training technique where models learn from human preferences.
+
+- Humans rate model outputs
+- Model learns to produce preferred responses
+- Key to making models "helpful and harmless"
+:::
+
+::: {.term-section}
+## Constitutional AI
+
+Anthropic's approach to training models with explicit principles.
+
+- Model trained to follow a "constitution" of rules
+- Self-improvement through AI feedback
+- Alternative to pure RLHF
+:::
+
+# Platform Features
+
+::: {.term-section}
+## Skills (Claude)
+
+Reusable, modular instruction packages in Claude.
+
+- Pre-defined workflows and behaviors
+- Shareable across conversations
+- Can be combined for complex tasks
+:::
+
+::: {.term-section}
+## Gems (Gemini)
+
+Custom AI assistants in Gemini Advanced.
+
+- User-defined personas and instructions
+- Persistent across conversations
+- Shareable with team
+:::
+
+::: {.term-section}
+## Projects (Claude)
+
+Workspaces with shared context across conversations.
+
+- Persistent system prompt
+- Uploaded knowledge files
+- All chats share the same context
+:::
+
+::: {.term-section}
+## Canvas / Artifacts
+
+Interactive workspaces for editing AI-generated content.
+
+- ChatGPT Canvas, Claude Artifacts
+- Side-by-side editing
+- Good for code and documents
+:::
+
+# Performance & Efficiency
+
+::: {.term-section}
+## Temperature
+
+A parameter controlling randomness in model outputs.
+
+- 0 = deterministic (same input → same output)
+- 1 = default, balanced creativity
+- Higher = more random/creative
+
+**Note:** Gemini 3 and reasoning models work best at default (1.0)
+:::
+
+::: {.term-section}
+## Context Rot
+
+Performance degradation as the context window fills up.
+
+- Model becomes less accurate over long conversations
+- Even within technical limits
+- Solution: start fresh, use memory tools
+:::
+
+::: {.term-section}
+## KV-Cache
+
+A technical optimization that speeds up repeated inference.
+
+- Caches intermediate computations
+- Faster response for repeated prefixes
+- Why stable prompt prefixes matter for cost
+:::
+
+# Development Patterns
+
+::: {.term-section}
+## Vibe Coding
+
+Describing desired behavior in natural language rather than writing syntax.
+
+- "Make this chart interactive with company colors"
+- AI translates intent to code
+- Requires human review and iteration
+:::
+
+::: {.term-section}
+## CLAUDE.md
+
+A convention for providing project context to Claude Code.
+
+- Markdown file in project root
+- Contains: file descriptions, conventions, current task
+- Automatically read by Claude Code CLI
+:::
+
+::: {.term-section}
+## Prompt Chaining
+
+Breaking complex tasks into sequential prompts.
+
+- Output of step N becomes input to step N+1
+- More reliable than single complex prompt
+- Enables debugging at each stage
+:::
+
+# Costs & Limits
+
+::: {.term-section}
+## Input/Output Tokens
+
+Tokens are billed separately for input (prompt) and output (response).
+
+- Input: what you send (including context)
+- Output: what the model generates
+- Output tokens typically cost more
+:::
+
+::: {.term-section}
+## Rate Limiting
+
+Restrictions on how many requests you can make.
+
+- Requests per minute (RPM)
+- Tokens per minute (TPM)
+- Prevents abuse and ensures fair access
+:::
+
+::: {.term-section}
+## Prompt Caching
+
+Storing and reusing processed prompts to reduce cost.
+
+- Same prefix → cached, cheaper
+- Useful for repeated system prompts
+- Requires stable prompt structure
+:::
+
+# Quick Reference
+
+| Term | One-liner |
+|------|-----------|
+| Token | Basic text unit (~4 characters) |
+| Context window | Max tokens model can see at once |
+| Inference | Generating output from input |
+| Agent | AI that takes actions via tools |
+| MCP | Standard for AI tool connections |
+| Hallucination | AI-generated false information |
+| RAG | Retrieval + generation technique |
+| MoE | Architecture activating subset of experts |
+
+# Resources
+
+**Documentation**
+
+- [Anthropic Glossary](https://docs.anthropic.com/en/docs/glossary)
+- [OpenAI Documentation](https://platform.openai.com/docs)
+- [Google AI for Developers](https://ai.google.dev/)
+- [MCP Documentation](https://modelcontextprotocol.io/)
+
+**Learning**
+
+- [3Blue1Brown Neural Networks](https://www.3blue1brown.com/topics/neural-networks)
+- [Anthropic Context Engineering Guide](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
+
+---
+
+**Version:** 0.2.0 | **Date:** 2026-01-19 | **Contact:** [bekesg@ceu.edu](mailto:bekesg@ceu.edu)
+
+<!-- 
+Document metadata:
+- Iterations with user: 2
+- Internal version: v0.2.0
+- Date: 2026-01-19
+- Model: Claude Opus 4.5 (claude-opus-4-5-20251101)
+- Changes: Converted from revealjs to HTML page, added search, incorporated user edits (MoE, thinking levels detail)
+-->
