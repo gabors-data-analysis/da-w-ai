@@ -7,7 +7,7 @@ This is a **group** assignment.  Continue with the research question you had cho
 
 Use AI iteratively to *help* you create a report. 
 
-### Core tasks
+### First run
 
   * Think in terms of two variables ($x$ and $y$). 
     * Pick a single variable or a combined index of variables
@@ -20,19 +20,29 @@ Use AI iteratively to *help* you create a report.
 * Run a regression and interpret the coefficient. Make sure they are precise. 
 * Use AI to get a well cratfted folder structure
 
-### Revision
+### Extended context window run 1
 
-* Once you have a draft, Upload some [data analysis slides](https://gabors-data-analysis.com/chapters/).  and ask to follow it and revise report. 
+* create a system prompt will preferences, expected output, style, etc
+* recreate a the report
+
+### Extended context window run 2
+
+* Once you have a draft, Upload slideshow for chapters 10 [data analysis slides](https://gabors-data-analysis.com/chapters/).  and ask to follow it and revise report. 
+* recreate a the report
+
+### Final repor
+
+* You have three versions. Use them to have a single one you like the most. Edit further if needed. 
 
 ### To submit
 
-1. report of maximum 1-1.5 page in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)
-2. your code (or aprovide a link). (4p)
-3. Text: What advice would you give to a fellow data analysis student on using AI to create a report?  (lastname_firstname_dawai_week03_advice.txt) (4p) -- List 2–3 pieces of advice based on your own experience using AI for this specific task. Discuss also the role of adding material. 
+1. report of maximum 2 pages in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)
+2. your code (or provide a link). (2p)
+3. Text: What advice would you give to a fellow data analysis student on using AI to create a report? (How do various runs compare? What changes are decisive? How many iterations and useful?) (lastname_firstname_dawai_week03_advice.txt) (6p).
     
 * Upload your report to the `student folder called Reports` at moodle or similar service if applicable. This is for the next class --- each group will read another groups report and discuss the good and bad aspects of the report.
 
 ### AI use restrictions
 
-* For the report, use AI as your assistant, use it as *input* not as *output*. Don't submit an AI-generated report as such, always author, review, edit. 
+* For the report, use AI as your assistant, use it as *input* not as *output*. Don't submit an AI-generated report without review and edit. 
 * Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.

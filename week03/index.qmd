@@ -1,7 +1,7 @@
 ---
 title: "Week 03: Reporting your data analysis"
 subtitle: "Creating inputs and organizing a short data analytics report with AI"
-date: "2025-03-20"
+date: "2026-01-27"
 ---
 
 ::: {.hero-section}
@@ -51,7 +51,7 @@ The class will exlopre how we can use AI to assist in these tasks, and get the d
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **Review on readmes (30 min)**
+🤝 **Review on readme docs (20 min)**
 :::
 ::: {.card-body}
 
@@ -72,11 +72,13 @@ The class will exlopre how we can use AI to assist in these tasks, and get the d
 Use  AI as input (like advanced google search) not as output writer, because
 
  * Creates "average" / generic / bland / repetitive text
- * Convincing but not precise
  * Not your style and not your exact plan
- * Too broad (like adds further research)
+ 
+ * Convincing but would have errors especially with info outside of context window
  * not precise enough, especially using causal language inappropriately.
-
+ 
+ * Too broad (like adds further research)
+ 
 :::
 :::
 
@@ -110,6 +112,11 @@ Try get a report with a single prompt.
 
 * Showcase an iterative process where key exhibits are created
 * Hint 3:  get AI to create *precisely* the exhibits you designed, not what it thinks you need.
+
+
+### AI 3
+
+* create a system prompt where summarize preferences, and add it to the context window. Repeat the one shot version. 
 
 :::
 :::
