@@ -20,7 +20,7 @@ jobs:
         with:
           personal_token: ${{ secrets.DEPLOY_TOKEN }}
           external_repository: gabors-data-analysis/gabors-data-analysis.github.io
-          publish_branch: main
+          publish_branch: master
           destination_dir: ai-course
           publish_dir: ./_site
           keep_files: true
