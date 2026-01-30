@@ -8,7 +8,11 @@ Glossary of technical terms used in various presentations or in class
 
 [LLM Glossary](da-knowledge/technical-terms-page.html)
 
-[Which AI](da-knowledge/which-ai.html) -- the 2026 January comparsion
+[Which AI](da-knowledge/which-ai.html) -- the 2026 January comparison
+
+## AI Tools Setup
+
+[Setting up Claude Code](da-knowledge/setting-up-claude-code.html) -- install and use Claude in your terminal
 
 ## Beyond (the material) --- Learn more
 

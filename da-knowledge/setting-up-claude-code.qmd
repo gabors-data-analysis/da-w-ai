@@ -1,0 +1,199 @@
+---
+title: "Setting Up Claude Code"
+---
+
+## What is Claude Code?
+
+Claude Code is a command-line tool made by Anthropic that lets you work with Claude AI directly in your terminal (the text-based interface on your computer). Instead of chatting in a browser, you type commands and Claude helps you with coding, file editing, data analysis, and more — right where your code lives.
+
+**Why use it?**
+
+- Works directly with your files and folders
+- Can read, edit, and create code for you
+- Runs commands and sees the output
+- Great for data analysis workflows
+- No copy-pasting between browser and code editor
+
+---
+
+## Installation Instructions
+
+Choose your operating system:
+
+- [Windows](#windows)
+- [Mac](#mac)
+- [Linux](#linux)
+
+---
+
+## Windows {#windows}
+
+### Step 1: Install Node.js
+
+Claude Code needs Node.js (a program that runs JavaScript) to work.
+
+1. Go to [nodejs.org](https://nodejs.org/)
+2. Download the **LTS** version (the button on the left)
+3. Run the installer
+4. Click **Next** through all the steps (default settings are fine)
+5. Check the box for "Automatically install necessary tools" if asked
+6. Click **Install**, then **Finish**
+
+### Step 2: Open Terminal
+
+1. Press the **Windows key** on your keyboard
+2. Type `cmd`
+3. Click on **Command Prompt**
+
+A black window with white text will open. This is your terminal.
+
+### Step 3: Install Claude Code
+
+In the terminal window, type this exactly and press **Enter**:
+
+```
+npm install -g @anthropic-ai/claude-code
+```
+
+Wait for it to finish (may take 1-2 minutes). You'll see some text scrolling.
+
+### Step 4: Start Claude Code
+
+In the same terminal, type:
+
+```
+claude
+```
+
+The first time, it will ask you to log in with your Anthropic account (the same one you use for claude.ai). Follow the instructions on screen.
+
+### You're done!
+
+Type your questions or requests and press Enter. Type `exit` to quit.
+
+---
+
+## Mac {#mac}
+
+### Step 1: Install Node.js
+
+1. Go to [nodejs.org](https://nodejs.org/)
+2. Download the **LTS** version (the button on the left)
+3. Open the downloaded `.pkg` file
+4. Follow the installer steps (click **Continue**, then **Install**)
+5. Enter your Mac password when asked
+
+### Step 2: Open Terminal
+
+1. Press **Command + Space** to open Spotlight
+2. Type `Terminal`
+3. Press **Enter**
+
+A window with text will open. This is your terminal.
+
+### Step 3: Install Claude Code
+
+In the terminal window, type this exactly and press **Enter**:
+
+```
+npm install -g @anthropic-ai/claude-code
+```
+
+Wait for it to finish (may take 1-2 minutes).
+
+**If you get a permission error**, type this instead:
+
+```
+sudo npm install -g @anthropic-ai/claude-code
+```
+
+Enter your Mac password when asked (you won't see the characters as you type — that's normal).
+
+### Step 4: Start Claude Code
+
+In the same terminal, type:
+
+```
+claude
+```
+
+The first time, it will ask you to log in with your Anthropic account. Follow the instructions on screen.
+
+### You're done!
+
+Type your questions or requests and press Enter. Type `exit` to quit.
+
+---
+
+## Linux {#linux}
+
+### Step 1: Install Node.js
+
+Open your terminal and run these commands:
+
+**Ubuntu/Debian:**
+```
+sudo apt update
+sudo apt install nodejs npm
+```
+
+**Fedora:**
+```
+sudo dnf install nodejs npm
+```
+
+**Arch:**
+```
+sudo pacman -S nodejs npm
+```
+
+### Step 2: Install Claude Code
+
+```
+npm install -g @anthropic-ai/claude-code
+```
+
+If you get a permission error:
+```
+sudo npm install -g @anthropic-ai/claude-code
+```
+
+### Step 3: Start Claude Code
+
+```
+claude
+```
+
+Log in with your Anthropic account when prompted.
+
+### You're done!
+
+---
+
+## Quick Tips
+
+| Command | What it does |
+|---------|--------------|
+| `claude` | Start Claude Code |
+| `exit` | Quit Claude Code |
+| `claude --help` | See all options |
+| `/help` | Get help while inside Claude |
+
+## Requirements
+
+- **Anthropic account** — Sign up at [claude.ai](https://claude.ai) if you don't have one
+- **Claude Pro or API access** — Claude Code requires a paid subscription or API credits
+- **Internet connection** — Claude runs in the cloud
+
+## Troubleshooting
+
+**"npm not found"** — Node.js didn't install correctly. Restart your terminal and try again, or reinstall Node.js.
+
+**"Permission denied"** — On Mac/Linux, add `sudo` before the command. On Windows, right-click Command Prompt and select "Run as administrator".
+
+**"Authentication failed"** — Make sure you're using the same account you use for claude.ai and that you have an active subscription.
+
+## Learn More
+
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+- [Anthropic Console](https://console.anthropic.com/) — for API keys and usage
