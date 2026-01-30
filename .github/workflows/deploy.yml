@@ -24,11 +24,16 @@ jobs:
         with:
           r-version: '4.3.2'
 
-      # 4. Render the Quarto site
+      # 4. Install R packages
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages(c("rmarkdown", "knitr"), repos="https://cloud.r-project.org")'
+
+      # 5. Render the Quarto site
       - name: Render Quarto site
         run: quarto render
 
-      # 5. Deploy to target repo
+      # 6. Deploy to target repo
       - name: Deploy to GitHub Pages repo
         uses: peaceiris/actions-gh-pages@v4
         with:
