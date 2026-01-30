@@ -59,9 +59,13 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 
 
 
-## Week07: AI-Assisted Data Collection
+## Week07: Agentic AI with Claude Code
 
-TBA
+From chat to terminal - introducing Claude Code for data analysis. Students learn to use agentic AI that works directly with files, generates data, and iterates on analysis.
+
+Case study: [Austrian Hotels](case-studies/austria-hotels/)
+
+[Content](week07/)
 
 ## Week08: SQL like natural language query in a data warehouse
 

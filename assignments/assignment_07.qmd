@@ -1,5 +1,112 @@
 ---
-title: "Simulation app"
+title: "Assignment 7: Extend the Austrian Hotels Dataset"
+subtitle: "Create new data and analyze it with Claude Code"
 ---
 
-Create a simulation app of an important statistical phenomenon.
+## Overview
+
+In this assignment, you will use Claude Code to:
+
+1. **Generate a new data table** that can be joined to the Austrian Hotels dataset
+2. **Join your new table** with existing data
+3. **Perform an analysis** that answers an interesting question
+4. **Document your process** and reflect on using agentic AI
+
+## Deliverables
+
+Submit a **single PDF** containing:
+
+1. Your data generation prompt and the resulting table description
+2. Your analysis with results (tables, charts, or statistics)
+3. The key code Claude Code generated (not all of it - just the important parts)
+4. A brief reflection (see Part 4)
+
+## Part 1: Design Your Data Table (25%)
+
+Create a new CSV file that joins to the Austrian Hotels dataset. Your table should:
+
+- Have a clear **join key** (hotel_id, city, city+month+year, etc.)
+- Contain **realistic patterns** (not random numbers)
+- Enable an **interesting analysis question**
+
+### Ideas (pick one or create your own):
+
+| Table | Columns | Join Key | Analysis Question |
+|-------|---------|----------|-------------------|
+| **Weather** | city, month, year, avg_temp, precipitation, snow_days | city + month + year | Does weather affect occupancy? |
+| **Staff** | hotel_id, num_employees, avg_wage, languages_spoken | hotel_id | Do staffing levels correlate with reviews? |
+| **Events** | event_id, city, event_name, month, year, expected_visitors | city + month + year | How much do events boost hotel prices? |
+| **Sustainability** | hotel_id, energy_rating, has_solar, waste_recycling_pct | hotel_id | Do eco-friendly hotels charge more? |
+| **Transportation** | city, airport_distance_km, train_station_distance, public_transport_score | city | Does accessibility affect tourism? |
+
+### What to submit:
+
+- The **prompt** you gave Claude Code to generate the data
+- A **summary** of your generated table (columns, row count, sample rows)
+- Explanation of the **realistic patterns** you built in
+
+## Part 2: Join and Analyze (40%)
+
+Use Claude Code to join your new table with the existing Austrian Hotels data and answer your analysis question.
+
+### Requirements:
+
+- Perform at least **one join** operation
+- Include **descriptive statistics** (means, counts, distributions)
+- Create at least **one visualization** (chart or graph)
+- Answer your analysis question with evidence
+
+### What to submit:
+
+- Your main **analysis question**
+- Key **results** (tables, charts)
+- Your **interpretation** - what does the data tell us?
+
+## Part 3: Show Your Work (20%)
+
+Include the key pieces of code that Claude Code generated. You don't need to include everything - focus on:
+
+- The data generation script (or key parts of it)
+- The join and analysis code
+- Any interesting debugging or iteration
+
+**Format:** Use code blocks in your PDF. If code is long, include just the important functions.
+
+## Part 4: Reflection (15%)
+
+Write 150-300 words reflecting on:
+
+1. **Process:** How did you iterate with Claude Code? What did you have to clarify or fix?
+
+2. **Comparison:** How did this workflow compare to using chat-based AI (ChatGPT/Claude.ai)? What was easier? Harder?
+
+3. **Trust:** Did you verify Claude Code's output? How? Did you find any mistakes?
+
+4. **Future use:** When would you use Claude Code vs chat AI in your own work?
+
+## Grading Rubric
+
+| Component | Excellent (90-100%) | Good (70-89%) | Needs Work (<70%) |
+|-----------|---------------------|---------------|-------------------|
+| **Data Design** | Creative, realistic patterns, clear join logic | Reasonable table, some patterns | Random data, unclear joins |
+| **Analysis** | Clear question, appropriate methods, insightful interpretation | Decent analysis, basic interpretation | Unclear question, minimal analysis |
+| **Code Quality** | Well-organized, key parts shown | Somewhat organized | Messy or missing |
+| **Reflection** | Thoughtful insights on process and tools | Basic reflection | Superficial or missing |
+
+## Tips
+
+- **Be specific in prompts:** "5-star hotels should have 20% higher staff-to-room ratios" is better than "make it realistic"
+- **Verify the data:** Ask Claude Code to show summary statistics after generating
+- **Iterate:** If the first version isn't right, refine your prompt
+- **Check joins:** Always verify row counts before and after joining
+- **Save your work:** Keep the Python scripts Claude Code generates
+
+## Submission
+
+- **Format:** PDF
+- **Due:** Sunday 23:55 before Week 8
+- **Submit via:** Moodle
+
+## Questions?
+
+If you have trouble with Claude Code setup, check the [setup guide](../da-knowledge/setting-up-claude-code.html) or ask in the course forum.

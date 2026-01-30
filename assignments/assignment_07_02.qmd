@@ -1,0 +1,119 @@
+---
+title: "Assignment 7: Mini Data Project"
+subtitle: "Your own analysis using Claude Code"
+---
+
+## Overview
+
+This is a **free-form mini project**. You'll use Claude Code to explore a question that interests you, generating new data and combining it with the Austrian Hotels dataset.
+
+Think of this as a small-scale version of what a data analyst does: identify a question, get the data you need, analyze it, and communicate findings.
+
+## The Task
+
+**Create a short data story** that answers an interesting question about hotels, tourism, or the hospitality industry.
+
+You must:
+
+1. **Generate at least one new data table** using Claude Code
+2. **Join it** with the Austrian Hotels data
+3. **Analyze** the combined data to answer your question
+4. **Present** your findings in a clear, concise report
+
+## Deliverable
+
+Submit a **PDF report (2-4 pages)** with:
+
+### 1. Your Question (half page)
+- What question are you investigating?
+- Why is it interesting or useful?
+- What data do you need to answer it?
+
+### 2. Data Creation (half page)
+- What new table(s) did you create?
+- What realistic patterns did you build in? Why?
+- Show a brief sample of the data (5-10 rows)
+
+### 3. Analysis & Findings (1-2 pages)
+- How did you join the data?
+- What analysis did you perform?
+- Include at least one table or chart
+- What did you find? What's your answer to the question?
+
+### 4. Reflection (half page)
+- What worked well with Claude Code?
+- What was tricky or surprising?
+- What would you do differently next time?
+
+## Project Ideas
+
+Choose one or create your own:
+
+| Question | New Data Needed |
+|----------|-----------------|
+| **Do eco-friendly hotels charge premium prices?** | Sustainability ratings by hotel |
+| **How does weather affect ski resort occupancy?** | Monthly weather by city |
+| **Which booking channels are most profitable?** | Booking channels + commissions |
+| **Do renovated hotels get better reviews?** | Renovation history by hotel |
+| **How do events impact hotel prices?** | Event calendar by city |
+| **Is there a staffing crisis in hospitality?** | Staff counts over time |
+| **Do family hotels have different booking patterns?** | Guest demographics |
+| **Your own idea** | Your own data |
+
+## What We're Looking For
+
+| Aspect | What Makes It Good |
+|--------|-------------------|
+| **Question** | Clear, specific, answerable with data |
+| **Data Design** | Realistic patterns, sensible join keys, well thought out |
+| **Analysis** | Appropriate methods, clear presentation, honest about limitations |
+| **Communication** | Easy to follow, good visuals, insights highlighted |
+| **Reflection** | Genuine observations about the process and tools |
+
+## Grading
+
+- **Question & Motivation:** 15%
+- **Data Generation:** 25%
+- **Analysis Quality:** 35%
+- **Presentation & Communication:** 15%
+- **Reflection:** 10%
+
+## Tips
+
+**On the question:**
+- Narrow is better than broad. "Do 5-star hotels in Vienna rely less on Booking.com?" beats "How do hotels use booking channels?"
+- Make sure your question can actually be answered with the data you're creating
+
+**On data generation:**
+- Be specific in your prompts. "Ski resort cities should have 30% higher snow days in winter" is better than "make it realistic"
+- Ask Claude Code to show summary statistics so you can verify
+- It's OK to iterate - refine until it looks right
+
+**On analysis:**
+- Simple is fine. A clear bar chart beats a confusing regression
+- Check your join results (row counts before and after)
+- If findings are surprising, dig deeper - is it real or a data issue?
+
+**On the report:**
+- Include enough detail that someone could understand and reproduce your work
+- Don't dump all your code - show key snippets only
+- Use clear labels on charts and tables
+
+## What NOT to Do
+
+- Don't generate random data with no patterns - the point is realistic simulation
+- Don't submit without checking that your joins worked correctly
+- Don't overcomplicate - this is a mini project, not a thesis
+- Don't forget to actually answer your question!
+
+## Submission
+
+- **Format:** PDF, 2-4 pages
+- **Due:** Sunday 23:55 before Week 8
+- **Submit via:** Moodle
+
+## Questions?
+
+Stuck on setup? Check [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html).
+
+Stuck on ideas? Come to office hours or post in the forum.

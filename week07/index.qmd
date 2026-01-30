@@ -1,17 +1,309 @@
 ---
-title: "Week 07: AI-Assisted Data Collection"
-subtitle: "Collecting and combining data from online sources"
-date: "2025-06-01"
+title: "Week 07: Agentic AI with Claude Code"
+subtitle: "From chat to terminal - AI that works directly with your files"
+date: "2025-04-15"
 ---
 
-:::::: hero-section
-::::: container
-::: hero-title
-Week 07: AI-Assisted Data Collection
+::: {.hero-section}
+::: {.container}
+::: {.hero-title}
+Week 07: Agentic AI with Claude Code
+:::
+::: {.hero-subtitle}
+From chat to terminal - AI that works directly with your files
+:::
+:::
 :::
 
-::: hero-subtitle
-Collecting and combining data from online sources
+---
+
+![](../images/week7_pic.png)
+
+## About the class
+
+So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **agentic AI**: AI that can see your files, run your code, and iterate on results directly.
+
+**Claude Code** is Anthropic's command-line tool that brings Claude into your terminal. Instead of describing your data to an AI, you can say "look at these CSV files and tell me what's here." Instead of copying error messages, Claude Code sees them and fixes the code itself.
+
+### Learning Objectives
+
+By the end of this session, students will:
+
+* Understand the difference between chat-based AI and agentic AI tools
+* Install and configure Claude Code on their machine
+* Use Claude Code to explore, understand, and analyze a multi-file dataset
+* Generate new data programmatically using Claude Code
+* Experience the workflow difference: iteration speed, context awareness, debugging
+
+### Before class
+
+::: {.week-card .card}
+::: {.card-header}
+**Setup Required - Do This Before Class**
 :::
-:::::
-::::::
+::: {.card-body}
+
+**1. Install Claude Code**
+
+Follow our setup guide: [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html)
+
+You need:
+
+- Node.js installed
+- Claude Code installed via `npm install -g @anthropic-ai/claude-code`
+- A Claude Pro subscription or API access
+- Logged in (run `claude` and follow prompts)
+
+**2. Install Python (if you don't have it)**
+
+Claude Code can write and run Python code, but Python must be installed on your machine.
+
+- Go to [python.org/downloads](https://www.python.org/downloads/)
+- Download the latest version
+- **Important:** Check "Add Python to PATH" during installation
+- After install, open a new terminal and verify: `python --version`
+
+Install common data packages:
+```
+python -m pip install pandas numpy matplotlib
+```
+
+**3. Download the Austrian Hotels dataset**
+
+Download [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) from the Austrian Hotels case study and unzip it to a folder you can easily find.
+
+:::
+:::
+
+## Class Plan
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 1: Why Agentic AI? (15 min)**
+:::
+::: {.card-body}
+
+### Chat AI vs Agentic AI
+
+| Chat AI (ChatGPT, Claude.ai) | Agentic AI (Claude Code) |
+|------------------------------|--------------------------|
+| You describe your data | AI reads your files directly |
+| Copy-paste code back and forth | AI writes and runs code |
+| "I got this error..." | AI sees and fixes errors |
+| One question at a time | AI iterates until done |
+| Context resets each session | AI sees your whole project |
+
+### Demo: The Same Task, Two Ways
+
+**Task:** "What's the average hotel occupancy by city in this dataset?"
+
+**Chat approach:**
+1. Open CSV, copy some rows
+2. Paste into ChatGPT, ask question
+3. Get code back, paste into Python
+4. Hit error, copy error message
+5. Paste error, get fix, repeat...
+
+**Claude Code approach:**
+```
+cd /path/to/austrian-hotels
+claude
+> Look at the CSV files here and calculate average occupancy by city
+```
+
+Claude Code reads the files, writes the code, runs it, and shows results.
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 2: Hands-on - Explore the Dataset (25 min)**
+:::
+::: {.card-body}
+
+### Getting Started
+
+Open your terminal, navigate to your data folder:
+```
+cd path/to/austrian-hotels-data
+claude
+```
+
+### Exercise 1: Understand the Data (Individual, 10 min)
+
+Try these prompts:
+
+```
+What files are in this folder? Give me a quick overview.
+```
+
+```
+Read the hotels and cities files. How are they related? What's the join key?
+```
+
+```
+Show me 5 sample rows from each CSV file.
+```
+
+**Discuss:** How does this compare to opening each file manually or describing it to ChatGPT?
+
+### Exercise 2: Basic Analysis (Individual, 15 min)
+
+Ask Claude Code to:
+
+1. **Join hotels and cities** - "Join the hotels and cities data. How many hotels are in each province?"
+
+2. **Aggregate occupancy** - "What's the average occupancy rate by city? Show me a table sorted highest to lowest."
+
+3. **Find patterns** - "Which 5-star hotels have the lowest average daily rate? Something seems off - investigate."
+
+**Tips:**
+
+- If something looks wrong, ask "Why did that happen?" or "Check the row counts"
+- Ask Claude Code to show intermediate steps: "Show me the data after the join, before aggregating"
+- If you get an error, just wait - Claude Code will often fix it automatically
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 3: Generate New Data (30 min)**
+:::
+::: {.card-body}
+
+### The Power Move: AI Creates Data
+
+One of the most useful capabilities of Claude Code is generating realistic simulated data. This is exactly how the Austrian Hotels dataset was created - by an earlier version of Claude!
+
+### Demo: Creating Booking Channel Data
+
+Watch the instructor create a new data table:
+
+```
+I want to create a new CSV file called hotel_bookings.csv that shows
+what percentage of each hotel's bookings come from different channels
+(Direct, Booking.com, Expedia, HRS, Travel Agent).
+
+Requirements:
+- Each hotel should have rows for each channel
+- Percentages should sum to 100% for each hotel
+- 5-star hotels should have more direct bookings (35-45%)
+- 3-star hotels should rely more on OTAs (Booking.com 40%+)
+- Include a commission rate column (Direct=0%, OTAs=10-18%)
+
+Write Python code to generate this, using the hotels_modified.csv as input.
+```
+
+Claude Code will:
+1. Read the existing hotels data
+2. Write a Python script with realistic logic
+3. Run it and generate the CSV
+4. Show you a summary
+
+### Exercise 3: Create Your Own Data Table (Groups of 2-3, 20 min)
+
+Your turn! Brainstorm a new data table that could join to the hotels data. Ideas:
+
+| Table Idea | Join Key | Interesting Analysis |
+|------------|----------|---------------------|
+| **Weather by city/month** | city + month + year | Does weather affect occupancy? |
+| **Staff data** | hotel_id | Do more staff = better reviews? |
+| **Nearby attractions** | city | Which attractions drive tourism? |
+| **Renovation history** | hotel_id | Did renovations boost ratings? |
+| **Competitor Airbnb prices** | city + month | How do hotel prices compare? |
+
+**Steps:**
+
+1. Pick a table idea with your group
+2. Write a detailed prompt describing what you want (columns, realistic patterns, join keys)
+3. Ask Claude Code to generate it
+4. Verify: Does it look realistic? Can you join it to hotels?
+5. Do one simple analysis with the joined data
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 4: Debugging and Iteration (10 min)**
+:::
+::: {.card-body}
+
+### When Things Go Wrong
+
+Claude Code isn't perfect. Common issues:
+
+- **Wrong join type** - Ask: "How many rows before and after the join? Did we lose data?"
+- **Missing values** - Ask: "Are there NaN values? Where did they come from?"
+- **Unexpected results** - Ask: "Walk me through the calculation step by step"
+- **Code errors** - Often Claude Code fixes these automatically. If not, just describe what went wrong.
+
+### Trust but Verify
+
+**Always check:**
+
+- Row counts after joins
+- Summary statistics (do means make sense?)
+- A few random rows (do values look realistic?)
+
+**Good habit:** Ask Claude Code to explain what it did:
+```
+Explain the code you just wrote. What assumptions did you make?
+```
+
+:::
+:::
+
+## Discussion Questions
+
+**End of Class Reflection:**
+
+1. **Workflow change:** How did using Claude Code feel different from chat-based AI? What was faster? What was harder?
+
+2. **Trust calibration:** When did you trust Claude Code's output? When did you double-check? How do you decide?
+
+3. **Use cases:** For what tasks would you now prefer Claude Code over ChatGPT/Claude.ai? When would you still use chat?
+
+4. **Data generation:** What did you learn from creating synthetic data? How could this help in your own projects?
+
+
+## Assignment
+
+::: {.callout-note icon="assignment"}
+## Assignment 7: Extend the Austrian Hotels Dataset
+
+**Due:** Sunday 23:55 before Week 8
+
+[Full Assignment Details](../assignments/assignment_07.html){.assignment-badge}
+
+**Summary:** Using Claude Code, create a new data table that joins to the Austrian Hotels dataset, then perform an analysis that answers an interesting question.
+:::
+
+
+## Resources
+
+**Claude Code:**
+
+- [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html) - Installation guide
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Official docs
+
+**Austrian Hotels Dataset:**
+
+- [Dataset Overview](../case-studies/austria-hotels/) - All files and documentation
+- [Data Schema](../case-studies/austria-hotels/data/hotel-data-readme.md) - Table descriptions and relationships
+
+**Python Basics (if needed):**
+
+- [Python for Data Analysis](https://wesmckinney.com/book/) - Free online book
+- pandas documentation: [pandas.pydata.org](https://pandas.pydata.org/)
+
+
+## Some personal comments
+
+* This is where AI gets genuinely useful for data work. Chat interfaces are great for learning and quick questions, but agentic AI changes how you actually *do* the work.
+* The booking channel data we use in class? It was generated by Claude Code while preparing this course. Meta, isn't it?
+* Don't worry if setup takes time. Getting your environment right is a one-time cost that pays off quickly.

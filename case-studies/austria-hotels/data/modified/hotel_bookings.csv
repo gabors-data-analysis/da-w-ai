@@ -1,0 +1,846 @@
+hotel_id,channel,pct_bookings,avg_commission
+1,Booking.com,33.0,0.13
+1,Direct,26.0,0.0
+1,Expedia,25.0,0.153
+1,HRS,11.0,0.103
+1,Travel Agent,5.0,0.086
+3,Booking.com,17.0,0.117
+3,Direct,46.0,0.0
+3,Expedia,13.0,0.151
+3,HRS,10.0,0.073
+3,Travel Agent,14.0,0.065
+5,Booking.com,25.0,0.116
+5,Direct,37.0,0.0
+5,Expedia,14.0,0.156
+5,HRS,11.0,0.085
+5,Travel Agent,13.0,0.077
+6,Booking.com,33.0,0.125
+6,Direct,29.0,0.0
+6,Expedia,23.0,0.162
+6,HRS,10.0,0.107
+6,Travel Agent,5.0,0.081
+7,Booking.com,36.0,0.138
+7,Direct,28.0,0.0
+7,Expedia,21.0,0.168
+7,HRS,11.0,0.09
+7,Travel Agent,4.0,0.072
+8,Booking.com,24.0,0.12
+8,Direct,37.0,0.0
+8,Expedia,21.0,0.148
+8,HRS,7.0,0.081
+8,Travel Agent,11.0,0.061
+9,Booking.com,38.0,0.134
+9,Direct,27.0,0.0
+9,Expedia,18.0,0.168
+9,HRS,9.0,0.111
+9,Travel Agent,8.0,0.083
+10,Booking.com,23.0,0.117
+10,Direct,37.0,0.0
+10,Expedia,19.0,0.157
+10,HRS,12.0,0.088
+10,Travel Agent,9.0,0.076
+14,Booking.com,33.0,0.142
+14,Direct,27.0,0.0
+14,Expedia,20.0,0.168
+14,HRS,13.0,0.114
+14,Travel Agent,7.0,0.097
+15,Booking.com,23.0,0.127
+15,Direct,43.0,0.0
+15,Expedia,16.0,0.142
+15,HRS,7.0,0.084
+15,Travel Agent,11.0,0.072
+16,Booking.com,23.0,0.124
+16,Direct,42.0,0.0
+16,Expedia,18.0,0.155
+16,HRS,7.0,0.097
+16,Travel Agent,10.0,0.06
+17,Booking.com,34.0,0.127
+17,Direct,28.0,0.0
+17,Expedia,16.0,0.149
+17,HRS,14.0,0.098
+17,Travel Agent,8.0,0.073
+18,Booking.com,30.0,0.131
+18,Direct,28.0,0.0
+18,Expedia,17.0,0.167
+18,HRS,13.0,0.108
+18,Travel Agent,12.0,0.089
+19,Booking.com,22.0,0.132
+19,Direct,38.0,0.0
+19,Expedia,13.0,0.157
+19,HRS,13.0,0.098
+19,Travel Agent,14.0,0.082
+20,Booking.com,15.0,0.123
+20,Direct,44.0,0.0
+20,Expedia,12.0,0.144
+20,HRS,13.0,0.079
+20,Travel Agent,16.0,0.064
+21,Booking.com,27.0,0.13
+21,Direct,31.0,0.0
+21,Expedia,20.0,0.157
+21,HRS,11.0,0.11
+21,Travel Agent,11.0,0.084
+23,Booking.com,28.0,0.112
+23,Direct,38.0,0.0
+23,Expedia,14.0,0.149
+23,HRS,12.0,0.086
+23,Travel Agent,8.0,0.072
+24,Booking.com,21.0,0.104
+24,Direct,39.0,0.0
+24,Expedia,13.0,0.13
+24,HRS,12.0,0.086
+24,Travel Agent,15.0,0.064
+25,Booking.com,17.0,0.107
+25,Direct,44.0,0.0
+25,Expedia,15.0,0.144
+25,HRS,12.0,0.08
+25,Travel Agent,12.0,0.061
+26,Booking.com,38.0,0.13
+26,Direct,24.0,0.0
+26,Expedia,27.0,0.167
+26,HRS,9.0,0.099
+26,Travel Agent,2.0,0.08
+27,Booking.com,33.0,0.134
+27,Direct,31.0,0.0
+27,Expedia,15.0,0.16
+27,HRS,15.0,0.099
+27,Travel Agent,6.0,0.093
+29,Booking.com,28.0,0.118
+29,Direct,36.0,0.0
+29,Expedia,17.0,0.16
+29,HRS,9.0,0.083
+29,Travel Agent,10.0,0.072
+30,Booking.com,22.0,0.113
+30,Direct,38.0,0.0
+30,Expedia,14.0,0.133
+30,HRS,11.0,0.082
+30,Travel Agent,15.0,0.06
+31,Booking.com,25.0,0.111
+31,Direct,43.0,0.0
+31,Expedia,13.0,0.139
+31,HRS,7.0,0.081
+31,Travel Agent,12.0,0.055
+32,Booking.com,27.0,0.122
+32,Direct,36.0,0.0
+32,Expedia,17.0,0.149
+32,HRS,10.0,0.102
+32,Travel Agent,10.0,0.079
+33,Booking.com,22.0,0.123
+33,Direct,37.0,0.0
+33,Expedia,17.0,0.147
+33,HRS,16.0,0.083
+33,Travel Agent,8.0,0.072
+34,Booking.com,40.0,0.146
+34,Direct,21.0,0.0
+34,Expedia,28.0,0.164
+34,HRS,9.0,0.117
+34,Travel Agent,2.0,0.081
+35,Booking.com,37.0,0.143
+35,Direct,29.0,0.0
+35,Expedia,22.0,0.173
+35,HRS,10.0,0.096
+35,Travel Agent,2.0,0.079
+36,Booking.com,25.0,0.136
+36,Direct,38.0,0.0
+36,Expedia,18.0,0.157
+36,HRS,7.0,0.106
+36,Travel Agent,12.0,0.083
+37,Booking.com,37.0,0.135
+37,Direct,28.0,0.0
+37,Expedia,17.0,0.161
+37,HRS,9.0,0.106
+37,Travel Agent,9.0,0.089
+38,Booking.com,20.0,0.129
+38,Direct,44.0,0.0
+38,Expedia,17.0,0.158
+38,HRS,7.0,0.096
+38,Travel Agent,12.0,0.068
+39,Booking.com,24.0,0.117
+39,Direct,36.0,0.0
+39,Expedia,21.0,0.155
+39,HRS,10.0,0.084
+39,Travel Agent,9.0,0.07
+40,Booking.com,28.0,0.106
+40,Direct,38.0,0.0
+40,Expedia,17.0,0.143
+40,HRS,7.0,0.084
+40,Travel Agent,10.0,0.062
+42,Booking.com,32.0,0.135
+42,Direct,33.0,0.0
+42,Expedia,16.0,0.166
+42,HRS,9.0,0.111
+42,Travel Agent,10.0,0.088
+43,Booking.com,42.0,0.137
+43,Direct,20.0,0.0
+43,Expedia,22.0,0.157
+43,HRS,10.0,0.094
+43,Travel Agent,6.0,0.08
+45,Booking.com,23.0,0.116
+45,Direct,40.0,0.0
+45,Expedia,13.0,0.147
+45,HRS,9.0,0.082
+45,Travel Agent,15.0,0.074
+46,Booking.com,29.0,0.122
+46,Direct,28.0,0.0
+46,Expedia,21.0,0.15
+46,HRS,13.0,0.088
+46,Travel Agent,9.0,0.066
+47,Booking.com,17.0,0.112
+47,Direct,45.0,0.0
+47,Expedia,10.0,0.149
+47,HRS,12.0,0.071
+47,Travel Agent,16.0,0.061
+49,Booking.com,20.0,0.119
+49,Direct,37.0,0.0
+49,Expedia,15.0,0.16
+49,HRS,12.0,0.103
+49,Travel Agent,16.0,0.073
+50,Booking.com,32.0,0.139
+50,Direct,34.0,0.0
+50,Expedia,16.0,0.161
+50,HRS,8.0,0.108
+50,Travel Agent,10.0,0.087
+51,Booking.com,25.0,0.109
+51,Direct,36.0,0.0
+51,Expedia,19.0,0.156
+51,HRS,11.0,0.086
+51,Travel Agent,9.0,0.06
+52,Booking.com,33.0,0.145
+52,Direct,29.0,0.0
+52,Expedia,18.0,0.172
+52,HRS,13.0,0.098
+52,Travel Agent,7.0,0.082
+53,Booking.com,25.0,0.128
+53,Direct,37.0,0.0
+53,Expedia,20.0,0.165
+53,HRS,7.0,0.102
+53,Travel Agent,11.0,0.091
+54,Booking.com,23.0,0.11
+54,Direct,40.0,0.0
+54,Expedia,11.0,0.145
+54,HRS,13.0,0.093
+54,Travel Agent,13.0,0.066
+55,Booking.com,34.0,0.119
+55,Direct,22.0,0.0
+55,Expedia,26.0,0.156
+55,HRS,10.0,0.102
+55,Travel Agent,8.0,0.087
+56,Booking.com,29.0,0.134
+56,Direct,30.0,0.0
+56,Expedia,24.0,0.161
+56,HRS,8.0,0.107
+56,Travel Agent,9.0,0.068
+57,Booking.com,28.0,0.107
+57,Direct,40.0,0.0
+57,Expedia,14.0,0.139
+57,HRS,8.0,0.08
+57,Travel Agent,10.0,0.064
+58,Booking.com,35.0,0.138
+58,Direct,24.0,0.0
+58,Expedia,22.0,0.155
+58,HRS,17.0,0.102
+58,Travel Agent,2.0,0.087
+59,Booking.com,31.0,0.121
+59,Direct,29.0,0.0
+59,Expedia,25.0,0.156
+59,HRS,11.0,0.091
+59,Travel Agent,4.0,0.076
+60,Booking.com,27.0,0.127
+60,Direct,31.0,0.0
+60,Expedia,22.0,0.16
+60,HRS,10.0,0.106
+60,Travel Agent,10.0,0.086
+61,Booking.com,30.0,0.117
+61,Direct,32.0,0.0
+61,Expedia,18.0,0.152
+61,HRS,8.0,0.081
+61,Travel Agent,12.0,0.073
+62,Booking.com,22.0,0.124
+62,Direct,45.0,0.0
+62,Expedia,12.0,0.153
+62,HRS,11.0,0.094
+62,Travel Agent,10.0,0.068
+63,Booking.com,33.0,0.142
+63,Direct,30.0,0.0
+63,Expedia,22.0,0.179
+63,HRS,10.0,0.11
+63,Travel Agent,5.0,0.093
+64,Booking.com,29.0,0.112
+64,Direct,38.0,0.0
+64,Expedia,16.0,0.145
+64,HRS,7.0,0.083
+64,Travel Agent,10.0,0.062
+65,Booking.com,25.0,0.123
+65,Direct,38.0,0.0
+65,Expedia,17.0,0.146
+65,HRS,9.0,0.087
+65,Travel Agent,11.0,0.072
+66,Booking.com,22.0,0.118
+66,Direct,38.0,0.0
+66,Expedia,17.0,0.145
+66,HRS,13.0,0.083
+66,Travel Agent,10.0,0.065
+67,Booking.com,32.0,0.12
+67,Direct,32.0,0.0
+67,Expedia,19.0,0.153
+67,HRS,7.0,0.09
+67,Travel Agent,10.0,0.067
+68,Booking.com,44.0,0.138
+68,Direct,23.0,0.0
+68,Expedia,23.0,0.159
+68,HRS,7.0,0.11
+68,Travel Agent,3.0,0.078
+70,Booking.com,28.0,0.128
+70,Direct,34.0,0.0
+70,Expedia,23.0,0.148
+70,HRS,9.0,0.092
+70,Travel Agent,6.0,0.08
+72,Booking.com,32.0,0.141
+72,Direct,30.0,0.0
+72,Expedia,27.0,0.183
+72,HRS,7.0,0.121
+72,Travel Agent,4.0,0.103
+73,Booking.com,26.0,0.105
+73,Direct,39.0,0.0
+73,Expedia,15.0,0.142
+73,HRS,8.0,0.074
+73,Travel Agent,12.0,0.057
+74,Booking.com,22.0,0.135
+74,Direct,39.0,0.0
+74,Expedia,12.0,0.166
+74,HRS,13.0,0.104
+74,Travel Agent,14.0,0.068
+75,Booking.com,21.0,0.11
+75,Direct,45.0,0.0
+75,Expedia,11.0,0.153
+75,HRS,9.0,0.08
+75,Travel Agent,14.0,0.064
+77,Booking.com,28.0,0.126
+77,Direct,28.0,0.0
+77,Expedia,22.0,0.154
+77,HRS,12.0,0.081
+77,Travel Agent,10.0,0.074
+78,Booking.com,20.0,0.126
+78,Direct,40.0,0.0
+78,Expedia,15.0,0.143
+78,HRS,11.0,0.095
+78,Travel Agent,14.0,0.07
+80,Booking.com,40.0,0.143
+80,Direct,26.0,0.0
+80,Expedia,21.0,0.169
+80,HRS,11.0,0.099
+80,Travel Agent,2.0,0.085
+81,Booking.com,35.0,0.134
+81,Direct,30.0,0.0
+81,Expedia,24.0,0.168
+81,HRS,8.0,0.101
+81,Travel Agent,3.0,0.085
+82,Booking.com,32.0,0.129
+82,Direct,31.0,0.0
+82,Expedia,17.0,0.162
+82,HRS,11.0,0.108
+82,Travel Agent,9.0,0.089
+84,Booking.com,34.0,0.14
+84,Direct,28.0,0.0
+84,Expedia,25.0,0.151
+84,HRS,7.0,0.091
+84,Travel Agent,6.0,0.09
+85,Booking.com,40.0,0.149
+85,Direct,24.0,0.0
+85,Expedia,18.0,0.17
+85,HRS,11.0,0.11
+85,Travel Agent,7.0,0.081
+86,Booking.com,18.0,0.112
+86,Direct,44.0,0.0
+86,Expedia,13.0,0.149
+86,HRS,15.0,0.088
+86,Travel Agent,10.0,0.074
+87,Booking.com,20.0,0.124
+87,Direct,46.0,0.0
+87,Expedia,10.0,0.147
+87,HRS,11.0,0.09
+87,Travel Agent,13.0,0.079
+88,Booking.com,34.0,0.154
+88,Direct,23.0,0.0
+88,Expedia,23.0,0.184
+88,HRS,17.0,0.106
+88,Travel Agent,3.0,0.096
+89,Booking.com,28.0,0.129
+89,Direct,33.0,0.0
+89,Expedia,20.0,0.157
+89,HRS,7.0,0.106
+89,Travel Agent,12.0,0.082
+91,Booking.com,41.0,0.13
+91,Direct,22.0,0.0
+91,Expedia,19.0,0.17
+91,HRS,12.0,0.104
+91,Travel Agent,6.0,0.086
+92,Booking.com,29.0,0.125
+92,Direct,29.0,0.0
+92,Expedia,23.0,0.165
+92,HRS,11.0,0.101
+92,Travel Agent,8.0,0.074
+94,Booking.com,26.0,0.134
+94,Direct,38.0,0.0
+94,Expedia,18.0,0.157
+94,HRS,8.0,0.104
+94,Travel Agent,10.0,0.087
+95,Booking.com,26.0,0.123
+95,Direct,30.0,0.0
+95,Expedia,22.0,0.157
+95,HRS,10.0,0.096
+95,Travel Agent,12.0,0.063
+96,Booking.com,31.0,0.115
+96,Direct,30.0,0.0
+96,Expedia,16.0,0.149
+96,HRS,13.0,0.097
+96,Travel Agent,10.0,0.079
+98,Booking.com,33.0,0.127
+98,Direct,28.0,0.0
+98,Expedia,20.0,0.152
+98,HRS,11.0,0.098
+98,Travel Agent,8.0,0.069
+99,Booking.com,28.0,0.13
+99,Direct,35.0,0.0
+99,Expedia,17.0,0.171
+99,HRS,8.0,0.111
+99,Travel Agent,12.0,0.084
+100,Booking.com,22.0,0.121
+100,Direct,40.0,0.0
+100,Expedia,11.0,0.158
+100,HRS,12.0,0.092
+100,Travel Agent,15.0,0.074
+102,Booking.com,45.0,0.133
+102,Direct,21.0,0.0
+102,Expedia,21.0,0.164
+102,HRS,9.0,0.111
+102,Travel Agent,4.0,0.084
+103,Booking.com,34.0,0.14
+103,Direct,30.0,0.0
+103,Expedia,19.0,0.158
+103,HRS,13.0,0.101
+103,Travel Agent,4.0,0.083
+105,Booking.com,41.0,0.142
+105,Direct,29.0,0.0
+105,Expedia,19.0,0.167
+105,HRS,7.0,0.121
+105,Travel Agent,4.0,0.085
+106,Booking.com,30.0,0.129
+106,Direct,35.0,0.0
+106,Expedia,17.0,0.154
+106,HRS,8.0,0.092
+106,Travel Agent,10.0,0.075
+107,Booking.com,22.0,0.12
+107,Direct,36.0,0.0
+107,Expedia,14.0,0.161
+107,HRS,16.0,0.101
+107,Travel Agent,12.0,0.075
+108,Booking.com,37.0,0.139
+108,Direct,28.0,0.0
+108,Expedia,22.0,0.181
+108,HRS,9.0,0.116
+108,Travel Agent,4.0,0.104
+110,Booking.com,24.0,0.108
+110,Direct,37.0,0.0
+110,Expedia,18.0,0.133
+110,HRS,8.0,0.072
+110,Travel Agent,13.0,0.051
+111,Booking.com,31.0,0.119
+111,Direct,29.0,0.0
+111,Expedia,22.0,0.153
+111,HRS,12.0,0.081
+111,Travel Agent,6.0,0.066
+112,Booking.com,39.0,0.147
+112,Direct,27.0,0.0
+112,Expedia,18.0,0.176
+112,HRS,9.0,0.107
+112,Travel Agent,7.0,0.083
+113,Booking.com,33.0,0.128
+113,Direct,23.0,0.0
+113,Expedia,23.0,0.16
+113,HRS,13.0,0.103
+113,Travel Agent,8.0,0.08
+114,Booking.com,25.0,0.127
+114,Direct,37.0,0.0
+114,Expedia,18.0,0.158
+114,HRS,9.0,0.105
+114,Travel Agent,11.0,0.081
+115,Booking.com,40.0,0.138
+115,Direct,21.0,0.0
+115,Expedia,24.0,0.161
+115,HRS,12.0,0.106
+115,Travel Agent,3.0,0.085
+116,Booking.com,18.0,0.108
+116,Direct,44.0,0.0
+116,Expedia,15.0,0.141
+116,HRS,13.0,0.076
+116,Travel Agent,10.0,0.062
+117,Booking.com,37.0,0.131
+117,Direct,29.0,0.0
+117,Expedia,23.0,0.165
+117,HRS,7.0,0.1
+117,Travel Agent,4.0,0.071
+118,Booking.com,40.0,0.149
+118,Direct,20.0,0.0
+118,Expedia,26.0,0.172
+118,HRS,9.0,0.125
+118,Travel Agent,5.0,0.093
+119,Booking.com,17.0,0.105
+119,Direct,46.0,0.0
+119,Expedia,11.0,0.136
+119,HRS,12.0,0.074
+119,Travel Agent,14.0,0.056
+120,Booking.com,34.0,0.15
+120,Direct,23.0,0.0
+120,Expedia,27.0,0.164
+120,HRS,9.0,0.104
+120,Travel Agent,7.0,0.099
+122,Booking.com,31.0,0.126
+122,Direct,35.0,0.0
+122,Expedia,14.0,0.137
+122,HRS,10.0,0.089
+122,Travel Agent,10.0,0.075
+123,Booking.com,35.0,0.146
+123,Direct,25.0,0.0
+123,Expedia,26.0,0.177
+123,HRS,12.0,0.124
+123,Travel Agent,2.0,0.098
+124,Booking.com,36.0,0.127
+124,Direct,22.0,0.0
+124,Expedia,26.0,0.168
+124,HRS,10.0,0.107
+124,Travel Agent,6.0,0.092
+125,Booking.com,38.0,0.133
+125,Direct,20.0,0.0
+125,Expedia,27.0,0.164
+125,HRS,12.0,0.096
+125,Travel Agent,3.0,0.085
+126,Booking.com,32.0,0.122
+126,Direct,28.0,0.0
+126,Expedia,21.0,0.162
+126,HRS,8.0,0.099
+126,Travel Agent,11.0,0.079
+127,Booking.com,32.0,0.121
+127,Direct,31.0,0.0
+127,Expedia,18.0,0.149
+127,HRS,13.0,0.093
+127,Travel Agent,6.0,0.076
+129,Booking.com,25.0,0.117
+129,Direct,36.0,0.0
+129,Expedia,13.0,0.131
+129,HRS,12.0,0.086
+129,Travel Agent,14.0,0.055
+130,Booking.com,44.0,0.125
+130,Direct,22.0,0.0
+130,Expedia,23.0,0.168
+130,HRS,7.0,0.109
+130,Travel Agent,4.0,0.084
+131,Booking.com,41.0,0.143
+131,Direct,22.0,0.0
+131,Expedia,20.0,0.184
+131,HRS,11.0,0.116
+131,Travel Agent,6.0,0.099
+132,Booking.com,28.0,0.119
+132,Direct,36.0,0.0
+132,Expedia,16.0,0.147
+132,HRS,13.0,0.091
+132,Travel Agent,7.0,0.076
+133,Booking.com,48.0,0.135
+133,Direct,20.0,0.0
+133,Expedia,23.0,0.159
+133,HRS,7.0,0.098
+133,Travel Agent,2.0,0.075
+134,Booking.com,35.0,0.13
+134,Direct,22.0,0.0
+134,Expedia,24.0,0.174
+134,HRS,12.0,0.11
+134,Travel Agent,7.0,0.091
+135,Booking.com,43.0,0.129
+135,Direct,20.0,0.0
+135,Expedia,20.0,0.157
+135,HRS,12.0,0.095
+135,Travel Agent,5.0,0.088
+136,Booking.com,27.0,0.126
+136,Direct,34.0,0.0
+136,Expedia,21.0,0.143
+136,HRS,12.0,0.091
+136,Travel Agent,6.0,0.075
+137,Booking.com,29.0,0.121
+137,Direct,31.0,0.0
+137,Expedia,20.0,0.161
+137,HRS,10.0,0.089
+137,Travel Agent,10.0,0.082
+138,Booking.com,31.0,0.128
+138,Direct,29.0,0.0
+138,Expedia,19.0,0.162
+138,HRS,13.0,0.1
+138,Travel Agent,8.0,0.077
+139,Booking.com,17.0,0.116
+139,Direct,45.0,0.0
+139,Expedia,11.0,0.155
+139,HRS,12.0,0.102
+139,Travel Agent,15.0,0.072
+141,Booking.com,25.0,0.112
+141,Direct,37.0,0.0
+141,Expedia,21.0,0.144
+141,HRS,7.0,0.089
+141,Travel Agent,10.0,0.068
+142,Booking.com,24.0,0.125
+142,Direct,35.0,0.0
+142,Expedia,14.0,0.155
+142,HRS,17.0,0.101
+142,Travel Agent,10.0,0.089
+144,Booking.com,32.0,0.121
+144,Direct,35.0,0.0
+144,Expedia,15.0,0.151
+144,HRS,12.0,0.092
+144,Travel Agent,6.0,0.07
+146,Booking.com,34.0,0.13
+146,Direct,34.0,0.0
+146,Expedia,16.0,0.153
+146,HRS,10.0,0.103
+146,Travel Agent,6.0,0.082
+147,Booking.com,23.0,0.111
+147,Direct,44.0,0.0
+147,Expedia,12.0,0.15
+147,HRS,10.0,0.075
+147,Travel Agent,11.0,0.065
+148,Booking.com,21.0,0.116
+148,Direct,41.0,0.0
+148,Expedia,14.0,0.15
+148,HRS,13.0,0.09
+148,Travel Agent,11.0,0.076
+149,Booking.com,24.0,0.105
+149,Direct,38.0,0.0
+149,Expedia,16.0,0.139
+149,HRS,7.0,0.086
+149,Travel Agent,15.0,0.056
+150,Booking.com,22.0,0.119
+150,Direct,41.0,0.0
+150,Expedia,16.0,0.151
+150,HRS,10.0,0.1
+150,Travel Agent,11.0,0.07
+151,Booking.com,39.0,0.124
+151,Direct,25.0,0.0
+151,Expedia,18.0,0.168
+151,HRS,13.0,0.105
+151,Travel Agent,5.0,0.083
+152,Booking.com,29.0,0.146
+152,Direct,30.0,0.0
+152,Expedia,22.0,0.177
+152,HRS,15.0,0.107
+152,Travel Agent,4.0,0.09
+153,Booking.com,42.0,0.127
+153,Direct,21.0,0.0
+153,Expedia,23.0,0.157
+153,HRS,12.0,0.098
+153,Travel Agent,2.0,0.078
+154,Booking.com,27.0,0.128
+154,Direct,30.0,0.0
+154,Expedia,21.0,0.156
+154,HRS,10.0,0.109
+154,Travel Agent,12.0,0.087
+156,Booking.com,30.0,0.124
+156,Direct,29.0,0.0
+156,Expedia,25.0,0.141
+156,HRS,7.0,0.095
+156,Travel Agent,9.0,0.064
+157,Booking.com,21.0,0.12
+157,Direct,42.0,0.0
+157,Expedia,12.0,0.137
+157,HRS,13.0,0.076
+157,Travel Agent,12.0,0.054
+159,Booking.com,40.0,0.143
+159,Direct,20.0,0.0
+159,Expedia,22.0,0.177
+159,HRS,13.0,0.121
+159,Travel Agent,5.0,0.097
+161,Booking.com,21.0,0.119
+161,Direct,39.0,0.0
+161,Expedia,16.0,0.159
+161,HRS,11.0,0.093
+161,Travel Agent,13.0,0.075
+163,Booking.com,33.0,0.126
+163,Direct,20.0,0.0
+163,Expedia,28.0,0.166
+163,HRS,11.0,0.1
+163,Travel Agent,8.0,0.072
+164,Booking.com,36.0,0.138
+164,Direct,24.0,0.0
+164,Expedia,26.0,0.175
+164,HRS,9.0,0.114
+164,Travel Agent,5.0,0.09
+165,Booking.com,22.0,0.123
+165,Direct,41.0,0.0
+165,Expedia,15.0,0.141
+165,HRS,7.0,0.097
+165,Travel Agent,15.0,0.064
+166,Booking.com,29.0,0.125
+166,Direct,37.0,0.0
+166,Expedia,14.0,0.16
+166,HRS,9.0,0.103
+166,Travel Agent,11.0,0.09
+167,Booking.com,36.0,0.141
+167,Direct,27.0,0.0
+167,Expedia,23.0,0.166
+167,HRS,11.0,0.116
+167,Travel Agent,3.0,0.087
+169,Booking.com,24.0,0.137
+169,Direct,29.0,0.0
+169,Expedia,21.0,0.161
+169,HRS,14.0,0.097
+169,Travel Agent,12.0,0.093
+170,Booking.com,34.0,0.111
+170,Direct,28.0,0.0
+170,Expedia,21.0,0.143
+170,HRS,7.0,0.08
+170,Travel Agent,10.0,0.072
+171,Booking.com,32.0,0.128
+171,Direct,33.0,0.0
+171,Expedia,19.0,0.148
+171,HRS,8.0,0.083
+171,Travel Agent,8.0,0.073
+172,Booking.com,21.0,0.121
+172,Direct,37.0,0.0
+172,Expedia,14.0,0.165
+172,HRS,17.0,0.093
+172,Travel Agent,11.0,0.089
+173,Booking.com,30.0,0.13
+173,Direct,32.0,0.0
+173,Expedia,21.0,0.158
+173,HRS,9.0,0.094
+173,Travel Agent,8.0,0.083
+174,Booking.com,27.0,0.117
+174,Direct,35.0,0.0
+174,Expedia,15.0,0.153
+174,HRS,12.0,0.082
+174,Travel Agent,11.0,0.066
+175,Booking.com,28.0,0.119
+175,Direct,38.0,0.0
+175,Expedia,13.0,0.146
+175,HRS,15.0,0.092
+175,Travel Agent,6.0,0.062
+176,Booking.com,24.0,0.111
+176,Direct,43.0,0.0
+176,Expedia,16.0,0.152
+176,HRS,7.0,0.085
+176,Travel Agent,10.0,0.07
+177,Booking.com,34.0,0.117
+177,Direct,32.0,0.0
+177,Expedia,15.0,0.157
+177,HRS,10.0,0.083
+177,Travel Agent,9.0,0.061
+178,Booking.com,46.0,0.137
+178,Direct,20.0,0.0
+178,Expedia,21.0,0.174
+178,HRS,7.0,0.1
+178,Travel Agent,6.0,0.085
+179,Booking.com,35.0,0.143
+179,Direct,27.0,0.0
+179,Expedia,19.0,0.172
+179,HRS,11.0,0.106
+179,Travel Agent,8.0,0.088
+181,Booking.com,41.0,0.153
+181,Direct,30.0,0.0
+181,Expedia,19.0,0.168
+181,HRS,7.0,0.119
+181,Travel Agent,3.0,0.085
+182,Booking.com,29.0,0.124
+182,Direct,32.0,0.0
+182,Expedia,20.0,0.153
+182,HRS,8.0,0.105
+182,Travel Agent,11.0,0.073
+183,Booking.com,24.0,0.13
+183,Direct,38.0,0.0
+183,Expedia,15.0,0.17
+183,HRS,11.0,0.11
+183,Travel Agent,12.0,0.091
+185,Booking.com,21.0,0.134
+185,Direct,36.0,0.0
+185,Expedia,15.0,0.157
+185,HRS,13.0,0.096
+185,Travel Agent,15.0,0.078
+186,Booking.com,26.0,0.138
+186,Direct,29.0,0.0
+186,Expedia,21.0,0.159
+186,HRS,16.0,0.103
+186,Travel Agent,8.0,0.079
+187,Booking.com,26.0,0.116
+187,Direct,37.0,0.0
+187,Expedia,16.0,0.129
+187,HRS,11.0,0.069
+187,Travel Agent,10.0,0.053
+188,Booking.com,20.0,0.101
+188,Direct,42.0,0.0
+188,Expedia,13.0,0.132
+188,HRS,11.0,0.072
+188,Travel Agent,14.0,0.069
+189,Booking.com,23.0,0.122
+189,Direct,36.0,0.0
+189,Expedia,15.0,0.148
+189,HRS,12.0,0.09
+189,Travel Agent,14.0,0.065
+191,Booking.com,24.0,0.127
+191,Direct,36.0,0.0
+191,Expedia,15.0,0.153
+191,HRS,13.0,0.088
+191,Travel Agent,12.0,0.082
+192,Booking.com,31.0,0.129
+192,Direct,29.0,0.0
+192,Expedia,23.0,0.148
+192,HRS,8.0,0.079
+192,Travel Agent,9.0,0.06
+193,Booking.com,32.0,0.126
+193,Direct,28.0,0.0
+193,Expedia,24.0,0.163
+193,HRS,10.0,0.11
+193,Travel Agent,6.0,0.094
+194,Booking.com,33.0,0.132
+194,Direct,27.0,0.0
+194,Expedia,20.0,0.149
+194,HRS,12.0,0.107
+194,Travel Agent,8.0,0.086
+197,Booking.com,36.0,0.136
+197,Direct,27.0,0.0
+197,Expedia,21.0,0.165
+197,HRS,11.0,0.112
+197,Travel Agent,5.0,0.094
+199,Booking.com,43.0,0.131
+199,Direct,29.0,0.0
+199,Expedia,19.0,0.153
+199,HRS,7.0,0.105
+199,Travel Agent,2.0,0.085
+200,Booking.com,23.0,0.112
+200,Direct,44.0,0.0
+200,Expedia,11.0,0.141
+200,HRS,10.0,0.075
+200,Travel Agent,12.0,0.05
+201,Booking.com,28.0,0.13
+201,Booking.com,25.0,0.12
+201,Direct,35.0,0.0
+201,Direct,35.0,0.0
+201,Expedia,20.0,0.16
+201,Expedia,21.0,0.166
+201,HRS,9.0,0.099
+201,HRS,11.0,0.107
+201,Travel Agent,8.0,0.072
+201,Travel Agent,8.0,0.079
+202,Booking.com,26.0,0.101
+202,Booking.com,26.0,0.107
+202,Direct,37.0,0.0
+202,Direct,36.0,0.0
+202,Expedia,18.0,0.147
+202,Expedia,16.0,0.144
+202,HRS,7.0,0.08
+202,HRS,11.0,0.086
+202,Travel Agent,12.0,0.055
+202,Travel Agent,11.0,0.062
+203,Booking.com,36.0,0.14
+203,Booking.com,34.0,0.137
+203,Direct,29.0,0.0
+203,Direct,30.0,0.0
+203,Expedia,20.0,0.169
+203,Expedia,19.0,0.165
+203,HRS,13.0,0.104
+203,HRS,11.0,0.119
+203,Travel Agent,2.0,0.093
+203,Travel Agent,6.0,0.092
