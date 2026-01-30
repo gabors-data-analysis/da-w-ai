@@ -1,0 +1,26 @@
+---
+title: "Austrian Hotels - Data Files"
+---
+
+[← Back to Austrian Hotels Case Study](../)
+
+## Data Files
+
+Download the complete dataset: [data-modified.zip](data-modified.zip)
+
+### Individual Files
+
+| File | Description |
+|------|-------------|
+| [hotels_modified.csv](modified/hotels_modified.csv) | Basic hotel information (200 hotels) |
+| [cities_modified.csv](modified/cities_modified.csv) | City information (10 cities) |
+| [monthly_occupancy_modified.csv](modified/monthly_occupancy_modified.csv) | Monthly hotel performance (~3,800 rows) |
+| [city_tourism_modified.csv](modified/city_tourism_modified.csv) | Monthly tourism statistics (240 rows) |
+| [economic_indicators.csv](modified/economic_indicators.csv) | Monthly economic indicators (24 rows) |
+| [reviews_modified.csv](modified/reviews_modified.csv) | Hotel guest reviews (~1,700 rows) |
+| [amenities.csv](modified/amenities.csv) | List of hotel amenities (10 items) |
+| [hotel_amenities_modified.csv](modified/hotel_amenities_modified.csv) | Hotel-amenity relationships (~1,000 rows) |
+
+## Documentation
+
+- [hotel-data-readme.md](hotel-data-readme.md) - Detailed schema documentation with column descriptions

@@ -1,0 +1,27 @@
+---
+title: "Football Manager Interviews - Code"
+---
+
+[← Back to Interviews Case Study](../)
+
+## Code Files
+
+### R Scripts
+
+| File | Description |
+|------|-------------|
+| [sentiment-analysis.R](sentiment-analysis.R) | Complete sentiment analysis workflow using OpenAI API |
+| [domain_lexicon.r](domain_lexicon.r) | Creates football-specific sentiment lexicon |
+| [api-key.R](api-key.R) | Template for API key setup |
+
+### Python Scripts
+
+| File | Description |
+|------|-------------|
+| [sentiment_analysis.py](sentiment_analysis.py) | Python sentiment analysis script |
+
+## Usage Notes
+
+- Store API keys in environment variables, never commit to version control
+- Budget ~$5 for course exercises
+- Set `temperature=0` for consistent results

@@ -37,7 +37,7 @@ The class will exlopre how we can use AI to assist in these tasks, and get the d
 ## Preparation BEFORE class
 
 * Background reading: Békés-Kézdi (2021) Chapters 3-4, 7-10. Pay special attention to Chapter 4's discussion of good vs. bad graphs and Chapter 10 on interpreting regression coefficients precisely.
-* Download the [WVS_GDP_merged_data.csv](/data/VWS/WVS_GDP_merged_data.csv). This is an aggregated, cleaned subset of the 7th Wave of WVS dataset merged with GDP data from World Bank
+* Download the [WVS_GDP_merged_data.csv](/case-studies/VWS/data/WVS_GDP_merged_data.csv) from the [World Values Survey case study](/case-studies/VWS/). This is an aggregated, cleaned subset of the 7th Wave of WVS dataset merged with GDP data from World Bank
 
 ### The data
 

@@ -1,0 +1,23 @@
+---
+title: "Football Manager Interviews - Data Files"
+---
+
+[← Back to Interviews Case Study](../)
+
+## Data Files
+
+### Primary Data
+
+| File | Description |
+|------|-------------|
+| [interview-texts-only.xlsx](interview-texts-only.xlsx) | Raw interview texts (121 interviews) |
+| [combined_text_data.csv](combined_text_data.csv) | Combined text data with metadata |
+| [combined_raw_data.csv](combined_raw_data.csv) | Full raw dataset |
+| [game_data.xlsx](game_data.xlsx) | Game results and context |
+
+### Sentiment Analysis
+
+| File | Description |
+|------|-------------|
+| [domain_lexicon.csv](domain_lexicon.csv) | Football-specific sentiment terms |
+| [aggregated_ratings_by_text.csv](aggregated_ratings_by_text.csv) | Aggregated sentiment ratings |

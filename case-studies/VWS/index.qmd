@@ -1,0 +1,48 @@
+---
+title: "World Values Survey (WVS)"
+---
+
+## Overview
+
+The 7th Wave of the World Values Survey, cleaned and merged with World Bank GDP data. The WVS is a global research project exploring people's values and beliefs across different countries and cultures.
+
+**Used in:** Week 2 (Data Documentation), Week 3 (Report Writing)
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| `WVS_random_subset2000.csv` | Random subset of 2,000 respondents stratified by country |
+| `WVS_GDP_merged_data.csv` | Country-level aggregated data merged with GDP and population indicators |
+| `WVS_subset.csv` | Selected variables from full dataset |
+| `codebook.pdf` | Official WVS codebook with variable definitions |
+| `README_WVS.md` | Data processing documentation |
+
+[Browse data files](data/)
+
+## Code
+
+| File | Description |
+|------|-------------|
+| `cleaning.R` | R script that processes raw WVS data and creates cleaned datasets |
+
+[Browse code files](code/)
+
+## Key Features
+
+- International survey data covering 50+ countries
+- Economic indicators merged from World Bank
+- Multiple aggregation levels (individual and country-level)
+- Detailed codebook documentation
+
+## Sample Research Questions
+
+- Relationship between income level and trust/happiness
+- Cultural differences in gender attitudes
+- Economic development and social values
+
+## Downloads
+
+- [WVS_random_subset2000.csv](data/WVS_random_subset2000.csv)
+- [WVS_GDP_merged_data.csv](data/WVS_GDP_merged_data.csv)
+- [Codebook (PDF)](data/codebook.pdf)

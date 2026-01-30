@@ -1,0 +1,21 @@
+---
+title: "Employee Commits - Data Files"
+---
+
+[← Back to Employee Commits Case Study](../)
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| [employee_commits_clean.csv](employee_commits_clean.csv) | Cleaned commit data |
+| [employee_commits_raw.csv](employee_commits_raw.csv) | Raw commit data |
+| [README.txt](README.txt) | Data description |
+
+## AI Analysis Outputs
+
+The `ai/` subfolder contains analysis outputs from different AI models for comparison:
+
+- ChatGPT analysis outputs
+- Claude analysis outputs
+- Gemini analysis outputs

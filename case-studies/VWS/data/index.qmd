@@ -1,0 +1,24 @@
+---
+title: "World Values Survey - Data Files"
+---
+
+[← Back to WVS Case Study](../)
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| [WVS_random_subset2000.csv](WVS_random_subset2000.csv) | Random subset of 2,000 respondents stratified by country |
+| [WVS_GDP_merged_data.csv](WVS_GDP_merged_data.csv) | Country-level aggregated data merged with GDP indicators |
+| [WVS_subset.csv](WVS_subset.csv) | Selected variables from full dataset |
+
+## Documentation
+
+| File | Description |
+|------|-------------|
+| [codebook.pdf](codebook.pdf) | Official WVS codebook with variable definitions |
+| [README_WVS.md](README_WVS.md) | Data processing documentation |
+
+## External Source
+
+Full dataset available at [OSF - Gabors Data Analysis / World Values Survey](https://osf.io/mfd6s/)

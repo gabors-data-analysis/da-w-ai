@@ -1,0 +1,46 @@
+---
+title: "Common Support Analysis (R)"
+---
+
+## Overview
+
+Iterative development of R code for common support analysis using Claude AI, demonstrating the prompt-refine workflow for building statistical analysis code.
+
+**Topic:** Causal inference and common support in treatment effect estimation
+
+## Code Files
+
+Sequential prompts showing iterative development:
+
+| File | Description |
+|------|-------------|
+| `claude-sonnet-v4-prompt-01.R` | Initial prompt and response |
+| `claude-sonnet-v4-prompt-02.R` | First refinement |
+| `claude-sonnet-v4-prompt-03.R` | Adding features |
+| `claude-sonnet-v4-prompt-04.R` | Further improvements |
+| `claude-sonnet-v4-prompt-05.R` | Extended analysis |
+| `claude-sonnet-v4-prompt-06.R` | Visualization updates |
+| `claude-sonnet-v4-prompt-07.R` | Additional refinements |
+| `claude-sonnet-v4-prompt-08.R` | Near-final version |
+| `claude-sonnet-v4-prompt-09.R` | Final polished version |
+
+[Browse code files](code/)
+
+## Data
+
+*Uses simulated data generated within scripts*
+
+[Browse data files](data/)
+
+## Key Features
+
+- Demonstrates iterative AI-assisted coding workflow
+- Shows progression from basic to sophisticated analysis
+- Real example of prompt engineering for statistical code
+- Common support visualization techniques
+
+## Learning Objectives
+
+- How to iteratively develop code with AI
+- Prompt refinement strategies
+- Building complex statistical analyses step-by-step

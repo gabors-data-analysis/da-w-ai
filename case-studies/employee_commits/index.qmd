@@ -1,0 +1,44 @@
+---
+title: "Employee Commits Dataset"
+---
+
+## Overview
+
+Simulated dataset of employee commit activity for exploring AI-generated data analysis and visualization comparisons.
+
+**Used in:** Data analysis demonstrations
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| `employee_commits_clean.csv` | Cleaned commit data |
+| `employee_commits_raw.csv` | Raw commit data |
+| `README.txt` | Data description |
+
+### AI Analysis Outputs
+
+The `ai/` subfolder contains analysis outputs from different AI models:
+
+- ChatGPT analysis outputs
+- Claude analysis outputs
+- Gemini analysis outputs
+
+[Browse data files](data/)
+
+## Code
+
+*Code examples to be added*
+
+[Browse code files](code/)
+
+## Key Features
+
+- Comparison of AI-generated analyses
+- Multiple model outputs for same dataset
+- Visualization comparisons
+
+## Downloads
+
+- [employee_commits_clean.csv](data/employee_commits_clean.csv)
+- [employee_commits_raw.csv](data/employee_commits_raw.csv)

@@ -73,10 +73,10 @@ Sometimes data is messy and discovery is hard. Sometimes you need to write data 
 :::
 
 ::: card-body
-Access the [VWS dataset](/data/VWS)
+Access the [World Values Survey case study](/case-studies/VWS/)
 
-1.  Download data: [WVS_random_subset.csv](/data/VWS/WVS_random_subset2000.csv) - random subset (N=2000) - covering all countries
-2.  Download its official [codebook documentation](/data/VWS/codebook.pdf)
+1.  Download data: [WVS_random_subset.csv](/case-studies/VWS/data/WVS_random_subset2000.csv) - random subset (N=2000) - covering all countries
+2.  Download its official [codebook documentation](/case-studies/VWS/data/codebook.pdf)
 
 The full dataset is at [OSF, Gabors Data Analysis / World Values Survey](https://osf.io/mfd6s/)
 :::

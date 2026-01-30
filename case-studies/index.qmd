@@ -1,0 +1,51 @@
+---
+title: "Case Studies"
+---
+
+This course uses several case studies to demonstrate data analysis with AI. Each case study includes data, code examples, and documentation.
+
+## Main Case Studies
+
+### [World Values Survey (WVS)](VWS/)
+
+The 7th Wave of the World Values Survey, cleaned and merged with World Bank GDP data. Used for data documentation and report writing exercises.
+
+**Used in:** Week 2 (Data Documentation), Week 3 (Report Writing)
+
+---
+
+### [Austrian Hotels](austria-hotels/)
+
+A realistic simulated dataset of hotels across Austria for practicing data wrangling and table joins. Contains 8 related tables.
+
+**Used in:** Week 4 (Joining Tables)
+
+---
+
+### [Football Manager Interviews](interviews/)
+
+Post-match interview texts from football managers for sentiment analysis and NLP practice. Includes rating systems for comparison and validation.
+
+**Used in:** Week 5 (Text as Data I), Week 6 (Text as Data II)
+
+---
+
+## Additional Case Studies
+
+### [US Earnings Data (CPS)](earnings/)
+
+Current Population Survey data for analyzing earnings patterns, gender gaps, and returns to education.
+
+**Used in:** Week 0 (Coding with AI)
+
+---
+
+### [Employee Commits](employee_commits/)
+
+Simulated dataset of employee commit activity for exploring AI-generated data analysis comparisons.
+
+---
+
+### [Common Support Analysis (R)](common-support-r/)
+
+Iterative development of R code for causal inference analysis using Claude AI, demonstrating prompt-refine workflow.

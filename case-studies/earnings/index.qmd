@@ -1,0 +1,54 @@
+---
+title: "US Earnings Data (CPS MORG)"
+---
+
+## Overview
+
+Current Population Survey (CPS) Merged Outgoing Rotation Groups data for analyzing earnings patterns, gender gaps, and returns to education in the US labor market.
+
+**Used in:** Week 0 (Coding with AI)
+
+**Source:** [Data Analysis Textbook Case Study](https://gabors-data-analysis.com/casestudies/#ch09a-estimating-gender-and-age-differences-in-earnings)
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| `morg-2014-emp-state5.csv` | CPS MORG 2014 data filtered to 5 states |
+| `cpsx.pdf` | Codebook and variable documentation |
+
+[Browse data files](data/)
+
+## Code
+
+| File | Description |
+|------|-------------|
+| `earnings.R` | R script for earnings analysis |
+
+[Browse code files](code/)
+
+## Key Variables
+
+- `earnwke` - Weekly earnings
+- `sex` - Gender
+- `age` - Age
+- `grade92` - Education level
+- `weight` - Survey weight
+
+## Learning Objectives
+
+- Working with survey data
+- Analyzing earnings distributions
+- Creating visualizations with AI assistance
+- Understanding gender wage gaps
+
+## Sample Research Questions
+
+- Is there a gender gap in earnings?
+- How do earnings vary by education level?
+- What is the age-earnings profile?
+
+## Downloads
+
+- [morg-2014-emp-state5.csv](data/morg-2014-emp-state5.csv)
+- [Codebook (PDF)](data/cpsx.pdf)

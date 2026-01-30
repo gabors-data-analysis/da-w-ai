@@ -70,8 +70,8 @@ By the end of the session, students will:
 
 **Code Examples Available:**
 
-- [R implementation](/code/interviews/sentiment-analysis.R) requires [API key setup in R](/code/interviews/api-key.R)
-- [Python implementation](/code/interviews/sentimet-analysis.py) 
+- [R implementation](/case-studies/interviews/code/sentiment-analysis.R) requires [API key setup in R](/case-studies/interviews/code/api-key.R)
+- [Python implementation](/case-studies/interviews/code/sentiment_analysis.py) 
 
 **text and prompts**
 

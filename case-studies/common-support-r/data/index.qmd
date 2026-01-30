@@ -1,0 +1,11 @@
+---
+title: "Common Support Analysis - Data"
+---
+
+[← Back to Common Support Case Study](../)
+
+## Data Files
+
+*This case study uses simulated data generated within the R scripts.*
+
+No external data files required.

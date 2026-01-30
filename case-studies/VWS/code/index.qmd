@@ -1,0 +1,11 @@
+---
+title: "World Values Survey - Code"
+---
+
+[← Back to WVS Case Study](../)
+
+## Code Files
+
+| File | Description |
+|------|-------------|
+| [cleaning.R](cleaning.R) | R script that processes raw WVS data and creates cleaned datasets |

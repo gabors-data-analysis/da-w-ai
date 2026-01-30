@@ -92,7 +92,7 @@ By the end of the session, students will:
 **Reference Materials:**
 
 - [General sentiment rating scale](/week05/assets/sentiment-scale.html) - our classification framework
-- [Domain-specific lexicon](/data/interviews/domain_lexicon.csv) - football-specific sentiment terms
+- [Domain-specific lexicon](/case-studies/interviews/data/domain_lexicon.csv) - football-specific sentiment terms
 
 :::
 :::
@@ -136,7 +136,7 @@ By the end of the session, students will:
 
 **Phase 3: Domain Lexicon Exploration (10 min)**
 
-- Examine the [football-specific lexicon](/data/interviews/domain_lexicon.csv)
+- Examine the [football-specific lexicon](/case-studies/interviews/data/domain_lexicon.csv)
 - Discuss how domain knowledge affects interpretation
 
 **Discussion: Validation and Sentiment Analysis**

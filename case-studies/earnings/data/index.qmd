@@ -1,0 +1,16 @@
+---
+title: "US Earnings - Data Files"
+---
+
+[← Back to Earnings Case Study](../)
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| [morg-2014-emp-state5.csv](morg-2014-emp-state5.csv) | CPS MORG 2014 data filtered to 5 states |
+| [cpsx.pdf](cpsx.pdf) | Codebook and variable documentation |
+
+## External Source
+
+Full CPS data available at [OSF - Gabors Data Analysis](https://osf.io/4ay9x)

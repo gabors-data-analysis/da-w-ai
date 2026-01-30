@@ -1,0 +1,11 @@
+---
+title: "US Earnings - Code"
+---
+
+[← Back to Earnings Case Study](../)
+
+## Code Files
+
+| File | Description |
+|------|-------------|
+| [earnings.R](earnings.R) | R script for earnings analysis |

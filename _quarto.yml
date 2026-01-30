@@ -51,16 +51,27 @@ website:
           - text: "Week 12: Dashboards & Apps"
             href: week12/index.qmd
           
+      - section: "Case Studies"
+        contents:
+          - text: "World Values Survey"
+            href: case-studies/VWS/index.qmd
+          - text: "Austrian Hotels"
+            href: case-studies/austria-hotels/index.qmd
+          - text: "Football Interviews"
+            href: case-studies/interviews/index.qmd
+          - text: "US Earnings (CPS)"
+            href: case-studies/earnings/index.qmd
+          - text: "Employee Commits"
+            href: case-studies/employee_commits/index.qmd
+          - text: "Common Support (R)"
+            href: case-studies/common-support-r/index.qmd
+
       - section: "Resources"
         contents:
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
           - text: "Learn More"
             href: learn-more/beyond.qmd
-          - text: "Data"
-            href: data/index.qmd
-          - text: "Code"
-            href: code/index.qmd
           - text: "Which AI"
             href: da-knowledge/which-ai.qmd
 

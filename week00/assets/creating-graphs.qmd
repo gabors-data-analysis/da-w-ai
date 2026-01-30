@@ -70,7 +70,7 @@ Hold on, what does max state=5 mean? Ask ChatGPT.
 
 ![](../../images/earnings-state5.png)
 
-Save this file as `morg-2014-emp-state5.csv`. You can also find it [at the data section here](/data/earnings/morg-2014-emp-state5.csv)
+Save this file as `morg-2014-emp-state5.csv`. You can also find it in the [US Earnings case study](/case-studies/earnings/data/morg-2014-emp-state5.csv)
 
 
 **Get to know the file**

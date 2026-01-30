@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/index.html</loc>
-    <lastmod>2026-01-20T15:39:03.243Z</lastmod>
+    <lastmod>2026-01-30T08:50:43.614Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/weeks.html</loc>
-    <lastmod>2025-07-25T14:01:11.534Z</lastmod>
+    <lastmod>2026-01-29T13:13:45.616Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week06/index.html</loc>
-    <lastmod>2025-06-02T15:59:21.529Z</lastmod>
+    <lastmod>2026-01-29T13:15:02.907Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week06/assets/walkthrough-fbref.html</loc>
@@ -26,11 +26,11 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week04/index.html</loc>
-    <lastmod>2025-05-31T12:38:05.910Z</lastmod>
+    <lastmod>2026-01-29T13:14:31.157Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week03/index.html</loc>
-    <lastmod>2026-01-27T09:45:38.871Z</lastmod>
+    <lastmod>2026-01-29T13:14:28.152Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week03/assets/trust_income_report_long.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week02/index.html</loc>
-    <lastmod>2026-01-20T10:26:12.183Z</lastmod>
+    <lastmod>2026-01-29T13:14:25.186Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week02/assets/chatgpt-2025-vws-README-v1.html</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/assignments/assignment_05.html</loc>
-    <lastmod>2025-05-26T07:03:52.289Z</lastmod>
+    <lastmod>2026-01-29T13:15:41.109Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/assignments/assignment_03.html</loc>
@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/assignments/assignment_02.html</loc>
-    <lastmod>2026-01-20T10:26:09.301Z</lastmod>
+    <lastmod>2026-01-29T13:15:38.155Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/assignments/assignment_04.html</loc>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/week05/index.html</loc>
-    <lastmod>2025-06-02T15:57:47.008Z</lastmod>
+    <lastmod>2026-01-29T13:14:59.984Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/assignments/assignment_06.html</loc>
@@ -274,10 +274,110 @@
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/technical-terms-page.html</loc>
-    <lastmod>2026-01-20T14:51:57.944Z</lastmod>
+    <lastmod>2026-01-27T21:48:36.008Z</lastmod>
   </url>
   <url>
     <loc>https://gabors-data-analysis.com/ai-course/da-knowledge/which-ai.html</loc>
     <lastmod>2026-01-12T13:37:28.118Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/VWS/index.html</loc>
+    <lastmod>2026-01-29T13:11:45.330Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/interviews/index.html</loc>
+    <lastmod>2026-01-29T13:11:51.695Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/index.html</loc>
+    <lastmod>2026-01-29T13:17:10.695Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/employee_commits/data/background-v3/COMPLETE_SUMMARY_v3.html</loc>
+    <lastmod>2025-11-12T09:28:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/earnings/index.html</loc>
+    <lastmod>2026-01-29T13:11:54.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/austria-hotels/index.html</loc>
+    <lastmod>2026-01-29T13:11:48.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/austria-hotels/data/hotel-data-readme.html</loc>
+    <lastmod>2025-03-18T13:27:39.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/common-support-r/index.html</loc>
+    <lastmod>2026-01-29T13:11:59.201Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/employee_commits/data/background/SUMMARY_v2.1.html</loc>
+    <lastmod>2025-11-12T08:30:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/employee_commits/index.html</loc>
+    <lastmod>2026-01-29T13:11:56.581Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/interviews/creating-code-sentiment-analysis.html</loc>
+    <lastmod>2026-01-29T13:16:26.017Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/VWS/data/README_WVS.html</loc>
+    <lastmod>2025-05-25T13:44:28.407Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/changes-summary.html</loc>
+    <lastmod>2026-01-29T14:47:12.640Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/VWS/data/index.html</loc>
+    <lastmod>2026-01-30T08:58:09.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/interviews/data/index.html</loc>
+    <lastmod>2026-01-30T08:58:33.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/employee_commits/data/index.html</loc>
+    <lastmod>2026-01-30T08:59:16.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/earnings/data/index.html</loc>
+    <lastmod>2026-01-30T08:58:45.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/common-support-r/data/index.html</loc>
+    <lastmod>2026-01-30T08:59:31.818Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/austria-hotels/data/index.html</loc>
+    <lastmod>2026-01-30T08:57:47.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/austria-hotels/code/index.html</loc>
+    <lastmod>2026-01-30T08:57:58.642Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/common-support-r/code/index.html</loc>
+    <lastmod>2026-01-30T08:59:39.464Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/earnings/code/index.html</loc>
+    <lastmod>2026-01-30T08:58:59.123Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/employee_commits/code/index.html</loc>
+    <lastmod>2026-01-30T08:59:24.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/interviews/code/index.html</loc>
+    <lastmod>2026-01-30T08:58:37.228Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gabors-data-analysis.com/ai-course/case-studies/VWS/code/index.html</loc>
+    <lastmod>2026-01-30T08:58:20.444Z</lastmod>
   </url>
 </urlset>

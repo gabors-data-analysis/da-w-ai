@@ -1,0 +1,28 @@
+---
+title: "Common Support Analysis - Code"
+---
+
+[← Back to Common Support Case Study](../)
+
+## Code Files
+
+Sequential prompts showing iterative development with Claude AI:
+
+| File | Description |
+|------|-------------|
+| [claude-sonnet-v4-prompt-01.R](claude-sonnet-v4-prompt-01.R) | Initial prompt and response |
+| [claude-sonnet-v4-prompt-02.R](claude-sonnet-v4-prompt-02.R) | First refinement |
+| [claude-sonnet-v4-prompt-03.R](claude-sonnet-v4-prompt-03.R) | Adding features |
+| [claude-sonnet-v4-prompt-04.R](claude-sonnet-v4-prompt-04.R) | Further improvements |
+| [claude-sonnet-v4-prompt-05.R](claude-sonnet-v4-prompt-05.R) | Extended analysis |
+| [claude-sonnet-v4-prompt-06.R](claude-sonnet-v4-prompt-06.R) | Visualization updates |
+| [claude-sonnet-v4-prompt-07.R](claude-sonnet-v4-prompt-07.R) | Additional refinements |
+| [claude-sonnet-v4-prompt-08.R](claude-sonnet-v4-prompt-08.R) | Near-final version |
+| [claude-sonnet-v4-prompt-09.R](claude-sonnet-v4-prompt-09.R) | Final polished version |
+
+## Learning Points
+
+This series demonstrates:
+- How to iteratively develop code with AI assistance
+- Prompt refinement strategies
+- Building complex statistical analyses step-by-step

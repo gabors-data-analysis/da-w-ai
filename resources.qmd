@@ -19,19 +19,15 @@ I'm collecting videos, papers in the [beyond](learn-more/beyond.html) page. Chec
 [Documentation and readme](da-knowledge/documentation-readme.html)
 [Good report ideas](week03/ideas-good-report.html)
 
-## Data
+## Case Studies
 
-Course datasets are available in the [data](data/) folder.
+Course datasets and code are organized by case study:
 
-There are three **case studies** that we use:
-1. A simulated set of data tables on hotels in Austria
-2. The World Value Survey 
-3. A series of interview texts
+1. [World Values Survey](case-studies/VWS/) - Week 2-3 (Documentation, Reports)
+2. [Austrian Hotels](case-studies/austria-hotels/) - Week 4 (Joining Tables)
+3. [Football Manager Interviews](case-studies/interviews/) - Week 5-6 (Text as Data)
+4. [US Earnings (CPS)](case-studies/earnings/) - Week 0 (Coding with AI)
+5. [Employee Commits](case-studies/employee_commits/) - Data analysis demos
+6. [Common Support (R)](case-studies/common-support-r/) - Iterative AI coding
 
-[Data Overview](data/index.qmd)
-
-## Code
-
-Code examples and templates are available in the [code](code/) folder.
-
-[Code Overview](code/index.qmd)
+[Browse All Case Studies](case-studies/)

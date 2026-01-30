@@ -1,0 +1,54 @@
+---
+title: "Football Manager Interviews"
+---
+
+## Overview
+
+Post-match interview texts from football managers for sentiment analysis and NLP practice. Includes multiple rating systems for comparison and validation.
+
+**Used in:** Week 5 (Text as Data I), Week 6 (Text as Data II), Assignment 5
+
+## Data Files
+
+| File | Description |
+|------|-------------|
+| `interview-texts-only.xlsx` | Raw interview texts (121 interviews) |
+| `combined_text_data.csv` | Combined text data with metadata |
+| `combined_raw_data.csv` | Full raw dataset |
+| `domain_lexicon.csv` | Football-specific sentiment terms |
+| `game_data.xlsx` | Game results and context |
+| `aggregated_ratings_by_text.csv` | Aggregated sentiment ratings |
+
+[Browse data files](data/)
+
+## Code
+
+| File | Description |
+|------|-------------|
+| `sentiment-analysis.R` | R script for API-based sentiment analysis |
+| `sentiment_analysis.py` | Python script for sentiment analysis |
+| `domain_lexicon.r` | R script to create football-specific lexicon |
+| `api-key.R` | Template for API key setup |
+
+[Browse code files](code/)
+
+## Key Features
+
+- Real Premier League manager interview texts
+- Domain-specific sentiment lexicon
+- Both R and Python implementations
+- Human vs AI rating comparison framework
+- API integration examples (OpenAI)
+
+## Learning Objectives
+
+- Text preprocessing and cleaning
+- Sentiment analysis approaches
+- Domain-specific lexicons
+- API integration for NLP tasks
+- Comparing human and AI ratings
+
+## Downloads
+
+- [interview-texts-only.xlsx](data/interview-texts-only.xlsx)
+- [domain_lexicon.csv](data/domain_lexicon.csv)
