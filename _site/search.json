@@ -1314,7 +1314,7 @@
     "href": "resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Glossary of technical terms used in various presentations or in class\nLLM Glossary\nWhich AI – the 2026 January comparsion"
+    "text": "Glossary of technical terms used in various presentations or in class\nLLM Glossary\nWhich AI – the 2026 January comparison"
   },
   {
     "objectID": "resources.html#learn-more",
@@ -4328,7 +4328,7 @@
     "href": "resources.html#llm-technical-terms",
     "title": "Resources",
     "section": "",
-    "text": "Glossary of technical terms used in various presentations or in class\nLLM Glossary\nWhich AI – the 2026 January comparsion"
+    "text": "Glossary of technical terms used in various presentations or in class\nLLM Glossary\nWhich AI – the 2026 January comparison"
   },
   {
     "objectID": "resources.html#beyond-the-material-learn-more",
@@ -5646,5 +5646,82 @@
     "title": "Resources",
     "section": "Case Studies",
     "text": "Case Studies\nCourse datasets and code are organized by case study:\n\nWorld Values Survey - Week 2-3 (Documentation, Reports)\nAustrian Hotels - Week 4 (Joining Tables)\nFootball Manager Interviews - Week 5-6 (Text as Data)\nUS Earnings (CPS) - Week 0 (Coding with AI)\nEmployee Commits - Data analysis demos\nCommon Support (R) - Iterative AI coding\n\nBrowse All Case Studies"
+  },
+  {
+    "objectID": "resources.html#ai-tools-setup",
+    "href": "resources.html#ai-tools-setup",
+    "title": "Resources",
+    "section": "AI Tools Setup",
+    "text": "AI Tools Setup\nSetting up Claude Code – install and use Claude in your terminal"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html",
+    "href": "da-knowledge/setting-up-claude-code.html",
+    "title": "Setting Up Claude Code",
+    "section": "",
+    "text": "Claude Code is a command-line tool made by Anthropic that lets you work with Claude AI directly in your terminal (the text-based interface on your computer). Instead of chatting in a browser, you type commands and Claude helps you with coding, file editing, data analysis, and more — right where your code lives.\nWhy use it?\n\nWorks directly with your files and folders\nCan read, edit, and create code for you\nRuns commands and sees the output\nGreat for data analysis workflows\nNo copy-pasting between browser and code editor"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#what-is-claude-code",
+    "href": "da-knowledge/setting-up-claude-code.html#what-is-claude-code",
+    "title": "Setting Up Claude Code",
+    "section": "",
+    "text": "Claude Code is a command-line tool made by Anthropic that lets you work with Claude AI directly in your terminal (the text-based interface on your computer). Instead of chatting in a browser, you type commands and Claude helps you with coding, file editing, data analysis, and more — right where your code lives.\nWhy use it?\n\nWorks directly with your files and folders\nCan read, edit, and create code for you\nRuns commands and sees the output\nGreat for data analysis workflows\nNo copy-pasting between browser and code editor"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#installation-instructions",
+    "href": "da-knowledge/setting-up-claude-code.html#installation-instructions",
+    "title": "Setting Up Claude Code",
+    "section": "Installation Instructions",
+    "text": "Installation Instructions\nChoose your operating system:\n\nWindows\nMac\nLinux"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#windows",
+    "href": "da-knowledge/setting-up-claude-code.html#windows",
+    "title": "Setting Up Claude Code",
+    "section": "Windows",
+    "text": "Windows\n\nStep 1: Install Node.js\nClaude Code needs Node.js (a program that runs JavaScript) to work.\n\nGo to nodejs.org\nDownload the LTS version (the button on the left)\nRun the installer\nClick Next through all the steps (default settings are fine)\nCheck the box for “Automatically install necessary tools” if asked\nClick Install, then Finish\n\n\n\nStep 2: Open Terminal\n\nPress the Windows key on your keyboard\nType cmd\nClick on Command Prompt\n\nA black window with white text will open. This is your terminal.\n\n\nStep 3: Install Claude Code\nIn the terminal window, type this exactly and press Enter:\nnpm install -g @anthropic-ai/claude-code\nWait for it to finish (may take 1-2 minutes). You’ll see some text scrolling.\n\n\nStep 4: Start Claude Code\nIn the same terminal, type:\nclaude\nThe first time, it will ask you to log in with your Anthropic account (the same one you use for claude.ai). Follow the instructions on screen.\n\n\nYou’re done!\nType your questions or requests and press Enter. Type exit to quit."
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#mac",
+    "href": "da-knowledge/setting-up-claude-code.html#mac",
+    "title": "Setting Up Claude Code",
+    "section": "Mac",
+    "text": "Mac\n\nStep 1: Install Node.js\n\nGo to nodejs.org\nDownload the LTS version (the button on the left)\nOpen the downloaded .pkg file\nFollow the installer steps (click Continue, then Install)\nEnter your Mac password when asked\n\n\n\nStep 2: Open Terminal\n\nPress Command + Space to open Spotlight\nType Terminal\nPress Enter\n\nA window with text will open. This is your terminal.\n\n\nStep 3: Install Claude Code\nIn the terminal window, type this exactly and press Enter:\nnpm install -g @anthropic-ai/claude-code\nWait for it to finish (may take 1-2 minutes).\nIf you get a permission error, type this instead:\nsudo npm install -g @anthropic-ai/claude-code\nEnter your Mac password when asked (you won’t see the characters as you type — that’s normal).\n\n\nStep 4: Start Claude Code\nIn the same terminal, type:\nclaude\nThe first time, it will ask you to log in with your Anthropic account. Follow the instructions on screen.\n\n\nYou’re done!\nType your questions or requests and press Enter. Type exit to quit."
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#linux",
+    "href": "da-knowledge/setting-up-claude-code.html#linux",
+    "title": "Setting Up Claude Code",
+    "section": "Linux",
+    "text": "Linux\n\nStep 1: Install Node.js\nOpen your terminal and run these commands:\nUbuntu/Debian:\nsudo apt update\nsudo apt install nodejs npm\nFedora:\nsudo dnf install nodejs npm\nArch:\nsudo pacman -S nodejs npm\n\n\nStep 2: Install Claude Code\nnpm install -g @anthropic-ai/claude-code\nIf you get a permission error:\nsudo npm install -g @anthropic-ai/claude-code\n\n\nStep 3: Start Claude Code\nclaude\nLog in with your Anthropic account when prompted.\n\n\nYou’re done!"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#quick-tips",
+    "href": "da-knowledge/setting-up-claude-code.html#quick-tips",
+    "title": "Setting Up Claude Code",
+    "section": "Quick Tips",
+    "text": "Quick Tips\n\n\n\nCommand\nWhat it does\n\n\n\n\nclaude\nStart Claude Code\n\n\nexit\nQuit Claude Code\n\n\nclaude --help\nSee all options\n\n\n/help\nGet help while inside Claude"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#requirements",
+    "href": "da-knowledge/setting-up-claude-code.html#requirements",
+    "title": "Setting Up Claude Code",
+    "section": "Requirements",
+    "text": "Requirements\n\nAnthropic account — Sign up at claude.ai if you don’t have one\nClaude Pro or API access — Claude Code requires a paid subscription or API credits\nInternet connection — Claude runs in the cloud"
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#troubleshooting",
+    "href": "da-knowledge/setting-up-claude-code.html#troubleshooting",
+    "title": "Setting Up Claude Code",
+    "section": "Troubleshooting",
+    "text": "Troubleshooting\n“npm not found” — Node.js didn’t install correctly. Restart your terminal and try again, or reinstall Node.js.\n“Permission denied” — On Mac/Linux, add sudo before the command. On Windows, right-click Command Prompt and select “Run as administrator”.\n“Authentication failed” — Make sure you’re using the same account you use for claude.ai and that you have an active subscription."
+  },
+  {
+    "objectID": "da-knowledge/setting-up-claude-code.html#learn-more",
+    "href": "da-knowledge/setting-up-claude-code.html#learn-more",
+    "title": "Setting Up Claude Code",
+    "section": "Learn More",
+    "text": "Learn More\n\nClaude Code Documentation\nAnthropic Console — for API keys and usage"
   }
 ]
