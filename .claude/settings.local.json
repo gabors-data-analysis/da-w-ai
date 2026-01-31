@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(gh run:*)"
+      "Bash(gh run:*)",
+      "Bash(python:*)",
+      "Bash(py generate_bookings.py:*)",
+      "Bash(quarto render:*)",
+      "Bash(git add:*)"
     ]
   }
 }
