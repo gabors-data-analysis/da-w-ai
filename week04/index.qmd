@@ -1,5 +1,5 @@
 ---
-title: "Week 07: Agentic AI with CLI, like Claude Code"
+title: "Week 04: Agentic AI with CLIs like Claude Code"
 subtitle: "From chat to terminal - AI that works directly with your files"
 date: "2026-01-30"
 ---
@@ -7,7 +7,7 @@ date: "2026-01-30"
 ::: {.hero-section}
 ::: {.container}
 ::: {.hero-title}
-Week 07: Agentic AI with Claude Code
+Week 04: Agentic AI with Claude Code
 :::
 ::: {.hero-subtitle}
 From chat to terminal - AI that works directly with your files
@@ -17,13 +17,26 @@ From chat to terminal - AI that works directly with your files
 
 ---
 
-![](../images/week7_pic.png)
+![](../images/week4_pic.png)
 
 ## About the class
 
-So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **agentic AI**: AI that can see your files, run your code, and iterate on results directly.
+So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **[agentic AI](../da-knowledge/technical-terms-page.html)**: AI that can see your files, run your code, and iterate on results directly.
 
 **Claude Code** is Anthropic's command-line tool that brings Claude into your terminal. Instead of describing your data to an AI, you can say "look at these CSV files and tell me what's here." Instead of copying error messages, Claude Code sees them and fixes the code itself.
+
+### Tool Options
+
+We use **Claude Code** in this class, but the concepts apply to similar tools:
+
+| Tool | Provider | Notes |
+|------|----------|-------|
+| **Claude Code** | Anthropic | What we use. Requires Claude Pro or API. |
+| **Gemini CLI** | Google | Similar workflow, uses Gemini models. |
+| **Codex CLI** | OpenAI | OpenAI's command-line tool. |
+| **Cursor / Windsurf** | Third-party | IDE-based, similar agentic features. |
+
+Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same.
 
 ### Learning Objectives
 
@@ -43,34 +56,25 @@ By the end of this session, students will:
 :::
 ::: {.card-body}
 
-**1. Install Claude Code**
+**1. Install a CLI tool**
 
-Follow our setup guide: [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html)
+Follow the installation guide: **[Installing AI CLI Tools](../da-knowledge/install-cli.html)**
 
-You need:
+We use Claude Code, but Gemini CLI or Codex CLI also work. The guide covers all options for Windows, Mac, and Linux.
 
-- Node.js installed
-- Claude Code installed via `npm install -g @anthropic-ai/claude-code`
-- A Claude Pro subscription or API access
-- Logged in (run `claude` and follow prompts)
+*New to the terminal?* Start with [Terminal Basics](../da-knowledge/terminal-basics.html)
 
-**2. Install Python (if you don't have it)**
+**2. Install Python**
 
-Claude Code can write and run Python code, but Python must be installed on your machine.
+Claude Code runs Python code, so Python must be installed:
 
-- Go to [python.org/downloads](https://www.python.org/downloads/)
-- Download the latest version
-- **Important:** Check "Add Python to PATH" during installation
-- After install, open a new terminal and verify: `python --version`
+- Download from [python.org/downloads](https://www.python.org/downloads/)
+- **Check "Add Python to PATH"** during installation
+- Install packages: `python -m pip install pandas numpy matplotlib`
 
-Install common data packages:
-```
-python -m pip install pandas numpy matplotlib
-```
+**3. Download the data**
 
-**3. Download the Austrian Hotels dataset**
-
-Download [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) from the Austrian Hotels case study and unzip it to a folder you can easily find.
+Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) from the Austrian Hotels case study and unzip it.
 
 :::
 :::
@@ -91,27 +95,43 @@ Download [data-modified.zip](../case-studies/austria-hotels/data/data-modified.z
 | Copy-paste code back and forth | AI writes and runs code |
 | "I got this error..." | AI sees and fixes errors |
 | One question at a time | AI iterates until done |
-| Context resets each session | AI sees your whole project |
+| [Context window](../da-knowledge/technical-terms-page.html#context-window) fills with chat | AI manages context from your project |
 
-### Demo: The Same Task, Two Ways
+### Discussion: How Would You Do This?
 
 **Task:** "What's the average hotel occupancy by city in this dataset?"
 
-**Chat approach:**
-1. Open CSV, copy some rows
-2. Paste into ChatGPT, ask question
-3. Get code back, paste into Python
-4. Hit error, copy error message
-5. Paste error, get fix, repeat...
+You have a folder with several CSV files. You want to answer this question using AI assistance.
 
-**Claude Code approach:**
+**Think-pair-share (5 min):**
+
+1. What steps would you take using ChatGPT or Claude.ai (chat interface)?
+2. What information would you need to give the AI?
+3. What could go wrong? How would you handle errors?
+
+*Discuss with a neighbor, then share with the class.*
+
+**Common answers:**
+
+- Open files, copy some rows to show the AI
+- Describe the data structure
+- Ask for code, copy it to Python/R
+- If error, copy error message back
+- Iterate until it works...
+
+**The friction:** Every step requires manual copy-paste. Context gets lost. Errors require round-trips.
+
+### Demo: The Agentic Approach
+
+Now watch what happens with Claude Code:
+
 ```
 cd /path/to/austrian-hotels
 claude
 > Look at the CSV files here and calculate average occupancy by city
 ```
 
-Claude Code reads the files, writes the code, runs it, and shows results.
+Claude Code reads the files, writes the code, runs it, sees any errors, fixes them, and shows results. One prompt, no copy-paste.
 
 :::
 :::
@@ -153,6 +173,7 @@ Show me 5 sample rows from each CSV file.
 Ask Claude Code to:
 
 1. **Join hotels and cities** - "Join the hotels and cities data. How many hotels are in each province?"
+   - *New to joins? See [Joining Tables Guide](../da-knowledge/joining-tables.html)*
 
 2. **Aggregate occupancy** - "What's the average occupancy rate by city? Show me a table sorted highest to lowest."
 
@@ -241,6 +262,7 @@ Claude Code isn't perfect. Common issues:
 - **Missing values** - Ask: "Are there NaN values? Where did they come from?"
 - **Unexpected results** - Ask: "Walk me through the calculation step by step"
 - **Code errors** - Often Claude Code fixes these automatically. If not, just describe what went wrong.
+- **[Hallucinations](../da-knowledge/technical-terms-page.html#hallucination)** - AI may generate plausible but incorrect code or stats. Always verify.
 
 ### Trust but Verify
 
@@ -274,11 +296,11 @@ Explain the code you just wrote. What assumptions did you make?
 ## Assignment
 
 ::: {.callout-note icon="assignment"}
-## Assignment 7: Extend the Austrian Hotels Dataset
+## Assignment 4: Extend the Austrian Hotels Dataset
 
-**Due:** Sunday 23:55 before Week 8
+**Due:** Sunday 23:55 before Week 5
 
-[Full Assignment Details](../assignments/assignment_07.html){.assignment-badge}
+[Full Assignment Details](../assignments/assignment_04.html){.assignment-badge}
 
 **Summary:** Using Claude Code, create a new data table that joins to the Austrian Hotels dataset, then perform an analysis that answers an interesting question.
 :::
@@ -286,10 +308,16 @@ Explain the code you just wrote. What assumptions did you make?
 
 ## Resources
 
-**Claude Code:**
+**Claude Code & Terminal:**
 
+- [Terminal Basics](../da-knowledge/terminal-basics.html) - Essential commands
 - [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html) - Installation guide
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Official docs
+
+**Course Reference:**
+
+- [Technical Terms Glossary](../da-knowledge/technical-terms-page.html) - Key AI/data concepts
+- [Joining Tables Guide](../da-knowledge/joining-tables.html) - Join types explained
 
 **Austrian Hotels Dataset:**
 

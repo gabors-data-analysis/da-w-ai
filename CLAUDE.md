@@ -27,3 +27,35 @@
 - Run Python directly when possible, install packages as needed via `pip install`
 - Prefer pandas for data manipulation
 - Use matplotlib or seaborn for visualization
+
+## Documentation Principles
+
+### Knowledge Base Pages
+
+- Extract reusable technical content into `da-knowledge/` pages
+- Keep week content focused on pedagogy; link to knowledge pages for technical details
+- Examples of knowledge pages:
+  - `install-cli.qmd` - CLI tool installation
+  - `terminal-basics.qmd` - Terminal commands
+  - `joining-tables.qmd` - Join concepts
+  - `technical-terms-page.qmd` - Glossary
+
+### Multi-OS Instructions
+
+- When instructions differ by operating system, use Quarto tabset panels:
+```
+::: {.panel-tabset}
+
+### Windows
+[Windows instructions]
+
+### Mac
+[Mac instructions]
+
+### Linux
+[Linux instructions]
+
+:::
+```
+
+- This applies to: installation steps, terminal commands, file paths, environment variables

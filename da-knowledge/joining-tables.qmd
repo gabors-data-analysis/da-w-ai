@@ -1,0 +1,336 @@
+---
+title: "Joining Data Tables"
+subtitle: "A quick guide for data analysis"
+date: "2026-01-30"
+
+---
+
+## Why This Matters
+
+Most real-world data analysis involves combining information from multiple tables. Customer data lives in one table, their orders in another. Hotels are in one file, their monthly occupancy in another.
+
+**Joining tables** is how we bring this information together. It's a fundamental skill - and one where mistakes are easy to make and hard to spot.
+
+This page covers the essentials. If you've done this before, skim for a refresher. If it's new, read carefully - we'll use these concepts throughout the course.
+
+---
+
+## Key Vocabulary
+
+### Keys
+
+- **Primary Key**: A column (or columns) that uniquely identifies each row. Example: `hotel_id` in a hotels table - each hotel has exactly one ID.
+
+- **Foreign Key**: A column that references a primary key in another table. Example: `hotel_id` in a reviews table - it points to which hotel the review is about.
+
+- **Join Key**: The column(s) you use to match rows between tables. Often a foreign key joined to a primary key.
+
+- **Composite Key**: When you need multiple columns together to uniquely identify a row. Example: `hotel_id` + `month` + `year` for monthly occupancy data.
+
+### Relationship Types
+
+- **One-to-One**: Each row in Table A matches exactly one row in Table B. Example: hotels and their addresses.
+
+- **One-to-Many**: Each row in Table A matches multiple rows in Table B. Example: one hotel has many reviews.
+
+- **Many-to-Many**: Multiple rows match in both directions. Example: hotels and amenities (each hotel has many amenities; each amenity exists in many hotels). Usually handled with a linking table.
+
+---
+
+## Join Types
+
+There are four main types of joins. The difference is what happens when rows don't match.
+
+### Inner Join
+
+Returns **only rows that match** in both tables.
+
+```
+Table A: Hotels          Table B: Ratings
+hotel_id | name          hotel_id | stars
+---------|-----          ---------|------
+1        | Sacher        1        | 5
+2        | Imperial      2        | 5
+3        | Fuschl        5        | 4
+
+Inner Join Result:
+hotel_id | name     | stars
+---------|----------|------
+1        | Sacher   | 5
+2        | Imperial | 5
+```
+
+Hotel 3 disappears (no rating). Hotel 5's rating disappears (no hotel info).
+
+**Use when:** You only want complete records with data from both tables.
+
+### Left Join
+
+Returns **all rows from the left table**, plus matching data from the right. Non-matches get NULL.
+
+```
+Left Join Result (Hotels LEFT JOIN Ratings):
+hotel_id | name     | stars
+---------|----------|------
+1        | Sacher   | 5
+2        | Imperial | 5
+3        | Fuschl   | NULL
+```
+
+Hotel 3 is kept, but has no star rating.
+
+**Use when:** You want to keep all records from your main table, adding information where available.
+
+### Right Join
+
+Returns **all rows from the right table**, plus matching data from the left. The mirror of left join.
+
+**Use when:** Same as left join, just with tables in different order. Most people just use left join and swap table order.
+
+### Full (Outer) Join
+
+Returns **all rows from both tables**. Non-matches get NULL on the missing side.
+
+```
+Full Join Result:
+hotel_id | name     | stars
+---------|----------|------
+1        | Sacher   | 5
+2        | Imperial | 5
+3        | Fuschl   | NULL
+5        | NULL     | 4
+```
+
+**Use when:** You need everything and want to see what's missing on each side.
+
+---
+
+## One-to-Many Joins
+
+When one row matches multiple rows, the result table has **more rows than you started with**.
+
+```
+Hotels (3 rows)              Reviews (6 rows)
+hotel_id | name              review_id | hotel_id | rating
+---------|-----              ----------|----------|-------
+1        | Sacher            101       | 1        | 4.8
+2        | Imperial          102       | 1        | 4.7
+3        | Fuschl            103       | 1        | 4.9
+                             104       | 2        | 4.6
+                             105       | 2        | 4.8
+                             106       | 3        | 4.5
+
+Left Join Result (6 rows):
+hotel_id | name     | review_id | rating
+---------|----------|-----------|-------
+1        | Sacher   | 101       | 4.8
+1        | Sacher   | 102       | 4.7
+1        | Sacher   | 103       | 4.9
+2        | Imperial | 104       | 4.6
+2        | Imperial | 105       | 4.8
+3        | Fuschl   | 106       | 4.5
+```
+
+**Watch out:** Hotel information is now duplicated. If you calculate `mean(stars)` without thinking, you'll weight hotels with more reviews more heavily.
+
+---
+
+## Composite Key Joins
+
+Sometimes you need multiple columns to make a match.
+
+```
+Hotels                      Monthly Occupancy
+hotel_id | name             hotel_id | month | year | occupancy
+---------|-----             ---------|-------|------|----------
+1        | Sacher           1        | 1     | 2024 | 0.85
+2        | Imperial         1        | 2     | 2024 | 0.78
+                            2        | 1     | 2024 | 0.82
+```
+
+To join these properly, you'd join on `hotel_id` alone - but the result will have multiple rows per hotel (one per month).
+
+If you had a separate table with city-level monthly data:
+
+```
+City Tourism
+city   | month | year | tourists
+-------|-------|------|----------
+Vienna | 1     | 2024 | 500000
+Vienna | 2     | 2024 | 450000
+```
+
+You'd need to join on `city` + `month` + `year` together.
+
+---
+
+## Common Mistakes
+
+### 1. Unexpected Row Counts
+
+**Problem:** Your joined table has way more (or fewer) rows than expected.
+
+**Cause:** Usually a one-to-many relationship you didn't anticipate, or join keys that don't match properly.
+
+**Fix:** Always check row counts before and after joining:
+```python
+print(f"Hotels: {len(hotels)}, Occupancy: {len(occupancy)}")
+result = hotels.merge(occupancy, on='hotel_id')
+print(f"Joined: {len(result)}")
+```
+
+### 2. Losing Data Silently
+
+**Problem:** Rows disappear and you don't notice.
+
+**Cause:** Inner join drops non-matching rows. If your keys have typos or different formats, matches fail silently.
+
+**Fix:** Use left join and check for NULLs:
+```python
+result = hotels.merge(ratings, on='hotel_id', how='left')
+print(f"Missing ratings: {result['stars'].isna().sum()}")
+```
+
+### 3. Duplicate Column Names
+
+**Problem:** Both tables have a column called `name` or `date`.
+
+**Cause:** Join keeps both, often with suffixes like `name_x` and `name_y`.
+
+**Fix:** Rename columns before joining, or select only the columns you need.
+
+### 4. Wrong Join Key Type
+
+**Problem:** Join returns no matches even though the data looks right.
+
+**Cause:** One table has `hotel_id` as integer, another as string. `1 != "1"`.
+
+**Fix:** Check and convert types:
+```python
+hotels['hotel_id'] = hotels['hotel_id'].astype(int)
+ratings['hotel_id'] = ratings['hotel_id'].astype(int)
+```
+
+---
+
+## Quick Reference
+
+| Join Type | Keeps from Left | Keeps from Right | Use Case |
+|-----------|-----------------|------------------|----------|
+| Inner | Only matches | Only matches | Complete records only |
+| Left | All | Only matches | Keep all from main table |
+| Right | Only matches | All | (Same as left, reversed) |
+| Full | All | All | See everything, find gaps |
+
+---
+
+## Code Examples
+
+::: {.panel-tabset}
+
+### Python (pandas)
+
+```python
+import pandas as pd
+
+# Inner join
+result = hotels.merge(ratings, on='hotel_id', how='inner')
+
+# Left join
+result = hotels.merge(ratings, on='hotel_id', how='left')
+
+# Join on multiple columns
+result = occupancy.merge(tourism, on=['city', 'month', 'year'])
+
+# Check for issues
+print(f"Rows before: {len(hotels)}, after: {len(result)}")
+print(f"NULLs created: {result.isna().any(axis=1).sum()}")
+```
+
+### R (dplyr)
+
+```r
+library(dplyr)
+
+# Inner join
+result <- inner_join(hotels, ratings, by = "hotel_id")
+
+# Left join
+result <- left_join(hotels, ratings, by = "hotel_id")
+
+# Join on multiple columns
+result <- left_join(occupancy, tourism, by = c("city", "month", "year"))
+
+# Check for issues
+cat("Rows before:", nrow(hotels), "after:", nrow(result), "\n")
+cat("NAs created:", sum(!complete.cases(result)), "\n")
+```
+
+### SQL
+
+```sql
+-- Inner join
+SELECT * FROM hotels h
+INNER JOIN ratings r ON h.hotel_id = r.hotel_id;
+
+-- Left join
+SELECT * FROM hotels h
+LEFT JOIN ratings r ON h.hotel_id = r.hotel_id;
+
+-- Join on multiple columns
+SELECT * FROM occupancy o
+LEFT JOIN tourism t
+  ON o.city = t.city
+  AND o.month = t.month
+  AND o.year = t.year;
+```
+
+### Stata
+
+```stata
+* Load datasets
+use hotels, clear
+count  // Check rows before
+
+* Inner join (1:1)
+merge 1:1 hotel_id using ratings
+keep if _merge == 3  // Keep only matched
+drop _merge
+
+* Left join (1:1) - keep all from master
+use hotels, clear
+merge 1:1 hotel_id using ratings, keep(master match)
+drop _merge
+
+* Left join (1:m) - one hotel, many reviews
+use hotels, clear
+merge 1:m hotel_id using reviews, keep(master match)
+tab _merge  // Check match results
+drop _merge
+
+* Join on multiple columns
+use occupancy, clear
+merge m:1 city month year using tourism, keep(master match)
+drop _merge
+
+* Check for issues
+count  // Rows after
+misstab  // Check missing values (requires misstab package)
+```
+
+**Stata notes:**
+
+- `merge 1:1` for one-to-one, `merge 1:m` for one-to-many, `merge m:1` for many-to-one
+- `_merge` variable shows: 1 = master only, 2 = using only, 3 = matched
+- `keep(master match)` is like a left join
+- `keep(match)` is like an inner join
+
+:::
+
+---
+
+## Further Reading
+
+- [Tidy Data (Hadley Wickham)](https://vita.had.co.nz/papers/tidy-data.pdf) - The principles behind good data structure
+- [pandas merge documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)
+- [dplyr join documentation](https://dplyr.tidyverse.org/reference/mutate-joins.html)

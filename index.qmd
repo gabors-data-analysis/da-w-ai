@@ -38,7 +38,7 @@ The course focuses on using large language models (LLMs) such as OpenAI's ChatGP
 
 There are three **case studies** that we use (1) a simulated set of data tables on hotels in Austria, (2) The World Value Survey, and (3) A series of interview textst. 
 
-The course material includes weekly practice **assignments**. It also has a learning more collection -- to see what is [beyond core material](/learn-more/beyond.html) with blogs, papers, and video recommendations.
+The course material includes weekly practice **assignments**. It also has a learning more collection -- to see what is [beyond core material](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
 
 
 ### Background: data analysis / econometrics
@@ -80,7 +80,7 @@ But, anyone can use it with adequate background.
 - **Week 1:** LLM Review and short task to recrate a graph
 - **Week 2:** Use AI to understand and document the World Values Survey dataset
 - **Week 3:** AI-assisted report writing with WVS data
-- **Week 4:** Multi-table joins with Austrian hotel data
+- **Week 4:** Agentic AI with Claude Code using Austrian hotel data
 - **Weeks 5:** Text analysis 1: basics
 - **Weeks 6:** Text analysis 2: sentiment analysis
 - **Week 7:** TBD
@@ -151,9 +151,9 @@ Case study: [World Values Survey](case-studies/VWS/)
 
 [Content](week03/)
 
-**Week04**: Data wrangling, joining tables
+**Week04**: Agentic AI with Claude Code
 
-When asked about what I shall add to my textbook, David Card, the Nobel winning empirical economist told me that I shall spend time with joining tables. Here we go. 
+From chat to terminal - introducing Claude Code for data analysis. Students learn to use agentic AI that works directly with files, generates data, and iterates on analysis.
 
 Case study: [Austrian Hotels](case-studies/austria-hotels/)
 
@@ -177,7 +177,7 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 
 
 
-**Week07**: AI-Assisted Data Collection
+**Week07**: TBA
 
 TBA
 
@@ -208,7 +208,7 @@ TBA
 
 ## Learn more
 
-I'm adding material to [learn-more](/learn-more) folder. You can start with the [beyond](/learn-more/beyond.html) page. 
+I'm adding material to [da-knowledge](da-knowledge/) folder. You can start with the [beyond](da-knowledge/beyond.html) page. 
 
 ---
 

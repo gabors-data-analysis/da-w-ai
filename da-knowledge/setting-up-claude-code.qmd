@@ -2,6 +2,12 @@
 title: "Setting Up Claude Code"
 ---
 
+**New to the terminal?** Check out [Terminal Basics](terminal-basics.html) first.
+
+**Want alternatives?** See [Installing AI CLI Tools](install-cli.html) for Gemini CLI, Codex CLI, and more.
+
+---
+
 ## What is Claude Code?
 
 Claude Code is a command-line tool made by Anthropic that lets you work with Claude AI directly in your terminal (the text-based interface on your computer). Instead of chatting in a browser, you type commands and Claude helps you with coding, file editing, data analysis, and more — right where your code lives.

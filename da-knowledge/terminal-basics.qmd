@@ -1,0 +1,316 @@
+---
+title: "Terminal Basics"
+subtitle: "What you need to know to use Claude Code"
+---
+
+## What is a Terminal?
+
+A **terminal** (also called command line, shell, or console) is a text-based interface to your computer. Instead of clicking icons, you type commands.
+
+Why does this matter for Claude Code? Claude Code runs in the terminal. It reads your files, runs code, and shows results - all through text commands.
+
+**Don't worry:** You don't need to become a terminal expert. Just learn the basics below.
+
+---
+
+## Opening the Terminal
+
+::: {.panel-tabset}
+
+### Windows
+
+**Option 1: Command Prompt**
+
+1. Press `Win` key
+2. Type `cmd`
+3. Click "Command Prompt"
+
+**Option 2: PowerShell (recommended)**
+
+1. Press `Win` key
+2. Type `powershell`
+3. Click "Windows PowerShell"
+
+**Option 3: Windows Terminal (best)**
+
+If you have Windows 11 or installed Windows Terminal:
+
+1. Press `Win` key
+2. Type `terminal`
+3. Click "Terminal"
+
+### Mac
+
+**Option 1: Spotlight**
+
+1. Press `Cmd + Space`
+2. Type `terminal`
+3. Press `Enter`
+
+**Option 2: Finder**
+
+1. Open Finder
+2. Go to Applications → Utilities
+3. Double-click "Terminal"
+
+**Tip:** Keep Terminal in your Dock for quick access.
+
+### Linux
+
+**Most distributions:**
+
+- Press `Ctrl + Alt + T`
+
+**Or:** Search for "Terminal" in your applications menu.
+
+:::
+
+---
+
+## Essential Commands
+
+These are the only commands you need to know to use Claude Code.
+
+### Where Am I?
+
+Shows your current folder (directory).
+
+::: {.panel-tabset}
+
+### Windows
+```
+cd
+```
+or
+```
+pwd
+```
+(in PowerShell)
+
+### Mac / Linux
+```
+pwd
+```
+
+:::
+
+### List Files
+
+See what's in the current folder.
+
+::: {.panel-tabset}
+
+### Windows
+```
+dir
+```
+or
+```
+ls
+```
+(in PowerShell)
+
+### Mac / Linux
+```
+ls
+```
+
+To see more details:
+```
+ls -la
+```
+
+:::
+
+### Change Folder
+
+Move to a different folder.
+
+::: {.panel-tabset}
+
+### Windows
+```
+cd Documents
+```
+
+Go up one level:
+```
+cd ..
+```
+
+Go to a specific path:
+```
+cd C:\Users\YourName\Documents\project
+```
+
+### Mac / Linux
+```
+cd Documents
+```
+
+Go up one level:
+```
+cd ..
+```
+
+Go to a specific path:
+```
+cd /Users/YourName/Documents/project
+```
+
+Go to home folder:
+```
+cd ~
+```
+
+:::
+
+### Clear the Screen
+
+Clean up the terminal when it gets cluttered.
+
+::: {.panel-tabset}
+
+### Windows
+```
+cls
+```
+
+### Mac / Linux
+```
+clear
+```
+
+:::
+
+---
+
+## Paths: Finding Your Files
+
+A **path** is the address of a file or folder on your computer.
+
+### Examples
+
+::: {.panel-tabset}
+
+### Windows
+```
+C:\Users\Anna\Documents\data-project\hotels.csv
+```
+
+Parts:
+- `C:` - the drive
+- `\Users\Anna\Documents\data-project\` - folders
+- `hotels.csv` - the file
+
+### Mac
+```
+/Users/Anna/Documents/data-project/hotels.csv
+```
+
+Parts:
+- `/Users/Anna/Documents/data-project/` - folders
+- `hotels.csv` - the file
+
+### Linux
+```
+/home/anna/Documents/data-project/hotels.csv
+```
+
+Parts:
+- `/home/anna/Documents/data-project/` - folders
+- `hotels.csv` - the file
+
+:::
+
+### Tips for Paths
+
+- **Spaces in names:** Use quotes: `cd "My Documents"`
+- **Tab completion:** Type part of a name and press `Tab` to autocomplete
+- **Drag and drop:** On Mac/Windows, you can drag a folder into the terminal to paste its path
+
+---
+
+## Starting Claude Code
+
+Once you're in the folder with your data:
+
+```
+claude
+```
+
+That's it! Claude Code starts and you can begin typing your requests.
+
+### Example Workflow
+
+::: {.panel-tabset}
+
+### Windows (PowerShell)
+```
+cd C:\Users\Anna\Documents\austrian-hotels
+claude
+```
+
+### Mac
+```
+cd ~/Documents/austrian-hotels
+claude
+```
+
+### Linux
+```
+cd ~/Documents/austrian-hotels
+claude
+```
+
+:::
+
+---
+
+## Common Issues
+
+### "Command not found" for `claude`
+
+Claude Code isn't installed, or not in your PATH.
+
+**Fix:** Follow the [Claude Code setup guide](setting-up-claude-code.html)
+
+### "No such file or directory"
+
+You typed a path that doesn't exist.
+
+**Fix:**
+1. Use `ls` (or `dir`) to see what's actually in your folder
+2. Check spelling
+3. Use Tab completion
+
+### "Permission denied"
+
+You don't have access to that folder/file.
+
+**Fix:**
+- On Mac/Linux: Try adding `sudo` before the command (you'll need your password)
+- On Windows: Run terminal as Administrator (right-click → Run as administrator)
+
+---
+
+## Quick Reference Card
+
+| Task | Windows | Mac / Linux |
+|------|---------|-------------|
+| Open terminal | `Win` → type `cmd` | `Cmd+Space` → type `terminal` |
+| Where am I? | `cd` | `pwd` |
+| List files | `dir` or `ls` | `ls` |
+| Change folder | `cd foldername` | `cd foldername` |
+| Go up | `cd ..` | `cd ..` |
+| Clear screen | `cls` | `clear` |
+| Start Claude | `claude` | `claude` |
+| Exit Claude | type `exit` or `/exit` | type `exit` or `/exit` |
+
+---
+
+## You're Ready!
+
+That's all you need. The terminal might feel unfamiliar at first, but after using it a few times with Claude Code, it becomes natural.
+
+**Next step:** [Set up Claude Code](setting-up-claude-code.html)

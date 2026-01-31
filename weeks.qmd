@@ -33,9 +33,9 @@ Case study: [World Values Survey](case-studies/VWS/)
 
 [Content](week03/)
 
-## Week04: Data wrangling, joining tables
+## Week04: Agentic AI with Claude Code
 
-When asked about what I shall add to my textbook, David Card, the Nobel winning empirical economist told me that I shall spend time with joining tables. Here we go. 
+From chat to terminal - introducing Claude Code for data analysis. Students learn to use agentic AI that works directly with files, generates data, and iterates on analysis.
 
 Case study: [Austrian Hotels](case-studies/austria-hotels/)
 
@@ -59,13 +59,9 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 
 
 
-## Week07: Agentic AI with Claude Code
+## Week07: TBA
 
-From chat to terminal - introducing Claude Code for data analysis. Students learn to use agentic AI that works directly with files, generates data, and iterates on analysis.
-
-Case study: [Austrian Hotels](case-studies/austria-hotels/)
-
-[Content](week07/)
+TBA
 
 ## Week08: SQL like natural language query in a data warehouse
 

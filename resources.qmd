@@ -12,11 +12,15 @@ Glossary of technical terms used in various presentations or in class
 
 ## AI Tools Setup
 
-[Setting up Claude Code](da-knowledge/setting-up-claude-code.html) -- install and use Claude in your terminal
+[Terminal Basics](da-knowledge/terminal-basics.html) -- essential commands for CLI tools
+
+[Installing AI CLI Tools](da-knowledge/install-cli.html) -- Claude Code, Gemini CLI, Codex CLI, OpenCode
+
+[Setting up Claude Code](da-knowledge/setting-up-claude-code.html) -- detailed Claude Code guide
 
 ## Beyond (the material) --- Learn more
 
-I'm collecting videos, papers in the [beyond](learn-more/beyond.html) page. Check them out. Regular updates. 
+I'm collecting videos, papers in the [beyond](da-knowledge/beyond.html) page. Check them out. Regular updates. 
 
 ## Various data analysis related pages referenced in class
 

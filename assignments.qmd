@@ -26,9 +26,9 @@ Continue with the research question you had chosen in class. Use AI iteratively 
 
 [Assignment Details](assignments/assignment_03.qmd)
 
-## Assignment 4: Join tables analysis
+## Assignment 4: Extend the Austrian Hotels Dataset
 
-Create groups of 2-3 people who use the same coding language. Ask AI to give you a list of research questions that can be answered using many (at least 4) of the hotel data sets provided.
+Using Claude Code, create a new data table that joins to the Austrian Hotels dataset, then perform an analysis that answers an interesting question.
 
 [Assignment Details](assignments/assignment_04.qmd)
 
@@ -45,11 +45,9 @@ Create pipeline for guessing the speaker's gender.
 [Assignment Details](assignments/assignment_06.qmd)
 
 
-## Assignment 7: Simulation app
+## Assignment 7: TBA
 
-Create a simulation app of an important statistical phenomenon.
-
-[Assignment Details](assignments/assignment_07.qmd)
+TBA
 
 ## Assignment 8: Design an IV
 
