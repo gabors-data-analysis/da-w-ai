@@ -111,13 +111,16 @@ You have a folder with several CSV files. You want to answer this question using
 
 *Discuss with a neighbor, then share with the class.*
 
-**Common answers:**
+<!-- Instructor: Common answers to elicit from students
 
 - Open files, copy some rows to show the AI
-- Describe the data structure
+- Describe the data structure ("I have a CSV with columns...")
 - Ask for code, copy it to Python/R
 - If error, copy error message back
 - Iterate until it works...
+
+Key point: Every step requires manual copy-paste. Context gets lost easily.
+-->
 
 **The friction:** Every step requires manual copy-paste. Context gets lost. Errors require round-trips.
 
@@ -132,6 +135,23 @@ claude
 ```
 
 Claude Code reads the files, writes the code, runs it, sees any errors, fixes them, and shows results. One prompt, no copy-paste.
+
+<!-- Instructor: Expected output from demo
+
+Average Occupancy Rate by City:
+Vienna           98.0%
+Graz             82.8%
+Innsbruck        79.9%
+Linz             79.3%
+Hallstatt        75.4%
+Bad Gastein      75.0%
+St. Anton        74.1%
+Zell am See      74.0%
+Kitzbühel        73.1%
+
+Note: Vienna at 98% is suspiciously high - can mention this as
+a data quality point. Only 9 cities appear (should be 10).
+-->
 
 :::
 :::
@@ -168,6 +188,21 @@ Show me 5 sample rows from each CSV file.
 
 **Discuss:** How does this compare to opening each file manually or describing it to ChatGPT?
 
+<!-- Instructor: Exercise 1 expected findings
+
+Files in folder:
+- hotels_modified.csv (87 hotels)
+- cities_modified.csv (10 cities)
+- monthly_occupancy_modified.csv (2,088 rows - 87 hotels × 24 months)
+
+Join key: city (text) connects hotels to cities
+Also: hotel_id connects hotels to monthly_occupancy
+
+Students should notice:
+- hotels has city names, cities has city details (province, population)
+- monthly_occupancy has hotel_id, month, year, occupancy_rate, avg_daily_rate
+-->
+
 ### Exercise 2: Basic Analysis (Individual, 15 min)
 
 Ask Claude Code to:
@@ -184,6 +219,24 @@ Ask Claude Code to:
 - If something looks wrong, ask "Why did that happen?" or "Check the row counts"
 - Ask Claude Code to show intermediate steps: "Show me the data after the join, before aggregating"
 - If you get an error, just wait - Claude Code will often fix it automatically
+
+<!-- Instructor: Exercise 2 expected outputs
+
+1. Hotels by province:
+   Salzburg         25 hotels
+   Tyrol            22 hotels
+   Vienna           15 hotels
+   Carinthia        10 hotels
+   Styria            8 hotels
+   Upper Austria     7 hotels
+
+2. Occupancy by city (same as demo - good chance to verify)
+
+3. 5-star hotels with low ADR - this is a data quality exercise:
+   Students should find some 5-star hotels with surprisingly low
+   rates. Prompt them to investigate: are these real? Missing data?
+   Seasonal patterns? This teaches the "trust but verify" habit.
+-->
 
 :::
 :::
@@ -244,6 +297,25 @@ Your turn! Brainstorm a new data table that could join to the hotels data. Ideas
 4. Verify: Does it look realistic? Can you join it to hotels?
 5. Do one simple analysis with the joined data
 
+<!-- Instructor: Exercise 3 facilitation notes
+
+Most popular choices tend to be:
+- Weather data (easy to generate, clear patterns)
+- Staff data (simple 1:1 join)
+
+Help groups who are stuck with prompt structure:
+"I want to create [filename] with columns [list columns].
+The data should [describe realistic patterns].
+It should join to hotels on [join key]."
+
+Common issues:
+- Percentages that don't sum to 100
+- Join keys that don't match (typos, case sensitivity)
+- Unrealistic value ranges
+
+Encourage groups to share their tables and analyses at the end.
+-->
+
 :::
 :::
 
@@ -277,6 +349,20 @@ Claude Code isn't perfect. Common issues:
 Explain the code you just wrote. What assumptions did you make?
 ```
 
+<!-- Instructor: Part 4 common student issues
+
+During exercises, watch for:
+- Students who accept wrong results without checking
+- Joins that lose rows (inner join when left was needed)
+- Column name mismatches (city vs City)
+- Students who don't read error messages before re-prompting
+
+Good teachable moments:
+- When Claude Code makes a mistake and fixes it automatically
+- When a result looks plausible but is wrong
+- When asking "explain this" reveals a faulty assumption
+-->
+
 :::
 :::
 
@@ -291,6 +377,29 @@ Explain the code you just wrote. What assumptions did you make?
 3. **Use cases:** For what tasks would you now prefer Claude Code over ChatGPT/Claude.ai? When would you still use chat?
 
 4. **Data generation:** What did you learn from creating synthetic data? How could this help in your own projects?
+
+<!-- Instructor: Discussion question expected themes
+
+1. Workflow change:
+   - Faster: no copy-paste, sees errors immediately, keeps context
+   - Harder: less control, can't easily undo, terminal unfamiliar
+   - Some students prefer chat for "thinking out loud"
+
+2. Trust calibration:
+   - Trusted: file listings, basic calculations, code that runs
+   - Verified: join results (row counts!), summary statistics, edge cases
+   - Key insight: output that "looks right" isn't always right
+
+3. Use cases:
+   - Claude Code: multi-file projects, iteration, debugging
+   - Chat: learning concepts, one-off questions, no setup needed
+   - Both have their place!
+
+4. Data generation:
+   - Surprising how realistic AI-generated data can be
+   - Need clear specs or you get generic results
+   - Useful for testing, teaching, prototyping
+-->
 
 
 ## Assignment
