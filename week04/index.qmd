@@ -1,66 +1,168 @@
 ---
-title: "Week 04: Joining tables"
-subtitle: "Combining  (joining) data tables, and understanding what can go wrong with AI"
-date: "2025-03-20"
+title: "Week 07: Agentic AI with CLI, like Claude Code"
+subtitle: "From chat to terminal - AI that works directly with your files"
+date: "2026-01-30"
 ---
-
 
 ::: {.hero-section}
 ::: {.container}
 ::: {.hero-title}
-Week 04: Joining tables
+Week 07: Agentic AI with Claude Code
 :::
 ::: {.hero-subtitle}
-Combining (joining) data tables, and understanding what can go wrong with AI
+From chat to terminal - AI that works directly with your files
 :::
 :::
 :::
 
+---
 
-![](../images/week4_pic.png)
-
+![](../images/week7_pic.png)
 
 ## About the class
 
-Data wrangling is the process of preparing data for the analysis. A key task is joining data tables. It looks simple, but in practice, has many challenges. AI can help design the process, and give you code to do that. 
+So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **agentic AI**: AI that can see your files, run your code, and iterate on results directly.
 
-
-### Objectives summary: 
-
-Learn how to organize data in a tidy way, join multiple datasets,  choose variables to answer a research question and create a reproducible workflow to analyze data.
+**Claude Code** is Anthropic's command-line tool that brings Claude into your terminal. Instead of describing your data to an AI, you can say "look at these CSV files and tell me what's here." Instead of copying error messages, Claude Code sees them and fixes the code itself.
 
 ### Learning Objectives
 
-* Learn how to store information in a tidy way.
-* Work with relational data.
-* Join tables
-* Use AI to explain complex concepts
+By the end of this session, students will:
 
-### Before class 
+* Understand the difference between chat-based AI and agentic AI tools
+* Install and configure Claude Code on their machine
+* Use Claude Code to explore, understand, and analyze a multi-file dataset
+* Generate new data programmatically using Claude Code
+* Experience the workflow difference: iteration speed, context awareness, debugging
 
-* Background reading: Békés-Kézdi (2021) Chapter 2
-* Download `data-modified.zip` from the [Austrian Hotels case study](/case-studies/austria-hotels/).  Unzip. It is a set of csv files such as 'cities_modified'
-  * Also available on Moodle
-* The data [description is available here](/case-studies/austria-hotels/data/hotel-data-readme.md) -- have a look before class
+### Before class
+
+::: {.week-card .card}
+::: {.card-header}
+**Setup Required - Do This Before Class**
+:::
+::: {.card-body}
+
+**1. Install Claude Code**
+
+Follow our setup guide: [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html)
+
+You need:
+
+- Node.js installed
+- Claude Code installed via `npm install -g @anthropic-ai/claude-code`
+- A Claude Pro subscription or API access
+- Logged in (run `claude` and follow prompts)
+
+**2. Install Python (if you don't have it)**
+
+Claude Code can write and run Python code, but Python must be installed on your machine.
+
+- Go to [python.org/downloads](https://www.python.org/downloads/)
+- Download the latest version
+- **Important:** Check "Add Python to PATH" during installation
+- After install, open a new terminal and verify: `python --version`
+
+Install common data packages:
+```
+python -m pip install pandas numpy matplotlib
+```
+
+**3. Download the Austrian Hotels dataset**
+
+Download [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) from the Austrian Hotels case study and unzip it to a folder you can easily find.
+
+:::
+:::
 
 ## Class Plan
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **Recap and dicussion (10 min)**
+**Part 1: Why Agentic AI? (15 min)**
 :::
 ::: {.card-body}
 
+### Chat AI vs Agentic AI
 
-### Recap
+| Chat AI (ChatGPT, Claude.ai) | Agentic AI (Claude Code) |
+|------------------------------|--------------------------|
+| You describe your data | AI reads your files directly |
+| Copy-paste code back and forth | AI writes and runs code |
+| "I got this error..." | AI sees and fixes errors |
+| One question at a time | AI iterates until done |
+| Context resets each session | AI sees your whole project |
 
-Discuss assignment 03 (20 mins by groups + 10 mins together)
+### Demo: The Same Task, Two Ways
 
-* Create 3-4-member groups. Each groups will read reports by an another team (1-->2, 2-->3, ... , N-->1)
-* Read the other team's submissions with a 'reader's perspective' and take notes. 
- * Which report did you like the most and why
- * Rank reports in terms of how much AI was involved from low to high and note suspicious examples 
-* Note examples where AI usage was obvious (even made things worse) vs. well-integrated.
+**Task:** "What's the average hotel occupancy by city in this dataset?"
+
+**Chat approach:**
+1. Open CSV, copy some rows
+2. Paste into ChatGPT, ask question
+3. Get code back, paste into Python
+4. Hit error, copy error message
+5. Paste error, get fix, repeat...
+
+**Claude Code approach:**
+```
+cd /path/to/austrian-hotels
+claude
+> Look at the CSV files here and calculate average occupancy by city
+```
+
+Claude Code reads the files, writes the code, runs it, and shows results.
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 2: Hands-on - Explore the Dataset (25 min)**
+:::
+::: {.card-body}
+
+### Getting Started
+
+Open your terminal, navigate to your data folder:
+```
+cd path/to/austrian-hotels-data
+claude
+```
+
+### Exercise 1: Understand the Data (Individual, 10 min)
+
+Try these prompts:
+
+```
+What files are in this folder? Give me a quick overview.
+```
+
+```
+Read the hotels and cities files. How are they related? What's the join key?
+```
+
+```
+Show me 5 sample rows from each CSV file.
+```
+
+**Discuss:** How does this compare to opening each file manually or describing it to ChatGPT?
+
+### Exercise 2: Basic Analysis (Individual, 15 min)
+
+Ask Claude Code to:
+
+1. **Join hotels and cities** - "Join the hotels and cities data. How many hotels are in each province?"
+
+2. **Aggregate occupancy** - "What's the average occupancy rate by city? Show me a table sorted highest to lowest."
+
+3. **Find patterns** - "Which 5-star hotels have the lowest average daily rate? Something seems off - investigate."
+
+**Tips:**
+
+- If something looks wrong, ask "Why did that happen?" or "Check the row counts"
+- Ask Claude Code to show intermediate steps: "Show me the data after the join, before aggregating"
+- If you get an error, just wait - Claude Code will often fix it automatically
 
 :::
 :::
@@ -68,91 +170,140 @@ Discuss assignment 03 (20 mins by groups + 10 mins together)
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **Understanding challenges (20 min)**
+**Part 3: Generate New Data (30 min)**
 :::
 ::: {.card-body}
 
+### The Power Move: AI Creates Data
 
-### Task 1: Use AI to understand these terms. Ask examples. (Individual)
+One of the most useful capabilities of Claude Code is generating realistic simulated data. This is exactly how the Austrian Hotels dataset was created - by an earlier version of Claude!
 
-* tidy data table
-* relational datasets,
-  * schema,
-  * primary and foreign key
-  * composite key
-* joining tables
-  * different types of join
-  * 1:1, 1:m
-* joining tables in your language (python, R, Stata)
-* difficulties of generating primary keys
+### Demo: Creating Booking Channel Data
 
-This is followed by a discussion.
+Watch the instructor create a new data table:
+
+```
+I want to create a new CSV file called hotel_bookings.csv that shows
+what percentage of each hotel's bookings come from different channels
+(Direct, Booking.com, Expedia, HRS, Travel Agent).
+
+Requirements:
+- Each hotel should have rows for each channel
+- Percentages should sum to 100% for each hotel
+- 5-star hotels should have more direct bookings (35-45%)
+- 3-star hotels should rely more on OTAs (Booking.com 40%+)
+- Include a commission rate column (Direct=0%, OTAs=10-18%)
+
+Write Python code to generate this, using the hotels_modified.csv as input.
+```
+
+Claude Code will:
+1. Read the existing hotels data
+2. Write a Python script with realistic logic
+3. Run it and generate the CSV
+4. Show you a summary
+
+### Exercise 3: Create Your Own Data Table (Groups of 2-3, 20 min)
+
+Your turn! Brainstorm a new data table that could join to the hotels data. Ideas:
+
+| Table Idea | Join Key | Interesting Analysis |
+|------------|----------|---------------------|
+| **Weather by city/month** | city + month + year | Does weather affect occupancy? |
+| **Staff data** | hotel_id | Do more staff = better reviews? |
+| **Nearby attractions** | city | Which attractions drive tourism? |
+| **Renovation history** | hotel_id | Did renovations boost ratings? |
+| **Competitor Airbnb prices** | city + month | How do hotel prices compare? |
+
+**Steps:**
+
+1. Pick a table idea with your group
+2. Write a detailed prompt describing what you want (columns, realistic patterns, join keys)
+3. Ask Claude Code to generate it
+4. Verify: Does it look realistic? Can you join it to hotels?
+5. Do one simple analysis with the joined data
 
 :::
 :::
+
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **Using AI help join tables (30 min)**
+**Part 4: Debugging and Iteration (10 min)**
 :::
 ::: {.card-body}
 
+### When Things Go Wrong
 
-## Task 2: Form 2-3 groups of people using same coding language
+Claude Code isn't perfect. Common issues:
 
-Use the data you downloaded to carry out joins and inspect results. Use AI but inspect. 
+- **Wrong join type** - Ask: "How many rows before and after the join? Did we lose data?"
+- **Missing values** - Ask: "Are there NaN values? Where did they come from?"
+- **Unexpected results** - Ask: "Walk me through the calculation step by step"
+- **Code errors** - Often Claude Code fixes these automatically. If not, just describe what went wrong.
 
-## 1:1
+### Trust but Verify
 
-1. Join hotels and cities. Compare left, right, inner, outer joins. 
-  *  what happens to N?
-  *  compare all four join types - which hotels/cities disappear with each approach?
+**Always check:**
 
-## 1:m
+- Row counts after joins
+- Summary statistics (do means make sense?)
+- A few random rows (do values look realistic?)
 
-2. Start: Tabulate the frequency of hotels by city_hotel_counts
-
-3. Cities to Hotels
-  * one city joins to multiple hotels
-  * filter on 2 cities for easier visibility
-
-4. Join hotel and occupancy 1
-  * m:1
-
-5. Join hotel and occupancy  2
-  * get hotel level
-  * trick: aggregate 
-
-6. Join on composite key
-
-* create a data table at city-year-match level showing average occupancy and tourist arrivals
-* can you include economic indicators by month?
-
-## Advice, ideas
-
-* discuss and collect ideas from  AI
-* learn to focus on key suggestions (AI can go nuanced and not important points easily)
+**Good habit:** Ask Claude Code to explain what it did:
+```
+Explain the code you just wrote. What assumptions did you make?
+```
 
 :::
 :::
+
+## Discussion Questions
+
+**End of Class Reflection:**
+
+1. **Workflow change:** How did using Claude Code feel different from chat-based AI? What was faster? What was harder?
+
+2. **Trust calibration:** When did you trust Claude Code's output? When did you double-check? How do you decide?
+
+3. **Use cases:** For what tasks would you now prefer Claude Code over ChatGPT/Claude.ai? When would you still use chat?
+
+4. **Data generation:** What did you learn from creating synthetic data? How could this help in your own projects?
 
 
 ## Assignment
 
-::: {.callout-note icon="📝"}
+::: {.callout-note icon="assignment"}
+## Assignment 7: Extend the Austrian Hotels Dataset
 
-Assignment [[/assignments/assignment_04.md](/assignments/assignment_04.html)]
+**Due:** Sunday 23:55 before Week 8
+
+[Full Assignment Details](../assignments/assignment_07.html){.assignment-badge}
+
+**Summary:** Using Claude Code, create a new data table that joins to the Austrian Hotels dataset, then perform an analysis that answers an interesting question.
 :::
 
-## End of Week Discussion points
 
-* How useful was AI in teaching skills?
-* How useful was AI in actually joining tables?
-* How can you debug what AI did in terms of executing code? 
-* When joins produced unexpected row counts, how did you diagnose the problem? What AI prompts helped most?
+## Resources
+
+**Claude Code:**
+
+- [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html) - Installation guide
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Official docs
+
+**Austrian Hotels Dataset:**
+
+- [Dataset Overview](../case-studies/austria-hotels/) - All files and documentation
+- [Data Schema](../case-studies/austria-hotels/data/hotel-data-readme.md) - Table descriptions and relationships
+
+**Python Basics (if needed):**
+
+- [Python for Data Analysis](https://wesmckinney.com/book/) - Free online book
+- pandas documentation: [pandas.pydata.org](https://pandas.pydata.org/)
 
 
-## Some personal comments on AI and this class
+## Some personal comments
 
-* You may wonder why this topic? I'll tell you. David Card, Nobel-prize winning economist visited me at CEU. I asked what I shall I add to my textbook. Some new fancy econometric method? He said in his experience, people have the hardest time joining tables, and in business applications, it's crucial. 
-* This is also a place to show how AI can help expanding on key concepts. One must know about the problem of joining tables. But what is left vs right, what is primary vs secondary key -- well ask AI. 
+* This is where AI gets genuinely useful for data work. Chat interfaces are great for learning and quick questions, but agentic AI changes how you actually *do* the work.
+* The booking channel data we use in class? It was generated by Claude Code while preparing this course. Meta, isn't it?
+* Don't worry if setup takes time. Getting your environment right is a one-time cost that pays off quickly.
