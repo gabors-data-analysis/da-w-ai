@@ -54,3 +54,6 @@ code/interviews/data_path.R
 
 /.quarto/
 case-studies/interviews/code/my-openai-api-key.R
+
+# Local experimentation folder
+/experimentation/

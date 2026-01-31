@@ -1,0 +1,283 @@
+---
+title: "Week 06: Scaling Text Analysis with AI"
+subtitle: "From 5 texts to 500 - building analysis pipelines"
+date: "2025-05-20"
+---
+
+::: {.hero-section}
+::: {.container}
+::: {.hero-title}
+Week 06: Scaling Text Analysis with AI
+:::
+::: {.hero-subtitle}
+From 5 texts to 500 - building analysis pipelines
+:::
+:::
+:::
+
+![](../images/week6_pic.png)
+
+
+## Overview
+
+Last week you rated 5 texts manually and with AI. But what if you have 500? Or 5,000?
+
+This week we scale up. Instead of learning API plumbing (keys, endpoints, rate limits), we'll use Claude Code to build and run analysis pipelines directly. You focus on the analysis; the tool handles the infrastructure.
+
+### Learning Outcomes
+
+By the end of the session, students will:
+
+- Understand the challenges of scaling text analysis
+- Build a sentiment analysis pipeline using Claude Code
+- Compare human ratings, lexicon scores, and AI ratings at scale
+- Think critically about ground truth and validation
+- Experience iterative pipeline development
+
+## Preparation / Before Class
+
+::: {.week-card .card}
+::: {.card-header}
+🔧 **Setup Check**
+:::
+::: {.card-body}
+**Confirm Claude Code is working:**
+
+```
+claude --version
+```
+
+If not installed: [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html)
+
+**Alternative tools:** Gemini CLI, Cursor, or similar agentic coding tools
+
+**Optional API background:**
+
+If you want to understand what happens "under the hood" when Claude Code calls AI models:
+
+- [Introduction to APIs](/week06/assets/api-use.html) - fundamental concepts
+- [Advanced API knowledge](/week06/assets/api-advanced.html) - how APIs work
+
+But you don't need this to use Claude Code effectively.
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+📊 **Data Preparation**
+:::
+::: {.card-body}
+**Download from Moodle/Course Repository:**
+
+- Combined interview dataset (all texts)
+- Game information with results
+- Combined student ratings from Week 5 (aggregated, anonymized)
+- Domain lexicon ratings
+
+**Reference:**
+
+- [Sentiment guidelines](/week05/assets/sentiment-guidelines.html)
+:::
+:::
+
+
+## Review
+
+::: {.week-card .card}
+::: {.card-header}
+💬 **Assignment 5 Discussion (20 min)**
+:::
+::: {.card-body}
+
+**Review of transformation options**
+
+* Lexicon-based counting → transparent, reproducible script
+* Machine-learning classifiers, n-grams etc.
+* LLM one-shot: treating the LLM like a giant classifier with deep contextual understanding
+* Fine-tuned LLM: continue training on labeled examples
+
+**Sharing Experiences:**
+
+- **Human vs. AI rating differences:** Where did you disagree most?
+- **Rating challenges:** What aspects of manager interviews were hardest to classify?
+- **Consistency issues:** Did you rate similar texts consistently? Did AI?
+- **Domain knowledge impact:** How much did football expertise affect your ratings?
+
+**If you used Claude Code for Assignment 5:**
+
+- How did batch processing compare to one-by-one chat?
+- Any surprises in how it handled the task?
+
+:::
+:::
+
+
+
+## Class Material
+
+::: {.week-card .card}
+::: {.card-header}
+🔧 **Building a Sentiment Pipeline (30 min)**
+:::
+::: {.card-body}
+
+### The Scaling Problem
+
+Rating 25 texts in chat: doable but tedious.
+Rating 500 texts in chat: impractical.
+Rating 5,000 texts: need automation.
+
+### Demo: Claude Code Pipeline
+
+Watch the instructor build a pipeline:
+
+```
+cd path/to/interviews/data
+claude
+```
+
+**Step 1: Explore the data**
+```
+What files are here? Show me the structure of the interview texts file.
+How many texts are there?
+```
+
+**Step 2: Process a sample**
+```
+Read the first 10 interview texts. Rate each for sentiment (-2 to +2)
+following these guidelines: [paste sentiment guidelines]
+
+Output a CSV with columns: text_id, sentiment_score, explanation
+Save it to sentiment_sample.csv
+```
+
+**Step 3: Verify and iterate**
+```
+Show me the results. Do any ratings look off?
+For text_id 3, the rating seems too positive - the manager is clearly
+frustrated. Re-evaluate that one and explain your reasoning.
+```
+
+**Step 4: Scale up**
+```
+Now process all texts (or the next 50) using the same approach.
+Save to sentiment_all.csv
+```
+
+### Key Insight
+
+Claude Code:
+- Reads your files directly
+- Writes and runs code as needed
+- Saves results without copy-paste
+- Iterates when you ask for changes
+
+You didn't write any API code. You didn't manage rate limits. You just described what you wanted.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+📈 **Data Analysis Workshop (30 min)**
+:::
+::: {.card-body}
+**Hands-on: Analyze the Combined Data**
+
+Use Claude Code to:
+
+**1. Load and understand the aggregated data**
+```
+Read the combined ratings file. What columns are there?
+How many texts have both human and AI ratings?
+Create a summary table.
+```
+
+**2. Compare rating sources**
+```
+Compare average ratings from:
+- Human raters (mean across students)
+- Domain lexicon scores
+- AI ratings
+
+Which source rates most positively? Most negatively?
+Create a comparison table and a simple visualization.
+```
+
+**3. Look for patterns**
+```
+Join the ratings with game results.
+Do managers of winning teams get rated more positively?
+Is this true for both human and AI ratings?
+```
+
+**Discussion: Ground Truth**
+
+- If humans disagree with AI, who is "right"?
+- If humans disagree with each other?
+- What would count as ground truth for sentiment?
+- When might we trust AI more than any single human?
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+🎯 **Advanced Applications (20 min)**
+:::
+::: {.card-body}
+**If time permits: Gender and Result Prediction**
+
+Note: Men's teams have male managers, women's teams have female managers in this dataset
+
+**Task 1: Predict gender from text**
+```
+Here are 10 interview texts. Without knowing the team,
+can you predict if the speaker is male or female?
+Explain what linguistic cues you're using.
+```
+
+**Task 2: Predict match result**
+```
+Based on the tone and content of these interviews,
+predict whether the manager's team won, drew, or lost.
+Rate your confidence for each prediction.
+```
+
+**Discussion:**
+
+- What linguistic cues might reveal gender? Are these reliable or stereotyped?
+- Is predicting result from tone "fair"? What are the ethics here?
+- Did the AI rely on problematic assumptions?
+
+:::
+:::
+
+
+## End of Week Discussion points
+
+- **Ground Truth Problem:** In sentiment analysis, what constitutes the "correct" answer? How do we validate when humans disagree?
+- **Scaling tradeoffs:** What do you gain and lose by automating text analysis?
+- **CLI vs API code:** How did using Claude Code compare to writing API code yourself? When might you need the lower-level approach?
+
+## Assignment
+
+::: {.callout-note icon="📝"}
+## Assignment 6: Text Classification Pipeline
+
+**Due:** Optional extension exercise
+
+Build a classification pipeline for a different task: predicting manager gender or match result from interview text.
+
+[Full Assignment Details](../assignments/assignment_06.html){.assignment-badge}
+
+**Using Claude Code:** Have Claude Code process the texts, save predictions, and generate a confusion matrix or accuracy report.
+:::
+
+
+## Some personal comments on AI and this class
+
+* The original version of this class spent significant time on API setup and debugging. Using Claude Code lets us focus on the analysis questions instead.
+* That said, understanding what happens under the hood (API calls, tokens, rate limits) is still valuable if you want to build production systems. See the optional readings.
+* AI helped writing the Python code and translating to R. But it needed a great deal of debugging: working with tests and building stable pipelines are hard.
