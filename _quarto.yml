@@ -10,13 +10,13 @@ website:
   navbar:
     title: "DA with AI"
     left:
-      - href: index.qmd
+      - href: navbar/index.qmd
         text: Home
-      - href: weeks.qmd
+      - href: navbar/weeks.qmd
         text: Weekly Content
-      - href: assignments.qmd
+      - href: navbar/assignments.qmd
         text: Assignments
-      - href: resources.qmd
+      - href: navbar/resources.qmd
         text: Resources
 
   sidebar:
