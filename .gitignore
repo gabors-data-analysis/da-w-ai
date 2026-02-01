@@ -60,3 +60,10 @@ case-studies/interviews/code/my-openai-api-key.R
 
 # Local experimentation folder
 /experimentation/
+
+# Quarto build output and cache
+/_site/
+/_freeze/
+
+# Claude code folders
+/.claude/
