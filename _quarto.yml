@@ -1,10 +1,6 @@
 project:
   type: website
   output-dir: _site
-  render:
-    - "*.qmd"
-    - "**/*.qmd"
-    - "!**/assets/**"
 
 website:
   title: "Doing Data Analysis with AI"
