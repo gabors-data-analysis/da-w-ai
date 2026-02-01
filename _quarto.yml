@@ -39,9 +39,9 @@ website:
           - text: "Week 6: Text as Data II"
             href: week06/index.qmd
           - text: "Week 7: Data Collect"
-            href: week06/index.qmd
+            href: week07/index.qmd
           - text: "Week 8: SQL with AI"
-            href: week06/index.qmd
+            href: week08/index.qmd
           - text: "Week 9: AI Research: Controls"
             href: week09/index.qmd
           - text: "Week 10: AI Research: IV"
