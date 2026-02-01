@@ -24,31 +24,31 @@ website:
     contents:
       - section: "Course Weeks"
         contents:
-          - text: "Week 0: AI-Assisted Coding Prep"
+          - text: "Week 0: AI Coding Prep"
             href: week00/index.qmd
           - text: "Week 1: LLM Review"
             href: week01/index.qmd
           - text: "Week 2: Discovery and Documentation"  
             href: week02/index.qmd
-          - text: "Week 3: Reporting Your Data Analysis"
+          - text: "Week 3: Reporting"
             href: week03/index.qmd
           - text: "Week 4: Agentic AI with CLIs"
             href: week04/index.qmd
           - text: "Week 5: Using Text as Data"
             href: week05/index.qmd
-          - text: "Week 6: Sentiment Analysis with AI"
+          - text: "Week 6: Sentiment Analysis"
             href: week06/index.qmd
           - text: "Week 7: Data Collect"
             href: week07/index.qmd
           - text: "Week 8: SQL with AI"
             href: week08/index.qmd
-          - text: "Week 9: AI Research - Designing Z"
+          - text: "Week 9: AI Research: Controls"
             href: week09/index.qmd
-          - text: "Week 10: AI Research - Instrumental Variables"
+          - text: "Week 10: AI Research: IV"
             href: week10/index.qmd
-          - text: "Week 11: AI Research - Difference in Differences"
+          - text: "Week 11: AI Research: DiD"
             href: week11/index.qmd
-          - text: "Week 12: Creating Dashboards and Online Apps"
+          - text: "Week 12: Dashboards and Apps"
             href: week12/index.qmd
           
       - section: "Case Studies"
@@ -70,7 +70,7 @@ website:
         contents:
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
-          - text: "Which AI model shall we choose?"
+          - text: "Which AI model"
             href: da-knowledge/which-ai.qmd
           - text: "Learn More"
             href: da-knowledge/beyond.qmd
