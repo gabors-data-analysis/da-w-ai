@@ -12,37 +12,37 @@ Assignments are available for all classes
 
 Look at [this graph](week01/assets/ft-liberation-day-usd-yield-2025-04-11.jpg) from Financial Times. Your task is to recreate this figure using real-world data. 
 
-[Assignment Details](assignments/assignment_01.qmd)
+[Assignment Details](../assignments/assignment_01.qmd)
 
 ## Assignment 2: Creating a readme doc
 
 In this assignment, you will create a readme document by asking for AI assistance.
 
-[Assignment Details](assignments/assignment_02.qmd)
+[Assignment Details](../assignments/assignment_02.qmd)
 
 ## Assignment 3: Create a report
 
 Continue with the research question you had chosen in class. Use AI iteratively to **help** you create a report. 
 
-[Assignment Details](assignments/assignment_03.qmd)
+[Assignment Details](../assignments/assignment_03.qmd)
 
 ## Assignment 4: Extend the Austrian Hotels Dataset
 
 Using Claude Code, create a new data table that joins to the Austrian Hotels dataset, then perform an analysis that answers an interesting question.
 
-[Assignment Details](assignments/assignment_04.qmd)
+[Assignment Details](../assignments/assignment_04.qmd)
 
 ## Assignment 5: Text sentiment analysis
 
 Student-Specific Text Sentiment Analysis -- Compare manual ratings with AI-generated ratings.
 
-[Assignment Details](assignments/assignment_05.qmd)
+[Assignment Details](../assignments/assignment_05.qmd)
 
 ## Assignment 6: Text  analysis: guessing gender in text
 
 Create pipeline for guessing the speaker's gender.
 
-[Assignment Details](assignments/assignment_06.qmd)
+[Assignment Details](../assignments/assignment_06.qmd)
 
 
 ## Assignment 7: TBA
@@ -53,4 +53,4 @@ TBA
 
 Think about an identification problem and interate to find a good IV. 
 
-[Assignment Details](assignments/assignment_08.qmd)
+[Assignment Details](../assignments/assignment_08.qmd)
