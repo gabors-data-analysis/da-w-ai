@@ -25,7 +25,7 @@ jobs:
       # 3.5 Install required R packages
       - name: Install R packages
         run: |
-          install.packages(c("rmarkdown", "knitr", "tidyverse"))
+          install.packages(c("rmarkdown", "knitr"))
         shell: Rscript {0}
 
       # 4. Build the site
