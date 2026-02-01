@@ -3,7 +3,7 @@ project:
   output-dir: _site
   render:
     - "*"
-    - "!week03/assets/analysis_notebook (1).Rmd"
+    - "!week03/assets/*.Rmd"
 
 website:
   title: "Doing Data Analysis with AI"
