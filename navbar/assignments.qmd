@@ -10,7 +10,7 @@ Assignments are available for all classes
 
 ## Assignment 1: Reproduce an FT graph
 
-Look at [this graph](week01/assets/ft-liberation-day-usd-yield-2025-04-11.jpg) from Financial Times. Your task is to recreate this figure using real-world data. 
+Look at [this graph](../week01/assets/ft-liberation-day-usd-yield-2025-04-11.jpg) from Financial Times. Your task is to recreate this figure using real-world data. 
 
 [Assignment Details](../assignments/assignment_01.qmd)
 
