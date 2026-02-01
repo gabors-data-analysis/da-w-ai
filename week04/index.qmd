@@ -88,49 +88,44 @@ Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) f
 ::: {.card-body}
 
 
-### Key Innovations: Why Use CLI Tools?
+### Why CLI Tools? The Core Benefits
 
-**Direct file system access**
+Think about the friction in using chat-based AI for data analysis:
 
-- CLI tools operate directly in your project directory, reading data files, scripts, and outputs without manual uploads
-- Claude Code provides seamless local access to your R/Stata scripts and data
-- Gemini CLI offers `--include-directories` flags to explicitly include multiple directories—useful when your data lives in `/data/raw/`, `/data/clean/`, and `/exhibits/` across different locations
+1. Copy CSV/code → Paste to ChatGPT
+2. Upload files directly - expensive for free plans
+3. See error → Copy error → Paste back to ChatGPT
+4. Repeat...
 
-**Autonomous command execution**
+**CLI tools eliminate this friction:**
 
-- Both tools can run your R/Stata/Python scripts, install packages, and execute bash commands
-- They can test code, catch errors, and iterate automatically—running `Rscript analysis.R`, checking outputs, and debugging without you copying error messages back
-- Gemini's "Yolo Mode" (`-y`) chains commands without permission prompts; Claude Code maintains interactive safety controls while offering similar autonomous iteration
+**Files are already there**
+- Claude Code sees your CSV files, R scripts, and outputs directly
+- No uploading, no copy-paste, no describing your data structure
+- Just: "Look at these files and calculate average occupancy by city"
 
-**Workflow automation for reproducible research**
+**Code runs immediately**
+- AI writes code and executes it in one step
+- Sees errors and fixes them automatically
+- You get results, not just code snippets
 
-- Claude Code: Create custom slash commands (e.g., `/clean-data`, `/make-exhibits`) in `.claude/commands/` that encode entire analysis pipelines. These travel with your repo, ensuring reproducibility
-- Gemini: Uses Model Context Protocol (MCP) with Extension Gallery plug-ins—particularly powerful for connecting to BigQuery, Google Drive, or APIs where your raw data might live
+**Context stays intact**
+- Remembers your entire project structure
+- Understands how files relate to each other (`hotels.csv` joins with `cities.csv`)
+- Keeps track of what you've done across multiple steps
 
-**Multi-file project understanding**
+**Iteration is fast**
+- "Something looks wrong" → AI investigates without you copying data
+- "Try it a different way" → Runs new approach immediately
+- No manual round-trips for every change
 
-- Both understand relationships across your entire project: how `01_data_clean.R` feeds into `02_analysis.R` and ultimately produces `exhibit_table1.tex`
-- **Gemini excels**: 1M+ token context window lets you load entire large datasets (e.g., 500-page PDFs, massive CSV files) in one session
-- **Claude Code excels**: Coordinated multi-file edits with deep understanding of script dependencies—can update data cleaning, analysis, and visualization scripts in one coherent workflow
+::: {.callout-tip}
+## Want More Power Features?
 
-**Project-specific instructions**
+This covers the basics to get started. For advanced workflows (custom commands, git integration, large-scale data handling), see [Advanced CLI Workflows](../da-knowledge/cli-advanced-workflows.html).
+:::
 
-- Claude Code reads `CLAUDE.md`; Gemini reads `GEMINI.md` files at global, project, and folder levels
-- Both enforce your preferences automatically: tidyverse syntax, viridis colors, clean function-based code, specific exhibit formatting
-- Particularly useful for maintaining consistency across case studies or ensuring all team members follow the same data analysis standards
-
-**Version control integration**
-
-- Claude Code provides robust git workflow management: can create commits, branches, review history to understand why you made analytical decisions
-- **Gemini's Checkpointing**: Saves entire "thinking sessions"—valuable when exploring alternative model specifications or data transformations, letting you roll back experiments that didn't work
-
-**Real-time information access**
-
-- Claude Code integrates web search for updated documentation
-- **Gemini's native Google Search Grounding**: Ensures package versions and API documentation are current—critical when working with rapidly-evolving R/Python packages.
-
-
-## What Stays the Same
+### What Stays the Same
 
 - **Underlying intelligence**: Both use state-of-the-art models (Claude Sonnet/Opus 4.5 vs. Gemini 3.0 Pro/Flash) with comparable reasoning for statistical analysis and code generation
 
@@ -490,6 +485,7 @@ Good teachable moments:
 
 - [Technical Terms Glossary](../da-knowledge/technical-terms-page.html) - Key AI/data concepts
 - [Joining Tables Guide](../da-knowledge/joining-tables.html) - Join types explained
+- [Advanced CLI Workflows](../da-knowledge/cli-advanced-workflows.html) - Power features for experienced users
 
 **Austrian Hotels Dataset:**
 

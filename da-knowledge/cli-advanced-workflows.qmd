@@ -1,0 +1,196 @@
+---
+title: "Advanced CLI Workflows for Data Analysis"
+subtitle: "Power features for reproducible research with Claude Code and Gemini CLI"
+---
+
+## Overview
+
+This guide covers advanced features of CLI-based AI tools for data analysis workflows. Coverage focuses on **Claude Code**, with notes on Gemini CLI equivalents where relevant. If you're new to CLI tools, start with [Week 04: Agentic AI](../week04/index.html) and [Installing CLI Tools](install-cli.html).
+
+
+## Custom Commands and Reusable Workflows
+
+### Claude Code Skills
+
+Skills are the recommended way to create custom instructions or workflows in Claude Code. Each skill is a folder with a required `SKILL.md` file that contains YAML frontmatter and instructions. Claude can load skills automatically when relevant, or you can invoke them directly with `/skill-name`.
+
+**Where skills live (scope):**
+
+- Personal: `~/.claude/skills/<skill-name>/SKILL.md` (available in all projects)
+- Project: `.claude/skills/<skill-name>/SKILL.md` (this repo only)
+- Nested: Claude auto-discovers `.claude/skills/` in subfolders (helpful for monorepos)
+
+**Example: Create a `/clean-data` skill**
+
+Create `.claude/skills/clean-data/SKILL.md`:
+
+```markdown
+---
+name: clean-data
+description: Run the data cleaning pipeline for this project.
+---
+
+Run the data cleaning pipeline:
+1. Check for missing values in raw data files
+2. Run data_cleaning.R script
+3. Verify output file dimensions
+4. Generate a data quality report
+```
+
+Now typing `/clean-data` in Claude Code executes this workflow consistently.
+
+**Minimal skill example:**
+
+```markdown
+---
+name: explain-code
+description: Explain code with analogies and a diagram. Use when teaching or clarifying how code works.
+---
+
+When explaining code:
+1. Start with an analogy
+2. Draw an ASCII diagram
+3. Walk through the code step-by-step
+4. Highlight a common gotcha
+```
+
+**Key capabilities:**
+
+- **Invocation control:**
+	- `disable-model-invocation: true` → only you can run it with `/skill-name`
+	- `user-invocable: false` → Claude can use it, but it's hidden from the menu
+- **Tool limits:** `allowed-tools: Read, Grep` restricts what Claude can do while the skill is active.
+- **Arguments:** use `$ARGUMENTS`, `$ARGUMENTS[0]`, or `$0` in the content.
+- **Supporting files:** add `examples/`, `reference.md`, or scripts in the skill directory and link them from `SKILL.md`.
+
+**Compatibility note:** legacy files in `.claude/commands/` still work, but skills take precedence.
+
+### Gemini CLI: MCP Servers
+
+Gemini CLI extends functionality through MCP (Model Context Protocol) servers—external processes that expose tools to the AI. Configure them in `~/.gemini/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "myDatabase": {
+      "command": "python",
+      "args": ["-m", "my_mcp_server"],
+      "env": { "DB_URL": "$DATABASE_URL" }
+    }
+  }
+}
+```
+
+Once configured, Gemini can use tools exposed by MCP servers to query databases, interact with APIs, or perform custom operations.
+
+
+## Project-Specific Instructions
+
+Both tools read configuration files that automatically set preferences for each project—no need to repeat instructions in every prompt.
+
+### Claude Code: `CLAUDE.md`
+
+Create in project root, home directory, or any subfolder:
+
+```markdown
+# Project Instructions for Austrian Hotels Analysis
+
+## Code Style
+- Use tidyverse syntax for R code
+- Use pandas for Python data manipulation
+- Prefer ggplot2 with viridis color scheme
+- Write functions, not scripts
+
+## Data Standards
+- All dates in ISO 8601 format (YYYY-MM-DD)
+- Currency amounts in EUR
+- Column names: lowercase with underscores
+
+## Analysis Preferences
+- Always check for missing values before analysis
+- Report sample sizes in all tables
+- Include data source notes in exhibits
+- Round percentages to 1 decimal place
+```
+
+**Hierarchical loading:** Global (`~/.claude/CLAUDE.md`) → Project (`./CLAUDE.md` or `./.claude/CLAUDE.md`) → Subdirectory. More specific settings override general ones.
+
+### Gemini CLI: `GEMINI.md`
+
+Same concept, same locations. Global (`~/.gemini/GEMINI.md`) → Project root → Subdirectories.
+
+
+## Git Integration (Claude Code)
+
+Claude Code provides sophisticated git integration beyond basic commits.
+
+**Branch management:**
+
+```
+Create a new branch for the robustness checks analysis,
+implement the checks, and prepare a summary of changes
+```
+
+Claude Code will:
+
+- Create and switch to new branch
+- Make code changes
+- Commit with descriptive message
+- Provide diff summary for review
+
+**Understanding project history:**
+
+```
+Look at the git history for data_cleaning.R.
+Why did we change the outlier detection threshold?
+```
+
+Claude Code reads commit messages and diffs to understand past decisions—useful when revisiting old projects.
+
+**Review before committing:**
+
+```
+Show me what changed in the analysis since the last commit.
+Write a commit message that explains the substantive changes.
+```
+
+
+## Session Recovery (Gemini CLI)
+
+Gemini's checkpointing saves snapshots before file modifications—useful for exploratory analysis where you want to try alternatives without losing work.
+
+**Enable in `~/.gemini/settings.json`:**
+
+```json
+{
+  "general": {
+    "checkpointing": {
+      "enabled": true
+    }
+  }
+}
+```
+
+**Restore a checkpoint:**
+
+```
+/restore                    # List available checkpoints
+/restore <checkpoint_file>  # Restore to a specific point
+```
+
+
+## Autonomous Execution
+
+Both tools can run commands without constant approval—useful for trusted, repetitive workflows.
+
+**Gemini CLI "Yolo Mode"** (`--yolo` or `-y`) auto-approves all tool actions:
+
+```bash
+gemini -p "Install missing packages, clean the data, run all analyses" --yolo
+```
+
+The `-p` flag runs Gemini in headless (non-interactive) mode; `-y` auto-approves actions.
+
+**Claude Code** has similar capabilities through its permission system and headless mode (`claude -p "your prompt"`).
+
+Use autonomous execution for trusted workflows only. For new or unfamiliar code, stick with interactive mode where you review each step.
