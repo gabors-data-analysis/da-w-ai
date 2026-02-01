@@ -48,6 +48,9 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 /not-shared
+
+# Claude temporary files
+tmpclaude-*
 *.ini
 code/interviews/my-openai-api-key.R
 code/interviews/data_path.R
