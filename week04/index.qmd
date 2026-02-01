@@ -21,9 +21,9 @@ From chat to terminal - AI that works directly with your files
 
 ## About the class
 
-So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **[agentic AI](../da-knowledge/technical-terms-page.html)**: AI that can see your files, run your code, and iterate on results directly.
+So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **[agentic AI](../da-knowledge/technical-terms-page.html)**: AI that can see your files, run your code, and iterate on results directly. It is a command-line interface (CLI) -- it runs in your terminal. You type commands, the AI responds with code, runs it, and shows results - all in one place. It can assemble knowledge with great deal of automation.  
 
-**Claude Code** is Anthropic's command-line tool that brings Claude into your terminal. Instead of describing your data to an AI, you can say "look at these CSV files and tell me what's here." Instead of copying error messages, Claude Code sees them and fixes the code itself.
+Instead of describing your data to an AI, you can say "look at these CSV files and tell me what's here." Instead of copying error messages, Claude Code sees them and fixes the code itself.
 
 ### Tool Options
 
@@ -36,7 +36,7 @@ We use **Claude Code** in this class, but the concepts apply to similar tools:
 | **Codex CLI** | OpenAI | OpenAI's command-line tool. |
 | **Cursor / Windsurf** | Third-party | IDE-based, similar agentic features. |
 
-Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same.
+Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same. So, we'll use Claude Code as we go but just replace it with other tools. Also, tools are keep evolving, so focus on process more than specifics of a tool.
 
 ### Learning Objectives
 
@@ -56,15 +56,13 @@ By the end of this session, students will:
 :::
 ::: {.card-body}
 
-**1. Install a CLI tool**
+**1. Installation and setup**
 
 Follow the installation guide: **[Installing AI CLI Tools](../da-knowledge/install-cli.html)**
 
-We use Claude Code, but Gemini CLI or Codex CLI also work. The guide covers all options for Windows, Mac, and Linux.
+We use Claude Code, but Gemini CLI or Codex CLI also work. The guide covers all options for Windows, Mac, and Linux. 
 
-*New to the terminal?* Start with [Terminal Basics](../da-knowledge/terminal-basics.html)
-
-**2. Install Python**
+Claude Code lives in the Terminal. *New to the terminal?* Start with [Terminal Basics](../da-knowledge/terminal-basics.html)
 
 Claude Code runs Python code, so Python must be installed:
 
@@ -72,7 +70,7 @@ Claude Code runs Python code, so Python must be installed:
 - **Check "Add Python to PATH"** during installation
 - Install packages: `python -m pip install pandas numpy matplotlib`
 
-**3. Download the data**
+**2. Download the data**
 
 Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) from the Austrian Hotels case study and unzip it.
 
@@ -83,19 +81,82 @@ Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) f
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 1: Why Agentic AI? (15 min)**
+**Part 1: Why Agentic AI? (30 min)**
 :::
 ::: {.card-body}
 
-### Chat AI vs Agentic AI
 
-| Chat AI (ChatGPT, Claude.ai) | Agentic AI (Claude Code) |
-|------------------------------|--------------------------|
-| You describe your data | AI reads your files directly |
-| Copy-paste code back and forth | AI writes and runs code |
-| "I got this error..." | AI sees and fixes errors |
-| One question at a time | AI iterates until done |
-| [Context window](../da-knowledge/technical-terms-page.html#context-window) fills with chat | AI manages context from your project |
+### Key Innovations: Why Use CLI Tools?
+
+**Direct file system access**
+
+- CLI tools operate directly in your project directory, reading data files, scripts, and outputs without manual uploads
+- Claude Code provides seamless local access to your R/Stata scripts and data
+- Gemini CLI offers `--include-directories` flags to explicitly include multiple directories—useful when your data lives in `/data/raw/`, `/data/clean/`, and `/exhibits/` across different locations
+
+**Autonomous command execution**
+
+- Both tools can run your R/Stata/Python scripts, install packages, and execute bash commands
+- They can test code, catch errors, and iterate automatically—running `Rscript analysis.R`, checking outputs, and debugging without you copying error messages back
+- Gemini's "Yolo Mode" (`-y`) chains commands without permission prompts; Claude Code maintains interactive safety controls while offering similar autonomous iteration
+
+**Workflow automation for reproducible research**
+
+- Claude Code: Create custom slash commands (e.g., `/clean-data`, `/make-exhibits`) in `.claude/commands/` that encode entire analysis pipelines. These travel with your repo, ensuring reproducibility
+- Gemini: Uses Model Context Protocol (MCP) with Extension Gallery plug-ins—particularly powerful for connecting to BigQuery, Google Drive, or APIs where your raw data might live
+
+**Multi-file project understanding**
+
+- Both understand relationships across your entire project: how `01_data_clean.R` feeds into `02_analysis.R` and ultimately produces `exhibit_table1.tex`
+- **Gemini excels**: 1M+ token context window lets you load entire large datasets (e.g., 500-page PDFs, massive CSV files) in one session
+- **Claude Code excels**: Coordinated multi-file edits with deep understanding of script dependencies—can update data cleaning, analysis, and visualization scripts in one coherent workflow
+
+**Project-specific instructions**
+
+- Claude Code reads `CLAUDE.md`; Gemini reads `GEMINI.md` files at global, project, and folder levels
+- Both enforce your preferences automatically: tidyverse syntax, viridis colors, clean function-based code, specific exhibit formatting
+- Particularly useful for maintaining consistency across case studies or ensuring all team members follow the same data analysis standards
+
+**Version control integration**
+
+- Claude Code provides robust git workflow management: can create commits, branches, review history to understand why you made analytical decisions
+- **Gemini's Checkpointing**: Saves entire "thinking sessions"—valuable when exploring alternative model specifications or data transformations, letting you roll back experiments that didn't work
+
+**Real-time information access**
+
+- Claude Code integrates web search for updated documentation
+- **Gemini's native Google Search Grounding**: Ensures package versions and API documentation are current—critical when working with rapidly-evolving R/Python packages.
+
+
+## What Stays the Same
+
+- **Underlying intelligence**: Both use state-of-the-art models (Claude Sonnet/Opus 4.5 vs. Gemini 3.0 Pro/Flash) with comparable reasoning for statistical analysis and code generation
+
+- **Natural language interface**: Describe tasks in plain language: "Clean this dataset and create a summary statistics table" or "Debug why my regression results look wrong"
+
+- **Iterative refinement**: Both support conversational debugging—ask the CLI to fix errors, try different estimation methods, or refine exhibit formatting through multiple rounds
+
+- **Your preferences respected**: Both learn and apply your coding standards (tidyverse, viridis, clean functions) once configured through their respective `.md` instruction files
+
+- **Multimodal input for data work**:  Both handle various data formats: CSV, Excel, PDFs, images of tables/charts. Useful for extracting data from PDFs, reproducing charts from papers, or generating code from hand-drawn sketches
+
+
+---
+
+### Bottom Line for Data Analysis
+
+CLI tools shine when you have:
+
+- Complex multi-file projects with data pipelines (`raw → clean → analysis → exhibits`)
+- Need for reproducible workflows that others can run
+- Large datasets or documents requiring substantial context
+- Iterative analysis where the AI should test and debug autonomously
+
+The chatbox remains better for:
+
+- Quick one-off questions or code snippets
+- Exploratory conversations about methodology
+- Situations where you want tight control over each step
 
 ### Discussion: How Would You Do This?
 
@@ -103,7 +164,7 @@ Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) f
 
 You have a folder with several CSV files. You want to answer this question using AI assistance.
 
-**Think-pair-share (5 min):**
+**Think-pair-share (10 min):**
 
 1. What steps would you take using ChatGPT or Claude.ai (chat interface)?
 2. What information would you need to give the AI?
