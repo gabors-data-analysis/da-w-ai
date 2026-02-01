@@ -75,7 +75,7 @@ website:
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
           - text: "Learn More"
-            href: learn-more/beyond.qmd
+            href: da-knowledge/beyond.qmd
           - text: "Which AI"
             href: da-knowledge/which-ai.qmd
 
