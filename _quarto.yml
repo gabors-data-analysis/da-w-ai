@@ -10,7 +10,7 @@ website:
   navbar:
     title: "DA with AI"
     left:
-      - href: navbar/index.qmd
+      - href: index.qmd
         text: Home
       - href: navbar/weeks.qmd
         text: Weekly Content
