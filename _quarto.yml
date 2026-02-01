@@ -28,31 +28,31 @@ website:
     contents:
       - section: "Course Weeks"
         contents:
-          - text: "Week 0: Coding with AI"
+          - text: "Week 0: AI-Assisted Coding Prep"
             href: week00/index.qmd
           - text: "Week 1: LLM Review"
             href: week01/index.qmd
-          - text: "Week 2: Documentation"  
+          - text: "Week 2: Discovery and Documentation"  
             href: week02/index.qmd
-          - text: "Week 3: Reports"
+          - text: "Week 3: Reporting Your Data Analysis"
             href: week03/index.qmd
-          - text: "Week 4: Join Tables"
+          - text: "Week 4: Agentic AI with CLIs"
             href: week04/index.qmd
-          - text: "Week 5: Text as Data I"
+          - text: "Week 5: Using Text as Data"
             href: week05/index.qmd
-          - text: "Week 6: Text as Data II"
+          - text: "Week 6: Sentiment Analysis with AI"
             href: week06/index.qmd
           - text: "Week 7: Data Collect"
             href: week07/index.qmd
           - text: "Week 8: SQL with AI"
             href: week08/index.qmd
-          - text: "Week 9: AI Research: Controls"
+          - text: "Week 9: AI Research - Designing Z"
             href: week09/index.qmd
-          - text: "Week 10: AI Research: IV"
+          - text: "Week 10: AI Research - Instrumental Variables"
             href: week10/index.qmd
-          - text: "Week 11: AI Research: DiD"
+          - text: "Week 11: AI Research - Difference in Differences"
             href: week11/index.qmd
-          - text: "Week 12: Dashboards & Apps"
+          - text: "Week 12: Creating Dashboards and Online Apps"
             href: week12/index.qmd
           
       - section: "Case Studies"
