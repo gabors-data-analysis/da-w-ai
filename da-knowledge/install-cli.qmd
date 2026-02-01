@@ -80,6 +80,11 @@ sudo dnf install nodejs npm
 
 :::
 
+::: {.callout-note}
+## VS Code Users
+You can also open a terminal directly inside VS Code! Press `` Ctrl+` `` (backtick) on Windows/Linux or `` Cmd+` `` on Mac—or go to **View → Terminal**. This keeps everything in one window.
+:::
+
 **New to the terminal?** Read [Terminal Basics](terminal-basics.html) first.
 
 ---
