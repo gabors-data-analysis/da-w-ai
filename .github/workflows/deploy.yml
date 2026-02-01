@@ -36,7 +36,7 @@ jobs:
           file_count=$(find _site -type f | wc -l)
           echo "Build OK. $file_count files in _site"
 
-      # 6. Deploy to ai-course folder only
+      # 6. Deploy to ai-course folder only (preserving other content)
       - name: Deploy to GitHub Pages repo
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -46,4 +46,6 @@ jobs:
           destination_dir: ai-course
           publish_dir: ./_site
           keep_files: true
+          force_orphan: false
+          enable_jekyll: true
           commit_message: "Deploy da-w-ai site update"
