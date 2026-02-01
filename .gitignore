@@ -67,3 +67,4 @@ case-studies/interviews/code/my-openai-api-key.R
 
 # Claude code folders
 /.claude/
+CLAUDE.md
