@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+
+      # 2. Setup Quarto
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      # 3. Setup R (for any R-based .qmd files)
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+
+      # 4. Build the site
+      - name: Render Quarto site
+        run: quarto render
+
+      # 5. Verify build succeeded before deploying
+      - name: Verify build output
+        run: |
+          if [ ! -f "_site/index.html" ]; then
+            echo "ERROR: Build failed - _site/index.html not found"
+            exit 1
+          fi
+          file_count=$(find _site -type f | wc -l)
+          echo "Build OK. $file_count files in _site"
+
+      # 6. Deploy to ai-course folder only
+      - name: Deploy to GitHub Pages repo
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
+          external_repository: gabors-data-analysis/gabors-data-analysis.github.io
+          publish_branch: master
+          destination_dir: ai-course
+          publish_dir: ./_site
+          keep_files: true
+          commit_message: "Deploy da-w-ai site update"
