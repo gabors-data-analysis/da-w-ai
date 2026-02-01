@@ -28,7 +28,7 @@ website:
             href: week00/index.qmd
           - text: "Week 1: LLM Review"
             href: week01/index.qmd
-          - text: "Week 2: Discovery and Documentation"  
+          - text: "Week 2: Documentation"  
             href: week02/index.qmd
           - text: "Week 3: Reporting"
             href: week03/index.qmd
