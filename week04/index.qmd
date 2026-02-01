@@ -31,10 +31,12 @@ We use **Claude Code** in this class, but the concepts apply to similar tools:
 
 | Tool | Provider | Notes |
 |------|----------|-------|
-| **Claude Code** | Anthropic | What we use. Requires Claude Pro or API. |
-| **Gemini CLI** | Google | Similar workflow, uses Gemini models. |
-| **Codex CLI** | OpenAI | OpenAI's command-line tool. |
-| **Cursor / Windsurf** | Third-party | IDE-based, similar agentic features. |
+| **[Claude Code](https://claude.com/product/claude-code)** | Anthropic | What we use. Requires Claude Pro or API. |
+| **[Gemini CLI](https://geminicli.com/)** | Google | Similar workflow, uses Gemini models. |
+| **[Codex CLI](https://developers.openai.com/codex/cli/)** | OpenAI | OpenAI's command-line tool. |
+| **[Copilot in VS Code](https://github.com/features/copilot)** | GitHub/OpenAI | AI-powered code completion in VS Code. |
+| **[Cursor](https://cursor.com/) / [Windsurf](https://windsurf.com/)** | Third-party | IDE-based, similar agentic features. |
+| **[Antigravity](https://antigravity.google/)** | Google | IDE with AI coding assistance. |
 
 Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same. So, we'll use Claude Code as we go but just replace it with other tools. Also, tools are keep evolving, so focus on process more than specifics of a tool.
 
