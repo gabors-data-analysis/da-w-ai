@@ -74,10 +74,20 @@ website:
         contents:
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
+          - text: "Which AI model shall we choose?"
+            href: da-knowledge/which-ai.qmd
           - text: "Learn More"
             href: da-knowledge/beyond.qmd
-          - text: "Which AI"
-            href: da-knowledge/which-ai.qmd
+          - text: "Documentation Fundamentals"
+            href: da-knowledge/documentation-readme.qmd
+          - text: "Joining Data Tables"
+            href: da-knowledge/joining-tables.qmd
+          - text: "Terminal Basics"
+            href: da-knowledge/terminal-basics.qmd
+          - text: "Setting Up Claude Code"
+            href: da-knowledge/setting-up-claude-code.qmd
+          - text: "Installing AI CLI Tools"
+            href: da-knowledge/install-cli.qmd
 
 
       - section: "Slideshows"
