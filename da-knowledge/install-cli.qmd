@@ -1,6 +1,6 @@
 ---
 title: "Installing AI CLI Tools"
-subtitle: "Claude Code, Gemini CLI, Codex CLI, and OpenCode"
+subtitle: "Claude Code, Gemini CLI, and Codex CLI"
 ---
 
 ## Choose Your Tool
@@ -14,10 +14,10 @@ All these CLI tools let you work with AI directly in your terminal. Pick one to 
 
 | Tool | Provider | Model | Pricing |
 |------|----------|-------|---------|
-| **Claude Code** | Anthropic | Claude | Claude Pro ($20/mo) or API |
-| **Gemini CLI** | Google | Gemini | Free tier available |
-| **Codex CLI** | OpenAI | GPT-4 | API credits required |
-| **OpenCode** | Open source | Multiple | Depends on backend |
+| **Claude Code** | Anthropic | Claude | Claude Pro/Max ($20+/mo) or Console |
+| **Gemini CLI** | Google | Gemini | Free tier + paid plans |
+| **Codex CLI** | OpenAI | GPT-4o | ChatGPT Plus/Pro ($20+/mo) |
+
 
 ---
 
@@ -99,51 +99,34 @@ Anthropic's official CLI for Claude.
 
 ### Windows
 
-Open PowerShell or Command Prompt:
+PowerShell:
 ```
-npm install -g @anthropic-ai/claude-code
+irm https://claude.ai/install.ps1 | iex
+```
+
+Command Prompt:
+```
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
 ```
 
 ### Mac
 
-Open Terminal:
 ```
-npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-If permission error:
+Or with Homebrew:
 ```
-sudo npm install -g @anthropic-ai/claude-code
+brew install claude
 ```
 
 ### Linux
 
 ```
-npm install -g @anthropic-ai/claude-code
-```
-
-If permission error:
-```
-sudo npm install -g @anthropic-ai/claude-code
+curl -fsSL https://claude.ai/install.sh | bash
 ```
 
 :::
-
-### Authenticate
-
-```
-claude
-```
-
-First run opens a browser to log in with your Anthropic account. You need:
-- **Claude Pro** subscription ($20/month), OR
-- **API access** with credits
-
-### Verify
-
-```
-claude --version
-```
 
 ### Use
 
@@ -153,9 +136,13 @@ cd /path/to/your/project
 claude
 ```
 
-Then type your requests naturally: "What files are here?" or "Read the CSV and calculate the mean."
+**First time**: You'll be prompted to log in via browser. You need one of:
+- **Claude Pro, Max, Teams, or Enterprise** subscription (recommended)
+- **Claude Console** account (API access with pre-paid credits)
 
-**More details:** [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
+**After login**: Type your requests naturally like "what does this project do?" or "add a hello world function to the main file."
+
+**More details:** [Claude Code Documentation](https://code.claude.com/docs/en/quickstart)
 
 ---
 
@@ -170,53 +157,45 @@ Google's CLI for Gemini models.
 ### Windows
 
 ```
-npm install -g @anthropic-ai/claude-code
+npm install -g @google/gemini-cli
 ```
-
-*Note: As of 2026, check [Google's documentation](https://ai.google.dev/) for the current package name.*
 
 ### Mac
 
 ```
-npm install -g gemini-cli
+npm install -g @google/gemini-cli
 ```
 
 ### Linux
 
 ```
-npm install -g gemini-cli
+npm install -g @google/gemini-cli
 ```
 
 :::
 
-### Authenticate
-
-```
-gemini auth login
-```
-
-This opens a browser to authenticate with your Google account. Free tier available with limits.
-
-### Verify
-
-```
-gemini --version
-```
-
 ### Use
 
+Navigate to your project folder and start:
 ```
 cd /path/to/your/project
 gemini
 ```
 
-**More details:** [Google AI for Developers](https://ai.google.dev/)
+**First time**: You'll be prompted to select **Login with Google** and authenticate via browser with your Google account.
+
+**Account options**:
+
+- Individual Google accounts (free tier + paid Google AI Pro/Ultra)
+- Organization accounts (company, school, or Google Workspace)
+
+**More details:** [Gemini CLI Documentation](https://geminicli.com/docs/get-started/installation/)
 
 ---
 
 ## Codex CLI
 
-OpenAI's command-line tool.
+OpenAI's command-line coding tool.
 
 ### Install
 
@@ -234,6 +213,11 @@ npm install -g @openai/codex
 npm install -g @openai/codex
 ```
 
+Or with Homebrew:
+```
+brew install openai/tap/codex
+```
+
 ### Linux
 
 ```
@@ -242,172 +226,20 @@ npm install -g @openai/codex
 
 :::
 
-### Authenticate
-
-Set your API key:
-
-::: {.panel-tabset}
-
-### Windows (PowerShell)
-```
-$env:OPENAI_API_KEY="your-api-key-here"
-```
-
-To make permanent, add to your PowerShell profile or System Environment Variables.
-
-### Mac / Linux
-```
-export OPENAI_API_KEY="your-api-key-here"
-```
-
-To make permanent, add to `~/.bashrc` or `~/.zshrc`:
-```
-echo 'export OPENAI_API_KEY="your-api-key-here"' >> ~/.zshrc
-source ~/.zshrc
-```
-
-:::
-
-Get your API key from [platform.openai.com](https://platform.openai.com/api-keys)
-
-### Verify
-
-```
-codex --version
-```
-
 ### Use
 
+Navigate to your project folder and start:
 ```
 cd /path/to/your/project
 codex
 ```
 
-**More details:** [OpenAI Platform Documentation](https://platform.openai.com/docs)
+**First time**: You'll be prompted to sign in via browser. You can authenticate with:
 
----
+- **ChatGPT account** (Plus, Pro, Business, Edu, or Enterprise) - recommended
+- **OpenAI API key** (alternative option)
 
-## OpenCode
-
-Open-source CLI that can connect to multiple AI backends.
-
-### Install
-
-::: {.panel-tabset}
-
-### Windows
-
-```
-npm install -g opencode-ai
-```
-
-### Mac
-
-```
-npm install -g opencode-ai
-```
-
-Or with Homebrew:
-```
-brew install opencode
-```
-
-### Linux
-
-```
-npm install -g opencode-ai
-```
-
-:::
-
-### Configure
-
-OpenCode supports multiple backends. Configure with:
-
-```
-opencode config
-```
-
-You can connect to:
-- OpenAI (requires API key)
-- Anthropic (requires API key)
-- Local models (Ollama, etc.)
-
-### Use
-
-```
-cd /path/to/your/project
-opencode
-```
-
-**More details:** Check the project's GitHub repository for current documentation.
-
----
-
-## Troubleshooting
-
-### "command not found" after install
-
-::: {.panel-tabset}
-
-### Windows
-Close and reopen your terminal. If still not working, check that npm's global bin folder is in your PATH.
-
-### Mac / Linux
-Try:
-```
-source ~/.bashrc  # or ~/.zshrc
-```
-
-Or check npm's bin location:
-```
-npm bin -g
-```
-
-Make sure this path is in your PATH environment variable.
-
-:::
-
-### "permission denied" during install
-
-::: {.panel-tabset}
-
-### Windows
-Run terminal as Administrator (right-click → Run as administrator)
-
-### Mac / Linux
-Use `sudo`:
-```
-sudo npm install -g [package-name]
-```
-
-Or fix npm permissions: [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
-
-:::
-
-### Authentication fails
-
-- Check your internet connection
-- Make sure your subscription/API credits are active
-- Try logging out and back in
-- Check the tool's status page for outages
-
-### Still stuck?
-
-- Check the official documentation for your tool
-- Search the tool's GitHub issues
-- Ask in the course forum
-
----
-
-## Quick Comparison
-
-| Feature | Claude Code | Gemini CLI | Codex CLI | OpenCode |
-|---------|-------------|------------|-----------|----------|
-| File access | Yes | Yes | Yes | Yes |
-| Code execution | Yes | Yes | Yes | Yes |
-| Free tier | No | Yes | No | Depends |
-| Best for | General coding | Google ecosystem | OpenAI users | Flexibility |
+**More details:** [Codex CLI Documentation](https://developers.openai.com/codex/cli/)
 
 ---
 
