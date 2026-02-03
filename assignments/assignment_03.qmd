@@ -30,7 +30,7 @@ Use AI iteratively to *help* you create a report.
 * Once you have a draft, Upload slideshow for chapters 10 [data analysis slides](https://gabors-data-analysis.com/chapters/).  and ask to follow it and revise report. 
 * recreate a the report
 
-### Final repor
+### Final report
 
 * You have three versions. Use them to have a single one you like the most. Edit further if needed. 
 

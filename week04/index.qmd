@@ -84,6 +84,41 @@ Claude Code can run Python code, so Python must be installed:
 
 ## Class Plan
 
+
+
+::: {.week-card .card}
+::: {.card-header}
+🤝 **Review on readme docs (20 min)**
+:::
+::: {.card-body}
+
+### Review Readme assignment
+
+* broad discussion of experience
+
+### What worked, what was different? 
+
+* First run
+* Extended context window run 1 (create a system prompt)
+* Extended context window run 2 (with slideshows)
+
+
+### Problems with AI generated reports.
+
+Read each other document.
+
+* control?
+* style?
+ 
+ 
+ 
+:::
+:::
+
+
+
+
+
 ::: {.week-card .card}
 ::: {.card-header}
 **Part 1: Why CLI with Agentic AI? (30 min)**
@@ -237,6 +272,8 @@ a data quality point. Only 9 cities appear (should be 10).
 :::
 :::
 
+
+
 ::: {.week-card .card}
 ::: {.card-header}
 **Part 3: Hands-on - Explore the Dataset (25 min)**
@@ -251,7 +288,7 @@ cd path/to/austrian-hotels-data
 claude
 ```
 
-### Exercise 1: Understand the Data (Individual, 10 min)
+### Exercise 1: Understand the Data (Individual, 20 min)
 
 Try these prompts:
 
@@ -283,6 +320,28 @@ Students should notice:
 - hotels has city names, cities has city details (province, population)
 - monthly_occupancy has hotel_id, month, year, occupancy_rate, avg_daily_rate
 -->
+
+
+### Exercise 2: What is possible Class discussion, 10 min)
+
+* What analysis questions could you ask with this data?
+
+
+
+:::
+:::
+
+
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 4: Hands-on - Explore the Dataset (25 min)**
+:::
+::: {.card-body}
+
+### Getting Started
+
 
 ### Exercise 2: Basic Analysis (Individual, 15 min)
 
@@ -319,13 +378,20 @@ Ask Claude Code to:
    Seasonal patterns? This teaches the "trust but verify" habit.
 -->
 
+
+### Review joins
+
+
+### More tasks
+
 :::
 :::
 
+<!-- Instructor: Exercise 2 expected outputs
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 3: Generate New Data (30 min)**
+**Part 5: Generate New Data (30 min)**
 :::
 ::: {.card-body}
 
@@ -335,7 +401,17 @@ One of the most useful capabilities of Claude Code is generating realistic simul
 
 ### Demo: Creating Booking Channel Data
 
-Watch the instructor create a new data table:
+* Let us create a new data table: 
+
+```
+I want to create a new CSV file called hotel_bookings.csv that shows
+what percentage of each hotel's bookings come from different channels
+Write Python code to generate this, using the hotels_modified.csv as input.
+```
+
+* How could you be more specific to get realistic patterns?
+
+<!-- Instructor: Exercise 2 expected outputs
 
 ```
 I want to create a new CSV file called hotel_bookings.csv that shows
@@ -358,6 +434,8 @@ Claude Code will:
 2. Write a Python script with realistic logic
 3. Run it and generate the CSV
 4. Show you a summary
+
+
 
 ### Exercise 3: Create Your Own Data Table (Groups of 2-3, 20 min)
 
@@ -401,6 +479,7 @@ Encourage groups to share their tables and analyses at the end.
 :::
 :::
 
+-->
 
 ::: {.week-card .card}
 ::: {.card-header}
