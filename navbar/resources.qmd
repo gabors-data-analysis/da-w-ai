@@ -16,7 +16,7 @@ Glossary of technical terms used in various presentations or in class
 
 [Installing AI CLI Tools](../da-knowledge/install-cli.html) -- Claude Code, Gemini CLI, Codex CLI, OpenCode
 
-[Setting up Claude Code](../da-knowledge/setting-up-claude-code.html) -- detailed Claude Code guide
+[Install Claude Code](../da-knowledge/install-cli.html#claude-code) -- Claude Code install guide
 
 ## Beyond (the material) --- Learn more
 

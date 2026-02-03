@@ -93,6 +93,18 @@ You can also open a terminal directly inside VS Code! Press `` Ctrl+` `` (backti
 
 Anthropic's official CLI for Claude.
 
+### What is Claude Code?
+
+Claude Code is a command-line tool that lets you work with Claude directly in your terminal. It can read, edit, and create files, run commands, and help with coding and data analysis where your code lives.
+
+**Why use it?**
+
+- Works directly with your files and folders
+- Can read, edit, and create code for you
+- Runs commands and sees the output
+- Great for data analysis workflows
+- No copy-pasting between browser and code editor
+
 ### Install
 
 ::: {.panel-tabset}
@@ -143,6 +155,27 @@ claude
 **After login**: Type your requests naturally like "what does this project do?" or "add a hello world function to the main file."
 
 **More details:** [Claude Code Documentation](https://code.claude.com/docs/en/quickstart)
+
+### Quick Tips
+
+| Command | What it does |
+|---------|--------------|
+| `claude` | Start Claude Code |
+| `exit` | Quit Claude Code |
+| `claude --help` | See all options |
+| `/help` | Get help while inside Claude |
+
+### Requirements
+
+- **Claude account** — Sign up at [claude.ai](https://claude.ai) if you don't have one
+- **Subscription or Console credits** — Claude Pro/Max/Teams/Enterprise or a Claude Console account with credits
+- **Internet connection** — Claude runs in the cloud
+
+### Troubleshooting
+
+- **"command not found"** — Close and reopen your terminal, then try again
+- **"Permission denied"** — Re-run the install step with admin permissions or follow the OS-specific instructions above
+- **"Authentication failed"** — Make sure your Claude subscription/credits are active and try logging in again
 
 ---
 

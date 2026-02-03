@@ -109,4 +109,4 @@ Write 150-300 words reflecting on:
 
 ## Questions?
 
-If you have trouble with Claude Code setup, check the [setup guide](../da-knowledge/setting-up-claude-code.html) or ask in the course forum.
+If you have trouble with Claude Code setup, check the [install guide](../da-knowledge/install-cli.html#claude-code) or ask in the course forum.

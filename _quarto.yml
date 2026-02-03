@@ -80,8 +80,6 @@ website:
             href: da-knowledge/joining-tables.qmd
           - text: "Terminal Basics"
             href: da-knowledge/terminal-basics.qmd
-          - text: "Setting Up Claude Code"
-            href: da-knowledge/setting-up-claude-code.qmd
           - text: "Installing AI CLI Tools"
             href: da-knowledge/install-cli.qmd
 

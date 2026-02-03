@@ -273,7 +273,7 @@ claude
 
 Claude Code isn't installed, or not in your PATH.
 
-**Fix:** Follow the [Claude Code setup guide](setting-up-claude-code.html)
+**Fix:** Follow the [Claude Code install guide](install-cli.html#claude-code)
 
 ### "No such file or directory"
 
@@ -313,4 +313,4 @@ You don't have access to that folder/file.
 
 That's all you need. The terminal might feel unfamiliar at first, but after using it a few times with Claude Code, it becomes natural.
 
-**Next step:** [Set up Claude Code](setting-up-claude-code.html)
+**Next step:** [Install Claude Code](install-cli.html#claude-code)

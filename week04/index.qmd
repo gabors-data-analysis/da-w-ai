@@ -599,7 +599,7 @@ The chatbox remains better for:
 **Claude Code & Terminal:**
 
 - [Terminal Basics](../da-knowledge/terminal-basics.html) - Essential commands
-- [Setting Up Claude Code](../da-knowledge/setting-up-claude-code.html) - Installation guide
+- [Install Claude Code](../da-knowledge/install-cli.html#claude-code) - Installation guide
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Official docs
 
 **Course Reference:**
