@@ -38,7 +38,9 @@ We use **Claude Code** in this class, but the concepts apply to similar tools:
 | **[Cursor](https://cursor.com/) / [Windsurf](https://windsurf.com/)** | Third-party | IDE-based, similar agentic features. |
 | **[Antigravity](https://antigravity.google/)** | Google | IDE with AI coding assistance. |
 
-Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same. So, we'll use Claude Code as we go but just replace it with other tools. Also, tools are keep evolving, so focus on process more than specifics of a tool.
+There are differences in capabilities and focus, but the core concepts are the same.
+
+Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same. So, we'll use Claude Code as we go but just replace it with other tools. Also, tools are keep evolving, so focus on process more than specifics of a tool. 
 
 ### Learning Objectives
 
@@ -47,7 +49,6 @@ By the end of this session, students will:
 * Understand the difference between chat-based AI and agentic AI tools
 * Install and configure Claude Code on their machine
 * Use Claude Code to explore, understand, and analyze a multi-file dataset
-* Generate new data programmatically using Claude Code
 * Experience the workflow difference: iteration speed, context awareness, debugging
 
 ### Before class
@@ -66,15 +67,17 @@ We use Claude Code, but Gemini CLI or Codex CLI also work. The guide covers all 
 
 Claude Code lives in the Terminal. *New to the terminal?* Start with [Terminal Basics](../da-knowledge/terminal-basics.html)
 
-Claude Code runs Python code, so Python must be installed:
+**2. Ensure python**
+
+Claude Code can run Python code, so Python must be installed:
 
 - Download from [python.org/downloads](https://www.python.org/downloads/)
 - **Check "Add Python to PATH"** during installation
 - Install packages: `python -m pip install pandas numpy matplotlib`
 
-**2. Download the data**
+**3. Ensure you have a GitHub account**
 
-Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) from the Austrian Hotels case study and unzip it.
+- and know how basics of working with git
 
 :::
 :::
@@ -83,7 +86,7 @@ Get [data-modified.zip](../case-studies/austria-hotels/data/data-modified.zip) f
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 1: Why Agentic AI? (30 min)**
+**Part 1: Why CLI with Agentic AI? (30 min)**
 :::
 ::: {.card-body}
 
@@ -140,20 +143,6 @@ This covers the basics to get started. For advanced workflows (custom commands, 
 
 ---
 
-### Bottom Line for Data Analysis
-
-CLI tools shine when you have:
-
-- Complex multi-file projects with data pipelines (`raw → clean → analysis → exhibits`)
-- Need for reproducible workflows that others can run
-- Large datasets or documents requiring substantial context
-- Iterative analysis where the AI should test and debug autonomously
-
-The chatbox remains better for:
-
-- Quick one-off questions or code snippets
-- Exploratory conversations about methodology
-- Situations where you want tight control over each step
 
 ### Discussion: How Would You Do This?
 
@@ -182,7 +171,41 @@ Key point: Every step requires manual copy-paste. Context gets lost easily.
 
 **The friction:** Every step requires manual copy-paste. Context gets lost. Errors require round-trips.
 
-### Demo: The Agentic Approach
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 2: Demo - Setup (25 min)**
+:::
+::: {.card-body}
+
+
+### Setting Up Claude Code
+
+***set up folder***
+
+Create a git project folder for the Austrian Hotels data `austrian-hotels-data`
+
+***get the data***
+
+Download the Austrian Hotels dataset from [here](../case-studies/austria-hotels/data/data-modified.zip).
+
+***launch Claude Code***
+
+Open your terminal, navigate to your data folder:
+```
+cd path/to/austrian-hotels-data
+claude
+```
+
+### Demo 1:
+
+Ask claude code to set up a data analysis project folder with data already there.
+
+
+### Demo 2: 
 
 Now watch what happens with Claude Code:
 
@@ -216,7 +239,7 @@ a data quality point. Only 9 cities appear (should be 10).
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 2: Hands-on - Explore the Dataset (25 min)**
+**Part 3: Hands-on - Explore the Dataset (25 min)**
 :::
 ::: {.card-body}
 
@@ -330,6 +353,7 @@ Write Python code to generate this, using the hotels_modified.csv as input.
 ```
 
 Claude Code will:
+
 1. Read the existing hotels data
 2. Write a Python script with realistic logic
 3. Run it and generate the CSV
@@ -424,7 +448,25 @@ Good teachable moments:
 :::
 :::
 
+
+## Bottom Line for Data Analysis
+
+CLI tools shine when you have:
+
+- Complex multi-file projects with data pipelines (`raw → clean → analysis → exhibits`)
+- Need for reproducible workflows that others can run
+- Large datasets or documents requiring substantial context
+- Iterative analysis where the AI should test and debug autonomously
+
+The chatbox remains better for:
+
+- Quick one-off questions or code snippets
+- Exploratory conversations about methodology
+- Situations where you want tight control over each step
+
+
 ## Discussion Questions
+
 
 **End of Class Reflection:**
 
