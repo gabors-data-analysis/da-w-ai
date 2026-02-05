@@ -1,7 +1,7 @@
 ---
 title: "Week 04: Agentic AI with CLIs like Claude Code"
 subtitle: "From chat to terminal - AI that works directly with your files"
-date: "2026-01-30"
+date: "2026-02-05"
 ---
 
 ::: {.hero-section}
@@ -210,9 +210,11 @@ Key point: Every step requires manual copy-paste. Context gets lost easily.
 :::
 :::
 
+
+
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 2: Demo - Setup (25 min)**
+**Part 2: Hands-on - First steps (25 min)**
 :::
 ::: {.card-body}
 
@@ -235,22 +237,34 @@ cd path/to/austrian-hotels-data
 claude
 ```
 
-### Demo 1:
-
-Ask claude code to set up a data analysis project folder with data already there.
 
 
-### Demo 2: 
+### Task 1: setup
 
-Now watch what happens with Claude Code:
+* Ask to set up a data analysis project folder with data already there.
 
-```
-cd /path/to/austrian-hotels
-claude
-> Look at the CSV files here and calculate average occupancy by city
-```
+* Have a look, ask changes if you'd like
 
-Claude Code reads the files, writes the code, runs it, sees any errors, fixes them, and shows results. One prompt, no copy-paste.
+### Task 2: data
+
+* Get all csv files in the /data folder
+
+* Ask for a summary of data tables
+
+* Interact to learn more about the data
+  * What files are in this folder? Give me a quick overview.
+  * Show me 5 sample rows from each CSV file.
+
+### Task 3: relations
+
+* ask to look at data as linked tables, and tell you keys to join them
+  * Read the hotels and cities files. How are they related? What's the join key?
+  
+### Task 4: simple analysis
+
+* Look at the CSV files here and calculate average occupancy by city
+* write python code, run it, and show results
+
 
 <!-- Instructor: Expected output from demo
 
@@ -269,42 +283,12 @@ Note: Vienna at 98% is suspiciously high - can mention this as
 a data quality point. Only 9 cities appear (should be 10).
 -->
 
-:::
-:::
 
 
+### Task 5 Discussions
 
-::: {.week-card .card}
-::: {.card-header}
-**Part 3: Hands-on - Explore the Dataset (25 min)**
-:::
-::: {.card-body}
-
-### Getting Started
-
-Open your terminal, navigate to your data folder:
-```
-cd path/to/austrian-hotels-data
-claude
-```
-
-### Exercise 1: Understand the Data (Individual, 20 min)
-
-Try these prompts:
-
-```
-What files are in this folder? Give me a quick overview.
-```
-
-```
-Read the hotels and cities files. How are they related? What's the join key?
-```
-
-```
-Show me 5 sample rows from each CSV file.
-```
-
-**Discuss:** How does this compare to opening each file manually or describing it to ChatGPT?
+* How does this compare to using ChatGPT?
+* Where do you see the biggets advantages? Any downsides or risks?
 
 <!-- Instructor: Exercise 1 expected findings
 
@@ -322,11 +306,7 @@ Students should notice:
 -->
 
 
-### Exercise 2: What is possible Class discussion, 10 min)
-
 * What analysis questions could you ask with this data?
-
-
 
 :::
 :::
@@ -336,19 +316,40 @@ Students should notice:
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 4: Hands-on - Explore the Dataset (25 min)**
+**Part 3: Hands-on - Cleaning **
 :::
 ::: {.card-body}
 
-### Getting Started
+
+### Task 1: Class discussion on potential problems
+
+* what are the crucial steps when cleaning tabular data
+
+### Task 2: Cleaning with Claude Code
+
+* Use claude code to find problems. 
+* create clean versions of data tables in a new folder `/data_cleaned`
 
 
-### Exercise 2: Basic Analysis (Individual, 15 min)
+:::
+:::
 
-Ask Claude Code to:
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 4: Hands-on - Joining tables**
+:::
+::: {.card-body}
+
+
+### Task 1: quick review on joins
+
+- Review of key concepts [Joining Tables Guide](../da-knowledge/joining-tables.html)
+
+### Task 2 joining tables
 
 1. **Join hotels and cities** - "Join the hotels and cities data. How many hotels are in each province?"
-   - *New to joins? See [Joining Tables Guide](../da-knowledge/joining-tables.html)*
 
 2. **Aggregate occupancy** - "What's the average occupancy rate by city? Show me a table sorted highest to lowest."
 
@@ -359,6 +360,12 @@ Ask Claude Code to:
 - If something looks wrong, ask "Why did that happen?" or "Check the row counts"
 - Ask Claude Code to show intermediate steps: "Show me the data after the join, before aggregating"
 - If you get an error, just wait - Claude Code will often fix it automatically
+
+### Task 3, manual check
+
+* open a created data table and look into it. 
+* how would you test and debug?
+
 
 <!-- Instructor: Exercise 2 expected outputs
 
@@ -379,19 +386,14 @@ Ask Claude Code to:
 -->
 
 
-### Review joins
-
-
-### More tasks
 
 :::
 :::
 
-<!-- Instructor: Exercise 2 expected outputs
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 5: Generate New Data (30 min)**
+**Part 5: Hands-on Generate New Data**
 :::
 ::: {.card-body}
 
@@ -399,7 +401,7 @@ Ask Claude Code to:
 
 One of the most useful capabilities of Claude Code is generating realistic simulated data. This is exactly how the Austrian Hotels dataset was created - by an earlier version of Claude!
 
-### Demo: Creating Booking Channel Data
+### Task 1: Creating Booking Channel Data
 
 * Let us create a new data table: 
 
@@ -410,6 +412,7 @@ Write Python code to generate this, using the hotels_modified.csv as input.
 ```
 
 * How could you be more specific to get realistic patterns?
+* How would you check?
 
 <!-- Instructor: Exercise 2 expected outputs
 
@@ -437,7 +440,6 @@ Claude Code will:
 
 
 
-### Exercise 3: Create Your Own Data Table (Groups of 2-3, 20 min)
 
 Your turn! Brainstorm a new data table that could join to the hotels data. Ideas:
 
@@ -483,7 +485,7 @@ Encourage groups to share their tables and analyses at the end.
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 4: Debugging and Iteration (10 min)**
+**Part 6: Debugging and Iteration**
 :::
 ::: {.card-body}
 
@@ -526,6 +528,25 @@ Good teachable moments:
 
 :::
 :::
+
+## Operation tips
+
+* use git projects
+  * as CLI tools are file-based, it's easier to manage with git
+  * also gives you version control and backup (if something goes wrong you can pull back to a working state)
+  
+
+* start with
+  * higher level review: what do I have in the folder?
+  * thinking and plan first
+  * execute
+
+
+**resources**
+
+* [Claude Code common workflows](https://code.claude.com/docs/en/common-workflows)
+* [Clude Code skills](https://code.claude.com/docs/en/features-overview)
+* [Gemini Gems](https://gemini.google/overview/gems/)
 
 
 ## Bottom Line for Data Analysis
@@ -601,6 +622,11 @@ The chatbox remains better for:
 - [Terminal Basics](../da-knowledge/terminal-basics.html) - Essential commands
 - [Install Claude Code](../da-knowledge/install-cli.html#claude-code) - Installation guide
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Official docs
+
+**Additional references**
+
+- [Short showcase of what is possible now (2026 Jan) )](https://www.youtube.com/watch?v=hiISl558JGE) -- must watch 15 mins
+
 
 **Course Reference:**
 

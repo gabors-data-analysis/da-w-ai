@@ -1,5 +1,5 @@
 ---
-title: "Assignment 4: Extend the Austrian Hotels Dataset"
+title: "Assignment 5: Extend the Austrian Hotels Dataset"
 subtitle: "Create new data and analyze it with Claude Code"
 ---
 
@@ -23,21 +23,27 @@ Submit a **single PDF** containing:
 
 ## Part 1: Design Your Data Table (25%)
 
-Create a new CSV file that joins to the Austrian Hotels dataset. Your table should:
+### Task
+
+Create a new CSV file that joins to the Austrian Hotels dataset. 
+
+
+**Your table should:**
 
 - Have a clear **join key** (hotel_id, city, city+month+year, etc.)
 - Contain **realistic patterns** (not random numbers)
 - Enable an **interesting analysis question**
 
-### Ideas (pick one or create your own):
+**Ideas**
+
+Pick an idea for a new dataset that could be joined to the Austrian Hotels data. For example:
 
 | Table | Columns | Join Key | Analysis Question |
 |-------|---------|----------|-------------------|
 | **Weather** | city, month, year, avg_temp, precipitation, snow_days | city + month + year | Does weather affect occupancy? |
-| **Staff** | hotel_id, num_employees, avg_wage, languages_spoken | hotel_id | Do staffing levels correlate with reviews? |
 | **Events** | event_id, city, event_name, month, year, expected_visitors | city + month + year | How much do events boost hotel prices? |
-| **Sustainability** | hotel_id, energy_rating, has_solar, waste_recycling_pct | hotel_id | Do eco-friendly hotels charge more? |
-| **Transportation** | city, airport_distance_km, train_station_distance, public_transport_score | city | Does accessibility affect tourism? |
+
+You can create something else. Just make sure it has a clear join key and realistic patterns. 
 
 ### What to submit:
 
@@ -74,7 +80,7 @@ Include the key pieces of code that Claude Code generated. You don't need to inc
 
 ## Part 4: Reflection (15%)
 
-Write 150-300 words reflecting on:
+Write 100-150 words reflecting on:
 
 1. **Process:** How did you iterate with Claude Code? What did you have to clarify or fix?
 
