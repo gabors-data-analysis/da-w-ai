@@ -32,7 +32,7 @@ Course datasets and code are organized by case study:
 
 1. [World Values Survey](../case-studies/VWS/) - Week 2-3 (Documentation, Reports)
 2. [Austrian Hotels](../case-studies/austria-hotels/) - Week 4 (Joining Tables)
-3. [Football Manager Interviews](../case-studies/interviews/) - Week 5-6 (Text as Data)
+3. [Football Manager Interviews](../case-studies/interviews/) - Week 7-8 (Text as Data)
 4. [US Earnings (CPS)](../case-studies/earnings/) - Week 0 (Coding with AI)
 5. [Employee Commits](../case-studies/employee_commits/) - Data analysis demos
 6. [Common Support (R)](../case-studies/common-support-r/) - Iterative AI coding

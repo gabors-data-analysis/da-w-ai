@@ -81,10 +81,10 @@ But, anyone can use it with adequate background.
 - **Week 2:** Use AI to understand and document the World Values Survey dataset
 - **Week 3:** AI-assisted report writing with WVS data
 - **Week 4:** Agentic AI with Claude Code using Austrian hotel data
-- **Weeks 5:** Text analysis 1: basics
-- **Weeks 6:** Text analysis 2: sentiment analysis
-- **Week 7:** TBD
-- **Week 8:** SQL like natural language query in a data warehouse
+- **Week 5:** Advanced CLI Workflows: custom skills, CLAUDE.md, git integration
+- **Week 6:** Creating Reports
+- **Week 7:** Text analysis 1: basics
+- **Week 8:** Text analysis 2: sentiment analysis
 - **Week 9:**  AI as research companion 1: Control variables
 - **Week 10:** AI as research companion 2: Instrumental Variables
 - **Week 11:** AI as research companion 3: Difference in differences
@@ -159,31 +159,33 @@ Case study: [Austrian Hotels](case-studies/austria-hotels/)
 
 [Content](week04/)
 
-**Week05**: Text as data 1 -- intro lecture
+**Week05**: Advanced CLI Workflows
 
-No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing. 
-
-Case study: [Football Manager Interviews](case-studies/interviews/)
+Going deeper with CLI tools: custom skills, project-specific instructions (CLAUDE.md), git integration, and autonomous execution. Turning CLI tools from clever assistants into reproducible research companions.
 
 [Content](week05/)
 
-**Week06**: Sentiment Analysis with AI
+**Week06**: Creating Reports
 
-Second class, now we are in action. How does LLM compare to humans? 
-
-Case study: [Football Manager Interviews](case-studies/interviews/)
+TBA
 
 [Content](week06/)
 
+**Week07**: Text as data 1 -- intro lecture
 
+No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.
 
-**Week07**: TBA
+Case study: [Football Manager Interviews](case-studies/interviews/)
 
-TBA
+[Content](week07/)
 
-**Week08**: SQL like natural language query in a data warehouse
+**Week08**: Sentiment Analysis with AI
 
-TBA
+Second class, now we are in action. How does LLM compare to humans?
+
+Case study: [Football Manager Interviews](case-studies/interviews/)
+
+[Content](week08/)
 
 **Week09**: AI as research companion: Control variables
 

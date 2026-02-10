@@ -1,9 +1,17 @@
 ---
-title: "Design an IV"
+title: "Assignment 8: Gender Guessing Analysis Pipeline"
 ---
 
-### Task: Design an IV
+### Task
 
-Think about an identification problem and interate to find a good IV. Explain why it may work and why could it fail. 
+Create a similar pipeline we used in class but now with the aim to decide if the coach is a man or a women. In this example dataset, men teams have men coach and women teams have women coach. 
 
-Discuss what data would be needed and where it would come. 
+Pick a few texts and do it yourself
+
+Get AI explain it's decisions
+
+### Submit:
+
+* A file with AI generated ratings: lastname_firstname_geneder_text.xlsx.
+* A short para on why this could be easy or hard
+lastname_firstname_geneder_text.txt.

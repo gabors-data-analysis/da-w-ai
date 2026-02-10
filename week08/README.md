@@ -1,4 +1,4 @@
-# Week 06: Text to data with AI
+# Week 08: Text to data with AI
 
 ## Overview
 Continue using text for research with AI

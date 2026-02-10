@@ -93,21 +93,33 @@ Case study: simulated Austrian hotels. Data is at [hotels](/data/austria-hotels)
 
 [Content](/week04)
 
-## Week05: Text as data 1 -- intro lecture
+## Week05: Advanced CLI Workflows
 
-No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing. 
-
-Case study: football post-game interviews. Data is at [interviews](/data/interviews)
+Going deeper with CLI tools: custom skills, project-specific instructions (CLAUDE.md), git integration, and autonomous execution.
 
 [Content](/week05)
 
-## Week06: Text as data 2 -- practice
+## Week06: Creating Reports
 
-Second class, now we are in action. How does LLM compare to humans? 
+TBA
+
+[Content](/week06)
+
+## Week07: Text as data 1 -- intro lecture
+
+No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.
 
 Case study: football post-game interviews. Data is at [interviews](/data/interviews)
 
-[Content](/week06)
+[Content](/week07)
+
+## Week08: Text as data 2 -- practice
+
+Second class, now we are in action. How does LLM compare to humans?
+
+Case study: football post-game interviews. Data is at [interviews](/data/interviews)
+
+[Content](/week08)
 
 ## Learn more
 

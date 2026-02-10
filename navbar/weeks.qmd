@@ -41,31 +41,33 @@ Case study: [Austrian Hotels](../case-studies/austria-hotels/)
 
 [Content](../week04/)
 
-## Week05: Text as data 1 -- intro lecture
+## Week05: Advanced CLI Workflows
 
-No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing. 
-
-Case study: [Football Manager Interviews](../case-studies/interviews/)
+Going deeper with CLI tools: custom skills, project-specific instructions (CLAUDE.md), git integration, and autonomous execution.
 
 [Content](../week05/)
 
-## Week06: Sentiment Analysis with AI
+## Week06: Creating Reports
 
-Second class, now we are in action. How does LLM compare to humans? 
-
-Case study: [Football Manager Interviews](../case-studies/interviews/)
+TBA
 
 [Content](../week06/)
 
+## Week07: Text as data 1 -- intro lecture
 
+No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.
 
-## Week07: TBA
+Case study: [Football Manager Interviews](../case-studies/interviews/)
 
-TBA
+[Content](../week07/)
 
-## Week08: SQL like natural language query in a data warehouse
+## Week08: Sentiment Analysis with AI
 
-TBA
+Second class, now we are in action. How does LLM compare to humans?
+
+Case study: [Football Manager Interviews](../case-studies/interviews/)
+
+[Content](../week08/)
 
 ## Week09: AI as research companion: Control variables
 

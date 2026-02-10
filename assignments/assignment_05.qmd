@@ -1,20 +1,15 @@
 ---
-title: "Student-Specific Sentiment Analysis"
+title: "Assignment 5: Advanced CLI Workflows"
+subtitle: "Use Claude Code to solve a problem and report on the experience"
 ---
 
-### Task
+## Overview
 
-Student-Specific Sentiment Analysis of a series of texts -- Compare manual ratings with AI-generated ratings.
+* Use claude code to solve any interesting problem that you have come across. 
+* submit a short text report on the problem and how claude code (or other CLI) helped. 
+* Discuss any technical problem you may have had. 
 
-Steps:
 
-* Download the text [file of interviews](/case-studies/interviews/data/interview-texts-only.xlsx) from the [Football Manager Interviews case study](/case-studies/interviews/). Randomly generate a series of 25 numbers between 1 and 121 (_without replacement_). Those will be your interviews to rate. Filter those interviews and save the file as lastname_firstname_sentiment_rated.xlsx.
-* Go through your interviews and manually rate managers' sentiment (25 total).
-* Input full manager interviews (without your rating) into the AI of choice and obtain and compare AI-generated sentiment ratings to initial manual assessments.
-* For both exercises, incorporate the guidelines [HERE](/week05/assets/sentiment-guidelines.html)
-* Compare your manual and AI generated ratings, and write one paragraph summarizing similarities and deviation.
+### To submit
 
-### Submit:
-
-* A file with your manual ratings and AI generated ratings: lastname_firstname_sentiment_rated.xlsx.
-* A text file with the one paragraph summarizing similarities and deviation: lastname_firstname_sentiment_eval.txt/
+1. text of 0.5- 1 page in text format such as txt or md  (lastname_firstname_dawai_week03_report.pdf) (20p)

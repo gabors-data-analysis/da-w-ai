@@ -1,70 +1,56 @@
 ---
-title: "Week 05: using text as data"
-subtitle "Turning a series of short texts into tabular data: humans vs AI"
-date: "2025-05-20"
-
+title: "Week 05: Advanced CLI Workflows"
+subtitle: "Power features for reproducible research with Claude Code and Gemini CLI"
+date: "2026-02-10"
 ---
-
-
-
 
 ::: {.hero-section}
 ::: {.container}
 ::: {.hero-title}
-Week 05: using text as data
+Week 05: Advanced CLI Workflows
 :::
 ::: {.hero-subtitle}
-Turning a series of short texts into tabular data: humans vs AI
+Power features for reproducible research with Claude Code and Gemini CLI
 :::
 :::
 :::
 
+---
 
 ![](../images/week5_pic.png)
 
 ## Overview
 
-In this lesson, students will be introduced to sentiment analysis, specifically applied to evaluating general positivity or negativity in football managers' statements about match outcomes. 
+Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **custom skills**, **project-specific instructions**, **git integration**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
+
+The focus is on **Claude Code**, with notes on Gemini CLI equivalents where relevant.
 
 ### Learning Outcomes
 
 By the end of the session, students will:
 
-- Understand core NLP concepts: tokenization, preprocessing, bag-of-words, and feature extraction in practical context.
-- Gain hands-on experience with sentiment analysis.
-- Understand the complexities and limitations of sentiment analysis.
+- Create custom skills (reusable workflows) for their data analysis projects
+- Set up project-specific instructions with `CLAUDE.md` / `GEMINI.md`
+- Use git integration for version-controlled, traceable analysis
+- Understand autonomous execution modes and when to use them
 
 ## Preparation / Before Class
 
 ::: {.week-card .card}
 ::: {.card-header}
-📚 **Background Reading**
+🔧 **Prerequisites**
 :::
 ::: {.card-body}
-**No specific readings required** - we'll learn by doing
+**Required:**
 
-- No need for natural language processing background. 
-- Thinking ahead: How would you manually determine if someone sounds "positive" or "negative" about something?
-:::
-:::
+- Working Claude Code installation from [Week 04](../week04/index.html)
+- Basic familiarity with running Claude Code in a project directory
+- A project folder with at least one data file and one script
 
+**Recommended Reading:**
 
-
-## Review
-
-::: {.week-card .card}
-::: {.card-header}
-📈 **Assignment Review (15 min)**
-:::
-::: {.card-body}
-**Key Learning Points:**
-
-- Fancy graphs != good graphs (good graph ← careful design)
-- Precise interpretation >> BS
-- Less is more
-- Show only what you understand deeply 
-
-**Less is More Principle:** Simplicity often reveals insights better than complexity
+- [Advanced CLI Workflows reference page](../da-knowledge/cli-advanced-workflows.html) -- the full reference guide for today's topics
+- [Installing CLI Tools](../da-knowledge/install-cli.html) -- if you need to catch up
 :::
 :::
 
@@ -73,26 +59,40 @@ By the end of the session, students will:
 
 ::: {.week-card .card}
 ::: {.card-header}
-📊 **Materials Setup**
+🛠️ **Custom Skills and Reusable Workflows (25 min)**
 :::
 ::: {.card-body}
+**What are skills?**
 
- **Data Context:**
+Skills are reusable instruction sets that Claude Code can load automatically or on demand. Each skill lives in a `.claude/skills/<skill-name>/SKILL.md` file.
 
-* These are real post-match interviews from Premier League managers discussing game results. 
-* Each text represents one manager's full response to journalists after a match.
-* Preprocessing:  Replaced player and team names with "PLAYER" and "TEAM" - removes potential bias
+**Scope:**
 
+- **Personal:** `~/.claude/skills/<skill-name>/SKILL.md` (available in all your projects)
+- **Project:** `.claude/skills/<skill-name>/SKILL.md` (this repo only)
 
-**Practice Dataset:  Contains 5 post-match interviews from football managers**
+**Hands-on: Create a `/clean-data` skill**
 
-- [Student test file (CSV)](/week05/assets/student_test_5.csv) 
-- [Student test file (Excel)](/week05/assets/student_test_5.xlsx)
+Create `.claude/skills/clean-data/SKILL.md` in your project:
 
-**Reference Materials:**
+```markdown
+---
+name: clean-data
+description: Run the data cleaning pipeline for this project.
+---
 
-- [General sentiment rating scale](/week05/assets/sentiment-scale.html) - our classification framework
-- [Domain-specific lexicon](/case-studies/interviews/data/domain_lexicon.csv) - football-specific sentiment terms
+Run the data cleaning pipeline:
+1. Check for missing values in raw data files
+2. Run data_cleaning.R script
+3. Verify output file dimensions
+4. Generate a data quality report
+```
+
+Now typing `/clean-data` in Claude Code executes this workflow consistently.
+
+**Discussion:** What repetitive analysis tasks could you turn into skills?
+
+**Gemini CLI equivalent:** MCP (Model Context Protocol) servers -- external processes that expose tools to the AI.
 
 :::
 :::
@@ -100,91 +100,121 @@ By the end of the session, students will:
 
 ::: {.week-card .card}
 ::: {.card-header}
-📖 **NLP Fundamentals Lecture (25 min)**
+📋 **Project-Specific Instructions: CLAUDE.md (20 min)**
 :::
 ::: {.card-body}
-**[Slideshow: Text to Data](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-05-text-to-data)**
+**The idea:** Instead of repeating preferences in every prompt, write them once in a `CLAUDE.md` file. Claude Code reads it automatically.
 
-**Key Concepts Covered:**
+**Example for a data analysis project:**
 
-- **Tokenization:** Breaking text into meaningful units
-- **Preprocessing:** Stemming, lemmatization, stop word removal  
-- **Bag of Words:** Converting text to numerical features
-- **Domain knowledge:** Why football-specific terms matter 
-- **Sentiment Analysis:** Methods from simple dictionaries to AI models
+```markdown
+## Code Style
+- Use tidyverse syntax for R code
+- Use pandas for Python data manipulation
+- Prefer ggplot2 with viridis color scheme
 
-**Practical Focus:** How these concepts apply to manager interviews
+## Data Standards
+- All dates in ISO 8601 format (YYYY-MM-DD)
+- Column names: lowercase with underscores
+
+## Analysis Preferences
+- Always check for missing values before analysis
+- Report sample sizes in all tables
+```
+
+**Hierarchical loading:** Global (`~/.claude/CLAUDE.md`) → Project (`./CLAUDE.md`) → Subdirectory. More specific settings override general ones.
+
+**Hands-on:** Create a `CLAUDE.md` for one of the course case studies (e.g., Austrian Hotels or Football Interviews).
+
+**Gemini CLI equivalent:** `GEMINI.md` -- same concept, same locations.
 
 :::
 :::
+
 
 ::: {.week-card .card}
 ::: {.card-header}
-⚽ **Manual vs. AI Sentiment Workshop (40 min)**
+🔀 **Git Integration (20 min)**
 :::
 ::: {.card-body}
-**Phase 1: Human Rating (15 min)**
+**Why it matters:** Version control + AI = traceable, reproducible analysis. Claude Code understands git natively.
 
-- **Individual work:** Rate the 5 provided manager statements using the [sentiment scale](/week05/assets/sentiment-scale.html)
-- **5-unit scale:** -2 (very negative) to +2 (very positive)
+**Branch management:**
 
-**Phase 2: AI Rating (15 min)**
+```
+Create a new branch for the robustness checks analysis,
+implement the checks, and prepare a summary of changes
+```
 
-- Use your preferred AI to rate the same 5 statements
-- Try different prompting approaches: simple vs. detailed instructions
-- Compare AI's reasoning with your own thought process
+Claude Code will create the branch, make changes, commit with descriptive messages, and provide a diff summary.
 
-**Phase 3: Domain Lexicon Exploration (10 min)**
+**Understanding project history:**
 
-- Examine the [football-specific lexicon](/case-studies/interviews/data/domain_lexicon.csv)
-- Discuss how domain knowledge affects interpretation
+```
+Look at the git history for data_cleaning.R.
+Why did we change the outlier detection threshold?
+```
 
-**Discussion: Validation and Sentiment Analysis**
+Claude Code reads commit messages and diffs to understand past decisions -- useful when revisiting old projects.
 
-- **Objective:** Discuss validation techniques used in sentiment analysis.
-- **Topics for discussion:**
-  - Differences between manual and AI ratings
-  - Ground Truth
-  - Introduction to validation methods:
-  - If ground truth -- can do confusion maztric, calculate accuracy
-  - If no ground truth -- measure **agreement** between humans and AI. test difference.
-    - AI is average, but... 
-    - AI with persona?
-    - AI biased ?   
-    
-**Extra: Prediction of score**
+**Hands-on:** Use Claude Code to create a branch, make an analysis change, and commit with a meaningful message. Review the diff together.
 
-If time permits: look at predicting score
-
-- Modeling choices of results
-- Think about *how* you would do it first
-- Check how AI thinks about, rate the examples and look at explanations
-- take the 5 examples, and compare your predictions vs the AI predictions  
-
-    
 :::
 :::
 
-## End of Week Discussion points
 
-- How precise is AI in sentiment analysis?
-- How did *you* compare to AI in terms of scores? How did any difference make you feel? 
-- Can you think of a past project where AI could have helped you upgrade it?
--  Did AI provide consistent explanations for its ratings? When did its reasoning seem flawed? Did you feel it was mostly OK / half-truths? 
+::: {.week-card .card}
+::: {.card-header}
+🚀 **Autonomous Execution (15 min)**
+:::
+::: {.card-body}
+**The concept:** Both tools can run commands without constant approval -- useful for trusted, repetitive workflows.
+
+**Gemini CLI "Yolo Mode"** (`--yolo` or `-y`):
+
+```bash
+gemini -p "Install missing packages, clean the data, run all analyses" --yolo
+```
+
+**Claude Code headless mode:**
+
+```bash
+claude -p "your prompt"
+```
+
+**When to use autonomous execution:**
+
+- Trusted, repetitive pipelines you've run before
+- Well-defined tasks with clear success criteria
+
+**When NOT to:**
+
+- New or unfamiliar code
+- Tasks that modify shared resources
+- Anything you haven't verified manually first
+
+**Discussion:** What are the risks of autonomous execution in a research context? How do you balance speed with verification?
+
+:::
+:::
+
+
+## End of Week Discussion Points
+
+- How could custom skills improve reproducibility in your research?
+- What instructions would you put in your `CLAUDE.md` for your thesis/project?
+- When is autonomous execution appropriate vs. risky in data analysis?
+- How does git integration change the way you think about AI-assisted analysis?
 
 ## Assignment
 
 ::: {.callout-note icon="📝"}
-## Assignment 5: Student-Specific Sentiment Analysis
+## Assignment 5: Advanced CLI Workflows
 
 **Due:** Before Week 6
 
-Compare manual ratings with AI-generated ratings on your own random sample of 25 interview texts.
+Use Claude Code to solve an interesting problem and report on the experience.
 
 [Full Assignment Details](../assignments/assignment_05.html){.assignment-badge}
 
 :::
-
-## Some personal comments on AI and this class
-
-* It's worth noting that my knowledge on NLP was bag of words, bigrams and TF-IDF. AI really helped making the jump. 

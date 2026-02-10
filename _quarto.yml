@@ -34,13 +34,13 @@ website:
             href: week03/index.qmd
           - text: "Week 4: Agentic AI with CLIs"
             href: week04/index.qmd
-          - text: "Week 5: Using Text as Data"
+          - text: "Week 5: Advanced CLI Workflows"
             href: week05/index.qmd
-          - text: "Week 6: Sentiment Analysis"
+          - text: "Week 6: Creating Reports"
             href: week06/index.qmd
-          - text: "Week 7: Data Collect"
+          - text: "Week 7: Text as Data"
             href: week07/index.qmd
-          - text: "Week 8: SQL with AI"
+          - text: "Week 8: Sentiment Analysis"
             href: week08/index.qmd
           - text: "Week 9: AI Research: Controls"
             href: week09/index.qmd

@@ -1,17 +1,7 @@
 ---
-title: "Gender guessing Analysis Pipeline"
+title: "Assignment 6: Creating Reports"
 ---
 
 ### Task
 
-Create a similar pipeline we used in class but now with the aim to decide if the coach is a man or a women. In this example dataset, men teams have men coach and women teams have women coach. 
-
-Pick a few texts and do it yourself
-
-Get AI explain it's decisions
-
-### Submit:
-
-* A file with AI generated ratings: lastname_firstname_geneder_text.xlsx.
-* A short para on why this could be easy or hard
-lastname_firstname_geneder_text.txt.
+*Assignment details coming soon*

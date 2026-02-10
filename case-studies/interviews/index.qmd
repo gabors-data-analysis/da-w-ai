@@ -6,7 +6,7 @@ title: "Football Manager Interviews"
 
 Post-match interview texts from football managers for sentiment analysis and NLP practice. Includes multiple rating systems for comparison and validation.
 
-**Used in:** Week 5 (Text as Data I), Week 6 (Text as Data II), Assignment 5
+**Used in:** Week 7 (Text as Data I), Week 8 (Text as Data II), Assignment 7
 
 ## Data Files
 

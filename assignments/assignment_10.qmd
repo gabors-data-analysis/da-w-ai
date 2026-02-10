@@ -1,0 +1,9 @@
+---
+title: "Design an IV"
+---
+
+### Task: Design an IV
+
+Think about an identification problem and interate to find a good IV. Explain why it may work and why could it fail. 
+
+Discuss what data would be needed and where it would come. 

@@ -26,7 +26,7 @@ A realistic simulated dataset of hotels across Austria for practicing data wrang
 
 Post-match interview texts from football managers for sentiment analysis and NLP practice. Includes rating systems for comparison and validation.
 
-**Used in:** Week 5 (Text as Data I), Week 6 (Text as Data II)
+**Used in:** Week 7 (Text as Data I), Week 8 (Text as Data II)
 
 ---
 
