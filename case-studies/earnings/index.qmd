@@ -50,5 +50,5 @@ Current Population Survey (CPS) Merged Outgoing Rotation Groups data for analyzi
 
 ## Downloads
 
-- [morg-2014-emp-state5.csv](data/morg-2014-emp-state5.csv)
+- [morg-2014-emp-state5.csv](data/morg-2014-emp-state5.csv) or the full dataset from [OSF - Gabors Data Analysis / CPS MORG](https://osf.io/g8p9j/files/4ay9x)
 - [Codebook (PDF)](data/cpsx.pdf)

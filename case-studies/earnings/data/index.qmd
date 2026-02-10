@@ -13,4 +13,4 @@ title: "US Earnings - Data Files"
 
 ## External Source
 
-Full CPS data available at [OSF - Gabors Data Analysis](https://osf.io/4ay9x)
+Full CPS data available at [OSF - Gabors Data Analysis](https://osf.io/g8p9j/files/4ay9x)
