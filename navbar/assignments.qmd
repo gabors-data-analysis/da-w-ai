@@ -38,9 +38,9 @@ Use Claude Code to solve an interesting problem and report on the experience.
 
 [Assignment Details](../assignments/assignment_05.qmd)
 
-## Assignment 6: Creating Reports
+## Assignment 6: From Data to Report
 
-TBA
+Use Claude Code to download CPS earnings data, create a focused PDF report (3-5 exhibits, 600-800 words, at least one regression), and reflect on directed vs. undirected AI output.
 
 [Assignment Details](../assignments/assignment_06.qmd)
 

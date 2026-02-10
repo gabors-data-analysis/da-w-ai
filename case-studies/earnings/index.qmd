@@ -4,9 +4,9 @@ title: "US Earnings Data (CPS MORG)"
 
 ## Overview
 
-Current Population Survey (CPS) Merged Outgoing Rotation Groups data for analyzing earnings patterns, gender gaps, and returns to education in the US labor market.
+Current Population Survey (CPS) Merged Outgoing Rotation Groups data for analyzing earnings patterns, gender gaps, and returns to education in the US labor market. Read [more on CPS here](https://gabors-data-analysis.com/datasets/#cps-earnings).
 
-**Used in:** Week 0 (Coding with AI)
+**Used in:** Week 6 (From Data to Report)
 
 **Source:** [Data Analysis Textbook Case Study](https://gabors-data-analysis.com/casestudies/#ch09a-estimating-gender-and-age-differences-in-earnings)
 

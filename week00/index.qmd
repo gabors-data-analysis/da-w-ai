@@ -4,6 +4,11 @@ subtitle: "Boosting coding for data analysis with AI tools"
 date: "2025-06-01"
 ---
 
+::: {.callout-warning}
+## Content moved
+The **Creating Graphs** exercise and **US Earnings (CPS)** case study material have moved to [Week 06: From Data to Report](../week06/index.html).
+:::
+
 :::::: hero-section
 ::::: container
 ::: hero-title
@@ -171,26 +176,12 @@ What are the pros and cons of each?
 
 ::::: {.week-card .card}
 ::: card-header
-📝 **Creating Graphs exercise (40 min)**
+**Creating Graphs exercise (40 min)**
 :::
 
 ::: card-body
-**A full practice exercise**
 
-Created one example on [gender wage gap](/week00/assets/creating-graphs.html). 
-
-It follows  the case study on the [in Chapter 09](https://gabors-data-analysis.com/casestudies/#ch09a-estimating-gender-and-age-differences-in-earnings)
-
-We start with actual earnings data from the US, called CPS MORG. 
-
-We end up with: 
-
-![Nice heatmap](../images/earnings-heatmap.png)
-
-
-**Other ideas**
-
-* Instructors may have their datasets and exercises. We have plenty here: [Case studies](https://gabors-data-analysis.com/casestudies/), each comes with [data](https://osf.io/7epdj/) 
+This exercise has moved to [Week 06: From Data to Report](../week06/index.html). See the full [Creating Graphs walkthrough](/week06/assets/creating-graphs.html).
 
 :::
 :::::

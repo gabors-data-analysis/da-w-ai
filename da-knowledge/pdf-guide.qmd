@@ -1,0 +1,219 @@
+---
+title: "How to Generate a PDF Report"
+subtitle: "Options for different setups"
+---
+
+## Overview
+
+There are several ways to turn your analysis into a polished PDF report. Which option works best depends on what software you already have installed. This guide covers six approaches, from the most feature-rich to the most minimal.
+
+## Option 1: Quarto (recommended if available)
+
+**Requires:** Quarto + either R or Python + pandoc (bundled with Quarto)
+
+Quarto is the modern standard. It ships with pandoc, so no separate install is needed. You write code and narrative together in a `.qmd` file, and Quarto handles execution and typesetting.
+
+**Install:**
+
+```bash
+# Windows (winget)
+winget install Posit.Quarto
+
+# macOS (Homebrew)
+brew install --cask quarto
+
+# Or download from https://quarto.org/docs/get-started/
+```
+
+**For PDF output, you also need LaTeX.** The easiest route is TinyTeX:
+
+```bash
+quarto install tinytex
+```
+
+**Render:**
+
+```bash
+quarto render report.qmd              # uses format specified in YAML
+quarto render report.qmd --to pdf     # force PDF output
+quarto render report.qmd --to html    # HTML fallback (no LaTeX needed)
+```
+
+**Tip:** Quarto 1.4+ supports `format: typst`, which bundles its own typesetting engine and does **not** need LaTeX at all:
+
+```yaml
+---
+title: "My Report"
+format: typst
+---
+```
+
+## Option 2: R Markdown
+
+**Requires:** R + `rmarkdown` package + pandoc + LaTeX
+
+The predecessor to Quarto. Uses `.Rmd` files with R code chunks. Very mature ecosystem with many templates.
+
+**Install:**
+
+```r
+# In R console
+install.packages("rmarkdown")
+
+# For LaTeX (minimal distribution, ~250 MB)
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
+
+**Render:**
+
+```r
+rmarkdown::render("report.Rmd", output_format = "pdf_document")
+rmarkdown::render("report.Rmd", output_format = "html_document")  # no LaTeX needed
+```
+
+## Option 3: Python + LaTeX
+
+**Requires:** Python (pandas, matplotlib) + xelatex or pdflatex
+
+Python generates figures as PNGs and writes a `.tex` file. A LaTeX engine compiles it to PDF. This gives you full control over layout.
+
+**Install:**
+
+```bash
+# Python packages
+pip install pandas matplotlib numpy
+
+# LaTeX -- pick one:
+# Windows: install TeX Live from https://tug.org/texlive/
+# macOS:
+brew install --cask mactex       # full (~5 GB)
+brew install --cask basictex     # minimal (~100 MB)
+# Or use TinyTeX via R (see Option 2)
+```
+
+**Run:**
+
+```bash
+python report.py
+# The script generates .tex and calls xelatex automatically
+```
+
+**Manual compilation (if needed):**
+
+```bash
+xelatex report.tex    # run twice for table of contents
+xelatex report.tex
+```
+
+## Option 4: Python + pandoc
+
+**Requires:** Python (pandas, matplotlib) + pandoc + LaTeX
+
+Python generates figures, you write the narrative in plain Markdown, and pandoc converts everything to PDF. Easier than writing raw LaTeX.
+
+**Install:**
+
+```bash
+# Python packages
+pip install pandas matplotlib numpy
+
+# pandoc
+# Windows:
+winget install JohnMacFarlane.Pandoc
+# macOS:
+brew install pandoc
+
+# You still need LaTeX for PDF output (see Option 3)
+```
+
+**Run:**
+
+```bash
+# First generate your figures
+python generate_figures.py
+
+# Then convert Markdown to PDF
+pandoc report.md -o report.pdf --pdf-engine=xelatex
+
+# Or to HTML (no LaTeX needed)
+pandoc report.md -o report.html --standalone
+```
+
+## Option 5: Jupyter Notebook export
+
+**Requires:** Python + Jupyter + nbconvert (+ LaTeX for PDF)
+
+Write code and narrative together in `.ipynb` notebook cells, then export.
+
+**Install:**
+
+```bash
+pip install jupyter nbconvert
+# LaTeX needed for PDF export (see Option 3)
+```
+
+**Export:**
+
+```bash
+jupyter nbconvert --to pdf notebook.ipynb     # needs LaTeX
+jupyter nbconvert --to html notebook.ipynb    # no LaTeX needed
+```
+
+Also available from the Jupyter menu: **File > Export Notebook As > PDF**.
+
+## Option 6: Python + fpdf2 (no LaTeX needed)
+
+**Requires:** Python (pandas, matplotlib, fpdf2) only
+
+A pure-Python option that produces text and figures in a PDF without any LaTeX or pandoc install. Limited typographic control but zero external dependencies.
+
+**Install:**
+
+```bash
+pip install pandas matplotlib fpdf2
+```
+
+**Example:**
+
+```python
+from fpdf import FPDF
+
+pdf = FPDF()
+pdf.set_auto_page_break(auto=True, margin=15)
+
+# Title page
+pdf.add_page()
+pdf.set_font("Helvetica", "B", 24)
+pdf.cell(w=0, h=20, text="My Report Title", new_x="LMARGIN", new_y="NEXT", align="C")
+
+# Section with text
+pdf.set_font("Helvetica", "B", 14)
+pdf.cell(w=0, h=12, text="1. Introduction", new_x="LMARGIN", new_y="NEXT")
+pdf.set_font("Helvetica", size=11)
+pdf.multi_cell(w=0, h=6, text="Your narrative text goes here...")
+
+# Insert a figure
+pdf.image("exhibits/fig1.png", w=170)
+
+pdf.output("report.pdf")
+```
+
+## Quick reference
+
+| Option | Tools needed | LaTeX required? | Notes |
+|--------|-------------|-----------------|-------|
+| **Quarto** | Quarto, R or Python | Yes (or use `typst`) | Best overall experience |
+| **R Markdown** | R, rmarkdown | Yes (use `tinytex`) | Mature, many templates |
+| **Python + LaTeX** | Python, TeX Live | Yes | Full layout control |
+| **Python + pandoc** | Python, pandoc | Yes (HTML fallback: no) | Write in Markdown |
+| **Jupyter export** | Python, Jupyter | Yes (HTML fallback: no) | Good for notebooks |
+| **Python + fpdf2** | Python, fpdf2 | **No** | Lowest barrier to PDF |
+
+## Which should I pick?
+
+- **Already have Quarto?** Use Option 1. It's the simplest end-to-end workflow.
+- **Already have R?** Use Option 2. Install `tinytex` for LaTeX and you're set.
+- **Only have Python + LaTeX?** Use Option 3 (this is what we used for the earnings report).
+- **Have Python but no LaTeX?** Use Option 6 (`fpdf2`) for a quick PDF, or Option 4/5 with `--to html` as a fallback.
+- **Want to avoid installing anything heavy?** Use Quarto with `format: typst` (Option 1) or `fpdf2` (Option 6) — neither needs LaTeX.

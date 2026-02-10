@@ -1,20 +1,270 @@
 ---
-title: "Week 06: Creating Reports"
-subtitle: "AI-assisted report generation and reproducible outputs"
+title: "Week 06: From Data to Report"
+subtitle: "Vibe research vs building an economics-quality report with CLI tools"
 date: "2026-02-10"
 ---
 
 ::: {.hero-section}
 ::: {.container}
 ::: {.hero-title}
-Week 06: Creating Reports
+Week 06: From Data to Report
 :::
 ::: {.hero-subtitle}
-AI-assisted report generation and reproducible outputs
+Vibe research vs building an economics-quality report with CLI tools
 :::
 :::
 :::
 
-# Week 06: Creating Reports
+---
 
-*Content coming soon*
+
+## Overview
+
+This week ties together everything from weeks 4-5: you'll use Claude Code to **download real data**, **explore it**, and **produce a polished PDF report** -- all from the terminal. The twist: we start by letting AI loose ("vibe report") and then compare that to a carefully directed, economics-quality report. The contrast is the lesson.
+
+We use the **US Earnings (CPS MORG)** case study -- real Current Population Survey data on wages, education, occupation, and demographics.
+Read [more on CPS here](https://gabors-data-analysis.com/datasets/#cps-earnings).
+
+### Learning Outcomes
+
+By the end of the session, students will:
+
+- Download and prepare a real dataset from an online repository using CLI tools
+- Experience the difference between undirected ("vibe") and directed AI output
+- Iteratively refine graphs from basic to publication-quality
+- Produce a constrained, economics-style PDF report with exhibits and regressions
+
+
+## Preparation / Before Class
+
+::::: {.week-card .card}
+::: card-header
+**Prerequisites**
+:::
+::: card-body
+**Required:**
+
+- Working Claude Code installation from [Week 04](../week04/index.html)
+- Python environment with `pandas`, `matplotlib`, `seaborn`, `statsmodels` installed
+- Familiarity with running Claude Code in a project folder (Week 05)
+
+**Review:**
+
+- [US Earnings case study](/case-studies/earnings/) -- browse the data description and key variables
+- [Installing CLI Tools](../da-knowledge/install-cli.html) -- if you need to catch up
+
+**Useful background:**
+
+- The earnings data comes from the case study on [gender and age differences in earnings](https://gabors-data-analysis.com/casestudies/#ch09a-estimating-gender-and-age-differences-in-earnings)
+:::
+:::::
+
+
+## Class Material
+
+
+::::: {.week-card .card}
+::: card-header
+**Part 1: Get the Data (15 min)**
+:::
+::: card-body
+
+**The goal:** Use Claude Code to download the full CPS MORG dataset from OSF, understand its structure, and prepare it for analysis. This showcases real CLI data work -- no browser, no manual downloads.
+
+**Step 1: Download from OSF**
+
+Open Claude Code in your project folder and try:
+
+```
+Download the CPS MORG 2014 earnings data from OSF.
+The dataset page is at https://osf.io/g8p9j/files/4ay9x
+Also get the codebook PDF from https://osf.io/uqe8z as well as occupation codes from https://osf.io/g8p9j/files/57n9q
+Save all to a data/ folder.
+```
+
+Claude Code will use `curl` or `wget` to fetch the files directly. Watch how it handles the download, checks file sizes, and confirms the data arrived.
+
+**Step 2: First look**
+
+```
+Read in the CSV. How many rows and columns?
+Show me the first few rows and basic summary stats.
+```
+
+The full MORG file is large. Let's focus on one.
+
+```
+Create a frequency table of states. Drop small ones. Make it pretty.
+```
+
+Pick a state and add to script:
+
+```
+Filter to the state [your choice]. Print the state code. 
+Save as morg-2014-emp-state5.csv.
+```
+
+Check the state code in pdf. 
+
+
+**Step 3: Variable dictionary**
+
+This one (bit sleazy) promp, can try something better
+
+```
+This is my data and the codebook. Create a variable dictionary. Use the pdf i shared earlier. Output as markdown. For each variable: varname, labels, type, coverage (% missing), mean and mode. Round up numbers. Look at cps and provide short labels. Get me an .md I can download.
+```
+
+Could you refine the prompt to make output better, more structured, or simpler?
+
+:::
+:::::
+
+
+::::: {.week-card .card}
+::: card-header
+**Part 2: The Vibe Report (20 min)**
+:::
+::: card-body
+
+**The experiment:** Give AI a vague, open-ended prompt and see what happens.
+
+```
+Create a nice looking report on an interesting question
+using the content of the data folder only.
+```
+
+Let Claude Code run. It will likely produce a long, generic report with many graphs, broad research questions, and decorative formatting.
+
+**Code to pdf**
+
+Make sure a pdf is created. It may install bits -- here is a guide to [create pdf docs directly](/da-knowledge/pdf-guide.html) with AI.
+
+**Class discussion: Evaluate the vibe report?**
+
+Look at what was produced and score (1/10, where 10 is best in class, paper or blogpost) and discuss:
+
+- Length -- does everything useful and relevant?
+- Is the research question well defined?
+- Graphs and tables: good, informative, well labeled? 
+- Economics rigor: did it create exhibits that are informative and useful? Does it use the appropriate tools (descriptive table, regression, etc)
+- Descriptions: Is the text describes the exhibits and results well? Does it interpret them correctly? Does it make the right conclusions? 
+
+Overall, what do you think about the choices it made?
+
+**code**
+
+Check the code. How did it mix analytics and text?
+
+:::
+:::::
+
+
+::::: {.week-card .card}
+::: card-header
+**Part 3: Some focused Exercises  (30 min)**
+:::
+::: card-body
+
+**Now let's do it properly.** Go back and build up the analysis step by step, iterating on some exhibits.
+
+
+**Task 1: Heatmap**
+
+```
+Show a heatmap of hourly wages by occupation and education level. Use viridis.
+```
+
+Iterate to make it good (if needed)
+
+
+**Task 2: Adding analysis:** Now add regression analysis to support the graphs.
+
+```
+Run an OLS regression of hourly wages on gender, controlling for
+age, education (grade92), and occupation (occ2012).
+Report the results in a clean table.
+```
+
+Iterate on the specification:
+
+```
+Add age squared. Report robust standard errors.
+Interpret the gender coefficient -- what does it mean in dollar terms?
+```
+
+:::
+:::::
+
+
+
+## Prompting Tips for Data Analysis
+
+::::: {.week-card .card}
+::: card-header
+**What We Learned About Prompting**
+:::
+::: card-body
+
+This week demonstrates several prompting principles in action:
+
+**Be specific about your tools and preferences**
+
+- "Using Python with pandas and matplotlib..." 
+- "Use viridis color scheme" -- state your preferences explicitly
+- "Save as PDF" -- specify output format
+
+**Include data structure information**
+
+- Upload the data or describe it: "DataFrame with columns: age, sex, earnwke, grade92, occ2012"
+- Point to the codebook: "Use the PDF codebook I shared"
+- Specify the unit: "hourly wages, computed as earnwke / uhours"
+
+**Think constraints on output**
+
+- "3-5 exhibits, no more"
+- "600-800 words"
+- "Professional formatting with numbered exhibits"
+
+**Vague vs. specific prompts -- a comparison**
+
+*Vague:* `"Analyze this earnings data and write a report"`
+
+*Specific:* `"Using CPS MORG data for California, estimate the gender wage gap controlling for education and occupation. Create a LOESS plot of residual wages by age and gender. Write a 700-word report with 4 exhibits."`
+
+The vague prompt gives you *something*. The specific prompt gives you what you *need*. You'll test it in the assignment.
+
+:::
+:::::
+
+
+## Discussion Points
+
+- When is a "vibe report" actually useful? (Exploration, brainstorming, first look at data)
+- How do you decide how many exhibits belong in a report?
+- What's the right balance between letting AI explore freely vs. directing every step?
+- How would this workflow differ if you were using R instead of Python?
+
+
+## Assignment
+
+::: {.callout-note icon="false"}
+## Assignment 6: From Data to Report
+
+**Due:** Before Week 7
+
+Use Claude Code to download a dataset, explore it, and create a focused PDF report.
+
+[Full Assignment Details](../assignments/assignment_06.html){.assignment-badge}
+:::
+
+
+## Resources
+
+**Case study:** [US Earnings (CPS MORG)](/case-studies/earnings/) -- data files and documentation
+
+**Graph walkthrough:** [Creating Graphs](/week06/assets/creating-graphs.html) -- one example with R. 
+
+**Data source:** [OSF - CPS MORG data](https://osf.io/4ay9x) | [Codebook PDF](https://osf.io/uqe8z)
+
+**Textbook reference:** [Chapter 9A - Gender and age differences in earnings](https://gabors-data-analysis.com/casestudies/#ch09a-estimating-gender-and-age-differences-in-earnings)

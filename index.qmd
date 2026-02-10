@@ -82,7 +82,7 @@ But, anyone can use it with adequate background.
 - **Week 3:** AI-assisted report writing with WVS data
 - **Week 4:** Agentic AI with Claude Code using Austrian hotel data
 - **Week 5:** Advanced CLI Workflows: custom skills, CLAUDE.md, git integration
-- **Week 6:** Creating Reports
+- **Week 6:** From Data to Report -- vibe report vs. economics-quality report with CPS earnings data
 - **Week 7:** Text analysis 1: basics
 - **Week 8:** Text analysis 2: sentiment analysis
 - **Week 9:**  AI as research companion 1: Control variables
@@ -165,9 +165,11 @@ Going deeper with CLI tools: custom skills, project-specific instructions (CLAUD
 
 [Content](week05/)
 
-**Week06**: Creating Reports
+**Week06**: From Data to Report
 
-TBA
+Download real CPS earnings data via CLI, contrast an undirected "vibe report" with a carefully directed economics-quality report. Iterative graph refinement, OLS regressions, and constrained PDF output.
+
+Case study: [US Earnings (CPS)](case-studies/earnings/)
 
 [Content](week06/)
 

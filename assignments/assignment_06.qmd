@@ -1,7 +1,49 @@
 ---
-title: "Assignment 6: Creating Reports"
+title: "Assignment 6: From Data to Report"
 ---
+
+### Overview
+
+In this assignment, you will use Claude Code to download a dataset, explore it, and produce a focused, economics-quality PDF report. The goal is to practice the full pipeline: data acquisition, exploration, visualization, regression analysis, and report writing -- all through the CLI.
 
 ### Task
 
-*Assignment details coming soon*
+**Step 1: Get the data**
+
+Work with data from week 06 class. 
+
+**Step 2: The vibe report**
+
+Ask Claude Code to "create a nice looking report" with no further guidance. Save the output -- you'll reflect on it later. If you created in class, you can use that. 
+
+**Step 3: The focused report**
+
+Using Claude Code, create a PDF report that answers a specific research question about earnings in your chosen state. Your report must satisfy these constraints:
+
+- **3 to 5 exhibits** (graphs or tables) -- no more
+- **600 to 800 words** of text
+- At least **one regression** with appropriate controls
+- At least **one well-crafted graph** that went through multiple iterations
+- Professional formatting: title, author, date, numbered exhibits with captions
+- All analysis in **Python**
+
+Good research questions to consider:
+
+- Is there a gender gap in earnings, and how does it vary by education?
+- What is the return to education, controlling for occupation and age?
+- How do earnings profiles differ across occupations?
+
+### Deliverables
+
+Submit:
+
+1. **The PDF report** (the focused version) [15p]
+2. **A short reflection** (100-200 words) comparing the vibe report to the focused report. What was different? What did you have to specify to get quality output? How many iterations did the key graph take? [5p]
+
+
+### Tips
+
+- Start by downloading the data and creating a variable dictionary -- this helps Claude Code understand what it's working with
+- Don't accept the first graph. Iterate: add CI, fix labels, adjust colors, add footnotes
+- Be explicit about constraints: word count, number of exhibits, formatting
+- The reflection is about *your* experience directing the AI, not about the data

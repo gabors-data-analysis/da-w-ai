@@ -82,8 +82,8 @@ Create a variable dictionary. Use the pdf i shared earlier. Output as markdown. 
 
 ```
 
-* [ChatGPT](/week00/assets/variable-dictionary-chatgpt.html) created a table, yes. 
-* But [look at what Claude did](/week00/assets/variable-dictionary-claude4.html), amazing.
+* [ChatGPT](/week06/assets/variable-dictionary-chatgpt.html) created a table, yes.
+* But [look at what Claude did](/week06/assets/variable-dictionary-claude4.html), amazing.
 
 
 

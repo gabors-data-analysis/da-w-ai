@@ -36,7 +36,7 @@ Post-match interview texts from football managers for sentiment analysis and NLP
 
 Current Population Survey data for analyzing earnings patterns, gender gaps, and returns to education.
 
-**Used in:** Week 0 (Coding with AI)
+**Used in:** Week 6 (From Data to Report)
 
 ---
 

@@ -36,7 +36,7 @@ website:
             href: week04/index.qmd
           - text: "Week 5: Advanced CLI Workflows"
             href: week05/index.qmd
-          - text: "Week 6: Creating Reports"
+          - text: "Week 6: From Data to Report"
             href: week06/index.qmd
           - text: "Week 7: Text as Data"
             href: week07/index.qmd

@@ -47,9 +47,11 @@ Going deeper with CLI tools: custom skills, project-specific instructions (CLAUD
 
 [Content](../week05/)
 
-## Week06: Creating Reports
+## Week06: From Data to Report
 
-TBA
+Download real CPS earnings data via CLI, contrast an undirected "vibe report" with a carefully directed economics-quality report. Iterative graph refinement, OLS regressions, and constrained PDF output.
+
+Case study: [US Earnings (CPS)](../case-studies/earnings/)
 
 [Content](../week06/)
 

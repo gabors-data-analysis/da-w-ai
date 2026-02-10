@@ -110,7 +110,7 @@ A codebook provides detailed, variable-level documentation. While the README giv
 
 -   Békés-Kézdi (2021) [Bisnode dataset variables](https://osf.io/9a3t4) — clean spreadsheet format
 -   Reif (2022) [Illinois Wellness codebook](https://github.com/reifjulian/illinois-wellness-data/blob/master/data/codebooks/firm_admin.codebook.txt) — plain text, version controlled
--   [On earnings data](/week00/assets/variable-dictionary-claude4.html) -- used in this course
+-   [On earnings data](/week06/assets/variable-dictionary-claude4.html) -- used in this course
 
 
 ## Tips for AI-Assisted Documentation
