@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(quarto render:*)",
+      "Bash(Rscript:*)",
+      "Bash(where Rscript)",
+      "Bash(where:*)",
+      "Bash(cmd /c \"where Rscript 2>nul & where pandoc 2>nul\")",
+      "Bash(cmd /c \"dir /s /b \"\"C:\\\\Program Files\\\\R\\\\*Rscript.exe\"\" 2>nul & dir /s /b \"\"C:\\\\Program Files \\(x86\\)\\\\R\\\\*Rscript.exe\"\" 2>nul & dir /s /b \"\"C:\\\\Users\\\\bekes\\\\AppData\\\\Local\\\\Programs\\\\*Rscript.exe\"\" 2>nul\")",
+      "Bash(cmd /c \"dir /s /b C:\\\\*Rscript.exe 2>nul\")",
+      "Bash(cmd /c:*)",
+      "Bash(powershell:*)",
+      "Bash(python:*)"
+    ]
+  }
+}

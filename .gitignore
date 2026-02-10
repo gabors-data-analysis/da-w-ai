@@ -70,3 +70,5 @@ case-studies/interviews/code/my-openai-api-key.R
 CLAUDE.md
 
 **/*.quarto_ipynb
+/case-studies/earnings/exhibits
+/case-studies/earnings/report
