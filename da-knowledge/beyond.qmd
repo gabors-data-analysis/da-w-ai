@@ -51,6 +51,12 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 -   Strategy in business [Build a winning AI strategy, HBR 2023](https://hbr.org/2023/07/build-a-winning-ai-strategy-for-your-business)
 -  Interview with Rafella Sadun on [Reskilling workforce with AI](https://sloanreview.mit.edu/audio/reskilling-the-workforce-with-ai-harvard-business-schools-raffaella-sadun/) from MIT Sloan Review
 
+## Social impact
+
+* Anthropic's philosopher video [Amanda Askell](https://www.youtube.com/watch?v=I9aGC6Ui3eE) 
+* Amazing compilation of videos by leading AI Lab founders and leaders on the future of AI by [Nature](https://www.nature.com/immersive/d41586-025-03701-5/index.html), published on 14 November 2025. [Mustafa Suleyman on fears](https://www.youtube.com/shorts/yM1VFSSw--k) is one of my favourite short vids here.  
+* Deepmind with Hannah Fry -- [The future of intelligence with Demis Hassabis (DeepMind)](https://www.youtube.com/watch?v=PqVbypvxDto) and more in the series
+
 ## New methods and tools
 
 * Best video series on introduction to neural networks and LLMs. [3blue1brown youtube playlist] (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 7 times 20-30mins videos, from zero to conversational understanding
@@ -70,7 +76,6 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 
 How NLP was killed by Transformers/ LLMs in [Quant magazine 2025 April](https://www.quantamagazine.org/when-chatgpt-broke-an-entire-field-an-oral-history-20250430/?)
 
-Amazing compilation of videos by leading AI Lab founders and leaders on the future of AI by [Nature](https://www.nature.com/immersive/d41586-025-03701-5/index.html), published on 14 November 2025. [Mustafa Suleyman on fears](https://www.youtube.com/shorts/yM1VFSSw--k) is one of my favourite short vids here.  
 
 ### Blogs, newsletters
 
