@@ -9,7 +9,7 @@ There are several ways to turn your analysis into a polished PDF report. Which o
 
 ## Option 1: Quarto (recommended if available)
 
-**Requires:** Quarto + either R or Python + pandoc (bundled with Quarto)
+**Requires:** Quarto (plus R or Python only if your `.qmd` executes those languages); pandoc is bundled with Quarto.
 
 Quarto is the modern standard. It ships with pandoc, so no separate install is needed. You write code and narrative together in a `.qmd` file, and Quarto handles execution and typesetting.
 
@@ -17,12 +17,19 @@ Quarto is the modern standard. It ships with pandoc, so no separate install is n
 
 ```bash
 # Windows (winget)
-winget install Posit.Quarto
+winget install --id Posit.Quarto --source winget --exact
 
 # macOS (Homebrew)
 brew install --cask quarto
 
 # Or download from https://quarto.org/docs/get-started/
+```
+
+**Verify setup:**
+
+```bash
+quarto --version
+quarto check
 ```
 
 **For PDF output, you also need LaTeX.** The easiest route is TinyTeX:
@@ -54,6 +61,8 @@ format: typst
 
 The predecessor to Quarto. Uses `.Rmd` files with R code chunks. Very mature ecosystem with many templates.
 
+If you do not use RStudio or Quarto, install pandoc separately (see Option 4).
+
 **Install:**
 
 ```r
@@ -63,6 +72,13 @@ install.packages("rmarkdown")
 # For LaTeX (minimal distribution, ~250 MB)
 install.packages("tinytex")
 tinytex::install_tinytex()
+```
+
+**Verify setup:**
+
+```r
+rmarkdown::find_pandoc()
+tinytex::is_tinytex()
 ```
 
 **Render:**
@@ -85,18 +101,26 @@ Python generates figures as PNGs and writes a `.tex` file. A LaTeX engine compil
 pip install pandas matplotlib numpy
 
 # LaTeX -- pick one:
-# Windows: install TeX Live from https://tug.org/texlive/
+# Windows: MiKTeX (smaller/easier) or TeX Live
+# https://miktex.org/download
+# https://tug.org/texlive/
 # macOS:
-brew install --cask mactex       # full (~5 GB)
 brew install --cask basictex     # minimal (~100 MB)
+brew install --cask mactex       # full (~5 GB)
 # Or use TinyTeX via R (see Option 2)
+```
+
+**Verify setup:**
+
+```bash
+xelatex --version   # or: pdflatex --version
 ```
 
 **Run:**
 
 ```bash
 python report.py
-# The script generates .tex and calls xelatex automatically
+# Typical flow: your script writes report.tex, then you compile with xelatex
 ```
 
 **Manual compilation (if needed):**
@@ -120,11 +144,17 @@ pip install pandas matplotlib numpy
 
 # pandoc
 # Windows:
-winget install JohnMacFarlane.Pandoc
+winget install --source winget --exact --id JohnMacFarlane.Pandoc
 # macOS:
 brew install pandoc
 
 # You still need LaTeX for PDF output (see Option 3)
+```
+
+**Verify setup:**
+
+```bash
+pandoc --version
 ```
 
 **Run:**
@@ -142,7 +172,7 @@ pandoc report.md -o report.html --standalone
 
 ## Option 5: Jupyter Notebook export
 
-**Requires:** Python + Jupyter + nbconvert (+ LaTeX for PDF)
+**Requires:** Python + Jupyter + nbconvert + pandoc + LaTeX (for PDF)
 
 Write code and narrative together in `.ipynb` notebook cells, then export.
 
@@ -150,21 +180,23 @@ Write code and narrative together in `.ipynb` notebook cells, then export.
 
 ```bash
 pip install jupyter nbconvert
-# LaTeX needed for PDF export (see Option 3)
+# For PDF export, also install:
+# - pandoc (see Option 4)
+# - LaTeX (see Option 3)
 ```
 
 **Export:**
 
 ```bash
-jupyter nbconvert --to pdf notebook.ipynb     # needs LaTeX
+jupyter nbconvert --to pdf notebook.ipynb     # needs pandoc + LaTeX
 jupyter nbconvert --to html notebook.ipynb    # no LaTeX needed
 ```
 
-Also available from the Jupyter menu: **File > Export Notebook As > PDF**.
+Notebook UIs also offer Export/Download-as-PDF actions, but menu labels vary by app/version.
 
 ## Option 6: Python + fpdf2 (no LaTeX needed)
 
-**Requires:** Python (pandas, matplotlib, fpdf2) only
+**Requires:** Python 3.10+ (pandas, matplotlib, fpdf2)
 
 A pure-Python option that produces text and figures in a PDF without any LaTeX or pandoc install. Limited typographic control but zero external dependencies.
 
@@ -172,6 +204,12 @@ A pure-Python option that produces text and figures in a PDF without any LaTeX o
 
 ```bash
 pip install pandas matplotlib fpdf2
+```
+
+**Verify setup:**
+
+```bash
+python -c "from fpdf import FPDF; print('fpdf2 ok')"
 ```
 
 **Example:**
@@ -203,11 +241,11 @@ pdf.output("report.pdf")
 
 | Option | Tools needed | LaTeX required? | Notes |
 |--------|-------------|-----------------|-------|
-| **Quarto** | Quarto, R or Python | Yes (or use `typst`) | Best overall experience |
-| **R Markdown** | R, rmarkdown | Yes (use `tinytex`) | Mature, many templates |
-| **Python + LaTeX** | Python, TeX Live | Yes | Full layout control |
+| **Quarto** | Quarto (+ R/Python if executing code) | Yes (or use `typst`) | Best overall experience |
+| **R Markdown** | R, rmarkdown, pandoc | Yes (use `tinytex`) | Mature, many templates |
+| **Python + LaTeX** | Python, LaTeX engine | Yes | Full layout control |
 | **Python + pandoc** | Python, pandoc | Yes (HTML fallback: no) | Write in Markdown |
-| **Jupyter export** | Python, Jupyter | Yes (HTML fallback: no) | Good for notebooks |
+| **Jupyter export** | Python, Jupyter, nbconvert, pandoc | Yes (HTML fallback: no) | Good for notebooks |
 | **Python + fpdf2** | Python, fpdf2 | **No** | Lowest barrier to PDF |
 
 ## Which should I pick?
