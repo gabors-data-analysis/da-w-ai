@@ -82,6 +82,8 @@ website:
             href: da-knowledge/terminal-basics.qmd
           - text: "Installing AI CLI Tools"
             href: da-knowledge/install-cli.qmd
+          - text: "VS Code + Copilot Setup"
+            href: da-knowledge/vscode-setup.qmd
 
 
       - section: "Slideshows"
