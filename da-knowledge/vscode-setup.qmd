@@ -215,7 +215,14 @@ Official docs:
 
 ### Student note
 
-Verified students may be eligible for free Copilot Pro:
+If you are a verified student, apply for the free student Copilot Pro plan ("student plus" upgrade).
+
+Quick quota diff (checked February 17, 2026):
+
+- **Copilot Free:** 2,000 code completions/month, 50 chat messages/month, and 50 premium requests/month
+- **Student plan (Copilot Pro at $0):** unlimited code completions, unlimited chat interactions in IDE/CLI/mobile, and 300 premium requests/month
+
+If you are eligible, this is a large jump in included usage, so it is worth applying early.
 
 - [Get free access to Copilot Pro (students/teachers/maintainers)](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro)
 
