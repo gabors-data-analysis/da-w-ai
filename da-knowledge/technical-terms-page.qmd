@@ -2,7 +2,7 @@
 title: "Data Analysis with AI: Technical Terms"
 subtitle: "A Glossary of Key Concepts"
 author: "Gábor Békés (CEU)"
-date: "2026-01-19"
+date: "2026-02-17"
 format:
   html:
     theme: cosmo
@@ -149,7 +149,6 @@ This glossary provides brief definitions of key technical terms used throughout 
 
 **Tip:** Use the search box above to quickly find terms, or browse by category using the sidebar.
 
-
 ::: {.search-container}
 <input type="text" id="glossary-search" placeholder="🔍 Search terms (e.g., token, agent, RAG...)">
 <div class="search-hint">Type to filter terms instantly</div>
@@ -176,7 +175,7 @@ The basic unit of text that LLMs process.
 The maximum amount of text (in tokens) an LLM can consider at once.
 
 - Includes: system prompt + your messages + AI responses + uploads
-- GPT-5.2: ~400k tokens; Gemini 3: ~1M tokens
+- Size depends on model and platform; always check current docs
 - Exceeding the limit causes the model to "forget" earlier content
 :::
 
@@ -187,7 +186,7 @@ A way of representing text (or images, videos) as a list of numbers (a vector) t
 
 - Translates words into coordinates: "Cat" is closer to "Dog" than "Car"
 - Enables semantic search (finding distinct words with similar meanings)
-- The foundational technology behind RAG and vector databases
+- Foundational for RAG and vector databases
 :::
 
 ::: {.term-section}
@@ -203,10 +202,10 @@ The process of generating output from a trained model.
 ::: {.term-section}
 ## Multimodality
 
-The ability of a Large Language Model to natively process and generate different types of data (text, images, audio, video) simultaneously.
+The ability of a model to work with multiple data types (text, images, audio, video).
 
-- Operates within a unified embedding space where different data types share the same mathematical representation
-- Allows for "cross-modal" reasoning, such as explaining a video or chart using natural language
+- Example: upload a chart and ask for a written interpretation
+- Useful when your analysis mixes tables, figures, and narrative text
 :::
 
 ::: {.term-section}
@@ -228,7 +227,7 @@ A neural network trained on massive text data to predict and generate language.
 
 - "Large" = billions of parameters
 - Learns patterns from training data
-- Examples: GPT-5, Claude 4.5, Gemini 3
+- Examples: GPT-family, Claude-family, Gemini-family
 :::
 
 ::: {.term-section}
@@ -247,8 +246,8 @@ The neural network architecture underlying modern LLMs.
 The learned values (weights) inside a neural network.
 
 - More parameters ≈ more capacity to learn patterns
-- GPT-4: ~1 trillion parameters (estimated)
 - Trade-off: larger models are slower and more expensive
+- Parameter counts are often undisclosed, so treat public numbers as rough estimates
 :::
 
 ::: {.term-section}
@@ -256,9 +255,8 @@ The learned values (weights) inside a neural network.
 
 An architecture that activates only a subset of parameters for each query.
 
-- Used by Gemini 3 (over 1 trillion total parameters)
 - Only relevant "experts" are activated per query
-- Balances deep intelligence with faster response times
+- Improves efficiency: strong quality without activating the full model each time
 :::
 
 # Prompting & Context
@@ -300,11 +298,11 @@ A technique that retrieves relevant documents and adds them to the prompt.
 ::: {.term-section}
 ## Chain-of-Thought (CoT)
 
-A prompting technique where the model shows intermediate reasoning steps.
+A prompting style that asks the model to reason in clear intermediate steps.
 
 - "Let's think step by step"
 - Improves accuracy on complex tasks
-- Can be prompted or built into the model
+- Useful for multi-step tasks such as: define question -> choose method -> interpret estimates
 :::
 
 ::: {.term-section}
@@ -312,7 +310,6 @@ A prompting technique where the model shows intermediate reasoning steps.
 
 A model specifically trained to "think" before responding.
 
-- Examples: OpenAI o3, o4-mini; Claude with extended thinking
 - Internal deliberation, then final answer
 - Better for math, logic, multi-step problems
 :::
@@ -322,19 +319,19 @@ A model specifically trained to "think" before responding.
 
 A mode where the model explicitly reasons through problems.
 
-- Visible chain of thought (unlike o3)
+- Some platforms expose reasoning summaries, others keep internal reasoning hidden
 - Configurable thinking "budget"
 - Trade-off: higher latency and cost
 :::
 
 ::: {.term-section}
-## Thinking Levels
+## Reasoning Effort / Thinking Level
 
-Gemini 3's approach to controlling reasoning depth.
+A setting in some models that controls how much internal reasoning effort to use.
 
-- **LOW**: Fast, minimal deliberation
-- **MEDIUM**: Balanced (default)
-- **HIGH**: Deep reasoning, higher latency — uses parallel thinking and "self-correction" signatures to solve complex logic or math problems
+- Lower: faster, cheaper, but may miss nuance
+- Higher: slower, more expensive, often better for complex tasks
+- Good use case: higher effort for causal identification questions; lower effort for formatting or summaries
 :::
 
 # Tools & Agents
@@ -379,6 +376,18 @@ The ability of an AI to invoke external functions or APIs.
 - Model outputs structured "tool call"
 - System executes the tool
 - Result fed back to model
+:::
+
+# Automation & Workflow Design
+
+::: {.term-section}
+## Orchestration
+
+Coordinating multiple AI steps or tools so they work together as one process.
+
+- Splits complex tasks into manageable stages
+- Routes outputs from one step into the next
+- Improves traceability and debugging in multi-step analysis workflows
 :::
 
 # Quality & Safety
@@ -435,6 +444,8 @@ A security vulnerability where a user inputs text designed to trick the AI into 
 
 # Platform Features
 
+These terms are platform-specific. Learn the ones that match the tools you actually use.
+
 ::: {.term-section}
 ## Skills (Claude)
 
@@ -486,7 +497,7 @@ A parameter controlling randomness in model outputs.
 - 1 = default, balanced creativity
 - Higher = more random/creative
 
-**Note:** Gemini 3 and reasoning models work best at default (1.0)
+**Practical tip:** For empirical analysis and reproducible outputs, start low-to-default (often 0 to 1, platform-dependent).
 :::
 
 ::: {.term-section}
@@ -506,7 +517,8 @@ A technical optimization that speeds up repeated inference.
 
 - Caches intermediate computations
 - Faster response for repeated prefixes
-- Why stable prompt prefixes matter for cost
+- Why stable prompt prefixes can matter for latency and cost
+- Advanced term: useful mainly if you build API workflows
 :::
 
 # Development Patterns
@@ -593,8 +605,14 @@ Storing and reusing processed prompts to reduce cost.
 | Agent | AI that takes actions via tools |
 | MCP | Standard for AI tool connections |
 | Hallucination | AI-generated false information |
+| Grounding | Linking answers to trusted sources/data |
 | RAG | Retrieval + generation technique |
+| Reasoning effort | Setting that trades speed/cost for deeper reasoning |
 | MoE | Architecture activating subset of experts |
+| Orchestration | Coordinating multi-step AI workflows |
+| Least privilege | Minimum permissions needed to complete a task |
+| Validation | Checking outputs against quality rules |
+| DataOps | Repeatable, monitored, and tested data workflows |
 
 # Resources
 
@@ -604,6 +622,7 @@ Storing and reusing processed prompts to reduce cost.
 - [OpenAI Documentation](https://platform.openai.com/docs)
 - [Google AI for Developers](https://ai.google.dev/)
 - [MCP Documentation](https://modelcontextprotocol.io/)
+- [GitHub Agentic Workflows Glossary](https://github.github.com/gh-aw/reference/glossary/)
 
 **Learning**
 
@@ -612,13 +631,13 @@ Storing and reusing processed prompts to reduce cost.
 
 ---
 
-**Version:** 0.2.0 | **Date:** 2026-01-19 | **Contact:** [bekesg@ceu.edu](mailto:bekesg@ceu.edu)
+**Version:** 0.4.1 | **Date:** 2026-02-17 | **Contact:** [bekesg@ceu.edu](mailto:bekesg@ceu.edu)
 
 <!-- 
 Document metadata:
 - Iterations with user: 2
-- Internal version: v0.2.0
-- Date: 2026-01-19
+- Internal version: v0.4.1
+- Date: 2026-02-17
 - Model: Claude Opus 4.5 (claude-opus-4-5-20251101)
-- Changes: Converted from revealjs to HTML page, added search, incorporated user edits (MoE, thinking levels detail)
+- Changes: Converted from revealjs to HTML page, added search, refined wording, and kept only a minimal set of GitHub glossary terms relevant to course workflows
 -->
