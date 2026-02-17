@@ -1,6 +1,6 @@
 ---
 title: "Week 08: Sentiment Analysis with AI"
-subtitle: "Using API to AI to create data from text"
+subtitle: "Using AI APIs to create data from text"
 date: "2025-05-20"
 ---
 
@@ -15,7 +15,7 @@ Using API to AI to create data from text
 :::
 :::
 
-![](../images/week6_pic.png)
+![](../images/week8_pic.png)
 
 
 ## Overview

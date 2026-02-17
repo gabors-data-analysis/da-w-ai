@@ -17,4 +17,4 @@ Steps:
 ### Submit:
 
 * A file with your manual ratings and AI generated ratings: lastname_firstname_sentiment_rated.xlsx.
-* A text file with the one paragraph summarizing similarities and deviation: lastname_firstname_sentiment_eval.txt/
+* A text file with the one paragraph summarizing similarities and deviation: lastname_firstname_sentiment_eval.txt

@@ -133,7 +133,7 @@ What are LLMs, how is the magic happening. A non-technical brief intro. How to w
 
 **Which AI?** 
 
-See [my take on current models](week01/assets/which-ai.html). As of *May 2025*. 
+See [my take on current models](da-knowledge/which-ai.html). As of *May 2025*. 
 
 **Week02**: Data and code discovery and documentation with AI
 

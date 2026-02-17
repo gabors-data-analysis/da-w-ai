@@ -1,16 +1,16 @@
 ---
-title: "Week02: Discovery and documentation"
+title: "Week 02: Discovery and documentation"
 subtitle: "Data discovery and data and code documentation with AI"
 date: "2026-01-17"
 ---
 
-:::::: hero-section
-::::: container
-::: hero-title
-Week02: Discovery and documentation
+:::::: {.hero-section}
+::::: {.container}
+::: {.hero-title}
+Week 02: Discovery and documentation
 :::
 
-::: hero-subtitle
+::: {.hero-subtitle}
 Starting from scratch: Data discovery and documentation with AI
 :::
 :::::
@@ -81,11 +81,6 @@ Access the [World Values Survey case study](/case-studies/VWS/)
 The full dataset is at [OSF, Gabors Data Analysis / World Values Survey](https://osf.io/mfd6s/)
 :::
 :::::
-
-:::
-:::::
-
-
 
 ::::: {.week-card .card}
 ::: card-header

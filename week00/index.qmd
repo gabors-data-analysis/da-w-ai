@@ -9,13 +9,13 @@ date: "2025-06-01"
 The **Creating Graphs** exercise and **US Earnings (CPS)** case study material have moved to [Week 06: From Data to Report](../week06/index.html).
 :::
 
-:::::: hero-section
-::::: container
-::: hero-title
+:::::: {.hero-section}
+::::: {.container}
+::: {.hero-title}
 Week 00: AI-Assisted Coding Prep
 :::
 
-::: hero-subtitle
+::: {.hero-subtitle}
 Boosting coding for data analysis with AI tools
 :::
 :::::

@@ -13,8 +13,8 @@ date: "2025-06-01"
 ::: {.week-card .card}
 ::: {.card-header}
 🔧 **Is name week00 OK?**
-  :::
-  ::: {.card-body}
+:::
+::: {.card-body}
 
 **Gábor**:  
 "I plan to add a new weekly material, let us call it week00 for now. It's a prep course related to coding for data analysis. Ie not all kinds of stuff just data warnglin, analysis, ML, causal inference, etc. some data science too. 
@@ -33,8 +33,8 @@ The first version should be sketchy, and brief. We'll expand gradually."
 
 Then the current version is pretty close. 
 
-::
-::
+:::
+:::
 
 ## Nameing
 
@@ -43,8 +43,8 @@ Then the current version is pretty close.
 ::: {.week-card .card}
 ::: {.card-header}
 🔧 **Is name week00 OK?**
-  :::
-  ::: {.card-body}
+:::
+::: {.card-body}
 
 **Gábor**: 
   

@@ -1,5 +1,5 @@
 ---
-title: "Week12 Creating dashboards and online simulation apps"
+title: "Week 12: Creating dashboards and online simulation apps"
 ---
 
 TBA
@@ -13,5 +13,4 @@ TBA
 ## Part II Simulation app for a statistical property
 
 TBA
-
 

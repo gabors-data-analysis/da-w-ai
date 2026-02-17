@@ -64,14 +64,14 @@ What are LLMs, how is the magic happening. A non-technical brief intro. How to w
 
 [Content](/week01)
 
-**Which AI?** See [my take on current models](week01/assets/which-ai.md). As of *May 2025*. 
+**Which AI?** See [my take on current models](da-knowledge/which-ai.qmd). As of *May 2025*. 
 
 
 ## Week02: Data and code discovery and documentation with AI
 
 Learn how to write a clear and professional code and data documentation. LLMs are great help once you know the basics. 
 
-Case study: World Values Survey. Data is at [WVS](/data/VWS)
+Case study: World Values Survey. Data is at [WVS](/case-studies/VWS/)
 
 [Content](/week02)
 
@@ -80,7 +80,7 @@ Case study: World Values Survey. Data is at [WVS](/data/VWS)
 
 You have your data and task, and need to write a short report. We compare different options with LLM, from one-shot prompt to iteration. 
 
-Case study: World Values Survey. Data is at [WVS](/data/VWS)
+Case study: World Values Survey. Data is at [WVS](/case-studies/VWS/)
 
 [Content](/week03)
 
@@ -89,7 +89,7 @@ Case study: World Values Survey. Data is at [WVS](/data/VWS)
 
 When asked about what I shall add to my textbook, David Card, the Nobel winning empirical economist told me that I shall spend time with joining tables. Here we go. 
 
-Case study: simulated Austrian hotels. Data is at [hotels](/data/austria-hotels)
+Case study: simulated Austrian hotels. Data is at [hotels](/case-studies/austria-hotels/)
 
 [Content](/week04)
 
@@ -109,7 +109,7 @@ TBA
 
 No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.
 
-Case study: football post-game interviews. Data is at [interviews](/data/interviews)
+Case study: football post-game interviews. Data is at [interviews](/case-studies/interviews/)
 
 [Content](/week07)
 
@@ -117,13 +117,13 @@ Case study: football post-game interviews. Data is at [interviews](/data/intervi
 
 Second class, now we are in action. How does LLM compare to humans?
 
-Case study: football post-game interviews. Data is at [interviews](/data/interviews)
+Case study: football post-game interviews. Data is at [interviews](/case-studies/interviews/)
 
 [Content](/week08)
 
 ## Learn more
 
-I'm adding material to [learn-more](/learn-more) folder. You can start with the [beyond](/learn-more/beyond.md) page. 
+I'm adding material to [da-knowledge](/da-knowledge/) folder. You can start with the [beyond](/da-knowledge/beyond.html) page. 
 
 ---
 

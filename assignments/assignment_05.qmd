@@ -12,4 +12,4 @@ subtitle: "Use Claude Code to solve a problem and report on the experience"
 
 ### To submit
 
-1. text of 0.5- 1 page in text format such as txt or md  (lastname_firstname_dawai_week03_report.pdf) (20p)
+1. text of 0.5-1 page in text format such as `.txt` or `.md` (`lastname_firstname_dawai_week05_report.txt`) (20p)
