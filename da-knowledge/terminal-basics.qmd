@@ -11,6 +11,8 @@ Why does this matter for Claude Code? Claude Code runs in the terminal. It reads
 
 **Don't worry:** You don't need to become a terminal expert. Just learn the basics below.
 
+Setup details below were cross-checked against official documentation on **2026-02-17**.
+
 ---
 
 ## Opening the Terminal
@@ -25,19 +27,21 @@ Why does this matter for Claude Code? Claude Code runs in the terminal. It reads
 2. Type `cmd`
 3. Click "Command Prompt"
 
-**Option 2: PowerShell (recommended)**
+**Option 2: PowerShell**
 
 1. Press `Win` key
 2. Type `powershell`
-3. Click "Windows PowerShell"
+3. Click "PowerShell"
 
-**Option 3: Windows Terminal (best)**
+**Option 3: Windows Terminal (recommended app)**
 
 If you have Windows 11 or installed Windows Terminal:
 
 1. Press `Win` key
 2. Type `terminal`
 3. Click "Terminal"
+
+Use a **PowerShell** tab inside Windows Terminal for the command examples below.
 
 ### Mac
 
@@ -227,7 +231,7 @@ Parts:
 
 - **Spaces in names:** Use quotes: `cd "My Documents"`
 - **Tab completion:** Type part of a name and press `Tab` to autocomplete
-- **Drag and drop:** On Mac/Windows, you can drag a folder into the terminal to paste its path
+- **Drag and drop:** On Mac (and many Windows terminals), you can drag a folder into the terminal to paste its path
 
 ---
 
@@ -289,8 +293,9 @@ You typed a path that doesn't exist.
 You don't have access to that folder/file.
 
 **Fix:**
-- On Mac/Linux: Try adding `sudo` before the command (you'll need your password)
-- On Windows: Run terminal as Administrator (right-click → Run as administrator)
+- Work in your own folder first (for example, `~/Documents` on Mac/Linux or `%USERPROFILE%\Documents` on Windows)
+- Use `sudo` (Mac/Linux) or Administrator mode (Windows) only when a setup/install step explicitly requires elevated permissions
+- Avoid running everyday project commands as admin/root unless you know the command needs it
 
 ---
 
@@ -298,9 +303,9 @@ You don't have access to that folder/file.
 
 | Task | Windows | Mac / Linux |
 |------|---------|-------------|
-| Open terminal | `Win` → type `cmd` | `Cmd+Space` → type `terminal` |
-| Where am I? | `cd` | `pwd` |
-| List files | `dir` or `ls` | `ls` |
+| Open terminal | `Win` → type `terminal` (or `powershell`) | `Cmd+Space` → type `terminal` |
+| Where am I? | `cd` or `pwd` (PowerShell) | `pwd` |
+| List files | `dir` or `ls` (PowerShell) | `ls` |
 | Change folder | `cd foldername` | `cd foldername` |
 | Go up | `cd ..` | `cd ..` |
 | Clear screen | `cls` | `clear` |
