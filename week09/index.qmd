@@ -1,16 +1,16 @@
 ---
-title: "Week09 AI as research companion: designing Z "
+title: "Week 09: AI as research companion: designing Z"
 subtitle: "Getting closer to causality by deciding on control variables"
 date: "2025-08-01"
 ---
 
-:::::: hero-section
-::::: container
-::: hero-title
+:::::: {.hero-section}
+::::: {.container}
+::: {.hero-title}
 Week 09: AI as research companion: designing "Z" 
 :::
 
-::: hero-subtitle
+::: {.hero-subtitle}
 Getting closer to causality by deciding on control variables
 :::
 :::::

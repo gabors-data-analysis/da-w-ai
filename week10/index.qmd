@@ -1,16 +1,16 @@
 ---
-title: "Week 10: AI as research companion: Instrumental Variables "
+title: "Week 10: AI as research companion: Instrumental Variables"
 subtitle: "Identifying Instrumental variables"
 date: "2025-08-01"
 ---
 
-:::::: hero-section
-::::: container
-::: hero-title
+:::::: {.hero-section}
+::::: {.container}
+::: {.hero-title}
 Week 10: AI as research companion: Instrumental Variables 
 :::
 
-::: hero-subtitle
+::: {.hero-subtitle}
 Getting closer to causality by deciding trying to find an IV
 :::
 :::::
@@ -60,7 +60,7 @@ Finding IVs using AI is not just about asking the model for a list. That usually
 
 ### The 2-step approach
 
-*Before start, note that the prompting approaches and examples below are adapted from and motivated by [Sukjin Han (2024) “Mining Causality: AI-Assisted Search for Instrumental Variables](Https://arxiv.org/pdf/2409.14202)*
+*Before start, note that the prompting approaches and examples below are adapted from and motivated by [Sukjin Han (2024) “Mining Causality: AI-Assisted Search for Instrumental Variables](https://arxiv.org/pdf/2409.14202)*
 
 We will use Prompt Chaining to find IVs with two consecutive prompts.
 
@@ -139,4 +139,3 @@ For each factor you choose, explain your reasoning.
         
 
 ## assignment
-

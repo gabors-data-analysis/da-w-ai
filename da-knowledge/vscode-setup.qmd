@@ -1,0 +1,299 @@
+---
+title: "VS Code + Python or R + GitHub Copilot Setup"
+subtitle: "Student setup guide for Windows and macOS"
+---
+
+## Overview
+
+This guide helps you set up:
+
+1. Visual Studio Code
+2. **Either** Python **or** R in VS Code
+3. GitHub Copilot in VS Code
+
+Estimated time: 20-40 minutes.
+
+::: {.callout-note}
+## Terminal commands in this guide
+This setup uses several terminal commands (for checks like `code --version`, `python --version`, and `R --version`).
+If you are new to terminals, read [Terminal Basics](terminal-basics.html) first.
+:::
+
+---
+
+## Before You Start
+
+- A stable internet connection
+- A GitHub account (create one at <a href="https://github.com/" target="_blank">github.com</a> if needed)
+- Permission to install software on your computer
+
+---
+
+## Step 1: Choose Your OS
+
+Select your OS once, then stay in that tab for the language setup so you only see one platform path.
+
+Official docs:
+
+ - <a href="https://code.visualstudio.com/docs/setup/windows" target="_blank">VS Code on Windows</a>
+ - <a href="https://code.visualstudio.com/docs/setup/mac" target="_blank">VS Code on macOS</a>
+
+::: {.panel-tabset}
+
+### Windows
+
+#### Install VS Code
+
+1. Download VS Code from <a href="https://code.visualstudio.com/Download" target="_blank">code.visualstudio.com</a>
+2. Run `VSCodeUserSetup-{version}.exe`
+3. Keep the default **User setup** install unless you specifically need system-wide install
+4. Reopen terminal after install
+
+Quick check:
+
+```bash
+code --version
+```
+
+#### Step 2: Choose One Language Path
+
+Pick one language to start. You can install the other one later.
+
+::: {.panel-tabset}
+
+#### Python
+
+Official docs:
+
+ - <a href="https://code.visualstudio.com/docs/languages/python" target="_blank">Python in VS Code</a>
+ - <a href="https://www.python.org/downloads/windows/" target="_blank">Python downloads (Windows)</a>
+
+##### Install Python + VS Code support
+
+1. Install the latest stable Python 3 from <a href="https://www.python.org/downloads/windows/" target="_blank">python.org</a>
+2. Open a new terminal and check:
+
+```bash
+py --version
+```
+
+If `py` is not available, try:
+
+```bash
+python --version
+```
+
+3. Open VS Code
+4. Open Extensions (`Ctrl+Shift+X`)
+5. Install **Python** (publisher: Microsoft)
+6. Run Command Palette and select: `Python: Select Interpreter`
+7. Choose your installed Python interpreter
+
+##### Test Python
+
+Create `hello.py`:
+
+```python
+print("Hello from Python in VS Code")
+```
+
+Run it with the play button ("Run Python File") or terminal.
+
+#### R
+
+Official docs:
+
+ - <a href="https://code.visualstudio.com/docs/languages/r" target="_blank">R in VS Code</a>
+ - <a href="https://cloud.r-project.org/" target="_blank">Install R</a>
+
+##### Install R + VS Code support
+
+1. Install R from <a href="https://cloud.r-project.org/" target="_blank">cloud.r-project.org</a>
+2. During install, keep defaults (recommended: let installer store version info in registry)
+3. Open a new terminal and check:
+
+```bash
+R --version
+```
+
+4. In VS Code Extensions, install **R** (publisher: REditorSupport)
+5. Install `languageserver` in R:
+
+```r
+install.packages("languageserver")
+```
+
+This package enables IntelliSense-style features in VS Code (autocomplete, diagnostics, and hover help).
+
+6. In VS Code, open Command Palette and run: `R: Create R terminal`
+
+##### Test R
+
+Create `hello.R`:
+
+```r
+x <- 2 + 2
+print(x)
+```
+
+Run with `Ctrl+Enter` in an R terminal.
+
+:::
+
+### macOS
+
+#### Install VS Code
+
+1. Download VS Code from [code.visualstudio.com](https://code.visualstudio.com/Download)
+2. Open the `.dmg`
+3. Drag **Visual Studio Code.app** into **Applications**
+4. Open VS Code, and open Command Palette (`Cmd+Shift+P`) to run:
+   - `Shell Command: Install 'code' command in PATH`
+5. Open a terminal in VS Code
+
+Quick check:
+
+```bash
+code --version
+```
+
+#### Step 2: Choose One Language Path
+
+Pick one language to start. You can install the other one later.
+
+::: {.panel-tabset}
+
+#### Python
+
+Official docs:
+
+ - <a href="https://code.visualstudio.com/docs/languages/python" target="_blank">Python in VS Code</a>
+ - <a href="https://www.python.org/downloads/macos/" target="_blank">Python downloads (macOS)</a>
+
+##### Install Python + VS Code support
+
+1. Install the latest stable Python 3 from <a href="https://www.python.org/downloads/macos/" target="_blank">python.org</a>
+2. Open a new terminal and check:
+
+```bash
+python3 --version
+```
+
+::: {.callout-note}
+If you are on macOS, you may be prompted to install Xcode Command Line Tools when running Python or opening a terminal for the first time. Follow the prompts to install if needed.
+:::
+
+3. Open VS Code
+4. Open Extensions (`Cmd+Shift+X`)
+5. Install **Python** (publisher: Microsoft)
+6. Run Command Palette and select: `Python: Select Interpreter`
+7. Choose your installed Python interpreter
+
+##### Test Python
+
+Create `hello.py`:
+
+```python
+print("Hello from Python in VS Code")
+```
+
+Run it with the play button ("Run Python File") or terminal.
+
+#### R
+
+Official docs:
+
+ - <a href="https://code.visualstudio.com/docs/languages/r" target="_blank">R in VS Code</a>
+ - <a href="https://cloud.r-project.org/" target="_blank">Install R</a>
+
+##### Install R + VS Code support
+
+1. Install R from <a href="https://cloud.r-project.org/" target="_blank">cloud.r-project.org</a>
+2. Open a new terminal and check:
+
+```bash
+R --version
+```
+
+3. In VS Code Extensions, install **R** (publisher: REditorSupport)
+4. Install `languageserver` in R:
+
+```r
+install.packages("languageserver")
+```
+
+This package enables IntelliSense-style features in VS Code (autocomplete, diagnostics, and hover help).
+
+5. In VS Code, open Command Palette and run: `R: Create R terminal`
+
+##### Test R
+
+Create `hello.R`:
+
+```r
+x <- 2 + 2
+print(x)
+```
+
+Run with `Cmd+Enter` in an R terminal.
+
+:::
+
+:::
+
+---
+
+## Step 2: Set Up GitHub Copilot in VS Code
+
+Official docs:
+
+ - <a href="https://code.visualstudio.com/docs/copilot/setup" target="_blank">Set up GitHub Copilot in VS Code</a>
+ - <a href="https://docs.github.com/en/copilot/get-started/plans" target="_blank">GitHub Copilot plans</a>
+
+1. Open VS Code
+2. In the status bar, click the Copilot icon and choose **Use AI Features**
+3. Sign in to GitHub when prompted
+4. If you do not already have a plan, you can start with **Copilot Free**
+5. Open a code file and verify Copilot is active (chat panel opens and/or inline suggestions appear)
+
+### Student note
+
+If you are a verified student, apply for the free student Copilot Pro plan ("student plus" upgrade).
+
+Quick quota diff (checked February 17, 2026):
+
+- **Copilot Free:** 2,000 code completions/month, 50 chat messages/month, and 50 premium requests/month
+- **Student plan (Copilot Pro at $0):** unlimited code completions, unlimited chat interactions in IDE/CLI/mobile, and 300 premium requests/month
+
+If you are eligible, this is a large jump in included usage, so it is worth applying early.
+
+ - <a href="https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro" target="_blank">Get free access to Copilot Pro (students/teachers/maintainers)</a>
+
+---
+
+## Quick Troubleshooting
+
+### `code` command not found
+
+- Windows: close and reopen terminal after install
+- macOS: run `Shell Command: Install 'code' command in PATH` from Command Palette, then restart terminal
+
+### Python interpreter not found in VS Code
+
+1. Run `Python: Select Interpreter`
+2. If nothing appears, reinstall Python and restart VS Code
+
+### R extension works but no IntelliSense
+
+Install in R:
+
+```r
+install.packages("languageserver")
+```
+
+Then restart VS Code.
+
+### Copilot sign-in issues
+
+1. In VS Code, use Accounts menu to sign out/in GitHub
+2. Check your Copilot plan at <a href="https://github.com/settings/copilot" target="_blank">github.com/settings/copilot</a>

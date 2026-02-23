@@ -14,7 +14,7 @@ The class will exlopre how we can use AI to assist in these tasks.
 ## Preparation BEFORE class
 
 * Background reading: Békés-Kézdi (2021) Chapters 3-4, 7-10
-* Download the [WVS_GDP_merged_data.csv](/data/VWS/WVS_GDP_merged_data.csv). This is an aggregated, cleaned subset of the 7th Wave of WVS dataset merged with GDP data from World Bank
+* Download the [WVS_GDP_merged_data.csv](/case-studies/VWS/data/WVS_GDP_merged_data.csv). This is an aggregated, cleaned subset of the 7th Wave of WVS dataset merged with GDP data from World Bank
 
 ### The data
 
@@ -59,7 +59,7 @@ Form 2-3 member groups freely
   * Is there a relationship between income level and trust? 
   * Is there a relationship between income level and happiness? 
   * Is there a relationship between income level and gender attitudes?
-2. Choose the relevant variables to answer your question (you can use AI to understand variables like in [week2](/da-w-ai/edit/main/week02)
+2. Choose the relevant variables to answer your question (you can use AI to understand variables like in [week2](/week02))
 3. Design a plan for a report on the topic: list of exhibits (graphs, tables). Do not write code (yet)
 4. Discuss plans
 

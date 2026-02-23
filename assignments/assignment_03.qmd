@@ -1,5 +1,5 @@
 ---
-title: "Assignment 03 -- Creating a data analysis report"
+title: "Assignment 3: Creating a data analysis report"
 date: "2026-01-17"
 ---
 

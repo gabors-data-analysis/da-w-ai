@@ -12,7 +12,7 @@ By the end of the session, students will:
 
 ### Materials
 
-- General Sentiment (positive/negative) rating scale [HERE](/week07/assets/sentiment-scale.md)
+- General Sentiment (positive/negative) rating scale [HERE](/week07/assets/sentiment-scale.html)
 - CSV files:
   - `student_test_5` download from [HERE as xlsx](/week07/assets/student_test_5.xlsx) [HERE as csv](/week07/assets/student_test_5.csv), (or from moodle)
 
@@ -41,8 +41,8 @@ By the end of the session, students will:
 [Slides](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-05-text-to-data#/title-slide)
 
 **domain lexicons**
-* [simple version](/data/interviews/domain_lexicon.csv)
-* [better created by AI](/code/interviews/domain_lexicon.R)
+* [simple version](/case-studies/interviews/data/domain_lexicon.csv)
+* [better created by AI](/case-studies/interviews/code/domain_lexicon.r)
 
 ## Practical Activity
 
@@ -50,8 +50,8 @@ By the end of the session, students will:
 
 - **Objective:** Practice manually rating football manager statements as positive or negative.
 - **Steps:**
-  1. Review general sentiment rating scale provided [HERE](/week07/assets/sentiment-scale.md)
-  2. Individually analyze and rate **5 provided test statements** from `student_test.csv`.
+  1. Review general sentiment rating scale provided [HERE](/week07/assets/sentiment-scale.html)
+  2. Individually analyze and rate **5 provided test statements** from `student_test_5.csv`.
   3. Now use AI to rate them.
   4. Try have a better domain lexicon. 
  

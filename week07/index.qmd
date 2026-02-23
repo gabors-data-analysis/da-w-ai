@@ -1,6 +1,6 @@
 ---
 title: "Week 07: using text as data"
-subtitle "Turning a series of short texts into tabular data: humans vs AI"
+subtitle: "Turning a series of short texts into tabular data: humans vs AI"
 date: "2025-05-20"
 
 ---
@@ -20,7 +20,7 @@ Turning a series of short texts into tabular data: humans vs AI
 :::
 
 
-![](../images/week5_pic.png)
+![](../images/week7_picb.png)
 
 ## Overview
 

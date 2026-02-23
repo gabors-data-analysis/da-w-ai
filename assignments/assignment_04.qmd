@@ -1,5 +1,5 @@
 ---
-title: "Assignment 5: Extend the Austrian Hotels Dataset"
+title: "Assignment 4: Extend the Austrian Hotels Dataset"
 subtitle: "Create new data and analyze it with Claude Code"
 ---
 
