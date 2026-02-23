@@ -34,16 +34,15 @@ Sometimes data is messy and discovery is hard. Sometimes you need to write data 
 -   Learn to refine documentation by incorporating iterative feedback from peers and AI tools.
 -   Develop skills in using AI to translate complex materials into accessible documentation
 
-## Starting presentation about prompting and context window management
-
-[slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html)
-
-
 ## Assignment 01 (Graph reproduction) Review
 
 -   Follow instructions.
 -   How to get close to original, different ways
 -   How was AI assistance helpful?
+
+## Starting presentation about prompting and context window management
+
+[slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html)
 
 
 ## Preparation 
@@ -128,6 +127,11 @@ Always verify technical details, because AI makes *some* mistakes.
 -   What was the biggest contribution of AI?
 -   First result vs after iterations -- what did improve?
 -   How do you feel about learning from AI vs human instructor? Pros and cons?
+
+**Unit tests*
+
+- How could you design checks?
+
 
 ## Assignment
 
