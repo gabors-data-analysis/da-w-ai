@@ -17,27 +17,40 @@ Creating inputs and organizing a short data analytics report with AI
 
 ---
 
-
 ![](../images/week3_pic.png)
 
+## About the class
+
+This week turns your Week 2 documentation skills into a full mini-report workflow. You will move from an empirical question to exhibits and a short written conclusion, while using AI as an assistant for planning, coding, and critique.
 
 
-## Objectives 
+## Objectives
 
-### Summary:  
-How to organize a short data analytics report? The job includes choosing and creating relevant plots, running regression. 
-The class will exlopre how we can use AI to assist in these tasks, and get the distinction between using AI as input vs. output in report writing.
+By the end of class, students will be able to:
 
-### Details
-
-* Understand how to connect an empirical question to data 
-* Create relevant visualizations and tables using AI.
-* Learn to critically assess reports with the help of AI tools. We'll especially focus on half-truths: convincing, looks okay, is okay-ish, but not 100% true
+* Translate a broad research topic into a precise country-level question using documented variables.
+* Design and produce a short report with two graphs, one regression, and a short conclusion.
+* Compare one-shot AI output with iterative AI workflows and explain quality differences.
+* Detect half-truths and over-claims in AI-generated analysis, especially causal language mistakes.
 
 ## Preparation BEFORE class
 
-* Background reading: Békés-Kézdi (2021) Chapters 3-4, 7-10. Pay special attention to Chapter 4's discussion of good vs. bad graphs and Chapter 10 on interpreting regression coefficients precisely.
-* Download the [WVS_GDP_merged_data.csv](/case-studies/VWS/data/WVS_GDP_merged_data.csv) from the [World Values Survey case study](/case-studies/VWS/). This is an aggregated, cleaned subset of the 7th Wave of WVS dataset merged with GDP data from World Bank
+::: {.week-card .card}
+::: {.card-header}
+**Required reading and setup (before class)**
+:::
+::: {.card-body}
+
+1. Read Bekes-Kezdi (2021), Chapters 3-4 and 7-10.
+2. Download and open these files:
+   * [WVS_GDP_merged_data.csv](/case-studies/VWS/data/WVS_GDP_merged_data.csv)
+   * [README_WVS.md](/case-studies/VWS/data/README_WVS.md)
+   * [codebook.pdf](/case-studies/VWS/data/codebook.pdf)
+3. Review the [World Values Survey case study page](/case-studies/VWS/).
+4. Ensure your coding environment is ready (VSCode + Copilot or an AI CLI tool).
+
+:::
+:::
 
 ### The data
 
@@ -47,21 +60,21 @@ The class will exlopre how we can use AI to assist in these tasks, and get the d
  * GDP: level USD, level USD PPP, level  USD PPP per capita. 
  * population
 
+
 ## Class plan
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **Review on readme docs (20 min)**
+🤝 **Part 0: Calibration and quality bar (15 min)**
 :::
 ::: {.card-body}
 
-### Review Readme assignment
+### Quick review
 
 * Q+A
-* Common AI errors in data documentation?
-* Verify, verify, verify (AI is good but rarely perfect)
-
-### How does a good report look like?
+* Common AI errors in documentation and reporting
+* Reminder: AI is an input tool, not an automatic final writer
+* What "good enough" versus "submission quality" means### How does a good report look like?
 
   *	How to write a good short report: structure
   *	good graphs and tables
@@ -78,55 +91,160 @@ Use  AI as input (like advanced google search) not as output writer, because
  * not precise enough, especially using causal language inappropriately.
  
  * Too broad (like adds further research)
- 
-:::
-:::
+
+### Target output for today
+
+By end of class each group should have:
+
+1. A one-page report skeleton with section headings.
+2. A clear exhibit plan (Graph 1, Graph 2, Regression Table 1).
+3. One polished coefficient interpretation in non-causal language.
 
 
+:::
+:::
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **No AI vs AI prompting strategies to create a report (50 min)**
+📚 **Part 1: Data grounding and variable mapping (20 min)**
 :::
 ::: {.card-body}
 
-### NO AI
+### Group task
 
-Form 2-3 member groups freely
+Form groups of 2-3 students. Pick one question:
 
-1. Each group: Choose one these pre-defined research questions:
-  * Is there a relationship between income level and trust? 
-  * Is there a relationship between income level and happiness? 
-  * Is there a relationship between income level and gender attitudes?
-2. Choose the relevant variables to answer your question (you can use AI to understand variables like in [week2](/week02) (Use your Week 2 AI skills to understand complex variable definitions.)
-3. Design a plan for a report on the topic: list of exhibits (graphs, tables). Do not write code (yet)
-4. Discuss plans
+* Is there a relationship between income level and trust?
+* Is there a relationship between income level and happiness?
+* Is there a relationship between income level and gender attitudes?
 
-### AI 1
+### Build a mini analysis spec (no coding yet)
 
-Try get a report with a single prompt.
-* Hint 1: translate your plan into a prompt using ideas from the intro. 
-* Hint 2: Look for impressive-looking but problematic results.
+Each group writes five lines:
 
-### AI 2
+1. Question statement (association wording).
+2. Chosen `y` variable(s) from codebook (`Q` columns).
+3. Chosen `x` income variable (`GDP_USD` or PPP variant; transform if needed).
+4. Planned heterogeneity split using `Population`.
+5. One sentence on expected sign and one sentence on limits.
 
-* Showcase an iterative process where key exhibits are created
-* Hint 3:  get AI to create *precisely* the exhibits you designed, not what it thinks you need.
-
-
-### AI 3
-
-* create a system prompt where summarize preferences, and add it to the context window. Repeat the one shot version. 
 
 :::
 :::
 
+::: {.week-card .card}
+::: {.card-header}
+🧭 **Part 2: No-AI report design sprint (15 min)**
+:::
+::: {.card-body}
 
-## End of Week Discussion points
+### Design before generation
 
-* Compare single and multi-step approach generating reports?
-* How good is AI in creating good enough vs exactly as planned graphs?
-* What is happiness? :-) 
+Without AI drafting text, groups define the report structure:
+
+1. Introduction (2-3 sentences)
+2. Data and variables
+3. Results with exhibits
+4. Conclusion (80-100 words)
+
+### Required exhibits
+
+* Graph 1: Main income-outcome pattern
+* Graph 2: Heterogeneity by country size groups (population-based split)
+* Table 1: Regression with one precisely interpreted coefficient
+
+### Guardrail checklist
+
+* Is every variable defined from the documentation?
+* Is the graph title aligned with non-causal language?
+* Is there at least one explicit data limitation?
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+🤖 **Part 3: AI round A - one-shot attempt (15 min)**
+:::
+::: {.card-body}
+
+### Task
+
+Use one prompt to generate the full report draft from your spec.
+
+### Capture these artifacts
+
+1. The exact one-shot prompt.
+2. Output draft (text and requested exhibits).
+3. Three quality issues found by your group.
+
+### Focus
+
+Look for plausible but incorrect details, vague variable definitions, and accidental causal claims.
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+🔁 **Part 4: AI round B - iterative workflow (30 min)**
+:::
+::: {.card-body}
+
+### Task sequence
+
+Run targeted prompts in order:
+
+1. Validate variable definitions against `codebook.pdf`.
+2. Generate Graph 1 exactly as specified.
+3. Generate Graph 2 with your chosen population grouping rule.
+4. Run regression and draft one coefficient interpretation.
+5. Rewrite interpretation to remove causal overreach.
+
+### Verification requirements
+
+Before accepting output, check:
+
+* Variable names match the dataset exactly.
+* The transformation (for example, log GDP per capita PPP) is stated.
+* Regression interpretation includes scale and uncertainty (SE or CI).
+* Limitation statement reflects country-level aggregation.
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+🧩 **Part 5: AI round C - extended context window (15 min)**
+:::
+::: {.card-body}
+
+### Task
+
+Create a reusable system prompt with:
+
+* writing style preferences
+* output format requirements
+* rules for causal language
+* verification checklist
+
+Rerun the report generation and compare with rounds A and B.
+
+### Compare on three criteria
+
+1. Control over structure
+2. Precision of variables and interpretation
+3. Editing effort needed to reach submission quality
+
+:::
+:::
+
+## End-of-week discussion points
+
+* When did one-shot prompting fail in your workflow?
+* Which iterative step produced the largest quality gain?
+* What checks best exposed half-truth outputs?
+* Which part still needed human rewriting the most?
 
 ## Assignment
 
@@ -136,6 +254,10 @@ Try get a report with a single prompt.
 **Critical Note:** Reports will be shared for peer review in Week 4 - upload to Moodle student folder.
 :::
 
-## Some personal comments on AI and this class
+## Resources
 
-* The AI (Claude 4.0) suggested to add "Pay special attention to Chapter 4's discussion of good vs. bad graphs and Chapter 10 on interpreting regression coefficients precisely." Well. We indeed have bits on good graphs in [Chapter4](https://gabors-data-analysis.com/chapters/#chapter-04-comparison-and-correlation) but not really on bad ones. It is [Chapter 07](https://gabors-data-analysis.com/chapters/#chapter-07-simple-regression) that builds coefficient estimation, albeit we have some stuff in [Chapter 10](https://gabors-data-analysis.com/chapters/#chapter-10-multiple-linear-regression) for multiple coefficients. I asked AI about errors. It noted that it predicted them based on knowing about the core summary of our book + contents of"typical econometrics textbook". Instructive re half-truth danger.
+* [World Values Survey case study](/case-studies/VWS/)
+* [WVS data files](/case-studies/VWS/data/)
+* [WVS processing notes (README_WVS.md)](/case-studies/VWS/data/README_WVS.md)
+* [WVS codebook](/case-studies/VWS/data/codebook.pdf)
+* [Week 2 page for variable documentation workflow](/week02/)
