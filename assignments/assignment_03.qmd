@@ -1,48 +1,59 @@
 ---
-title: "Assignment 3: Creating a data analysis report"
-date: "2026-01-17"
+title: "Assignment 3: From data pipeline to report"
+date: "2026-02-27"
 ---
 
-This is a **group** assignment.  Continue with the research question you had chosen in class. 
+You built a data pipeline in class: download → clean → composite variable → aggregate → join GDP → scatter plot. Now turn that into a polished short report.
 
-Use AI iteratively to *help* you create a report. 
+### Step 1: Refine your pipeline and composite variable
 
-### First run
+* Review and clean up your in-class code. Make sure it runs end-to-end from download to merged dataset.
+* Revisit your composite variable. Do all items point in the same direction? Should any be reversed before averaging? Justify your final selection of Q variables (3–6 items) in 2–3 sentences.
+* If you picked a single Q variable in class, now create a proper composite score (standardize each item to z-score, then average).
 
-  * Think in terms of two variables ($x$ and $y$). 
-    * Pick a single variable or a combined index of variables
-    * Pick a GDP variable
-    * Think about a causal link. 
-  * Create one carefully designed graph to illustrate the relationship (Graph 1)
-  * At each step, explain your choices/decisions (ie why you chose a certain variable)
-  * Create a Conclusion paragraph where you summarize your work and results in 80-100 words.
-* create another graph to show heterogeneity of country size groups using population (Graph 2)
-* Run a regression and interpret the coefficient. Make sure they are precise. 
-* Use AI to get a well cratfted folder structure
+### Step 2: Create exhibits
 
-### Extended context window run 1
+Think in terms of two variables: your composite score ($y$) and a GDP variable ($x$).
 
-* create a system prompt will preferences, expected output, style, etc
-* recreate a the report
+* **Graph 1:** A carefully designed scatter plot showing the main relationship between income and your composite variable. Include informative title, axis labels, and country labels where useful.
+* **Graph 2:** Show heterogeneity by splitting countries into groups based on population size (e.g., small vs. large countries). This could be a colored scatter plot, faceted plot, or separate regression lines.
+* **Table 1:** Run a regression of your composite variable on log GDP per capita PPP. Report the coefficient, standard error, and interpretation. Use **non-causal** language — this is an association across countries.
+  * **Stretch:** Add population as a control. Does the coefficient change?
 
-### Extended context window run 2
+At each step, explain your choices and decisions (e.g., why you chose certain variables, why log GDP, what the population split means).
 
-* Once you have a draft, Upload slideshow for chapters 10 [data analysis slides](https://gabors-data-analysis.com/chapters/).  and ask to follow it and revise report. 
-* recreate a the report
+### Step 3: Write the report using AI iteratively
 
-### Final report
+Use AI to help you write, but treat it as *input*, not as *output*.
 
-* You have three versions. Use them to have a single one you like the most. Edit further if needed. 
+**First run:**
+
+* Draft the report with a clear structure: Introduction → Data and variables → Results (with exhibits) → Conclusion (80–100 words).
+* Use AI to help with coding, formatting, and language — but you decide the structure and message.
+* Use AI to set up a well-organized project folder.
+
+**Extended context run:**
+
+* Create a system prompt with your writing style preferences, output format, and rules (e.g., no causal language, precise variable definitions).
+* Regenerate the report with this system prompt and compare with your first run.
+
+**Final version:**
+
+* You now have two drafts. Combine the best parts, edit for precision, and finalize.
+
+### Step 4: Write the conclusion
+
+Write a Conclusion paragraph (80–100 words) that summarizes: what you looked at, what you found, and what the limitations are. Avoid causal claims.
 
 ### To submit
 
-1. report of maximum 2 pages in .pdf format (including exhibits) (lastname_firstname_dawai_week03_report.pdf) (12p)
-2. your code (or provide a link). (2p)
-3. Text: What advice would you give to a fellow data analysis student on using AI to create a report? (How do various runs compare? What changes are decisive? How many iterations and useful?) (lastname_firstname_dawai_week03_advice.txt) (6p).
-    
-* Upload your report to the `student folder called Reports` at moodle or similar service if applicable. This is for the next class --- each group will read another groups report and discuss the good and bad aspects of the report.
+1. **Report** — maximum 2 pages in .pdf format, including exhibits (`lastname_firstname_dawai_week03_report.pdf`) **(12p)**
+2. **Code** — your full pipeline from download to final graph and regression. Provide the file or a link. **(2p)**
+3. **Reflection** — What advice would you give to a fellow data analysis student on using AI to create a report? Compare your different AI runs. What changes were decisive? How many iterations were useful? (`lastname_firstname_dawai_week03_advice.txt`) **(6p)**
+
+Upload your report to the `student folder called Reports` at Moodle or similar service if applicable. This is for the next class — each group will read another group's report and discuss its strengths and weaknesses.
 
 ### AI use restrictions
 
-* For the report, use AI as your assistant, use it as *input* not as *output*. Don't submit an AI-generated report without review and edit. 
-* Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.
+* For the report, use AI as your assistant — use it as *input* not as *output*. Don't submit an AI-generated report without your own review and editing.
+* Do not use AI to generate the reflection. We want your personal examples and honest assessment, not AI-generated suggestions.

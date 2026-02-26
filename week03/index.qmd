@@ -1,16 +1,16 @@
 ---
-title: "Week 03: Reporting your data analysis"
-subtitle: "Creating inputs and organizing a short data analytics report with AI"
-date: "2026-01-27"
+title: "Week 03 From raw data to report with AI assisted coding"
+subtitle: "Download, explore, clean, aggregate, join, and report —  with VS Code and Github Copilot"
+date: "2026-02-26"
 ---
 
 ::: {.hero-section}
 ::: {.container}
 ::: {.hero-title}
-Week 03: Reporting your data analysis
+Week 03 From raw data to report with AI assisted coding
 :::
 ::: {.hero-subtitle}
-Creating inputs and organizing a short data analytics report with AI
+Download, explore, clean, aggregate, join, and report — all with AI-assisted coding in VS Code
 :::
 :::
 :::
@@ -19,245 +19,328 @@ Creating inputs and organizing a short data analytics report with AI
 
 ![](../images/week3_pic.png)
 
-## About the class
+## About this class
 
-This week turns your Week 2 documentation skills into a full mini-report workflow. You will move from an empirical question to exhibits and a short written conclusion, while using AI as an assistant for planning, coding, and critique.
-
+Students begin with the **raw World Values Survey (WVS) Wave 7 file** (~180 MB, 97k rows, 613 columns). The class walks through the full data pipeline — download, explore, select, clean, aggregate, join with GDP — and finishes with a first graph. We use **VS Code + GitHub Copilot** as the primary tool. Each task is self-contained (5–15 min), so faster students complete all of them and slower students still cover the core.
 
 ## Objectives
 
 By the end of class, students will be able to:
 
-* Translate a broad research topic into a precise country-level question using documented variables.
-* Design and produce a short report with two graphs, one regression, and a short conclusion.
-* Compare one-shot AI output with iterative AI workflows and explain quality differences.
-* Detect half-truths and over-claims in AI-generated analysis, especially causal language mistakes.
+* Download a large public dataset from code using an API/URL.
+* Use GitHub Copilot in VS Code to explore, select, and clean variables from a 600-column file.
+* Define a broad research topic, identify relevant survey items, and construct a composite variable (standardize + average).
+* Aggregate individual-level survey data to country-level summaries.
+* Join two datasets (WVS aggregates + World Bank GDP) by country and year.
+* Produce a scatter plot from self-prepared data.
+
 
 ## Preparation BEFORE class
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Required reading and setup (before class)**
+**Required setup (before class)**
 :::
 ::: {.card-body}
 
-1. Read Bekes-Kezdi (2021), Chapters 3-4 and 7-10.
-2. Download and open these files:
-   * [WVS_GDP_merged_data.csv](/case-studies/VWS/data/WVS_GDP_merged_data.csv)
-   * [README_WVS.md](/case-studies/VWS/data/README_WVS.md)
-   * [codebook.pdf](/case-studies/VWS/data/codebook.pdf)
-3. Review the [World Values Survey case study page](/case-studies/VWS/).
-4. Ensure your coding environment is ready (VSCode + Copilot or an AI CLI tool).
+1. **VS Code + language + Copilot** must be working. Follow the [VS Code setup guide](/da-knowledge/vscode-setup.html) if not done yet.
+2. Read the [World Values Survey case study page](/case-studies/VWS/) to understand what the data is about.
+3. Skim the [WVS codebook](/case-studies/VWS/data/codebook.pdf) (pages 1–10 are enough) to get a feel for variable naming.
+4. Install the packages you will need (run once before class):
+
+::: {.panel-tabset}
+
+#### Python
+```python
+pip install pandas numpy matplotlib requests statsmodels wbgapi
+```
+
+#### R
+```r
+install.packages(c("dplyr", "readr", "ggplot2", "WDI"))
+```
+:::
 
 :::
 :::
-
-### The data
-
-* This is aggregated data: country level
-* Year: Wave 7 of the WVS -- survey was conducted at different years. 
-* Combined with World Bank data: at year when survey was conducted
- * GDP: level USD, level USD PPP, level  USD PPP per capita. 
- * population
 
 
 ## Class plan
 
+The class is 75 minutes. There are **8 tasks** organized in three blocks. Core tasks (1–6) take about 55 min; tasks 7–8 are stretch goals. Students work individually or in pairs at their own pace.
+
+::: {.callout-tip}
+## Pacing guide
+Tasks are designed so that every student completes at least tasks 1–6. Fast students will reach tasks 7–8. The instructor checks in after each block.
+:::
+
+---
+
+### Block A: Get and explore the data (25 min)
+
 ::: {.week-card .card}
 ::: {.card-header}
-🤝 **Part 0: Calibration and quality bar (15 min)**
+**Task 1: Download the raw data from code (5 min)**
 :::
 ::: {.card-body}
 
-### Quick review
+Download the WVS Wave 7 CSV directly from the Open Science Framework. Do **not** download manually — write code.
 
-* Q+A
-* Common AI errors in documentation and reporting
-* Reminder: AI is an input tool, not an automatic final writer
-* What "good enough" versus "submission quality" means### How does a good report look like?
+**Data source:** The file `WVS_Cross-National_Wave_7_csv_v6_0.csv` is hosted on OSF at: <a href="https://osf.io/36dgb" target="_blank">osf.io/36dgb</a>
 
-  *	How to write a good short report: structure
-  *	good graphs and tables
- 	*	Make sure precise language. Recap on causal language.
+The direct download URL is `https://osf.io/36dgb/download`. Ask Copilot to help you write a script that downloads and saves this file.
 
-### Problems with AI generated reports.
- 
-Use  AI as input (like advanced google search) not as output writer, because
+<!-- INSTRUCTOR: Good Copilot prompts for this task:
+- Python: "Download the CSV file from https://osf.io/36dgb/download and save it locally as wvs_raw.csv"
+- R: "Use the osfr package to download file ID 36dgb from OSF into a data/ folder"
+- R alternative: download.file() with the direct URL also works fine
+-->
 
- * Creates "average" / generic / bland / repetitive text
- * Not your style and not your exact plan
- 
- * Convincing but would have errors especially with info outside of context window
- * not precise enough, especially using causal language inappropriately.
- 
- * Too broad (like adds further research)
-
-### Target output for today
-
-By end of class each group should have:
-
-1. A one-page report skeleton with section headings.
-2. A clear exhibit plan (Graph 1, Graph 2, Regression Table 1).
-3. One polished coefficient interpretation in non-causal language.
-
+**Check:** You have a ~180 MB CSV file on disk. Load it and confirm it has **97,220 rows** and **613 columns**.
 
 :::
 :::
 
 ::: {.week-card .card}
 ::: {.card-header}
-📚 **Part 1: Data grounding and variable mapping (20 min)**
+**Task 2: Explore the raw data (10 min)**
 :::
 ::: {.card-body}
 
-### Group task
+The file has 613 columns. You cannot read all of them. Use the codebook and Copilot to answer these questions:
 
-Form groups of 2-3 students. Pick one question:
+1. How many unique countries are in the data? (hint: look for `B_COUNTRY_ALPHA`)
+2. What years does the data cover? (hint: `A_YEAR`)
+3. What do columns `Q1` through `Q89` represent? The codebook organizes them into broad sections — identify the sections.
+4. What do negative values (−1 to −5) mean in the Q columns?
 
-* Is there a relationship between income level and trust?
-* Is there a relationship between income level and happiness?
-* Is there a relationship between income level and gender attitudes?
+**How to use Copilot for this:**
 
-### Build a mini analysis spec (no coding yet)
+- Use **Copilot Chat** (`Ctrl+Shift+I` / `Cmd+Shift+I`) to ask questions about your data.
+- Try typing a comment like `# Show the first 5 rows and column names` and let Copilot autocomplete.
 
-Each group writes five lines:
+<!-- INSTRUCTOR: The key sections in Q1-Q89 are:
+- Q1-Q6: Important in life (family, friends, leisure, politics, work, religion)
+- Q7-Q17: Important child qualities (independence, hard work, tolerance, etc.)
+- Q18-Q26: Social tolerance / neighbors
+- Q27-Q45: Social norms, gender equality, work-family attitudes
+- Q46-Q56: Happiness, wellbeing, health, life satisfaction
+- Q57-Q63: Interpersonal trust (general, family, neighborhood, strangers)
+- Q64-Q89: Confidence in institutions (courts, government, parliament, press, UN, etc.)
+Students should be able to find the broad groupings from the codebook. -->
 
-1. Question statement (association wording).
-2. Chosen `y` variable(s) from codebook (`Q` columns).
-3. Chosen `x` income variable (`GDP_USD` or PPP variant; transform if needed).
-4. Planned heterogeneity split using `Population`.
-5. One sentence on expected sign and one sentence on limits.
-
+**Check:** You can name at least 5 Q-variables and know what they measure.
 
 :::
 :::
+
 
 ::: {.week-card .card}
 ::: {.card-header}
-🧭 **Part 2: No-AI report design sprint (15 min)**
+**Task 3: Pick a topic and identify your variables (10 min)**
 :::
 ::: {.card-body}
 
-### Design before generation
+Pick **one broad topic** from the WVS that interests you. Examples:
 
-Without AI drafting text, groups define the report structure:
+- **Trust** — do richer countries have higher interpersonal and institutional trust?
+- **Gender equality** — does income level relate to attitudes about gender roles?
+- **Happiness and wellbeing** — are people in richer countries happier / more satisfied?
+- **Tolerance** — does economic development relate to social tolerance?
 
-1. Introduction (2-3 sentences)
-2. Data and variables
-3. Results with exhibits
-4. Conclusion (80-100 words)
+For your chosen topic:
 
-### Required exhibits
+1. Browse the codebook (or ask Copilot) to find **3–6 related Q variables** that capture your concept. For example, if your topic is "trust", you might pick Q57 (generalized trust), Q58–Q63 (trust in specific groups), Q69 (confidence in police), Q70 (confidence in courts).
+2. Write down which variables you chose and why.
+3. Decide on your x-variable: `GDP per capita PPP` (income level, comparable across countries).
 
-* Graph 1: Main income-outcome pattern
-* Graph 2: Heterogeneity by country size groups (population-based split)
-* Table 1: Regression with one precisely interpreted coefficient
+**Important:** Do not just pick a single variable. The assignment will ask you to create a **composite score** from multiple items — start thinking about which variables belong together.
 
-### Guardrail checklist
+<!-- INSTRUCTOR: This is a key pedagogical moment. Students need to:
+- Justify why certain Q items belong together conceptually
+- Notice that some items have different scales (e.g., Q57 is 1-2 binary, Q46 is 1-4)
+- Think about which direction each variable points (some need reversing)
+Good prompts to suggest if students struggle:
+- "Which Q variables in the WVS codebook relate to [trust/gender/happiness]?"
+- "What are the response scales for Q57, Q58, Q59, Q60?"
+-->
 
-* Is every variable defined from the documentation?
-* Is the graph title aligned with non-causal language?
-* Is there at least one explicit data limitation?
+**Check:** You have a list of 3–6 Q variables with a sentence explaining why they capture your topic.
 
 :::
 :::
+
+---
+
+### Block B: Clean, create variables, aggregate, and join (25 min)
 
 ::: {.week-card .card}
 ::: {.card-header}
-🤖 **Part 3: AI round A - one-shot attempt (15 min)**
+**Task 4: Select, clean, and create your composite variable (10 min)**
 :::
 ::: {.card-body}
 
-### Task
+From the 613 columns, select only what you need:
 
-Use one prompt to generate the full report draft from your spec.
+- **Identifiers:** `B_COUNTRY_ALPHA`, `A_YEAR`, `A_WAVE`
+- **Weight:** `W_WEIGHT`
+- **Your chosen Q variables** (the 3–6 you identified in Task 3)
+- **Demographics:** `Q260` (sex), `Q262` (age), `Q275` (education)
 
-### Capture these artifacts
+Then clean and create your composite variable:
 
-1. The exact one-shot prompt.
-2. Output draft (text and requested exhibits).
-3. Three quality issues found by your group.
+1. Filter to **Wave 7 only** (`A_WAVE == 7`)
+2. Replace negative values (−1 to −5) with `NA`/`NaN` — these are WVS missing-value codes
+3. **Create a composite score:** Standardize each of your chosen Q variables (z-score: subtract mean, divide by standard deviation), then average them into a single index. This handles the problem that different Q items use different scales.
 
-### Focus
+Ask Copilot for help with the standardization step.
 
-Look for plausible but incorrect details, vague variable definitions, and accidental causal claims.
+<!-- INSTRUCTOR: Good Copilot prompt:
+"Standardize columns Q57, Q58, Q59, Q60, Q61, Q62, Q63 to z-scores (subtract mean, divide by std). Then create a new column 'trust_index' as the row-wise mean of the z-scored columns, ignoring NaN."
+
+Key teaching points:
+- Why standardize? Variables have different scales (1-2, 1-4, 1-10)
+- Why average? Reduces noise, captures the common signal
+- Should some items be reversed? E.g., if higher values mean less trust on some items
+- row-wise mean (not column mean) — each respondent gets a score
+-->
+
+**Check:** Your cleaned dataframe has a new composite column. Verify it has mean ≈ 0 and reasonable spread.
 
 :::
 :::
+
 
 ::: {.week-card .card}
 ::: {.card-header}
-🔁 **Part 4: AI round B - iterative workflow (30 min)**
+**Task 5: Aggregate to country level (5 min)**
 :::
 ::: {.card-body}
 
-### Task sequence
+Survey data is at the individual level. For cross-country analysis you need country-level summaries.
 
-Run targeted prompts in order:
+Group by `B_COUNTRY_ALPHA` and `A_YEAR`, then compute:
 
-1. Validate variable definitions against `codebook.pdf`.
-2. Generate Graph 1 exactly as specified.
-3. Generate Graph 2 with your chosen population grouping rule.
-4. Run regression and draft one coefficient interpretation.
-5. Rewrite interpretation to remove causal overreach.
+- **Mean** of your composite score and individual Q variables
+- **Count** of respondents per country
 
-### Verification requirements
+<!-- INSTRUCTOR: Good Copilot prompt:
+"Group the dataframe by B_COUNTRY_ALPHA and A_YEAR. Compute the mean of all numeric Q columns and the composite score, ignoring NaN. Also count the number of rows per group. Store result as country_data."
+-->
 
-Before accepting output, check:
-
-* Variable names match the dataset exactly.
-* The transformation (for example, log GDP per capita PPP) is stated.
-* Regression interpretation includes scale and uncertainty (SE or CI).
-* Limitation statement reflects country-level aggregation.
+**Check:** You should have about **66 rows** (one per country-year combination).
 
 :::
 :::
+
 
 ::: {.week-card .card}
 ::: {.card-header}
-🧩 **Part 5: AI round C - extended context window (15 min)**
+**Task 6: Get GDP data and join (10 min)**
 :::
 ::: {.card-body}
 
-### Task
+Now bring in economic data from the World Bank. You need:
 
-Create a reusable system prompt with:
+| Indicator | World Bank code | Description |
+|---|---|---|
+| GDP (current USD) | `NY.GDP.MKTP.CD` | Total GDP |
+| GDP per capita PPP | `NY.GDP.PCAP.PP.CD` | Income level, comparable across countries |
+| Population | `SP.POP.TOTL` | Country size |
 
-* writing style preferences
-* output format requirements
-* rules for causal language
-* verification checklist
+Download for years **2017–2023** (the range of WVS Wave 7 fieldwork). Ask Copilot how to use the World Bank API in your language.
 
-Rerun the report generation and compare with rounds A and B.
+::: {.panel-tabset}
 
-### Compare on three criteria
+#### Python
+Use `wbgapi` — ask Copilot to help you download the three indicators and reshape the result into a tidy dataframe with columns for country code, year, and each indicator.
 
-1. Control over structure
-2. Precision of variables and interpretation
-3. Editing effort needed to reach submission quality
+#### R
+Use the `WDI` package — ask Copilot to help you download the three indicators for years 2017–2023.
+:::
+
+**Join** the GDP data to your country-level WVS data, matching on country code and year.
+
+**Key decision:** Which type of join? (left join — keep all WVS countries, even if GDP is missing)
+
+Save the merged country-level data as a CSV file.
+
+**Check:** Your merged dataframe still has ~66 rows, now with GDP and population columns added.
 
 :::
 :::
 
-## End-of-week discussion points
+---
 
-* When did one-shot prompting fail in your workflow?
-* Which iterative step produced the largest quality gain?
-* What checks best exposed half-truth outputs?
-* Which part still needed human rewriting the most?
+### Block C: First look at the data (25 min)
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 7: Scatter plot — income and your composite variable (15 min)**
+:::
+::: {.card-body}
+
+Create a **scatter plot** of your composite variable against income:
+
+- x-axis: log GDP per capita PPP
+- y-axis: your composite score (country mean)
+- Label a few interesting countries (e.g., outliers)
+- Add a title that uses **non-causal** language (association, not effect)
+
+<!-- INSTRUCTOR: Good Copilot prompt:
+"Create a scatter plot of trust_index (y) vs log GDP per capita PPP (x) from country_data. Label points for USA, CHN, IND, DEU, NGA. Add a linear fit line. Title: Association between income level and generalized trust."
+-->
+
+**Check:** Your graph shows a recognizable pattern. Labels are readable. Title avoids causal claims.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 8: Compare composite vs. single variable (10 min)**
+:::
+::: {.card-body}
+
+Make the same scatter plot but using just **one** of your individual Q variables instead of the composite score. Put the two plots side by side.
+
+- Does the pattern look different?
+- Is the relationship stronger or weaker with the composite?
+- Why might averaging multiple indicators give a cleaner signal?
+
+Write 2–3 sentences comparing the two plots. This comparison is useful for your assignment.
+
+**Check:** You have two plots side by side and a short written comparison.
+
+:::
+:::
+
+
+## Wrap-up (5 min)
+
+Quick class discussion:
+
+* Which task did Copilot help with the most?
+* Where did you have to correct Copilot's suggestions?
+* What was the hardest part — downloading, cleaning, creating the composite, or interpreting?
+* How does starting from raw data change your understanding compared to getting a curated file?
+
 
 ## Assignment
 
 ::: {.callout-note icon="📝"}
-[Assignment 3: Creating a Report](/assignments/assignment_03.html)
+[Assignment 3: From data pipeline to report](/assignments/assignment_03.html)
 
-**Critical Note:** Reports will be shared for peer review in Week 4 - upload to Moodle student folder.
+You will extend the in-class pipeline into a polished short report. The assignment builds directly on the code and variables you created today.
 :::
+
 
 ## Resources
 
+* [VS Code + Copilot setup guide](/da-knowledge/vscode-setup.html)
 * [World Values Survey case study](/case-studies/VWS/)
-* [WVS data files](/case-studies/VWS/data/)
-* [WVS processing notes (README_WVS.md)](/case-studies/VWS/data/README_WVS.md)
 * [WVS codebook](/case-studies/VWS/data/codebook.pdf)
-* [Week 2 page for variable documentation workflow](/week02/)
+* [WVS processing notes (README_WVS.md)](/case-studies/VWS/data/README_WVS.md)
+* [World Bank Data API (wbgapi for Python)](https://pypi.org/project/wbgapi/)
+* [WDI package for R](https://cran.r-project.org/package=WDI)
