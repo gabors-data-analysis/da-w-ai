@@ -283,6 +283,17 @@ If you are eligible, this is a large jump in included usage, so it is worth appl
 1. Run `Python: Select Interpreter`
 2. If nothing appears, reinstall Python and restart VS Code
 
+### R not found (Windows)
+
+You might need to add the R.exe location such as 'C:\Program Files\R\R-4.3.3\bin' to 'PATH'
+
+```
+Start → search “Environment Variables” → “Edit the system environment variables”, 
+Environment Variables…
+Under your user (or System) variables: Path → Edit → New
+Paste the ...\bin path → OK → reopen cmd
+```
+
 ### R extension works but no IntelliSense
 
 Install in R:
