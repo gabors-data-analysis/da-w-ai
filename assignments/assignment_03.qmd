@@ -1,6 +1,6 @@
 ---
 title: "Assignment 3: From data pipeline to report"
-date: "2026-02-27"
+date: "2026-03-02"
 ---
 
 You built a data pipeline in class: download → clean → composite variable → aggregate → join GDP → scatter plot. Now turn that into a polished short report.
@@ -22,24 +22,10 @@ Think in terms of two variables: your composite score ($y$) and a GDP variable (
 
 At each step, explain your choices and decisions (e.g., why you chose certain variables, why log GDP, what the population split means).
 
-### Step 3: Write the report using AI iteratively
+### Step 3: Write the report 
 
-Use AI to help you write, but treat it as *input*, not as *output*.
+Use the exhbits. Check what AI does. Keep control but rely on it for formatting etc. 
 
-**First run:**
-
-* Draft the report with a clear structure: Introduction → Data and variables → Results (with exhibits) → Conclusion (80–100 words).
-* Use AI to help with coding, formatting, and language — but you decide the structure and message.
-* Use AI to set up a well-organized project folder.
-
-**Extended context run:**
-
-* Create a system prompt with your writing style preferences, output format, and rules (e.g., no causal language, precise variable definitions).
-* Regenerate the report with this system prompt and compare with your first run.
-
-**Final version:**
-
-* You now have two drafts. Combine the best parts, edit for precision, and finalize.
 
 ### Step 4: Write the conclusion
 

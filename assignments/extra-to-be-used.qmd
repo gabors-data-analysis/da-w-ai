@@ -1,0 +1,23 @@
+---
+title: "To be used"
+editor: visual
+---
+
+### Step 3: Write the report using AI iteratively
+
+Use AI to help you write, but treat it as *input*, not as *output*.
+
+**First run:**
+
+-   Draft the report with a clear structure: Introduction → Data and variables → Results (with exhibits) → Conclusion (80–100 words).
+-   Use AI to help with coding, formatting, and language — but you decide the structure and message.
+-   Use AI to set up a well-organized project folder.
+
+**Extended context run:**
+
+-   Create a system prompt with your writing style preferences, output format, and rules (e.g., no causal language, precise variable definitions).
+-   Regenerate the report with this system prompt and compare with your first run.
+
+**Final version:**
+
+-   You now have two drafts. Combine the best parts, edit for precision, and finalize.
