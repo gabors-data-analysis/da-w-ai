@@ -1,14 +1,43 @@
 ---
 title: "Which AI model shall we chose?"
-date: "2026-01-12"
+date: "2026-03-06"
 ---
 
-In what follows, here is my personal take as of `date:2026-01-12`.
+In what follows, here is my personal take as of `date:2026-03-06`.
 
 
 ## Basics
 
-Generative AI based on Large Language Models (genAI) is great for many tasks. In this course we only focus on aspects of Data Analysis:
+Generative AI based on Large Language Models (genAI) is a powerful tool with a series of decisions by users. This is my guide with a focus on task related to analyzing data. 
+
+### Leading models
+
+* As of now the leading (state of the art, SOTA) models are Google's Gemini (3.0), OpenAI's ChatGPT (5.4), and Anthropic's Claude Opus (4.6.)
+* Other key model is [Mistral AI](https://mistral.ai/) but there are several others
+* Open source -- open weights models are also quite good, [Kimi (K2.5)](https://www.kimi.com/ai-models/kimi-k2-5), an open weight model, is quite good and free. Deepseek, Qwen the other leading models. Think of them as SOTA 4-9 months ago 
+
+
+### Paid vs free of leading providers
+
+* Most models have a free and paid tiers. 
+* Free ones are good as kind of Google search replacement for everyday tasks and chats. 
+* For serious work you'll be better off with paid tiers or open source models that are much cheaper. (see comparison at [open router](https://openrouter.ai/models) or [price per token](https://pricepertoken.com/)) 
+
+### Thinking
+
+* Each model have faster (cheaper) and thinking (more expensive) variants, such as Sonnet and Opus for Claude, Thinking and Instant for ChatGPT. In addition you can have extended thinking 
+* For data analysis work, the thinking variants are recommended.
+* All major models have deep research 
+
+### Tools
+
+* All major models support tool use (e.g. web browsing, code execution) and agentic patterns (multi-step workflows with memory and tool use).
+* Currently Gemini is the weakest here
+
+
+## Use cases
+
+AI  is great for many tasks. In this course we only focus on aspects of Data Analysis:
 
 * designing analysis
 * writing code
@@ -20,41 +49,11 @@ Generative AI based on Large Language Models (genAI) is great for many tasks. In
 * writing reports and presentations
 
 
-## Basics
-
-* Most models have a free and paid tiers. Free ones are good as kind of Google search replacement. For serious work you'll be better off with paid tiers. 
-* As of now the leading models are Google's Gemini 3.0, OpenAI's GPT-5.2, and Anthropic's Claude Opus 4.5.
-* Each model have faster (cheaper) and thinking (more expensive) variants. For data analysis work, the thinking variants are recommended.
-* All major models have deep research 
-* All major models support tool use (e.g. web browsing, code execution) and agentic patterns (multi-step workflows with memory and tool use).
-* Open weights models are also quite good, Deepseek and Q. You can even run a 7bn parameter model on an expensive computer
-
-
-
-# Flagship models: 2026 January 12 {.white background-color="#3b528b"} 
-
-## landscape overview
-
-| Feature | **GPT-5.2** | **o3** (reasoning) | **Gemini 3 Deep Think** | **Claude Opus 4.5** |
-|:--------------|:--------------|:--------------|:--------------|:--------------|
-| **Design focus** | Flagship multimodal with native reasoning | Deep reasoning for complex tasks | 1M token context with extended thinking | Coding & complex instruction following |
-| **Multimodality** | Text + images + audio + video (I/O) | Text + tool calls | Text + images + video | Text + images + Computer Use 2.0 |
-| **Browsing / tools** | Integrated search + MCP support | Auto-search for up-to-date facts | Grounded in Google Search | Deep integration with MCP & OS |
-| **Default style** | Balanced, adaptive | Concise, source-cited | Thorough, exploratory | Professional, highly structured |
-| **Context window** | 400k tokens | 128k tokens | 1M tokens | 500k tokens |
-| **Strengths** | All-rounder, agentic workflows | Step-wise analysis, audit trail | Long-context research | Coding agents, OS automation |
-| **Weak spots** | Expensive for simple tasks | No native media I/O | Slower response times | Slower than Haiku/Sonnet |
-
 ## Models for data analysis
 
-For data-analysis projects, the recommended approach is:
+For data-analysis projects, my current recommended approach is: paid Claude. 
 
--   **Reasoning models (o3, Deep Think)** for complex analysis requiring accuracy
--   **GPT-5.2** for agentic workflows and multimodal tasks\
--   **Gemini 3** for long-context document analysis (entire datasets, reports)
--   **Claude Opus 4.5** for coding and complex technical writing
 
-All major models now support tool use (MCP) and agentic patterns.
 
 ## Research & Writing {background-color="#f8f9fa"}
 
@@ -63,6 +62,8 @@ All major models now support tool use (MCP) and agentic patterns.
 * **Multimodal Capability**: AI can interpret charts, screenshots, and handwritten notes and incorporate them into drafts.
 
 ## For data analysis workspaces -- comparison 
+
+*Last update: 16 Jan 2026*
 
 | Workspace | 2026 Key Features |
 |:---|:---|
