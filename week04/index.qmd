@@ -1,16 +1,16 @@
 ---
-title: "Week 04: Agentic AI with CLIs like Claude Code"
-subtitle: "From chat to terminal - AI that works directly with your files"
-date: "2026-02-05"
+title: "Week 04: From Copilot to Agentic CLI Workflows"
+subtitle: "From AI-assisted coding in VS Code to terminal-native AI workflows"
+date: "2026-03-08"
 ---
 
 ::: {.hero-section}
 ::: {.container}
 ::: {.hero-title}
-Week 04: Agentic AI with Claude Code
+Week 04: From Copilot to Agentic CLI Workflows
 :::
 ::: {.hero-subtitle}
-From chat to terminal - AI that works directly with your files
+From AI-assisted coding in VS Code to terminal-native AI workflows
 :::
 :::
 :::
@@ -21,35 +21,32 @@ From chat to terminal - AI that works directly with your files
 
 ## About the class
 
-So far we've used AI through chat interfaces - copying code back and forth, describing our data, pasting error messages. This week we introduce **[agentic AI](../da-knowledge/technical-terms-page.html)**: AI that can see your files, run your code, and iterate on results directly. It is a command-line interface (CLI) -- it runs in your terminal. You type commands, the AI responds with code, runs it, and shows results - all in one place. It can assemble knowledge with great deal of automation.  
+In Week 3, you already used AI in a real coding workflow with **VS Code + GitHub Copilot**. This week builds directly on that foundation and introduces **[agentic AI](../da-knowledge/technical-terms-page.html)** in the terminal: tools that can inspect your project files, run commands, and iterate in-place.
 
-Instead of describing your data to an AI, you can say "look at these CSV files and tell me what's here." Instead of copying error messages, Claude Code sees them and fixes the code itself.
+The jump is not "AI vs no AI." It is **IDE assistance vs terminal-native execution**. Instead of manually moving between editor, terminal, and chat tabs, you can run a tighter loop in one interface and still keep the verification habits from Week 3.
 
 ### Tool Options
 
-We use **Claude Code** in this class, but the concepts apply to similar tools:
+We use **Claude Code** in this class, but the workflow transfers:
 
-| Tool | Provider | Notes |
-|------|----------|-------|
-| **[Claude Code](https://claude.com/product/claude-code)** | Anthropic | What we use. Requires Claude Pro or API. |
-| **[Gemini CLI](https://geminicli.com/)** | Google | Similar workflow, uses Gemini models. |
-| **[Codex CLI](https://developers.openai.com/codex/cli/)** | OpenAI | OpenAI's command-line tool. |
-| **[Copilot in VS Code](https://github.com/features/copilot)** | GitHub/OpenAI | AI-powered code completion in VS Code. |
-| **[Cursor](https://cursor.com/) / [Windsurf](https://windsurf.com/)** | Third-party | IDE-based, similar agentic features. |
-| **[Antigravity](https://antigravity.google/)** | Google | IDE with AI coding assistance. |
+| Tool | Interface | Notes |
+|------|-----------|-------|
+| **[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)** | Terminal CLI agent | Default in this course. |
+| **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** | Terminal CLI agent | Similar command-line workflow. |
+| **[Codex CLI](https://developers.openai.com/codex/cli/)** | Terminal CLI agent | OpenAI alternative for terminal workflows. |
 
-There are differences in capabilities and focus, but the core concepts are the same.
+There are differences in UX and permissions, but the core process is the same: define the task, inspect outputs, verify results, iterate.
 
-Everything you learn today transfers to these alternatives. The prompts, the workflow, the verification habits - all the same. So, we'll use Claude Code as we go but just replace it with other tools. Also, tools are keep evolving, so focus on process more than specifics of a tool. 
+Everything you learn today transfers to alternatives. Tools evolve quickly, so focus on process rather than product-specific details.
 
 ### Learning Objectives
 
 By the end of this session, students will:
 
-* Understand the difference between chat-based AI and agentic AI tools
+* Explain the difference between Week 3 Copilot workflows and terminal agent workflows
 * Install and configure Claude Code on their machine
 * Use Claude Code to explore, understand, and analyze a multi-file dataset
-* Experience the workflow difference: iteration speed, context awareness, debugging
+* Apply verification habits (row counts, summary checks, sanity checks) while using autonomous AI steps
 
 ### Before class
 
@@ -67,7 +64,13 @@ We use Claude Code, but Gemini CLI or Codex CLI also work. The guide covers all 
 
 Claude Code lives in the Terminal. *New to the terminal?* Start with [Terminal Basics](../da-knowledge/terminal-basics.html)
 
-**2. Ensure python**
+**2. Confirm Week 3 tooling still works**
+
+- VS Code opens your project and Copilot is active
+- You can run Python from a terminal (`python --version`)
+- You can use basic git commands (`git status`)
+
+**3. Ensure Python packages**
 
 Claude Code can run Python code, so Python must be installed:
 
@@ -75,9 +78,9 @@ Claude Code can run Python code, so Python must be installed:
 - **Check "Add Python to PATH"** during installation
 - Install packages: `python -m pip install pandas numpy matplotlib`
 
-**3. Ensure you have a GitHub account**
+**4. Ensure you have a GitHub account**
 
-- and know how basics of working with git
+- and know the basics of working with git
 
 :::
 :::
@@ -121,25 +124,25 @@ Read each other document.
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 1: Why CLI with Agentic AI? (30 min)**
+**Part 1: Why CLI if Copilot already works? (30 min)**
 :::
 ::: {.card-body}
 
 
 ### Why CLI Tools? The Core Benefits
 
-Think about the friction in using chat-based AI for data analysis:
+Week 3 already removed a lot of friction with Copilot. The remaining friction is mostly interface-switching and manual orchestration:
 
-1. Copy CSV/code → Paste to ChatGPT
-2. Upload files directly - expensive for free plans
-3. See error → Copy error → Paste back to ChatGPT
-4. Repeat...
+1. Ask for code in the editor
+2. Run it in terminal
+3. Inspect logs/errors manually
+4. Go back to chat/inline suggestions and repeat
 
-**CLI tools eliminate this friction:**
+**CLI agents compress this loop:**
 
 **Files are already there**
 - Claude Code sees your CSV files, R scripts, and outputs directly
-- No uploading, no copy-paste, no describing your data structure
+- No uploading, no repeated copy-paste, minimal context handoff
 - Just: "Look at these files and calculate average occupancy by city"
 
 **Code runs immediately**
@@ -153,7 +156,7 @@ Think about the friction in using chat-based AI for data analysis:
 - Keeps track of what you've done across multiple steps
 
 **Iteration is fast**
-- "Something looks wrong" → AI investigates without you copying data
+- "Something looks wrong" -> AI investigates without you copying data
 - "Try it a different way" → Runs new approach immediately
 - No manual round-trips for every change
 
@@ -165,15 +168,12 @@ This covers the basics to get started. For advanced workflows (custom commands, 
 
 ### What Stays the Same
 
-- **Underlying intelligence**: Both use state-of-the-art models (Claude Sonnet/Opus 4.5 vs. Gemini 3.0 Pro/Flash) with comparable reasoning for statistical analysis and code generation
+- **Prompting discipline**: Clear task descriptions still matter most
+- **Statistical thinking**: You still define variables, assumptions, and checks
+- **Verification habits**: You still validate joins, units, missing values, and outputs
+- **Iteration mindset**: Break problems into steps, inspect, refine, repeat
 
-- **Natural language interface**: Describe tasks in plain language: "Clean this dataset and create a summary statistics table" or "Debug why my regression results look wrong"
-
-- **Iterative refinement**: Both support conversational debugging—ask the CLI to fix errors, try different estimation methods, or refine exhibit formatting through multiple rounds
-
-- **Your preferences respected**: Both learn and apply your coding standards (tidyverse, viridis, clean functions) once configured through their respective `.md` instruction files
-
-- **Multimodal input for data work**:  Both handle various data formats: CSV, Excel, PDFs, images of tables/charts. Useful for extracting data from PDFs, reproducing charts from papers, or generating code from hand-drawn sketches
+What changes is the execution surface: terminal-native tools can plan and run across files faster, but you remain responsible for quality.
 
 
 ---
@@ -188,7 +188,7 @@ You have a folder with several CSV files. You want to answer this question using
 **Think-pair-share (10 min):**
 
 1. What steps would you take using ChatGPT or Claude.ai (chat interface)?
-2. What information would you need to give the AI?
+2. What information would you need to give the AI (or Copilot Chat)?
 3. What could go wrong? How would you handle errors?
 
 *Discuss with a neighbor, then share with the class.*
@@ -204,7 +204,7 @@ You have a folder with several CSV files. You want to answer this question using
 Key point: Every step requires manual copy-paste. Context gets lost easily.
 -->
 
-**The friction:** Every step requires manual copy-paste. Context gets lost. Errors require round-trips.
+**The friction:** Manual context handoff and tool-switching slow down the loop.
 
 
 :::
@@ -288,7 +288,7 @@ a data quality point. Only 9 cities appear (should be 10).
 ### Task 5 Discussions
 
 * How does this compare to using ChatGPT?
-* Where do you see the biggets advantages? Any downsides or risks?
+* Where do you see the biggest advantages? Any downsides or risks?
 
 <!-- Instructor: Exercise 1 expected findings
 
@@ -316,19 +316,19 @@ Students should notice:
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 3: Hands-on - Cleaning **
+**Part 3: Hands-on - Cleaning**
 :::
 ::: {.card-body}
 
 
 ### Task 1: Class discussion on potential problems
 
-* what are the crucial steps when cleaning tabular data
+* What are the crucial steps when cleaning tabular data?
 
 ### Task 2: Cleaning with Claude Code
 
-* Use claude code to find problems. 
-* create clean versions of data tables in a new folder `/data_cleaned`
+* Use Claude Code to find problems.
+* Create clean versions of data tables in a new folder `/data_cleaned`.
 
 
 :::
@@ -481,8 +481,6 @@ Encourage groups to share their tables and analyses at the end.
 :::
 :::
 
--->
-
 ::: {.week-card .card}
 ::: {.card-header}
 **Part 6: Debugging and Iteration**
@@ -531,21 +529,19 @@ Good teachable moments:
 
 ## Operation tips
 
-* use git projects
-  * as CLI tools are file-based, it's easier to manage with git
-  * also gives you version control and backup (if something goes wrong you can pull back to a working state)
-  
+* Use git-based projects.
+  * CLI tools are file-based, so git gives safer iteration.
+  * Version history makes rollbacks and debugging much easier.
 
-* start with
-  * higher level review: what do I have in the folder?
-  * thinking and plan first
-  * execute
+* Start with a three-step loop:
+  * Inventory: "What files are here?"
+  * Plan: "What steps should we run?"
+  * Execute and verify.
 
+**Resources**
 
-**resources**
-
-* [Claude Code common workflows](https://code.claude.com/docs/en/common-workflows)
-* [Clude Code skills](https://code.claude.com/docs/en/features-overview)
+* [Claude Code common workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows)
+* [Claude Code settings and memory](https://docs.anthropic.com/en/docs/claude-code/settings)
 * [Gemini Gems](https://gemini.google/overview/gems/)
 
 
@@ -558,7 +554,7 @@ CLI tools shine when you have:
 - Large datasets or documents requiring substantial context
 - Iterative analysis where the AI should test and debug autonomously
 
-The chatbox remains better for:
+IDE/chat assistants remain better for:
 
 - Quick one-off questions or code snippets
 - Exploratory conversations about methodology
@@ -570,11 +566,11 @@ The chatbox remains better for:
 
 **End of Class Reflection:**
 
-1. **Workflow change:** How did using Claude Code feel different from chat-based AI? What was faster? What was harder?
+1. **Workflow change:** How did using Claude Code feel different from Copilot or chat-based AI? What was faster? What was harder?
 
 2. **Trust calibration:** When did you trust Claude Code's output? When did you double-check? How do you decide?
 
-3. **Use cases:** For what tasks would you now prefer Claude Code over ChatGPT/Claude.ai? When would you still use chat?
+3. **Use cases:** For what tasks would you now prefer Claude Code over Copilot/ChatGPT/Claude.ai? When would you still use IDE or chat tools?
 
 4. **Data generation:** What did you learn from creating synthetic data? How could this help in your own projects?
 
