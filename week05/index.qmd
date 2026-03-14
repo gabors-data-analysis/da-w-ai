@@ -21,7 +21,7 @@ Power features for reproducible research with Claude Code and Gemini CLI
 
 ## About the class
 
-Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **project-specific instructions**, **custom skills**, **git integration**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
+Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **project-specific instructions**, **custom skills**, **git integration**, **unit testing for data workflows**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
 
 ### Tool Options
 
@@ -44,6 +44,7 @@ By the end of the session, students will:
 - Create and apply a project instruction file (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md`) in a real analysis folder
 - Build and run one reusable skill that automates a multi-step data workflow
 - Use git-integrated prompting to create a branch, implement a change, and explain the resulting diff
+- Explain what a unit test is and implement a few simple tests for a data pipeline
 - Evaluate when autonomous execution is appropriate and apply a safety checklist before and after execution
 
 ### Before class
@@ -142,7 +143,7 @@ Now typing `/clean-hotels-data` in Claude Code executes this workflow consistent
 
 **Discussion:** What repetitive analysis tasks could you turn into skills?
 
-**Gemini CLI equivalent:** MCP (Model Context Protocol) servers -- external processes that expose tools to the AI.
+**Gemini CLI equivalent:** Native Agent Skills (`.gemini/skills/<skill-name>/SKILL.md`) for reusable workflows, plus MCP servers for external tool integration.
 
 :::
 :::
@@ -164,7 +165,7 @@ run the robustness checks on the Austrian Hotels model,
 and prepare a summary of changes
 ```
 
-Claude Code will create the branch, make changes, commit with descriptive messages, and provide a diff summary.
+Claude Code can create the branch, make changes, commit with descriptive messages, and provide a diff summary.
 
 **Understanding project history:**
 
@@ -183,10 +184,53 @@ Claude Code reads commit messages and diffs to understand past decisions -- usef
 
 ::: {.week-card .card}
 ::: {.card-header}
-**Part 4: Autonomous Execution (15 min)**
+**Part 4: Unit Tests for Data Pipelines (15 min)**
 :::
 ::: {.card-body}
-**The concept:** Both tools can run commands without constant approval -- useful for trusted, repetitive workflows.
+**What is a unit test?**
+
+A unit test is a small, focused check that verifies one expected behavior.  
+For data work, think of each test as a guardrail: "this column should never be negative", or "this join should not duplicate keys."
+
+**How to think about tests in data analysis:**
+
+- Turn assumptions into explicit assertions.<br>
+  Example: "every cleaned row has `hotel_id` and `date`" -> `not_null` tests.
+
+- Cover core data-quality dimensions.<br>
+  Examples:
+    - schema/type (`date` parses)
+    - completeness (`city_id` not null)
+    - validity (`occupancy_rate` 0-100)
+    - relationships (`city_id` exists in city table)
+    - volume (row-count range).
+
+- Prefer tests that return failing rows, not just pass/fail.<br>
+  Example: if 12 rows fail the occupancy range test, inspect those exact 12 rows first.
+
+- Mix generic and business-rule tests at each stage (`raw` -> `clean` -> `analysis`).<br>
+  Example: generic `unique(hotel_id, date)` plus project rule "no occupancy spikes >30 points day-to-day without a note."
+
+**Typical test cases for Austrian Hotels:**
+
+- `hotel_id` is unique in cleaned table
+- Key fields are not null (`hotel_id`, `city_id`, `date`)
+- `city_id` values in hotels match ids in the city lookup table
+- `occupancy_rate` is between `0` and `100`
+- Row count stays within an expected range after cleaning/joining
+
+**Hands-on:** Ask the CLI to generate and run 5 tests for the Hotels cleaning pipeline. Review one failing test together, fix the issue, and rerun.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 5: Autonomous Execution (15 min)**
+:::
+::: {.card-body}
+**The concept:** Both tools can run non-interactively, but autonomy depends on approval/permission mode -- useful for trusted, repetitive workflows.
 Continue with the same Hotels workflow so students can compare manual and autonomous execution on familiar tasks.
 
 **Safety protocol (always):**
@@ -196,13 +240,13 @@ Continue with the same Hotels workflow so students can compare manual and autono
 - After run: inspect the diff (`git diff`) and explain every changed file
 - After run: run validation checks/tests and spot-check key output tables
 
-**Gemini CLI "Yolo Mode"** (`--yolo` or `-y`):
+**Gemini CLI with YOLO approval mode** (`--approval-mode=yolo`):
 
 ```bash
-gemini -p "For Austrian Hotels, install missing packages, run /clean-hotels-data, and execute robustness checks" --yolo
+gemini -p "For Austrian Hotels, install missing packages, run /clean-hotels-data, and execute robustness checks" --approval-mode=yolo
 ```
 
-**Claude Code headless mode:**
+**Claude Code headless mode** (`-p` is non-interactive; set permission mode explicitly when needed):
 
 ```bash
 claude -p "For Austrian Hotels, run the cleaning skill and robustness checks, then summarize changed files"
@@ -229,6 +273,7 @@ claude -p "For Austrian Hotels, run the cleaning skill and robustness checks, th
 
 - How could custom skills improve reproducibility in your research?
 - What instructions would you put in your `CLAUDE.md` / `GEMINI.md` / `AGENTS.md` for your thesis/project?
+- Which two unit tests would you add first to your own data pipeline, and why?
 - When is autonomous execution appropriate vs. risky in data analysis?
 
 ## Assignment
