@@ -19,22 +19,34 @@ Power features for reproducible research with Claude Code and Gemini CLI
 
 ![](../images/week5_pic.png)
 
-## Overview
+## About the class
 
 Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **project-specific instructions**, **custom skills**, **git integration**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
 
-The focus is on **Claude Code**, with notes on Gemini CLI equivalents where relevant.
+### Tool Options
 
-### Learning Outcomes
+We use **Claude Code** in this class, but the workflow transfers:
+
+| Tool | Interface | Notes |
+|------|-----------|-------|
+| **[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)** | Terminal CLI agent | Default in this course. |
+| **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** | Terminal CLI agent | Similar command-line workflow. |
+| **[Codex CLI](https://developers.openai.com/codex/cli/)** | Terminal CLI agent | OpenAI alternative for terminal workflows. |
+
+The focus is on **Claude Code**, with Gemini CLI and Codex equivalents where relevant.
+We will use one continuous case study (Austrian Hotels) across all activities so each step builds on the last.
+Everything you learn today transfers to alternatives, so prioritize process over tool-specific details.
+
+### Learning Objectives
 
 By the end of the session, students will:
 
-- Set up project-specific instructions with `CLAUDE.md` / `GEMINI.md` / `AGENTS.md`
-- Create custom skills (reusable workflows) for their data analysis projects
-- Use git integration for version-controlled, traceable analysis
-- Understand autonomous execution modes and when to use them
+- Create and apply a project instruction file (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md`) in a real analysis folder
+- Build and run one reusable skill that automates a multi-step data workflow
+- Use git-integrated prompting to create a branch, implement a change, and explain the resulting diff
+- Evaluate when autonomous execution is appropriate and apply a safety checklist before and after execution
 
-## Preparation / Before Class
+### Before class
 
 ::: {.week-card .card}
 ::: {.card-header}
@@ -55,16 +67,22 @@ By the end of the session, students will:
 :::
 
 
-## Class Material
+## Class Plan
 
 ::: {.week-card .card}
 ::: {.card-header}
-📋 **Project-Specific Instructions: CLAUDE.md (20 min)**
+**Part 1: Project Instruction Files (20 min)**
 :::
 ::: {.card-body}
-**The idea:** Instead of repeating preferences in every prompt, write them once in a `CLAUDE.md` file. Claude Code reads it automatically.
+**The idea:** Instead of repeating preferences in every prompt, write them once in a project instruction file the CLI tool reads automatically.
 
-**Example for a data analysis project:**
+**Equivalent files by tool:**
+
+- Claude Code: `CLAUDE.md`
+- Gemini CLI: `GEMINI.md`
+- Codex: `AGENTS.md`
+
+**Example for the Austrian Hotels case study:**
 
 ```markdown
 ## Code Style
@@ -81,12 +99,9 @@ By the end of the session, students will:
 - Report sample sizes in all tables
 ```
 
-**Hierarchical loading:** Global (`~/.claude/CLAUDE.md`) → Project (`./CLAUDE.md`) → Subdirectory. More specific settings override general ones.
+**Hierarchical loading concept:** Global defaults → Project file → Subdirectory file. More specific settings override general ones (exact paths are tool-specific).
 
-**Hands-on:** Create a `CLAUDE.md` for one of the course case studies (e.g., Austrian Hotels or Football Interviews).
-
-**Gemini CLI equivalent:** `GEMINI.md` -- same concept, same locations.
-**Codex equivalent:** `AGENTS.md` -- same concept for project-level instructions.
+**Hands-on:** Create this file for the Austrian Hotels project in your tool of choice (`CLAUDE.md`, `GEMINI.md`, or `AGENTS.md`).
 
 :::
 :::
@@ -94,7 +109,7 @@ By the end of the session, students will:
 
 ::: {.week-card .card}
 ::: {.card-header}
-🛠️ **Custom Skills and Reusable Workflows (25 min)**
+**Part 2: Custom Skills and Reusable Workflows (25 min)**
 :::
 ::: {.card-body}
 **What are skills?**
@@ -106,24 +121,24 @@ Skills are reusable instruction sets that Claude Code can load automatically or 
 - **Personal:** `~/.claude/skills/<skill-name>/SKILL.md` (available in all your projects)
 - **Project:** `.claude/skills/<skill-name>/SKILL.md` (this repo only)
 
-**Hands-on: Create a `/clean-data` skill**
+**Hands-on: Continue the Austrian Hotels case and create a `/clean-hotels-data` skill**
 
-Create `.claude/skills/clean-data/SKILL.md` in your project:
+Create `.claude/skills/clean-hotels-data/SKILL.md` in your project:
 
 ```markdown
 ---
-name: clean-data
-description: Run the data cleaning pipeline for this project.
+name: clean-hotels-data
+description: Clean and validate Austrian Hotels data for analysis.
 ---
 
-Run the data cleaning pipeline:
-1. Check for missing values in raw data files
-2. Run data_cleaning.R script
-3. Verify output file dimensions
-4. Generate a data quality report
+Run the Austrian Hotels cleaning pipeline:
+1. Check missing values in `data/hotels_raw.csv`
+2. Run `scripts/data_cleaning.R`
+3. Verify output dimensions in `data/hotels_clean.csv`
+4. Generate a short data quality report
 ```
 
-Now typing `/clean-data` in Claude Code executes this workflow consistently.
+Now typing `/clean-hotels-data` in Claude Code executes this workflow consistently.
 
 **Discussion:** What repetitive analysis tasks could you turn into skills?
 
@@ -135,16 +150,18 @@ Now typing `/clean-data` in Claude Code executes this workflow consistently.
 
 ::: {.week-card .card}
 ::: {.card-header}
-🔀 **Git Integration (20 min)**
+**Part 3: Git Integration (20 min)**
 :::
 ::: {.card-body}
 **Why it matters:** Version control + AI = traceable, reproducible analysis. Claude Code understands git natively.
+Continue with the same Austrian Hotels project so the instruction file and skill are now part of version history.
 
 **Branch management:**
 
 ```
-Create a new branch for the robustness checks analysis,
-implement the checks, and prepare a summary of changes
+Create a new branch `hotels-robustness-checks`,
+run the robustness checks on the Austrian Hotels model,
+and prepare a summary of changes
 ```
 
 Claude Code will create the branch, make changes, commit with descriptive messages, and provide a diff summary.
@@ -152,13 +169,13 @@ Claude Code will create the branch, make changes, commit with descriptive messag
 **Understanding project history:**
 
 ```
-Look at the git history for data_cleaning.R.
-Why did we change the outlier detection threshold?
+Look at the git history for `scripts/data_cleaning.R`.
+Why did we change the outlier detection threshold in the Hotels pipeline?
 ```
 
 Claude Code reads commit messages and diffs to understand past decisions -- useful when revisiting old projects.
 
-**Hands-on:** Use Claude Code to create a branch, make an analysis change, and commit with a meaningful message. Review the diff together.
+**Hands-on:** Use Claude Code to branch, make one Hotels analysis change, commit it, and explain the diff to a partner.
 
 :::
 :::
@@ -166,21 +183,29 @@ Claude Code reads commit messages and diffs to understand past decisions -- usef
 
 ::: {.week-card .card}
 ::: {.card-header}
-🚀 **Autonomous Execution (15 min)**
+**Part 4: Autonomous Execution (15 min)**
 :::
 ::: {.card-body}
 **The concept:** Both tools can run commands without constant approval -- useful for trusted, repetitive workflows.
+Continue with the same Hotels workflow so students can compare manual and autonomous execution on familiar tasks.
+
+**Safety protocol (always):**
+
+- Before run: confirm you are on the correct branch and scope is limited
+- Before run: write down a success criterion (what output must exist or change)
+- After run: inspect the diff (`git diff`) and explain every changed file
+- After run: run validation checks/tests and spot-check key output tables
 
 **Gemini CLI "Yolo Mode"** (`--yolo` or `-y`):
 
 ```bash
-gemini -p "Install missing packages, clean the data, run all analyses" --yolo
+gemini -p "For Austrian Hotels, install missing packages, run /clean-hotels-data, and execute robustness checks" --yolo
 ```
 
 **Claude Code headless mode:**
 
 ```bash
-claude -p "your prompt"
+claude -p "For Austrian Hotels, run the cleaning skill and robustness checks, then summarize changed files"
 ```
 
 **When to use autonomous execution:**
@@ -200,12 +225,11 @@ claude -p "your prompt"
 :::
 
 
-## End of Week Discussion Points
+## Discussion Questions
 
 - How could custom skills improve reproducibility in your research?
-- What instructions would you put in your `CLAUDE.md` / `AGENTS.md` for your thesis/project?
+- What instructions would you put in your `CLAUDE.md` / `GEMINI.md` / `AGENTS.md` for your thesis/project?
 - When is autonomous execution appropriate vs. risky in data analysis?
-- How does git integration change the way you think about AI-assisted analysis?
 
 ## Assignment
 
