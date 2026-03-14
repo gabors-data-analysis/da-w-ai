@@ -21,7 +21,7 @@ Power features for reproducible research with Claude Code and Gemini CLI
 
 ## Overview
 
-Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **custom skills**, **project-specific instructions**, **git integration**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
+Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **project-specific instructions**, **custom skills**, **git integration**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
 
 The focus is on **Claude Code**, with notes on Gemini CLI equivalents where relevant.
 
@@ -29,8 +29,8 @@ The focus is on **Claude Code**, with notes on Gemini CLI equivalents where rele
 
 By the end of the session, students will:
 
+- Set up project-specific instructions with `CLAUDE.md` / `GEMINI.md` / `AGENTS.md`
 - Create custom skills (reusable workflows) for their data analysis projects
-- Set up project-specific instructions with `CLAUDE.md` / `GEMINI.md`
 - Use git integration for version-controlled, traceable analysis
 - Understand autonomous execution modes and when to use them
 
@@ -56,6 +56,41 @@ By the end of the session, students will:
 
 
 ## Class Material
+
+::: {.week-card .card}
+::: {.card-header}
+📋 **Project-Specific Instructions: CLAUDE.md (20 min)**
+:::
+::: {.card-body}
+**The idea:** Instead of repeating preferences in every prompt, write them once in a `CLAUDE.md` file. Claude Code reads it automatically.
+
+**Example for a data analysis project:**
+
+```markdown
+## Code Style
+- Use tidyverse syntax for R code
+- Use pandas for Python data manipulation
+- Prefer ggplot2 with viridis color scheme
+
+## Data Standards
+- All dates in ISO 8601 format (YYYY-MM-DD)
+- Column names: lowercase with underscores
+
+## Analysis Preferences
+- Always check for missing values before analysis
+- Report sample sizes in all tables
+```
+
+**Hierarchical loading:** Global (`~/.claude/CLAUDE.md`) → Project (`./CLAUDE.md`) → Subdirectory. More specific settings override general ones.
+
+**Hands-on:** Create a `CLAUDE.md` for one of the course case studies (e.g., Austrian Hotels or Football Interviews).
+
+**Gemini CLI equivalent:** `GEMINI.md` -- same concept, same locations.
+**Codex equivalent:** `AGENTS.md` -- same concept for project-level instructions.
+
+:::
+:::
+
 
 ::: {.week-card .card}
 ::: {.card-header}
@@ -93,40 +128,6 @@ Now typing `/clean-data` in Claude Code executes this workflow consistently.
 **Discussion:** What repetitive analysis tasks could you turn into skills?
 
 **Gemini CLI equivalent:** MCP (Model Context Protocol) servers -- external processes that expose tools to the AI.
-
-:::
-:::
-
-
-::: {.week-card .card}
-::: {.card-header}
-📋 **Project-Specific Instructions: CLAUDE.md (20 min)**
-:::
-::: {.card-body}
-**The idea:** Instead of repeating preferences in every prompt, write them once in a `CLAUDE.md` file. Claude Code reads it automatically.
-
-**Example for a data analysis project:**
-
-```markdown
-## Code Style
-- Use tidyverse syntax for R code
-- Use pandas for Python data manipulation
-- Prefer ggplot2 with viridis color scheme
-
-## Data Standards
-- All dates in ISO 8601 format (YYYY-MM-DD)
-- Column names: lowercase with underscores
-
-## Analysis Preferences
-- Always check for missing values before analysis
-- Report sample sizes in all tables
-```
-
-**Hierarchical loading:** Global (`~/.claude/CLAUDE.md`) → Project (`./CLAUDE.md`) → Subdirectory. More specific settings override general ones.
-
-**Hands-on:** Create a `CLAUDE.md` for one of the course case studies (e.g., Austrian Hotels or Football Interviews).
-
-**Gemini CLI equivalent:** `GEMINI.md` -- same concept, same locations.
 
 :::
 :::
@@ -202,7 +203,7 @@ claude -p "your prompt"
 ## End of Week Discussion Points
 
 - How could custom skills improve reproducibility in your research?
-- What instructions would you put in your `CLAUDE.md` for your thesis/project?
+- What instructions would you put in your `CLAUDE.md` / `AGENTS.md` for your thesis/project?
 - When is autonomous execution appropriate vs. risky in data analysis?
 - How does git integration change the way you think about AI-assisted analysis?
 
