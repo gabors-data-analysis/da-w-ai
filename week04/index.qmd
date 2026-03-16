@@ -160,11 +160,7 @@ Week 3 already removed a lot of friction with Copilot. The remaining friction is
 - "Try it a different way" → Runs new approach immediately
 - No manual round-trips for every change
 
-::: {.callout-tip}
-## Want More Power Features?
 
-This covers the basics to get started. For advanced workflows (custom commands, git integration, large-scale data handling), see [Advanced CLI Workflows](../da-knowledge/cli-advanced-workflows.html).
-:::
 
 ### What Stays the Same
 
@@ -628,7 +624,6 @@ IDE/chat assistants remain better for:
 
 - [Technical Terms Glossary](../da-knowledge/technical-terms-page.html) - Key AI/data concepts
 - [Joining Tables Guide](../da-knowledge/joining-tables.html) - Join types explained
-- [Advanced CLI Workflows](../da-knowledge/cli-advanced-workflows.html) - Power features for experienced users
 
 **Austrian Hotels Dataset:**
 

@@ -62,7 +62,6 @@ By the end of the session, students will:
 
 **Recommended Reading:**
 
-- [Advanced CLI Workflows reference page](../da-knowledge/cli-advanced-workflows.html) -- the full reference guide for today's topics
 - [Installing CLI Tools](../da-knowledge/install-cli.html) -- if you need to catch up
 :::
 :::
