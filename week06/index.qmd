@@ -117,6 +117,13 @@ This is my data and the codebook. Create a variable dictionary. Use the pdf i sh
 
 Could you refine the prompt to make output better, more structured, or simpler?
 
+**Step 4: Testing**
+
+Iterate to create tests to check if variable dictionary is correct. 
+
+Hint: check the mean of age, or the number of unique values in sex. What else could you do? Use Claude to help you write tests.
+
+
 :::
 :::::
 
@@ -169,7 +176,7 @@ Check the code. How did it mix analytics and text?
 **Now let's do it properly.** Go back and build up the analysis step by step, iterating on some exhibits.
 
 
-**Task 1: Heatmap**
+**Task 1: Start with a nice heatmap**
 
 ```
 Show a heatmap of hourly wages by occupation and education level. Use viridis.
@@ -178,7 +185,9 @@ Show a heatmap of hourly wages by occupation and education level. Use viridis.
 Iterate to make it good (if needed)
 
 
-**Task 2: Adding analysis:** Now add regression analysis to support the graphs.
+**Task 2: Adding analysis:** 
+
+Now add regression analysis to support the graphs.
 
 ```
 Run an OLS regression of hourly wages on gender, controlling for
@@ -186,12 +195,22 @@ age, education (grade92), and occupation (occ2012).
 Report the results in a clean table.
 ```
 
-Iterate on the specification:
+Iterate on the specification, such as:
 
 ```
 Add age squared. Report robust standard errors.
 Interpret the gender coefficient -- what does it mean in dollar terms?
 ```
+
+
+**Task 3: Write summary:** 
+
+Make it read your analysis and write a summary.
+
+
+**Task 4: Create a HTML presentation**
+
+Get it create a html presentation with the same content. Provide some preferred formatting instructions.
 
 :::
 :::::
