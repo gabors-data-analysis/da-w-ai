@@ -70,7 +70,7 @@ APIs come up twice in this session: **news/data APIs** (to get articles) and **L
 
 ::: card-body
 
-- **Get an API key** (OpenAI, Anthropic, or similar): [How to get AI API keys](../week08/assets/get-ai-api-key.qmd).
+- **Get an API key** (OpenAI, Anthropic, or similar): [How to get AI API keys](../da-knowledge/get-ai-api-key.qmd).
 - **Budget ~$5** — that is more than enough for a project this size.
 - **Store the key outside the repo.** Use an environment variable (`.env`, `export`) — never commit it.
 - **Test first.** Run your classification prompt on 10–20 articles before you unleash it on 1,000.
@@ -86,10 +86,10 @@ APIs come up twice in this session: **news/data APIs** (to get articles) and **L
 ::: card-body
 Pulled into our knowledge base so you can find it after the course:
 
-- [Introduction to APIs](../week08/assets/api-use.qmd) — what an API call is, headers, auth, rate limits.
-- [How APIs work under the hood](../week08/assets/api-advanced.qmd) — idempotency, retries, batching, tokens.
-- [Simple walkthrough: World Bank + FRED](../week08/assets/walkthrough-wb-fred.qmd) — public data APIs.
-- [Football-data walkthrough (FBref)](../week08/assets/walkthrough-fbref.qmd) — scraping a sports data source.
+- [Introduction to APIs](../da-knowledge/api-use.qmd) — what an API call is, headers, auth, rate limits.
+- [How APIs work under the hood](../da-knowledge/api-advanced.qmd) — idempotency, retries, batching, tokens.
+- [Simple walkthrough: World Bank + FRED](../da-knowledge/walkthrough-wb-fred.qmd) — public data APIs.
+- [Football-data walkthrough (FBref)](../da-knowledge/walkthrough-fbref.qmd) — scraping a sports data source.
 
 If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before you start your work block — it will save you an hour of confused debugging.
 :::

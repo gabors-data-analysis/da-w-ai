@@ -17,7 +17,7 @@ website:
       - href: navbar/assignments.qmd
         text: Assignments
       - href: navbar/resources.qmd
-        text: Resources
+        text: Knowledge Base
 
   sidebar:
     style: "docked"
@@ -71,8 +71,10 @@ website:
           - text: "Common Support (R)"
             href: case-studies/common-support-r/index.qmd
 
-      - section: "Resources"
+      - section: "Knowledge Base"
         contents:
+          - text: "Overview"
+            href: navbar/resources.qmd
           - text: "Designing Larger Analytics Projects"
             href: da-knowledge/designing-projects.qmd
           - text: "Glossary of LLM terms"
@@ -85,12 +87,24 @@ website:
             href: da-knowledge/documentation-readme.qmd
           - text: "Joining Data Tables"
             href: da-knowledge/joining-tables.qmd
+          - text: "Creating Graphs"
+            href: da-knowledge/creating-graphs.qmd
           - text: "Terminal Basics"
             href: da-knowledge/terminal-basics.qmd
           - text: "Installing AI CLI Tools"
             href: da-knowledge/install-cli.qmd
           - text: "VS Code + Copilot Setup"
             href: da-knowledge/vscode-setup.qmd
+          - text: "Get AI API keys"
+            href: da-knowledge/get-ai-api-key.qmd
+          - text: "APIs — Intro"
+            href: da-knowledge/api-use.qmd
+          - text: "APIs — Under the hood"
+            href: da-knowledge/api-advanced.qmd
+          - text: "Walkthrough: World Bank + FRED"
+            href: da-knowledge/walkthrough-wb-fred.qmd
+          - text: "Walkthrough: FBref"
+            href: da-knowledge/walkthrough-fbref.qmd
 
 
       - section: "Slideshows"

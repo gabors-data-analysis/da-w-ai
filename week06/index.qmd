@@ -282,7 +282,7 @@ Use Claude Code to download a dataset, explore it, and create a focused PDF repo
 
 **Case study:** [US Earnings (CPS MORG)](/case-studies/earnings/) -- data files and documentation
 
-**Graph walkthrough:** [Creating Graphs](/week06/assets/creating-graphs.html) -- one example with R. 
+**Graph walkthrough:** [Creating Graphs](/da-knowledge/creating-graphs.html) -- one example with R.
 
 **Data source:** [OSF - CPS MORG data](https://osf.io/4ay9x) | [Codebook PDF](https://osf.io/uqe8z)
 

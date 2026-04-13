@@ -181,7 +181,7 @@ What are the pros and cons of each?
 
 ::: card-body
 
-This exercise has moved to [Week 06: From Data to Report](../week06/index.html). See the full [Creating Graphs walkthrough](/week06/assets/creating-graphs.html).
+This exercise has moved to [Week 06: From Data to Report](../week06/index.html). See the full [Creating Graphs walkthrough](/da-knowledge/creating-graphs.html).
 
 :::
 :::::

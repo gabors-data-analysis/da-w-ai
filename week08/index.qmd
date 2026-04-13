@@ -40,13 +40,13 @@ By the end of the session, students will:
 ::: {.card-body}
 **API Access Setup:**
 
-- [How to get AI API keys](/week08/assets/get-ai-api-key.html) (OpenAI ChatGPT and Anthropic Claude)
+- [How to get AI API keys](/da-knowledge/get-ai-api-key.html) (OpenAI ChatGPT and Anthropic Claude)
 - **Budget:** ~$5 minimum for course exercises
 
 **API Learning Resources:**
 
-- [Introduction to APIs](/week08/assets/api-use.html) - fundamental concepts
-- [Advanced API knowledge](/week08/assets/api-advanced.html) - how APIs work under the hood
+- [Introduction to APIs](/da-knowledge/api-use.html) - fundamental concepts
+- [Advanced API knowledge](/da-knowledge/api-advanced.html) - how APIs work under the hood
 :::
 :::
 
@@ -79,7 +79,7 @@ By the end of the session, students will:
 
 **Other**
 
-- [More advanced knowledge on APIs](assets/api-advanced.html)  -- *how* APIs work
+- [More advanced knowledge on APIs](/da-knowledge/api-advanced.html)  -- *how* APIs work
 
 
 
@@ -126,18 +126,18 @@ By the end of the session, students will:
 
 **Introduction**
 
-- [How to use APIs](assets/api-use.html)
+- [How to use APIs](/da-knowledge/api-use.html)
 
 
 **Beginner-Friendly Examples:**
 
-- [Simple walkthrough with GDP data](assets/walkthrough-wb-fred.html)  -- uses World Bank and FRED APIs
-- [Bit harder walkthrough with football data](assets/walkthrough-fbref.html)  -- uses FBREF soccer data. Guess the club for example.
+- [Simple walkthrough with GDP data](/da-knowledge/walkthrough-wb-fred.html)  -- uses World Bank and FRED APIs
+- [Bit harder walkthrough with football data](/da-knowledge/walkthrough-fbref.html)  -- uses FBREF soccer data. Guess the club for example.
 
 
 **More advanced stuff**
 
-- [More advanced knowledge on APIs](assets/api-advanced.html)  -- *how* APIs work
+- [More advanced knowledge on APIs](/da-knowledge/api-advanced.html)  -- *how* APIs work
 
 
 

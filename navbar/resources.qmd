@@ -1,40 +1,48 @@
 ---
-title: "Resources"
+title: "Knowledge Base"
+subtitle: "Reusable references for the whole course"
 ---
 
-## LLM Technical terms
+This is the course's **knowledge base**: standalone pages you can come back to during any week (or after the course). Weekly lessons link into this section; the material here is meant to outlive any single class.
 
-Glossary of technical terms used in various presentations or in class
+## AI & LLM fundamentals
 
-[LLM Glossary](../da-knowledge/technical-terms-page.html)
+- [LLM Glossary](../da-knowledge/technical-terms-page.qmd) — technical terms used in lectures and class.
+- [Which AI to use](../da-knowledge/which-ai.qmd) — January 2026 comparison of major models and tools.
+- [Beyond the course](../da-knowledge/beyond.qmd) — curated videos, papers and further reading. Updated regularly.
 
-[Which AI](../da-knowledge/which-ai.html) -- the 2026 January comparison
+## Setting up AI tools
 
-## AI Tools Setup
+- [Terminal Basics](../da-knowledge/terminal-basics.qmd) — essential shell commands for CLI work.
+- [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Gemini CLI, Codex CLI, OpenCode.
+- [VS Code + Copilot setup](../da-knowledge/vscode-setup.qmd) — IDE + AI assistant.
 
-[Terminal Basics](../da-knowledge/terminal-basics.html) -- essential commands for CLI tools
+## Working with APIs
 
-[Installing AI CLI Tools](../da-knowledge/install-cli.html) -- Claude Code, Gemini CLI, Codex CLI, OpenCode
+- [How to get AI API keys](../da-knowledge/get-ai-api-key.qmd) — OpenAI and Anthropic.
+- [Introduction to APIs](../da-knowledge/api-use.qmd) — fundamental concepts: what a call looks like, headers, auth, rate limits.
+- [How APIs work under the hood](../da-knowledge/api-advanced.qmd) — idempotency, retries, batching, tokens.
+- [Walkthrough: World Bank + FRED](../da-knowledge/walkthrough-wb-fred.qmd) — gentle intro using public economic data APIs.
+- [Walkthrough: FBref football data](../da-knowledge/walkthrough-fbref.qmd) — slightly harder end-to-end example.
 
-## Beyond (the material) --- Learn more
+## Doing the analysis
 
-I'm collecting videos, papers in the [beyond](../da-knowledge/beyond.html) page. Check them out. Regular updates. 
+- [Designing larger analytics projects with AI](../da-knowledge/designing-projects.qmd) — mindsets, self-interview, `agents.md`, SKILLS, the three kinds of tests.
+- [Documentation and READMEs](../da-knowledge/documentation-readme.qmd) — what good documentation looks like.
+- [Joining data tables](../da-knowledge/joining-tables.qmd) — keys, joins, pitfalls.
+- [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality (R example).
+- [PDF guide](../da-knowledge/pdf-guide.qmd) — working with PDFs.
+- [Good report ideas](../week03/ideas-good-report.qmd) — what separates a solid report from a weak one.
 
-## Various data analysis related pages referenced in class
+## Case studies
 
-[Documentation and readme](../da-knowledge/documentation-readme.html)
+Datasets and code organised by case study — used across multiple weeks.
 
-[Good report ideas](../week03/ideas-good-report.html)
+1. [World Values Survey](../case-studies/VWS/) — Weeks 2–3 (documentation, reports).
+2. [Austrian Hotels](../case-studies/austria-hotels/) — Week 4 (joining tables).
+3. [Football Manager Interviews](../case-studies/interviews/) — Weeks 7–8 (text as data).
+4. [US Earnings (CPS)](../case-studies/earnings/) — Week 6 (from data to report).
+5. [Employee Commits](../case-studies/employee_commits/) — data-analysis demos.
+6. [Common Support (R)](../case-studies/common-support-r/) — iterative AI coding.
 
-## Case Studies
-
-Course datasets and code are organized by case study:
-
-1. [World Values Survey](../case-studies/VWS/) - Week 2-3 (Documentation, Reports)
-2. [Austrian Hotels](../case-studies/austria-hotels/) - Week 4 (Joining Tables)
-3. [Football Manager Interviews](../case-studies/interviews/) - Week 7-8 (Text as Data)
-4. [US Earnings (CPS)](../case-studies/earnings/) - Week 6 (From Data to Report)
-5. [Employee Commits](../case-studies/employee_commits/) - Data analysis demos
-6. [Common Support (R)](../case-studies/common-support-r/) - Iterative AI coding
-
-[Browse All Case Studies](../case-studies/)
+[Browse all case studies →](../case-studies/)

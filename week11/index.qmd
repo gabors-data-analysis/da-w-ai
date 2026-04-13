@@ -1,7 +1,7 @@
 ---
 title: "Week 11: Zero to Hero Data Hack — Project Intro & Data Collection"
 subtitle: "Football managers: collect, combine and describe a match-and-manager dataset"
-date: "2026-04-20"
+date: "2026-04-13"
 ---
 
 ::::::: {.hero-section}
