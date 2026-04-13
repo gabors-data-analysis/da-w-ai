@@ -1,18 +1,158 @@
-
 ---
-title: "Week 11: AI as research companion: Difference in differences"
-subtitle: "Building Difference in differences models"
-date: "2025-08-01"
+title: "Week 11: Zero to Hero Data Hack — Project Intro & Data Collection"
+subtitle: "Football managers: collect, combine and describe a match-and-manager dataset"
+date: "2026-04-20"
 ---
 
-:::::: {.hero-section}
-::::: {.container}
+::::::: {.hero-section}
+:::::: {.container}
 ::: {.hero-title}
-Week 11: AI as research companion: Difference in differences 
+Week 11: Zero to Hero Data Hack
 :::
 
 ::: {.hero-subtitle}
-Getting closer to causality by building Difference in differences models
+Project intro + Session 1 — collecting, combining and describing data on football managers
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## The Project: Manager Impact in Football
+
+For weeks 11–13 we leave the neat, pre-cleaned case studies behind and run a **three-session data hack**: one broad research question, messy real-world data, and AI as your primary teammate.
+
+**Research question:** *Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?*
+
+### Why this project
+
+- It is **specific** (one domain, concrete data) but **broad** (no exact steps given to you).
+- You will have to **plan**, **layer tasks with AI**, and **decide** — not just follow a recipe.
+- Before you start, read the companion page **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** — it covers the mindsets, self-interview, `agents.md` file, and the three kinds of tests you'll use all three weeks.
+
+### Scope
+
+| Dimension | Choice |
+|---|---|
+| Sport | Football (soccer) |
+| League tier | First division only |
+| Countries (pick one per team) | Spain, Italy, France, Germany, Turkey, Scotland, Portugal, Netherlands, Poland, Ukraine, Russia, or another you can defend |
+| Time horizon | 10+ seasons of historical data |
+| Weekly deliverables | Reproducible repo and READMEs |
+| Final deliverable | Reproducible repo + ~12-minute presentation |
+
+### Key questions to answer by Week 13
+
+1. What is the **average** effect of a manager change on team performance?
+2. Which **types of managers**  show larger or smaller effects?
+3. Which **types of teams**  respond more?
+4. Do **expectations from news** match the actual performance change?
+
+### Sessions at a glance
+
+| Week | Focus | Deliverable by Sunday 23:55 |
+|---|---|---|
+| **11** | Data collection, combination, description | Documented dataset + QA notes |
+| **12** | Text → expectations (APIs, scraping) | Article corpus + per-change expectation score |
+| **13** | DiD analysis + heterogeneity + presentation | Results, slides, repo |
+
+------------------------------------------------------------------------
+
+## Session Structure (each week)
+
+Each 200-minute session runs the same shape:
+
+1. **Intro talk (≈ 30 mins)** — key concepts, common pitfalls, decisions to make.
+2. **Team work (≈ 120 mins)** — you execute; AI assists; I circulate.
+3. **Group discussion (≈ 50 mins)** — share what worked, compare approaches, debrief.
+
+------------------------------------------------------------------------
+
+## WEEK 11 — Data Collection & Description
+
+### Learning objectives
+
+By the end of this week your team will:
+
+- Identify reliable data sources for your chosen country/league.
+- Collect 10+ years of **match-level** and **manager-change** data.
+- Structure and document the dataset with explicit quality checks.
+- Be honest about what is missing and how it limits the later analysis.
+
+### Required dataset components
+
+::::: {.week-card .card}
+::: card-header
+📊 **Core dataset components**
+:::
+
+::: card-body
+
+| Component | Details | ☐ |
+|---|---|---|
+| **Game results** | Date, home team, away team, goals, gameweek, season | ☐ |
+| **Manager changes** | Date of change, incoming manager, previous manager, team | ☐ |
+| **Manager characteristics** | Age, experience in league, international experience, previous clubs | ☐ |
+| **Team information** | Budget or squad value (if available), historical performance, league | ☐ |
+| **Data documentation** | Schema, sources, number of observations, quality notes | ☐ |
+| **Quality assurance** | No missing critical fields, consistent dates, no duplicates, standardized team names | ☐ |
 :::
 :::::
-::::::
+
+### Work tasks (2-hour block)
+
+::::: {.week-card .card}
+::: card-header
+🎯 **What you'll do**
+:::
+
+::: card-body
+
+1. **Discuss in teams** — Which country/league? What sources exist? What is realistic in 2 hours?
+2. **Self-interview** — have your AI ask *you* clarifying questions before it writes code. (See [Designing Larger Analytics Projects](../da-knowledge/designing-projects.qmd#let-ai-interview-you-before-it-codes).)
+3. **Plan** — a short written `PLAN.md`: sources, primary key, joins, tests, owner per task.
+4. **Execute** — scrape / download / compile from your sources.
+5. **Test** — all three kinds: data tests, data-describe, code tests. See the [testing section](../da-knowledge/designing-projects.qmd#three-kinds-of-tests) for what each means in practice.
+6. **Understand the data you have** — coverage: how many manager changes? how complete? what is missing for small clubs or early seasons?
+
+:::
+:::::
+
+### Data-source starting points
+
+- **Match results & squads:** FBref (Sports Reference), Understat, Transfermarkt, Flashscore, Wikipedia per-season pages.
+- **Manager history:** Transfermarkt manager pages, Wikipedia manager tenure tables, league official sites.
+- **Aggregators with APIs:** Football-Data.co.uk (CSV dumps per season), StatsBomb Open Data (select leagues).
+
+You are expected to **evaluate** each source (reliability, coverage, licence, cost) before committing.
+
+### Discussion (last hour)
+
+- **Data quality** — What missing/outliers? What does your sample *not* cover?
+- **Cross-country variation** — How does availability change across leagues?
+- **Tests** — What failed? What did the failure reveal about your assumptions?
+- **Code quality** — Functions vs scripts; what did you mock; how reproducible is the collection step?
+- **Next week readiness** — Is the dataset stable enough to join news onto it?
+
+------------------------------------------------------------------------
+
+## Delivery (Week 11)
+
+::::: {.week-card .card}
+::: card-header
+📦 **What to hand in**
+:::
+
+::: card-body
+
+- **Who:** by **group** — you finish what you started in class together.
+- **Deadline:** **Sunday 23:55** (the Sunday after this session).
+- **Where:** your team's GitHub repo for the hack.
+- **What:**
+  - Raw data (or a script that fetches it reproducibly) + processed dataset.
+  - A short `DATA.md` describing each table, source, schema, and known issues.
+  - Test files (data tests, data-describe checks, code tests).
+  - A one-page `PLAN_NEXT.md`: what you will need next week to join news on top.
+
+:::
+:::::

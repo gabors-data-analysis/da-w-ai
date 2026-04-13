@@ -46,11 +46,16 @@ website:
             href: week09/index.qmd
           - text: "Week 10: AI Research: IV"
             href: week10/index.qmd
-          - text: "Week 11: AI Research: DiD"
+
+      - section: "Zero to Hero Data Hack"
+        contents:
+          - text: "Week 11: Project & Data Collection"
             href: week11/index.qmd
-          - text: "Week 12: Dashboards and Apps"
+          - text: "Week 12: Text to Expectations"
             href: week12/index.qmd
-          
+          - text: "Week 13: DiD & Final Presentation"
+            href: week13/index.qmd
+
       - section: "Case Studies"
         contents:
           - text: "World Values Survey"
@@ -68,6 +73,8 @@ website:
 
       - section: "Resources"
         contents:
+          - text: "Designing Larger Analytics Projects"
+            href: da-knowledge/designing-projects.qmd
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
           - text: "Which AI model"

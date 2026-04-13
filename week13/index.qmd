@@ -1,0 +1,170 @@
+---
+title: "Week 13: Zero to Hero Data Hack — Difference-in-Differences & Final Report"
+subtitle: "Causal design on your panel, heterogeneity by expectations, final presentation"
+date: "2026-05-04"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Week 13: DiD Analysis & Final Presentation
+:::
+
+::: {.hero-subtitle}
+Session 3 of the Zero-to-Hero Data Hack — from panel to causal claim to slides
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Where we are
+
+- **Week 11 →** match + manager-change panel.
+- **Week 12 →** expectation score per change.
+- **Week 13 (today) →** run a **Difference-in-Differences** (DiD) analysis, explore heterogeneity (including by expectations), and present your findings.
+
+------------------------------------------------------------------------
+
+## Learning objectives
+
+By the end of this week your team will:
+
+- Understand DiD as a tool for this exact question, and its main assumptions.
+- Specify a DiD that treats manager-change teams as treated and never-changed (or not-yet-changed) teams as controls.
+- Report a main effect with confidence intervals, a heterogeneity slice, and an expectations-vs-reality comparison.
+- Deliver a clean 10–12 minute presentation.
+
+------------------------------------------------------------------------
+
+## DiD in one page (draft — use AI to go deeper)
+
+This is a **stub**. Treat it as the minimum vocabulary to work with your AI helper. Use the intro block to plug gaps, then have your AI explain the rest *in context of your panel*.
+
+::::: {.week-card .card}
+::: card-header
+📐 **Key concepts**
+:::
+
+::: card-body
+
+- **Treatment** — the event whose effect you want to measure. Here: a manager change.
+- **Treated unit** — a team that experiences a manager change. **Control unit** — a team that does not (in the same window).
+- **Pre / post** — periods before vs after the change.
+- **DiD estimator** — the difference *between treated and control* in the *change* from pre to post. In plain words: how much more (or less) did the treated teams' performance move than the control teams'?
+- **Two-way fixed effects** (team FE + time FE) — the standard panel regression that, under conditions, recovers the DiD.
+- **Event-study spec** — one coefficient per lead / lag around the event, to *see* the dynamics instead of a single number.
+- **Staggered treatment** — different teams get treated at different times. Modern issue: simple two-way FE can be biased here; look up Callaway-Sant'Anna, de Chaisemartin-D'Haultfoeuille, or Sun-Abraham.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+⚠️ **Three key challenges**
+:::
+
+::: card-body
+
+1. **Parallel trends.** DiD assumes treated and control teams would have moved in parallel absent the change. Plot pre-treatment trends. If they diverge, you have a problem — address it or say so.
+2. **Selection / endogeneity.** Managers are not sacked at random. Teams change managers *because* they are doing badly — you are likely picking up mean reversion, not manager skill. Think carefully about the control group, the window, and what your coefficient is really measuring.
+3. **Staggered timing.** Teams change managers at different moments over 10 seasons. A naive two-way FE can give you a number that is not the average treatment effect you think it is. Acknowledge this, and use (or at least mention) a staggered-DiD estimator.
+
+:::
+:::::
+
+::: {.callout-tip}
+Use AI to learn the details — ask for worked mini-examples in *your* setup: "I have a team-week panel with variable X, treatment at irregular times; walk me through a Callaway-Sant'Anna estimator in Python/R." Then check the code, don't just run it.
+:::
+
+------------------------------------------------------------------------
+
+## Work tasks (2-hour block)
+
+::::: {.week-card .card}
+::: card-header
+🔬 **Analysis workflow**
+:::
+
+::: card-body
+
+1. **Plan the spec** in writing before any code:
+   - Outcome (points per game? goal difference? rolling form?)
+   - Unit (team-week? team-match?)
+   - Treatment definition (new manager's first match? the announcement date?)
+   - Window (how many matches pre/post?)
+   - Controls (team FE, season FE, opponent strength?)
+2. **Test on a subset** (one league, two seasons) — get the plumbing right.
+3. **Plot parallel trends** for treated vs control.
+4. **Estimate** the main DiD coefficient with a proper standard error (cluster by team).
+5. **Event study** — leads and lags around the change.
+6. **Heterogeneity** — interact treatment with manager experience, team budget, league, and **your Week 12 expectation score**.
+7. **Robustness** — different outcome, window, control group; staggered-DiD estimator if feasible.
+8. **Draft the slides** while the code runs — don't leave slides for the last 15 minutes.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Presentation (last hour of class)
+
+::::: {.week-card .card}
+::: card-header
+🎤 **10–12 minutes + Q&A per team**
+:::
+
+::: card-body
+
+Refer back to the presentation principles we discussed in [Week 07 review](../week07/index.qmd) and the Week 06 "report vs vibe report" contrast: **less is more**, show only what you understand deeply, precise interpretation beats fancy graphs.
+
+**Slide outline**
+
+1. **Question & context** — league, time span, why it matters.
+2. **Data & sample** — number of matches, number of manager changes, known gaps.
+3. **Identification** — DiD; what is treatment, what is control; parallel-trends plot.
+4. **Main result** — coefficient + 95% CI + plain-English interpretation.
+5. **Heterogeneity** — by manager / team / league; one clear chart.
+6. **Expectations vs reality** — do positive-news changes deliver bigger gains?
+7. **Limitations** — selection, staggered timing, data gaps. Be honest.
+
+**Format options:** Quarto HTML slides, Google Slides, or a short dashboard. Whichever you pick, the repo must reproduce the numbers on the slides.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Delivery (Week 13 — end of the hack)
+
+::::: {.week-card .card}
+::: card-header
+📦 **Final submission**
+:::
+
+::: card-body
+
+- **Who:** by **group** — the same team you started with in Week 11. Finish what you started together in the session.
+- **Deadline:** **Sunday 23:55** (the Sunday after this session).
+- **What:**
+  - GitHub repo with: data (or fetcher), Week 11 tests, Week 12 article + expectations tables, Week 13 analysis code.
+  - `README.md` describing how to reproduce all numbers end to end.
+  - Slides (as used in class, possibly polished).
+  - `DATA.md` and a short `METHODS.md` explaining the DiD spec, parallel-trends check, and the robustness you ran.
+  - **Individual reflection (1–2 pages per person)**: hardest part and how you solved it, what you would do differently, how labour was split.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Evaluation
+
+You will be evaluated on:
+
+1. **Data quality** — required elements collected, documented, tested.
+2. **News classification** — coverage of changes, validated classification, reproducible prompt.
+3. **Causal identification** — appropriate method, assumptions stated and checked where possible.
+4. **Heterogeneity & expectations** — meaningful comparisons, expectations-vs-reality done rigorously.
+5. **Reproducibility** — somebody else can `git clone` and rerun.
+6. **Presentation** — clarity for a peer audience, honest about limits.
