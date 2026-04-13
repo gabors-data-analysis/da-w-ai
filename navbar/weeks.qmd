@@ -81,12 +81,24 @@ Case study: [Football Manager Interviews](../case-studies/interviews/)
 [Content](../week10/)
 
 
-## Week11: AI as research companion: Differences in differences
+# Zero to Hero Data Hack (Weeks 11–13)
 
-TBA
+Three-session team project on manager changes in football. One big research question, messy real-world data, AI as your primary teammate.
 
-## Week12: Creating simulations with apps and dashboards
+## Week11: Project intro + Data collection & description
+
+Frame the project, pick a league, collect and document 10+ seasons of match and manager-change data.
+
+[Content](../week11/)
+
+## Week12: From text to expectations (APIs)
+
+Scrape news sources and use an LLM API to score expectations around each manager change.
 
 [Content](../week12/)
 
-TBA
+## Week13: Difference-in-Differences analysis + final presentation
+
+Run a DiD on your panel, explore heterogeneity (including by expectation score), and present to the class.
+
+[Content](../week13/)

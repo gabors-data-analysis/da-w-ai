@@ -75,6 +75,8 @@ This is a **stub**. Treat it as the minimum vocabulary to work with your AI help
 
 ::: {.callout-tip}
 Use AI to learn the details — ask for worked mini-examples in *your* setup: "I have a team-week panel with variable X, treatment at irregular times; walk me through a Callaway-Sant'Anna estimator in Python/R." Then check the code, don't just run it.
+
+A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/week13/assets/did-understand-prompt.txt).
 :::
 
 ------------------------------------------------------------------------

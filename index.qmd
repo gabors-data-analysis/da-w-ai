@@ -199,15 +199,15 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 [Content](week10/)
 
 
-**Week11**: AI as research companion: Differences in differences
+### Zero to Hero Data Hack (Weeks 11–13)
 
-TBA
+A three-session team project on manager changes in football: collect data, build a news-based expectation score with APIs, and run a Difference-in-Differences analysis.
 
-**Week12**: Creating simulations with apps and dashboards
+**Week 11**: Project intro + data collection & description — [Content](week11/)
 
-[Content](week12/)
+**Week 12**: From text to expectations (scraping + LLM APIs) — [Content](week12/)
 
-TBA
+**Week 13**: Difference-in-Differences analysis + final presentation — [Content](week13/)
 
 
 ## Learn more
