@@ -20,9 +20,13 @@ Project intro + data collection: building a match-and-manager dataset
 
 ## The Project: Manager Impact in Football
 
-After ten weeks of guided exercises, the capstone project is a **three-session team project** with one broad research question, messy real-world data, and AI as your primary teammate.
+After ten weeks of guided exercises, the capstone project is a **three-session team project** with one broad research question, messy real-world data, and AI as a teammate.
 
 **Research question:** *Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?*
+
+Your audience is heads of data science at sports clubs with strong background in econometrics. Your goal is to produce a rigorous, reproducible analysis that sheds light on the true impact of managerial changes in football. 
+
+You will make decisions, be assertive and transparent. 
 
 ### Why this project
 
@@ -50,6 +54,10 @@ Your task is to answer the research question above by collecting, combining, and
 2. Which **types of managers**  show larger or smaller effects?
 3. Which **types of teams**  respond more?
 4. Do **expectations from news** match the actual performance change?
+
+### Open questions
+
+* Anything not specified is open. You can consult each other and AI, and the team shall make decisions. 
 
 ### Sessions at a glance
 
