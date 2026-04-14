@@ -21,7 +21,7 @@ From text to expectations — scrape, call an API, score expectations
 ## Where we are
 
 - **Session 1 →** you have a cleaned match + manager-change dataset.
-- **Session 2 (today) →** for each manager change, you build a **news-based expectation signal**: was the incoming manager received positively or negatively *before* the performance shows up on the pitch?
+- **Session 2 (today) →** for each manager change, you build a **news-based expectation signal**: how much was an imminent change expected? 
 - **Session 3 →** you use that signal as a moderator in the DiD analysis.
 
 The point is not to teach NLP from scratch — we did that in [Week 07](../week07/index.qmd). The point is to scale it with **APIs** and plug the output back into your panel.
@@ -109,6 +109,7 @@ If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before yo
 **1. Find news sources**
 
 - Aim for ≥ 2 credible outlets per country.
+- Think about English vs local language news outlets.
 - Prefer sources with **RSS** or a simple URL pattern — you'll thank yourself tomorrow.
 - Mix national and league-specific / tabloid and broadsheet: drama lives in tabloids, context lives in broadsheets.
 
@@ -116,7 +117,7 @@ If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before yo
 
 - **Google News RSS** (with a manager name in the query) is the fastest start.
 - If the source has team-specific RSS feeds, prefer those.
-- Expected scale: ~20 teams × 2 sources ≈ **1,000–1,600 articles / season**.
+- Expected scale per season: ~20 teams × 2 sources ≈ **200–1,000 articles / season**.
 
 **3. Scrape clean text**
 
@@ -125,18 +126,19 @@ If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before yo
 
 **4. Classify via LLM API**
 
-- Categories: **Positive / Neutral / Negative** expectations (keep it simple).
-- Prompt design — the hard part:
-  - Instruct the model to **ignore match-result reporting** (results are already in your panel).
-  - Ask for **structured output** (JSON with `score`, `confidence`, `reason`).
-  - Return `null` for articles that are not about the change.
-- Validate on 20 hand-labelled articles before scaling.
+- Call an LLM (OpenAI, Anthropic, …) via API to score each article's **expectation about the incoming manager**.
+- Consult AI on how to create a prompt for such an exercise
+- Design a clear prompt — think about:
+  - What scale or label set best captures "expectation"?
+  - How should irrelevant articles be handled?
+  - What output format makes downstream parsing easiest?
+- **Validate before scaling:** hand-label ~20 articles yourself, run them through the prompt, and compare. Aim for ≥ 80 % agreement; if you're below that, revise the prompt before classifying the full set.
 
 **5. Aggregate to one row per manager change**
 
-- Window: 1 month before → 3 months after the change.
-- Aggregator: mean, max, or count of each category. Document the choice.
-- Output: a small table keyed on `(team, change_date)` ready to merge into the Session 3 DiD.
+- How should you go from many article-level scores to something you can use in the DiD analysis?
+- What additional summary statistics (e.g., coverage, dispersion) might be useful for the analysis?
+- The end product should be a table you can merge with your match + manager-change panel from Session 1.
 
 :::
 :::::
