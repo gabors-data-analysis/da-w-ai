@@ -36,7 +36,7 @@ At the end of all classes, instructors and students should always consider these
 
 The course focuses on using large language models (LLMs — ChatGPT, Claude, Gemini, Le Chat and others) to **carry out tasks in data analysis**: data extraction and wrangling, exploration and description, reporting, and turning text into data. It ends with a three-session **capstone project** where small teams build a full analysis from scratch.
 
-There are three **case studies** used across the weekly material: (1) a simulated set of data tables on hotels in Austria, (2) the World Values Survey, and (3) a series of interview texts. The capstone adds a fourth: football manager changes.
+There are several **case studies** used across the weekly material. We have simulated set of data tables on hotels in Austria, work with the World Values Survey, and a series of interview texts. 
 
 The course material includes weekly practice **assignments** and a [learning-more collection](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
 
@@ -45,7 +45,7 @@ The course material includes weekly practice **assignments** and a [learning-mor
 
 You need a background in **Data Analysis / Econometrics**, a good introductory course is enough. I, *of course*, suggest Chapters 1-12 and 19 of [Data Analysis for Business, Economics and Policy (Cambridge UP, 2021)](https://gabors-data-analysis.com/getting-started). Full slideshows, data and code are open source. But consider buying the book!🤝 
 
-In particular, the course builds on [Chapters 1-6 and 7-10, and 19 of Data Analysis ](https://gabors-data-analysis.com/chapter-details/) but other Introductory Econometrics + basics of data science knowledge is ok.
+In particular, the course builds on [Chapters 1-6 and 7-10, and 19 and 22-24 of Data Analysis ](https://gabors-data-analysis.com/chapter-details/) but other Introductory Econometrics + basics of data science knowledge is ok.
 
 ### Background: coding
 
@@ -68,7 +68,7 @@ Key outcomes. By the end of the course, students will be able to
 
 ### Target audience
 
-This is a course aimed at 3rd (2nd?) year BA and MA students in any program with required background. Economics, Quantitative Social science, Political Science, Sociology, History. To be frank, all students shall learn data analysis and be comfortable using AI. 
+This is a course aimed at college students in any program who already have the required background. Economics, Quantitative Social science, Political Science, Sociology, History. To be frank, all students shall learn data analysis and be comfortable using AI. 
 
 But, anyone can use it with adequate background. 
 
@@ -190,7 +190,7 @@ You can fork it from the Github Repo.  [github.com/gabors-data-analysis/da-w-ai/
 
 ## Thanks
 
-**Thanks:** Developed mostly by [me, Gábor Békés](https://sites.google.com/site/bekesg/) Thanks a million to the two wonderful human RAs, [Ms Zsuzsanna Vadle](https://bsky.app/profile/zsuzsannavadle.bsky.social) and [Mr Kenneth Colombe](https://bsky.app/profile/kcolombe24.bsky.social), both Phd students. Also thanks to [Adam Víg], long term collaborator now at Google. Thanks to Claude and ChatGPT to craft pages, improve consisency, create the simulated dataset. They helped create the slideshows and educated *me* on a bunch of topics like reinforcement learning or NLP. This is a beautiful example of collaboration with great young people while heavily benefiting from advanced AI. Thanks for [Quarto](https://quarto.org/) -- it was all drafted and written in Quarto and Rstudio by Posit. Plus all the love from Github. 
+**Thanks:** Developed mostly by [me, Gábor Békés](https://sites.google.com/site/bekesg/) Thanks a million to the two wonderful human RAs, [Ms Zsuzsanna Vadle](https://bsky.app/profile/zsuzsannavadle.bsky.social) and [Mr Kenneth Colombe](https://bsky.app/profile/kcolombe24.bsky.social), both Phd students. Also thanks to [Adam Víg](https://www.linkedin.com/in/adam-vig-250729196/), long term collaborator now at Google. Thanks to Claude and ChatGPT to craft pages, improve consistency, create the simulated dataset. They helped create the slideshows and educated *me* on a bunch of topics like reinforcement learning or NLP. This is a beautiful example of collaboration with great young people while heavily benefiting from advanced AI. Thanks for [Quarto](https://quarto.org/) -- it was all drafted and written in Quarto and Rstudio by Posit. Plus all the love from Github. 
 
 Thanks for CEU's teaching grant that allowed me pay people and AI. 
 

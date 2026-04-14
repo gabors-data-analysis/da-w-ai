@@ -40,12 +40,14 @@ By the end of this session your team will:
 
 ::: card-body
 
+You will need six datasets. Details are up to you, here are some examples. 
+
 | Component | Details | ☐ |
 |---|---|---|
-| **Game results** | Date, home team, away team, goals, gameweek, season | ☐ |
-| **Manager changes** | Date of change, incoming manager, previous manager, team | ☐ |
-| **Manager characteristics** | Age, experience in league, international experience, previous clubs | ☐ |
-| **Team information** | Budget or squad value (if available), historical performance, league | ☐ |
+| **Game results** | Date, home team, away team, goals, league, season | ☐ |
+| **Managers** | date, team, manager | ☐ |
+| **Manager characteristics** | Age, experience, nationality, etc  | ☐ |
+| **Team information** | team, season, location, quality, etc | ☐ |
 | **Data documentation** | Schema, sources, number of observations, quality notes | ☐ |
 | **Quality assurance** | No missing critical fields, consistent dates, no duplicates, standardized team names | ☐ |
 :::
@@ -62,7 +64,7 @@ By the end of this session your team will:
 
 ::: card-body
 
-1. **Discuss in teams** — Which country/league? What sources exist? What is realistic in 2 hours?
+1. **Discuss in teams** — Which country/league? What sources exist? 
 2. **Self-interview** — have your AI ask *you* clarifying questions before it writes code. (See [Designing Larger Analytics Projects](../da-knowledge/designing-projects.qmd#let-ai-interview-you-before-it-codes).)
 3. **Plan** — a short written `PLAN.md`: sources, primary key, joins, tests, owner per task.
 4. **Execute** — scrape / download / compile from your sources.
@@ -72,23 +74,24 @@ By the end of this session your team will:
 :::
 :::::
 
-### Data-source starting points
+### Data descriptive statistics
 
-- **Match results & squads:** FBref (Sports Reference), Understat, Transfermarkt, Flashscore, Wikipedia per-season pages.
-- **Manager history:** Transfermarkt manager pages, Wikipedia manager tenure tables, league official sites.
-- **Aggregators with APIs:** Football-Data.co.uk (CSV dumps per season), StatsBomb Open Data (select leagues).
+You are expected to **evaluate** data quality and understand key characteristics of your dataset. 
 
-You are expected to **evaluate** each source (reliability, coverage, licence, cost) before committing.
+Basically create a few important exhibits that describe the data you have. 
 
-------------------------------------------------------------------------
+
+
+-----------------------------------------------------------------------
 
 ## Discussion (last hour)
 
-- **Data quality** — What missing/outliers? What does your sample *not* cover?
+- **Team work** — How did you divide the work? What worked well? What was hard?
+- **Data quality** 
 - **Cross-country variation** — How does availability change across leagues?
-- **Tests** — What failed? What did the failure reveal about your assumptions?
-- **Code quality** — Functions vs scripts; what did you mock; how reproducible is the collection step?
-- **Next session readiness** — Is the dataset stable enough to join news onto it?
+- **Tests** — What failed? What do you plan?
+- **How far ahead** -- what is left to do
+- **Next session readiness** — API, clear UIDs. 
 
 ------------------------------------------------------------------------
 
@@ -103,12 +106,13 @@ You are expected to **evaluate** each source (reliability, coverage, licence, co
 
 - **Who:** by **group** — you finish what you started in class together.
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
-- **Where:** your team's GitHub repo for the project.
+- **Where:** your team's GitHub repo for the project. (please keep private for now, share with us)
 - **What:**
   - Raw data (or a script that fetches it reproducibly) + processed dataset.
   - A short `DATA.md` describing each table, source, schema, and known issues.
   - Test files (data tests, data-describe checks, code tests).
-  - A one-page `PLAN_NEXT.md`: what you will need in Session 2 to join news on top.
+  - Data description (any way, notebook or html) with key statistics and exhibits describing the data you have.
+  
 
 :::
 :::::
