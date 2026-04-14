@@ -1,5 +1,5 @@
 ---
-title: "Week 12: Zero to Hero Data Hack — From Text to Expectations"
+title: "Capstone Project — Session 2: From Text to Expectations"
 subtitle: "Collect news, call an AI API, turn articles into a per-change expectation score"
 date: "2026-04-27"
 ---
@@ -7,11 +7,11 @@ date: "2026-04-27"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-title}
-Week 12: From Text to Expectations
+Capstone Project — Session 2
 :::
 
 ::: {.hero-subtitle}
-Session 2 of the Zero-to-Hero Data Hack — scrape, call an API, score expectations
+From text to expectations — scrape, call an API, score expectations
 :::
 ::::::
 :::::::
@@ -20,9 +20,9 @@ Session 2 of the Zero-to-Hero Data Hack — scrape, call an API, score expectati
 
 ## Where we are
 
-- **Week 11 →** you have a cleaned match + manager-change dataset.
-- **Week 12 (today) →** for each manager change, you build a **news-based expectation signal**: was the incoming manager received positively or negatively *before* the performance shows up on the pitch?
-- **Week 13 →** you use that signal as a moderator in the DiD analysis.
+- **Session 1 →** you have a cleaned match + manager-change dataset.
+- **Session 2 (today) →** for each manager change, you build a **news-based expectation signal**: was the incoming manager received positively or negatively *before* the performance shows up on the pitch?
+- **Session 3 →** you use that signal as a moderator in the DiD analysis.
 
 The point is not to teach NLP from scratch — we did that in [Week 07](../week07/index.qmd). The point is to scale it with **APIs** and plug the output back into your panel.
 
@@ -61,7 +61,7 @@ We **skip** the sentiment-scale exercises from Weeks 07–08 — you already did
 
 ## APIs: what you need this week
 
-APIs come up twice in this session: **news/data APIs** (to get articles) and **LLM APIs** (to classify them). You already saw these referenced in [Week 08](../week08/index.qmd); the essentials move here.
+APIs come up twice in this session: **news/data APIs** (to get articles) and **LLM APIs** (to classify them). You already saw these in [Week 08](../week08/index.qmd); the key references are in the [Knowledge Base](../navbar/resources.html).
 
 ::::: {.week-card .card}
 ::: card-header
@@ -136,7 +136,7 @@ If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before yo
 
 - Window: 1 month before → 3 months after the change.
 - Aggregator: mean, max, or count of each category. Document the choice.
-- Output: a small table keyed on `(team, change_date)` ready to merge into the Week 13 DiD.
+- Output: a small table keyed on `(team, change_date)` ready to merge into the Session 3 DiD.
 
 :::
 :::::
@@ -175,11 +175,11 @@ This is a lot of work for a 2-hour block. **Scope down on purpose**:
 - **Classification quality** — Where did the model disagree with you on hand-labelled cases? Why?
 - **Prompt engineering** — Share one prompt change that noticeably improved output.
 - **Cost & reproducibility** — How many articles did you classify? What did it cost? Could somebody else rerun it from your repo?
-- **Into Week 13** — Is your `(team, change_date) → expectation_score` table ready to merge into the panel?
+- **Into Session 3** — Is your `(team, change_date) → expectation_score` table ready to merge into the panel?
 
 ------------------------------------------------------------------------
 
-## Delivery (Week 12)
+## Delivery (Session 2)
 
 ::::: {.week-card .card}
 ::: card-header
@@ -188,7 +188,7 @@ This is a lot of work for a 2-hour block. **Scope down on purpose**:
 
 ::: card-body
 
-- **Who:** by **group** — continue with your Week 11 team and repo; finish what you started in the session.
+- **Who:** by **group** — continue with your Session 1 team and repo; finish what you started in the session.
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
 - **What:**
   - Article table (one row per article) + classification table (one row per article with score + reason).

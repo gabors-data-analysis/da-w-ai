@@ -47,14 +47,14 @@ website:
           - text: "Week 10: AI Research: IV"
             href: week10/index.qmd
 
-      - section: "Zero to Hero Data Hack"
+      - section: "Capstone Project"
         contents:
-          - text: "Week 11: Project & Data Collection"
-            href: week11/index.qmd
-          - text: "Week 12: Text to Expectations"
-            href: week12/index.qmd
-          - text: "Week 13: DiD & Final Presentation"
-            href: week13/index.qmd
+          - text: "Session 1: Data Collection"
+            href: project01/index.qmd
+          - text: "Session 2: Text to Expectations"
+            href: project02/index.qmd
+          - text: "Session 3: DiD & Presentation"
+            href: project03/index.qmd
 
       - section: "Case Studies"
         contents:

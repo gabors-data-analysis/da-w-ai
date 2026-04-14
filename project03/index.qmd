@@ -1,5 +1,5 @@
 ---
-title: "Week 13: Zero to Hero Data Hack — Difference-in-Differences & Final Report"
+title: "Capstone Project — Session 3: Difference-in-Differences & Final Presentation"
 subtitle: "Causal design on your panel, heterogeneity by expectations, final presentation"
 date: "2026-05-04"
 ---
@@ -7,11 +7,11 @@ date: "2026-05-04"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-title}
-Week 13: DiD Analysis & Final Presentation
+Capstone Project — Session 3
 :::
 
 ::: {.hero-subtitle}
-Session 3 of the Zero-to-Hero Data Hack — from panel to causal claim to slides
+DiD analysis, heterogeneity, and final presentation
 :::
 ::::::
 :::::::
@@ -20,15 +20,15 @@ Session 3 of the Zero-to-Hero Data Hack — from panel to causal claim to slides
 
 ## Where we are
 
-- **Week 11 →** match + manager-change panel.
-- **Week 12 →** expectation score per change.
-- **Week 13 (today) →** run a **Difference-in-Differences** (DiD) analysis, explore heterogeneity (including by expectations), and present your findings.
+- **Session 1 →** match + manager-change panel.
+- **Session 2 →** expectation score per change.
+- **Session 3 (today) →** run a **Difference-in-Differences** (DiD) analysis, explore heterogeneity (including by expectations), and present your findings.
 
 ------------------------------------------------------------------------
 
 ## Learning objectives
 
-By the end of this week your team will:
+By the end of this session your team will:
 
 - Understand DiD as a tool for this exact question, and its main assumptions.
 - Specify a DiD that treats manager-change teams as treated and never-changed (or not-yet-changed) teams as controls.
@@ -76,7 +76,7 @@ This is a **stub**. Treat it as the minimum vocabulary to work with your AI help
 ::: {.callout-tip}
 Use AI to learn the details — ask for worked mini-examples in *your* setup: "I have a team-week panel with variable X, treatment at irregular times; walk me through a Callaway-Sant'Anna estimator in Python/R." Then check the code, don't just run it.
 
-A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/week13/assets/did-understand-prompt.txt).
+A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/project03/assets/did-understand-prompt.txt).
 :::
 
 ------------------------------------------------------------------------
@@ -100,7 +100,7 @@ A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/week1
 3. **Plot parallel trends** for treated vs control.
 4. **Estimate** the main DiD coefficient with a proper standard error (cluster by team).
 5. **Event study** — leads and lags around the change.
-6. **Heterogeneity** — interact treatment with manager experience, team budget, league, and **your Week 12 expectation score**.
+6. **Heterogeneity** — interact treatment with manager experience, team budget, league, and **your Session 2 expectation score**.
 7. **Robustness** — different outcome, window, control group; staggered-DiD estimator if feasible.
 8. **Draft the slides** while the code runs — don't leave slides for the last 15 minutes.
 
@@ -137,7 +137,7 @@ Refer back to the presentation principles we discussed in [Week 07 review](../we
 
 ------------------------------------------------------------------------
 
-## Delivery (Week 13 — end of the hack)
+## Delivery (Session 3 — end of the project)
 
 ::::: {.week-card .card}
 ::: card-header
@@ -146,10 +146,10 @@ Refer back to the presentation principles we discussed in [Week 07 review](../we
 
 ::: card-body
 
-- **Who:** by **group** — the same team you started with in Week 11. Finish what you started together in the session.
+- **Who:** by **group** — the same team you started with in Session 1. Finish what you started together in the session.
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
 - **What:**
-  - GitHub repo with: data (or fetcher), Week 11 tests, Week 12 article + expectations tables, Week 13 analysis code.
+  - GitHub repo with: data (or fetcher), Session 1 tests, Session 2 article + expectations tables, Session 3 analysis code.
   - `README.md` describing how to reproduce all numbers end to end.
   - Slides (as used in class, possibly polished).
   - `DATA.md` and a short `METHODS.md` explaining the DiD spec, parallel-trends check, and the robustness you ran.

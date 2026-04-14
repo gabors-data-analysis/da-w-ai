@@ -1,5 +1,5 @@
 ---
-title: "Week 11: Zero to Hero Data Hack — Project Intro & Data Collection"
+title: "Capstone Project — Session 1: Project Intro & Data Collection"
 subtitle: "Football managers: collect, combine and describe a match-and-manager dataset"
 date: "2026-04-13"
 ---
@@ -7,11 +7,11 @@ date: "2026-04-13"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-title}
-Week 11: Zero to Hero Data Hack
+Capstone Project — Session 1
 :::
 
 ::: {.hero-subtitle}
-Project intro + Session 1 — collecting, combining and describing data on football managers
+Project intro + data collection: building a match-and-manager dataset
 :::
 ::::::
 :::::::
@@ -20,17 +20,20 @@ Project intro + Session 1 — collecting, combining and describing data on footb
 
 ## The Project: Manager Impact in Football
 
-For weeks 11–13 we leave the neat, pre-cleaned case studies behind and run a **three-session data hack**: one broad research question, messy real-world data, and AI as your primary teammate.
+After ten weeks of guided exercises, the capstone project is a **three-session team project** with one broad research question, messy real-world data, and AI as your primary teammate.
 
 **Research question:** *Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?*
 
 ### Why this project
 
-- It is **specific** (one domain, concrete data) but **broad** (no exact steps given to you).
+- It is **specific** (one domain, concrete RQ) but **broad** (no exact steps given to you).
 - You will have to **plan**, **layer tasks with AI**, and **decide** — not just follow a recipe.
-- Before you start, read the companion page **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** — it covers the mindsets, self-interview, `agents.md` file, and the three kinds of tests you'll use all three weeks.
+- Before you start, we'll go over the companion page **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** — it covers the mindsets, self-interview, `agents.md` file, and the three kinds of tests you'll use all three weeks.
 
-### Scope
+### Task and Scope
+
+Your task is to answer the research question above by collecting, combining, and analyzing data on football matches and manager changes. There will be 3 member teams each picking a country. 
+
 
 | Dimension | Choice |
 |---|---|
@@ -38,10 +41,10 @@ For weeks 11–13 we leave the neat, pre-cleaned case studies behind and run a *
 | League tier | First division only |
 | Countries (pick one per team) | Spain, Italy, France, Germany, Turkey, Scotland, Portugal, Netherlands, Poland, Ukraine, Russia, or another you can defend |
 | Time horizon | 10+ seasons of historical data |
-| Weekly deliverables | Reproducible repo and READMEs |
-| Final deliverable | Reproducible repo + ~12-minute presentation |
+| Week 1, 2 deliverable | Data, scripts, reproducible repo and READMEs |
+| Week 3 | Full project repo + ~12-minute presentation |
 
-### Key questions to answer by Week 13
+### Key questions to answer by Week 3
 
 1. What is the **average** effect of a manager change on team performance?
 2. Which **types of managers**  show larger or smaller effects?
@@ -50,11 +53,11 @@ For weeks 11–13 we leave the neat, pre-cleaned case studies behind and run a *
 
 ### Sessions at a glance
 
-| Week | Focus | Deliverable by Sunday 23:55 |
+| Session | Focus | Deliverable by Sunday 23:55 |
 |---|---|---|
-| **11** | Data collection, combination, description | Documented dataset + QA notes |
-| **12** | Text → expectations (APIs, scraping) | Article corpus + per-change expectation score |
-| **13** | DiD analysis + heterogeneity + presentation | Results, slides, repo |
+| **1** | Data collection, combination, description | Documented dataset + QA notes |
+| **2** | Text → expectations (APIs, scraping) | Article corpus + per-change expectation score |
+| **3** | DiD analysis + heterogeneity + presentation | Results, slides, repo |
 
 ------------------------------------------------------------------------
 
@@ -68,7 +71,7 @@ Each 200-minute session runs the same shape:
 
 ------------------------------------------------------------------------
 
-## WEEK 11 — Data Collection & Description
+## Session 1 — Data Collection & Description
 
 ### Learning objectives
 
@@ -136,7 +139,7 @@ You are expected to **evaluate** each source (reliability, coverage, licence, co
 
 ------------------------------------------------------------------------
 
-## Delivery (Week 11)
+## Delivery (Session 1)
 
 ::::: {.week-card .card}
 ::: card-header
@@ -147,12 +150,12 @@ You are expected to **evaluate** each source (reliability, coverage, licence, co
 
 - **Who:** by **group** — you finish what you started in class together.
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
-- **Where:** your team's GitHub repo for the hack.
+- **Where:** your team's GitHub repo for the project.
 - **What:**
   - Raw data (or a script that fetches it reproducibly) + processed dataset.
   - A short `DATA.md` describing each table, source, schema, and known issues.
   - Test files (data tests, data-describe checks, code tests).
-  - A one-page `PLAN_NEXT.md`: what you will need next week to join news on top.
+  - A one-page `PLAN_NEXT.md`: what you will need in Session 2 to join news on top.
 
 :::
 :::::

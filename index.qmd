@@ -1,8 +1,8 @@
 ---
-title: "Doing Data Analysis with AI"
-subtitle: "A short(ish) course"
+title: "Data Analysis with AI"
+subtitle: "A comprehensive course"
 author: "[Gábor Békés](https://sites.google.com/site/bekesg/), Central European University (Austria, EU)"
-date: "2026-01-30"
+date: "2026-04-14"
 ---
 
 ![Gabor's Data Analysis with AI](images/gabors-data-analysis-with-ai.png)
@@ -13,7 +13,7 @@ This course will equip students, who are already versed in core data analysis me
 
 As AI becomes more and more powerful, it is also important to provide a platform to **discuss human agency in data analysis**. So a key element of the course and its instructor to lead discussions on the role of AI and humans in various aspects of data analysis. 
 
-**This is the 2026 Winter edition release**
+**This is the 2026 Spring edition release**
 
 ### For whom?
 
@@ -36,9 +36,11 @@ At the end of all classes, instructors and students should always consider these
 
 The course focuses on using large language models (LLMs) such as OpenAI's ChatGPT, Anthropic Claude.ai, Mistral's Le Chat, and Google's Gemini) to **carry out tasks in data analysis**. It includes topics like data extraction and wrangling, data exploration and descriptive statistics, and creating reports as well as turning text to data. 
 
-There are three **case studies** that we use (1) a simulated set of data tables on hotels in Austria, (2) The World Value Survey, and (3) A series of interview textst. 
+There are three **case studies** that we use: (1) a simulated set of data tables on hotels in Austria, (2) the World Values Survey, and (3) a series of interview texts. The course ends with a capstone team project on football manager changes. 
 
-The course material includes weekly practice **assignments**. It also has a learning more collection -- to see what is [beyond core material](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
+The course material includes weekly practice **assignments**. It ends with a three-part **capstone project** designed for small teams over three weeks. 
+
+It also has a learning more collection -- to see what is [beyond core material](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
 
 
 ### Background: data analysis / econometrics
@@ -63,50 +65,14 @@ Key outcomes. By the end of the course, students will be able to
 * Gain experience and confidence using genAI to carry out key tasks in data analysis.
 * Build AI in coding practice including data wrangling, description and reporting and text analysis
 * Have some idea of use cases when AI assistance is OK to use as is vs needs strong human supervision
-* Have an understanding of resources to follow for updates. 
+* Have an understanding of resources to follow for updates.
+* Run a multi-week team project from data collection to causal analysis, using AI throughout.
 
 ### Target audience
 
 This is a course aimed at 3rd (2nd?) year BA and MA students in any program with required background. Economics, Quantitative Social science, Political Science, Sociology, History. To be frank, all students shall learn data analysis and be comfortable using AI. 
 
 But, anyone can use it with adequate background. 
-
-
-### Course Context & Trajectory
-
-**What's Coming Next:**
-
-- **Week 0:** Using AI for Coding -- this may not be part of the curriculum
-- **Week 1:** LLM Review and short task to recrate a graph
-- **Week 2:** Use AI to understand and document the World Values Survey dataset
-- **Week 3:** AI-assisted report writing with WVS data
-- **Week 4:** Agentic AI with Claude Code using Austrian hotel data
-- **Week 5:** Advanced CLI Workflows: custom skills, CLAUDE.md, git integration
-- **Week 6:** From Data to Report -- vibe report vs. economics-quality report with CPS earnings data
-- **Week 7:** Text analysis 1: basics
-- **Week 8:** Text analysis 2: sentiment analysis
-- **Week 9:**  AI as research companion 1: Control variables
-- **Week 10:** AI as research companion 2: Instrumental Variables
-- **Week 11:** AI as research companion 3: Difference in differences
-- **Week 12:** TBD
-
-
-
-**AI use experience**
-
-
--   Chat -- conversational interface
--   Data Analysis -- direct code execution / shared canvases
--   Context window management
--   Tools to connect to sources (Github, Google drive)
--   Talk to AI via API calls
--   skills and context management
-    -   "my system prompt" (user specific)
-    -   skills use and generation (gems / prompt template): gabors exploratory data analysis skill (sharable)
--   deep research
--   Gemini CLI / Claude Code
--   MCP (connect to folders on your computer)
--   vibe coding an app: the-human-sql-translator
 
 
 ## Assignments
@@ -127,13 +93,9 @@ Using AI for code. May not be covered in this class, as it had often been alread
 
 **Week01: LLM Review**
 
-What are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to. 
+What are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to. See also [which AI model to use](da-knowledge/which-ai.html).
 
 [Content](week01/)
-
-**Which AI?** 
-
-See [my take on current models](da-knowledge/which-ai.html). As of *May 2025*. 
 
 **Week02**: Data and code discovery and documentation with AI
 
@@ -199,28 +161,28 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 [Content](week10/)
 
 
-### Zero to Hero Data Hack (Weeks 11–13)
+### Capstone Project (3 sessions)
 
 A three-session team project on manager changes in football: collect data, build a news-based expectation score with APIs, and run a Difference-in-Differences analysis.
 
-**Week 11**: Project intro + data collection & description — [Content](week11/)
+**Session 1**: Project intro + data collection & description — [Content](project01/)
 
-**Week 12**: From text to expectations (scraping + LLM APIs) — [Content](week12/)
+**Session 2**: From text to expectations (scraping + LLM APIs) — [Content](project02/)
 
-**Week 13**: Difference-in-Differences analysis + final presentation — [Content](week13/)
+**Session 3**: Difference-in-Differences analysis + final presentation — [Content](project03/)
 
 
-## Learn more
+## Knowledge Base
 
-I'm adding material to [da-knowledge](da-knowledge/) folder. You can start with the [beyond](da-knowledge/beyond.html) page. 
+Reusable reference pages on APIs, tools setup, project design, and more — see the [Knowledge Base](navbar/resources.html). For further reading beyond the course, check the [beyond](da-knowledge/beyond.html) page.
 
 ---
 
-## Rights and acknowledgement 
+## Rights and acknowledgement
 
-## You can use it to teach and learn freely
+### You can use it to teach and learn freely
 
-**Attribution**: Békés, Gábor: "Doing Data Analysis with AI: a short course", available at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/), v2.0. 2026-01-20. 
+**Attribution**: Békés, Gábor: "Data Analysis with AI: a comprehensive course", available at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/), v2.1. 2026-04-13.
 
 You can fork it from the Github Repo.  [github.com/gabors-data-analysis/da-w-ai/](https://github.com/gabors-data-analysis/da-w-ai/)
 
@@ -230,11 +192,10 @@ You can fork it from the Github Repo.  [github.com/gabors-data-analysis/da-w-ai/
 
 ## Thanks
 
-**Thanks:** Developed mostly by [me, Gábor Békés](https://sites.google.com/site/bekesg/) Thanks a million to the two wonderful human RAs, [Ms Zsuzsanna Vadle](https://bsky.app/profile/zsuzsannavadle.bsky.social) and [Mr Kenneth Colombe](https://bsky.app/profile/kcolombe24.bsky.social), both Phd students. Thanks to Claude.ai that did a great deal of help in creating the simulated dataset. ChatGPT and Claude.ai helped create the slideshows and educated *me* on NLP. This is a beatiful example of collaboration with great young people while heavily benefiting from advanced AI.   
+**Thanks:** Developed mostly by [me, Gábor Békés](https://sites.google.com/site/bekesg/) Thanks a million to the two wonderful human RAs, [Ms Zsuzsanna Vadle](https://bsky.app/profile/zsuzsannavadle.bsky.social) and [Mr Kenneth Colombe](https://bsky.app/profile/kcolombe24.bsky.social), both Phd students. Also thanks to [Adam Víg], long term collaborator now at Google. Thanks to Claude and ChatGPT to craft pages, improve consisency, create the simulated dataset. They helped create the slideshows and educated *me* on a bunch of topics like reinforcement learning or NLP. This is a beautiful example of collaboration with great young people while heavily benefiting from advanced AI. Thanks for [Quarto](https://quarto.org/) -- it was all drafted and written in Quarto and Rstudio by Posit. Plus all the love from Github. 
 
 Thanks for CEU's teaching grant that allowed me pay people and AI. 
 
-Thanks for [Quarto](https://quarto.org/) -- it was all drafted and written in Quarto and Rstudio by Posit. 
 
 ## Questions and suggestions
 
@@ -244,6 +205,3 @@ If you have questions or suggestions or interested to learn more, just [fill in 
 
 ## And now, this.
 
-AI use is very costly in terms of energy. Yes, it is becoming cheaper. But humanity is also using *much* more of it. 
-
-![](images/ai-energy-cost.jpeg)
