@@ -53,7 +53,7 @@ Why this works:
 - It exposes gaps that would otherwise show up an hour into implementation.
 - It gives the AI enough context that the first code it writes is closer to what you actually need.
 
-Keep the Q&A in the repo as `PLAN.md`. Future-you and future-AI will both refer back to it.
+Keep the Q&A in the repo as `PLAN.md` and reference it from your instructions file (e.g. add `@PLAN.md` to your `CLAUDE.md`). Future-you will refer back to it, and the AI will too — as long as the file is in its context.
 
 :::
 :::::
@@ -69,7 +69,7 @@ Keep the Q&A in the repo as `PLAN.md`. Future-you and future-AI will both refer 
 
 ::: card-body
 
-Your AI assistant does not remember your conventions between chats (or, with CLI tools, between runs). Write them down in a file at the repo root — `agents.md`, `AGENTS.md`, or `CLAUDE.md`, depending on the tool. CLI tools read it automatically every turn.
+Each CLI coding agent starts a fresh context window per session. Some (like Claude Code) also build an auto-memory across sessions, but the most reliable way to carry conventions forward is to write them down explicitly. Create a file at the repo root — `CLAUDE.md` (Claude Code), `AGENTS.md` (Codex), or `GEMINI.md` (Gemini CLI). Each tool reads its own file automatically at the start of every session.
 
 This file is **project-specific**. It describes how *this* project is organised and what is non-negotiable inside it.
 
@@ -89,7 +89,7 @@ Split it into two short parts:
 
 **Write it at the start**, even if you have to guess some items — you'll refine them fast. Seed it with your usual rules from past projects; treat that as your personal baseline. **Then update it on the go**: when the AI does something you correct twice, that's a line for `agents.md`. When a convention changes mid-project, update the file *before* the next prompt.
 
-Keep it short. The AI reads it every turn, so padding dilutes the rules that actually matter.
+Keep it short. The AI reads it at the start of every session, so padding dilutes the rules that actually matter.
 
 :::
 :::::
@@ -105,21 +105,23 @@ Keep it short. The AI reads it every turn, so padding dilutes the rules that act
 
 ::: card-body
 
-A **skill** is a small, self-contained instruction packet for a task you'll do more than once: scraping RSS feeds, calling an LLM classifier, running a DiD event-study, writing a README. Unlike `agents.md` (which is about *this* project), skills are **portable** — you carry them from project to project.
+A **skill** is a small, self-contained instruction packet for a task you'll do more than once: scraping RSS feeds, calling an LLM classifier, running a DiD event-study, writing a README. Unlike `AGENTS.md` (which is about *this* project), skills are **portable** — you carry them from project to project.
 
-In practice, a skill is a short Markdown file with a clear name that tells the AI *how* to do one thing well in your style. You keep them in a `skills/` folder (or wherever your tool expects them), and the AI loads the right one when the task matches.
+In practice, a skill is a directory with a `SKILL.md` file that tells the AI *how* to do one thing well in your style — plus optional scripts, templates, or reference files it can use. You keep them in a `.claude/skills/`, `.gemini/skills/`, or `.agents/skills/` folder (depending on the tool). All three major CLI agents can load a skill automatically when your prompt matches its description.
 
 **Examples of skills you'd build for the capstone:**
 
-- **`scrape-rss-feed`** — "Given an RSS URL, return a tidy DataFrame with `title, link, published_at, source, raw_text`. Use `feedparser`. Retry on failure with backoff. Log the URL + row count."
-- **`call-llm-classifier`** — "Batch articles in groups of 20, call the Anthropic API with a fixed system prompt, parse JSON, validate schema, write results to `/out/classified_{date}.parquet`. Never log the API key."
-- **`panel-did-event-study`** — "Given a team-week panel with a treatment date column, run a staggered-DiD event study with leads/lags, cluster SEs by team, and produce a standard plot."
 - **`make-readme`** — "Generate a README following the structure: purpose, data, how to run, reproducibility notes. Pull the dataset schema from `DATA.md` if present."
 - **`write-data-tests`** — "For a given DataFrame schema, produce pytest checks for: required columns, types, primary-key uniqueness, no-null on key fields, plausible ranges."
+- **`scrape-match-data`** — "Given a league URL, return a tidy DataFrame with `date, home, away, home_goals, away_goals, manager_home, manager_away`. Use `requests` + `BeautifulSoup`. Retry on failure with backoff. Log the URL + row count."
+- **`classify-texts-with-llm`** — "Batch articles in groups of 20, call an LLM API with a fixed system prompt, parse JSON, validate schema, write results to `/out/classified_{date}.csv`. Never log the API key."
+- **`did-event-study`** — "Given a team-week panel with a treatment date column, run a staggered-DiD event study with leads/lags, cluster SEs by team, and produce a standard plot."
 
 **Write them at the start** — or, more commonly, **carry them over from previous projects**. A good skill, once written, outlives the project that produced it. The second time you do something, promote the working prompt into a skill.
 
-**Then update them on the go.** The first version of `scrape-rss-feed` will be rough; after the second or third source you'll know what edge cases matter, and the skill improves. A mature skill is one you've used on three different projects without editing.
+**Then update them on the go.** The first version of `scrape-match-data` will be rough; after the second or third source you'll know what edge cases matter, and the skill improves. A mature skill is one you've used on three different projects without editing.
+
+**You don't have to write skills from scratch.** Most CLI tools ship with a built-in skill creator skills. Describe what the skill should do, and the tool generates the directory structure and `SKILL.md` for you. Start there and refine.
 
 **Rule of thumb — where does this rule go?**
 
