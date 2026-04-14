@@ -55,8 +55,7 @@ For data-analysis projects, my current recommended approach is: paid Claude.
 
 
 
-## Research & Writing {background-color="#f8f9fa"}
-
+## Research & Writing
 * **Synthesis Over Summarization**: AI tools increasingly synthesize multi-source inputs into structured insights rather than paraphrasing single documents.
 * **Security & Privacy**: Modern workspaces rely on **isolated execution contexts**; strong non-training guarantees apply primarily to paid and enterprise tiers.
 * **Multimodal Capability**: AI can interpret charts, screenshots, and handwritten notes and incorporate them into drafts.
@@ -73,15 +72,13 @@ For data-analysis projects, my current recommended approach is: paid Claude.
 | **Perplexity Pages** | • Multi-source synthesis using live web retrieval.<br>• Inline citation and consistency checking against sources. |
 
 
-## Data Analysis details {background-color="#f8f9fa"}
-
+## Data Analysis details
 * **Sandboxed Execution**: Code runs in secure, ephemeral environments with no local system access.
 * **Statistical Rigor**: Strong support for Python-based libraries (e.g. pandas, scikit-learn) for exploratory and predictive analysis.
 * **Direct Integration**: AI can manipulate data directly within spreadsheets or dedicated analysis windows.
 * **Limits**: Reproducibility, package versions, and state persistence remain constrained relative to local workflows.
 
-## Data Analysis details {background-color="#f8f9fa"}
-
+## Data Analysis details
 | Workspace | 2026 Key Features for Analysis |
 |:---|:---|
 | **ChatGPT Data Analysis** | • Executes Python in managed compute environments for multi-file datasets.<br>• Assisted data cleaning and predictive modeling workflows. |
@@ -90,15 +87,13 @@ For data-analysis projects, my current recommended approach is: paid Claude.
 | **Microsoft Copilot in Excel** | • **Native Python-in-Excel** for statistical scripts inside spreadsheets.<br>• Automated pivots, summaries, and forecasting via prompts. |
 
 
-## Coding Assistance {background-color="#f8f9fa"}
-
+## Coding Assistance
 * **Agent-Assisted Workflows**: AI can coordinate multi-step tasks such as refactoring or bug fixing across large codebases, with human review.
 * **Environment Security**: Code is tested in **secure sandboxes** before changes are proposed.
 * **Interconnected Tools**: Integrated with development and collaboration platforms (e.g. Jira, Slack).
 
 
-## Coding Assistance --- comparison {background-color="#f8f9fa"}
-
+## Coding Assistance --- comparison
 | Workspace | 2026 Key Features for Developers |
 |:---|:---|
 | **Anthropic Claude Code** | • Native **VS Code extension** with agent-style workflows and inline diffs.<br>• Supports complex multi-file edits and testing assistance. |

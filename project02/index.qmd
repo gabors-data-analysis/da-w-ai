@@ -30,7 +30,7 @@ The point is not to teach NLP from scratch — we did that in [Week 07](../week0
 
 ## Learning objectives
 
-By the end of this week your team will:
+By the end of this session your team will:
 
 - Identify relevant news sources for your country/league.
 - Scrape or pull articles into a structured table (one row per article).
@@ -59,7 +59,7 @@ We **skip** the sentiment-scale exercises from Weeks 07–08 — you already did
 
 ------------------------------------------------------------------------
 
-## APIs: what you need this week
+## APIs: what you need this session
 
 APIs come up twice in this session: **news/data APIs** (to get articles) and **LLM APIs** (to classify them). You already saw these in [Week 08](../week08/index.qmd); the key references are in the [Knowledge Base](../navbar/resources.html).
 

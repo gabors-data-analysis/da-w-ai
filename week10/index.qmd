@@ -11,7 +11,7 @@ Week 10: AI as research companion: Instrumental Variables
 :::
 
 ::: {.hero-subtitle}
-Getting closer to causality by deciding trying to find an IV
+Getting closer to causality by finding an instrumental variable
 :::
 :::::
 ::::::

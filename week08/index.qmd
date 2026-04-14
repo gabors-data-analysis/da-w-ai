@@ -65,7 +65,7 @@ By the end of the session, students will:
 **Data Structure:**
 
 - **texts:** Individual interview transcripts with metadata
-- **games:** Match results and context information  (soccer has 3 outcomes: win, draw, loss -- impcation for result encoding)
+- **games:** Match results and context information  (soccer has 3 outcomes: win, draw, loss -- implication for result encoding)
 - **ratings:** Human ratings, AI ratings, lexicon scores by text_id
 
 **Code Examples Available:**

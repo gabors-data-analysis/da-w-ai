@@ -68,7 +68,7 @@ morg_largest_state <- morg %>%
 
 Hold on, what does max state=5 mean? Ask ChatGPT.
 
-![](../../images/earnings-state5.png)
+![](../images/earnings-state5.png)
 
 Save this file as `morg-2014-emp-state5.csv`. You can also find it in the [US Earnings case study](/case-studies/earnings/data/morg-2014-emp-state5.csv)
 
@@ -126,7 +126,7 @@ else:
 
 Here is the chart:
 
-![The graph I was created](../../images/earnings-by-gender.png)
+![The graph I created](../images/earnings-by-gender.png)
 Followed by this text
 "Here is the graph showing the gender gap in weekly earnings. Males (1) earn more on average than females (2) in this sample. Let me know if you want to adjust for hours worked or other covariates. "
 
@@ -135,7 +135,7 @@ Followed by this text
 Yes, adjust by age.
 ```
 
-![The graph I was created](../../images/earnings-by-gender-age1.png)
+![The graph I created](../images/earnings-by-gender-age1.png)
 
 Now what? By now, you have some idea, what you'd like. For me, it was:
 
@@ -198,11 +198,11 @@ plt.show()
 
 It took some iterations, starting with:
 
-![Fourth iteration](../../images/earnings-by-gender-age2a.png)
+![Fourth iteration](../images/earnings-by-gender-age2a.png)
 
 To get to something I liked. It made errors, forgot labels, and made coding errors. Check the process. 
 
-![Fourth iteration](../../images/earnings-by-gender-age4.png)
+![Fourth iteration](../images/earnings-by-gender-age4.png)
 
 ```{{python}}
 import statsmodels.api as sm
@@ -318,7 +318,7 @@ Swap colors
 
 Now we are talking:
 
-![Fourth iteration](../../images/earnings-heatmap.png)
+![Fourth iteration](../images/earnings-heatmap.png)
 
 
 ### Other ideas
@@ -338,7 +338,7 @@ Show me an interesting scatterplot. Make it well done.
 
 
 ```{=html}
-<iframe src="cps-earnings-plot.html" width="100%" height="800" frameborder="0"></iframe>
+<iframe src="../week06/assets/cps-earnings-plot.html" width="100%" height="800" frameborder="0"></iframe>
 ```
 
 ## Key Findings

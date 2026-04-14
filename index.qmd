@@ -34,13 +34,11 @@ At the end of all classes, instructors and students should always consider these
 
 ### Content
 
-The course focuses on using large language models (LLMs) such as OpenAI's ChatGPT, Anthropic Claude.ai, Mistral's Le Chat, and Google's Gemini) to **carry out tasks in data analysis**. It includes topics like data extraction and wrangling, data exploration and descriptive statistics, and creating reports as well as turning text to data. 
+The course focuses on using large language models (LLMs — ChatGPT, Claude, Gemini, Le Chat and others) to **carry out tasks in data analysis**: data extraction and wrangling, exploration and description, reporting, and turning text into data. It ends with a three-session **capstone project** where small teams build a full analysis from scratch.
 
-There are three **case studies** that we use: (1) a simulated set of data tables on hotels in Austria, (2) the World Values Survey, and (3) a series of interview texts. The course ends with a capstone team project on football manager changes. 
+There are three **case studies** used across the weekly material: (1) a simulated set of data tables on hotels in Austria, (2) the World Values Survey, and (3) a series of interview texts. The capstone adds a fourth: football manager changes.
 
-The course material includes weekly practice **assignments**. It ends with a three-part **capstone project** designed for small teams over three weeks. 
-
-It also has a learning more collection -- to see what is [beyond core material](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
+The course material includes weekly practice **assignments** and a [learning-more collection](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
 
 
 ### Background: data analysis / econometrics

@@ -56,10 +56,6 @@ Create pipeline for guessing the speaker's gender.
 
 [Assignment Details](../assignments/assignment_08.qmd)
 
-## Assignment 9: TBA
-
-TBA
-
 ## Assignment 10: Design an IV
 
 Think about an identification problem and iterate to find a good IV.

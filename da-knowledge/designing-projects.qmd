@@ -8,7 +8,7 @@ When a project is small — one dataset, one notebook, one question — you can 
 
 When a project is **larger** — many data sources, a multi-step pipeline, a claim you'll defend in a presentation — improvising backfires. You and your AI assistant spend hours re-litigating decisions, re-inventing conventions, and re-debugging work you already "finished" yesterday.
 
-This page collects the small set of habits that make bigger projects with AI work. It sits behind the Zero-to-Hero Data Hack, but it applies to any multi-week analytics project.
+This page collects the small set of habits that make bigger projects with AI work. It sits behind the Capstone Project, but it applies to any multi-week analytics project.
 
 ------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ A **skill** is a small, self-contained instruction packet for a task you'll do m
 
 In practice, a skill is a short Markdown file with a clear name that tells the AI *how* to do one thing well in your style. You keep them in a `skills/` folder (or wherever your tool expects them), and the AI loads the right one when the task matches.
 
-**Examples of skills you'd build for the hack:**
+**Examples of skills you'd build for the capstone:**
 
 - **`scrape-rss-feed`** — "Given an RSS URL, return a tidy DataFrame with `title, link, published_at, source, raw_text`. Use `feedparser`. Retry on failure with backoff. Log the URL + row count."
 - **`call-llm-classifier`** — "Batch articles in groups of 20, call the Anthropic API with a fixed system prompt, parse JSON, validate schema, write results to `/out/classified_{date}.parquet`. Never log the API key."

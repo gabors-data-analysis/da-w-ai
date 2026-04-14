@@ -105,6 +105,8 @@ website:
             href: da-knowledge/walkthrough-wb-fred.qmd
           - text: "Walkthrough: FBref"
             href: da-knowledge/walkthrough-fbref.qmd
+          - text: "PDF Guide"
+            href: da-knowledge/pdf-guide.qmd
 
 
       - section: "Slideshows"

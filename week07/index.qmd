@@ -146,7 +146,7 @@ By the end of the session, students will:
   - Differences between manual and AI ratings
   - Ground Truth
   - Introduction to validation methods:
-  - If ground truth -- can do confusion maztric, calculate accuracy
+  - If ground truth -- can do confusion matrix, calculate accuracy
   - If no ground truth -- measure **agreement** between humans and AI. test difference.
     - AI is average, but...
     - AI with persona?
