@@ -158,15 +158,4 @@ Refer back to the presentation principles we discussed in [Week 07 review](../we
 :::
 :::::
 
-------------------------------------------------------------------------
-
-## Evaluation
-
-You will be evaluated on:
-
-1. **Data quality** — required elements collected, documented, tested.
-2. **News classification** — coverage of changes, validated classification, reproducible prompt.
-3. **Causal identification** — appropriate method, assumptions stated and checked where possible.
-4. **Heterogeneity & expectations** — meaningful comparisons, expectations-vs-reality done rigorously.
-5. **Reproducibility** — somebody else can `git clone` and rerun.
-6. **Presentation** — clarity for a peer audience, honest about limits.
+See [evaluation criteria](../capstone/index.qmd#evaluation) in the project description.

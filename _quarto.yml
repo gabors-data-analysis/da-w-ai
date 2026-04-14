@@ -49,6 +49,8 @@ website:
 
       - section: "Capstone Project"
         contents:
+          - text: "Project Description"
+            href: capstone/index.qmd
           - text: "Session 1: Data Collection"
             href: project01/index.qmd
           - text: "Session 2: Text to Expectations"

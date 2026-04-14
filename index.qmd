@@ -161,9 +161,9 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 
 ### Capstone Project (3 sessions)
 
-A three-session team project on manager changes in football: collect data, build a news-based expectation score with APIs, and run a Difference-in-Differences analysis.
+A three-session team project on manager changes in football: collect data, build a news-based expectation score with APIs, and run a Difference-in-Differences analysis. — [Project description](capstone/)
 
-**Session 1**: Project intro + data collection & description — [Content](project01/)
+**Session 1**: Data collection & description — [Content](project01/)
 
 **Session 2**: From text to expectations (scraping + LLM APIs) — [Content](project02/)
 

@@ -83,11 +83,11 @@ Case study: [Football Manager Interviews](../case-studies/interviews/)
 
 # Capstone Project (3 sessions)
 
-Three-session team project on manager changes in football. One big research question, messy real-world data, AI as your primary teammate.
+Three-session team project on manager changes in football. One big research question, messy real-world data, AI as your primary teammate. — [Project description](../capstone/)
 
-## Session 1: Project intro + data collection & description
+## Session 1: Data collection & description
 
-Frame the project, pick a league, collect and document 10+ seasons of match and manager-change data.
+Pick a league, collect and document 10+ seasons of match and manager-change data.
 
 [Content](../project01/)
 

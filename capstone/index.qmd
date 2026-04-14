@@ -1,0 +1,90 @@
+---
+title: "Capstone Project: Manager Impact in Football"
+subtitle: "A three-session team project from data collection to causal analysis"
+date: "2026-04-13"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Capstone Project
+:::
+
+::: {.hero-subtitle}
+Manager Impact in Football — from raw data to causal claims in three sessions
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## The Project
+
+After ten weeks of guided exercises, the capstone project is a **three-session team project** with one broad research question, messy real-world data, and AI as a teammate.
+
+**Research question:** *Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?*
+
+Your audience is heads of data science at sports clubs with a strong background in econometrics. Your goal is to produce a rigorous, reproducible analysis that sheds light on the true impact of managerial changes in football.
+
+You will make decisions, be assertive and transparent.
+
+### Why this project
+
+- It is **specific** (one domain, concrete RQ) but **broad** (no exact steps given to you).
+- You will have to **plan**, **layer tasks with AI**, and **decide** — not just follow a recipe.
+- Before you start, we'll go over the companion page **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** — it covers the mindsets, self-interview, `agents.md` file, and the three kinds of tests you'll use all three sessions.
+
+### Task and Scope
+
+Your task is to answer the research question above by collecting, combining, and analyzing data on football matches and manager changes. There will be 3-member teams, each picking a country.
+
+| Dimension | Choice |
+|---|---|
+| Sport | Football (soccer) |
+| League tier | First division only |
+| Countries (pick one per team) | Spain, Italy, France, Germany, Turkey, Scotland, Portugal, Netherlands, Poland, Ukraine, Russia, or another you can defend |
+| Time horizon | 10+ seasons of historical data |
+| Session 1, 2 deliverable | Data, scripts, reproducible repo and READMEs |
+| Session 3 | Full project repo + ~12-minute presentation |
+
+### Key questions to answer by Session 3
+
+1. What is the **average** effect of a manager change on team performance?
+2. Which **types of managers** show larger or smaller effects?
+3. Which **types of teams** respond more?
+4. When a dismissal is more **expected as shown by news reports**, is the effect any different?
+
+### Open questions
+
+- Anything not specified is open. You can consult each other and AI, and the team shall make decisions.
+
+------------------------------------------------------------------------
+
+## Sessions at a glance
+
+| Session | Focus | Deliverable by Sunday 23:55 |
+|---|---|---|
+| **[1](../project01/index.qmd)** | Data collection, combination, description | Documented dataset + QA notes |
+| **[2](../project02/index.qmd)** | Text → expectations (APIs, scraping) | Article corpus + per-change expectation score |
+| **[3](../project03/index.qmd)** | DiD analysis + heterogeneity + presentation | Results, slides, repo |
+
+### Session structure (same each time)
+
+Each 200-minute session runs the same shape:
+
+1. **Intro talk (≈30 min)** — key concepts, common pitfalls, decisions to make.
+2. **Team work (≈120 min)** — you execute; AI assists; I circulate.
+3. **Group discussion (≈50 min)** — share what worked, compare approaches, debrief.
+
+------------------------------------------------------------------------
+
+## Evaluation
+
+You will be evaluated on:
+
+1. **Data quality** — required elements collected, documented, tested.
+2. **News classification** — coverage of changes, validated classification, reproducible prompt.
+3. **Causal identification** — appropriate method, assumptions stated and checked where possible.
+4. **Heterogeneity & expectations** — meaningful comparisons, expectations-vs-reality done rigorously.
+5. **Reproducibility** — somebody else can `git clone` and rerun.
+6. **Presentation** — clarity for a peer audience, honest about limits.

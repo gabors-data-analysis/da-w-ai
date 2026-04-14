@@ -1,6 +1,6 @@
 ---
-title: "Capstone Project — Session 1: Project Intro & Data Collection"
-subtitle: "Football managers: collect, combine and describe a match-and-manager dataset"
+title: "Capstone Project — Session 1: Data Collection"
+subtitle: "Collect, combine and describe a match-and-manager dataset"
 date: "2026-04-13"
 ---
 
@@ -11,77 +11,16 @@ Capstone Project — Session 1
 :::
 
 ::: {.hero-subtitle}
-Project intro + data collection: building a match-and-manager dataset
+Data collection: building a match-and-manager dataset
 :::
 ::::::
 :::::::
 
-------------------------------------------------------------------------
-
-## The Project: Manager Impact in Football
-
-After ten weeks of guided exercises, the capstone project is a **three-session team project** with one broad research question, messy real-world data, and AI as a teammate.
-
-**Research question:** *Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?*
-
-Your audience is heads of data science at sports clubs with strong background in econometrics. Your goal is to produce a rigorous, reproducible analysis that sheds light on the true impact of managerial changes in football. 
-
-You will make decisions, be assertive and transparent. 
-
-### Why this project
-
-- It is **specific** (one domain, concrete RQ) but **broad** (no exact steps given to you).
-- You will have to **plan**, **layer tasks with AI**, and **decide** — not just follow a recipe.
-- Before you start, we'll go over the companion page **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** — it covers the mindsets, self-interview, `agents.md` file, and the three kinds of tests you'll use all three sessions.
-
-### Task and Scope
-
-Your task is to answer the research question above by collecting, combining, and analyzing data on football matches and manager changes. There will be 3 member teams each picking a country. 
-
-
-| Dimension | Choice |
-|---|---|
-| Sport | Football (soccer) |
-| League tier | First division only |
-| Countries (pick one per team) | Spain, Italy, France, Germany, Turkey, Scotland, Portugal, Netherlands, Poland, Ukraine, Russia, or another you can defend |
-| Time horizon | 10+ seasons of historical data |
-| Session 1, 2 deliverable | Data, scripts, reproducible repo and READMEs |
-| Session 3 | Full project repo + ~12-minute presentation |
-
-### Key questions to answer by Session 3
-
-1. What is the **average** effect of a manager change on team performance?
-2. Which **types of managers**  show larger or smaller effects?
-3. Which **types of teams**  respond more?
-4. Do **expectations from news** match the actual performance change?
-
-### Open questions
-
-* Anything not specified is open. You can consult each other and AI, and the team shall make decisions. 
-
-### Sessions at a glance
-
-| Session | Focus | Deliverable by Sunday 23:55 |
-|---|---|---|
-| **1** | Data collection, combination, description | Documented dataset + QA notes |
-| **2** | Text → expectations (APIs, scraping) | Article corpus + per-change expectation score |
-| **3** | DiD analysis + heterogeneity + presentation | Results, slides, repo |
+→ **[Project overview & research question](../capstone/index.qmd)**
 
 ------------------------------------------------------------------------
 
-## Session Structure (each week)
-
-Each 200-minute session runs the same shape:
-
-1. **Intro talk (≈ 30 mins)** — key concepts, common pitfalls, decisions to make.
-2. **Team work (≈ 120 mins)** — you execute; AI assists; I circulate.
-3. **Group discussion (≈ 50 mins)** — share what worked, compare approaches, debrief.
-
-------------------------------------------------------------------------
-
-## Session 1 — Data Collection & Description
-
-### Learning objectives
+## Learning objectives
 
 By the end of this session your team will:
 
@@ -90,7 +29,9 @@ By the end of this session your team will:
 - Structure and document the dataset with explicit quality checks.
 - Be honest about what is missing and how it limits the later analysis.
 
-### Required dataset components
+------------------------------------------------------------------------
+
+## Required dataset components
 
 ::::: {.week-card .card}
 ::: card-header
@@ -110,7 +51,9 @@ By the end of this session your team will:
 :::
 :::::
 
-### Work tasks (2-hour block)
+------------------------------------------------------------------------
+
+## Work tasks (2-hour block)
 
 ::::: {.week-card .card}
 ::: card-header
@@ -137,13 +80,15 @@ By the end of this session your team will:
 
 You are expected to **evaluate** each source (reliability, coverage, licence, cost) before committing.
 
-### Discussion (last hour)
+------------------------------------------------------------------------
+
+## Discussion (last hour)
 
 - **Data quality** — What missing/outliers? What does your sample *not* cover?
 - **Cross-country variation** — How does availability change across leagues?
 - **Tests** — What failed? What did the failure reveal about your assumptions?
 - **Code quality** — Functions vs scripts; what did you mock; how reproducible is the collection step?
-- **Next week readiness** — Is the dataset stable enough to join news onto it?
+- **Next session readiness** — Is the dataset stable enough to join news onto it?
 
 ------------------------------------------------------------------------
 
