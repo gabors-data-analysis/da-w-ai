@@ -21,6 +21,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 
 - [How to get AI API keys](../da-knowledge/get-ai-api-key.qmd) — OpenAI and Anthropic.
 - [Introduction to APIs](../da-knowledge/api-use.qmd) — fundamental concepts: what a call looks like, headers, auth, rate limits.
+- [Calling LLM APIs from Python](../da-knowledge/llm-api-python.qmd) — practical first calls, helper functions, and `pandas` workflows.
 - [How APIs work under the hood](../da-knowledge/api-advanced.qmd) — idempotency, retries, batching, tokens.
 - [Walkthrough: World Bank + FRED](../da-knowledge/walkthrough-wb-fred.qmd) — gentle intro using public economic data APIs.
 - [Walkthrough: FBref football data](../da-knowledge/walkthrough-fbref.qmd) — slightly harder end-to-end example.

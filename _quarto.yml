@@ -101,6 +101,8 @@ website:
             href: da-knowledge/get-ai-api-key.qmd
           - text: "APIs — Intro"
             href: da-knowledge/api-use.qmd
+          - text: "LLM APIs in Python"
+            href: da-knowledge/llm-api-python.qmd
           - text: "APIs — Under the hood"
             href: da-knowledge/api-advanced.qmd
           - text: "Walkthrough: World Bank + FRED"

@@ -52,6 +52,7 @@ Next, you can go and get an API key for an AI service. As a start a few dollars 
 
 1. Getting [GDP data](walkthrough-wb-fred.html) from World Bank and FRED
 2. More advanced [Football data](walkthrough-fbref.html) (python, R)
+3. Practical [LLM API calls from Python](llm-api-python.html)
 
 ## What's different in R
 
