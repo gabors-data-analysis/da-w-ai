@@ -46,6 +46,7 @@ By the end of the session, students will:
 **API Learning Resources:**
 
 - [Introduction to APIs](/da-knowledge/api-use.html) - fundamental concepts
+- [Calling LLM APIs from Python](/da-knowledge/llm-api-python.html) - practical Python workflow, response schemas, model choice
 - [Advanced API knowledge](/da-knowledge/api-advanced.html) - how APIs work under the hood
 :::
 :::

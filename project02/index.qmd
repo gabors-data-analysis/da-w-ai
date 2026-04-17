@@ -87,11 +87,12 @@ APIs come up twice in this session: **news/data APIs** (to get articles) and **L
 Pulled into our knowledge base so you can find it after the course:
 
 - [Introduction to APIs](../da-knowledge/api-use.qmd) — what an API call is, headers, auth, rate limits.
+- [Calling LLM APIs from Python](../da-knowledge/llm-api-python.qmd) — practical first calls, response schemas, and model choice.
 - [How APIs work under the hood](../da-knowledge/api-advanced.qmd) — idempotency, retries, batching, tokens.
 - [Simple walkthrough: World Bank + FRED](../da-knowledge/walkthrough-wb-fred.qmd) — public data APIs.
 - [Football-data walkthrough (FBref)](../da-knowledge/walkthrough-fbref.qmd) — scraping a sports data source.
 
-If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before you start your work block — it will save you an hour of confused debugging.
+If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before you start your work block. If you already understand the basics and need to build the classifier script, start with "Calling LLM APIs from Python".
 :::
 :::::
 
@@ -127,11 +128,12 @@ If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before yo
 **4. Classify via LLM API**
 
 - Call an LLM (OpenAI, Anthropic, …) via API to score each article's **expectation about the incoming manager**.
-- Consult AI on how to create a prompt for such an exercise
+- Consult AI on how to create a prompt for such an exercise.
 - Design a clear prompt — think about:
   - What scale or label set best captures "expectation"?
   - How should irrelevant articles be handled?
   - What output format makes downstream parsing easiest?
+- Prefer a structured response schema over free text, so each call returns the same fields, for example `score`, `reason`, and `is_relevant`.
 - **Validate before scaling:** hand-label ~20 articles yourself, run them through the prompt, and compare. Aim for ≥ 80 % agreement; if you're below that, revise the prompt before classifying the full set.
 
 **5. Aggregate to one row per manager change**
