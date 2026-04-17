@@ -53,6 +53,17 @@ export OPENAI_API_KEY="your-key-here"
 
 If you prefer a local `.env` file during development, load it with `python-dotenv`.
 
+## Choosing a model
+
+For API work, the right default is usually the **smallest model that passes your benchmark on real data**. Use smaller models for classification, extraction, tagging, and other short structured tasks; move to a larger model only if you see clear failures on edge cases, messy instructions, or harder reasoning. In practice, compare models on four things:
+
+- **quality**: does it get your labels or extraction right on 20 to 50 real examples?
+- **cost**: how expensive are the input and output tokens at your expected scale?
+- **latency**: is it fast enough for a loop, app, or batch job?
+- **context window**: can it fit the documents, examples, or schema you want to send?
+
+Providers rarely publish a simple raw "model size", so think in practical tiers such as `mini` versus flagship. Do not choose by vibe: test two models on the same sample, keep the cheaper one if quality is similar, and only upgrade when the larger model clearly earns its cost.
+
 ## Smallest OpenAI example
 
 ```python
@@ -61,7 +72,7 @@ from openai import OpenAI
 client = OpenAI()  # reads OPENAI_API_KEY
 
 response = client.responses.create(
-    model="gpt-5",
+    model="gpt-5.4-mini",
     input="In one sentence, explain what panel data is."
 )
 
@@ -89,7 +100,7 @@ SYSTEM_PROMPT = (
     "Reply with exactly one label: positive, neutral, or negative."
 )
 
-def classify_text(text, model="gpt-5", retries=3):
+def classify_text(text, model="gpt-5.4-mini", retries=3):
     for attempt in range(retries):
         try:
             response = client.responses.create(
@@ -154,7 +165,7 @@ class SentimentResult(BaseModel):
     short_reason: str
 
 response = client.responses.parse(
-    model="gpt-5",
+    model="gpt-5.4-mini",
     input=[
         {
             "role": "system",
@@ -220,11 +231,15 @@ Response schemas are one of the best upgrades you can make once you move from ex
 
 - If API mechanics are still fuzzy, go back to [Introduction to APIs](api-use.html).
 - If you need key setup, use [How to get AI API keys](get-ai-api-key.html).
-- If you want a course example, look at Week 08 and the sentiment-analysis script in `case-studies/interviews/code/sentiment_analysis.py`.
 
 ## Official documentation
 
 APIs change quickly. If an example stops working, check the provider docs first:
 
 - [OpenAI quickstart](https://developers.openai.com/api/docs/quickstart)
+- [OpenAI models](https://developers.openai.com/api/docs/models)
+- [OpenAI pricing](https://openai.com/api/pricing/)
 - [OpenAI Responses API reference](https://platform.openai.com/docs/api-reference/responses/create?lang=python)
+- [Anthropic choosing a model](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model)
+- [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview)
+- [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing)
