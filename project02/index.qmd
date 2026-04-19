@@ -1,7 +1,7 @@
 ---
 title: "Capstone Project — Session 2: From Text to Expectations"
 subtitle: "Collect news, call an AI API, turn articles into a per-change expectation score"
-date: "2026-04-27"
+date: "2026-04-20"
 ---
 
 ::::::: {.hero-section}
