@@ -28,6 +28,90 @@ The point is not to teach NLP from scratch — we did that in [Week 07](../week0
 
 ------------------------------------------------------------------------
 
+## Today's task — purpose and expected output
+
+::::: {.week-card .card}
+::: card-header
+🎯 **Purpose**
+:::
+
+::: card-body
+
+For every manager change in your panel, produce a **numeric expectation score** that answers one question:
+
+> *In the period before the change was announced, how strongly did the press suggest that a change was coming?*
+
+You are not trying to judge whether the new manager is good, nor whether fans are happy. You are measuring **how much of a surprise the change was** at the moment it happened.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📤 **Expected output**
+:::
+
+::: card-body
+
+Build the output in **two steps**.
+
+**Step 1 — article-level list.** One row per article:
+
+| column | what it is |
+|---|---|
+| `news_uid` | unique id for the article |
+| `team` | team the article is about |
+| `date` | article publication date |
+| `score` | LLM-produced expectation score |
+
+Keep `source`, `url`, `title`, `reason`, `is_relevant` alongside for traceability, but the four columns above are the backbone.
+
+**Step 2 — team–gameweek panel.** Aggregate Step 1 to one row per `(team, gameweek)` with two key variables:
+
+- `avg_score` — average expectation score across articles in the window,
+- `n_articles` — how many articles fed that average.
+
+This is the object you merge onto your match + manager-change panel in Session 3. We will use lagged values of this score. 
+
+Plus: `prompt_classifier.md` and a short validation note (hand-labelled n, agreement rate).
+
+::: {.callout-note}
+**What counts as a "gameweek"?** Default to a **calendar week**, because that is how football coverage is paced. But the unit of time is a choice — it can be **shorter** (a few days, if you want to see the signal tighten as the change approaches) or **longer** (a fortnight or month, if article volume is thin). Pick one, document it, and keep it consistent across teams.
+:::
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Why expectations matter in causal analysis
+
+::::: {.week-card .card}
+::: card-header
+🧭 **Expectations and diff-in-diffs**
+:::
+
+::: card-body
+
+Diff-in-diffs compares the pre/post change in outcomes for treated units (teams that changed manager) against a control group, and reads the difference-of-differences as the causal effect. This rests on **parallel trends**: absent treatment, the two groups would have moved in parallel.
+
+Expectations break that story in two ways:
+
+- **Anticipation.** If a manager change is widely expected, players, board, opponents and media react *before* the official announcement. Effort, tactics, transfer talk, press pressure — all shift. The "pre" period is already contaminated, so the estimated effect is biased toward zero (or flipped, if anticipation pushes outcomes the "wrong" way first).
+- **Heterogeneity.** A shock firing after one bad weekend and a long-telegraphed "he's gone at the end of the month" hire are not the same treatment. Pooling them hides structure: the effect of a new manager plausibly depends on **how surprising** the change was.
+
+That is why we build an expectation score per change:
+
+- **As a diagnostic** — do pre-trends look different for "expected" vs "surprise" changes? If yes, the parallel-trends assumption is doing more work than it should.
+- **As a moderator** — split or interact the DiD by expectation. This is the main use in Session 3: does the new-manager bounce exist only for surprise hires, only for expected ones, or roughly the same for both?
+
+You are not trying to *remove* expectations from the data. You are trying to *measure* them so the DiD can say something honest about when and for whom a manager change matters.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
 ## Learning objectives
 
 By the end of this session your team will:
