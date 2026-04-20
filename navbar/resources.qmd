@@ -29,6 +29,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 ## Doing the analysis
 
 - [Designing larger analytics projects with AI](../da-knowledge/designing-projects.qmd) — mindsets, self-interview, `agents.md`, SKILLS, the three kinds of tests.
+- [Reproducible research pipelines](../da-knowledge/reproducible-research.qmd) — best practices for building repeatable workflows with Python, Bash, and Make.
 - [Documentation and READMEs](../da-knowledge/documentation-readme.qmd) — what good documentation looks like.
 - [Joining data tables](../da-knowledge/joining-tables.qmd) — keys, joins, pitfalls.
 - [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality (R example).

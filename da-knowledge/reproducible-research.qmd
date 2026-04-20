@@ -1,0 +1,123 @@
+
+---
+title: "Reproducible Research Pipelines"
+subtitle: "Principles and practical habits for analytics projects"
+date: "2026-04-20"
+---
+
+Reproducible research means that the important parts of your work can be rerun and checked — not just the final regression or figure, but the whole path from raw input to final output. The practical standard is: **a collaborator should be able to understand what you did and regenerate the main results without guessing**.
+
+This is not about perfection. Software changes, APIs change, websites change. The advice on this page draws on a well-established literature (see [recommended reading](#where-to-go-next) at the end) and adapts it for team analytics projects that combine code, data, and AI.
+
+------------------------------------------------------------------------
+
+## What counts as reproducible
+
+A result is reproducible when the same analysis steps performed on the same data consistently produce the same answer. For the scope of this class's capstone project it generally means:
+
+- there is a documented environment and a documented entry point
+- generated files can be traced back to code
+- the key decisions are written down
+- unstable inputs (scraped pages, API responses, model outputs) are either snapshotted or clearly described
+
+If you scrape a website or classify texts through an LLM, save **both** the script that produced the data and a dated snapshot of the data actually used. If the outside world changes later, the project is still auditable.
+
+------------------------------------------------------------------------
+
+## Separate raw data, generated data, and outputs
+
+The most important structural rule is to keep these apart:
+
+- **`data/raw/`** — original inputs, never edited by hand
+- **`data/processed/`** or **`data/derived/`** — cleaned or transformed tables
+- **`output/`** — figures, tables, and final results
+- **`scripts/`** — the code that moves data between these folders
+- **`prompts/`** — prompt templates, if AI is part of the workflow
+
+You do not need a deeply nested folder tree. The point is that anyone opening the repo can tell what is source, what is generated, and what is final.
+
+------------------------------------------------------------------------
+
+## Put stable steps in scripts
+
+Notebooks are good for exploration and narrative. They are a bad home for pipeline logic that must be rerun reliably. A practical rule:
+
+- if the step is exploratory → notebook
+- if the step must be rerun → script
+
+Each script should do one clear job: read defined inputs, validate assumptions, write one main output, and fail loudly if something is wrong. Avoid hard-coded paths, and accept inputs and outputs as arguments so the script can be called from a single driver command.
+
+------------------------------------------------------------------------
+
+## Have one command that runs the pipeline
+
+For every result, you should be able to track how it was produced. The simplest way is a single entry point — a Bash script, a Python driver, or a Makefile — that runs the steps in order. What matters is not the tool but the existence of a documented command a teammate can run.
+
+------------------------------------------------------------------------
+
+## Make the environment reproducible
+
+A project is not reproducible if the code only runs on one laptop. At minimum, include a `requirements.txt` (or equivalent) and document the language version. If API keys are needed, commit a `.env.example` with the **names** of required variables — never the secrets themselves.
+
+------------------------------------------------------------------------
+
+## Save prompts and model settings
+
+If AI is used for classification, extraction, or labeling, then the prompt is part of the research method. Save the prompt text, the model name, the date, and the response schema if you used one. If you only say "we used AI to classify the texts," your pipeline is not documented well enough.
+
+------------------------------------------------------------------------
+
+## Test data, not just code
+
+Many failures in research pipelines are quiet data mistakes: a join duplicates rows, a date column fails to parse, a filter silently drops half the sample. After every merge or transformation, check row counts, key uniqueness, and value ranges. This is often the fastest way to catch problems before they spread through the whole project.
+
+------------------------------------------------------------------------
+
+## Document as you go
+
+- **`README.md`**: what the project is, how to run it, where outputs appear
+- **`DATA.md`**: what each table contains, unit of observation, keys, sources, known issues
+- **`METHODS.md`**: choices made in cleaning, variable construction, and modeling
+
+Keep them short and update them as the project evolves.
+
+------------------------------------------------------------------------
+
+## Use version control
+
+Git helps you see what changed, when a result changed, and keeps prompt revisions alongside code revisions. Commit small, meaningful changes — "add schema checks for match data" is more useful than "updates."
+
+------------------------------------------------------------------------
+
+## Checklist
+
+- [ ] There is one documented command for the main pipeline.
+- [ ] Raw data and generated data are clearly separated.
+- [ ] Important outputs come from scripts, not manual editing.
+- [ ] Prompts and model settings are saved.
+- [ ] Key joins and schema assumptions are checked.
+- [ ] The final analysis dataset is saved as a file.
+- [ ] Tables and figures can be traced back to generated outputs.
+- [ ] `README.md`, `DATA.md`, and `METHODS.md` are current.
+- [ ] Anything not fully reproducible is stated honestly.
+
+------------------------------------------------------------------------
+
+## Where to go next
+
+### Course pages
+
+- [Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd) — planning, `AGENTS.md`, and testing habits
+- [Documentation Fundamentals](../da-knowledge/documentation-readme.qmd) — better `README.md` and `DATA.md`
+- [Calling LLM APIs from Python](../da-knowledge/llm-api-python.qmd) — structured AI-assisted workflows
+- [Terminal Basics](../da-knowledge/terminal-basics.qmd) — if the shell still feels unfamiliar
+
+### Recommended reading
+
+| Source | Why read it | Link |
+|---|---|---|
+| Sandve et al. (2013). "Ten Simple Rules for Reproducible Computational Research." | Short and concrete: track every result, avoid manual steps, version-control scripts, store raw data behind plots. | [doi.org/10.1371/journal.pcbi.1003285](https://doi.org/10.1371/journal.pcbi.1003285) |
+| Wilson et al. (2017). "Good Enough Practices in Scientific Computing." | Data management, project layout, software habits, and version control for researchers who are not software engineers. | [doi.org/10.1371/journal.pcbi.1005510](https://doi.org/10.1371/journal.pcbi.1005510) |
+| The Turing Way (2019–). | Community-maintained handbook on reproducible environments, testing, and collaboration. | [book.the-turing-way.org](https://book.the-turing-way.org/reproducible-research/reproducible-research) |
+| Broman (2014). "Initial Steps Toward Reproducible Research." | Quick-start tutorial: organize files, script everything, automate, use version control. | [kbroman.org/steps2rr](https://kbroman.org/steps2rr/) |
+| Gentzkow & Shapiro (2014). "Code and Data for the Social Sciences." | Automation, directory structure, and readable code — written by economists for social-science researchers. | [web.stanford.edu/~gentzkow/research/CodeAndData.pdf](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf) |

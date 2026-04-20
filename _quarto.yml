@@ -79,6 +79,8 @@ website:
             href: navbar/resources.qmd
           - text: "Designing Larger Analytics Projects"
             href: da-knowledge/designing-projects.qmd
+          - text: "Reproducible Research Pipelines"
+            href: da-knowledge/reproducible-research.qmd
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
           - text: "Which AI model"
