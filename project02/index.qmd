@@ -24,7 +24,17 @@ From text to expectations — scrape, call an API, score expectations
 - **Session 2 (today) →** for each manager change, you build a **news-based expectation signal**: how much was an imminent change expected? 
 - **Session 3 →** you use that signal as a moderator in the DiD analysis.
 
-The point is not to teach NLP from scratch — we did that in [Week 07](../week07/index.qmd). The point is to scale it with **APIs** and plug the output back into your panel.
+------------------------------------------------------------------------
+
+
+## Learning objectives
+
+By the end of this session your team will:
+
+- Learn about the classical NLP pipeline and how LLMs fit into it.
+- Identify relevant news sources for your country/league.
+- Scrape or pull articles into a structured table (one row per article).
+- Use an **LLM API** to classify each article into an expectation score.
 
 ------------------------------------------------------------------------
 
@@ -43,8 +53,12 @@ For every manager change in your panel, produce a **numeric expectation score** 
 
 You are not trying to judge whether the new manager is good, nor whether fans are happy. You are measuring **how much of a surprise the change was** at the moment it happened.
 
+
 :::
 :::::
+
+
+
 
 ::::: {.week-card .card}
 ::: card-header
@@ -53,9 +67,9 @@ You are not trying to judge whether the new manager is good, nor whether fans ar
 
 ::: card-body
 
-Build the output in **two steps**.
+Two datasets
 
-**Step 1 — article-level list.** One row per article:
+**article-level list.** One row per article:
 
 | column | what it is |
 |---|---|
@@ -64,16 +78,22 @@ Build the output in **two steps**.
 | `date` | article publication date |
 | `score` | LLM-produced expectation score |
 
-Keep `source`, `url`, `title`, `reason`, `is_relevant` alongside for traceability, but the four columns above are the backbone.
 
-**Step 2 — team–gameweek panel.** Aggregate Step 1 to one row per `(team, gameweek)` with two key variables:
+**team–gameweek panel.** Aggregate to one row per `(team, gameweek)` with two key variables:
 
-- `avg_score` — average expectation score across articles in the window,
-- `n_articles` — how many articles fed that average.
+| column | what it is |
+|---|---|
+| `team` | team the article is about |
+| `date` | article publication date |
+| `avg_score` | average expectation score across articles in the window |
+| `n_articles` | how many articles fed that average. |
 
 This is the object you merge onto your match + manager-change panel in Session 3. We will use lagged values of this score. 
 
-Plus: `prompt_classifier.md` and a short validation note (hand-labelled n, agreement rate).
+**information on what you did**
+
+- `prompt_classifier.md` 
+-  *EXTRA*: validation note (hand-labelled n, agreement rate).
 
 ::: {.callout-note}
 **What counts as a "gameweek"?** Default to a **calendar week**, because that is how football coverage is paced. But the unit of time is a choice — it can be **shorter** (a few days, if you want to see the signal tighten as the change approaches) or **longer** (a fortnight or month, if article volume is thin). Pick one, document it, and keep it consistent across teams.
@@ -84,62 +104,44 @@ Plus: `prompt_classifier.md` and a short validation note (hand-labelled n, agree
 
 ------------------------------------------------------------------------
 
-## Why expectations matter in causal analysis
+## Intro talks (~75 min)
+
+Two short decks frame the session — watch/skim **before** the session if you can.
 
 ::::: {.week-card .card}
 ::: card-header
-🧭 **Expectations and diff-in-diffs**
+🎞️ **1. NLP Basics — Text as Data** (~30 min)
 :::
 
 ::: card-body
+[Slides: NLP Basics — Text as Data](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-nlp-basics.html)
 
-Diff-in-diffs compares the pre/post change in outcomes for treated units (teams that changed manager) against a control group, and reads the difference-of-differences as the causal effect. This rests on **parallel trends**: absent treatment, the two groups would have moved in parallel.
-
-Expectations break that story in two ways:
-
-- **Anticipation.** If a manager change is widely expected, players, board, opponents and media react *before* the official announcement. Effort, tactics, transfer talk, press pressure — all shift. The "pre" period is already contaminated, so the estimated effect is biased toward zero (or flipped, if anticipation pushes outcomes the "wrong" way first).
-- **Heterogeneity.** A shock firing after one bad weekend and a long-telegraphed "he's gone at the end of the month" hire are not the same treatment. Pooling them hides structure: the effect of a new manager plausibly depends on **how surprising** the change was.
-
-That is why we build an expectation score per change:
-
-- **As a diagnostic** — do pre-trends look different for "expected" vs "surprise" changes? If yes, the parallel-trends assumption is doing more work than it should.
-- **As a moderator** — split or interact the DiD by expectation. This is the main use in Session 3: does the new-manager bounce exist only for surprise hires, only for expected ones, or roughly the same for both?
-
-You are not trying to *remove* expectations from the data. You are trying to *measure* them so the DiD can say something honest about when and for whom a manager change matters.
+Walks the **classical pipeline** (tokenization → BoW → TF-IDF) and the **modern tools** (word embeddings, BERT, LLMs) — all on a running example: a Ruben Amorim post-match quote that looks a lot like the articles you'll score.
 
 :::
 :::::
 
-------------------------------------------------------------------------
-
-## Learning objectives
-
-By the end of this session your team will:
-
-- Identify relevant news sources for your country/league.
-- Scrape or pull articles into a structured table (one row per article).
-- Use an **LLM API** to classify each article into an expectation score.
-- Aggregate back to one row per manager change, ready for DiD.
-
-------------------------------------------------------------------------
-
-## Intro talk — quick version
-
 ::::: {.week-card .card}
 ::: card-header
-🎞️ **Slideshow — key concepts only**
+🎞️ **2. Scoring News with LLMs**
 :::
 
 ::: card-body
-We'll fly through the [Text to Data slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-05-text-to-data) — *just* the "how to turn text into structured signal" parts.
+[Slides: LLM Scoring](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-llm-scoring.html)
 
-We **skip** the sentiment-scale exercises from Weeks 07–08 — you already did them. What matters here is:
+The project-2 deck. Uses the same Amorim quote to answer: *"What is the probability the manager is out in 4 weeks?"*
 
-- What is a good classification target for *this* project?
-- How do you write a prompt that returns a structured, parseable answer?
-- How do you budget time and money when you have ~1,000 articles to classify?
+Covers:
+
+- What the LLM is actually doing when it outputs a number — and three biases to expect.
+- **Six prompting strategies** — crude, anchored, structured JSON, reason-then-score, self-consistency, logprob-based.
+- In-class activities: pick a strategy and argue for it; score the Amorim article by hand before asking Claude.
+- Bonus task (3 p): investigate calibration.
+- Open design issues for the group to decide (temperature, hand-validate, output format, model choice, aggregation, time window).
+
 :::
 :::::
+
 
 ------------------------------------------------------------------------
 
@@ -211,20 +213,22 @@ If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before yo
 
 **4. Classify via LLM API**
 
-- Call an LLM (OpenAI, Anthropic, …) via API to score each article's **expectation about the incoming manager**.
+- Call an LLM (OpenAI, Anthropic, …) via API to score each article 
 - Consult AI on how to create a prompt for such an exercise.
 - Design a clear prompt — think about:
   - What scale or label set best captures "expectation"?
   - How should irrelevant articles be handled?
   - What output format makes downstream parsing easiest?
 - Prefer a structured response schema over free text, so each call returns the same fields, for example `score`, `reason`, and `is_relevant`.
+
+**extra**
 - **Validate before scaling:** hand-label ~20 articles yourself, run them through the prompt, and compare. Aim for ≥ 80 % agreement; if you're below that, revise the prompt before classifying the full set.
 
-**5. Aggregate to one row per manager change**
 
-- How should you go from many article-level scores to something you can use in the DiD analysis?
-- What additional summary statistics (e.g., coverage, dispersion) might be useful for the analysis?
-- The end product should be a table you can merge with your match + manager-change panel from Session 1.
+
+**5. Aggregate**
+
+- create team*gameweek panel with average score and article count per `(team, gameweek)`
 
 :::
 :::::
@@ -257,7 +261,7 @@ This is a lot of work for a 2-hour block. **Scope down on purpose**:
 
 ------------------------------------------------------------------------
 
-## Discussion (last hour)
+## Discussion 
 
 - **Coverage** — Which manager changes got lots of press? Which got none? What does silence mean here?
 - **Classification quality** — Where did the model disagree with you on hand-labelled cases? Why?
@@ -280,7 +284,7 @@ This is a lot of work for a 2-hour block. **Scope down on purpose**:
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
 - **What:**
   - Article table (one row per article) + classification table (one row per article with score + reason).
-  - Aggregated `expectations.csv`: one row per `(team, change_date)`.
+  - Aggregated `expectations.csv`: one row per `(team, date)`.
   - Prompt file (`prompt_classifier.md`) + a short note on validation (n hand-labelled, agreement rate).
   - Updated `DATA.md` with the new tables documented.
 
