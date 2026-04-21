@@ -32,7 +32,7 @@ You will make decisions, be assertive and transparent.
 
 - It is **specific** (one domain, concrete RQ) but **broad** (no exact steps given to you).
 - You will have to **plan**, **layer tasks with AI**, and **decide** — not just follow a recipe.
-- Before you start, we'll go over the companion page **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** — it covers the mindsets, self-interview, `agents.md` file, and the three kinds of tests you'll use all three sessions.
+- Before you start, we'll go over two companion pages: **[Designing Larger Analytics Projects with AI](../da-knowledge/designing-projects.qmd)** and **[Reproducible Research Pipelines](../da-knowledge/reproducible-research.qmd)**. Together they cover the mindsets, self-interview, `agents.md` file, testing, repo layout, and workflow habits you'll apply throughout the project.
 
 ### Task and Scope
 
