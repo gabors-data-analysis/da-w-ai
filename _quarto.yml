@@ -79,6 +79,8 @@ website:
             href: navbar/resources.qmd
           - text: "Designing Larger Analytics Projects"
             href: da-knowledge/designing-projects.qmd
+          - text: "Reproducible Research"
+            href: da-knowledge/reproducible-research.qmd
           - text: "Glossary of LLM terms"
             href: da-knowledge/technical-terms-page.qmd
           - text: "Which AI model"
@@ -89,6 +91,8 @@ website:
             href: da-knowledge/documentation-readme.qmd
           - text: "Joining Data Tables"
             href: da-knowledge/joining-tables.qmd
+          - text: "NLP Basics — Text as Data"
+            href: da-knowledge/nlp-basics.qmd
           - text: "Creating Graphs"
             href: da-knowledge/creating-graphs.qmd
           - text: "Terminal Basics"
