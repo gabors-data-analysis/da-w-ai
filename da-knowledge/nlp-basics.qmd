@@ -1,0 +1,395 @@
+---
+title: "NLP Basics — Text as Data"
+subtitle: "Core concepts for turning text into something you can count, compare, and model"
+date: "2026-04-20"
+---
+
+## Why this page
+
+A lot of interesting questions live in text: news articles, earnings calls, interviews, reviews, policy documents. Before you can run any analysis on text, you have to turn it into something numeric — tokens, counts, vectors.
+
+This page is a **30-minute primer** on the vocabulary and the pipeline. It's what you need to understand before Session 2 of the capstone, where you'll ask an LLM to turn news articles into a numeric expectation score for manager changes.
+
+We intentionally stop **before sentiment analysis and embeddings** — those build on everything here, but they come next.
+
+---
+
+## The running example
+
+Everything below uses the same short Reuters excerpt — a post-match quote from Manchester United manager Ruben Amorim after a 2-2 draw at Nottingham Forest on 1 November 2025:
+
+> "We lost control of the game for five minutes. But my feeling is that the players tried, really tried. They tried during the week and they tried today. In the past, if we had this kind of bad five minutes and we suffered two goals, we didn't recover. Today is a different feeling."
+
+Short enough to work through by hand, long enough to see every step matter.
+
+---
+
+## The pipeline
+
+Every classical text-as-data workflow looks roughly the same:
+
+```
+Raw text
+   │
+   ▼
+Tokenization         ← split into units
+   │
+   ▼
+Normalization        ← lowercase, strip punctuation, remove stopwords
+   │
+   ▼
+Stemming / Lemmatization   ← collapse word variants
+   │
+   ▼
+Feature extraction   ← Bag of Words, n-grams, TF-IDF
+   │
+   ▼
+Analysis             ← counts, classification, regression, LLM scoring
+```
+
+Each step is a **choice**. Different choices give you different numbers, and different numbers give you different answers. Being able to name each step is half the battle.
+
+---
+
+## 1. Tokenization
+
+::: {.callout-tip}
+**Tokenization** is breaking a string of text into smaller units called **tokens**. Usually words, sometimes punctuation, sometimes sub-word pieces.
+:::
+
+Take the first sentence of our quote:
+
+> "We lost control of the game for five minutes."
+
+### Whitespace tokenization
+
+The simplest thing: split on spaces.
+
+```python
+text = "We lost control of the game for five minutes."
+tokens = text.split()
+# ['We', 'lost', 'control', 'of', 'the', 'game', 'for', 'five', 'minutes.']
+```
+
+Fast, but the last token is `"minutes."` — the period is glued on. That's a problem: `"minutes"` and `"minutes."` look like different words to a computer.
+
+### Word tokenization with a library
+
+Libraries like **NLTK** or **spaCy** handle punctuation properly:
+
+```python
+from nltk.tokenize import word_tokenize
+
+tokens = word_tokenize("We lost control of the game for five minutes.")
+# ['We', 'lost', 'control', 'of', 'the', 'game', 'for', 'five', 'minutes', '.']
+```
+
+Now the period is its own token. You can keep it or drop it.
+
+### Sub-word tokenization (what LLMs use)
+
+Modern LLMs (Claude, GPT, Gemini) don't use word tokenization. They use **sub-word** tokenizers like Byte-Pair Encoding (BPE). A word like `"Nottingham"` might become two tokens: `"Not"` + `"tingham"`. A rare word like `"Amorim"` might be three or four pieces.
+
+This matters because:
+
+- **Cost and limits are in tokens**, not words. A 1,000-word article is usually 1,300–1,500 tokens.
+- **LLMs "see" sub-words**, which is why they can handle misspellings and new words they've never seen.
+- You do **not** need to tokenize yourself when you call an LLM API. The API does it for you.
+
+**Rule of thumb for English:** 1 token ≈ 0.75 words, or about 4 characters.
+
+### Why it matters
+
+Tokenization is the foundation. Every later step operates on tokens, not raw text. A bad tokenizer — one that splits `"Man United"` into `"Man"` and `"United"` — throws away meaning that downstream steps can't recover.
+
+---
+
+## 2. Normalization
+
+Once you have tokens, you typically clean them up.
+
+### Lowercasing
+
+`"We"` and `"we"` are the same word for most purposes. Most pipelines lowercase everything:
+
+```python
+tokens = [t.lower() for t in tokens]
+# ['we', 'lost', 'control', 'of', 'the', 'game', 'for', 'five', 'minutes', '.']
+```
+
+**When not to lowercase:** if casing carries information (e.g., named entities like `"United"` the club vs. `"united"` the adjective, or sentiment cues like `"AMAZING"`).
+
+### Removing punctuation
+
+```python
+tokens = [t for t in tokens if t.isalpha()]
+# ['we', 'lost', 'control', 'of', 'the', 'game', 'for', 'five', 'minutes']
+```
+
+### Removing stopwords
+
+**Stopwords** are very common words that carry little meaning on their own: `the`, `of`, `a`, `is`, `we`, `and`. Dropping them focuses the analysis on content words.
+
+```python
+from nltk.corpus import stopwords
+stop = set(stopwords.words('english'))
+
+tokens = [t for t in tokens if t not in stop]
+# ['lost', 'control', 'game', 'five', 'minutes']
+```
+
+From 10 tokens down to 5. The sentence's *gist* — "lost control of the game" — survives.
+
+::: {.callout-warning}
+**Stopwords are not always safe to drop.** `"not"` is a stopword in most lists, but `"not recover"` and `"recover"` mean opposite things. For any analysis that cares about negation, keep stopwords.
+:::
+
+---
+
+## 3. Stemming vs. Lemmatization
+
+Many words come in variants: *try*, *tried*, *trying*, *tries*. For most counting tasks you want to treat them as one thing.
+
+### Stemming
+
+A **stemmer** chops off common endings using simple rules. Fast, crude, sometimes produces non-words.
+
+```python
+from nltk.stem import PorterStemmer
+stem = PorterStemmer()
+
+[stem.stem(w) for w in ['tried', 'trying', 'tries', 'recover', 'recovered']]
+# ['tri', 'tri', 'tri', 'recov', 'recov']
+```
+
+Notice `"tried"` → `"tri"`. That's not a real word — but all three forms collapse to the same token, which is what we wanted.
+
+### Lemmatization
+
+A **lemmatizer** uses a dictionary to return the proper base form (the *lemma*). Slower, more accurate.
+
+```python
+from nltk.stem import WordNetLemmatizer
+lem = WordNetLemmatizer()
+
+[lem.lemmatize(w, pos='v') for w in ['tried', 'trying', 'tries', 'recover', 'recovered']]
+# ['try', 'try', 'try', 'recover', 'recover']
+```
+
+Now we get real words: `"try"`, `"recover"`.
+
+### Which should you use?
+
+| | Stemming | Lemmatization |
+|---|---|---|
+| Speed | Fast | Slower |
+| Output | Sometimes non-words | Real dictionary words |
+| Accuracy | Lower | Higher |
+| Needs POS tag? | No | Often yes |
+| Typical use | Large corpora, search | Analysis where interpretability matters |
+
+For a small research corpus where you'll read the tokens yourself, **lemmatize**. For billion-document search, **stem**.
+
+### Applied to our excerpt
+
+After tokenizing, lowercasing, removing punctuation and stopwords, and lemmatizing verbs, the Amorim quote reduces to roughly:
+
+```
+['lose', 'control', 'game', 'five', 'minute', 'feel', 'player', 'try',
+ 'really', 'try', 'try', 'week', 'try', 'today', 'past', 'kind', 'bad',
+ 'five', 'minute', 'suffer', 'two', 'goal', 'recover', 'today',
+ 'different', 'feel']
+```
+
+26 tokens left from about 65 words. Already you can see the shape of the text: **try** appears four times; **minute** and **today** twice; **feel** twice; **recover** once. Without reading it, you can already guess this is a quote about *effort* and *resilience*.
+
+---
+
+## 4. Bag of Words
+
+::: {.callout-tip}
+**Bag of Words (BoW)** represents a document as the set of its tokens and how often each one appears — ignoring grammar and order.
+:::
+
+Take the cleaned token list above and count:
+
+| token | count |
+|---|---|
+| try | 4 |
+| minute | 2 |
+| today | 2 |
+| feel | 2 |
+| five | 2 |
+| lose | 1 |
+| control | 1 |
+| game | 1 |
+| player | 1 |
+| suffer | 1 |
+| goal | 1 |
+| recover | 1 |
+| different | 1 |
+| ... | ... |
+
+That's the bag. A Python dict, a pandas Series, a sparse vector — same idea.
+
+### What you can do with a BoW
+
+- **Summarize** a document at a glance (top words)
+- **Compare** documents (cosine similarity between their vectors)
+- **Classify** documents (logistic regression on BoW vectors is a surprisingly strong baseline)
+- **Track change over time** (BoW for this week's articles vs. last week's)
+
+### What BoW throws away
+
+This is the crucial part. BoW knows nothing about:
+
+1. **Word order.** `"We lost control"` and `"control we lost"` are identical bags.
+2. **Negation.** `"did not recover"` counts `"recover"` as a positive appearance.
+3. **Multi-word expressions.** `"Premier League"` becomes two separate tokens.
+4. **Context.** `"bad five minutes"` and `"bad loss"` both contribute one `"bad"`.
+
+The next three sections each patch one of these holes.
+
+---
+
+## 5. N-grams
+
+An **n-gram** is a sequence of *n* consecutive tokens. **Bigrams** are pairs; **trigrams** are triples.
+
+From the cleaned Amorim tokens, some bigrams:
+
+- `("lose", "control")`
+- `("really", "try")`
+- `("bad", "minute")` (after collapsing "five bad minutes" → roughly this)
+- `("different", "feel")`
+
+And some trigrams:
+
+- `("try", "really", "try")`
+- `("mental", "strength", "secure")` (from the full article)
+
+### What n-grams buy you
+
+- Capture **local word order**: `"not recover"` is its own feature, distinct from `"recover"`.
+- Capture **phrases**: `"premier league"`, `"manchester united"`, `"manager amorim"`.
+- Capture **idioms** the BoW can't see: `"under pressure"`, `"on the brink"`.
+
+### The cost
+
+Vocabulary explodes. A corpus with 10,000 unigrams can easily have 200,000 bigrams, most of them appearing once. You'll typically cap n-gram features by **minimum document frequency** (e.g., keep a bigram only if it appears in at least 5 documents).
+
+### How in code
+
+`scikit-learn`'s `CountVectorizer` handles this:
+
+```python
+from sklearn.feature_extraction.text import CountVectorizer
+
+vec = CountVectorizer(ngram_range=(1, 2), min_df=2, stop_words='english')
+X = vec.fit_transform(list_of_documents)
+```
+
+`ngram_range=(1, 2)` means "unigrams and bigrams"; `min_df=2` means "drop anything appearing in fewer than 2 documents."
+
+---
+
+## 6. TF-IDF
+
+Bag of Words and n-grams tell you *what's in* a document. They don't tell you what's **distinctive** about it.
+
+If every Premier League post-match article mentions "game", "half", "team", and "player", those words tell you nothing about a specific article. They're noise dressed up as signal.
+
+::: {.callout-tip}
+**TF-IDF** (Term Frequency × Inverse Document Frequency) weights each token by how often it appears in *this* document, down-weighted by how often it appears across *all* documents.
+:::
+
+### The formulas
+
+- **TF (term frequency):** how often term *t* appears in document *d*.
+- **DF (document frequency):** how many documents contain term *t*.
+- **IDF (inverse document frequency):** `log(N / DF)`, where *N* is the total number of documents.
+- **TF-IDF:** `TF × IDF`.
+
+A word that appears everywhere has `DF = N`, so `IDF = log(1) = 0`, so its TF-IDF is zero. A word that appears in only one document out of 10,000 has a high IDF and, if it appears several times in that one document, a very high TF-IDF.
+
+### Applied to our setup
+
+Imagine a corpus of 500 post-match articles about Premier League clubs. For the Amorim article:
+
+- **Low TF-IDF** (common across all articles): `game`, `half`, `team`, `player`, `manager`, `coach`, `goal`
+- **High TF-IDF** (distinctive to this article): `try`, `recover`, `mental strength`, `five minutes`, `different feeling`
+
+TF-IDF is doing exactly what a human skim-reader does: ignore the boilerplate, notice the unusual.
+
+### In code
+
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vec = TfidfVectorizer(ngram_range=(1, 2), min_df=5, stop_words='english')
+X = vec.fit_transform(list_of_documents)
+```
+
+Same interface as `CountVectorizer`, different weighting.
+
+---
+
+## 7. What BoW + n-grams + TF-IDF can't do
+
+The tools above are **sparse** — every token is its own feature, with no built-in relationship to any other. That has real limits.
+
+1. **No synonyms.** `"manager"` and `"coach"` and `"boss"` are three different features. The model has to learn from scratch that they're related.
+2. **No context.** `"bank"` (financial) and `"bank"` (river) are the same token.
+3. **No world knowledge.** The model doesn't know that "two quickfire goals" is bad news for the defending team.
+4. **Negation is brittle.** `"not recover"` as a bigram helps, but `"we did not, in the end, recover"` defeats bigrams.
+
+The next generation of tools — **word embeddings** (Word2Vec, GloVe), **contextual embeddings** (BERT), and **LLMs** (Claude, GPT) — each relax one of these constraints. Embeddings give you synonymy. Contextual embeddings give you sense disambiguation. LLMs give you world knowledge and can handle arbitrary negation.
+
+But the sparse tools above are not obsolete:
+
+- They're **fast** (milliseconds vs. seconds per document)
+- They're **transparent** (you can read the features)
+- They're **cheap** (no API calls, no GPUs)
+- They're a **strong baseline** (often within a few points of expensive models on classification tasks)
+
+When you call an LLM to do text analysis, you are skipping steps 1–6 of the pipeline. That's fine — but knowing what you've skipped helps you reason about why the LLM gave you the answer it did, and where it might fail.
+
+---
+
+## How this connects to the capstone
+
+In [Session 2](../project02/index.qmd) you score news articles about football managers. You will **not** write a tokenizer or a TF-IDF pipeline — you'll send the article text to an LLM and ask for a number. But every decision you make still maps onto the vocabulary above:
+
+| Capstone choice | NLP concept |
+|---|---|
+| Which articles go into the corpus? | Document selection |
+| Strip HTML/ads before sending to the LLM? | Normalization |
+| One article at a time, or batched? | Document vs. corpus |
+| Average scores within a gameweek? | Aggregation across a window |
+| Keep quotes/names or paraphrase? | Feature preservation |
+
+The LLM replaces the middle of the pipeline. The choices at the edges — what goes in, what you do with the output — are still yours.
+
+---
+
+## Quick-reference cheatsheet
+
+| Step | What it does | Typical library |
+|---|---|---|
+| Tokenization | Split text into tokens | `nltk.word_tokenize`, `spacy` |
+| Lowercasing | `"We"` → `"we"` | `str.lower()` |
+| Stopword removal | Drop `the`, `of`, `is`, ... | `nltk.corpus.stopwords` |
+| Stemming | `"trying"` → `"tri"` | `PorterStemmer` |
+| Lemmatization | `"trying"` → `"try"` | `WordNetLemmatizer`, `spacy` |
+| BoW | Count tokens per document | `CountVectorizer` |
+| N-grams | Count token sequences | `CountVectorizer(ngram_range=...)` |
+| TF-IDF | Count × inverse document frequency | `TfidfVectorizer` |
+
+---
+
+## Further reading
+
+- [Speech and Language Processing (Jurafsky & Martin)](https://web.stanford.edu/~jurafsky/slp3/) — the standard NLP textbook, free online.
+- [scikit-learn: Working with text data](https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html)
+- [spaCy 101](https://spacy.io/usage/spacy-101) — modern tokenization and linguistic features.
+- [Hugging Face Tokenizers](https://huggingface.co/docs/tokenizers) — if you're curious about the sub-word tokenizers that LLMs use.
