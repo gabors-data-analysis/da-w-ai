@@ -81,6 +81,35 @@ A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/proje
 
 ------------------------------------------------------------------------
 
+## Why expectations matter in causal analysis
+
+::::: {.week-card .card}
+::: card-header
+🧭 **Expectations and diff-in-diffs**
+:::
+
+::: card-body
+
+Diff-in-diffs compares the pre/post change in outcomes for treated units (teams that changed manager) against a control group, and reads the difference-of-differences as the causal effect. This rests on **parallel trends**: absent treatment, the two groups would have moved in parallel.
+
+Expectations break that story in two ways:
+
+- **Anticipation.** If a manager change is widely expected, players, board, opponents and media react *before* the official announcement. Effort, tactics, transfer talk, press pressure — all shift. The "pre" period is already contaminated, so the estimated effect is biased toward zero (or flipped, if anticipation pushes outcomes the "wrong" way first).
+- **Heterogeneity.** A shock firing after one bad weekend and a long-telegraphed "he's gone at the end of the month" hire are not the same treatment. Pooling them hides structure: the effect of a new manager plausibly depends on **how surprising** the change was.
+
+That is why we build an expectation score per change:
+
+- **As a diagnostic** — do pre-trends look different for "expected" vs "surprise" changes? If yes, the parallel-trends assumption is doing more work than it should.
+- **As a moderator** — split or interact the DiD by expectation. This is the main use in Session 3: does the new-manager bounce exist only for surprise hires, only for expected ones, or roughly the same for both?
+
+You are not trying to *remove* expectations from the data. You are trying to *measure* them so the DiD can say something honest about when and for whom a manager change matters.
+
+:::
+:::::
+
+
+------------------------------------------------------------------------
+
 ## Work tasks (2-hour block)
 
 ::::: {.week-card .card}
