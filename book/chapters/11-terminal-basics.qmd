@@ -1,0 +1,9 @@
+---
+title: "Terminal Basics"
+---
+
+# Terminal Basics
+
+From here on the work moves out of a chat window and into a terminal. If `cd`, `ls`, and pipes are not yet muscle memory, this chapter gets you there.
+
+{{< include ../../da-knowledge/terminal-basics.qmd >}}

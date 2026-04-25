@@ -1,0 +1,9 @@
+---
+title: "Reading Text with AI — Football Interviews"
+---
+
+# Reading Text with AI — Football Interviews
+
+We move from theory to a real corpus: post-game interviews from football managers. First-pass exploration, basic features, where LLMs help most.
+
+{{< include ../../week07/index.qmd >}}

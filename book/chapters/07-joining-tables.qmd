@@ -1,0 +1,9 @@
+---
+title: "Joining Data Tables"
+---
+
+# Joining Data Tables
+
+The single most common ask in a real analytics project: join these two tables. Where it goes wrong, where AI helps, and where AI confidently produces a join that silently drops half your rows.
+
+{{< include ../../da-knowledge/joining-tables.qmd >}}

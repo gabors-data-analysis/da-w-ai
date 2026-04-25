@@ -1,0 +1,9 @@
+---
+title: "Walkthrough — World Bank and FRED"
+---
+
+# Walkthrough — World Bank and FRED
+
+Two of the most useful free macroeconomic APIs on the public internet, walked through end to end.
+
+{{< include ../../da-knowledge/walkthrough-wb-fred.qmd >}}

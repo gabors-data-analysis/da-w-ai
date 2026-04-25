@@ -1,0 +1,9 @@
+---
+title: "Getting AI API Keys"
+---
+
+# Getting AI API Keys
+
+Before APIs you need keys. Here is how to get them on a student budget without leaking them into your git history.
+
+{{< include ../../da-knowledge/get-ai-api-key.qmd >}}

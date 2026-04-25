@@ -1,0 +1,9 @@
+---
+title: "APIs — A Primer"
+---
+
+# APIs — A Primer
+
+What an API actually is, why you care, and the smallest amount of HTTP you need to be productive.
+
+{{< include ../../da-knowledge/api-use.qmd >}}

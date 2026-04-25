@@ -1,0 +1,15 @@
+---
+title: "Lab 3 — Drafting a Report with AI"
+---
+
+# Lab 3 — Drafting a Report with AI
+
+**Read first:** Chapters 8–9 (Reports; Ideas for a Good Report).
+
+{{< include ../../assignments/assignment_03.qmd >}}
+
+## AI and me
+
+1. How did AI **support** you in this lab?
+2. How did AI **fail** you?
+3. How did AI **extend** you?

@@ -1,0 +1,9 @@
+---
+title: "AI for Coding — A Primer"
+---
+
+# AI for Coding — A Primer
+
+A quick lap around using AI for code, before we go any further. If you have used Copilot, ChatGPT for a function, or paired with an LLM on a script, this is review. If not, it sets the floor for everything that follows.
+
+{{< include ../../week00/index.qmd >}}

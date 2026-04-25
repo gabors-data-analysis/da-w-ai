@@ -1,0 +1,28 @@
+---
+title: "What LLMs Are (and Aren't)"
+---
+
+# What LLMs Are (and Aren't)
+
+Before you can collaborate with an AI, you need a working mental model of what it is. Not a deep technical one — a *useful* one. Enough to predict where it will be brilliant, where it will hallucinate, and which decisions stay yours.
+
+This chapter introduces the core ideas — tokens, context, training, the "jagged frontier" of capabilities, and the *Cyborg vs. Centaur* metaphor for working with AI. By the end you should be able to look at a task and form an opinion, before you prompt, about whether AI will help, hinder, or mislead.
+
+The chapter draws on the original Week 1 material from the course; the practical reflection exercise lives in [Lab 1](../labs/lab-01.qmd).
+
+::: {.callout-note}
+## For instructors
+This chapter folds in the Week 1 course material. The original page lives at `week01/index.qmd` in the course repository.
+:::
+
+{{< include ../../week01/index.qmd >}}
+
+## AI and me — chapter reflection
+
+Before moving on, write a short paragraph for each:
+
+1. How did the chapter **support** my mental model of LLMs?
+2. Where did it **fail** me — what is still unclear?
+3. How did it **extend** me — what new question can I now ask that I couldn't before?
+
+The next chapter, [Which AI Should I Use?](03-which-ai.qmd), gets practical: from the open zoo of frontier models, which ones are worth your money and attention?

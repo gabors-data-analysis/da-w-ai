@@ -1,0 +1,9 @@
+---
+title: "Sentiment Analysis with LLMs"
+---
+
+# Sentiment Analysis with LLMs
+
+Comparing LLM sentiment to human-coded sentiment on the same interview corpus. How close, where they diverge, and which one to trust when.
+
+{{< include ../../week08/index.qmd >}}

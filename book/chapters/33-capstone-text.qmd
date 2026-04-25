@@ -1,0 +1,9 @@
+---
+title: "Capstone Session 2 — From Text to Expectations"
+---
+
+# Capstone Session 2 — From Text to Expectations
+
+Session 2. Scrape news around manager changes, pass it through an LLM API, build an expectations score, and merge it into the panel.
+
+{{< include ../../project02/index.qmd >}}

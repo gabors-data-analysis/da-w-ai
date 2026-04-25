@@ -1,0 +1,58 @@
+---
+title: "How to Use This Book"
+---
+
+# How to Use This Book {.unnumbered}
+
+## The two halves: chapters and labs
+
+The book has two halves that travel together.
+
+**Chapters (Parts I–VII)** are the *narrative* — read them. They build a single arc from "what is an LLM" through chat workflows, the terminal, agentic AI, text as data, AI in empirical research, APIs, and a full-stack capstone project. Read them in order the first time. Skim and reference them later.
+
+**Labs (Part VIII)** are the *practice* — work through them. Each lab is a self-contained exercise drawn from the original course, deliberately stripped down: a brief, a dataset, a prompt or two, and a deliverable. Labs preserve the original course material as-is so you can do them on your own without an instructor in the room. Many labs map 1-to-1 to the weekly assignments of the course.
+
+A typical study unit:
+
+1. Read one or two chapters.
+2. Do the matching lab.
+3. Write your "AI and me" reflection at the end of the lab.
+
+## Three reader profiles
+
+**Self-learner.** Start at the preface, read straight through, do every lab. Plan on roughly two evenings per chapter for the early parts and a full weekend per part once you hit the CLI material in Part III. The capstone in Part VII expects you to set aside three full sessions of a few hours each.
+
+**Student in a course.** Your instructor will assign chapters and labs in some order. The book's linear arc is one valid path; your syllabus is another. Use the chapters as preparation reading and the labs as homework.
+
+**Instructor.** Fork the repo. Re-mix chapters into the rhythm of your class; the labs were originally weekly assignments and still work as such. The website version (sidebar by week) is a second view of the same material, also in the repo. License is CC BY-NC-SA 4.0 — see the appendix for attribution.
+
+## What you need before you start
+
+- A working **Python** setup — Anaconda, `uv`, or your preferred manager. The book is Python-only; see the preface for why.
+- An account with at least one frontier chat model. This edition was written against **Claude Opus 4.7** and **ChatGPT 5.5**; either works for almost every chapter, with occasional notes on where they differ. See [Edition and Model Snapshot](versions.qmd).
+- For Part III onward: a terminal you are willing to live in (macOS Terminal / iTerm, Windows PowerShell or WSL, any Linux shell).
+- For Parts III and VI: an API key for at least one LLM provider. Chapter 25 walks you through getting one without overpaying.
+
+## A note on AI in your work
+
+The course has one unbreakable rule and the book inherits it:
+
+> Use AI freely. Do not submit something *created* by AI. AI is your assistant, not your ghostwriter.
+
+In every lab you should be able to defend every line of code and every claim in your write-up. If you cannot, you have over-delegated. The point of the labs is to practice exactly this judgement.
+
+At the end of each chapter and lab, three questions:
+
+1. How did AI **support** me in doing what I planned?
+2. How did AI **fail** me — half-truths, buggy code, imprecise arguments?
+3. How did AI **extend** me — letting me do things I couldn't, or giving me new ideas?
+
+Write the answers down. They are the most important artefact you will produce.
+
+## Conventions
+
+- **Code blocks** are **Python**, end of story. Principles transfer to R, Stata, or Julia; the code in this edition does not.
+- **Callouts** mark places where the AI tooling is most likely to mislead you, and where human judgement matters most.
+- **Footnotes** point to the original course-website page when a chapter is a re-flow of one — useful for instructors looking for the source.
+- **Case studies** (World Values Survey, Austrian Hotels, football interviews, US earnings, employee commits) recur across chapters. The Reference part lists them with one-page summaries.
+- **Many short chapters.** The book deliberately favours short, single-idea chapters over long bundled ones — they read better on the web and re-mix more easily for instructors.

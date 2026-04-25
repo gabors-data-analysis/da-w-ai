@@ -1,0 +1,29 @@
+---
+title: "Capstone Brief — Manager Impact in Football"
+---
+
+# Capstone Brief — Manager Impact in Football
+
+Ten parts of guided practice, and now the test: one messy real-world question, no recipe, AI as a teammate, three sessions of work.
+
+> **Research question.** Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?
+
+You will collect data, build a news-based "expectations" score with an LLM API, and run a difference-in-differences analysis to estimate the causal effect of manager changes. Your audience is heads of data science at sports clubs with strong econometric chops — they will not be impressed by a pretty chart with no identification strategy.
+
+The capstone is a **part**, not an appendix. It is the payoff for the whole book. If you only do one thing from this book, do this.
+
+::: {.callout-tip}
+## How to work through the capstone
+- Read this brief end-to-end before starting Session 1.
+- Do the three sessions in order: data → text → DiD.
+- Keep a working `agents.md` (or `CLAUDE.md`) at the root of your project — Chapter 17 explains why.
+- Commit early and often. The point is not just the answer; it is the *audit trail*.
+:::
+
+{{< include ../../capstone/index.qmd >}}
+
+## What's next
+
+- Session 1 — [Data collection](32-capstone-data.qmd)
+- Session 2 — [From text to expectations](33-capstone-text.qmd)
+- Session 3 — [DiD and final presentation](34-capstone-did.qmd)

@@ -1,0 +1,62 @@
+---
+title: "Preface"
+---
+
+# Preface {.unnumbered}
+
+This is the book companion of the open-source course **Doing Data Analysis with AI**. The course is taught at CEU in Vienna; the book takes the same material and lays it out as a single, linear path you can read on your own — from "what is an LLM?" to "I just shipped a reproducible causal-inference report with an AI teammate."
+
+It is aimed at **social science students** — economics, political science, sociology, history, public policy — who already have an introductory data-analysis or econometrics course under their belt and some Python, and who now want to figure out how to make AI a daily collaborator without losing their judgement.
+
+::: {.callout-note}
+## Spring 2026 edition · 26 April 2026
+This is the **Spring 2026** edition of the book, written against **Claude Opus 4.7**, **Claude Sonnet 4.6**, **Claude Haiku 4.5**, and **ChatGPT 5.5**. The book is updated once a year, in spring. See [Edition and Model Snapshot](versions.qmd) for the full list and the maintenance policy.
+:::
+
+## Zero to hero, in one path
+
+The course-website version of this material is laid out as a 12-week class with a sidebar of weekly modules, knowledge-base articles, case studies, and assignments. That works for an instructor; it can be intimidating for a student reading alone.
+
+This book reorganizes the same content as a **single linear narrative**, broken into many short chapters. Knowledge-base articles are folded into the chapter where they are first needed — terminal basics appear right before we start using the command line, NLP basics come right before we read text, an API primer comes right before we hit our first API. Nothing is buried two clicks deep.
+
+The journey is roughly:
+
+1. **Foundations** — what LLMs actually are, which one to use, how to talk about them.
+2. **Working with AI in chat** — documenting code and data, joining tables, drafting reports, making graphs.
+3. **From chat to CLI** — the terminal, agentic AI (Claude Code), reproducible pipelines, end-to-end projects.
+4. **Text as data** — NLP basics, reading interview transcripts, sentiment analysis with LLMs.
+5. **AI in empirical research** — using AI as a research companion for control variables and instrumental variables.
+6. **APIs and automation** — keys, requests, LLM APIs in Python, real walkthroughs (World Bank, FRED, FBref).
+7. **Capstone** — a three-part team project on manager changes in football: data, text-to-expectations, difference-in-differences.
+
+The narrative ends, but the book continues with a **Labs** section: hands-on assignments that mirror the original weekly course. Labs preserve the content of the course as-is so a student can work through them on their own; the chapters teach the ideas, the labs make you sweat.
+
+## Three questions, every chapter
+
+The course's spine is the same three questions, asked at the end of every session:
+
+1. How did AI **support** me in doing what I planned?
+2. How did AI **fail** me — half-truths, buggy code, imprecise arguments?
+3. How did AI **extend** me — letting me do things I couldn't, or giving me new ideas?
+
+The book keeps that habit. Every chapter ends with a short "AI and me" reflection that you fill in for yourself.
+
+## Python only, by design
+
+All code in this book is **Python**. Earlier course editions juggled Python and R, which made every chapter longer than it needed to be and every example shallower than it could be. The principles transfer to R, Stata, or Julia; this edition does not.
+
+If you are an R-first reader, the [course website](https://gabors-data-analysis.com/ai-course/) keeps R-flavoured pages alive in some places, and the underlying ideas are the same.
+
+## What this book is not
+
+It is **not** an introductory econometrics or data-analysis textbook. The book assumes you already know what a regression is, what a panel data set looks like, and roughly how to clean a CSV. Where a chapter brushes against an econometric idea — instrumental variables, difference-in-differences, fixed effects — it does so briefly, and points you to the textbook below for the full treatment.
+
+> 📖 **Companion textbook.** [Békés & Kézdi, *Data Analysis for Business, Economics, and Policy* (Cambridge UP, 2021)](https://gabors-data-analysis.com/getting-started). Full slideshows, datasets, and code are open. Buy a copy if you can.
+
+It is also **not** a survey of every AI tool on the market. We focus on a small, opinionated stack: a frontier chat model (Claude or ChatGPT — pick one), a CLI agent (Claude Code), and a few APIs. The principles transfer.
+
+## License and use
+
+Open source under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Fork it, teach with it, submit pull requests. The repository lives at [github.com/gabors-data-analysis/da-w-ai](https://github.com/gabors-data-analysis/da-w-ai).
+
+— Gábor Békés, Vienna · April 2026

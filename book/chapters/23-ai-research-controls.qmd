@@ -1,0 +1,9 @@
+---
+title: "AI as Research Companion — Control Variables"
+---
+
+# AI as Research Companion — Control Variables
+
+Selecting controls is judgement-heavy and easy to over-delegate. We walk through how to use AI as a sparring partner without letting it pick the model for you.
+
+{{< include ../../week09/index.qmd >}}

@@ -1,0 +1,9 @@
+---
+title: "Designing Larger Analytics Projects"
+---
+
+# Designing Larger Analytics Projects
+
+The mindsets that make AI useful on a project of more than a hundred files: self-interview, `agents.md`, layered tasks, repo layout, testing habits.
+
+{{< include ../../da-knowledge/designing-projects.qmd >}}

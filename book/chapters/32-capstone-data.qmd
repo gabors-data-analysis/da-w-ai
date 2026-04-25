@@ -1,0 +1,9 @@
+---
+title: "Capstone Session 1 — Data Collection"
+---
+
+# Capstone Session 1 — Data Collection
+
+Session 1 of the capstone. Pick a country, collect match and manager-change data, get to a clean panel.
+
+{{< include ../../project01/index.qmd >}}

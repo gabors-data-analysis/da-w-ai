@@ -1,0 +1,9 @@
+---
+title: "Which AI Model Should I Use?"
+---
+
+# Which AI Model Should I Use?
+
+Models change every quarter; the decision rule does not. Here is how to pick one without overspending or under-tooling, and how to revise the decision when the next leaderboard drops.
+
+{{< include ../../da-knowledge/which-ai.qmd >}}

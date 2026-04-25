@@ -1,0 +1,15 @@
+---
+title: "Lab 1 — First Contact"
+---
+
+# Lab 1 — First Contact
+
+**Read first:** Chapter 2 (What LLMs Are).
+
+{{< include ../../assignments/assignment_01.qmd >}}
+
+## AI and me
+
+1. How did AI **support** you in this lab?
+2. How did AI **fail** you?
+3. How did AI **extend** you?

@@ -1,0 +1,9 @@
+---
+title: "Working with PDFs"
+---
+
+# Working with PDFs
+
+PDFs are everywhere in policy and academia and uniformly painful to work with. A pragmatic guide for getting clean text and tables out of them.
+
+{{< include ../../da-knowledge/pdf-guide.qmd >}}

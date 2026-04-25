@@ -1,0 +1,9 @@
+---
+title: "Documentation Fundamentals"
+---
+
+# Documentation Fundamentals
+
+What makes a documentation page actually useful, before AI got involved. The principles still hold; AI just lets you write them faster.
+
+{{< include ../../da-knowledge/documentation-readme.qmd >}}

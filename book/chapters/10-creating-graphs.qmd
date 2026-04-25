@@ -1,0 +1,9 @@
+---
+title: "Creating Graphs"
+---
+
+# Creating Graphs
+
+Graphs in chat, graphs from a script, and graphs that match a journal style. Where AI's defaults are good, and where they need a firm hand.
+
+{{< include ../../da-knowledge/creating-graphs.qmd >}}

@@ -1,0 +1,9 @@
+---
+title: "Documenting Code and Data with AI"
+---
+
+# Documenting Code and Data with AI
+
+READMEs, data dictionaries, code-block comments — boring work that AI is genuinely good at, and that compounds over a project's life. We start the chat-workflow part here because documentation is where AI's strengths line up best with your time savings.
+
+{{< include ../../week02/index.qmd >}}

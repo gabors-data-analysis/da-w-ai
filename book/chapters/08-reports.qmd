@@ -1,0 +1,9 @@
+---
+title: "Writing Reports with AI"
+---
+
+# Writing Reports with AI
+
+From a one-shot prompt to an iterated draft, and the gap between them. We compare a vibe-report with a directed report on the same data.
+
+{{< include ../../week03/index.qmd >}}

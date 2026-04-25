@@ -1,0 +1,33 @@
+---
+title: "Rights, Acknowledgements, and Thanks"
+---
+
+# Rights, Acknowledgements, and Thanks {.unnumbered}
+
+## Attribution
+
+Békés, Gábor. *Data Analysis with AI*, draft edition, 2026. Companion to the open course at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/).
+
+## License
+
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — share, attribute, non-commercial. Contact the author for corporate licensing.
+
+## Companion textbook
+
+This book is *not* an introductory econometrics text. For that, see [Data Analysis for Business, Economics, and Policy](https://gabors-data-analysis.com/getting-started) (Cambridge UP, 2021). Buy it if you can.
+
+## Thanks
+
+Developed mostly by [Gábor Békés](https://sites.google.com/site/bekesg/). Huge thanks to the two RAs who carried much of the course-material work, [Zsuzsanna Vadle](https://bsky.app/profile/zsuzsannavadle.bsky.social) and [Kenneth Colombe](https://bsky.app/profile/kcolombe24.bsky.social), and to [Adam Víg](https://www.linkedin.com/in/adam-vig-250729196/), long-term collaborator now at Google.
+
+Thanks to Claude and ChatGPT — both for crafting course pages and simulated datasets, and for educating me on topics like reinforcement learning and modern NLP. The collaboration with great young people while heavily benefiting from advanced AI is itself one of the lessons of this book.
+
+Thanks to [Quarto](https://quarto.org/) and Posit, which power both the website and book versions of this material; and to GitHub for the home.
+
+Thanks to CEU's teaching grant, which paid the people and the AI.
+
+## Repository and feedback
+
+Source repository: [github.com/gabors-data-analysis/da-w-ai](https://github.com/gabors-data-analysis/da-w-ai).
+
+For questions, suggestions, or teaching enquiries, please use [this form](https://docs.google.com/forms/d/e/1FAIpQLSev0oaR2s71hvFTZjhTwCuCPL00ljYWAIjl0hoZQLTn_oG3KQ/viewform?usp=header) or open an issue on GitHub.

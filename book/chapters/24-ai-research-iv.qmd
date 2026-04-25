@@ -1,0 +1,9 @@
+---
+title: "AI as Research Companion — Instrumental Variables"
+---
+
+# AI as Research Companion — Instrumental Variables
+
+IV thinking is even harder to delegate. The chapter shows where AI can find candidate instruments, where it bluffs, and what a reasonable workflow looks like.
+
+{{< include ../../week10/index.qmd >}}

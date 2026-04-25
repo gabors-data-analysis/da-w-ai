@@ -1,0 +1,40 @@
+---
+title: "Edition and Model Snapshot"
+---
+
+# Edition and Model Snapshot {.unnumbered}
+
+::: {.callout-important}
+## This is the **Spring 2026** edition · 26 April 2026
+The book is updated once a year, in spring, against the frontier models in wide use that quarter. If a chapter cites a model name or a specific behaviour, it refers to the version listed here. Your results may differ on later or earlier model versions.
+:::
+
+## Models referenced in this edition
+
+| Provider   | Model                  | Used in book for                                          |
+|------------|------------------------|-----------------------------------------------------------|
+| Anthropic  | **Claude Opus 4.7**    | Default chat model and Claude Code agentic CLI            |
+| Anthropic  | **Claude Sonnet 4.6**  | Cheaper everyday chat, batch jobs over CSVs               |
+| Anthropic  | **Claude Haiku 4.5**   | Cheapest classifier; sentiment-analysis baseline          |
+| OpenAI     | **ChatGPT 5.5**        | Cross-comparison; default for some readers                |
+| Google     | **Gemini 2.x**         | Mentioned in passing for long-context document tasks      |
+| Mistral    | **Le Chat / Mistral**  | EU-hosted alternative; mentioned in passing               |
+
+The principles in the chapters are model-agnostic. The numbers, prompts, and screenshots are not — they were captured against the models above. When you read the book a year from now, expect the prompts to still work but the screenshots to look stale.
+
+## What changes year to year
+
+- **Chapter 3 — Which AI Model.** Re-shot every spring. Read this chapter on the website rather than from a print copy.
+- **Chapter 16 — Data to Report.** The end-to-end transcript is re-run on the current models so the comparison between vibe-report and directed-report stays honest.
+- **Chapter 28 — APIs Under the Hood.** Pricing tiers, rate limits, and structured-output APIs move every quarter; this chapter is the most dated bit of any printed copy.
+- **The Capstone.** The expectations-extraction prompt in Session 2 is re-tuned each edition because the model that runs it gets cheaper and smarter.
+
+## Previous editions
+
+This is the first book edition. Earlier *course* editions (Spring 2025, etc.) ran as the website only. Course archives are available in the [Git history](https://github.com/gabors-data-analysis/da-w-ai/tags) when tagged.
+
+## Why update once a year, not every model release
+
+Two reasons. One: a textbook needs a stable referent — students cite chapters, instructors plan against syllabi, errata accumulate. Two: a yearly cadence forces choices about what is *durable* (the principles, the workflow shape, the case studies) versus what is *transient* (a specific UI screenshot, a particular prompt verbatim). The transient bits get refreshed; the durable bits stay.
+
+If a model release between editions changes the right answer to a chapter, an erratum will be filed in the repo's issue tracker. Subscribe there.

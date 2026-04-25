@@ -1,0 +1,9 @@
+---
+title: "Advanced CLI Workflows"
+---
+
+# Advanced CLI Workflows
+
+Custom skills, project-specific instructions, git-aware execution, and autonomous mode. This is where a CLI agent stops being a clever assistant and starts being a reproducible-research companion.
+
+{{< include ../../week05/index.qmd >}}

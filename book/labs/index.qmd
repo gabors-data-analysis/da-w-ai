@@ -1,0 +1,48 @@
+---
+title: "Labs — Work on Your Own"
+---
+
+# Labs — Work on Your Own {.unnumbered}
+
+The chapters teach the ideas. The labs make you sweat.
+
+Each lab is a self-contained exercise drawn from the original course assignments. They are deliberately stripped down — a brief, pointers to the data, a prompt or two, a deliverable — so a reader without an instructor in the room can still do them. Think of a lab as a half-day to a day of focused work; the harder ones (Labs 6 and 8) take longer.
+
+## How a lab is structured
+
+Every lab has the same five parts:
+
+1. **The brief.** What you are being asked to do, in business or research terms.
+2. **What you bring.** Data, prior chapters, prior labs.
+3. **What to do.** A short list of steps. Not a recipe — choices to make.
+4. **What to hand in.** A concrete deliverable: a notebook, a one-page report, a graph, a rendered PDF.
+5. **AI and me reflection.** Three questions, written down. Required.
+
+## Mapping labs to chapters
+
+| Lab    | Topic                                | Read first                          |
+|--------|--------------------------------------|-------------------------------------|
+| Lab 1  | First contact with an LLM            | Ch. 2 (LLMs)                        |
+| Lab 2  | Documenting code and data            | Ch. 5–6 (Documentation)             |
+| Lab 3  | Drafting a report with AI            | Ch. 8–9 (Reports)                   |
+| Lab 4  | First agentic-CLI session            | Ch. 11–14 (Terminal → CLI)          |
+| Lab 5  | Reproducible CLI workflow            | Ch. 15–18 (Advanced CLI)            |
+| Lab 6  | Data-to-PDF on real CPS data         | Ch. 16 (End-to-end)                 |
+| Lab 7  | Reading text with an LLM             | Ch. 19–20 (NLP, text)               |
+| Lab 8  | LLM sentiment vs. human sentiment    | Ch. 21 (Sentiment)                  |
+| Lab 10 | IV thinking with AI                  | Ch. 24 (IV)                         |
+
+The numbering follows the original course assignments and is not perfectly contiguous (no Lab 9 in this draft).
+
+## A note on rules
+
+Two non-negotiable rules across all labs:
+
+1. **Use AI freely.** That is the whole point of the course.
+2. **Submit nothing AI created end-to-end.** You must be able to defend every line and every claim. If you cannot, you over-delegated.
+
+Then, three questions. Always:
+
+1. How did AI **support** me?
+2. How did AI **fail** me?
+3. How did AI **extend** me?

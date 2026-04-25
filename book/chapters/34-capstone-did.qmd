@@ -1,0 +1,9 @@
+---
+title: "Capstone Session 3 — DiD and Presentation"
+---
+
+# Capstone Session 3 — DiD and Presentation
+
+Session 3. Run the difference-in-differences design, interrogate parallel trends, present the finding to your sceptical sports-club audience.
+
+{{< include ../../project03/index.qmd >}}

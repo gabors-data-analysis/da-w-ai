@@ -1,0 +1,9 @@
+---
+title: "LLM APIs in Python"
+---
+
+# LLM APIs in Python
+
+From the SDK call to a small batch script. By the end of the chapter you have run an LLM over a CSV without paying ChatGPT Plus prices.
+
+{{< include ../../da-knowledge/llm-api-python.qmd >}}

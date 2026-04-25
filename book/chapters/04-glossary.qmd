@@ -1,0 +1,9 @@
+---
+title: "Glossary of LLM Terms"
+---
+
+# Glossary of LLM Terms
+
+A short glossary you can come back to. Read it once now; reference it later. Tokens, context, temperature, RAG, fine-tuning, agents — defined in one place.
+
+{{< include ../../da-knowledge/technical-terms-page.qmd >}}

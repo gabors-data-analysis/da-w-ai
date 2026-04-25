@@ -64,6 +64,8 @@ case-studies/interviews/code/my-openai-api-key.R
 # Quarto build output and cache
 /_site/
 /_freeze/
+/book/_book/
+/book/.quarto/
 
 # Claude code folders
 /.claude/

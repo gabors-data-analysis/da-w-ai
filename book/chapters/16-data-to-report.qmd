@@ -1,0 +1,9 @@
+---
+title: "From Data to Report — End to End"
+---
+
+# From Data to Report — End to End
+
+A complete CLI-driven pipeline on the CPS earnings case study: download, clean, analyse, graph, write up, render to PDF — comparing an undirected vibe-report with a carefully directed economics-quality one.
+
+{{< include ../../week06/index.qmd >}}

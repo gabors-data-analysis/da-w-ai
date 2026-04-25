@@ -1,0 +1,27 @@
+---
+title: "Case Studies — One-Page Summaries"
+---
+
+# Case Studies — One-Page Summaries
+
+The book references several case studies as it goes. Their full data, code, and documentation live in the [`case-studies/`](https://github.com/gabors-data-analysis/da-w-ai/tree/main/case-studies) directory of the repository. This page collects one-paragraph orientation summaries.
+
+## World Values Survey (`VWS`)
+A long-running cross-country survey of values and beliefs. Used in **Chapters 5–8** to practise documentation, joins, and reports on a real, gnarly dataset.
+
+## Austrian Hotels (`austria-hotels`)
+A simulated hotels-and-prices dataset, designed to be just messy enough. Used in **Chapter 14** as the first agentic-CLI playground.
+
+## Football Manager Interviews (`interviews`)
+Post-game press-conference transcripts. Used in **Chapters 20–21** for the text-as-data part.
+
+## US Earnings — CPS (`earnings`)
+A clean monthly file from the US Current Population Survey. Used in **Chapter 16** for the end-to-end data-to-PDF report.
+
+## Employee Commits (`employee_commits`)
+A small synthetic HR-and-git-history panel, useful for joins and panel methods.
+
+## Common Support — R (`common-support-r`)
+An R-only example for matching and overlap diagnostics; supplementary to the research-methods part.
+
+For the README and dictionaries of each, follow the links in the repository.

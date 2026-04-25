@@ -1,0 +1,15 @@
+---
+title: "Lab 8 — LLM Sentiment vs. Human Sentiment"
+---
+
+# Lab 8 — LLM Sentiment vs. Human Sentiment
+
+**Read first:** Chapter 21 (Sentiment Analysis with LLMs).
+
+{{< include ../../assignments/assignment_08.qmd >}}
+
+## AI and me
+
+1. How did AI **support** you in this lab?
+2. How did AI **fail** you?
+3. How did AI **extend** you?

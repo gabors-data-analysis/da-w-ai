@@ -1,0 +1,9 @@
+---
+title: "Installing AI CLI Tools"
+---
+
+# Installing AI CLI Tools
+
+Get Claude Code — and a couple of alternatives — installed. Sanity-check the install before the next chapter, where we put it to work.
+
+{{< include ../../da-knowledge/install-cli.qmd >}}

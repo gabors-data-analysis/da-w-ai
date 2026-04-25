@@ -1,0 +1,9 @@
+---
+title: "Ideas for a Good Report"
+---
+
+# Ideas for a Good Report
+
+A short field guide to what a good economics-style report looks like — voice, structure, what to leave out.
+
+{{< include ../../week03/ideas-good-report.qmd >}}

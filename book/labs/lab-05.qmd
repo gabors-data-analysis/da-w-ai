@@ -1,0 +1,15 @@
+---
+title: "Lab 5 — Reproducible CLI Workflow"
+---
+
+# Lab 5 — Reproducible CLI Workflow
+
+**Read first:** Chapters 15–18 (Advanced CLI; Designing Projects; Reproducible Research).
+
+{{< include ../../assignments/assignment_05.qmd >}}
+
+## AI and me
+
+1. How did AI **support** you in this lab?
+2. How did AI **fail** you?
+3. How did AI **extend** you?

@@ -1,0 +1,9 @@
+---
+title: "VS Code and Copilot"
+---
+
+# VS Code and Copilot
+
+An IDE-based alternative path. Copilot in VS Code is a different shape of tool from a CLI agent — useful to know both.
+
+{{< include ../../da-knowledge/vscode-setup.qmd >}}

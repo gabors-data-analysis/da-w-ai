@@ -1,0 +1,9 @@
+---
+title: "Reproducible Research Pipelines"
+---
+
+# Reproducible Research Pipelines
+
+A sceptical reader and a fast-moving model are a bad combination unless the pipeline is reproducible. Here are the habits that keep them from undoing your work.
+
+{{< include ../../da-knowledge/reproducible-research.qmd >}}

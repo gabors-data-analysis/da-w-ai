@@ -1,0 +1,9 @@
+---
+title: "Walkthrough — FBref"
+---
+
+# Walkthrough — FBref
+
+Football data scraping for the capstone — and a transferable template for any structured public site.
+
+{{< include ../../da-knowledge/walkthrough-fbref.qmd >}}

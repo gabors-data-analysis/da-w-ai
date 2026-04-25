@@ -1,0 +1,9 @@
+---
+title: "Where to Go From Here"
+---
+
+# Where to Go From Here
+
+Blogs, papers, podcasts, and videos to follow once the book is done. Curated, opinionated, and updated alongside the repo.
+
+{{< include ../../da-knowledge/beyond.qmd >}}

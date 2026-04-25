@@ -1,0 +1,9 @@
+---
+title: "NLP Basics — Text as Data"
+---
+
+# NLP Basics — Text as Data
+
+Tokenisation, stop-words, embeddings, classical baselines. The vocabulary you need before letting an LLM loose on a corpus.
+
+{{< include ../../da-knowledge/nlp-basics.qmd >}}

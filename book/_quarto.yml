@@ -1,0 +1,112 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Data Analysis with AI"
+  subtitle: "Spring 2026 edition — a zero-to-hero book for social science students"
+  author: "Gábor Békés"
+  date: "2026-04-26"
+  repo-url: "https://github.com/gabors-data-analysis/da-w-ai"
+  repo-actions: [edit, issue]
+  search: true
+  sharing: [twitter, linkedin]
+  page-navigation: true
+  sidebar:
+    style: docked
+    collapse-level: 1
+
+  chapters:
+    - index.qmd                              # Preface
+    - how-to-use.qmd
+    - versions.qmd                           # Edition + model snapshot
+    - linear-plan.qmd
+
+    - part: "Part I — Foundations"
+      chapters:
+        - chapters/01-ai-for-coding.qmd      # source: week00
+        - chapters/02-llm-review.qmd         # source: week01
+        - chapters/03-which-ai.qmd           # source: da-knowledge/which-ai
+        - chapters/04-glossary.qmd           # source: da-knowledge/technical-terms-page
+
+    - part: "Part II — Working with AI in Chat"
+      chapters:
+        - chapters/05-documenting.qmd        # source: week02
+        - chapters/06-doc-fundamentals.qmd   # source: da-knowledge/documentation-readme
+        - chapters/07-joining-tables.qmd     # source: da-knowledge/joining-tables
+        - chapters/08-reports.qmd            # source: week03
+        - chapters/09-ideas-good-report.qmd  # source: week03/ideas-good-report
+        - chapters/10-creating-graphs.qmd    # source: da-knowledge/creating-graphs
+
+    - part: "Part III — From Chat to CLI: Agentic Workflows"
+      chapters:
+        - chapters/11-terminal-basics.qmd    # source: da-knowledge/terminal-basics
+        - chapters/12-install-cli.qmd        # source: da-knowledge/install-cli
+        - chapters/13-vscode-copilot.qmd     # source: da-knowledge/vscode-setup
+        - chapters/14-agentic-cli.qmd        # source: week04
+        - chapters/15-advanced-cli.qmd       # source: week05
+        - chapters/16-data-to-report.qmd     # source: week06
+        - chapters/17-designing-projects.qmd # source: da-knowledge/designing-projects
+        - chapters/18-reproducible.qmd       # source: da-knowledge/reproducible-research
+
+    - part: "Part IV — Text as Data"
+      chapters:
+        - chapters/19-nlp-basics.qmd         # source: da-knowledge/nlp-basics
+        - chapters/20-text-analysis.qmd      # source: week07
+        - chapters/21-sentiment.qmd          # source: week08
+        - chapters/22-pdf-guide.qmd          # source: da-knowledge/pdf-guide
+
+    - part: "Part V — AI in Empirical Research"
+      chapters:
+        - chapters/23-ai-research-controls.qmd # source: week09
+        - chapters/24-ai-research-iv.qmd       # source: week10
+
+    - part: "Part VI — APIs and Automation"
+      chapters:
+        - chapters/25-api-keys.qmd           # source: da-knowledge/get-ai-api-key
+        - chapters/26-api-intro.qmd          # source: da-knowledge/api-use
+        - chapters/27-llm-apis-python.qmd    # source: da-knowledge/llm-api-python
+        - chapters/28-api-advanced.qmd       # source: da-knowledge/api-advanced
+        - chapters/29-walkthrough-wb-fred.qmd # source: da-knowledge/walkthrough-wb-fred
+        - chapters/30-walkthrough-fbref.qmd  # source: da-knowledge/walkthrough-fbref
+
+    - part: "Part VII — Capstone: Manager Impact in Football"
+      chapters:
+        - chapters/31-capstone-brief.qmd     # source: capstone
+        - chapters/32-capstone-data.qmd      # source: project01
+        - chapters/33-capstone-text.qmd      # source: project02
+        - chapters/34-capstone-did.qmd       # source: project03
+
+    - part: "Part VIII — Labs (work on your own)"
+      chapters:
+        - labs/index.qmd
+        - labs/lab-01.qmd
+        - labs/lab-02.qmd
+        - labs/lab-03.qmd
+        - labs/lab-04.qmd
+        - labs/lab-05.qmd
+        - labs/lab-06.qmd
+        - labs/lab-07.qmd
+        - labs/lab-08.qmd
+        - labs/lab-10.qmd
+
+    - part: "Reference"
+      chapters:
+        - chapters/90-case-studies.qmd
+        - chapters/91-beyond.qmd             # source: da-knowledge/beyond
+
+  appendices:
+    - chapters/A1-rights-thanks.qmd
+
+format:
+  html:
+    theme: [cosmo, ../custom.scss]
+    toc: true
+    toc-depth: 3
+    code-fold: false
+    code-tools: true
+    code-copy: true
+    code-link: true
+
+execute:
+  freeze: auto

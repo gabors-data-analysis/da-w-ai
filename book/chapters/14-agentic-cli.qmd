@@ -1,0 +1,28 @@
+---
+title: "Agentic AI on the Command Line"
+---
+
+# Agentic AI on the Command Line
+
+So far we have been talking *to* an AI in a chat box. Now we let it act *on* a project — read files, write files, run code, look at the results, fix what's broken, commit when done. This is the move from *assistant* to *teammate*, and the difference is bigger than it sounds.
+
+The vehicle is **Claude Code**, an agentic CLI that lives in a terminal and works inside a real project directory. Anything you'd hand to a junior collaborator — clean this CSV, run this regression, regenerate this graph in the journal style — you can hand to it. The tradeoff: now it has hands, and you are responsible for what it touches.
+
+You should arrive at this chapter with a working terminal (Chapter 11) and Claude Code installed (Chapter 12). If not, go back. Do not skip those.
+
+::: {.callout-warning}
+## A real shift in trust
+With chat AI you copy code in and out manually — every step crosses a human gate. With agentic AI, the AI can write a file or delete one without asking. Read Chapter 18 (Reproducible Research) before you give it free rein on a real project.
+:::
+
+{{< include ../../week04/index.qmd >}}
+
+## Where we go next
+
+Chapter 15 ([Advanced CLI Workflows](15-advanced-cli.qmd)) takes Claude Code beyond "clever assistant" — `CLAUDE.md` files, custom skills, git-aware execution, and headless / autonomous mode. Chapter 16 then walks you through a full data-to-PDF-report pipeline using the CPS earnings case study.
+
+## AI and me — chapter reflection
+
+1. Where did the agentic CLI **support** me in a way the chat model couldn't?
+2. Where did it **fail** me, and was the failure recoverable from a checkpoint or commit?
+3. How did it **extend** me — what would have been unthinkable to attempt without it?

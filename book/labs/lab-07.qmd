@@ -1,0 +1,15 @@
+---
+title: "Lab 7 — Reading Text with an LLM"
+---
+
+# Lab 7 — Reading Text with an LLM
+
+**Read first:** Chapters 19–20 (NLP Basics; Reading Text with AI).
+
+{{< include ../../assignments/assignment_07.qmd >}}
+
+## AI and me
+
+1. How did AI **support** you in this lab?
+2. How did AI **fail** you?
+3. How did AI **extend** you?

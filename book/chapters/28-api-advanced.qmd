@@ -1,0 +1,9 @@
+---
+title: "APIs — Under the Hood"
+---
+
+# APIs — Under the Hood
+
+Streaming, tool use, structured outputs, rate limits, costs. The bits you need once the toy script becomes a real workflow.
+
+{{< include ../../da-knowledge/api-advanced.qmd >}}
