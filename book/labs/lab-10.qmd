@@ -6,7 +6,12 @@ title: "Lab 10 — IV Thinking with AI"
 
 **Read first:** Chapter 24 (AI as Research Companion — IV).
 
-{{< include ../../assignments/assignment_10.qmd >}}
+### Task: Design an IV
+
+Think about an identification problem and iterate to find a good IV. Explain why it may work and why it could fail. 
+
+Discuss what data would be needed and where it would come.
+
 
 ## AI and me
 

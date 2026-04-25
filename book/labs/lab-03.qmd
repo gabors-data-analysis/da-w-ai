@@ -6,7 +6,47 @@ title: "Lab 3 — Drafting a Report with AI"
 
 **Read first:** Chapters 8–9 (Reports; Ideas for a Good Report).
 
-{{< include ../../assignments/assignment_03.qmd >}}
+You built a data pipeline in class: download → clean → composite variable → aggregate → join GDP → scatter plot. Now turn that into a polished short report.
+
+### Step 1: Refine your pipeline and composite variable
+
+* Review and clean up your in-class code. Make sure it runs end-to-end from download to merged dataset.
+* Revisit your composite variable. Do all items point in the same direction? Should any be reversed before averaging? Justify your final selection of Q variables (3–6 items) in 2–3 sentences.
+* If you picked a single Q variable in class, now create a proper composite score (standardize each item to z-score, then average).
+
+### Step 2: Create exhibits
+
+Think in terms of two variables: your composite score ($y$) and a GDP variable ($x$).
+
+* **Graph 1:** A carefully designed scatter plot showing the main relationship between income and your composite variable. Include informative title, axis labels, and country labels where useful.
+* **Graph 2:** Show heterogeneity by splitting countries into groups based on population size (e.g., small vs. large countries). This could be a colored scatter plot, faceted plot, or separate regression lines.
+* **Table 1:** Run a regression of your composite variable on log GDP per capita PPP. Report the coefficient, standard error, and interpretation. Use **non-causal** language — this is an association across countries.
+  * **Stretch:** Add population as a control. Does the coefficient change?
+
+At each step, explain your choices and decisions (e.g., why you chose certain variables, why log GDP, what the population split means).
+
+### Step 3: Write the report 
+
+Use the exhbits. Check what AI does. Keep control but rely on it for formatting etc. 
+
+
+### Step 4: Write the conclusion
+
+Write a Conclusion paragraph (80–100 words) that summarizes: what you looked at, what you found, and what the limitations are. Avoid causal claims.
+
+### To submit
+
+1. **Report** — maximum 2 pages in .pdf format, including exhibits (`lastname_firstname_dawai_week03_report.pdf`) **(12p)**
+2. **Code** — your full pipeline from download to final graph and regression. Provide the file or a link. **(2p)**
+3. **Reflection** — What advice would you give to a fellow data analysis student on using AI to create a report? Compare your different AI runs. What changes were decisive? How many iterations were useful? (`lastname_firstname_dawai_week03_advice.txt`) **(6p)**
+
+Upload your report to the `student folder called Reports` at Moodle or similar service if applicable. This is for the next class — each group will read another group's report and discuss its strengths and weaknesses.
+
+### AI use restrictions
+
+* For the report, use AI as your assistant — use it as *input* not as *output*. Don't submit an AI-generated report without your own review and editing.
+* Do not use AI to generate the reflection. We want your personal examples and honest assessment, not AI-generated suggestions.
+
 
 ## AI and me
 

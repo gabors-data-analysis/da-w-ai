@@ -6,4 +6,56 @@ title: "Ideas for a Good Report"
 
 A short field guide to what a good economics-style report looks like — voice, structure, what to leave out.
 
-{{< include ../../week03/ideas-good-report.qmd >}}
+What is a good data analysis presentation
+
+## Three types of reserach questions
+
+* Patterns of association -- focus on pattern discovery
+* Causal question -- identify the effect of an intervention
+	* Experiment
+	* Observational data
+* Build a predictive model -- focus on selection, understand how model works
+
+## Let us focus on association 
+
+Think questions like
+
+* Are people working more hours, make more money/hour?
+* How much less does a car worth when having 1000km more in odometer?
+* What is the relationship between hotel prices and location / amenities? 
+
+Causal would be
+
+* In an intervention, we make some people work more, will they have a high w/h?
+
+Prediction would be
+
+* Here is wage data, let us build a model for hourly wage
+
+## What to include in a report
+
+Consider a few-page report on an association with some possibility for causal analysis (later)
+
+**Key parts of the report**
+
+* Introduction (why interesting)
+* Research question 
+* Data description
+	* source
+	* variables
+ * Methods
+ 	* what method you use (e.g. cross section OLS)
+ 	* regression you estimate precisely
+ * Results
+ 	* Include exhibits (think about graphs, tables)
+ 	* Decide on main result and focus on explaining it (e.g. $x$ coefficient)
+ 	  * Hint: think for the reader -- what would help them understand?
+  
+* Conclusion
+  * Short: 1-2 para
+  * Discussion to summarize result (in plain English)
+  * Place result in context
+    * is it causal
+    * external validity
+  * (no need for future research)
+

@@ -6,4 +6,287 @@ title: "Advanced CLI Workflows"
 
 Custom skills, project-specific instructions, git-aware execution, and autonomous mode. This is where a CLI agent stops being a clever assistant and starts being a reproducible-research companion.
 
-{{< include ../../week05/index.qmd >}}
+::: {.hero-section}
+::: {.container}
+::: {.hero-title}
+Week 05: Advanced CLI Workflows
+:::
+::: {.hero-subtitle}
+Power features for reproducible research with Claude Code and Gemini CLI
+:::
+:::
+:::
+
+---
+
+![](../images/week5_pic.png)
+
+## About the class
+
+Last week we introduced agentic AI with Claude Code -- running AI in the terminal that can see files, run code, and iterate. This week we go deeper: **project-specific instructions**, **custom skills**, **git integration**, **unit testing for data workflows**, and **autonomous execution**. These features turn CLI tools from clever assistants into reproducible research companions.
+
+### Tool Options
+
+We use **Claude Code** in this class, but the workflow transfers:
+
+| Tool | Interface | Notes |
+|------|-----------|-------|
+| **[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)** | Terminal CLI agent | Default in this course. |
+| **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** | Terminal CLI agent | Similar command-line workflow. |
+| **[Codex CLI](https://developers.openai.com/codex/cli/)** | Terminal CLI agent | OpenAI alternative for terminal workflows. |
+
+The focus is on **Claude Code**, with Gemini CLI and Codex equivalents where relevant.
+We will use one continuous case study (Austrian Hotels) across all activities so each step builds on the last.
+Everything you learn today transfers to alternatives, so prioritize process over tool-specific details.
+
+### Learning Objectives
+
+By the end of the session, students will:
+
+- Create and apply a project instruction file (`CLAUDE.md` / `GEMINI.md` / `AGENTS.md`) in a real analysis folder
+- Build and run one reusable skill that automates a multi-step data workflow
+- Use git-integrated prompting to create a branch, implement a change, and explain the resulting diff
+- Explain what a unit test is and implement a few simple tests for a data pipeline
+- Evaluate when autonomous execution is appropriate and apply a safety checklist before and after execution
+
+### Before class
+
+::: {.week-card .card}
+::: {.card-header}
+🔧 **Prerequisites**
+:::
+::: {.card-body}
+**Required:**
+
+- Working Claude Code installation from [Week 04](../week04/index.html)
+- Basic familiarity with running Claude Code in a project directory
+- A project folder with at least one data file and one script
+
+**Recommended Reading:**
+
+- [Installing CLI Tools](../da-knowledge/install-cli.html) -- if you need to catch up
+:::
+:::
+
+
+## Class Plan
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 1: Project Instruction Files (20 min)**
+:::
+::: {.card-body}
+**The idea:** Instead of repeating preferences in every prompt, write them once in a project instruction file the CLI tool reads automatically.
+
+**Equivalent files by tool:**
+
+- Claude Code: `CLAUDE.md`
+- Gemini CLI: `GEMINI.md`
+- Codex: `AGENTS.md`
+
+**Example for the Austrian Hotels case study:**
+
+```markdown
+## Code Style
+- Use tidyverse syntax for R code
+- Use pandas for Python data manipulation
+- Prefer ggplot2 with viridis color scheme
+
+## Data Standards
+- All dates in ISO 8601 format (YYYY-MM-DD)
+- Column names: lowercase with underscores
+
+## Analysis Preferences
+- Always check for missing values before analysis
+- Report sample sizes in all tables
+```
+
+**Hierarchical loading concept:** Global defaults → Project file → Subdirectory file. More specific settings override general ones (exact paths are tool-specific).
+
+**Hands-on:** Create this file for the Austrian Hotels project in your tool of choice (`CLAUDE.md`, `GEMINI.md`, or `AGENTS.md`).
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 2: Custom Skills and Reusable Workflows (25 min)**
+:::
+::: {.card-body}
+**What are skills?**
+
+Skills are reusable instruction sets that Claude Code can load automatically or on demand. Each skill lives in a `.claude/skills/<skill-name>/SKILL.md` file.
+
+**Scope:**
+
+- **Personal:** `~/.claude/skills/<skill-name>/SKILL.md` (available in all your projects)
+- **Project:** `.claude/skills/<skill-name>/SKILL.md` (this repo only)
+
+**Hands-on: Continue the Austrian Hotels case and create a `/clean-hotels-data` skill**
+
+Create `.claude/skills/clean-hotels-data/SKILL.md` in your project:
+
+```markdown
+---
+name: clean-hotels-data
+description: Clean and validate Austrian Hotels data for analysis.
+---
+
+Run the Austrian Hotels cleaning pipeline:
+1. Check missing values in `data/hotels_raw.csv`
+2. Run `scripts/data_cleaning.R`
+3. Verify output dimensions in `data/hotels_clean.csv`
+4. Generate a short data quality report
+```
+
+Now typing `/clean-hotels-data` in Claude Code executes this workflow consistently.
+
+**Discussion:** What repetitive analysis tasks could you turn into skills?
+
+**Gemini CLI equivalent:** Native Agent Skills (`.gemini/skills/<skill-name>/SKILL.md`) for reusable workflows, plus MCP servers for external tool integration.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 3: Git Integration (20 min)**
+:::
+::: {.card-body}
+**Why it matters:** Version control + AI = traceable, reproducible analysis. Claude Code understands git natively.
+Continue with the same Austrian Hotels project so the instruction file and skill are now part of version history.
+
+**Branch management:**
+
+```
+Create a new branch `hotels-robustness-checks`,
+run the robustness checks on the Austrian Hotels model,
+and prepare a summary of changes
+```
+
+Claude Code can create the branch, make changes, commit with descriptive messages, and provide a diff summary.
+
+**Understanding project history:**
+
+```
+Look at the git history for `scripts/data_cleaning.R`.
+Why did we change the outlier detection threshold in the Hotels pipeline?
+```
+
+Claude Code reads commit messages and diffs to understand past decisions -- useful when revisiting old projects.
+
+**Hands-on:** Use Claude Code to branch, make one Hotels analysis change, commit it, and explain the diff to a partner.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 4: Unit Tests for Data Pipelines (15 min)**
+:::
+::: {.card-body}
+**What is a unit test?**
+
+A unit test is a small, focused check that verifies one expected behavior.  
+For data work, think of each test as a guardrail: "this column should never be negative", or "this join should not duplicate keys."
+
+**How to think about tests in data analysis:**
+
+- Turn assumptions into explicit assertions.<br>
+  Example: "every cleaned row has `hotel_id` and `date`" -> `not_null` tests.
+
+- Cover core data-quality dimensions.<br>
+  Examples:
+    - schema/type (`date` parses)
+    - completeness (`city_id` not null)
+    - validity (`occupancy_rate` 0-100)
+    - relationships (`city_id` exists in city table)
+    - volume (row-count range).
+
+- Prefer tests that return failing rows, not just pass/fail.<br>
+  Example: if 12 rows fail the occupancy range test, inspect those exact 12 rows first.
+
+- Mix generic and business-rule tests at each stage (`raw` -> `clean` -> `analysis`).<br>
+  Example: generic `unique(hotel_id, date)` plus project rule "no occupancy spikes >30 points day-to-day without a note."
+
+**Typical test cases for Austrian Hotels:**
+
+- `hotel_id` is unique in cleaned table
+- Key fields are not null (`hotel_id`, `city_id`, `date`)
+- `city_id` values in hotels match ids in the city lookup table
+- `occupancy_rate` is between `0` and `100`
+- Row count stays within an expected range after cleaning/joining
+
+**Hands-on:** Ask the CLI to generate and run 5 tests for the Hotels cleaning pipeline. Review one failing test together, fix the issue, and rerun.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 5: Autonomous Execution (15 min)**
+:::
+::: {.card-body}
+**The concept:** Both tools can run non-interactively, but autonomy depends on approval/permission mode -- useful for trusted, repetitive workflows.
+Continue with the same Hotels workflow so students can compare manual and autonomous execution on familiar tasks.
+
+**Safety protocol (always):**
+
+- Before run: confirm you are on the correct branch and scope is limited
+- Before run: write down a success criterion (what output must exist or change)
+- After run: inspect the diff (`git diff`) and explain every changed file
+- After run: run validation checks/tests and spot-check key output tables
+
+**Gemini CLI with YOLO approval mode** (`--approval-mode=yolo`):
+
+```bash
+gemini -p "For Austrian Hotels, install missing packages, run /clean-hotels-data, and execute robustness checks" --approval-mode=yolo
+```
+
+**Claude Code headless mode** (`-p` is non-interactive; set permission mode explicitly when needed):
+
+```bash
+claude -p "For Austrian Hotels, run the cleaning skill and robustness checks, then summarize changed files"
+```
+
+**When to use autonomous execution:**
+
+- Trusted, repetitive pipelines you've run before
+- Well-defined tasks with clear success criteria
+
+**When NOT to:**
+
+- New or unfamiliar code
+- Tasks that modify shared resources
+- Anything you haven't verified manually first
+
+**Discussion:** What are the risks of autonomous execution in a research context? How do you balance speed with verification?
+
+:::
+:::
+
+
+## Discussion Questions
+
+- How could custom skills improve reproducibility in your research?
+- What instructions would you put in your `CLAUDE.md` / `GEMINI.md` / `AGENTS.md` for your thesis/project?
+- Which two unit tests would you add first to your own data pipeline, and why?
+- When is autonomous execution appropriate vs. risky in data analysis?
+
+## Assignment
+
+::: {.callout-note icon="📝"}
+## Assignment 5: Advanced CLI Workflows
+
+**Due:** Before Week 6
+
+Use Claude Code to solve an interesting problem and report on the experience.
+
+[Full Assignment Details](../assignments/assignment_05.html){.assignment-badge}
+
+:::
+

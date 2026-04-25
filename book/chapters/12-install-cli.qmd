@@ -6,4 +6,283 @@ title: "Installing AI CLI Tools"
 
 Get Claude Code — and a couple of alternatives — installed. Sanity-check the install before the next chapter, where we put it to work.
 
-{{< include ../../da-knowledge/install-cli.qmd >}}
+## Choose Your Tool
+
+All these CLI tools let you work with AI directly in your terminal. Pick one to start - they all work similarly.
+
+::: {.callout-tip}
+## Recommendation
+**Claude Code** is what we use in this course. But the skills transfer to any of these tools.
+:::
+
+| Tool | Provider | Model | Pricing |
+|------|----------|-------|---------|
+| **Claude Code** | Anthropic | Claude | Claude Pro/Max ($20+/mo) or Console |
+| **Gemini CLI** | Google | Gemini | Free tier + paid plans |
+| **Codex CLI** | OpenAI | GPT-4o | ChatGPT Plus/Pro ($20+/mo) |
+
+
+---
+
+## Prerequisites (All Tools)
+
+Before installing any CLI tool, you need:
+
+### 1. Node.js
+
+Most CLI tools require Node.js. Check if you have it:
+
+::: {.panel-tabset}
+
+### Windows
+```
+node --version
+```
+If not installed: Download from [nodejs.org](https://nodejs.org/) (LTS version)
+
+### Mac
+```
+node --version
+```
+If not installed:
+```
+brew install node
+```
+Or download from [nodejs.org](https://nodejs.org/)
+
+### Linux
+```
+node --version
+```
+If not installed:
+```
+# Ubuntu/Debian
+sudo apt update && sudo apt install nodejs npm
+
+# Fedora
+sudo dnf install nodejs npm
+```
+
+:::
+
+### 2. A Terminal
+
+::: {.panel-tabset}
+
+### Windows
+- **Windows Terminal** (recommended) - comes with Windows 11, or install from Microsoft Store
+- **PowerShell** - built-in, search "PowerShell"
+- **Command Prompt** - built-in, search "cmd"
+
+### Mac
+- **Terminal** - built-in, press `Cmd+Space`, type "Terminal"
+- **iTerm2** - popular alternative
+
+### Linux
+- Usually `Ctrl+Alt+T` or search "Terminal"
+
+:::
+
+::: {.callout-note}
+## VS Code Users
+You can also open a terminal directly inside VS Code! Press `` Ctrl+` `` (backtick) on Windows/Linux or `` Cmd+` `` on Mac—or go to **View → Terminal**. This keeps everything in one window.
+:::
+
+**New to the terminal?** Read [Terminal Basics](terminal-basics.html) first.
+
+---
+
+## Claude Code
+
+Anthropic's official CLI for Claude.
+
+### What is Claude Code?
+
+Claude Code is a command-line tool that lets you work with Claude directly in your terminal. It can read, edit, and create files, run commands, and help with coding and data analysis where your code lives.
+
+**Why use it?**
+
+- Works directly with your files and folders
+- Can read, edit, and create code for you
+- Runs commands and sees the output
+- Great for data analysis workflows
+- No copy-pasting between browser and code editor
+
+### Install
+
+::: {.panel-tabset}
+
+### Windows
+
+PowerShell:
+```
+irm https://claude.ai/install.ps1 | iex
+```
+
+Command Prompt:
+```
+curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+```
+
+### Mac
+
+```
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+Or with Homebrew:
+```
+brew install claude
+```
+
+### Linux
+
+```
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+:::
+
+### Use
+
+Navigate to your project folder and start:
+```
+cd /path/to/your/project
+claude
+```
+
+**First time**: You'll be prompted to log in via browser. You need one of:
+- **Claude Pro, Max, Teams, or Enterprise** subscription (recommended)
+- **Claude Console** account (API access with pre-paid credits)
+
+**After login**: Type your requests naturally like "what does this project do?" or "add a hello world function to the main file."
+
+**More details:** [Claude Code Documentation](https://code.claude.com/docs/en/quickstart)
+
+### Quick Tips
+
+| Command | What it does |
+|---------|--------------|
+| `claude` | Start Claude Code |
+| `exit` | Quit Claude Code |
+| `claude --help` | See all options |
+| `/help` | Get help while inside Claude |
+
+### Requirements
+
+- **Claude account** — Sign up at [claude.ai](https://claude.ai) if you don't have one
+- **Subscription or Console credits** — Claude Pro/Max/Teams/Enterprise or a Claude Console account with credits
+- **Internet connection** — Claude runs in the cloud
+
+### Troubleshooting
+
+- **"command not found"** — Close and reopen your terminal, then try again
+- **"Permission denied"** — Re-run the install step with admin permissions or follow the OS-specific instructions above
+- **"Authentication failed"** — Make sure your Claude subscription/credits are active and try logging in again
+
+---
+
+## Gemini CLI
+
+Google's CLI for Gemini models.
+
+### Install
+
+::: {.panel-tabset}
+
+### Windows
+
+```
+npm install -g @google/gemini-cli
+```
+
+### Mac
+
+```
+npm install -g @google/gemini-cli
+```
+
+### Linux
+
+```
+npm install -g @google/gemini-cli
+```
+
+:::
+
+### Use
+
+Navigate to your project folder and start:
+```
+cd /path/to/your/project
+gemini
+```
+
+**First time**: You'll be prompted to select **Login with Google** and authenticate via browser with your Google account.
+
+**Account options**:
+
+- Individual Google accounts (free tier + paid Google AI Pro/Ultra)
+- Organization accounts (company, school, or Google Workspace)
+
+**More details:** [Gemini CLI Documentation](https://geminicli.com/docs/get-started/installation/)
+
+---
+
+## Codex CLI
+
+OpenAI's command-line coding tool.
+
+### Install
+
+::: {.panel-tabset}
+
+### Windows
+
+```
+npm install -g @openai/codex
+```
+
+### Mac
+
+```
+npm install -g @openai/codex
+```
+
+Or with Homebrew:
+```
+brew install openai/tap/codex
+```
+
+### Linux
+
+```
+npm install -g @openai/codex
+```
+
+:::
+
+### Use
+
+Navigate to your project folder and start:
+```
+cd /path/to/your/project
+codex
+```
+
+**First time**: You'll be prompted to sign in via browser. You can authenticate with:
+
+- **ChatGPT account** (Plus, Pro, Business, Edu, or Enterprise) - recommended
+- **OpenAI API key** (alternative option)
+
+**More details:** [Codex CLI Documentation](https://developers.openai.com/codex/cli/)
+
+---
+
+## Next Steps
+
+1. **Install one tool** (we recommend Claude Code for this course)
+2. **Read** [Terminal Basics](terminal-basics.html) if you're new to command line
+3. **Try it** on a simple task: navigate to a folder with some files and ask "what's here?"
+4. **Continue** to [Week 04](../week04/) to use it for data analysis
+

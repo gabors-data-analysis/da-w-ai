@@ -6,4 +6,340 @@ title: "Capstone Session 3 — DiD and Presentation"
 
 Session 3. Run the difference-in-differences design, interrogate parallel trends, present the finding to your sceptical sports-club audience.
 
-{{< include ../../project03/index.qmd >}}
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Capstone Project — Session 3
+:::
+
+::: {.hero-subtitle}
+From panel to causal effect — and how to present what you found
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Where we are
+
+- **Session 1 →** match + manager-change dataset.
+- **Session 2 →** a text-based expectation score per change.
+- **Session 3 (today) →** build the analysis panel, run a **causal design** (difference-in-differences), explore heterogeneity — especially by expectations — and **present** your findings as an HTML report.
+
+------------------------------------------------------------------------
+
+## First hour — the uncomfortable part
+
+::::: {.week-card .card}
+::: card-header
+🧩 **Your two datasets don't quite fit together**
+:::
+
+::: card-body
+
+You arrive at Session 3 with two outputs:
+
+- **From Session 1:** a match/manager-change panel. Rows indexed by some combination of `team`, `season`, `date`, `match_id`.
+- **From Session 2:** an article-level table plus a `(team, gameweek) → avg_score` aggregation.
+
+You've probably already noticed the problem. A short list of what to expect:
+
+- **Entity resolution.** *"Man United"*, *"Manchester United"*, *"Manchester Utd"*, *"Man Utd"*. Four strings, one club. Your match panel uses one convention, your scraped news uses another. Same story for managers with accented characters, for two-word first names, for clubs that promoted/relegated between seasons.
+- **Time unit mismatch.** Session 1 rows are at the match level (irregular spacing, sometimes two matches in a week). Session 2 rows are at the calendar-week level. One is not the other.
+- **Coverage gaps.** Some teams have 30 articles per week; some have three. Some weeks have no articles at all. An `avg_score` built on one article is not the same object as one built on thirty.
+- **Date alignment.** An article dated Tuesday referring to a Sunday match — what week does it count for? What if the change was announced on a Friday?
+
+**These are not bugs in your pipeline. They are the substance of working with real data.** Fixing them is the first half of this session. Don't start the regression until you have a merge you trust.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🏗️ **Building the analysis panel — decisions you have to name**
+:::
+
+::: card-body
+
+Before you merge anything, pick and **write down** (in `PANEL.md`) your answers to these:
+
+1. **Unit of observation.** `(team, match)`? `(team, calendar_week)`? `(team, gameweek)`? Each choice has consequences — matches are irregular; weeks smooth that out but may span two matches.
+2. **Time index.** How do you convert article dates to the panel's time index? Most common: `gameweek(date) = week_of_season(date)`. Document the mapping.
+3. **Entity keys.** One clean team identifier across all tables. One clean manager identifier. Pick a source of truth (e.g., Transfermarkt IDs, or your own slug) and map everything to it once.
+4. **Treatment timing.** What is "the" date of the change — announcement, last match of the old manager, first match of the new manager? **This choice moves your estimates.**
+5. **Pre / post window.** How many periods before and after the change do you include? 5 matches? 10 weeks? To end of season?
+6. **Missing-coverage policy.** A `(team, week)` with zero articles: do you drop it, impute zero, or carry forward the previous week's score?
+
+None of these has a universally right answer. **But you do need to commit to one answer per question and defend it in the slides.**
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+💡 **Discussion prompts (10 min, in pairs)**
+:::
+
+::: card-body
+
+Before you write any code:
+
+- Which of the six decisions above was hardest for your team in Session 1 or 2? Why?
+- Where did the most rows get dropped when you merged Session 1 and Session 2? Was the drop random, or systematic?
+- Name one team or manager that almost certainly suffered from an entity-resolution miss. How would you have caught it?
+- If you re-ran this project on a different league, which of these decisions would travel? Which would break?
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## The causal question
+
+::::: {.week-card .card}
+::: card-header
+🎯 **What are we actually trying to answer?**
+:::
+
+::: card-body
+
+> *When a team fires its manager, do results improve — and by how much?*
+
+Note what that question is **not**:
+
+- Not *"are managers good?"* — that is a labour-market question.
+- Not *"do new managers bring fresh ideas?"* — that is a psychology/tactics question.
+- Not *"does firing save the club money?"* — that is a finance question.
+
+You are asking about a **specific counterfactual**: compared to the world where this team had kept its old manager, what happened after the change?
+
+That counterfactual is not in the data. **That is why we need a causal design** — we have to *approximate* it with something we *do* observe.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Difference-in-Differences — overview and vocabulary
+
+This is a **stub**. Its job is to give you the **vocabulary** to learn the rest with AI, not to teach DiD from scratch.
+
+::::: {.week-card .card}
+::: card-header
+📐 **Key concepts**
+:::
+
+::: card-body
+
+- **Treatment** — the event whose effect you want to measure. Here: a manager change.
+- **Treated unit** — a team that experiences a manager change. **Control unit** — a team that does not (in the same window).
+- **Pre / post** — periods before vs after the change.
+- **DiD estimator** — the difference *between treated and control* in the *change* from pre to post. In plain words: how much more (or less) did treated teams' performance move than control teams'?
+- **Two-way fixed effects** (team FE + time FE) — the standard panel regression that, under conditions, recovers the DiD.
+- **Event-study spec** — one coefficient per lead / lag around the event, to *see* the dynamics rather than a single number.
+- **Staggered treatment** — different teams are treated at different times. Modern issue: simple two-way FE can be biased here; look up **Callaway–Sant'Anna**, **de Chaisemartin–D'Haultfœuille**, or **Sun–Abraham**.
+- **Parallel trends** — the core assumption: absent treatment, treated and control would have moved in parallel. Mostly untestable, but *pre-trends* are a useful proxy.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+⚠️ **Three challenges you cannot dodge**
+:::
+
+::: card-body
+
+1. **Parallel trends.** Teams that fire managers were already losing — that is *why* they fire. Their pre-trend is almost certainly negative. Plot it. If it diverges from the control group, say so and address it (matching, synthetic controls, event-study pre-period coefficients).
+2. **Selection / endogeneity.** Managers are not sacked at random. **Mean reversion** alone predicts a bounce — bad form does not last forever regardless of who is in the dugout. Your coefficient is partly *"things got better"* and partly *"the new manager made them better."* Separating those requires real care.
+3. **Staggered timing.** Teams change managers at different moments over 10 seasons. A naive two-way FE can give you a number that is **not** the average treatment effect you think it is. Acknowledge this; use (or at least mention) a staggered-DiD estimator.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📦 **Package pointers**
+:::
+
+::: card-body
+
+You do not write a Callaway–Sant'Anna estimator from scratch. Use a package and understand what it's doing.
+
+**Python**
+
+- [`csdid`](https://github.com/d2cml-ai/csdid) — Callaway–Sant'Anna in Python. Good default for staggered treatment.
+- [`diff-diff`](https://diff-diff.readthedocs.io/en/latest/) — a general DiD / event-study package with sensible defaults.
+- [`pyfixest`](https://github.com/py-econometrics/pyfixest) — fast fixed-effects regression, R's `fixest` ported to Python. Use for the two-way FE baseline.
+- [`linearmodels.PanelOLS`](https://bashtage.github.io/linearmodels/panel.html) — the classic. Works; slower than `pyfixest` on big panels.
+
+**R (if you prefer)**
+
+- [`did`](https://bcallaway11.github.io/did/) — the original Callaway–Sant'Anna implementation.
+- [`fixest`](https://lrberge.github.io/fixest/) — fastest FE in the ecosystem; `feols`, `etable`, `coefplot`.
+- [`HonestDiD`](https://github.com/asheshrambachan/HonestDiD) — for robustness checks on pre-trends.
+
+**Rule of thumb**
+
+- Start with **two-way FE** via `pyfixest` or `fixest`. Get a number. Plot event-study coefficients.
+- Then run **`csdid` / `did`** as a staggered-DiD sanity check. If the estimates disagree meaningfully, the staggered estimator is usually closer to the truth.
+- **Do not** run five estimators and cherry-pick. Pre-register your main spec (write it down, then run it).
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🔎 **Finding the problems in your own data (discussion points)**
+:::
+
+::: card-body
+
+Before running any spec, your team should be able to answer:
+
+- **What is your outcome and why?** Points per match? Goal difference? Win probability? Each encodes different beliefs about what "improvement" means.
+- **What is your control group?** Never-treated teams only? Not-yet-treated? All other team-weeks? The choice changes the estimand.
+- **Are there caretaker managers?** A four-match stand-in before the permanent appointment blurs the treatment date. How do you handle it?
+- **Is there reverse causality during the "pre" window?** If firing is expected, the team may already be playing worse (effort, tactics, transfer talk). This contaminates the pre-period — which is why Session 2 exists.
+- **Fixture difficulty.** A new manager whose first five matches are against the bottom three is not a miracle worker. Do you control for opponent strength?
+- **Confounders from outside football.** Injuries, ownership changes, stadium renovations, pandemic-era crowd rules. Which of these matter for your league/window?
+- **Is your sample large enough?** Twenty-five changes in three seasons is not a lot of statistical power. Honest about it.
+
+Use these as **discussion prompts** with your AI helper — *"Given this panel and these concerns, what would go wrong with a naive DiD? What do I need to show to rule each one out?"*
+
+:::
+:::::
+
+::: {.callout-tip}
+**Use AI to learn the details** — ask for worked mini-examples in *your* setup: *"I have a team-week panel with outcome X, treatment at irregular times; walk me through a Callaway–Sant'Anna estimator in Python using `csdid`."* Then read the code, don't just run it.
+
+A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/project03/assets/did-understand-prompt.txt).
+:::
+
+------------------------------------------------------------------------
+
+## Bringing expectations back in
+
+::::: {.week-card .card}
+::: card-header
+🧭 **What the Session 2 score buys you**
+:::
+
+::: card-body
+
+Diff-in-diffs compares the pre/post change in outcomes for treated units against a control group and reads the difference-of-differences as the causal effect. That rests on **parallel trends**: absent treatment, the two groups would have moved in parallel.
+
+Expectations break that story in two ways:
+
+- **Anticipation.** If a manager change is widely expected, players, board, opponents and media react *before* the official announcement. Effort, tactics, transfer talk, press pressure — all shift. The "pre" period is already contaminated, so the estimated effect is biased toward zero (or flipped, if anticipation pushes outcomes the "wrong" way first).
+- **Heterogeneity.** A shock firing after one bad weekend and a long-telegraphed "he's gone at the end of the month" hire are not the same treatment. Pooling them hides structure: the effect of a new manager plausibly depends on **how surprising** the change was.
+
+That is why you built an expectation score per change. Use it in **three** ways:
+
+1. **As a diagnostic.** Plot pre-trends for "expected" vs. "surprise" changes separately. Do they differ? That tells you something about the parallel-trends assumption.
+2. **As a moderator.** Interact the treatment with the expectation score — or split the sample at its median. *"Does the new-manager bounce exist only for surprise hires, only for expected ones, or roughly the same for both?"*
+3. **As a robustness check.** Drop the highest-expectation (most anticipated) changes. Does the main effect survive? If not, the effect is largely driven by the changes where anticipation contaminates the pre-period most — worth saying out loud.
+
+You are not trying to *remove* expectations from the data. You are trying to *measure* them so the DiD can say something honest about **when** and **for whom** a manager change matters.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Analysis work block (90 min)
+
+::::: {.week-card .card}
+::: card-header
+🔬 **Suggested workflow**
+:::
+
+::: card-body
+
+1. **Merge & validate.** Join Session 1 and Session 2 on your chosen keys. Print counts before and after. Eyeball a few rows.
+2. **Write the spec** — in `METHODS.md`, before any regression:
+   - Outcome.
+   - Unit.
+   - Treatment definition (date, caretaker handling).
+   - Window (pre/post periods).
+   - Controls (team FE, time FE, opponent strength).
+   - Cluster level for SEs (team).
+3. **Test on a subset** — one league, two seasons. Get the plumbing right before you scale.
+4. **Parallel-trends plot.** Treated vs. control, pre-period only. Eyeball the slopes.
+5. **Main DiD** — two-way FE coefficient, clustered SE, 95% CI.
+6. **Event study** — leads and lags around treatment, with pre-period coefficients to test parallel trends.
+7. **Staggered-DiD estimator** — `csdid` or `did`. Compare to step 5.
+8. **Heterogeneity** — interact with expectation score (and optionally: manager experience, league, season).
+9. **Robustness** — different outcome, different window, drop biggest clubs, drop caretaker spells.
+10. **Draft slides while code runs.** Don't leave them for the last 15 minutes.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Final deliverable — HTML presentation
+
+::::: {.week-card .card}
+::: card-header
+📑 **Quarto HTML report, not a slide deck**
+:::
+
+::: card-body
+
+For this final submission, each group produces a **single self-contained HTML report** built with Quarto. Not Google Slides, not PowerPoint. The reason: the report has to *render from the repo* — that is what closes the reproducibility loop.
+
+**Target length:** roughly 8–12 rendered "screens" of content (the equivalent of a 12-minute read).
+
+**Required sections**
+
+1. **Question & context** — league, time span, why this matters.
+2. **Data & pipeline** — what you scraped, what you scored, what you merged. Include at least one diagnostic table: row counts at each stage; number of teams, changes, articles.
+3. **Panel construction** — the six decisions from the start of this session, each with your answer and a one-sentence rationale.
+4. **Identification** — DiD in plain English. What is treatment? Control? Parallel-trends plot goes here.
+5. **Main result** — one headline coefficient with a 95% CI, and one plain-English sentence interpreting it ("after a manager change, teams gained roughly X points per match more than comparable teams that did not change, 95% CI [a, b]").
+6. **A few selected methods** — *not* everything you ran. Pick the two or three that tell the story best (e.g., event study + staggered-DiD check + one heterogeneity split). Show each on one figure or one table.
+7. **Expectations vs. reality** — your heterogeneity result using the Session 2 score. One chart.
+8. **Limitations** — selection, staggered timing, entity-resolution gaps, sample size. Be honest. *"Our main threat to identification is X; we addressed it by Y; here is what would change our conclusion if we are wrong about Z."*
+9. **What we would do next** — if you had another week.
+
+**Style principles** — less is more. Show only what you understand deeply. Precise interpretation beats fancy graphs. Refer back to the presentation principles from [Week 07](../week07/index.qmd) and the "report vs. vibe report" contrast from [Week 06](../week06/index.qmd).
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Delivery (Session 3 — end of the project)
+
+::::: {.week-card .card}
+::: card-header
+📦 **Final submission**
+:::
+
+::: card-body
+
+- **Who:** by **group** — same team you started with in Session 1.
+- **Deadline:** **Sunday 23:55** (the Sunday after this session).
+- **What:**
+  - GitHub repo with: data (or fetcher), Session 1 tests, Session 2 article + expectations tables, Session 3 analysis code, and the rendered HTML report.
+  - `README.md` describing how to reproduce all numbers end to end (`make all` should work from a cold clone — see [Reproducible Research](../da-knowledge/reproducible-research.qmd)).
+  - `PANEL.md` — the six panel-construction decisions and your answers.
+  - `METHODS.md` — the DiD spec, parallel-trends check, packages used, robustness run.
+  - `DATA.md` — updated with the final merged panel documented.
+  - **Individual reflection (1–2 pages per person)**: hardest part and how you solved it, what you would do differently, how labour was split.
+
+:::
+:::::
+
+See [evaluation criteria](../capstone/index.qmd#evaluation) in the project description.
+
+------------------------------------------------------------------------
+
+## Further resources
+
+For going deeper on modern DiD, two canonical stops:
+
+- **[Pedro Sant'Anna — DiD resources](https://psantanna.com/did-resources/)** — the maintained hub for modern difference-in-differences. Papers, code, slides, videos, curated by one of the authors of the Callaway–Sant'Anna estimator. Start here for anything staggered.
+- **[Carlos Mendez — DiD in Python](https://carlos-mendez.org/post/python_did/)** — a worked Python tutorial walking through classic and event-study / staggered DiD on real data. Good companion to the `csdid` / `pyfixest` pointers above.
+

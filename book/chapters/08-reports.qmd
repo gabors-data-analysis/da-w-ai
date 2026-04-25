@@ -6,4 +6,344 @@ title: "Writing Reports with AI"
 
 From a one-shot prompt to an iterated draft, and the gap between them. We compare a vibe-report with a directed report on the same data.
 
-{{< include ../../week03/index.qmd >}}
+::: {.hero-section}
+::: {.container}
+::: {.hero-title}
+Week 03 From raw data to report with AI assisted coding
+:::
+::: {.hero-subtitle}
+Download, explore, clean, aggregate, join, and report — all with AI-assisted coding in VS Code
+:::
+:::
+:::
+
+---
+
+![](../images/week3_pic.png)
+
+## About this class
+
+Students begin with the **raw World Values Survey (WVS) Wave 7 file** (~180 MB, 97k rows, 613 columns). The class walks through the full data pipeline — download, explore, select, clean, aggregate, join with GDP — and finishes with a first graph. We use **VS Code + GitHub Copilot** as the primary tool. Each task is self-contained (5–15 min), so faster students complete all of them and slower students still cover the core.
+
+## Objectives
+
+By the end of class, students will be able to:
+
+* Download a large public dataset from code using an API/URL.
+* Use GitHub Copilot in VS Code to explore, select, and clean variables from a 600-column file.
+* Define a broad research topic, identify relevant survey items, and construct a composite variable (standardize + average).
+* Aggregate individual-level survey data to country-level summaries.
+* Join two datasets (WVS aggregates + World Bank GDP) by country and year.
+* Produce a scatter plot from self-prepared data.
+
+
+## Preparation BEFORE class
+
+::: {.week-card .card}
+::: {.card-header}
+**Required setup (before class)**
+:::
+::: {.card-body}
+
+1. **VS Code + language + Copilot** must be working. Follow the [VS Code setup guide](/da-knowledge/vscode-setup.html) if not done yet.
+2. Read the [World Values Survey case study page](/case-studies/VWS/) to understand what the data is about.
+3. Skim the [WVS codebook](/case-studies/VWS/data/codebook.pdf) (pages 1–10 are enough) to get a feel for variable naming.
+4. Install the packages you will need (run once before class):
+
+::: {.panel-tabset}
+
+#### Python
+```python
+pip install pandas numpy matplotlib requests statsmodels wbgapi
+```
+
+#### R
+```r
+install.packages(c("dplyr", "readr", "ggplot2", "WDI"))
+```
+:::
+
+:::
+:::
+
+
+## Class plan
+
+The class is 75 minutes. There are **8 tasks** organized in three blocks. Core tasks (1–6) take about 55 min; tasks 7–8 are stretch goals. Students work individually or in pairs at their own pace.
+
+::: {.callout-tip}
+## Pacing guide
+Tasks are designed so that every student completes at least tasks 1–6. Fast students will reach tasks 7–8. The instructor checks in after each block.
+:::
+
+---
+
+### Block A: Get and explore the data (25 min)
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 1: Download the raw data from code (5 min)**
+:::
+::: {.card-body}
+
+Download the WVS Wave 7 CSV directly from the Open Science Framework. Do **not** download manually — write code.
+
+**Data source:** The file `WVS_Cross-National_Wave_7_csv_v6_0.csv` is hosted on OSF at: <a href="https://osf.io/36dgb" target="_blank">osf.io/36dgb</a>
+
+The direct download URL is `https://osf.io/36dgb/download`. Ask Copilot to help you write a script that downloads and saves this file.
+
+<!-- INSTRUCTOR: Good Copilot prompts for this task:
+- Python: "Download the CSV file from https://osf.io/36dgb/download and save it locally as wvs_raw.csv"
+- R: "Use the osfr package to download file ID 36dgb from OSF into a data/ folder"
+- R alternative: download.file() with the direct URL also works fine
+-->
+
+**Check:** You have a ~180 MB CSV file on disk. Load it and confirm it has **97,220 rows** and **613 columns**.
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 2: Explore the raw data (10 min)**
+:::
+::: {.card-body}
+
+The file has 613 columns. You cannot read all of them. Use the codebook and Copilot to answer these questions:
+
+1. How many unique countries are in the data? (hint: look for `B_COUNTRY_ALPHA`)
+2. What years does the data cover? (hint: `A_YEAR`)
+3. What do columns `Q1` through `Q89` represent? The codebook organizes them into broad sections — identify the sections.
+4. What do negative values (−1 to −5) mean in the Q columns?
+
+**How to use Copilot for this:**
+
+- Use **Copilot Chat** (`Ctrl+Shift+I` / `Cmd+Shift+I`) to ask questions about your data.
+- Try typing a comment like `# Show the first 5 rows and column names` and let Copilot autocomplete.
+
+<!-- INSTRUCTOR: The key sections in Q1-Q89 are:
+- Q1-Q6: Important in life (family, friends, leisure, politics, work, religion)
+- Q7-Q17: Important child qualities (independence, hard work, tolerance, etc.)
+- Q18-Q26: Social tolerance / neighbors
+- Q27-Q45: Social norms, gender equality, work-family attitudes
+- Q46-Q56: Happiness, wellbeing, health, life satisfaction
+- Q57-Q63: Interpersonal trust (general, family, neighborhood, strangers)
+- Q64-Q89: Confidence in institutions (courts, government, parliament, press, UN, etc.)
+Students should be able to find the broad groupings from the codebook. -->
+
+**Check:** You can name at least 5 Q-variables and know what they measure.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 3: Pick a topic and identify your variables (10 min)**
+:::
+::: {.card-body}
+
+Pick **one broad topic** from the WVS that interests you. Examples:
+
+- **Trust** — do richer countries have higher interpersonal and institutional trust?
+- **Gender equality** — does income level relate to attitudes about gender roles?
+- **Happiness and wellbeing** — are people in richer countries happier / more satisfied?
+- **Tolerance** — does economic development relate to social tolerance?
+
+For your chosen topic:
+
+1. Browse the codebook (or ask Copilot) to find **3–6 related Q variables** that capture your concept. For example, if your topic is "trust", you might pick Q57 (generalized trust), Q58–Q63 (trust in specific groups), Q69 (confidence in police), Q70 (confidence in courts).
+2. Write down which variables you chose and why.
+3. Decide on your x-variable: `GDP per capita PPP` (income level, comparable across countries).
+
+**Important:** Do not just pick a single variable. The assignment will ask you to create a **composite score** from multiple items — start thinking about which variables belong together.
+
+<!-- INSTRUCTOR: This is a key pedagogical moment. Students need to:
+- Justify why certain Q items belong together conceptually
+- Notice that some items have different scales (e.g., Q57 is 1-2 binary, Q46 is 1-4)
+- Think about which direction each variable points (some need reversing)
+Good prompts to suggest if students struggle:
+- "Which Q variables in the WVS codebook relate to [trust/gender/happiness]?"
+- "What are the response scales for Q57, Q58, Q59, Q60?"
+-->
+
+**Check:** You have a list of 3–6 Q variables with a sentence explaining why they capture your topic.
+
+:::
+:::
+
+---
+
+### Block B: Clean, create variables, aggregate, and join (25 min)
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 4: Select, clean, and create your composite variable (10 min)**
+:::
+::: {.card-body}
+
+From the 613 columns, select only what you need:
+
+- **Identifiers:** `B_COUNTRY_ALPHA`, `A_YEAR`, `A_WAVE`
+- **Weight:** `W_WEIGHT`
+- **Your chosen Q variables** (the 3–6 you identified in Task 3)
+- **Demographics:** `Q260` (sex), `Q262` (age), `Q275` (education)
+
+Then clean and create your composite variable:
+
+1. Filter to **Wave 7 only** (`A_WAVE == 7`)
+2. Replace negative values (−1 to −5) with `NA`/`NaN` — these are WVS missing-value codes
+3. **Create a composite score:** Standardize each of your chosen Q variables (z-score: subtract mean, divide by standard deviation), then average them into a single index. This handles the problem that different Q items use different scales.
+
+Ask Copilot for help with the standardization step.
+
+<!-- INSTRUCTOR: Good Copilot prompt:
+"Standardize columns Q57, Q58, Q59, Q60, Q61, Q62, Q63 to z-scores (subtract mean, divide by std). Then create a new column 'trust_index' as the row-wise mean of the z-scored columns, ignoring NaN."
+
+Key teaching points:
+- Why standardize? Variables have different scales (1-2, 1-4, 1-10)
+- Why average? Reduces noise, captures the common signal
+- Should some items be reversed? E.g., if higher values mean less trust on some items
+- row-wise mean (not column mean) — each respondent gets a score
+-->
+
+**Check:** Your cleaned dataframe has a new composite column. Verify it has mean ≈ 0 and reasonable spread.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 5: Aggregate to country level (5 min)**
+:::
+::: {.card-body}
+
+Survey data is at the individual level. For cross-country analysis you need country-level summaries.
+
+Group by `B_COUNTRY_ALPHA` and `A_YEAR`, then compute:
+
+- **Mean** of your composite score and individual Q variables
+- **Count** of respondents per country
+
+<!-- INSTRUCTOR: Good Copilot prompt:
+"Group the dataframe by B_COUNTRY_ALPHA and A_YEAR. Compute the mean of all numeric Q columns and the composite score, ignoring NaN. Also count the number of rows per group. Store result as country_data."
+-->
+
+**Check:** You should have about **66 rows** (one per country-year combination).
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 6: Get GDP data and join (10 min)**
+:::
+::: {.card-body}
+
+Now bring in economic data from the World Bank. You need:
+
+| Indicator | World Bank code | Description |
+|---|---|---|
+| GDP (current USD) | `NY.GDP.MKTP.CD` | Total GDP |
+| GDP per capita PPP | `NY.GDP.PCAP.PP.CD` | Income level, comparable across countries |
+| Population | `SP.POP.TOTL` | Country size |
+
+Download for years **2017–2023** (the range of WVS Wave 7 fieldwork). Ask Copilot how to use the World Bank API in your language.
+
+::: {.panel-tabset}
+
+#### Python
+Use `wbgapi` — ask Copilot to help you download the three indicators and reshape the result into a tidy dataframe with columns for country code, year, and each indicator.
+
+#### R
+Use the `WDI` package — ask Copilot to help you download the three indicators for years 2017–2023.
+:::
+
+**Join** the GDP data to your country-level WVS data, matching on country code and year.
+
+**Key decision:** Which type of join? (left join — keep all WVS countries, even if GDP is missing)
+
+Save the merged country-level data as a CSV file.
+
+**Check:** Your merged dataframe still has ~66 rows, now with GDP and population columns added.
+
+:::
+:::
+
+---
+
+### Block C: First look at the data (25 min)
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 7: Scatter plot — income and your composite variable (15 min)**
+:::
+::: {.card-body}
+
+Create a **scatter plot** of your composite variable against income:
+
+- x-axis: log GDP per capita PPP
+- y-axis: your composite score (country mean)
+- Label a few interesting countries (e.g., outliers)
+- Add a title that uses **non-causal** language (association, not effect)
+
+<!-- INSTRUCTOR: Good Copilot prompt:
+"Create a scatter plot of trust_index (y) vs log GDP per capita PPP (x) from country_data. Label points for USA, CHN, IND, DEU, NGA. Add a linear fit line. Title: Association between income level and generalized trust."
+-->
+
+**Check:** Your graph shows a recognizable pattern. Labels are readable. Title avoids causal claims.
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Task 8: Compare composite vs. single variable (10 min)**
+:::
+::: {.card-body}
+
+Make the same scatter plot but using just **one** of your individual Q variables instead of the composite score. Put the two plots side by side.
+
+- Does the pattern look different?
+- Is the relationship stronger or weaker with the composite?
+- Why might averaging multiple indicators give a cleaner signal?
+
+Write 2–3 sentences comparing the two plots. This comparison is useful for your assignment.
+
+**Check:** You have two plots side by side and a short written comparison.
+
+:::
+:::
+
+
+## Wrap-up (5 min)
+
+Quick class discussion:
+
+* Which task did Copilot help with the most?
+* Where did you have to correct Copilot's suggestions?
+* What was the hardest part — downloading, cleaning, creating the composite, or interpreting?
+* How does starting from raw data change your understanding compared to getting a curated file?
+
+
+## Assignment
+
+::: {.callout-note icon="📝"}
+[Assignment 3: From data pipeline to report](/assignments/assignment_03.html)
+
+You will extend the in-class pipeline into a polished short report. The assignment builds directly on the code and variables you created today.
+:::
+
+
+## Resources
+
+* [VS Code + Copilot setup guide](/da-knowledge/vscode-setup.html)
+* [World Values Survey case study](/case-studies/VWS/)
+* [WVS codebook](/case-studies/VWS/data/codebook.pdf)
+* [WVS processing notes (README_WVS.md)](/case-studies/VWS/data/README_WVS.md)
+* [World Bank Data API (wbgapi for Python)](https://pypi.org/project/wbgapi/)
+* [WDI package for R](https://cran.r-project.org/package=WDI)
+

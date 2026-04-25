@@ -6,4 +6,113 @@ title: "Which AI Model Should I Use?"
 
 Models change every quarter; the decision rule does not. Here is how to pick one without overspending or under-tooling, and how to revise the decision when the next leaderboard drops.
 
-{{< include ../../da-knowledge/which-ai.qmd >}}
+In what follows, here is my personal take as of `date:2026-03-06`.
+
+
+## Basics
+
+Generative AI based on Large Language Models (genAI) is a powerful tool with a series of decisions by users. This is my guide with a focus on task related to analyzing data. 
+
+### Leading models
+
+* As of now the leading (state of the art, SOTA) models are Google's Gemini (3.0), OpenAI's ChatGPT (5.4), and Anthropic's Claude Opus (4.6.)
+* Other key model is [Mistral AI](https://mistral.ai/) but there are several others
+* Open source -- open weights models are also quite good, [Kimi (K2.5)](https://www.kimi.com/ai-models/kimi-k2-5), an open weight model, is quite good and free. Deepseek, Qwen the other leading models. Think of them as SOTA 4-9 months ago 
+
+
+### Paid vs free of leading providers
+
+* Most models have a free and paid tiers. 
+* Free ones are good as kind of Google search replacement for everyday tasks and chats. 
+* For serious work you'll be better off with paid tiers or open source models that are much cheaper. (see comparison at [open router](https://openrouter.ai/models) or [price per token](https://pricepertoken.com/)) 
+
+### Thinking
+
+* Each model have faster (cheaper) and thinking (more expensive) variants, such as Sonnet and Opus for Claude, Thinking and Instant for ChatGPT. In addition you can have extended thinking 
+* For data analysis work, the thinking variants are recommended.
+* All major models have deep research 
+
+### Tools
+
+* All major models support tool use (e.g. web browsing, code execution) and agentic patterns (multi-step workflows with memory and tool use).
+* Currently Gemini is the weakest here
+
+
+## Use cases
+
+AI  is great for many tasks. In this course we only focus on aspects of Data Analysis:
+
+* designing analysis
+* writing code
+* data wrangling such as joining tables, sample design, variable transformations
+* exploratory data analysis
+* modelling, regressions, machine learning
+* causal inference
+* creating tables and graphs
+* writing reports and presentations
+
+
+## Models for data analysis
+
+For data-analysis projects, my current recommended approach is: paid Claude. 
+
+
+
+## Research & Writing
+* **Synthesis Over Summarization**: AI tools increasingly synthesize multi-source inputs into structured insights rather than paraphrasing single documents.
+* **Security & Privacy**: Modern workspaces rely on **isolated execution contexts**; strong non-training guarantees apply primarily to paid and enterprise tiers.
+* **Multimodal Capability**: AI can interpret charts, screenshots, and handwritten notes and incorporate them into drafts.
+
+## For data analysis workspaces -- comparison 
+
+*Last update: 16 Jan 2026*
+
+| Workspace | 2026 Key Features |
+|:---|:---|
+| **Anthropic Claude Artifacts** | • Creates **interactive applications** (tutors, calculators) within the output window.<br>• Real-time iteration on complex document structures. |
+| **OpenAI ChatGPT Canvas** | • Advanced frontier models with contextual persistence for tone and style.<br>• Inline editing with granular control over specific sections. |
+| **Google NotebookLM** | • **Interactive Audio Overviews** with user interruption and questioning.<br>• Grounded citations linked directly to uploaded source segments. |
+| **Perplexity Pages** | • Multi-source synthesis using live web retrieval.<br>• Inline citation and consistency checking against sources. |
+
+
+## Data Analysis details
+* **Sandboxed Execution**: Code runs in secure, ephemeral environments with no local system access.
+* **Statistical Rigor**: Strong support for Python-based libraries (e.g. pandas, scikit-learn) for exploratory and predictive analysis.
+* **Direct Integration**: AI can manipulate data directly within spreadsheets or dedicated analysis windows.
+* **Limits**: Reproducibility, package versions, and state persistence remain constrained relative to local workflows.
+
+## Data Analysis details
+| Workspace | 2026 Key Features for Analysis |
+|:---|:---|
+| **ChatGPT Data Analysis** | • Executes Python in managed compute environments for multi-file datasets.<br>• Assisted data cleaning and predictive modeling workflows. |
+| **Claude Analysis** | • High-fidelity **SVG and lightweight interactive output**.<br>• Fast iteration on statistical tables with publication-ready formatting. |
+| **Google Gemini in Sheets** | • **Multimodal cleaning**: converts screenshots or PDFs into structured tables.<br>• Natural-language formula generation and transformations. |
+| **Microsoft Copilot in Excel** | • **Native Python-in-Excel** for statistical scripts inside spreadsheets.<br>• Automated pivots, summaries, and forecasting via prompts. |
+
+
+## Coding Assistance
+* **Agent-Assisted Workflows**: AI can coordinate multi-step tasks such as refactoring or bug fixing across large codebases, with human review.
+* **Environment Security**: Code is tested in **secure sandboxes** before changes are proposed.
+* **Interconnected Tools**: Integrated with development and collaboration platforms (e.g. Jira, Slack).
+
+
+## Coding Assistance --- comparison
+| Workspace | 2026 Key Features for Developers |
+|:---|:---|
+| **Anthropic Claude Code** | • Native **VS Code extension** with agent-style workflows and inline diffs.<br>• Supports complex multi-file edits and testing assistance. |
+| **GitHub Copilot** | • Uses **Extensions** to interact with external dev tools (Azure, Slack, Jira).<br>• Deep context from local and remote repositories. |
+| **Cursor** | • AI-first editor with awareness of project-wide dependencies.<br>• Strong support for iterative refactors across files. |
+| **Windsurf (Codeium)** | • **Cascade mode** for orchestrating large-scale refactors.<br>• Robust free tier for students and individual users. |
+
+**Security note:** SOC2 compliance is common; strict zero-retention guarantees typically apply to enterprise or explicitly configured accounts.
+
+
+## What changed from 2025 Q2
+
+* No need to think much re which models to use. 
+* Leading models similar capability, but different. Not really sure how... 
+
+
+## Feedback
+Dear Reader. I have limited experience. Suggestions are welcome, please post an issue.
+

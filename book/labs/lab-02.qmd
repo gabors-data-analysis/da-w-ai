@@ -6,7 +6,37 @@ title: "Lab 2 — Documenting Code and Data"
 
 **Read first:** Chapters 5–6 (Documenting Code and Data; Documentation Fundamentals).
 
-{{< include ../../assignments/assignment_02.qmd >}}
+### Task
+
+In this assignment, you will continue exploring the data, and create a readme document. This is an **individual** assignment. 
+
+* Review good practices for readme and data documentation
+* First, consider the WVS Survey we used in class: [Codebook](/case-studies/VWS/data/codebook.pdf), [sample data](/case-studies/VWS/data/WVS_random_subset2000.csv). See the [World Values Survey case study](/case-studies/VWS/) for more info. Link it to your AI. (Can move to google drive.)
+* Second, choose a research question using the VWS data. It can be broad or specific. Ask AI for ideas.
+* What variables would you use to investigate the research question? Pick the most relevant ones (min 8, max 25)
+* Review survey timing and discuss consequences
+* Considering these variables **only** create a single README.md (in markdown). 
+
+
+**The readme**
+
+In the readme, include:
+
+* key info on the dataset itself (you need to figure out what this key info is based on the lecture and examples)
+* key variables description
+* table with descriptive statistics for the 5 most important selected variables
+
+
+### To submit
+
+* README.md file. (lastname_firstname_dawai_week02_readme.md) (16p)
+* What advice would you give to a fellow data analysis student on **using AI to create README documents**? (lastname_firstname_dawai_week02_advice.txt) (4p)
+    * List 2–3 pieces of advice based on your own experience using AI for this specific task.
+  
+### AI use restrictions
+
+* Do not use AI to help you generate the advice. We want to hear your personal examples and reflections, not AI-generated suggestions.
+
 
 ## AI and me
 

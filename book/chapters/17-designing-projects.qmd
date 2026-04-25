@@ -6,4 +6,207 @@ title: "Designing Larger Analytics Projects"
 
 The mindsets that make AI useful on a project of more than a hundred files: self-interview, `agents.md`, layered tasks, repo layout, testing habits.
 
-{{< include ../../da-knowledge/designing-projects.qmd >}}
+When a project is small — one dataset, one notebook, one question — you can improvise. AI helps, you check the output, you move on.
+
+When a project is **larger** — many data sources, a multi-step pipeline, a claim you'll defend in a presentation — improvising backfires. You and your AI assistant spend hours re-litigating decisions, re-inventing conventions, and re-debugging work you already "finished" yesterday.
+
+This page collects the small set of habits that make bigger projects with AI work. It sits behind the Capstone Project, but it applies to any multi-week analytics project.
+
+------------------------------------------------------------------------
+
+## Two mindsets for using AI
+
+::::: {.week-card .card}
+::: card-header
+🧠 **Know which mode you are in**
+:::
+
+::: card-body
+
+**Mindset A — doing things you broadly know.**
+You understand the domain and the typical solution. AI **augments** you: it writes boilerplate, suggests a library, drafts a function. You can **check closely** — you read the code, you know what "right" looks like, you'd catch a subtle bug.
+
+**Mindset B — doing things you don't know.**
+You are doing something outside your expertise (a staggered-DiD estimator, a scraping library you've never used, a new NLP approach). You cannot check closely; you can only **beta-test**: click, run, inspect, compare against something you *do* understand. Your job is to build cheap ways to tell whether the output is plausible.
+
+The failure mode is using Mindset A *confidence* on Mindset B *work*. Name which one you are in, out loud, before you start a task.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Let AI interview you before it codes
+
+::::: {.week-card .card}
+::: card-header
+🎙️ **Self-interview**
+:::
+
+::: card-body
+
+Before the AI writes code, have it ask **you** clarifying questions. A good opening prompt:
+
+> *"I want to do X. Before you write any code, ask me 5–8 questions to clarify goals, constraints, risks, and what 'done' looks like. Don't propose solutions yet."*
+
+Why this works:
+
+- It forces you to articulate things you were vague about — the primary key, the unit of observation, what "performance" means, which rows to drop.
+- It exposes gaps that would otherwise show up an hour into implementation.
+- It gives the AI enough context that the first code it writes is closer to what you actually need.
+
+Keep the Q&A in the repo as `PLAN.md` and reference it from your instructions file (e.g. add `@PLAN.md` to your `CLAUDE.md`). Future-you will refer back to it, and the AI will too — as long as the file is in its context.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## `agents.md` — project rules
+
+::::: {.week-card .card}
+::: card-header
+📝 **Tell the AI the rules of *this* project**
+:::
+
+::: card-body
+
+Each CLI coding agent starts a fresh context window per session. Some (like Claude Code) also build an auto-memory across sessions, but the most reliable way to carry conventions forward is to write them down explicitly. Create a file at the repo root — `CLAUDE.md` (Claude Code), `AGENTS.md` (Codex), or `GEMINI.md` (Gemini CLI). Each tool reads its own file automatically at the start of every session.
+
+This file is **project-specific**. It describes how *this* project is organised and what is non-negotiable inside it.
+
+Split it into two short parts:
+
+**1. Preferences** — what *you* like.
+
+- *"Python, not R. Prefer pandas over loops."*
+- *"Outputs go to `/out`, not scattered in the project root."*
+- *"Keep functions under 40 lines. If one grows larger, stop and refactor."*
+
+**2. Good practices** — what *the project* requires.
+
+- *"All scraping functions return a DataFrame with columns X, Y, Z and raise on empty."*
+- *"Data files are immutable. Never edit a CSV in place — write a new one to `/out`."*
+- *"Before implementing a function, write a minimal test with 5 rows of mock data."*
+
+**Write it at the start**, even if you have to guess some items — you'll refine them fast. Seed it with your usual rules from past projects; treat that as your personal baseline. **Then update it on the go**: when the AI does something you correct twice, that's a line for `agents.md`. When a convention changes mid-project, update the file *before* the next prompt.
+
+Keep it short. The AI reads it at the start of every session, so padding dilutes the rules that actually matter.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## SKILLS — reusable how-to recipes
+
+::::: {.week-card .card}
+::: card-header
+🧰 **Package repeatable know-how once, reuse it everywhere**
+:::
+
+::: card-body
+
+A **skill** is a small, self-contained instruction packet for a task you'll do more than once: scraping RSS feeds, calling an LLM classifier, running a DiD event-study, writing a README. Unlike `AGENTS.md` (which is about *this* project), skills are **portable** — you carry them from project to project.
+
+In practice, a skill is a directory with a `SKILL.md` file that tells the AI *how* to do one thing well in your style — plus optional scripts, templates, or reference files it can use. You keep them in a `.claude/skills/`, `.gemini/skills/`, or `.agents/skills/` folder (depending on the tool). All three major CLI agents can load a skill automatically when your prompt matches its description.
+
+**Examples of skills you'd build for the capstone:**
+
+- **`make-readme`** — "Generate a README following the structure: purpose, data, how to run, reproducibility notes. Pull the dataset schema from `DATA.md` if present."
+- **`write-data-tests`** — "For a given DataFrame schema, produce pytest checks for: required columns, types, primary-key uniqueness, no-null on key fields, plausible ranges."
+- **`scrape-match-data`** — "Given a league URL, return a tidy DataFrame with `date, home, away, home_goals, away_goals, manager_home, manager_away`. Use `requests` + `BeautifulSoup`. Retry on failure with backoff. Log the URL + row count."
+- **`classify-texts-with-llm`** — "Batch articles in groups of 20, call an LLM API with a fixed system prompt, parse JSON, validate schema, write results to `/out/classified_{date}.csv`. Never log the API key."
+- **`did-event-study`** — "Given a team-week panel with a treatment date column, run a staggered-DiD event study with leads/lags, cluster SEs by team, and produce a standard plot."
+
+**Write them at the start** — or, more commonly, **carry them over from previous projects**. A good skill, once written, outlives the project that produced it. The second time you do something, promote the working prompt into a skill.
+
+**Then update them on the go.** The first version of `scrape-match-data` will be rough; after the second or third source you'll know what edge cases matter, and the skill improves. A mature skill is one you've used on three different projects without editing.
+
+**You don't have to write skills from scratch.** Most CLI tools ship with a built-in skill creator skills. Describe what the skill should do, and the tool generates the directory structure and `SKILL.md` for you. Start there and refine.
+
+**Rule of thumb — where does this rule go?**
+
+| Scope | Goes in |
+|---|---|
+| True only in this repo | `agents.md` |
+| True of a task you'll do again elsewhere | a skill |
+
+When in doubt, start in `agents.md`. Promote to a skill once you find yourself copying the same block into a second project.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Three kinds of tests
+
+Students often think "testing" means unit tests. In an analytics project, three different tests live side by side, and all three matter.
+
+::::: {.week-card .card}
+::: card-header
+🧪 **Data tests, data-describe, code tests**
+:::
+
+::: card-body
+
+**1. Data tests — does the data itself make sense?**
+
+- **Fail tests** — schema present? types correct? primary key unique? required columns non-null?
+- **Variable format** — dates parse? numeric ranges plausible? categorical values from a known set?
+- **Quality** — no suspicious duplicates, no silent encoding problems, no mixed units.
+
+These run on the data as it enters the pipeline. They should *fail loudly* when the world changes under you.
+
+**2. Data description — do you understand the sample you have?**
+
+Not a pass/fail test — a ritual. Before any modelling, **describe**:
+
+- Counts: rows, groups, units, events.
+- Distributions: of the outcome, of key covariates, of the treatment timing.
+- Edge cases: most frequent, least frequent, earliest, latest, largest, smallest.
+
+If you cannot describe the sample crisply, you do not know what your later regressions are averaging over.
+
+**3. Code tests — is your function doing what you think?**
+
+Treat each function as `f(x)`. Build a small mock input where you *know* the right answer by hand, and assert the function returns it.
+
+These are cheap to write with AI: *"give me a pytest for this function with a mock DataFrame of 3 rows covering these edge cases."*
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Scoping and layering
+
+::::: {.week-card .card}
+::: card-header
+📐 **Make the project small before you make it big**
+:::
+
+::: card-body
+
+When you plan the work, divide it into **layers** and ship each one end-to-end before expanding:
+
+1. **Vertical slice first.** One country, one season, one source, one classification, one regression. Crappy but complete.
+2. **Then widen.** Add countries, add seasons, add sources — only after the pipeline runs top-to-bottom.
+3. **Then deepen.** Better prompts, better specs, better robustness — only once you know the slice works.
+
+The opposite order (collect everything → classify everything → realise the pipeline is broken) is the single most common way these projects fail.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Quick checklist before you start
+
+- [ ] I know which **mindset** I'm in for today's block (A or B).
+- [ ] The AI has **interviewed me** and I wrote a `PLAN.md`.
+- [ ] An `agents.md` (or `CLAUDE.md`) exists with preferences + good practices.
+- [ ] I pulled in the **skills** from past projects that fit this one, and know which new ones I'll likely write.
+- [ ] I have a **vertical slice** defined — the smallest possible end-to-end run.
+- [ ] I know what my **data tests**, **data-describe** checks, and **code tests** will look like.
+

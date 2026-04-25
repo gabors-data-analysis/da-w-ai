@@ -6,4 +6,244 @@ title: "LLM APIs in Python"
 
 From the SDK call to a small batch script. By the end of the chapter you have run an LLM over a CSV without paying ChatGPT Plus prices.
 
-{{< include ../../da-knowledge/llm-api-python.qmd >}}
+This page is about the **Python workflow** for using large language models through APIs: load a key, send text, get output back, and turn that output into data. It assumes you already know the basic idea of an API and already have access to at least one provider.
+
+The examples on this page are meant to teach the core pattern, not to be frozen copy-paste templates. SDK method names and parameters can change over time, but the underlying workflow stays the same.
+
+If you need those prerequisites first:
+
+- [Introduction to APIs](api-use.html)
+- [How to get AI API keys](get-ai-api-key.html)
+- [Which AI model to use](which-ai.html)
+- [LLM glossary](technical-terms-page.html)
+
+## When the API is better than the chat window
+
+Use the API when you want to:
+
+- run the same prompt on 20, 200, or 20,000 texts
+- combine model outputs with `pandas`, plots, and regressions
+- save the whole workflow in a script that you can rerun
+- keep prompts, model names, and outputs reproducible
+
+For one-off exploration, the chat window is often enough. For repeated work, the API is usually the better tool.
+
+## The basic pattern
+
+Every LLM API workflow follows the same logic:
+
+1. Load your API key from an environment variable.
+2. Create a client object.
+3. Send a request with a model name and some input text.
+4. Read the response.
+5. Save the result.
+
+Client libraries do not change this logic. They just hide the HTTP details such as headers, authentication, and JSON parsing.
+
+## Minimal setup
+
+Install only the packages you actually use:
+
+```bash
+pip install openai python-dotenv pandas pydantic
+```
+
+If you store keys in your shell environment, the Python clients will pick them up automatically:
+
+```bash
+export OPENAI_API_KEY="your-key-here"
+```
+
+If you prefer a local `.env` file during development, load it with `python-dotenv`.
+
+## Choosing a model
+
+For API work, the right default is usually the **smallest model that passes your benchmark on real data**. Use smaller models for classification, extraction, tagging, and other short structured tasks; move to a larger model only if you see clear failures on edge cases, messy instructions, or harder reasoning. In practice, compare models on four things:
+
+- **quality**: does it get your labels or extraction right on 20 to 50 real examples?
+- **cost**: how expensive are the input and output tokens at your expected scale?
+- **latency**: is it fast enough for a loop, app, or batch job?
+- **context window**: can it fit the documents, examples, or schema you want to send?
+
+Providers rarely publish a simple raw "model size", so think in practical tiers such as `mini` versus flagship. Do not choose by vibe: test two models on the same sample, keep the cheaper one if quality is similar, and only upgrade when the larger model clearly earns its cost.
+
+## Smallest OpenAI example
+
+```python
+from openai import OpenAI
+
+client = OpenAI()  # reads OPENAI_API_KEY
+
+response = client.responses.create(
+    model="gpt-5.4-mini",
+    input="In one sentence, explain what panel data is."
+)
+
+print(response.output_text)
+```
+
+This is the basic idea: one input goes in, one response comes back. Exact method names can evolve, so focus on the pattern: create client, send input, read output.
+
+The shape is the same across providers: create client, send text, read text back. Anthropic and Google model SDKs follow the same high-level workflow even though method names differ.
+
+## A reusable helper function
+
+For data-analysis work you usually want more than a single one-off call. The next step is to wrap the API call in a Python function.
+
+```python
+import time
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+client = OpenAI()
+
+SYSTEM_PROMPT = (
+    "You are a careful classifier. "
+    "Reply with exactly one label: positive, neutral, or negative."
+)
+
+def classify_text(text, model="gpt-5.4-mini", retries=3):
+    for attempt in range(retries):
+        try:
+            response = client.responses.create(
+                model=model,
+                instructions=SYSTEM_PROMPT,
+                input=text,
+            )
+            label = response.output_text.strip().lower()
+            if label not in {"positive", "neutral", "negative"}:
+                raise ValueError(f"Unexpected label: {label}")
+            return label
+        except Exception:
+            if attempt == retries - 1:
+                raise
+            time.sleep(2 ** attempt)
+```
+
+Why use a function?
+
+- you can apply it to many rows
+- you have one place to change the prompt
+- you can add retries, logging, and validation later
+
+## From one text to a dataframe
+
+Once you have a helper function, you can integrate it with `pandas`.
+
+```python
+import pandas as pd
+
+df = pd.read_csv("texts.csv")
+
+sample = df.head(10).copy()
+sample["sentiment"] = sample["text"].apply(classify_text)
+
+sample.to_csv("sample_scored.csv", index=False)
+print(sample)
+```
+
+Start with `head(5)` or `head(10)`, not with the whole dataset. A five-row test can save you money and a lot of debugging time.
+
+## Using response schemas for easily parsable output
+
+If you only write "return JSON" in the prompt, the model will often do it, but not always in the exact shape you want. A **response schema** is better: you define the fields, types, and allowed values in advance, and the API constrains the output to match.
+
+This is often called **structured output** or **structured responses**.
+
+Depending on SDK version, you may see helper methods like `parse(...)` for this. If your installed version uses a different interface, follow the same idea: define a schema, request structured output, and validate before analysis.
+
+### OpenAI example with Pydantic
+
+```python
+from typing import Literal
+from pydantic import BaseModel
+from openai import OpenAI
+
+client = OpenAI()
+
+class SentimentResult(BaseModel):
+    label: Literal["positive", "neutral", "negative"]
+    confidence: float
+    short_reason: str
+
+response = client.responses.parse(
+    model="gpt-5.4-mini",
+    input=[
+        {
+            "role": "system",
+            "content": (
+                "Classify the sentiment of the text. "
+                "Confidence should be between 0 and 1."
+            ),
+        },
+        {
+            "role": "user",
+            "content": "Sales were flat, but profits improved.",
+        },
+    ],
+    text_format=SentimentResult,
+)
+
+result = response.output_parsed
+print(result.label)
+print(result.confidence)
+print(result.short_reason)
+```
+
+This is much nicer than parsing raw text by hand. `result` is already a typed Python object.
+
+The same schema-first idea transfers to Anthropic and Google models: define a target structure, request constrained output, and parse into typed fields before analysis.
+
+### Why schemas help
+
+- Your code gets a predictable output shape.
+- Enums such as `positive`, `neutral`, `negative` are much more reliable than free text.
+- You spend less time writing fragile parsing code.
+- Validation errors show up early instead of silently corrupting your data.
+
+### Practical advice
+
+- Keep the schema small at first.
+- Use `Literal[...]` or enums for categories whenever possible.
+- Ask for short fields, not essays, if you plan to analyze the result.
+- For raw OpenAI JSON schemas, use `strict: true`; object schemas also need `additionalProperties: false`.
+- If you are not using Pydantic, both providers also support raw JSON Schema.
+
+Response schemas are one of the best upgrades you can make once you move from experimentation to real pipelines.
+
+## Good habits for real projects
+
+- Keep prompts in variables, not scattered across your script.
+- Start with a tiny sample before you scale up.
+- Ask for short or structured outputs when you plan to parse them.
+- Save partial results often during long runs.
+- Log the model name and prompt version you used.
+- Expect occasional failures and build in retries.
+- Validate a subset of the outputs by hand.
+
+## Common mistakes
+
+- Hard-coding the API key in the script.
+- Sending a full dataset before testing on a sample.
+- Asking for long free-form prose when you only need a label or JSON object.
+- Forgetting that token use affects cost.
+- Treating model output as ground truth without checking a subset manually.
+
+## Where to go next
+
+- If API mechanics are still fuzzy, go back to [Introduction to APIs](api-use.html).
+- If you need key setup, use [How to get AI API keys](get-ai-api-key.html).
+
+## Official documentation
+
+APIs change quickly. If an example stops working, check the provider docs first:
+
+- [OpenAI quickstart](https://developers.openai.com/api/docs/quickstart)
+- [OpenAI models](https://developers.openai.com/api/docs/models)
+- [OpenAI pricing](https://openai.com/api/pricing/)
+- [OpenAI Responses API reference](https://platform.openai.com/docs/api-reference/responses/create?lang=python)
+- [Anthropic choosing a model](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model)
+- [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview)
+- [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+

@@ -6,4 +6,296 @@ title: "Capstone Session 2 — From Text to Expectations"
 
 Session 2. Scrape news around manager changes, pass it through an LLM API, build an expectations score, and merge it into the panel.
 
-{{< include ../../project02/index.qmd >}}
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Capstone Project — Session 2
+:::
+
+::: {.hero-subtitle}
+From text to expectations — scrape, call an API, score expectations
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Where we are
+
+- **Session 1 →** you have a cleaned match + manager-change dataset.
+- **Session 2 (today) →** for each manager change, you build a **news-based expectation signal**: how much was an imminent change expected? 
+- **Session 3 →** you use that signal as a moderator in the DiD analysis.
+
+------------------------------------------------------------------------
+
+
+## Learning objectives
+
+By the end of this session your team will:
+
+- Learn about the classical NLP pipeline and how LLMs fit into it.
+- Identify relevant news sources for your country/league.
+- Scrape or pull articles into a structured table (one row per article).
+- Use an **LLM API** to classify each article into an expectation score.
+
+------------------------------------------------------------------------
+
+## Today's task — purpose and expected output
+
+::::: {.week-card .card}
+::: card-header
+🎯 **Purpose**
+:::
+
+::: card-body
+
+**Starting example.** Read this article before going any further: [Reuters — *"Last season we lose that game", says Man United's Amorim* (1 Nov 2025)](https://www.reuters.com/sports/soccer/last-season-we-lose-that-game-says-man-uniteds-amorim-2025-11-01/). Amorim talking after a 2–2 draw, a year into his tenure at Man United. Does the press suggest a change is coming? How would you score this one?
+
+That is the task — at scale.
+
+For every manager change in your panel, produce a **numeric expectation score** that answers one question:
+
+> *In the period before the change was announced, how strongly did the press suggest that a change was coming?*
+
+You are not trying to judge whether the new manager is good, nor whether fans are happy. You are measuring **how much of a surprise the change was** at the moment it happened.
+
+
+:::
+:::::
+
+
+
+
+::::: {.week-card .card}
+::: card-header
+📤 **Expected output**
+:::
+
+::: card-body
+
+Two datasets
+
+**article-level list.** One row per article:
+
+| column | what it is |
+|---|---|
+| `news_uid` | unique id for the article |
+| `team` | team the article is about |
+| `date` | article publication date |
+| `score` | LLM-produced expectation score |
+
+
+**team–gameweek panel.** Aggregate to one row per `(team, gameweek)` with two key variables:
+
+| column | what it is |
+|---|---|
+| `team` | team the article is about |
+| `date` | article publication date |
+| `avg_score` | average expectation score across articles in the window |
+| `n_articles` | how many articles fed that average. |
+
+This is the object you merge onto your match + manager-change panel in Session 3. We will use lagged values of this score. 
+
+**information on what you did**
+
+- `prompt_classifier.md` 
+-  *EXTRA*: validation note (hand-labelled n, agreement rate).
+
+::: {.callout-note}
+**What counts as a "gameweek"?** Default to a **calendar week**, because that is how football coverage is paced. But the unit of time is a choice — it can be **shorter** (a few days, if you want to see the signal tighten as the change approaches) or **longer** (a fortnight or month, if article volume is thin). Pick one, document it, and keep it consistent across teams.
+:::
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Intro talks (~75 min)
+
+Two short decks frame the session — watch/skim **before** the session if you can.
+
+::::: {.week-card .card}
+::: card-header
+🎞️ **1. NLP Basics — Text as Data** (~30 min)
+:::
+
+::: card-body
+[Slides: NLP Basics — Text as Data](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-nlp-basics.html)
+
+Walks the **classical pipeline** (tokenization → BoW → TF-IDF) and the **modern tools** (word embeddings, BERT, LLMs) — all on a running example: a Ruben Amorim post-match quote that looks a lot like the articles you'll score.
+
+Source text for both decks: [Reuters — *"Last season we lose that game", says Man United's Amorim* (1 Nov 2025)](https://www.reuters.com/sports/soccer/last-season-we-lose-that-game-says-man-uniteds-amorim-2025-11-01/).
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🎞️ **2. Scoring News with LLMs**
+:::
+
+::: card-body
+[Slides: LLM Scoring](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-llm-scoring.html)
+
+The project-2 deck. Uses the same Amorim quote to answer: *"What is the probability the manager is out in 4 weeks?"*
+
+Covers:
+
+- What the LLM is actually doing when it outputs a number — and three biases to expect.
+- **Six prompting strategies** — crude, anchored, structured JSON, reason-then-score, self-consistency, logprob-based.
+- In-class activities: pick a strategy and argue for it; score the Amorim article by hand before asking Claude.
+- Bonus task (3 p): investigate calibration.
+- Open design issues for the group to decide (temperature, hand-validate, output format, model choice, aggregation, time window).
+
+:::
+:::::
+
+
+------------------------------------------------------------------------
+
+## APIs: what you need this session
+
+APIs come up twice in this session: **news/data APIs** (to get articles) and **LLM APIs** (to classify them). You already saw these in [Week 08](../week08/index.qmd); the key references are in the [Knowledge Base](../navbar/resources.html).
+
+::::: {.week-card .card}
+::: card-header
+🔑 **Getting set up**
+:::
+
+::: card-body
+
+- **Get an API key** (OpenAI, Anthropic, or similar): [How to get AI API keys](../da-knowledge/get-ai-api-key.qmd).
+- **Budget ~$5** — that is more than enough for a project this size.
+- **Store the key outside the repo.** Use an environment variable (`.env`, `export`) — never commit it.
+- **Test first.** Run your classification prompt on 10–20 articles before you unleash it on 1,000.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📚 **Reference reading**
+:::
+
+::: card-body
+Pulled into our knowledge base so you can find it after the course:
+
+- [Introduction to APIs](../da-knowledge/api-use.qmd) — what an API call is, headers, auth, rate limits.
+- [Calling LLM APIs from Python](../da-knowledge/llm-api-python.qmd) — practical first calls, response schemas, and model choice.
+- [How APIs work under the hood](../da-knowledge/api-advanced.qmd) — idempotency, retries, batching, tokens.
+- [Simple walkthrough: World Bank + FRED](../da-knowledge/walkthrough-wb-fred.qmd) — public data APIs.
+- [Football-data walkthrough (FBref)](../da-knowledge/walkthrough-fbref.qmd) — scraping a sports data source.
+
+If you are new to APIs, spend **15 minutes** on "Introduction to APIs" before you start your work block. If you already understand the basics and need to build the classifier script, start with "Calling LLM APIs from Python".
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Work tasks (2-hour block)
+
+::::: {.week-card .card}
+::: card-header
+🔍 **News collection & classification pipeline**
+:::
+
+::: card-body
+
+**1. Find news sources**
+
+- Aim for ≥ 2 credible outlets per country.
+- Think about English vs local language news outlets.
+- Prefer sources with **RSS** or a simple URL pattern — you'll thank yourself tomorrow.
+- Mix national and league-specific / tabloid and broadsheet: drama lives in tabloids, context lives in broadsheets.
+
+**2. Build URL/article lists**
+
+- **Google News RSS** (with a manager name in the query) is the fastest start.
+- If the source has team-specific RSS feeds, prefer those.
+- Expected scale per season: ~20 teams × 2 sources ≈ **200–1,000 articles / season**.
+
+**3. Scrape clean text**
+
+- Title + lead + full body. Keep source + pubDate + URL for reproducibility.
+- Store in a single tidy table: one row per article.
+
+**4. Classify via LLM API**
+
+- Call an LLM (OpenAI, Anthropic, …) via API to score each article 
+- Consult AI on how to create a prompt for such an exercise.
+- Design a clear prompt — think about:
+  - What scale or label set best captures "expectation"?
+  - How should irrelevant articles be handled?
+  - What output format makes downstream parsing easiest?
+- Prefer a structured response schema over free text, so each call returns the same fields, for example `score`, `reason`, and `is_relevant`.
+
+**extra**
+- **Validate before scaling:** hand-label ~20 articles yourself, run them through the prompt, and compare. Aim for ≥ 80 % agreement; if you're below that, revise the prompt before classifying the full set.
+
+
+
+**5. Aggregate**
+
+- create team*gameweek panel with average score and article count per `(team, gameweek)`
+
+:::
+:::::
+
+### Scale & reality check
+
+::::: {.week-card .card}
+::: card-header
+📐 **Plan before you scrape**
+:::
+
+::: card-body
+
+| Dimension | Example |
+|---|---|
+| Seasons | 10 |
+| Manager changes per season | ~30 |
+| Articles per change | ~5 |
+| **Total articles to classify** | **~1,500** |
+| Cost at typical pricing | A couple of dollars |
+
+This is a lot of work for a 2-hour block. **Scope down on purpose**:
+
+- Start with **1 season, 1 source** and a 3-month window.
+- Get the full pipeline working end to end.
+- Only then expand.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Discussion 
+
+- **Coverage** — Which manager changes got lots of press? Which got none? What does silence mean here?
+- **Classification quality** — Where did the model disagree with you on hand-labelled cases? Why?
+- **Prompt engineering** — Share one prompt change that noticeably improved output.
+- **Cost & reproducibility** — How many articles did you classify? What did it cost? Could somebody else rerun it from your repo?
+- **Into Session 3** — Is your `(team, change_date) → expectation_score` table ready to merge into the panel?
+
+------------------------------------------------------------------------
+
+## Delivery (Session 2)
+
+::::: {.week-card .card}
+::: card-header
+📦 **What to hand in**
+:::
+
+::: card-body
+
+- **Who:** by **group** — continue with your Session 1 team and repo; finish what you started in the session.
+- **Deadline:** **Sunday 23:55** (the Sunday after this session).
+- **What:**
+  - Article table (one row per article) + classification table (one row per article with score + reason).
+  - Aggregated `expectations.csv`: one row per `(team, date)`.
+  - Prompt file (`prompt_classifier.md`) + a short note on validation (n hand-labelled, agreement rate).
+  - Updated `DATA.md` with the new tables documented.
+
+:::
+:::::
+

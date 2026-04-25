@@ -15,7 +15,644 @@ You should arrive at this chapter with a working terminal (Chapter 11) and Claud
 With chat AI you copy code in and out manually — every step crosses a human gate. With agentic AI, the AI can write a file or delete one without asking. Read Chapter 18 (Reproducible Research) before you give it free rein on a real project.
 :::
 
-{{< include ../../week04/index.qmd >}}
+::: {.hero-section}
+::: {.container}
+::: {.hero-title}
+Week 04: From Copilot to Agentic CLI Workflows
+:::
+::: {.hero-subtitle}
+From AI-assisted coding in VS Code to terminal-native AI workflows
+:::
+:::
+:::
+
+---
+
+![](../images/week4_pic.png)
+
+## About the class
+
+In Week 3, you already used AI in a real coding workflow with **VS Code + GitHub Copilot**. This week builds directly on that foundation and introduces **[agentic AI](../da-knowledge/technical-terms-page.html)** in the terminal: tools that can inspect your project files, run commands, and iterate in-place.
+
+The jump is not "AI vs no AI." It is **IDE assistance vs terminal-native execution**. Instead of manually moving between editor, terminal, and chat tabs, you can run a tighter loop in one interface and still keep the verification habits from Week 3.
+
+### Tool Options
+
+We use **Claude Code** in this class, but the workflow transfers:
+
+| Tool | Interface | Notes |
+|------|-----------|-------|
+| **[Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)** | Terminal CLI agent | Default in this course. |
+| **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** | Terminal CLI agent | Similar command-line workflow. |
+| **[Codex CLI](https://developers.openai.com/codex/cli/)** | Terminal CLI agent | OpenAI alternative for terminal workflows. |
+
+There are differences in UX and permissions, but the core process is the same: define the task, inspect outputs, verify results, iterate.
+
+Everything you learn today transfers to alternatives. Tools evolve quickly, so focus on process rather than product-specific details.
+
+### Learning Objectives
+
+By the end of this session, students will:
+
+* Explain the difference between Week 3 Copilot workflows and terminal agent workflows
+* Install and configure Claude Code on their machine
+* Use Claude Code to explore, understand, and analyze a multi-file dataset
+* Apply verification habits (row counts, summary checks, sanity checks) while using autonomous AI steps
+
+### Before class
+
+::: {.week-card .card}
+::: {.card-header}
+**Setup Required - Do This Before Class**
+:::
+::: {.card-body}
+
+**1. Installation and setup**
+
+Follow the installation guide: **[Installing AI CLI Tools](../da-knowledge/install-cli.html)**
+
+We use Claude Code, but Gemini CLI or Codex CLI also work. The guide covers all options for Windows, Mac, and Linux. 
+
+Claude Code lives in the Terminal. *New to the terminal?* Start with [Terminal Basics](../da-knowledge/terminal-basics.html)
+
+**2. Confirm Week 3 tooling still works**
+
+- VS Code opens your project and Copilot is active
+- You can run Python from a terminal (`python --version`)
+- You can use basic git commands (`git status`)
+
+**3. Ensure Python packages**
+
+Claude Code can run Python code, so Python must be installed:
+
+- Download from [python.org/downloads](https://www.python.org/downloads/)
+- **Check "Add Python to PATH"** during installation
+- Install packages: `python -m pip install pandas numpy matplotlib`
+
+**4. Ensure you have a GitHub account**
+
+- and know the basics of working with git
+
+:::
+:::
+
+## Class Plan
+
+
+
+::: {.week-card .card}
+::: {.card-header}
+🤝 **Review on readme docs (20 min)**
+:::
+::: {.card-body}
+
+### Review Readme assignment
+
+* broad discussion of experience
+
+### What worked, what was different? 
+
+* First run
+* Extended context window run 1 (create a system prompt)
+* Extended context window run 2 (with slideshows)
+
+
+### Problems with AI generated reports.
+
+Read each other document.
+
+* control?
+* style?
+ 
+ 
+ 
+:::
+:::
+
+
+
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 1: Why CLI if Copilot already works? (30 min)**
+:::
+::: {.card-body}
+
+
+### Why CLI Tools? The Core Benefits
+
+Week 3 already removed a lot of friction with Copilot. The remaining friction is mostly interface-switching and manual orchestration:
+
+1. Ask for code in the editor
+2. Run it in terminal
+3. Inspect logs/errors manually
+4. Go back to chat/inline suggestions and repeat
+
+**CLI agents compress this loop:**
+
+**Files are already there**
+- Claude Code sees your CSV files, R scripts, and outputs directly
+- No uploading, no repeated copy-paste, minimal context handoff
+- Just: "Look at these files and calculate average occupancy by city"
+
+**Code runs immediately**
+- AI writes code and executes it in one step
+- Sees errors and fixes them automatically
+- You get results, not just code snippets
+
+**Context stays intact**
+- Remembers your entire project structure
+- Understands how files relate to each other (`hotels.csv` joins with `cities.csv`)
+- Keeps track of what you've done across multiple steps
+
+**Iteration is fast**
+- "Something looks wrong" -> AI investigates without you copying data
+- "Try it a different way" → Runs new approach immediately
+- No manual round-trips for every change
+
+
+
+### What Stays the Same
+
+- **Prompting discipline**: Clear task descriptions still matter most
+- **Statistical thinking**: You still define variables, assumptions, and checks
+- **Verification habits**: You still validate joins, units, missing values, and outputs
+- **Iteration mindset**: Break problems into steps, inspect, refine, repeat
+
+What changes is the execution surface: terminal-native tools can plan and run across files faster, but you remain responsible for quality.
+
+
+---
+
+
+### Discussion: How Would You Do This?
+
+**Task:** "What's the average hotel occupancy by city in this dataset?"
+
+You have a folder with several CSV files. You want to answer this question using AI assistance.
+
+**Think-pair-share (10 min):**
+
+1. What steps would you take using ChatGPT or Claude.ai (chat interface)?
+2. What information would you need to give the AI (or Copilot Chat)?
+3. What could go wrong? How would you handle errors?
+
+*Discuss with a neighbor, then share with the class.*
+
+<!-- Instructor: Common answers to elicit from students
+
+- Open files, copy some rows to show the AI
+- Describe the data structure ("I have a CSV with columns...")
+- Ask for code, copy it to Python/R
+- If error, copy error message back
+- Iterate until it works...
+
+Key point: Every step requires manual copy-paste. Context gets lost easily.
+-->
+
+**The friction:** Manual context handoff and tool-switching slow down the loop.
+
+
+:::
+:::
+
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 2: Hands-on - First steps (25 min)**
+:::
+::: {.card-body}
+
+
+### Setting Up Claude Code
+
+***set up folder***
+
+Create a git project folder for the Austrian Hotels data `austrian-hotels-data`
+
+***get the data***
+
+Download the Austrian Hotels dataset from [here](../case-studies/austria-hotels/data/data-modified.zip).
+
+***launch Claude Code***
+
+Open your terminal, navigate to your data folder:
+```
+cd path/to/austrian-hotels-data
+claude
+```
+
+
+
+### Task 1: setup
+
+* Ask to set up a data analysis project folder with data already there.
+
+* Have a look, ask changes if you'd like
+
+### Task 2: data
+
+* Get all csv files in the /data folder
+
+* Ask for a summary of data tables
+
+* Interact to learn more about the data
+  * What files are in this folder? Give me a quick overview.
+  * Show me 5 sample rows from each CSV file.
+
+### Task 3: relations
+
+* ask to look at data as linked tables, and tell you keys to join them
+  * Read the hotels and cities files. How are they related? What's the join key?
+  
+### Task 4: simple analysis
+
+* Look at the CSV files here and calculate average occupancy by city
+* write python code, run it, and show results
+
+
+<!-- Instructor: Expected output from demo
+
+Average Occupancy Rate by City:
+Vienna           98.0%
+Graz             82.8%
+Innsbruck        79.9%
+Linz             79.3%
+Hallstatt        75.4%
+Bad Gastein      75.0%
+St. Anton        74.1%
+Zell am See      74.0%
+Kitzbühel        73.1%
+
+Note: Vienna at 98% is suspiciously high - can mention this as
+a data quality point. Only 9 cities appear (should be 10).
+-->
+
+
+
+### Task 5 Discussions
+
+* How does this compare to using ChatGPT?
+* Where do you see the biggest advantages? Any downsides or risks?
+
+<!-- Instructor: Exercise 1 expected findings
+
+Files in folder:
+- hotels_modified.csv (87 hotels)
+- cities_modified.csv (10 cities)
+- monthly_occupancy_modified.csv (2,088 rows - 87 hotels × 24 months)
+
+Join key: city (text) connects hotels to cities
+Also: hotel_id connects hotels to monthly_occupancy
+
+Students should notice:
+- hotels has city names, cities has city details (province, population)
+- monthly_occupancy has hotel_id, month, year, occupancy_rate, avg_daily_rate
+-->
+
+
+* What analysis questions could you ask with this data?
+
+:::
+:::
+
+
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 3: Hands-on - Cleaning**
+:::
+::: {.card-body}
+
+
+### Task 1: Class discussion on potential problems
+
+* What are the crucial steps when cleaning tabular data?
+
+### Task 2: Cleaning with Claude Code
+
+* Use Claude Code to find problems.
+* Create clean versions of data tables in a new folder `/data_cleaned`.
+
+
+:::
+:::
+
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 4: Hands-on - Joining tables**
+:::
+::: {.card-body}
+
+
+### Task 1: quick review on joins
+
+- Review of key concepts [Joining Tables Guide](../da-knowledge/joining-tables.html)
+
+### Task 2 joining tables
+
+1. **Join hotels and cities** - "Join the hotels and cities data. How many hotels are in each province?"
+
+2. **Aggregate occupancy** - "What's the average occupancy rate by city? Show me a table sorted highest to lowest."
+
+3. **Find patterns** - "Which 5-star hotels have the lowest average daily rate? Something seems off - investigate."
+
+**Tips:**
+
+- If something looks wrong, ask "Why did that happen?" or "Check the row counts"
+- Ask Claude Code to show intermediate steps: "Show me the data after the join, before aggregating"
+- If you get an error, just wait - Claude Code will often fix it automatically
+
+### Task 3, manual check
+
+* open a created data table and look into it. 
+* how would you test and debug?
+
+
+<!-- Instructor: Exercise 2 expected outputs
+
+1. Hotels by province:
+   Salzburg         25 hotels
+   Tyrol            22 hotels
+   Vienna           15 hotels
+   Carinthia        10 hotels
+   Styria            8 hotels
+   Upper Austria     7 hotels
+
+2. Occupancy by city (same as demo - good chance to verify)
+
+3. 5-star hotels with low ADR - this is a data quality exercise:
+   Students should find some 5-star hotels with surprisingly low
+   rates. Prompt them to investigate: are these real? Missing data?
+   Seasonal patterns? This teaches the "trust but verify" habit.
+-->
+
+
+
+:::
+:::
+
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 5: Hands-on Generate New Data**
+:::
+::: {.card-body}
+
+### The Power Move: AI Creates Data
+
+One of the most useful capabilities of Claude Code is generating realistic simulated data. This is exactly how the Austrian Hotels dataset was created - by an earlier version of Claude!
+
+### Task 1: Creating Booking Channel Data
+
+* Let us create a new data table: 
+
+```
+I want to create a new CSV file called hotel_bookings.csv that shows
+what percentage of each hotel's bookings come from different channels
+Write Python code to generate this, using the hotels_modified.csv as input.
+```
+
+* How could you be more specific to get realistic patterns?
+* How would you check?
+
+<!-- Instructor: Exercise 2 expected outputs
+
+```
+I want to create a new CSV file called hotel_bookings.csv that shows
+what percentage of each hotel's bookings come from different channels
+(Direct, Booking.com, Expedia, HRS, Travel Agent).
+
+Requirements:
+- Each hotel should have rows for each channel
+- Percentages should sum to 100% for each hotel
+- 5-star hotels should have more direct bookings (35-45%)
+- 3-star hotels should rely more on OTAs (Booking.com 40%+)
+- Include a commission rate column (Direct=0%, OTAs=10-18%)
+
+Write Python code to generate this, using the hotels_modified.csv as input.
+```
+
+Claude Code will:
+
+1. Read the existing hotels data
+2. Write a Python script with realistic logic
+3. Run it and generate the CSV
+4. Show you a summary
+
+
+
+
+Your turn! Brainstorm a new data table that could join to the hotels data. Ideas:
+
+| Table Idea | Join Key | Interesting Analysis |
+|------------|----------|---------------------|
+| **Weather by city/month** | city + month + year | Does weather affect occupancy? |
+| **Staff data** | hotel_id | Do more staff = better reviews? |
+| **Nearby attractions** | city | Which attractions drive tourism? |
+| **Renovation history** | hotel_id | Did renovations boost ratings? |
+| **Competitor Airbnb prices** | city + month | How do hotel prices compare? |
+
+**Steps:**
+
+1. Pick a table idea with your group
+2. Write a detailed prompt describing what you want (columns, realistic patterns, join keys)
+3. Ask Claude Code to generate it
+4. Verify: Does it look realistic? Can you join it to hotels?
+5. Do one simple analysis with the joined data
+
+<!-- Instructor: Exercise 3 facilitation notes
+
+Most popular choices tend to be:
+- Weather data (easy to generate, clear patterns)
+- Staff data (simple 1:1 join)
+
+Help groups who are stuck with prompt structure:
+"I want to create [filename] with columns [list columns].
+The data should [describe realistic patterns].
+It should join to hotels on [join key]."
+
+Common issues:
+- Percentages that don't sum to 100
+- Join keys that don't match (typos, case sensitivity)
+- Unrealistic value ranges
+
+Encourage groups to share their tables and analyses at the end.
+-->
+
+:::
+:::
+
+::: {.week-card .card}
+::: {.card-header}
+**Part 6: Debugging and Iteration**
+:::
+::: {.card-body}
+
+### When Things Go Wrong
+
+Claude Code isn't perfect. Common issues:
+
+- **Wrong join type** - Ask: "How many rows before and after the join? Did we lose data?"
+- **Missing values** - Ask: "Are there NaN values? Where did they come from?"
+- **Unexpected results** - Ask: "Walk me through the calculation step by step"
+- **Code errors** - Often Claude Code fixes these automatically. If not, just describe what went wrong.
+- **[Hallucinations](../da-knowledge/technical-terms-page.html#hallucination)** - AI may generate plausible but incorrect code or stats. Always verify.
+
+### Trust but Verify
+
+**Always check:**
+
+- Row counts after joins
+- Summary statistics (do means make sense?)
+- A few random rows (do values look realistic?)
+
+**Good habit:** Ask Claude Code to explain what it did:
+```
+Explain the code you just wrote. What assumptions did you make?
+```
+
+<!-- Instructor: Part 4 common student issues
+
+During exercises, watch for:
+- Students who accept wrong results without checking
+- Joins that lose rows (inner join when left was needed)
+- Column name mismatches (city vs City)
+- Students who don't read error messages before re-prompting
+
+Good teachable moments:
+- When Claude Code makes a mistake and fixes it automatically
+- When a result looks plausible but is wrong
+- When asking "explain this" reveals a faulty assumption
+-->
+
+:::
+:::
+
+## Operation tips
+
+* Use git-based projects.
+  * CLI tools are file-based, so git gives safer iteration.
+  * Version history makes rollbacks and debugging much easier.
+
+* Start with a three-step loop:
+  * Inventory: "What files are here?"
+  * Plan: "What steps should we run?"
+  * Execute and verify.
+
+**Resources**
+
+* [Claude Code common workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows)
+* [Claude Code settings and memory](https://docs.anthropic.com/en/docs/claude-code/settings)
+* [Gemini Gems](https://gemini.google/overview/gems/)
+
+
+## Bottom Line for Data Analysis
+
+CLI tools shine when you have:
+
+- Complex multi-file projects with data pipelines (`raw → clean → analysis → exhibits`)
+- Need for reproducible workflows that others can run
+- Large datasets or documents requiring substantial context
+- Iterative analysis where the AI should test and debug autonomously
+
+IDE/chat assistants remain better for:
+
+- Quick one-off questions or code snippets
+- Exploratory conversations about methodology
+- Situations where you want tight control over each step
+
+
+## Discussion Questions
+
+
+**End of Class Reflection:**
+
+1. **Workflow change:** How did using Claude Code feel different from Copilot or chat-based AI? What was faster? What was harder?
+
+2. **Trust calibration:** When did you trust Claude Code's output? When did you double-check? How do you decide?
+
+3. **Use cases:** For what tasks would you now prefer Claude Code over Copilot/ChatGPT/Claude.ai? When would you still use IDE or chat tools?
+
+4. **Data generation:** What did you learn from creating synthetic data? How could this help in your own projects?
+
+<!-- Instructor: Discussion question expected themes
+
+1. Workflow change:
+   - Faster: no copy-paste, sees errors immediately, keeps context
+   - Harder: less control, can't easily undo, terminal unfamiliar
+   - Some students prefer chat for "thinking out loud"
+
+2. Trust calibration:
+   - Trusted: file listings, basic calculations, code that runs
+   - Verified: join results (row counts!), summary statistics, edge cases
+   - Key insight: output that "looks right" isn't always right
+
+3. Use cases:
+   - Claude Code: multi-file projects, iteration, debugging
+   - Chat: learning concepts, one-off questions, no setup needed
+   - Both have their place!
+
+4. Data generation:
+   - Surprising how realistic AI-generated data can be
+   - Need clear specs or you get generic results
+   - Useful for testing, teaching, prototyping
+-->
+
+
+## Assignment
+
+::: {.callout-note icon="assignment"}
+## Assignment 4: Extend the Austrian Hotels Dataset
+
+**Due:** Sunday 23:55 before Week 5
+
+[Full Assignment Details](../assignments/assignment_04.html){.assignment-badge}
+
+**Summary:** Using Claude Code, create a new data table that joins to the Austrian Hotels dataset, then perform an analysis that answers an interesting question.
+:::
+
+
+## Resources
+
+**Claude Code & Terminal:**
+
+- [Terminal Basics](../da-knowledge/terminal-basics.html) - Essential commands
+- [Install Claude Code](../da-knowledge/install-cli.html#claude-code) - Installation guide
+- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code) - Official docs
+
+**Additional references**
+
+- [Short showcase of what is possible now (2026 Jan) )](https://www.youtube.com/watch?v=hiISl558JGE) -- must watch 15 mins
+
+
+**Course Reference:**
+
+- [Technical Terms Glossary](../da-knowledge/technical-terms-page.html) - Key AI/data concepts
+- [Joining Tables Guide](../da-knowledge/joining-tables.html) - Join types explained
+
+**Austrian Hotels Dataset:**
+
+- [Dataset Overview](../case-studies/austria-hotels/) - All files and documentation
+- [Data Schema](../case-studies/austria-hotels/data/hotel-data-readme.md) - Table descriptions and relationships
+
+**Python Basics (if needed):**
+
+- [Python for Data Analysis](https://wesmckinney.com/book/) - Free online book
+- pandas documentation: [pandas.pydata.org](https://pandas.pydata.org/)
+
+
+## Some personal comments
+
+* This is where AI gets genuinely useful for data work. Chat interfaces are great for learning and quick questions, but agentic AI changes how you actually *do* the work.
+* The booking channel data we use in class? It was generated by Claude Code while preparing this course. Meta, isn't it?
+* Don't worry if setup takes time. Getting your environment right is a one-time cost that pays off quickly.
+
 
 ## Where we go next
 

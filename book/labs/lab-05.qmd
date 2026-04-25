@@ -6,7 +6,17 @@ title: "Lab 5 — Reproducible CLI Workflow"
 
 **Read first:** Chapters 15–18 (Advanced CLI; Designing Projects; Reproducible Research).
 
-{{< include ../../assignments/assignment_05.qmd >}}
+## Overview
+
+* Use claude code to solve any interesting problem that you have come across. 
+* submit a short text report on the problem and how claude code (or other CLI) helped. 
+* Discuss any technical problem you may have had. 
+
+
+### To submit
+
+1. text of 0.5-1 page in text format such as `.txt` or `.md` (`lastname_firstname_dawai_week05_report.txt`) (20p)
+
 
 ## AI and me
 

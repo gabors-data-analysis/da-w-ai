@@ -6,4 +6,121 @@ title: "Reproducible Research Pipelines"
 
 A sceptical reader and a fast-moving model are a bad combination unless the pipeline is reproducible. Here are the habits that keep them from undoing your work.
 
-{{< include ../../da-knowledge/reproducible-research.qmd >}}
+## What reproducibility means, concretely
+
+A project is **reproducible** when a stranger — someone with your repo and nothing else — can clone it, run one command, and get the same numbers, tables, and plots you got.
+
+That's it. No emailing data, no reading your brain, no "I'll send the cleaned CSV later." One clone, one command, same outputs.
+
+This is the bar for every submission in this course.
+
+---
+
+## The minimum a reproducible project has
+
+Every well-organised project in this course shares the same few ingredients:
+
+1. **A README** that tells a reader (and future-you) what the project does, how to run it, and where outputs land.
+2. **Pinned dependencies** — `requirements.txt`, `renv.lock`, or equivalent — so the same code runs the same in six months.
+3. **A one-command entry point** — a `Makefile`, `run.sh`, or `main.py` — that chains fetch → clean → analyse → report.
+4. **A predictable folder structure** — raw data, cleaned data, scripts, outputs all in named places.
+5. **An instructions file for AI agents** — `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` — that captures project conventions once so you don't re-explain them every session.
+6. **Committed final artefacts** — the PDF, the figure, the result table — so reviewers can see outputs without rerunning the pipeline.
+
+Behind these ingredients sit a few design habits — data immutability, scoping the work in vertical slices, writing three kinds of tests — that are laid out in [Designing Larger Analytics Projects with AI](designing-projects.qmd).
+
+---
+
+## A working example you can clone
+
+We maintain a minimum reproducible project in Python that you can read, clone, and use as a template:
+
+::: {.callout-tip}
+**repo:** [github.com/gbekes/repro-toy-example](https://github.com/gbekes/repro-toy-example)
+:::
+
+The task it implements is intentionally tiny — aggregate the Austrian Hotels dataset to the city level and render a one-page PDF. **The point is not the analysis. The point is the structure.**
+
+**What's in it:**
+
+```
+repro-toy-example/
+├── README.md            ← how to read and run the repo
+├── requirements.txt     ← pinned Python deps
+├── Makefile             ← `make all` reproduces every output
+├── CLAUDE.md            ← project conventions for AI agents
+├── src/
+│   ├── fetch_data.py    ← download raw CSVs
+│   ├── build_table.py   ← merge + aggregate to city level
+│   └── make_report.py   ← render PDF with table + narrative
+├── data/
+│   ├── raw/             ← gitignored, regenerable
+│   └── clean/           ← gitignored, regenerable
+└── out/
+    ├── city_summary.csv ← committed final artefact
+    └── city_summary.pdf ← committed final artefact
+```
+
+**How it reproduces:**
+
+```bash
+git clone https://github.com/gbekes/repro-toy-example
+cd repro-toy-example
+make all
+```
+
+Three scripts run in sequence, each printing what it's doing and where it wrote output. The final PDF lands in `out/city_summary.pdf`.
+
+---
+
+## Conventions worth copying
+
+These are the conventions in the example — adopt them in your own capstone repo.
+
+**Data is immutable.** Nothing in `data/raw/` or `data/clean/` is ever edited in place. If a transformation is needed, write a new file. This makes every step re-runnable and every output traceable to its inputs.
+
+**Regenerable data is gitignored.** `data/raw/` and `data/clean/` are in `.gitignore`. The repo doesn't carry what the pipeline can re-create. Only `out/` — the artefacts humans read — is committed.
+
+**One script, one job.** `fetch`, `build`, `report` are separate files. Each runs independently if its inputs exist. Each one prints progress and where it wrote output, so silent failure is impossible.
+
+**One command reproduces everything.** `make all` walks the whole pipeline from a cold clone. If that doesn't work, the repo is broken.
+
+**The README is for strangers.** Write it as if the reader has never spoken to you — because they haven't. Purpose, data source, how to run, where outputs go. Two to three short sections is enough.
+
+**`CLAUDE.md` captures the rules of this project.** Preferences (Python over R, pandas over loops, outputs to `/out`) and good practices (data immutability, one-command entry, print progress). Short, because AI reads it every session — padding dilutes the rules that matter.
+
+---
+
+## What about notebooks?
+
+Notebooks are fine for **exploration**. They are not the submission.
+
+For the capstone:
+
+- If you use notebooks to explore, commit them in a separate `notebooks/` folder with a note in the README.
+- The pipeline that produces your final numbers must live in **plain `.py` scripts** (or `.R` scripts) that a stranger can run with `make all`.
+- Notebooks that make it into the pipeline must be **executable top-to-bottom from a fresh kernel** — no stale state, no hidden cells.
+
+The reason is simple: notebooks are easy to run out of order. Reproducibility dies the moment "run cell 7 before cell 4" becomes part of your workflow.
+
+---
+
+## A minimum checklist before you submit
+
+- [ ] `README.md` explains purpose, data, how to run, where outputs land.
+- [ ] `requirements.txt` (or equivalent) pins every dependency to a tested version.
+- [ ] A single command — `make all`, `python main.py`, or `bash run.sh` — reproduces every output from a cold clone.
+- [ ] Raw and intermediate data are gitignored; only final artefacts live in `out/` and are committed.
+- [ ] Scripts print what they're doing and where they write output.
+- [ ] `CLAUDE.md` / `AGENTS.md` / `GEMINI.md` captures the project's conventions.
+- [ ] The repo has been cloned to a clean directory at least once, and `make all` produced the same outputs you committed.
+
+If you've done the last item, you're genuinely reproducible. If you haven't, you don't yet know that you are.
+
+---
+
+## Related pages
+
+- [Designing Larger Analytics Projects with AI](designing-projects.qmd) — mindsets, self-interview, `agents.md`, skills, and the three kinds of tests.
+- [Documentation Fundamentals](documentation-readme.qmd) — what goes in a README.
+

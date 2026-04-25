@@ -6,7 +6,20 @@ title: "Lab 8 — LLM Sentiment vs. Human Sentiment"
 
 **Read first:** Chapter 21 (Sentiment Analysis with LLMs).
 
-{{< include ../../assignments/assignment_08.qmd >}}
+### Task
+
+Create a similar pipeline we used in class but now with the aim to decide if the coach is a man or a woman. In this example dataset, men's teams have men coaches and women's teams have women coaches. 
+
+Pick a few texts and do it yourself
+
+Get AI to explain its decisions
+
+### Submit:
+
+* A file with AI generated ratings: lastname_firstname_gender_text.xlsx.
+* A short para on why this could be easy or hard
+lastname_firstname_gender_text.txt.
+
 
 ## AI and me
 

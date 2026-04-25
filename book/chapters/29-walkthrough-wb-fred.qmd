@@ -6,4 +6,102 @@ title: "Walkthrough — World Bank and FRED"
 
 Two of the most useful free macroeconomic APIs on the public internet, walked through end to end.
 
-{{< include ../../da-knowledge/walkthrough-wb-fred.qmd >}}
+We'll show two options: World Bank and FRED
+
+## World Bank GDP per capita via WB API
+
+**API-based, no key needed, works in both R and Python.**
+
+* Same data source (World Bank).
+* Official packages in Python, R
+* No messy HTML scraping.
+* Clear structure: select indicator → countries → year → get table.
+
+#### 📈 GDP per capita (constant 2015 US\$), code: `NY.GDP.PCAP.KD`
+
+---
+
+#### **Python (using `wbdata` or `pandas-datareader`):**
+
+```python
+import wbdata
+import pandas as pd
+from datetime import datetime
+
+# Set countries and indicator
+countries = ['USA', 'HUN', 'DEU']
+indicator = {'NY.GDP.PCAP.KD': 'GDP_per_capita'}
+
+# Get data
+df = wbdata.get_dataframe(indicator, country=countries, data_date=datetime(2021, 1, 1))
+print(df.head())
+```
+
+---
+
+#### **R (using `wbstats`):**
+
+```r
+install.packages("wbstats")
+library(wbstats)
+
+# Set indicator and countries
+gdp_data <- wb(indicator = "NY.GDP.PCAP.KD", country = c("US", "HU", "DE"),
+               startdate = 2021, enddate = 2021)
+
+head(gdp_data)
+```
+
+## FRED
+
+ FRED (Federal Reserve Economic Data) provides **economic time series** (e.g. GDP, inflation, interest rates). 
+
+ * You **need an API key**, but the process is straightforward 
+ *  works in both R and Python with identical logic in both languages: set key → request series → get dataframe.
+
+
+---
+
+### 🔑 Get API Key
+
+1. Sign up at [https://fred.stlouisfed.org/](https://fred.stlouisfed.org/)
+2. Go to your [account settings](https://fredaccount.stlouisfed.org/apikey) to get your API key.
+3. Copy your API key, you'll need it with code
+
+---
+
+### ✅ Example: U.S. GDP per capita (`A939RC0Q052SBEA`)
+
+Details at [FRED site](https://fred.stlouisfed.org/series/A939RX0Q048SBEA)
+
+---
+
+### **Python (using `fredapi`)**
+
+```python
+from fredapi import Fred
+
+fred = Fred(api_key='your_api_key_here')
+
+# GDP per capita
+gdp_pc = fred.get_series('A939RC0Q052SBEA')
+print(gdp_pc.tail())
+```
+
+---
+
+### **R (using `fredr`)**
+
+```r
+install.packages("fredr")
+library(fredr)
+
+fredr_set_key("your_api_key_here")
+
+# GDP per capita
+gdp_pc <- fredr(series_id = "A939RC0Q052SBEA")
+head(gdp_pc)
+```
+
+---
+
