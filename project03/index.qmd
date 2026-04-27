@@ -1,7 +1,7 @@
 ---
-title: "Capstone Project — Session 3: Difference-in-Differences & Final Presentation"
-subtitle: "Causal design on your panel, heterogeneity by expectations, final presentation"
-date: "2026-05-04"
+title: "Capstone Project — Session 3: Causal Analysis & Final Presentation"
+subtitle: "Data to answer — Diff-in-diffs, heterogeneity, and presentation"
+date: "2026-04-27 (version 1.2)"
 ---
 
 ::::::: {.hero-section}
@@ -11,35 +11,112 @@ Capstone Project — Session 3
 :::
 
 ::: {.hero-subtitle}
-DiD analysis, heterogeneity, and final presentation
+From panel to causal effect — and how to present what you found
 :::
 ::::::
 :::::::
 
 ------------------------------------------------------------------------
 
-## Where we are
+## 1. Where we are
 
-- **Session 1 →** match + manager-change panel.
-- **Session 2 →** expectation score per change.
-- **Session 3 (today) →** run a **Difference-in-Differences** (DiD) analysis, explore heterogeneity (including by expectations), and present your findings.
-
-------------------------------------------------------------------------
-
-## Learning objectives
-
-By the end of this session your team will:
-
-- Understand DiD as a tool for this exact question, and its main assumptions.
-- Specify a DiD that treats manager-change teams as treated and never-changed (or not-yet-changed) teams as controls.
-- Report a main effect with confidence intervals, a heterogeneity slice, and an expectations-vs-reality comparison.
-- Deliver a clean 10–12 minute presentation.
+- **Session 1 →** match + manager-change dataset.
+- **Session 2 →** a text-based expectation score per change.
+- **Session 3 (today) →** build the analysis panel, run a **causal design** (difference-in-differences), explore heterogeneity — especially by expectations — and **present** your findings.
 
 ------------------------------------------------------------------------
 
-## DiD in one page (draft — use AI to go deeper)
+## 2. The causal question
 
-This is a **stub**. Treat it as the minimum vocabulary to work with your AI helper. Use the intro block to plug gaps, then have your AI explain the rest *in context of your panel*.
+::::: {.week-card .card}
+::: card-header
+🎯 **What are we actually trying to answer?**
+:::
+
+::: card-body
+
+**Research question:** *Does changing a manager improve team performance? And does the impact vary by manager and team characteristics?*
+
+Your first task is to translate it into a very specific question you will estimate.
+
+* Define all aspects of the question
+* Make editorial decisions.
+
+Think about what can go wrong:
+
+* sample design
+* confounders
+* anything else
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## 3. Building the analysis panel
+
+::::: {.week-card .card}
+::: card-header
+🧩 **Your two datasets don't quite fit together**
+:::
+
+::: card-body
+
+You arrive at Session 3 with two outputs:
+
+**From Session 1:**
+
+- a match/manager-change panel. Rows indexed by some combination of `team`, `season`, `date`, `match_id`.
+- team characteristics
+- manager characteristics
+
+**From Session 2:**
+
+- an article-level table
+- a `(team, gameweek) → avg_score` aggregation.
+
+**Potential issues**
+
+We have to create a single panel dataset.
+
+A short list of what to expect:
+
+- Entity resolution
+- Time unit problems, inconsistencies and mismatch
+- Coverage gaps regarding the expectation data
+- Date alignment
+
+**These are not bugs in your pipeline. They are the substance of working with real data.** Fixing them is the first half of this session. Don't start the regression until you have a merge you trust.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🏗️ **Decisions you have to name (write them in `PANEL.md`)**
+:::
+
+::: card-body
+
+Before you merge anything, pick and **write down** your answers to these:
+
+1. **Unit of observation.** `(team, match)`? `(team, calendar_week)`? `(team, gameweek)`?
+2. **Time index.**
+3. **Entity keys.** One clean team identifier across all tables. One clean manager identifier.
+4. **Treatment timing.** What is "the" date of the change.
+5. **Pre / post window.** How many periods before and after the change do you include? 5 matches? 10 weeks? To end of season?
+6. **Missing-coverage policy.** A `(team, week)` with zero articles: do you drop it, impute zero, or carry forward the previous week's score?
+
+None of these has a universally right answer. **But you do need to commit to one answer per question and defend it in the slides.**
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## 4. Difference-in-Differences — vocabulary & tools
+
+This is a **vocabulary** to get started. You can learn the rest with AI — not a from-scratch DiD lecture.
 
 ::::: {.week-card .card}
 ::: card-header
@@ -48,143 +125,164 @@ This is a **stub**. Treat it as the minimum vocabulary to work with your AI help
 
 ::: card-body
 
+**Setup**
+
 - **Treatment** — the event whose effect you want to measure. Here: a manager change.
 - **Treated unit** — a team that experiences a manager change. **Control unit** — a team that does not (in the same window).
+
+**Methods**
+
+- **Two-way fixed effects** (team FE + time FE) — the standard panel regression that could be a good start.
+- **Event-study specification** — transform data into event time (when the intervention happens); one coefficient per lead / lag around the event, to *see* the dynamics rather than a single number.
 - **Pre / post** — periods before vs after the change.
-- **DiD estimator** — the difference *between treated and control* in the *change* from pre to post. In plain words: how much more (or less) did the treated teams' performance move than the control teams'?
-- **Two-way fixed effects** (team FE + time FE) — the standard panel regression that, under conditions, recovers the DiD.
-- **Event-study spec** — one coefficient per lead / lag around the event, to *see* the dynamics instead of a single number.
-- **Staggered treatment** — different teams get treated at different times. Modern issue: simple two-way FE can be biased here; look up Callaway-Sant'Anna, de Chaisemartin-D'Haultfoeuille, or Sun-Abraham.
+- **DiD estimator** — the difference *between treated and control* in the *change* from pre to post. In plain words: how much more (or less) did treated teams' performance move than control teams'?
+
+**Key challenges**
+
+- **Parallel trends** — the core assumption: absent treatment, treated and control would have moved in parallel. Mostly untestable, but *pre-trends* are a useful proxy.
+- **Staggered treatment** — different teams are treated at different times. This has important econometric implications that you shall investigate.
+- Ask AI on what can go wrong with a naive DiD in your setup.
 
 :::
 :::::
 
 ::::: {.week-card .card}
 ::: card-header
-⚠️ **Three key challenges**
+📦 **Package pointers**
 :::
 
 ::: card-body
 
-1. **Parallel trends.** DiD assumes treated and control teams would have moved in parallel absent the change. Plot pre-treatment trends. If they diverge, you have a problem — address it or say so.
-2. **Selection / endogeneity.** Managers are not sacked at random. Teams change managers *because* they are doing badly — you are likely picking up mean reversion, not manager skill. Think carefully about the control group, the window, and what your coefficient is really measuring.
-3. **Staggered timing.** Teams change managers at different moments over 10 seasons. A naive two-way FE can give you a number that is not the average treatment effect you think it is. Acknowledge this, and use (or at least mention) a staggered-DiD estimator.
+**Python**
+
+- [`diff-diff`](https://diff-diff.readthedocs.io/en/stable/) — a general difference-in-differences / event-study package with sensible defaults. New but already great.
+- [`pyfixest`](https://github.com/py-econometrics/pyfixest) — general regression package with options for [difference in differences](https://pyfixest.org/tutorials/difference-in-differences.html#event-study-under-staggered-adoption-via-feols-event_study-did2s-lpdid).
+
+**R (if you prefer)**
+
+- [`did`](https://bcallaway11.github.io/did/) — the original Callaway–Sant'Anna implementation.
+- [`fixest`](https://lrberge.github.io/fixest/) — fastest FE in the ecosystem; `feols`, `etable`, `coefplot`.
 
 :::
 :::::
 
 ::: {.callout-tip}
-Use AI to learn the details — ask for worked mini-examples in *your* setup: "I have a team-week panel with variable X, treatment at irregular times; walk me through a Callaway-Sant'Anna estimator in Python/R." Then check the code, don't just run it.
+**Use AI to learn the details**
 
-A starter prompt for unpacking a DiD paper: [`did-understand-prompt.txt`](/project03/assets/did-understand-prompt.txt).
+— ask for worked mini-examples in *your* setup. Then read the code, don't just run it.
+- Use the `AI-interviews-me technique` to better understand the setup, what you expect, and what your key modelling choices are.
 :::
 
 ------------------------------------------------------------------------
 
-## Why expectations matter in causal analysis
+## 5. The expectations angle
 
 ::::: {.week-card .card}
 ::: card-header
-🧭 **Expectations and diff-in-diffs**
+🧭 **What is the purpose of knowing if a manager change was expected?**
 :::
 
 ::: card-body
 
-Diff-in-diffs compares the pre/post change in outcomes for treated units (teams that changed manager) against a control group, and reads the difference-of-differences as the causal effect. This rests on **parallel trends**: absent treatment, the two groups would have moved in parallel.
+**Look at data**
 
-Expectations break that story in two ways:
+* Focus on the season(s) you have data on expectations.
+* Descriptive: What share of changes were expected? Were there cases when expectation was high but the manager was not fired?
 
-- **Anticipation.** If a manager change is widely expected, players, board, opponents and media react *before* the official announcement. Effort, tactics, transfer talk, press pressure — all shift. The "pre" period is already contaminated, so the estimated effect is biased toward zero (or flipped, if anticipation pushes outcomes the "wrong" way first).
-- **Heterogeneity.** A shock firing after one bad weekend and a long-telegraphed "he's gone at the end of the month" hire are not the same treatment. Pooling them hides structure: the effect of a new manager plausibly depends on **how surprising** the change was.
+**Econometrics**
 
-That is why we build an expectation score per change:
+* Parallel trends: what does it mean in this context?
+* What does it mean to have anticipation in terms of the causal estimation?
 
-- **As a diagnostic** — do pre-trends look different for "expected" vs "surprise" changes? If yes, the parallel-trends assumption is doing more work than it should.
-- **As a moderator** — split or interact the DiD by expectation. This is the main use in Session 3: does the new-manager bounce exist only for surprise hires, only for expected ones, or roughly the same for both?
+**Use**
 
-You are not trying to *remove* expectations from the data. You are trying to *measure* them so the DiD can say something honest about when and for whom a manager change matters.
-
-:::
-:::::
-
-
-------------------------------------------------------------------------
-
-## Work tasks (2-hour block)
-
-::::: {.week-card .card}
-::: card-header
-🔬 **Analysis workflow**
-:::
-
-::: card-body
-
-1. **Plan the spec** in writing before any code:
-   - Outcome (points per game? goal difference? rolling form?)
-   - Unit (team-week? team-match?)
-   - Treatment definition (new manager's first match? the announcement date?)
-   - Window (how many matches pre/post?)
-   - Controls (team FE, season FE, opponent strength?)
-2. **Test on a subset** (one league, two seasons) — get the plumbing right.
-3. **Plot parallel trends** for treated vs control.
-4. **Estimate** the main DiD coefficient with a proper standard error (cluster by team).
-5. **Event study** — leads and lags around the change.
-6. **Heterogeneity** — interact treatment with manager experience, team budget, league, and **your Session 2 expectation score**.
-7. **Robustness** — different outcome, window, control group; staggered-DiD estimator if feasible.
-8. **Draft the slides** while the code runs — don't leave slides for the last 15 minutes.
+* Heterogeneity: do expected changes have a different effect than unexpected ones?
+  * Compare dynamics and simple diff-in-diffs estimates.
 
 :::
 :::::
 
 ------------------------------------------------------------------------
 
-## Presentation (last hour of class)
+## 6. Analysis work block (90 min)
 
 ::::: {.week-card .card}
 ::: card-header
-🎤 **10–12 minutes + Q&A per team**
+🔬 **Suggested workflow**
 :::
 
 ::: card-body
 
-Refer back to the presentation principles we discussed in [Week 07 review](../week07/index.qmd) and the Week 06 "report vs vibe report" contrast: **less is more**, show only what you understand deeply, precise interpretation beats fancy graphs.
+Here is a suggested workflow. But you can proceed differently. 
 
-**Slide outline**
-
-1. **Question & context** — league, time span, why it matters.
-2. **Data & sample** — number of matches, number of manager changes, known gaps.
-3. **Identification** — DiD; what is treatment, what is control; parallel-trends plot.
-4. **Main result** — coefficient + 95% CI + plain-English interpretation.
-5. **Heterogeneity** — by manager / team / league; one clear chart.
-6. **Expectations vs reality** — do positive-news changes deliver bigger gains?
-7. **Limitations** — selection, staggered timing, data gaps. Be honest.
-
-**Format options:** Quarto HTML slides, Google Slides, or a short dashboard. Whichever you pick, the repo must reproduce the numbers on the slides.
+1. **Merge & validate.** Join Session 1 and Session 2 on your chosen keys. Print counts before and after. Eyeball a few rows.
+2. **Write the spec** — in `METHODS.md`, before any regression:
+   - Outcome.
+   - Unit.
+   - Treatment definition (date, caretaker handling).
+   - Window (pre/post periods).
+   - Controls (team FE, time FE, opponent strength).
+   - Cluster level for SEs (team).
+3. **Test on a subset** — one season. Get the plumbing right before you scale.
+4. **Try out one or two models** — think about what econometric models you shall use. Start with something you understand.
+5. **Test additional econometric model** — think about time, dynamics. Carefully interact with AI to pick one or two extra models.
+6. **Heterogeneity 1** — interact with a binary indicator of manager characteristic. Repeat for team characteristic.
+7. **Expectations** — interact with expectation score.
+8. **Robustness** — think about 2 key decisions you have made. Test how much they matter.
+9. **Draft slides while code runs.** Don't leave them for the last 15 minutes.
 
 :::
 :::::
 
 ------------------------------------------------------------------------
 
-## Delivery (Session 3 — end of the project)
+## 7. Deliverables
 
 ::::: {.week-card .card}
 ::: card-header
-📦 **Final submission**
+📑 **The presentation**
 :::
 
 ::: card-body
 
-- **Who:** by **group** — the same team you started with in Session 1. Finish what you started together in the session.
+One piece, with a choice of delivery format:
+
+* HTML presentation
+* Interactive dashboard
+* PDF report generated from markdown or LaTeX
+
+This must be fully human reviewed.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📦 **Submission**
+:::
+
+::: card-body
+
+- **Who:** by **group** — same team you started with in Session 1.
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
 - **What:**
-  - GitHub repo with: data (or fetcher), Session 1 tests, Session 2 article + expectations tables, Session 3 analysis code.
-  - `README.md` describing how to reproduce all numbers end to end.
-  - Slides (as used in class, possibly polished).
-  - `DATA.md` and a short `METHODS.md` explaining the DiD spec, parallel-trends check, and the robustness you ran.
+  - GitHub repo with: data (or fetcher), Session 1 tests, Session 2 article + expectations tables, Session 3 analysis code, and the rendered HTML report.
+  - `README.md` describing how to reproduce all numbers end to end (`make all` should work from a cold clone — see [Reproducible Research](../da-knowledge/reproducible-research.qmd)).
+  - `PANEL.md` — the six panel-construction decisions and your answers.
+  - `METHODS.md` — the DiD spec, parallel-trends check, packages used, robustness run.
+  - `DATA.md` — updated with the final merged panel documented.
   - **Individual reflection (1–2 pages per person)**: hardest part and how you solved it, what you would do differently, how labour was split.
 
 :::
 :::::
 
 See [evaluation criteria](../capstone/index.qmd#evaluation) in the project description.
+
+------------------------------------------------------------------------
+
+## 8. Further resources
+
+For going deeper on modern DiD, two canonical stops:
+
+- **[Pedro Sant'Anna — DiD resources](https://psantanna.com/did-resources/)** — the maintained hub for modern difference-in-differences. Papers, code, slides, videos, curated by one of the authors of the Callaway–Sant'Anna estimator. Start here for anything staggered.
+- **[Carlos Mendez — DiD in Python](https://carlos-mendez.org/post/python_did/)** — a worked Python tutorial walking through classic and event-study / staggered DiD on real data. Good companion to the `csdid` / `pyfixest` pointers above.
