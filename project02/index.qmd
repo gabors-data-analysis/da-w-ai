@@ -47,6 +47,10 @@ By the end of this session your team will:
 
 ::: card-body
 
+**Starting example.** Read this article before going any further: [Reuters — *"Last season we lose that game", says Man United's Amorim* (1 Nov 2025)](https://www.reuters.com/sports/soccer/last-season-we-lose-that-game-says-man-uniteds-amorim-2025-11-01/). Amorim talking after a 2–2 draw, a year into his tenure at Man United. Does the press suggest a change is coming? How would you score this one?
+
+That is the task — at scale.
+
 For every manager change in your panel, produce a **numeric expectation score** that answers one question:
 
 > *In the period before the change was announced, how strongly did the press suggest that a change was coming?*
@@ -117,6 +121,8 @@ Two short decks frame the session — watch/skim **before** the session if you c
 [Slides: NLP Basics — Text as Data](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-nlp-basics.html)
 
 Walks the **classical pipeline** (tokenization → BoW → TF-IDF) and the **modern tools** (word embeddings, BERT, LLMs) — all on a running example: a Ruben Amorim post-match quote that looks a lot like the articles you'll score.
+
+Source text for both decks: [Reuters — *"Last season we lose that game", says Man United's Amorim* (1 Nov 2025)](https://www.reuters.com/sports/soccer/last-season-we-lose-that-game-says-man-uniteds-amorim-2025-11-01/).
 
 :::
 :::::
