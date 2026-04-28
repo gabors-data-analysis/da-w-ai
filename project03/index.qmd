@@ -24,7 +24,24 @@ From panel to causal effect — and how to present what you found
 - **Session 2 →** a text-based expectation score per change.
 - **Session 3 (today) →** build the analysis panel, run a **causal design** (difference-in-differences), explore heterogeneity — especially by expectations — and **present** your findings.
 
+
+## Review week 02 
+
+* Data collection
+  * scraping (technical issues)
+  * API calls (technical issues)
+  * key decision points
+
+* Review classification solutions
+  * simple
+  * two-step 
+  * tool use
+  
+
 ------------------------------------------------------------------------
+
+
+
 
 ## 2. The causal question
 
@@ -258,7 +275,7 @@ This must be fully human reviewed.
 
 ::::: {.week-card .card}
 ::: card-header
-📦 **Submission**
+📦 **Submission: reproducible research, presentation, reflection**
 :::
 
 ::: card-body
@@ -266,17 +283,17 @@ This must be fully human reviewed.
 - **Who:** by **group** — same team you started with in Session 1.
 - **Deadline:** **Sunday 23:55** (the Sunday after this session).
 - **What:**
-  - GitHub repo with: data (or fetcher), Session 1 tests, Session 2 article + expectations tables, Session 3 analysis code, and the rendered HTML report.
-  - `README.md` describing how to reproduce all numbers end to end (`make all` should work from a cold clone — see [Reproducible Research](../da-knowledge/reproducible-research.qmd)).
-  - `PANEL.md` — the six panel-construction decisions and your answers.
-  - `METHODS.md` — the DiD spec, parallel-trends check, packages used, robustness run.
-  - `DATA.md` — updated with the final merged panel documented.
-  - **Individual reflection (1–2 pages per person)**: hardest part and how you solved it, what you would do differently, how labour was split.
+  - Presentation file (HTML, PDF, or dashboard link)
+  - GitHub repo that allows reproduction --- see [Reproducible Research](../da-knowledge/reproducible-research.qmd)).
+    - Ingests raw data and reproduces all figures and tables in a clear workflow
+    - HINT: AI use, scraping, AI classification not needed -- use classified data as raw
+  - `METHODS-AI.md` — where and how AI was used
+  
+  - **INDIVIDUAL reflection (3 paragraphs per person)**: (1) hardest part and how you solved it, (2) most important or notable learning experience, and (3) how you felt working in the group, would you aim for a different work process next
 
 :::
 :::::
 
-See [evaluation criteria](../capstone/index.qmd#evaluation) in the project description.
 
 ------------------------------------------------------------------------
 
