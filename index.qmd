@@ -2,75 +2,86 @@
 title: "Data Analysis with AI"
 subtitle: "A comprehensive course"
 author: "[Gábor Békés](https://sites.google.com/site/bekesg/), Central European University (Austria, EU)"
-date: "2026-04-14"
+date: "2026-05-01"
 ---
 
 ![Gabor's Data Analysis with AI](images/gabors-data-analysis-with-ai.png)
 
 ## What's this
 
-This course will equip students, who are already versed in core data analysis methods, with experience to harness AI technologies to improve productivity (*yes this is classic LLM sentence*). But, yeah, the idea is to help students who studied data analysis / econometrics / quant methods and want to think about **how to include AI in their analytics routine**, and spend time to share experiences. 
+A course for students who already know **data analysis / econometrics** and want to seriously rework their practice around AI. The aim is not "tips and tricks": it is to spend a semester **building real things with AI as a teammate**, and to think honestly about where it helps, where it lies, and where it lets you do work you genuinely could not do alone.
 
-As AI becomes more and more powerful, it is also important to provide a platform to **discuss human agency in data analysis**. So a key element of the course and its instructor to lead discussions on the role of AI and humans in various aspects of data analysis. 
+As AI becomes more and more powerful, it is also important to provide a platform to **discuss human agency in data analysis**. A core role of the instructor is to lead that discussion across the term — what we delegate, what we keep, and how we stay accountable for the result.
 
 **This is the 2026 Spring edition release**
 
-### For whom?
+### Two parts
 
-This material is aimed at data science and analytics instructors who can guide their students through the material sharing the experience and domain specific examples. All of this is open source, may be modified (see rights below).
+The course has two clearly distinct halves:
 
-But, dear reader (students, practitioners, researchers, journalists and more), you can also go alone, checking ideas and practice sessions. 
+- **Part 1 — Weeks 1–10.** Use AI on tasks students mostly *can* do unaided: documentation, reporting, exploratory analysis, simple text work, control-variable selection, IV reasoning. The goal is fluency and good habits — chat-based work, then agentic CLIs (Claude Code), then AI as a research companion.
+- **Part 2 — Capstone (3 sessions).** A team project that pushes students into work they have **never done before**: production-style **web scraping**, **text-as-data classification using LLM APIs**, and **modern causal econometrics** (difference-in-differences with staggered treatment, event-study designs). The whole point is that AI makes this newly accessible — and the course makes students actually do it.
 
 ### AI and me
 
-At the end of all classes, instructors and students should always consider these three questions. 
+At the end of all classes, instructors and students should always consider these three questions.
 
 1. How did AI **support** me do what I planned.
 2. How did AI **fail** me: gave half-truths, buggy code, imprecise arguments
-3. How did AI **extend** me: helped do things I could not, or gave new ideas 
+3. How did AI **extend** me: helped do things I could not, or gave new ideas
 
 
 ## Course description
 
-### Content
+### Content — Part 1: weekly classes
 
-The course focuses on using large language models (LLMs — ChatGPT, Claude, Gemini, Le Chat and others) to **carry out tasks in data analysis**: data extraction and wrangling, exploration and description, reporting, and turning text into data. It ends with a three-session **capstone project** where small teams build a full analysis from scratch.
+Weeks 1–10 cover using large language models (LLMs — ChatGPT, Claude, Gemini, Le Chat and others) to **carry out tasks in data analysis**: code and data documentation, writing reports, agentic work in the terminal, going from raw data to a constrained PDF, text-as-data on football interviews, and using AI as a research companion to think about controls and instruments.
 
-There are several **case studies** used across the weekly material. We have simulated set of data tables on hotels in Austria, work with the World Values Survey, and a series of interview texts. 
+Several **case studies** run across the weekly material — simulated hotel data from Austria, the World Values Survey, US CPS earnings, football manager post-match interviews. There are weekly practice **assignments** and a [learning-more collection](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
 
-The course material includes weekly practice **assignments** and a [learning-more collection](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
+### Content — Part 2: capstone
 
+A three-session team project on **manager changes in football**. Each team picks a country, builds a 10+ season match-and-manager panel, scrapes news around each change, uses an LLM API to score how *expected* each change was, then runs a difference-in-differences analysis with heterogeneity by manager type, team, and expectation.
+
+The capstone deliberately requires **three things students typically have not done**:
+
+1. **Web scraping at project scale** — RSS feeds, article pages, hundreds to thousands of items across sources and languages.
+2. **Text-as-data with LLM APIs** — designing a classification prompt, structured outputs, hand-validation against the model, cost and reproducibility.
+3. **Modern causal econometrics** — staggered DiD, event-study specifications, parallel-trends diagnostics, anticipation effects.
+
+The argument of the course is that **AI is what makes this scope realistic in three sessions** — and the capstone is where students prove that to themselves.
 
 ### Background: data analysis / econometrics
 
-You need a background in **Data Analysis / Econometrics**, a good introductory course is enough. I, *of course*, suggest Chapters 1-12 and 19 of [Data Analysis for Business, Economics and Policy (Cambridge UP, 2021)](https://gabors-data-analysis.com/getting-started). Full slideshows, data and code are open source. But consider buying the book!🤝 
+You need a background in **Data Analysis / Econometrics**, a good introductory course is enough. I, *of course*, suggest Chapters 1-12 and 19 of [Data Analysis for Business, Economics and Policy (Cambridge UP, 2021)](https://gabors-data-analysis.com/getting-started). Full slideshows, data and code are open source. But consider buying the book!🤝
 
 In particular, the course builds on [Chapters 1-6 and 7-10, and 19 and 22-24 of Data Analysis ](https://gabors-data-analysis.com/chapter-details/) but other Introductory Econometrics + basics of data science knowledge is ok.
 
 ### Background: coding
 
-Students are expected to have some basic **coding knowledge** in Python or R (Stata also fine mostly). 
-
+Students are expected to have some basic **coding knowledge** in Python or R (Stata also fine for the early weeks). The capstone is realistically Python or R only — scraping and API work in Stata is painful.
 
 ### Relevance
 
-AI is everywhere and has become essential, most analytic work will be using it. It's like the Internet a while back. Does not solve all problems, but almost all intellectual tasks will rely on inputs from it. 
+AI is everywhere and has become essential, most analytic work will be using it. It's like the Internet a while back. Does not solve all problems, but almost all intellectual tasks will rely on inputs from it.
 
 ### Learning Outcomes
 
-Key outcomes. By the end of the course, students will be able to
+By the end of the course, students will be able to
 
-* Gain experience and confidence using genAI to carry out key tasks in data analysis.
-* Build AI in coding practice including data wrangling, description and reporting and text analysis
-* Have some idea of use cases when AI assistance is OK to use as is vs needs strong human supervision
-* Have an understanding of resources to follow for updates.
+* Use genAI fluently across the standard data-analysis stack — wrangling, description, reporting, light text analysis.
+* Work with **agentic CLI tools** (Claude Code and similar) on a real repo, with reproducibility and tests.
+* **Scrape** structured data from the web for a defined research goal.
+* Use an **LLM API** to turn text into numbers, including prompt design, structured output, and hand-validation.
+* Run a **modern difference-in-differences / event-study** analysis with staggered treatment and discuss its limits honestly.
+* Distinguish AI uses where the output is fine as-is from those that need strong human supervision.
 * Run a multi-week team project from data collection to causal analysis, using AI throughout.
 
 ### Target audience
 
-This is a course aimed at college students in any program who already have the required background. Economics, Quantitative Social science, Political Science, Sociology, History. To be frank, all students shall learn data analysis and be comfortable using AI. 
+The course is aimed primarily at **graduate and advanced-undergraduate students** in economics, quantitative social science, political science, sociology, business analytics, and adjacent fields — students who have done a real econometrics or data-analysis course and now need to reset their practice around AI. The capstone in particular assumes you are willing to push past your current toolkit.
 
-But, anyone can use it with adequate background. 
+The material is also designed to be **forkable by instructors**: all open source under CC BY-NC-SA, so teachers can pick weeks, swap case studies, and run their own version. Practitioners, researchers, and journalists with the background can absolutely go through it solo.
 
 
 ## Assignments
@@ -81,13 +92,11 @@ Important to note for assignments:
 * Use AI but do not submit something that was created by AI. AI is your assistant.
 * One of the goals of the course is to practice this. 
 
-## Content
+## Weekly content (Part 1)
 
-**Week00: AI for coding**
-
-Using AI for code. May not be covered in this class, as it had often been already covered in coding classes. 
-
-[Content](week00)
+::: {.callout-tip}
+**Before Week 1.** Get your environment in shape and pick up a few prompting-for-code habits — see [AI Coding Prep](da-knowledge/ai-coding-prep.qmd). Skip it if you already use Copilot/Cursor on real projects.
+:::
 
 **Week01: LLM Review**
 
@@ -159,15 +168,15 @@ Case study: [Football Manager Interviews](case-studies/interviews/)
 [Content](week10/)
 
 
-### Capstone Project (3 sessions)
+## Capstone (Part 2): three sessions — doing things you have never done
 
-A three-session team project on manager changes in football: collect data, build a news-based expectation score with APIs, and run a Difference-in-Differences analysis. — [Project description](capstone/)
+A three-session team project on **manager changes in football**, deliberately scoped so that each session forces students into territory they have not been in before. Pick a country, build a 10+ season panel, score the news, run the causal design. — [Project description](capstone/)
 
-**Session 1**: Data collection & description — [Content](project01/)
+**Session 1 — Data collection & description.** Build a multi-table match-and-manager panel from messy public sources. Real entity resolution, real data quality work. — [Content](project01/)
 
-**Session 2**: From text to expectations (scraping + LLM APIs) — [Content](project02/)
+**Session 2 — From text to expectations (web scraping + LLM APIs).** Scrape news articles around each manager change, then use an LLM API to score how *expected* the change was. Prompt design, structured output, hand-validation, cost. — [Content](project02/)
 
-**Session 3**: Difference-in-Differences analysis + final presentation — [Content](project03/)
+**Session 3 — Difference-in-Differences + final presentation.** Modern causal econometrics: staggered DiD, event-study, parallel-trends diagnostics, heterogeneity by manager / team / expectation. Honest presentation of what the data can and cannot say. — [Content](project03/)
 
 
 ## Knowledge Base
@@ -180,7 +189,7 @@ Reusable reference pages on APIs, tools setup, project design, and more — see 
 
 ### You can use it to teach and learn freely
 
-**Attribution**: Békés, Gábor: "Data Analysis with AI: a comprehensive course", available at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/), v2.1. 2026-04-13.
+**Attribution**: Békés, Gábor: "Data Analysis with AI: a comprehensive course", available at [gabors-data-analysis.com/ai-course/](https://gabors-data-analysis.com/ai-course/), v2.2. 2026-05-01.
 
 You can fork it from the Github Repo.  [github.com/gabors-data-analysis/da-w-ai/](https://github.com/gabors-data-analysis/da-w-ai/)
 
@@ -200,6 +209,3 @@ Thanks for CEU's teaching grant that allowed me pay people and AI.
 This material is based my course at CEU in Vienna, Austria. Here is the [Github repo](https://github.com/gabors-data-analysis/da-w-ai)
 
 If you have questions or suggestions or interested to learn more, just [fill in this form](https://docs.google.com/forms/d/e/1FAIpQLSev0oaR2s71hvFTZjhTwCuCPL00ljYWAIjl0hoZQLTn_oG3KQ/viewform?usp=header).
-
-## And now, this.
-

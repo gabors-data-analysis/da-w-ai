@@ -24,8 +24,6 @@ website:
     contents:
       - section: "Course Weeks"
         contents:
-          - text: "Week 0: AI Coding Prep"
-            href: week00/index.qmd
           - text: "Week 1: LLM Review"
             href: week01/index.qmd
           - text: "Week 2: Documentation"  
@@ -77,6 +75,8 @@ website:
         contents:
           - text: "Overview"
             href: navbar/resources.qmd
+          - text: "AI Coding Prep"
+            href: da-knowledge/ai-coding-prep.qmd
           - text: "Designing Larger Analytics Projects"
             href: da-knowledge/designing-projects.qmd
           - text: "Reproducible Research"

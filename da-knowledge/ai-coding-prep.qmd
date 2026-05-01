@@ -1,0 +1,122 @@
+---
+title: "AI Coding Prep"
+subtitle: "Tools, environment, and prompting habits to have in place before Week 1"
+---
+
+This is the **before-the-course** prep page: get your environment ready and pick up a few prompting habits that the weekly material will assume from Week 1 onward. None of this is a session — work through it on your own.
+
+If you have already used Copilot/Cursor on a real project and you know what "give it a 1/1000 sample plus a data dictionary" means, you can skip the page entirely.
+
+------------------------------------------------------------------------
+
+## What you need installed
+
+**Required**
+
+- A working **Python or R** setup you've used before. Stata is fine for the early weeks of the course but the capstone is realistically Python or R.
+- A **ChatGPT** account (free tier is fine for Week 1).
+- A **Claude** account (free tier is fine).
+
+**Strongly recommended**
+
+- **VS Code** + the GitHub Copilot extension. Walkthrough: [VS Code + Copilot setup](vscode-setup.qmd).
+- A **GitHub** account — free Copilot for students via the [GitHub Student Pack](https://education.github.com/pack).
+
+**Optional**
+
+- [Cursor](https://www.cursor.com/) — AI-first editor; some students prefer it to VS Code.
+- An AI CLI (Claude Code, Codex). You'll install one of these in Week 4 — see [Installing AI CLI Tools](install-cli.qmd) when you get there. No need to do it now.
+
+------------------------------------------------------------------------
+
+## Why AI works well for data-analysis code
+
+It is worth being explicit about *why* AI is unusually good at this slice of coding, because it tells you where to trust it and where not to.
+
+- **Repetitive patterns.** Load → clean → analyse → visualise is the same shape across most projects.
+- **Well-documented libraries.** pandas, dplyr, ggplot2, scikit-learn — extensive coverage in training data.
+- **Specific intent.** "Scatter of `sales` against `employment`, regression line, ggplot" leaves little room for ambiguity.
+- **Iteration is cheap.** Chat is the right interface for "almost — now make the axis log".
+
+Where AI is reliably *not* enough on its own: research-design choices, econometric interpretation, domain-specific logic, and any quality control you would do on a colleague's code.
+
+------------------------------------------------------------------------
+
+## Prompting habits for code
+
+A short list. The course will reinforce all of these, but the earlier you internalise them the smoother Weeks 1–3 will be.
+
+**Be specific about the stack.**
+
+- "Using pandas and seaborn …" or "Using R and tidyverse …".
+- "I prefer polars to pandas unless you need a pandas-only feature."
+- "Use `fixest::feols` for regressions, not `lm`."
+
+**Show the data shape.**
+
+- Paste the column list and dtypes, or a 5–10 row sample.
+- For larger files, upload a **1/1000 random sample** rather than the full file.
+- Even better: hand it a **data dictionary** first (Week 2 covers how to build one).
+
+**Specify the output you want.**
+
+- "Save as PNG, 1200 × 800, for a paper figure."
+- "Return a tidy data frame, one row per (country, year)."
+- "Markdown with LaTeX equations inline, no code block."
+
+**Define defaults once, reuse them.**
+
+- In ChatGPT Custom Instructions or a Claude Project: language, library preferences, comment style, OS.
+- In Cursor/Claude Code: a `CLAUDE.md` or rules file at the repo root (Week 5).
+
+------------------------------------------------------------------------
+
+## Two sample prompts to compare
+
+Try both on your own data and notice the difference.
+
+**Vague**
+
+```
+Here is some sales data, summarise regional variation.
+```
+
+**Specific**
+
+```
+Using Python, pandas, and plotnine:
+
+1. Load `sales.csv` with columns id, date, sales, region.
+2. Filter to 2023.
+3. Group by region, compute mean and median sales.
+4. Bar chart of mean sales by region, ordered descending, viridis palette.
+Return the code only, with brief comments.
+```
+
+The second is boring on purpose — boring is what reproduces.
+
+------------------------------------------------------------------------
+
+## Tools, in one place
+
+A quick map of what each tool is good for. You don't need all of these.
+
+| Tool | Good for | Notes |
+|---|---|---|
+| **ChatGPT** (Canvas, Advanced Data Analysis) | Quick exploration, data uploads, chart drafts | "Code Interpreter" runs Python in-browser |
+| **Claude Projects + Artifacts** | Carrying a codebook / data dictionary across many turns | Used heavily in Week 2 |
+| **GitHub Copilot** | Inline completion in your editor | Works in VS Code, RStudio (via extension), JupyterLab |
+| **Cursor** | AI-first editor with whole-repo context | Some students prefer it to VS Code + Copilot |
+| **Claude Code / Codex** (CLI) | Agentic work on a real repo | Introduced in Week 4 — install then |
+
+------------------------------------------------------------------------
+
+## Self-check before Week 1
+
+You're ready if you can, in 10 minutes:
+
+1. Open a CSV in your editor of choice and run a small script with Copilot inline suggestions on.
+2. Paste the same task into ChatGPT or Claude with a specific prompt and get runnable code back.
+3. Take that code, drop it in your editor, run it, and iterate on the output.
+
+If any of those three is friction, fix it now rather than mid-Week-2.

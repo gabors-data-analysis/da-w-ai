@@ -280,8 +280,7 @@ This must be fully human reviewed.
 
 ::: card-body
 
-- **Who:** by **group** — same team you started with in Session 1.
-- **Deadline:** **Sunday 23:55** (the Sunday after this session).
+- **Who:** by **group** — same team you started with in Session 1.+ Individual note
 - **What:**
   - Presentation file (HTML, PDF, or dashboard link)
   - GitHub repo that allows reproduction --- see [Reproducible Research](../da-knowledge/reproducible-research.qmd)).

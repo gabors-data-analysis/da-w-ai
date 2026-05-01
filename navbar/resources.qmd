@@ -13,6 +13,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 
 ## Setting up AI tools
 
+- [AI Coding Prep](../da-knowledge/ai-coding-prep.qmd) — before-Week-1 prep: tools, environment, prompting habits for code.
 - [Terminal Basics](../da-knowledge/terminal-basics.qmd) — essential shell commands for CLI work.
 - [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Gemini CLI, Codex CLI, OpenCode.
 - [VS Code + Copilot setup](../da-knowledge/vscode-setup.qmd) — IDE + AI assistant.
@@ -33,6 +34,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 - [Documentation and READMEs](../da-knowledge/documentation-readme.qmd) — what good documentation looks like.
 - [Joining data tables](../da-knowledge/joining-tables.qmd) — keys, joins, pitfalls.
 - [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality (R example).
+- [NLP basics — text as data](../da-knowledge/nlp-basics.qmd) — classical pipeline (tokens, BoW, TF-IDF) and where LLMs slot in.
 - [PDF guide](../da-knowledge/pdf-guide.qmd) — working with PDFs.
 - [Good report ideas](../week03/ideas-good-report.qmd) — what separates a solid report from a weak one.
 

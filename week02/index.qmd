@@ -44,8 +44,29 @@ Sometimes data is messy and discovery is hard. Sometimes you need to write data 
 
 [slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html)
 
+::::: {.week-card .card}
+::: card-header
+💻 **Prompting for code (15 min)**
+:::
 
-## Preparation 
+::: card-body
+
+Before we dive into documentation, a short detour on prompting **for code specifically** — habits that pay off all term.
+
+- **Be specific about the stack.** "Using pandas and seaborn …" / "Using R and tidyverse …" / "Prefer polars to pandas unless I ask".
+- **Show the data shape.** Paste column names + dtypes, or upload a 1/1000 random sample. Even better, build a small data dictionary first (we do that today).
+- **Specify the output.** "Tidy data frame, one row per (country, year)" / "PNG 1200×800 for a paper figure" / "Markdown with LaTeX equations".
+- **Set defaults once.** ChatGPT Custom Instructions or a Claude Project for language, libraries, comment style — so you don't repeat yourself every chat.
+
+Compare a vague vs specific prompt on the WVS subset before the workshop block.
+
+A fuller checklist lives in the [AI Coding Prep](../da-knowledge/ai-coding-prep.qmd) page — read it once if you have not.
+
+:::
+:::::
+
+
+## Preparation
 
 ::::: {.week-card .card}
 ::: card-header
