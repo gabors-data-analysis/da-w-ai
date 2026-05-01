@@ -21,6 +21,7 @@ website:
 
   sidebar:
     style: "docked"
+    collapse-level: 3
     contents:
       - section: "Course Weeks"
         contents:
@@ -75,46 +76,54 @@ website:
         contents:
           - text: "Overview"
             href: navbar/resources.qmd
-          - text: "AI Coding Prep"
-            href: da-knowledge/ai-coding-prep.qmd
-          - text: "Designing Larger Analytics Projects"
-            href: da-knowledge/designing-projects.qmd
-          - text: "Reproducible Research"
-            href: da-knowledge/reproducible-research.qmd
-          - text: "Glossary of LLM terms"
-            href: da-knowledge/technical-terms-page.qmd
-          - text: "Which AI model"
-            href: da-knowledge/which-ai.qmd
-          - text: "Learn More"
-            href: da-knowledge/beyond.qmd
-          - text: "Documentation Fundamentals"
-            href: da-knowledge/documentation-readme.qmd
-          - text: "Joining Data Tables"
-            href: da-knowledge/joining-tables.qmd
-          - text: "NLP Basics — Text as Data"
-            href: da-knowledge/nlp-basics.qmd
-          - text: "Creating Graphs"
-            href: da-knowledge/creating-graphs.qmd
-          - text: "Terminal Basics"
-            href: da-knowledge/terminal-basics.qmd
-          - text: "Installing AI CLI Tools"
-            href: da-knowledge/install-cli.qmd
-          - text: "VS Code + Copilot Setup"
-            href: da-knowledge/vscode-setup.qmd
-          - text: "Get AI API keys"
-            href: da-knowledge/get-ai-api-key.qmd
-          - text: "APIs — Intro"
-            href: da-knowledge/api-use.qmd
-          - text: "LLM APIs in Python"
-            href: da-knowledge/llm-api-python.qmd
-          - text: "APIs — Under the hood"
-            href: da-knowledge/api-advanced.qmd
-          - text: "Walkthrough: World Bank + FRED"
-            href: da-knowledge/walkthrough-wb-fred.qmd
-          - text: "Walkthrough: FBref"
-            href: da-knowledge/walkthrough-fbref.qmd
-          - text: "PDF Guide"
-            href: da-knowledge/pdf-guide.qmd
+          - section: "AI & LLM fundamentals"
+            contents:
+              - text: "Glossary of LLM terms"
+                href: da-knowledge/technical-terms-page.qmd
+              - text: "Which AI model"
+                href: da-knowledge/which-ai.qmd
+              - text: "Learn More"
+                href: da-knowledge/beyond.qmd
+          - section: "Setting up AI tools"
+            contents:
+              - text: "AI Coding Prep"
+                href: da-knowledge/ai-coding-prep.qmd
+              - text: "Terminal Basics"
+                href: da-knowledge/terminal-basics.qmd
+              - text: "Installing AI CLI Tools"
+                href: da-knowledge/install-cli.qmd
+              - text: "VS Code + Copilot Setup"
+                href: da-knowledge/vscode-setup.qmd
+          - section: "Working with APIs"
+            contents:
+              - text: "Get AI API keys"
+                href: da-knowledge/get-ai-api-key.qmd
+              - text: "APIs — Intro"
+                href: da-knowledge/api-use.qmd
+              - text: "LLM APIs in Python"
+                href: da-knowledge/llm-api-python.qmd
+              - text: "APIs — Under the hood"
+                href: da-knowledge/api-advanced.qmd
+              - text: "Walkthrough: World Bank + FRED"
+                href: da-knowledge/walkthrough-wb-fred.qmd
+              - text: "Walkthrough: FBref"
+                href: da-knowledge/walkthrough-fbref.qmd
+          - section: "Doing the analysis"
+            contents:
+              - text: "Designing Larger Analytics Projects"
+                href: da-knowledge/designing-projects.qmd
+              - text: "Reproducible Research"
+                href: da-knowledge/reproducible-research.qmd
+              - text: "Documentation Fundamentals"
+                href: da-knowledge/documentation-readme.qmd
+              - text: "Joining Data Tables"
+                href: da-knowledge/joining-tables.qmd
+              - text: "NLP Basics — Text as Data"
+                href: da-knowledge/nlp-basics.qmd
+              - text: "Creating Graphs"
+                href: da-knowledge/creating-graphs.qmd
+              - text: "PDF Guide"
+                href: da-knowledge/pdf-guide.qmd
 
 
       - section: "Slideshows"
