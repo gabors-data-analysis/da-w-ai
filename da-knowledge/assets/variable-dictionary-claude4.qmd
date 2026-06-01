@@ -1,0 +1,133 @@
+---
+title: "CPS MORG 2014 Variable Dictionary by Claude Sonnet 4.0"
+date: "2025-06-06"
+author: "Claude Sonnet 4.0"
+---
+
+# my single prompt
+
+```
+This is my data and the codebook. Create a variable dictionary. Use the pdf i shared earlier. Output as markdown. For each variable: varname, labels, type, coverage (% missing), mean and mode. Round up numbers. Look at cps and provide short labels. Get me an .md I can download.
+```
+
+
+# CPS MORG 2014 Variable Dictionary
+
+**Dataset**: Current Population Survey - Merged Outgoing Rotation Groups (2014)  
+**Observations**: 20,014  
+**Variables**: 23  
+**Source**: NBER CPS Labor Extracts
+
+---
+
+## Variable Definitions
+
+### Household Identifiers
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **...1** | Row Index | Integer | Sequential row identifier | Continuous |
+| **hhid** | Household ID | Integer | Unique household identifier | 12-15 digits |
+| **intmonth** | Interview Month | String | Calendar month of interview | 01-12 (Jan-Dec) |
+| **stfips** | State FIPS | String | State FIPS code | 11-95 |
+
+### Sample Design
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **weight** | Final Weight | Float | Population weight (×100) | 0-20549 |
+
+### Labor Market Variables
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **earnwke** | Weekly Earnings | Float | Usual weekly earnings ($) | 0-2884 |
+| **uhours** | Usual Hours | Integer | Usual hours worked per week | 0-99 |
+| **lfsr94** | Labor Force Status | String | Employment status recode | 1=Working, 2=With job not at work, 3=Looking, 4=Layoff, 5=Not in labor force |
+
+### Demographics
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **age** | Age | Integer | Age in years | 16-99 |
+| **sex** | Sex | Integer | Gender | 1=Male, 2=Female |
+| **race** | Race | Integer | Race/ethnicity | 1=White, 2=Black, 3=American Indian, 4=Asian/Pacific Islander, 5=Other |
+| **ethnic** | Hispanic Origin | Float | Hispanic ethnicity | 1=Mexican American, 2=Chicano, 3=Mexicano, 4=Puerto Rican, 5=Cuban, 6=Central/South American, 7=Other Spanish, 8=All other |
+| **marital** | Marital Status | Integer | Marital status | 1=Married civilian spouse present, 2=Married AF spouse present, 3=Married spouse absent, 4=Widowed, 5=Divorced, 6=Separated, 7=Never married |
+
+### Education
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **grade92** | Education Level | Integer | Highest grade completed | 31=Less than 1st grade, 32=1st-4th grade, 33=5th-6th grade, 34=7th-8th grade, 35=9th grade, 36=10th grade, 37=11th grade, 38=12th grade no diploma, 39=HS graduate, 40=Some college, 41=Associate occupational, 42=Associate academic, 43=Bachelor's degree, 44=Master's degree, 45=Professional degree, 46=Doctorate |
+
+### Family Structure
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **ownchild** | Own Children | Integer | Number of own children <18 | 0-8 |
+| **chldpres** | Child Presence | Integer | Presence of own children <18 | Complex coding scheme (see codebook) |
+
+### Citizenship
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **prcitshp** | Citizenship | String | Citizenship status | 1=Native born US, 2=Native born PR/US territory, 3=Native born abroad of US parents, 4=Foreign born naturalized, 5=Foreign born not citizen |
+
+### Geography
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **state** | State Code | Integer | 1960 Census state code | 11-95 (see codebook for state mapping) |
+
+### Industry & Occupation
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **ind02** | Industry 2002 | String | 2002 NAICS industry classification | 170-9890 |
+| **occ2012** | Occupation 2012 | Integer | 2010 SOC occupation code | 10-9840 |
+| **class** | Class of Worker | String | Employment class | 1=Federal government, 2=State government, 3=Local government, 4=Private for profit, 5=Private non-profit, 6=Self-employed incorporated, 7=Self-employed not incorporated, 8=Without pay |
+
+### Union Status
+
+| Variable | Label | Type | Description | Value Labels |
+|----------|-------|------|-------------|--------------|
+| **unionmme** | Union Member | String | Union membership status | 1=Yes, 2=No |
+| **unioncov** | Union Coverage | String | Covered by union contract | 1=Yes, 2=No |
+
+---
+
+## Data Quality Notes
+
+**Missing Data**: Unable to calculate precise coverage statistics without data access. Refer to original CPS documentation for universe definitions.
+
+**Weights**: Use `weight` variable for population estimates. The earnings weight `earnwt` is preferred for earnings-related analyses.
+
+**Time Period**: This extract contains data from 2014 MORG files (outgoing rotation groups only).
+
+**Top Coding**: Earnings variables may be top-coded. Check for density spikes at maximum values.
+
+---
+
+## Key Variable Relationships
+
+- **Labor Force Status** (`lfsr94`): Controls universe for many employment variables
+- **Education** (`grade92`): Uses post-1992 credential-based classification
+- **Earnings** (`earnwke`): Available only for wage/salary workers; excludes self-employed
+- **Hours** (`uhours`): Usual hours at main job
+- **Demographics**: Standard CPS demographic variables with consistent coding
+
+---
+
+## Usage Guidelines
+
+1. **Weights**: Always use appropriate weights for population estimates
+2. **Missing Values**: Check universe definitions in codebook
+3. **Time Series**: Be aware of classification changes across years
+4. **Earnings**: Exclude self-employed workers for wage analyses
+5. **Industry/Occupation**: Codes based on 2002 NAICS and 2010 SOC systems
+
+---
+
+**Source**: NBER CPS Labor Extracts, based on Bureau of Labor Statistics Current Population Survey  
+**Documentation**: See full codebook for detailed variable definitions and historical changes

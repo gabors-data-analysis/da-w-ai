@@ -1,0 +1,244 @@
+---
+title: "Week 2 — From Raw Data to Report"
+subtitle: "Discover, document, clean, join, aggregate — and produce a report with AI"
+date: "2026-06-01"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Week 2 — From Raw Data to Report
+:::
+
+::: {.hero-subtitle}
+The full pipeline with AI: understand → document → download → clean → join → aggregate → report. Vibe vs directed.
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+![](../images/week3_pic.png)
+
+This is the first core-analysis week. You meet a genuinely messy, 600-column raw file, use AI to *understand and document* it, then run the whole pipeline — from that raw file to a finished short report. Two lessons live in the room: how to **face an unfamiliar dataset** with AI as a research assistant, and the contrast between an undirected *"vibe report"* and a carefully directed, analysis-quality one.
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist**
+:::
+
+::: card-body
+
+- ☐ **Tech** — confirm Claude Code **and** VS Code + Copilot still run (from Week 1). Be able to run Python/R from a terminal.
+- ☐ **Packages** — install once:
+
+::: {.panel-tabset}
+#### Python
+```bash
+pip install pandas numpy matplotlib seaborn statsmodels requests wbgapi
+```
+#### R
+```r
+install.packages(c("dplyr", "readr", "ggplot2", "WDI"))
+```
+:::
+
+- ☐ **Read** — the [World Values Survey case study](../case-studies/VWS/index.qmd); skim the [WVS codebook](../case-studies/VWS/data/codebook.pdf) (pages 1–10). Also read [Data Documentation 101](../da-knowledge/documentation-readme.qmd) — you'll write a README today.
+- ☐ **Grab the practice subset** — the [2,000-row WVS sample](../case-studies/VWS/data/WVS_random_subset2000.csv) (covers all countries) for fast iteration before you touch the full file.
+- ☐ **Review terms** — tidy data, join, aggregate, data dictionary, composite index ([glossary](../da-knowledge/technical-terms-page.qmd)).
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Learning objectives
+
+By the end of this unit you will be able to:
+
+- Use AI and the context window effectively to understand a complex, hundreds-of-columns dataset and its codebook.
+- Write a clear, professional **README / data dictionary** for an unfamiliar dataset, and verify AI's understanding rather than trusting it.
+- Download a large public dataset from code (API/URL), not by hand.
+- Explore, select, and clean variables from a wide file with AI assistance.
+- Construct a composite variable, aggregate to a new unit of observation, and join two datasets.
+- Tell the difference between an undirected "vibe report" and a directed, analysis-quality report — and produce the latter.
+
+------------------------------------------------------------------------
+
+## Session shape (200 min · 50·100·50)
+
+| Block | Focus | Mode |
+|---|---|---|
+| Intro (50) | Prompting & context windows · discovery & documentation · the vibe-vs-directed idea | Talk |
+| Task (100) | Understand & document → run the full pipeline → produce a directed report | Individual / pairs |
+| Discussion (50) | Where AI steered wrong, documentation, reproducibility | Group |
+
+------------------------------------------------------------------------
+
+## Intro (50 min)
+
+::::: {.week-card .card}
+::: card-header
+💬 **Prompting for code & managing the context window**
+:::
+
+::: card-body
+
+**[Slideshow: Prompting & context-window management](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html)**
+
+Habits that pay off all term (fuller checklist in [AI Coding Prep](../da-knowledge/ai-coding-prep.qmd)):
+
+- **Be specific about the stack.** "Using pandas and seaborn…" / "Using R and tidyverse…" / "Prefer polars to pandas unless I ask".
+- **Show the data shape.** Paste column names + dtypes, or upload a 1/1000 random sample. Better still, build a small **data dictionary** first (we do that today).
+- **Specify the output.** "Tidy data frame, one row per (country, year)" / "PNG 1200×800" / "3–5 exhibits, no more".
+- **Set defaults once.** ChatGPT Custom Instructions, a Claude Project, or a `CLAUDE.md` for language, libraries, and comment style — so you don't repeat yourself every chat.
+- **Mind the context window.** A 180 MB file does not fit in a prompt. Feed AI the *codebook* + a *sample* + *column lists*, not the whole table.
+
+*Vague:* `"Analyze this data and write a report."`
+*Specific:* `"Estimate the association between income and trust across countries, controlling for region. One LOESS scatter + one table. 700 words, non-causal language."`
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🧭 **Facing an unfamiliar dataset: discovery & documentation**
+:::
+
+::: card-body
+
+Often the hard part isn't the analysis — it's that the data is messy and *you don't know what it is yet.* AI is a strong research assistant for this, but it makes mistakes, so you verify.
+
+- **Understand with AI.** Upload the codebook (PDF) + a small sample (CSV). Ask what variables mean, how they're encoded, what the missing-value codes are.
+- **Test AI's understanding.** Ask it to *"explain the difference between Q6 and Q7 in plain terms."* If it can't, it hasn't really read the codebook — and neither answer can be trusted yet.
+- **Document as you go.** A short data dictionary / README is the artefact that makes everything downstream reproducible. See [Data Documentation 101](../da-knowledge/documentation-readme.qmd).
+
+> *Note from Gábor:* when we first built this in 2024, AI stumbled badly on a 400-page codebook. By 2025 it read it cleanly; by 2026 it handles larger files and several at once. The skill that lasts is **verification**, not the tool.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🔬 **The experiment: vibe vs directed**
+:::
+
+::: card-body
+
+The pipeline: `understand → document → download → explore → clean → create variables → aggregate → join → report`. We use the **World Values Survey (WVS) Wave 7** raw file (~180 MB, 97k rows, 613 columns).
+
+**The lesson:** first let AI loose with a vague prompt — *"Create a nice looking report on an interesting question using this data"* — and score the result (1–10). Then build the analysis deliberately, step by step. The contrast is the point.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Task block (100 min · individual or pairs)
+
+Work at your own pace. Tasks 1–8 are core; 9–10 are stretch. Verify after every step.
+
+::::: {.week-card .card}
+::: card-header
+🧭 **Part 1 — Understand & document (start on the 2,000-row sample)**
+:::
+
+::: card-body
+
+**1. Discover without AI first (5 min).** Open the [2,000-row sample](../case-studies/VWS/data/WVS_random_subset2000.csv) and the codebook. Jot down what you can tell *unaided*, and a first guess at a research question (a `y` and an `x`). This sharpens what AI is actually adding.
+
+**2. Understand with AI.** Upload the codebook + sample. Ask: how many countries? what years? what do `Q1`–`Q89` cover (which sections)? what do negative values (−1…−5) mean? Then **test it**: *"Explain the difference between Q6 and Q7 in simple terms."* *Check:* you can name 5 Q-variables and what they measure.
+
+**3. Write a mini data dictionary / README.** For the variables you'll use, document name, meaning, scale, and missing codes. Iterate it with AI, but verify every technical detail. *Check:* a teammate could pick up your `DATA.md` and know what each column is.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🎯 **Part 2 — The pipeline, end to end (move to the full file)**
+:::
+
+::: card-body
+
+**4. Download from code.** Fetch the WVS Wave 7 CSV from OSF (`https://osf.io/36dgb/download`) — write a script, don't click. *Check:* 97,220 rows × 613 columns.
+
+**5. Pick a topic & variables.** Choose one concept (trust, gender equality, happiness, tolerance) and 3–6 related Q-items. Decide your x-variable: GDP per capita PPP. *Check:* a short list with a sentence on why these items belong together.
+
+**6. Clean & build a composite.** Keep identifiers (`B_COUNTRY_ALPHA`, `A_YEAR`, `A_WAVE`), weight (`W_WEIGHT`), your Q-items, demographics (`Q260` sex, `Q262` age, `Q275` education). Filter to Wave 7, recode negatives to missing, **z-score each item and average into one index** (handles the different scales). *Check:* composite has mean ≈ 0, sensible spread.
+
+**7. Aggregate.** Group by country (and year); mean composite + respondent count. *Check:* ~66 country-year rows.
+
+**8. Get GDP & join.** Pull World Bank indicators for 2017–2023; **left-join** onto your country panel. Save the merged CSV.
+
+| Indicator | World Bank code |
+|---|---|
+| GDP per capita PPP | `NY.GDP.PCAP.PP.CD` |
+| GDP (current USD) | `NY.GDP.MKTP.CD` |
+| Population | `SP.POP.TOTL` |
+
+*Check:* still ~66 rows, now with GDP columns.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📊 **Part 3 — The report (your deliverable)**
+:::
+
+::: card-body
+
+**9. The directed report.** Produce a short report: a scatter of your composite vs **log** GDP per capita (label a few countries, non-causal title) + a 2–3 sentence interpretation. Constrain it: 3–5 exhibits, ~700 words.
+
+**10. Composite vs single item (stretch).** Redo the scatter with one raw Q-item; put side by side; explain why averaging gives a cleaner signal.
+
+:::
+:::::
+
+::: {.callout-tip}
+**Run the vibe report too.** Before or after the directed build, give AI the vague prompt and keep its output — you'll compare the two in discussion. Want a second example on different data? The same contrast shows up on the CPS earnings data ([US Earnings case study](../case-studies/earnings/index.qmd)).
+:::
+
+------------------------------------------------------------------------
+
+## Discussion (50 min)
+
+- Score the vibe report (1–10): length, is the question well defined, are exhibits informative and well labelled, is the text honest about what it shows?
+- **Discovery & docs:** Was there any benefit to looking at the data *without* AI first? What was AI's biggest contribution? How did the first result compare to the version after a few iterations?
+- Where did AI's understanding of the codebook break down — and how did your "test" prompt catch it?
+- Which task did AI help with most? Where did you have to correct it?
+- How does starting from *raw* data change your understanding vs a curated file?
+- Could someone else rerun your pipeline from scratch using your README?
+
+------------------------------------------------------------------------
+
+## Delivery
+
+::::: {.week-card .card}
+::: card-header
+📦 **What to hand in (Sunday 23:55)**
+:::
+
+::: card-body
+
+- **The short directed report** (notebook or HTML) — your scatter + table + ~700-word interpretation, non-causal language.
+- **The pipeline script(s)** that download, clean, build the composite, aggregate, and join — reproducibly.
+- **`DATA.md`** — your data dictionary / README for the variables you used.
+- **One paragraph** comparing your vibe report to your directed report.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Knowledge Base
+
+- [World Values Survey case study](../case-studies/VWS/index.qmd) · [US Earnings (CPS)](../case-studies/earnings/index.qmd)
+- [Data Documentation 101](../da-knowledge/documentation-readme.qmd) · [Joining Data Tables](../da-knowledge/joining-tables.qmd) · [Creating Graphs](../da-knowledge/creating-graphs.qmd)
+- [AI Coding Prep](../da-knowledge/ai-coding-prep.qmd) · [PDF Guide](../da-knowledge/pdf-guide.qmd)
+- [Prompting & context-window slideshow](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html)

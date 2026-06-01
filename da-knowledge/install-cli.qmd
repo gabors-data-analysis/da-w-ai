@@ -281,4 +281,4 @@ codex
 1. **Install one tool** (we recommend Claude Code for this course)
 2. **Read** [Terminal Basics](terminal-basics.html) if you're new to command line
 3. **Try it** on a simple task: navigate to a folder with some files and ask "what's here?"
-4. **Continue** to [Week 04](../week04/) to use it for data analysis
+4. **Continue** to [Week 1](../unit1/) to use it for data analysis

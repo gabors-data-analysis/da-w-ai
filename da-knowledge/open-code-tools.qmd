@@ -1,0 +1,40 @@
+---
+title: "Open-code tools"
+subtitle: "Open-source agentic coding harnesses and where they fit"
+date: "2026-06-01"
+---
+
+This course uses two harnesses: **Claude Code** and **VS Code + GitHub Copilot**. Both are commercial products tied to a provider. There is a third category worth knowing about: **open-source coding agents** — "open-code" tools — that you run yourself and point at whatever model you like.
+
+## What "harness" means here
+
+A **harness** is the program that wraps a language model and lets it actually *do* things: read your files, run code, edit files, call tools, and loop until a task is done. The model is the engine; the harness is the car. The harness matters as much as the model — a great model in a clumsy harness is frustrating, and a good harness makes a mid-tier model genuinely useful.
+
+## Open-code tools vs the two we use
+
+| | Claude Code / Copilot | Open-code tools |
+|---|---|---|
+| Source | Closed, vendor-built | Open-source, community or vendor-released |
+| Model | Tied to a provider (Anthropic / your Copilot model) | **Bring your own** — frontier API *or* local open-weights |
+| Setup | Sign in, go | Install + configure + supply a key/endpoint |
+| Why pick it | Polished, supported, low-friction | Flexibility, transparency, run fully local |
+
+Examples in this space include open-source CLI agents and editor extensions that accept any model endpoint (including a local [Ollama](open-weights-models.qmd) server). The landscape moves fast, so treat specific names as examples, not endorsements.
+
+## Why it matters for this course
+
+The point is **conceptual transfer**, not a third tool to learn:
+
+- Everything you learn in Claude Code — give the agent context, let it run and verify, inspect the diff, iterate — transfers directly to any open-code harness.
+- Open-code tools are the bridge between the [open-weights models](open-weights-models.qmd) page and real work: they're how you put a local, private, reproducible model into an agentic workflow.
+- If you ever need a fully **local, private** agentic setup (sensitive data, air-gapped, no per-token cost), an open-code tool pointed at a local model is the way to get it.
+
+::: {.callout-note}
+We do **not** require you to install an open-code tool. It's a stretch/awareness topic: know the category exists, understand it's the same workflow with a swappable engine, and reach for it when privacy or cost rules out the commercial harnesses.
+:::
+
+## See also
+
+- [Open-weights & local models](open-weights-models.qmd) — the engines these tools run.
+- [Installing AI CLI Tools](install-cli.qmd) — setup for the harnesses we do use.
+- [Which AI model](which-ai.qmd)

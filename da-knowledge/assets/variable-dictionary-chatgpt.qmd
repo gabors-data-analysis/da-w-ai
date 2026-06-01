@@ -1,0 +1,39 @@
+---
+title: "CPS MORG 2014 Variable Dictionary by ChatGPT 4o"
+date: "2025-06-06"
+author: "ChatGPT 4o"
+---
+
+# my single prompt
+
+```
+This is my data and the codebook. Create a variable dictionary. Use the pdf i shared earlier. Output as markdown. For each variable: varname, labels, type, coverage (% missing), mean and mode. Round up numbers. Look at cps and provide short labels. Get me an .md I can download.
+```
+
+# Variable dictionary
+
+| varname | type | missing (%) | mean | mode |
+|---------|------|--------------|-------|------|
+| ...1 | int64 | 0% | 197435.3 | 83378 |
+| hhid | int64 | 0% | 404953427059356.6 | 250109964300640 |
+| intmonth | object | 0% | NA | December |
+| stfips | object | 0% | NA | FL |
+| weight | float64 | 0% | 2550.8 | 291.4682 |
+| earnwke | float64 | 0% | 933.7 | 2884.61 |
+| uhours | int64 | 0% | 39.4 | 40 |
+| grade92 | int64 | 0% | 41.0 | 39 |
+| race | int64 | 0% | 1.5 | 1 |
+| ethnic | float64 | 89% | 3.8 | 1.0 |
+| age | int64 | 0% | 41.0 | 44 |
+| sex | int64 | 0% | 1.5 | 2 |
+| marital | int64 | 0% | 3.6 | 1 |
+| ownchild | int64 | 0% | 0.6 | 0 |
+| chldpres | int64 | 0% | 1.6 | 0 |
+| prcitshp | object | 0% | NA | Native, Born In US |
+| state | int64 | 0% | 5.0 | 5 |
+| ind02 | object | 0% | NA | Elementary and secondary schools (6111) |
+| occ2012 | int64 | 0% | 3917.9 | 430 |
+| class | object | 0% | NA | Private, For Profit |
+| unionmme | object | 0% | NA | No |
+| unioncov | object | 7% | NA | No |
+| lfsr94 | object | 0% | NA | Employed-At Work |

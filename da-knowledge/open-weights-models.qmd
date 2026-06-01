@@ -1,0 +1,56 @@
+---
+title: "Open-weights & local models"
+subtitle: "What they are, how to run one, and when it's worth it"
+date: "2026-06-01"
+---
+
+Most of this course uses **frontier closed models** (Claude, GPT, Gemini) through a harness. But you should know the alternative: **open-weights models** you can download and run yourself. This page is a short orientation — enough to make an informed choice, not a deployment guide.
+
+## Closed vs open-weights — the distinction
+
+| | Closed / frontier | Open-weights |
+|---|---|---|
+| Examples | Claude Opus, GPT-5, Gemini 3 | Llama, Qwen, Mistral, DeepSeek, Kimi |
+| How you use it | API or app, you rent it per token | Download the weights, run on your own (or rented) hardware |
+| Capability | State of the art | Roughly SOTA-minus-(4–9 months) |
+| Cost | Per-token, ongoing | Hardware/electricity, or cheap hosted inference |
+| Privacy | Data leaves your machine (zero-retention only on paid/enterprise tiers) | Data can stay fully local |
+| Reproducibility | Model can change under you | Pin a version, it never changes |
+
+::: {.callout-note}
+"Open-weights" is not the same as "open-source." Most of these models release the trained **weights** (so you can run and fine-tune them) but not the training data or full recipe. Truly open-source-everything models exist but are rarer.
+:::
+
+## Why a data analyst might care
+
+- **Privacy / compliance** — sensitive data (health, HR, confidential firm data) that legally or contractually cannot be sent to a third-party API. A local model keeps everything on your machine.
+- **Cost at scale** — if you're classifying hundreds of thousands of texts, hosted open-weights inference can be far cheaper per token than frontier APIs.
+- **Reproducibility** — a pinned local model gives you a frozen, citable artifact that won't drift between when you run your analysis and when a referee re-runs it.
+- **Offline / air-gapped** work.
+
+The trade-off is capability and convenience: you do more setup, get somewhat weaker reasoning, and own the ops.
+
+## How to actually run one
+
+The easiest on-ramp for a laptop:
+
+- **[Ollama](https://ollama.com/)** — one install, then `ollama run llama3.2` (or `qwen2.5`, `mistral`, etc.). Pulls the weights and gives you a local chat + a local API endpoint.
+- **[LM Studio](https://lmstudio.ai/)** — a GUI for the same thing, with a model browser.
+- **Hosted inference** — if your laptop is too small, services like [OpenRouter](https://openrouter.ai/models) or Together let you call open-weights models through an API without owning a GPU.
+
+A 7–8B model runs on a modern laptop; 70B+ models need a serious GPU or hosted inference.
+
+::: {.callout-tip}
+**The key payoff for this course:** open-weights models speak the same API shape as the closed ones. You can point a harness or an API script at a local Ollama endpoint and reuse almost all of your code — only the base URL and model name change.
+:::
+
+## When to use what (rule of thumb)
+
+- **Default to a frontier model** for everyday analysis, reasoning-heavy work, and anything where capability matters more than cost or privacy.
+- **Reach for open-weights** when privacy is non-negotiable, when you're running the same prompt at massive scale, or when you need a frozen, reproducible model.
+
+## See also
+
+- [Which AI model](which-ai.qmd) — the broader model landscape and recommendations.
+- [Open-code tools](open-code-tools.qmd) — open-source harnesses you can point at these models.
+- [Glossary of LLM terms](technical-terms-page.qmd)

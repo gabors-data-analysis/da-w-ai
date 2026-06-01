@@ -82,8 +82,8 @@ Create a variable dictionary. Use the pdf i shared earlier. Output as markdown. 
 
 ```
 
-* [ChatGPT](/week06/assets/variable-dictionary-chatgpt.html) created a table, yes.
-* But [look at what Claude did](/week06/assets/variable-dictionary-claude4.html), amazing.
+* [ChatGPT](/da-knowledge/assets/variable-dictionary-chatgpt.html) created a table, yes.
+* But [look at what Claude did](/da-knowledge/assets/variable-dictionary-claude4.html), amazing.
 
 
 
@@ -338,7 +338,7 @@ Show me an interesting scatterplot. Make it well done.
 
 
 ```{=html}
-<iframe src="../week06/assets/cps-earnings-plot.html" width="100%" height="800" frameborder="0"></iframe>
+<iframe src="assets/cps-earnings-plot.html" width="100%" height="800" frameborder="0"></iframe>
 ```
 
 ## Key Findings

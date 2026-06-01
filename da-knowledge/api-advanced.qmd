@@ -5,15 +5,7 @@ date: "2025-01-20"
 
 
 
-## HTTP: Client-Server Communication and the Request-Response Cycle
-
-Before diving into APIs, it’s essential to understand how web communication works at its most basic level. The web runs on **HTTP (HyperText Transfer Protocol)**, a simple, text-based language that lets one computer or application (the **client**) ask another computer (the **server**) for data or actions. Whenever you browse a site or call a web service, your client sends an HTTP *request* and the server answers with an HTTP *response*.
-
-An HTTP request consists of a **URL**—the address of the resource or endpoint you want—and an **HTTP method**, which tells the server what you’d like to do. The two most common methods are **GET** (to fetch data, like loading a webpage) and **POST** (to submit data, such as filling in a form). By combining the URL and method (e.g. `GET https://example.com/data`), the client makes its intentions clear.
-
-When the server receives that request, it processes whatever work is needed—retrieving files, querying a database, or running a service—and then sends back a response. Each response begins with a **status code** (a number indicating success or failure, such as **200 OK** for success or **404 Not Found** when something is missing) followed by the **body** containing the actual data or content. For webpages this is usually HTML; for data services (APIs), it’s often JSON (JavaScript Object Notation).
-
-This back-and-forth interaction is called the **request-response cycle**, and it’s entirely **stateless**—each request is handled on its own, with no memory of previous requests. That stateless design makes HTTP simple and highly scalable, allowing any client that speaks HTTP (from browsers to Python scripts) to interoperate with any server that understands HTTP. When you move on to APIs, you’ll leverage this same cycle to automate large-scale data retrieval and processing.
+This page goes a level deeper than the [Introduction to APIs](api-use.html). It assumes you've read that page and now want a slightly fuller picture of how the request-response cycle works, what REST is, and what other API styles exist.
 
 ## How APIs Work: Client-Server Interaction, Requests, and Responses
 
@@ -63,8 +55,6 @@ REST is the most common approach, but it’s not the only pattern you might enco
 * **WebSockets (Real-Time APIs):** A WebSocket provides a continuous two-way connection between client and server, allowing data to be sent in real time. This isn’t a request-response model; it’s more like an open channel. WebSockets are useful for applications like live chat, streaming data updates, or multiplayer games – anywhere you want instant, ongoing data flow. For instance, if you were tracking sentiment on a live stream of tweets, a WebSocket connection could stream new analyses continuously. This is more specialized, so we’ll stick to the request/response style in our work, but you might encounter WebSocket APIs in other contexts (e.g., real-time stock price feeds).
 
 For most data analysis tasks (like fetching data or sending data for analysis), you’ll be using **REST APIs**, as they cover the majority of use cases and are easier to get started with.
-
-Great, I’ll put together a conceptual overview of how API client libraries (especially in Python, with a mention of R) work, including when and why you’d use them, and how they simplify HTTP requests behind the scenes. I’ll be back shortly with the draft section you can add to your markdown.
 
 ## API Client Libraries
 

@@ -1,85 +1,48 @@
 ---
-title: "Weekly Content"
+title: "Course Content"
 ---
 
+The course is eight 200-minute sessions: a five-week core course plus a three-session capstone. Each week opens with a 30–60 minute "Before you come to class" checklist and ends with a deliverable due Sunday 23:55.
 
-### Week00: AI for coding
+# Core course
 
-Using AI for code. May not be covered in this class, as it had often been already covered in coding classes. 
+## Week 1: LLMs, Harnesses & Setup
 
-[Content](../week00)
-
-## Week01: LLM Review
-
-What are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to. 
-
-[Content](../week01/)
+What LLMs are and how to work with them; the model-vs-harness distinction; closed/frontier vs open-weights models; the two course harnesses (Claude Code in terminal and desktop, VS Code + GitHub Copilot). Set up a working environment.
 
 **Which AI?** See [my take on current models](../da-knowledge/which-ai.html).
 
-## Week02: Data and code discovery and documentation with AI
+[Content](../unit1/)
 
-Learn how to write a clear and professional code and data documentation. LLMs are great help once you know the basics. 
+## Week 2: From Raw Data to Report
 
-Case study: [World Values Survey](../case-studies/VWS/)
-
-[Content](../week02/)
-
-## Week 03: Writing Reports
-
-You have your data and task, and need to write a short report. We compare different options with LLM, from one-shot prompt to iteration. 
+Download real survey data, build a reproducible pipeline (explore → composite variables → aggregate → join an external API), and contrast an undirected "vibe report" with a carefully directed report.
 
 Case study: [World Values Survey](../case-studies/VWS/)
 
-[Content](../week03/)
+[Content](../unit2/)
 
-## Week04: Agentic AI with Claude Code
+## Week 3: Data Wrangling & Debugging
 
-From chat to terminal - introducing Claude Code for data analysis. Students learn to use agentic AI that works directly with files, generates data, and iterates on analysis.
+Reviewing AI's work: project instruction files (`CLAUDE.md` / `agents.md`), reusable skills, the three kinds of tests, git discipline, and safe autonomous execution.
 
 Case study: [Austrian Hotels](../case-studies/austria-hotels/)
 
-[Content](../week04/)
+[Content](../unit3/)
 
-## Week05: Advanced CLI Workflows
+## Week 4: Econometrics with AI
 
-Going deeper with CLI tools: custom skills, project-specific instructions (CLAUDE.md), git integration, and autonomous execution.
+AI as a research companion for causal identification — designing control sets (helpful vs adversarial), surfacing instruments via prompt chaining, and difference-in-differences.
 
-[Content](../week05/)
+[Content](../unit4/)
 
-## Week06: From Data to Report
+## Week 5: Text as Data
 
-Download real CPS earnings data via CLI, contrast an undirected "vibe report" with a carefully directed economics-quality report. Iterative graph refinement, OLS regressions, and constrained PDF output.
-
-Case study: [US Earnings (CPS)](../case-studies/earnings/)
-
-[Content](../week06/)
-
-## Week07: Text as data 1 -- intro lecture
-
-No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.
+Turning short texts into numbers — the NLP pipeline, four ways to score sentiment, humans vs AI, and a text→data pipeline that scales via an LLM API.
 
 Case study: [Football Manager Interviews](../case-studies/interviews/)
 
-[Content](../week07/)
-
-## Week08: Sentiment Analysis with AI
-
-Second class, now we are in action. How does LLM compare to humans?
-
-Case study: [Football Manager Interviews](../case-studies/interviews/)
-
-[Content](../week08/)
-
-## Week09: AI as research companion: Control variables
-
-[Content](../week09/)
-
-
-## Week10: AI as research companion: Instrumental variables
-
-[Content](../week10/)
-
+[Content](../unit5/)
 
 # Capstone Project (3 sessions)
 

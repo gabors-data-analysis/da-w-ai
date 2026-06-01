@@ -1,7 +1,7 @@
 ---
 title: "Capstone Project — Session 3: Causal Analysis & Final Presentation"
 subtitle: "Data to answer — Diff-in-diffs, heterogeneity, and presentation"
-date: "2026-04-27 (version 1.2)"
+date: "2026-06-01"
 ---
 
 ::::::: {.hero-section}
@@ -15,6 +15,25 @@ From panel to causal effect — and how to present what you found
 :::
 ::::::
 :::::::
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist**
+:::
+
+::: card-body
+
+- ☐ **Dataset frozen** — your match + manager-change panel (Session 1) and expectation scores (Session 2) are final and committed. No more scraping today.
+- ☐ **Merge plan** — sketch how the two tables join: shared keys, time unit, what to do with `(team, week)` rows that have no articles.
+- ☐ **Review terms** — difference-in-differences, parallel trends, event-study, two-way fixed effects, staggered treatment ([glossary](../da-knowledge/technical-terms-page.qmd)). You saw these in [Week 4 — Econometrics with AI](../unit4/index.qmd).
+- ☐ **Pick a presentation format** — decide as a team: HTML slides, dashboard, or PDF report.
+
+:::
+:::::
 
 ------------------------------------------------------------------------
 

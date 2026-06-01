@@ -1,7 +1,7 @@
 ---
 title: "Capstone Project — Session 2: From Text to Expectations"
 subtitle: "Collect news, call an AI API, turn articles into a per-change expectation score"
-date: "2026-04-20"
+date: "2026-06-01"
 ---
 
 ::::::: {.hero-section}
@@ -23,6 +23,25 @@ From text to expectations — scrape, call an API, score expectations
 - **Session 1 →** you have a cleaned match + manager-change dataset.
 - **Session 2 (today) →** for each manager change, you build a **news-based expectation signal**: how much was an imminent change expected? 
 - **Session 3 →** you use that signal as a moderator in the DiD analysis.
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist**
+:::
+
+::: card-body
+
+- ☐ **API keys** — confirm your LLM API key works and is stored outside the repo (env var).
+- ☐ **Sources** — identify ≥ 2 credible news outlets for your country/league; check for RSS or a simple URL pattern.
+- ☐ **Read** — skim [Introduction to APIs](../da-knowledge/api-use.qmd) if APIs are new.
+- ☐ **Review terms** — rate limits, scraping etiquette ([glossary](../da-knowledge/technical-terms-page.qmd)).
+
+:::
+:::::
 
 ------------------------------------------------------------------------
 
@@ -153,7 +172,7 @@ Covers:
 
 ## APIs: what you need this session
 
-APIs come up twice in this session: **news/data APIs** (to get articles) and **LLM APIs** (to classify them). You already saw these in [Week 08](../week08/index.qmd); the key references are in the [Knowledge Base](../navbar/resources.html).
+APIs come up twice in this session: **news/data APIs** (to get articles) and **LLM APIs** (to classify them). You already saw these in [Week 5 — Text as Data](../unit5/index.qmd); the key references are in the [Knowledge Base](../navbar/resources.html).
 
 ::::: {.week-card .card}
 ::: card-header

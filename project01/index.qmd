@@ -1,7 +1,7 @@
 ---
 title: "Capstone Project — Session 1: Data Collection"
 subtitle: "Collect, combine and describe a match-and-manager dataset"
-date: "2026-04-13"
+date: "2026-06-01"
 ---
 
 ::::::: {.hero-section}
@@ -17,6 +17,25 @@ Data collection: building a match-and-manager dataset
 :::::::
 
 → **[Project overview & research question](../capstone/index.qmd)**
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist**
+:::
+
+::: card-body
+
+- ☐ **Team & country** — form your 3-person team and pick your country/league.
+- ☐ **Repo** — create the team's GitHub repo (private for now, shared with us).
+- ☐ **Scout sources** — find at least one viable source for match results and one for manager changes.
+- ☐ **Review terms** — primary key, schema ([glossary](../da-knowledge/technical-terms-page.qmd)).
+
+:::
+:::::
 
 ------------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 ---
 title: "Capstone Project: Manager Impact in Football"
 subtitle: "A three-session team project from data collection to causal analysis"
-date: "2026-04-13"
+date: "2026-06-01"
 ---
 
 ::::::: {.hero-section}

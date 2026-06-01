@@ -2,7 +2,7 @@
 title: "Data Analysis with AI"
 subtitle: "A comprehensive course"
 author: "[Gábor Békés](https://sites.google.com/site/bekesg/), Central European University (Austria, EU)"
-date: "2026-05-01"
+date: "2026-06-01"
 ---
 
 ![Gabor's Data Analysis with AI](images/gabors-data-analysis-with-ai.png)
@@ -13,14 +13,16 @@ A course for students who already know **data analysis / econometrics** and want
 
 As AI becomes more and more powerful, it is also important to provide a platform to **discuss human agency in data analysis**. A core role of the instructor is to lead that discussion across the term — what we delegate, what we keep, and how we stay accountable for the result.
 
-**This is the 2026 Spring edition release**
+**This is the 2026 Summer edition release**
 
-### Two parts
+### Structure
 
-The course has two clearly distinct halves:
+The course is **eight 200-minute sessions** — a five-week core course plus a three-session capstone:
 
-- **Part 1 — Weeks 1–10.** Use AI on tasks students mostly *can* do unaided: documentation, reporting, exploratory analysis, simple text work, control-variable selection, IV reasoning. The goal is fluency and good habits — chat-based work, then agentic CLIs (Claude Code), then AI as a research companion.
-- **Part 2 — Capstone (3 sessions).** A team project that pushes students into work they have **never done before**: production-style **web scraping**, **text-as-data classification using LLM APIs**, and **modern causal econometrics** (difference-in-differences with staggered treatment, event-study designs). The whole point is that AI makes this newly accessible — and the course makes students actually do it.
+- **Week 1 — LLMs & Setup.** The one front-facing week: what LLMs are, the model-vs-harness distinction, closed vs open-weights models, and getting a working environment running on the two course harnesses.
+- **Weeks 2–3 — Core Data Analysis.** Use AI on tasks students mostly *can* do unaided: a reproducible raw-data-to-report pipeline, then reviewing and debugging AI's work with instruction files, skills, and tests.
+- **Weeks 4–5 — Research with AI.** AI as a research companion: causal identification (controls, instruments, difference-in-differences) and text-as-data with LLM APIs.
+- **Capstone (3 sessions).** A team project that pushes students into work they have **never done before**: production-style **web scraping**, **text-as-data classification using LLM APIs**, and **modern causal econometrics** (difference-in-differences with staggered treatment, event-study designs). The whole point is that AI makes this newly accessible — and the course makes students actually do it.
 
 ### AI and me
 
@@ -33,13 +35,13 @@ At the end of all classes, instructors and students should always consider these
 
 ## Course description
 
-### Content — Part 1: weekly classes
+### Content — the core course
 
-Weeks 1–10 cover using large language models (LLMs — ChatGPT, Claude, Gemini, Le Chat and others) to **carry out tasks in data analysis**: code and data documentation, writing reports, agentic work in the terminal, going from raw data to a constrained PDF, text-as-data on football interviews, and using AI as a research companion to think about controls and instruments.
+Weeks 1–5 cover using large language models (LLMs — ChatGPT, Claude, Gemini, Le Chat and others) to **carry out tasks in data analysis**: LLM and harness setup, a reproducible raw-data-to-report pipeline, reviewing and debugging AI's work, using AI as a research companion for controls/IV/DiD, and text-as-data on football interviews.
 
-Several **case studies** run across the weekly material — simulated hotel data from Austria, the World Values Survey, US CPS earnings, football manager post-match interviews. There are weekly practice **assignments** and a [learning-more collection](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
+Several **case studies** run across the material — simulated hotel data from Austria, the World Values Survey, US CPS earnings, football manager post-match interviews. There are practice **assignments** and a [learning-more collection](da-knowledge/beyond.html) with blogs, papers, and video recommendations.
 
-### Content — Part 2: capstone
+### Content — capstone
 
 A three-session team project on **manager changes in football**. Each team picks a country, builds a 10+ season match-and-manager panel, scrapes news around each change, uses an LLM API to score how *expected* each change was, then runs a difference-in-differences analysis with heterogeneity by manager type, team, and expectation.
 
@@ -92,83 +94,50 @@ Important to note for assignments:
 * Use AI but do not submit something that was created by AI. AI is your assistant.
 * One of the goals of the course is to practice this. 
 
-## Weekly content (Part 1)
+## The core course
 
 ::: {.callout-tip}
 **Before Week 1.** Get your environment in shape and pick up a few prompting-for-code habits — see [AI Coding Prep](da-knowledge/ai-coding-prep.qmd). Skip it if you already use Copilot/Cursor on real projects.
 :::
 
-**Week01: LLM Review**
+**Week 1: LLMs, Harnesses & Setup**
 
-What are LLMs, how is the magic happening. A non-technical brief intro. How to work with LLMs? Plus ideas on applications. Includes suggested readings, podcasts, and vids to listen to. See also [which AI model to use](da-knowledge/which-ai.html).
+What LLMs are and how the magic happens — a non-technical intro. The model-vs-harness distinction, closed/frontier vs open-weights models, and the two course harnesses (Claude Code in terminal and desktop, VS Code + GitHub Copilot). Get a working environment running. See also [which AI model to use](da-knowledge/which-ai.html).
 
-[Content](week01/)
+[Content](unit1/)
 
-**Week02**: Data and code discovery and documentation with AI
+**Week 2: From Raw Data to Report**
 
-Learn how to write a clear and professional code and data documentation. LLMs are great help once you know the basics. 
-
-Case study: [World Values Survey](case-studies/VWS/)
-
-[Content](week02/)
-
-**Week 03**: Writing Reports
-
-You have your data and task, and need to write a short report. We compare different options with LLM, from one-shot prompt to iteration. 
+Download real survey data, build a reproducible pipeline (explore → composite variables → aggregate → join an external API), and contrast an undirected "vibe report" with a carefully directed report.
 
 Case study: [World Values Survey](case-studies/VWS/)
 
-[Content](week03/)
+[Content](unit2/)
 
-**Week04**: Agentic AI with Claude Code
+**Week 3: Data Wrangling & Debugging**
 
-From chat to terminal - introducing Claude Code for data analysis. Students learn to use agentic AI that works directly with files, generates data, and iterates on analysis.
+Reviewing AI's work: project instruction files (`CLAUDE.md` / `agents.md`), reusable skills, the three kinds of tests, git discipline, and safe autonomous execution.
 
 Case study: [Austrian Hotels](case-studies/austria-hotels/)
 
-[Content](week04/)
+[Content](unit3/)
 
-**Week05**: Advanced CLI Workflows
+**Week 4: Econometrics with AI**
 
-Going deeper with CLI tools: custom skills, project-specific instructions (CLAUDE.md), git integration, and autonomous execution. Turning CLI tools from clever assistants into reproducible research companions.
+AI as a research companion for causal identification — designing control sets (helpful vs adversarial), surfacing instruments via prompt chaining, and difference-in-differences.
 
-[Content](week05/)
+[Content](unit4/)
 
-**Week06**: From Data to Report
+**Week 5: Text as Data**
 
-Download real CPS earnings data via CLI, contrast an undirected "vibe report" with a carefully directed economics-quality report. Iterative graph refinement, OLS regressions, and constrained PDF output.
-
-Case study: [US Earnings (CPS)](case-studies/earnings/)
-
-[Content](week06/)
-
-**Week07**: Text as data 1 -- intro lecture
-
-No course of mine can escape football (soccer). Here we look at post-game interviews to learn basics of text analysis and apply LLMs in what they are best - context dependent learning. Two class series. First is more intro to natural language processing.
+Football post-match interviews as the running case: the NLP pipeline, four ways to score sentiment, humans vs AI, and a text→data pipeline that scales via an LLM API.
 
 Case study: [Football Manager Interviews](case-studies/interviews/)
 
-[Content](week07/)
-
-**Week08**: Sentiment Analysis with AI
-
-Second class, now we are in action. How does LLM compare to humans?
-
-Case study: [Football Manager Interviews](case-studies/interviews/)
-
-[Content](week08/)
-
-**Week09**: AI as research companion: Control variables
-
-[Content](week09/)
+[Content](unit5/)
 
 
-**Week10**: AI as research companion: Instrumental variables
-
-[Content](week10/)
-
-
-## Capstone (Part 2): three sessions — doing things you have never done
+## Capstone: three sessions — doing things you have never done
 
 A three-session team project on **manager changes in football**, deliberately scoped so that each session forces students into territory they have not been in before. Pick a country, build a 10+ season panel, score the news, run the causal design. — [Project description](capstone/)
 

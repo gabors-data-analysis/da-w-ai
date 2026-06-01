@@ -36,16 +36,16 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 - [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality (R example).
 - [NLP basics — text as data](../da-knowledge/nlp-basics.qmd) — classical pipeline (tokens, BoW, TF-IDF) and where LLMs slot in.
 - [PDF guide](../da-knowledge/pdf-guide.qmd) — working with PDFs.
-- [Good report ideas](../week03/ideas-good-report.qmd) — what separates a solid report from a weak one.
+- [Good report ideas](../da-knowledge/ideas-good-report.qmd) — what separates a solid report from a weak one.
 
 ## Case studies
 
 Datasets and code organised by case study — used across multiple weeks.
 
-1. [World Values Survey](../case-studies/VWS/) — Weeks 2–3 (documentation, reports).
-2. [Austrian Hotels](../case-studies/austria-hotels/) — Week 4 (joining tables).
-3. [Football Manager Interviews](../case-studies/interviews/) — Weeks 7–8 (text as data).
-4. [US Earnings (CPS)](../case-studies/earnings/) — Week 6 (from data to report).
+1. [World Values Survey](../case-studies/VWS/) — Week 2 (from raw data to report).
+2. [Austrian Hotels](../case-studies/austria-hotels/) — Week 3 (wrangling & debugging).
+3. [Football Manager Interviews](../case-studies/interviews/) — Week 5 (text as data).
+4. [US Earnings (CPS)](../case-studies/earnings/) — Week 1 hands-on / reporting practice.
 5. [Employee Commits](../case-studies/employee_commits/) — data-analysis demos.
 6. [Common Support (R)](../case-studies/common-support-r/) — iterative AI coding.
 

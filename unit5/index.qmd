@@ -1,0 +1,171 @@
+---
+title: "Week 5 — Text as Data"
+subtitle: "Turning text into tabular data: humans vs AI, and scaling with APIs"
+date: "2026-06-01"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Week 5 — Text as Data
+:::
+
+::: {.hero-subtitle}
+Turning a series of short texts into tabular data — lexicons, ML, and LLMs via API — and the ground-truth problem
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+![](../images/week5_pic.png)
+
+The second research-focused week. You turn unstructured text into numbers you can analyse, compare how *you* score text against how *AI* scores it, and build a small pipeline that scales from 5 texts to hundreds via an API. Running case: **post-match football manager interviews**.
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist**
+:::
+
+::: card-body
+
+- ☐ **API key** — set up an LLM API key (OpenAI or Anthropic). See [How to get AI API keys](../da-knowledge/get-ai-api-key.qmd). Budget ~$5. **Store the key outside the repo** (env var, never commit).
+- ☐ **Read** — [NLP Basics — Text as Data](../da-knowledge/nlp-basics.qmd) and [Introduction to APIs](../da-knowledge/api-use.qmd) (15 min).
+- ☐ **Review terms** — token, lexicon, classification, sentiment, ground truth ([glossary](../da-knowledge/technical-terms-page.qmd)).
+- ☐ **Grab the data** — [5-interview practice file](assets/student_test_5.csv) and the [sentiment scale](assets/sentiment-scale.qmd).
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Learning objectives
+
+By the end of this unit you will be able to:
+
+- Explain the classical NLP pipeline (tokenization → BoW → TF-IDF) and where LLMs fit.
+- Compare the four ways to score sentiment: pre-built lexicons, custom lexicons, ML models, LLMs.
+- Score text by hand and by AI, and reason about **agreement** and **ground truth**.
+- Build a small text→data pipeline that calls an LLM API at scale, with a reusable prompt.
+
+------------------------------------------------------------------------
+
+## Session shape (200 min · 50·100·50)
+
+| Block | Focus | Mode |
+|---|---|---|
+| Intro (50) | NLP pipeline; four approaches; humans vs AI | Talk + hand-rating |
+| Task (100) | Build a text→data pipeline, classify via API | Individual / pairs |
+| Discussion (50) | Validation, ground truth, reproducibility | Group |
+
+------------------------------------------------------------------------
+
+## Intro (50 min)
+
+::::: {.week-card .card}
+::: card-header
+📖 **From bag-of-words to LLMs**
+:::
+
+::: card-body
+
+**[Slideshow: Text to Data](https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-05-text-to-data)**
+
+- **Classical pipeline** — tokenization, preprocessing (stemming, stop words), bag-of-words, TF-IDF.
+- **Why domain knowledge matters** — "clinical" is a compliment in football; a generic lexicon misses that.
+- **Sentiment** — detecting tone, not just which words appear.
+
+**Four ways to score sentiment** (trade-offs matter):
+
+| | Pre-built lexicon | Custom lexicon | ML model | LLM (API) |
+|---|---|---|---|---|
+| Setup | Low | Medium | High | Low |
+| Domain fit | Low | High | Med–High | High |
+| Context | Medium | Medium | High | Very high |
+| Transparency | High | High | Low | Medium |
+| Scalability | High | Medium | High | Low–Medium |
+| Cost | Free | Dev time | Compute | API tokens |
+
+Examples: VADER/TextBlob (pre-built); an AI-built football lexicon (custom); a fine-tuned BERT (ML); GPT/Claude as the scorer (LLM).
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+⚽ **Hand-rate first (15 min)**
+:::
+
+::: card-body
+
+Before any AI: rate the [5 manager statements](assets/student_test_5.csv) yourself on the [−2 … +2 scale](assets/sentiment-scale.qmd). Then have an AI rate the same 5 — simple prompt vs detailed prompt — and compare its reasoning to yours. Look at the [football-specific lexicon](../case-studies/interviews/data/domain_lexicon.csv) to see how domain knowledge changes interpretation.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Task block (100 min · individual or pairs)
+
+Scale up from 5 texts to a real pipeline. Start small, validate, then expand.
+
+::::: {.week-card .card}
+::: card-header
+🎯 **Build a text → data pipeline**
+:::
+
+::: card-body
+
+1. **Get the corpus.** Use the combined interview dataset (text_id level) from the [interviews case study](../case-studies/interviews/index.qmd). One row per text.
+2. **Design the prompt.** Decide the scale/labels, how to handle irrelevant text, and an output **schema** (e.g. `score`, `reason`, `confidence`). Prefer structured output over free text. Sketch in [sentiment guidelines](assets/sentiment-guidelines.qmd).
+3. **Validate before scaling.** Hand-label ~20 texts, run the prompt, compare. Aim for ≥ 80% agreement; if below, revise the prompt before going further.
+4. **Classify via API.** Call an LLM API over the full set. Reference: [Calling LLM APIs from Python](../da-knowledge/llm-api-python.qmd), and the case-study [Python](../case-studies/interviews/code/sentiment_analysis.py) / [R](../case-studies/interviews/code/sentiment-analysis.R) implementations.
+5. **Compare methods.** Put human average, domain-lexicon score, and AI average side by side. Where do they disagree most?
+6. **Stretch.** Ask the AI to predict the match result (win/draw/loss) or speaker gender from text alone — and discuss what linguistic cues it's using and whether they're reliable.
+
+:::
+:::::
+
+::: {.callout-tip}
+**APIs beyond LLMs.** Getting the *data* often means data APIs too. If you want practice: [World Bank + FRED walkthrough](../da-knowledge/walkthrough-wb-fred.qmd) and the [FBref football walkthrough](../da-knowledge/walkthrough-fbref.qmd). How APIs work under the hood: [api-advanced](../da-knowledge/api-advanced.qmd).
+:::
+
+------------------------------------------------------------------------
+
+## Discussion (50 min)
+
+- **Ground truth** — what *is* the correct answer when humans disagree? How do you validate?
+- **Human vs AI** — where did you and the AI diverge most? How did that feel?
+- **Consistency** — did the AI rate similar texts consistently? Was there a systematic gap?
+- **APIs at scale** — benefits and costs/risks of scaling text analysis with an API. Could someone rerun your pipeline?
+
+------------------------------------------------------------------------
+
+## Delivery
+
+::::: {.week-card .card}
+::: card-header
+📦 **What to hand in (Sunday 23:55)**
+:::
+
+::: card-body
+
+- **The pipeline** (script/notebook) that reads texts, calls the API, and writes a scored table.
+- **The scored dataset** — one row per text with `score` (+ `reason`/`confidence` if used).
+- **The reusable prompt** (`prompt_classifier.md`) and a short validation note: n hand-labelled, agreement rate.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Knowledge Base
+
+- [NLP Basics — Text as Data](../da-knowledge/nlp-basics.qmd)
+- [Introduction to APIs](../da-knowledge/api-use.qmd) · [Calling LLM APIs from Python](../da-knowledge/llm-api-python.qmd) · [APIs under the hood](../da-knowledge/api-advanced.qmd)
+- [How to get AI API keys](../da-knowledge/get-ai-api-key.qmd)
+- [Football interviews case study](../case-studies/interviews/index.qmd)

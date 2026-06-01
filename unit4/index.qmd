@@ -1,0 +1,195 @@
+---
+title: "Week 4 — Econometrics with AI"
+subtitle: "AI as research companion: controls, instruments, and DiD"
+date: "2026-06-01"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Week 4 — Econometrics with AI
+:::
+
+::: {.hero-subtitle}
+AI as a research companion for causal identification — designing controls, finding instruments, and difference-in-differences
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+![](../images/week7_picb.png)
+
+The first research-focused week. Here AI acts like a researcher: helping you reason toward causal identification. We cover three tools — **control variables**, **instrumental variables**, and **difference-in-differences** — and the prompting strategies that make AI genuinely useful for each. *(DiD overlaps with the capstone on purpose — repetition is intended.)*
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist** — *this is where the causality recap lives now*
+:::
+
+::: card-body
+
+- ☐ **Read / recap causality** — confounders and bad controls (what they are, how to treat them); the three IV assumptions (relevance, exclusion, independence); the DiD idea (treated vs control, parallel trends). Use AI to refresh anything rusty — *ask it to explain the three IV assumptions in plain words.*
+- ☐ **Review terms** — confounder, backdoor path, control, instrument, exclusion restriction, difference-in-differences, parallel trends ([glossary](../da-knowledge/technical-terms-page.qmd)).
+- ☐ **Setup** — turn **off** chat history/memory in your AI tool for this unit (so it reasons from the problem, not from your past chats).
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Learning objectives
+
+By the end of this unit you will be able to:
+
+- Use a two-session "helpful vs adversarial" prompt pattern to design a control set.
+- Use prompt chaining to surface candidate **instruments** without leaking that you want IVs.
+- State the DiD setup and assumptions, and have AI sketch a worked design in *your* setting.
+- Translate a research question into a defensible identification strategy.
+
+------------------------------------------------------------------------
+
+## Session shape (200 min · 50·50·50·50)
+
+| Chunk | Focus | Mode |
+|---|---|---|
+| 1 (50) | AI-as-research-companion; framing | Talk |
+| 2 (50) | Designing controls (Z) | Talk + run prompts |
+| 3 (50) | Instrumental variables | Talk + run prompts |
+| 4 (50) | Difference-in-differences + work-together | Talk + group |
+
+------------------------------------------------------------------------
+
+## Chunk 1 — AI as a research companion (50 min)
+
+::::: {.week-card .card}
+::: card-header
+🤖 **A different way to prompt**
+:::
+
+::: card-body
+
+Until now AI wrote code. Now we ask it to *reason like a researcher.* The skill is **not** asking "what's my instrument?" — it's structuring the conversation so the AI reasons from the setting up to the econometrics. Two ideas we'll use repeatedly:
+
+- **Adversarial pairing** — one session proposes, a second session (or model) attacks, then you feed the critique back. A debate between a helpful and a suspicious AI.
+- **Prompt chaining** — break a hard question (find an IV) into steps: map relationships first, then narrow to candidates. Avoids generic textbook answers and training-data bias.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Chunk 2 — Designing controls "Z" (50 min · run prompts)
+
+Running question: *Do firms with better management export more of their production?* — [World Management Survey data](https://osf.io/t6zdp/files/osfstorage), [codebook](https://osf.io/emh5u).
+
+::::: {.week-card .card}
+::: card-header
+😇😈 **Helpful vs adversarial, in three prompts**
+:::
+
+::: card-body
+
+> 🤖 **Prompt 1 (Original LLM).** You are a researcher who wants to find control variables to estimate the association between *percent of production exported* (outcome) and *management quality* (variable of interest). Attached is a codebook. Choose variables for a multivariate OLS regression. Return each with expected direction of association, then a plain copyable list (one variable per line).
+
+> 😈 **Prompt 2 (Adversarial LLM, separate session).** Below is a list of variables someone wants in a regression of percent exported on management quality. Argue, for each, why it should **not** be included. [paste list]
+
+> 🤖 **Prompt 3 (back to Original).** Below are counter-arguments to your selection. Revise and give a final list. [paste critique]
+
+As you go: how do the answers differ from a one-shot prompt? Which proposed controls are **bad controls**? What got left out?
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Chunk 3 — Instrumental variables (50 min · run prompts)
+
+*Prompting approach adapted from [Sukjin Han (2024), "Mining Causality: AI-Assisted Search for Instrumental Variables"](https://arxiv.org/pdf/2409.14202).*
+
+::::: {.week-card .card}
+::: card-header
+🔗 **The two-step chain — and why we don't say "IV"**
+:::
+
+::: card-body
+
+**Why not say "IV":** if you ask directly, the model defaults to textbook instruments (weather, distance to school) regardless of context — shallow, biased toward popular examples. Instead, describe the *setting* and let it reason.
+
+> 🤖 **Step 1 (search, satisfies REL + EX).** You are [agent] who must make a [treatment] decision in [scenario]. What factors determine your decision but do **not** directly affect [outcome] except through [treatment]? List [K] quantifiable factors and explain each.
+
+> 🤖 **Step 2 (refine, satisfies IND).** Among those factors, choose the ones most likely **unassociated with [confounders]** of [outcome], while still influencing [treatment]. Explain each.
+
+**Worked examples to run together:** demand estimation (Copacabana beer price) and peer effects on microfinance adoption. For each: does the AI seem to realise we're testing something deeper? Are the instruments believable?
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Chunk 4 — Difference-in-differences + work-together (50 min)
+
+::::: {.week-card .card}
+::: card-header
+📐 **DiD vocabulary (new) — overlaps the capstone on purpose**
+:::
+
+::: card-body
+
+- **Treatment / treated unit / control unit** — the event and who does/doesn't experience it in a window.
+- **Two-way fixed effects** (unit FE + time FE) — the standard panel starting point.
+- **Event-study spec** — one coefficient per lead/lag around the event, to *see* the dynamics.
+- **DiD estimator** — the difference *between treated and control* in the *change* from pre to post.
+- **Parallel trends** — the core (mostly untestable) assumption; check pre-trends as a proxy.
+- **Staggered treatment** — units treated at different times; has real econometric consequences — ask AI what can go wrong with a naïve DiD.
+
+**Packages** to ask AI for worked mini-examples in *your* setting: Python — [`diff-diff`](https://diff-diff.readthedocs.io/), [`pyfixest`](https://github.com/py-econometrics/pyfixest); R — [`did`](https://bcallaway11.github.io/did/), [`fixest`](https://lrberge.github.io/fixest/). Read the code, don't just run it.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+👥 **Work together (groups of 3–4)**
+:::
+
+::: card-body
+
+Research question: **What is the effect of migration on wages in the target country?** Pin down context (from→to country, industry, period, skill type). Then:
+
+- Design a **control set** (helpful vs adversarial).
+- Build **Prompt 1 / Prompt 2** to surface an **instrument**; compare what you'd keep vs what the AI kept, and interrogate the difference.
+- Sketch a **DiD** alternative: what's the treatment, who are controls, what threatens parallel trends?
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Delivery
+
+::::: {.week-card .card}
+::: card-header
+📦 **What to hand in (Sunday 23:55)**
+:::
+
+::: card-body
+
+- **A one-page identification memo** for the migration→wages question (or your own RQ): the proposed control set *and/or* instrument *and/or* DiD design, with assumptions stated and the main threats named.
+- **Links to the chats** you used, plus 2–3 sentences on which prompting pattern worked best and why.
+- *No regressions required* — this unit is about identification, not estimation.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Knowledge Base & further reading
+
+- [Glossary of LLM terms](../da-knowledge/technical-terms-page.qmd) · [Designing Larger Analytics Projects](../da-knowledge/designing-projects.qmd)
+- [Sukjin Han (2024) — Mining Causality](https://arxiv.org/pdf/2409.14202)
+- [Pedro Sant'Anna — DiD resources](https://psantanna.com/did-resources/) · [Carlos Mendez — DiD in Python](https://carlos-mendez.org/post/python_did/)

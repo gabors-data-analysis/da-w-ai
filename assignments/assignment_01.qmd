@@ -2,7 +2,7 @@
 title: "Reproduce an FT graph"
 ---
 
-Look at [this graph](/week01/assets/ft-liberation-day-usd-yield-2025-04-11.jpg) from Financial Times. Your task is to recreate this figure using real-world data. 
+Look at [this graph](assets/ft-liberation-day-usd-yield-2025-04-11.jpg) from Financial Times. Your task is to recreate this figure using real-world data. 
 
 Use AI as your assistant to find real-world data that matches or closely resembles the one used in the FT graph, and recreate the same chart using that data.
 

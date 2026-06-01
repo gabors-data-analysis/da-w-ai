@@ -1,0 +1,394 @@
+---
+title: "Week 3 — Data Wrangling & Debugging"
+subtitle: "Agentic CLI workflows, reviewing AI's work, and the habits that make analysis reproducible"
+date: "2026-06-01"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Week 3 — Data Wrangling & Debugging
+:::
+
+::: {.hero-subtitle}
+Agentic CLI workflows on a real repo — project instructions, skills, tests, git, and the discipline of reviewing what the AI did
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+![](../images/week4_pic.png)
+
+The longest hands-on session in the course. AI writes code fast, but *output that looks right isn't always right.* This unit does two things at once: it makes you fluent with an **agentic CLI tool** working across a multi-file project, and it drills the habits that turn a clever assistant into a reproducible research companion — **project instruction files, reusable skills, tests, git, and documentation** — all wrapped in the discipline of **reviewing what the AI did**.
+
+The whole session runs on one continuous case study — the **Austrian Hotels** dataset — so each step builds on the last.
+
+------------------------------------------------------------------------
+
+## Before you come to class (30–60 min)
+
+::::: {.week-card .card}
+::: card-header
+✅ **Pre-class checklist**
+:::
+
+::: card-body
+
+- ☐ **Tech** — confirm **Claude Code** runs (from Week 1). New to the terminal? Skim [Terminal Basics](../da-knowledge/terminal-basics.qmd). The workflow transfers to Gemini CLI / Codex CLI, but we demo Claude Code.
+- ☐ **Python** — Claude Code runs Python for you, so it must be installed and on PATH (`python --version`). Install the basics:
+
+::: {.panel-tabset}
+#### Python
+```bash
+python -m pip install pandas numpy matplotlib
+```
+#### R
+```r
+install.packages(c("tidyverse"))
+```
+:::
+
+- ☐ **Git** — a GitHub account and the basics (`git status`, `git diff`, branch, commit).
+- ☐ **Get the data** — download the [Austrian Hotels dataset](../case-studies/austria-hotels/data/data-modified.zip) (messy data + AI-generated code with bugs) and unzip it into a fresh project folder.
+- ☐ **Read (skim)** — [Designing Larger Analytics Projects](../da-knowledge/designing-projects.qmd) and [Reproducible Research Pipelines](../da-knowledge/reproducible-research.qmd).
+- ☐ **Review terms** — `agents.md` (project instruction file), *skill*, and the **three kinds of tests** (data tests, data-describe checks, code tests). See [Documentation Fundamentals](../da-knowledge/documentation-readme.qmd) and [Joining Data Tables](../da-knowledge/joining-tables.qmd).
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Learning objectives
+
+By the end of this unit you will be able to:
+
+- Explain why a terminal-native agent compresses the ask → run → inspect → fix loop compared with IDE/chat assistance — and where each still wins.
+- Use a CLI agent to explore, clean, join, and aggregate a multi-file dataset, and to **generate realistic synthetic data**.
+- Review and debug AI-written data code rather than trusting it blindly (row counts around joins, missing values, plausible-but-wrong results).
+- Write a project instruction file (`CLAUDE.md` / `agents.md`) so the AI follows your conventions automatically.
+- Build one reusable **skill** that automates a multi-step workflow.
+- Turn assumptions into **tests** that return the failing rows, use **git** for traceable iteration, and apply a **safety checklist** for autonomous execution.
+- Document data with a `README` / `DATA.md`.
+
+------------------------------------------------------------------------
+
+## Session shape (200 min · 50·100·50)
+
+| Block | Focus | Mode |
+|---|---|---|
+| Intro (50) | Why CLI; reviewing AI's work; instruction files, skills, tests, git, autonomy | Talk + demo |
+| Task (100) | Explore → clean → join → generate data → instructions → skill → tests → git → document | Individual / pairs |
+| Discussion (50) | Silent failures, what tests caught, when to trust autonomy | Group |
+
+------------------------------------------------------------------------
+
+## Intro (50 min)
+
+::::: {.week-card .card}
+::: card-header
+⚡ **Why a CLI agent if Copilot already works?**
+:::
+
+::: card-body
+
+In Units 1–2 you used **VS Code + Copilot** and **Claude Code**. The jump here is not "AI vs no AI." It is **IDE assistance vs terminal-native execution**. With Copilot the loop is still manual:
+
+1. Ask for code in the editor → 2. run it in the terminal → 3. read the logs/errors yourself → 4. go back and re-prompt. Repeat.
+
+A CLI agent **compresses that loop**:
+
+- **Files are already there.** Claude Code sees your CSVs, scripts, and outputs directly — no uploading, no copy-paste. Just: *"Look at these files and calculate average occupancy by city."*
+- **Code runs immediately.** It writes code, executes it, sees the error, and fixes it — you get results, not just snippets.
+- **Context stays intact.** It remembers your project structure and how files relate (`hotels.csv` joins to `cities.csv`) across many steps.
+- **Iteration is fast.** *"Something looks wrong"* → it investigates without you shuttling data around.
+
+**What stays exactly the same:** prompting discipline, statistical thinking (you still define variables, assumptions, checks), verification habits (joins, units, missing values), and the iteration mindset. What changes is only the *execution surface* — you remain responsible for quality.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🔍 **Trust but verify — the operating discipline**
+:::
+
+::: card-body
+
+**Reviewing AI-written code.** Common failure modes to hunt for:
+
+- **Wrong join type** — "How many rows before and after the join? Did we lose data?"
+- **Missing values** — "Are there NaNs? Where did they come from?"
+- **Plausible-but-wrong** — a result that looks right but isn't. Ask: "Walk me through the calculation step by step."
+- **Hallucinated** code or stats. Always verify against the data.
+
+Good habit, every time: `Explain the code you just wrote. What assumptions did you make?`
+
+**Always check:** row counts after joins; summary statistics (do the means make sense?); a few random rows (do the values look realistic?).
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📋 **Project instruction files (`CLAUDE.md` / `agents.md`)**
+:::
+
+::: card-body
+
+Instead of repeating preferences in every prompt, write them once in a file the harness reads automatically: `CLAUDE.md` (Claude Code), `GEMINI.md` (Gemini CLI), `AGENTS.md`/`agents.md` (Codex and others).
+
+```markdown
+## Code Style
+- Use tidyverse for R; pandas for Python
+- Prefer ggplot2 / matplotlib with the viridis palette
+
+## Data Standards
+- Dates in ISO 8601 (YYYY-MM-DD); column names lowercase_with_underscores
+
+## Analysis Preferences
+- Always check for missing values before analysis
+- Report sample sizes in every table
+```
+
+**Hierarchical loading:** global defaults → project file → subfolder file. More specific files override general ones.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🛠️ **Skills, tests, git & autonomy**
+:::
+
+::: card-body
+
+- **Skills** — reusable instruction sets the agent runs on demand. A project skill lives at `.claude/skills/<name>/SKILL.md`; a personal one at `~/.claude/skills/<name>/SKILL.md`. Then typing `/<name>` runs the workflow consistently.
+- **Tests = guardrails.** Turn assumptions into assertions across `raw → clean → analysis`: schema/type, completeness (not-null), validity (`0 ≤ occupancy ≤ 100`), relationships (foreign keys exist), volume (row-count range). Prefer tests that **return the failing rows**, not just pass/fail.
+- **Git** — version control + AI = traceable, reproducible analysis. Branch, change, commit with a clear message, inspect the diff. The agent can also *read* git history to explain why a past decision was made.
+- **Autonomous execution** — fine for trusted, repetitive pipelines with a clear success criterion; risky for new code or shared resources. Always: confirm the branch, write a success criterion, inspect `git diff` after, and run tests.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Task block (100 min · individual or pairs)
+
+Running case: the **Austrian Hotels** dataset — messy data plus AI-generated code that has bugs. Work in a **git project folder**; commit as you go. Verify after every step.
+
+::::: {.week-card .card}
+::: card-header
+🗂️ **1. Set up & explore as linked tables**
+:::
+
+::: card-body
+
+Launch the agent in your project folder:
+
+```bash
+cd austrian-hotels-data
+claude
+```
+
+- *"What files are in this folder? Give me a quick overview."*
+- *"Show me 5 sample rows from each CSV file."*
+- *"Read the hotels and cities files. How are they related? What's the join key?"*
+
+*Check:* you can name each table, its grain, and the keys (`city` links hotels→cities; `hotel_id` links hotels→monthly occupancy).
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🧹 **2. Find the bugs & clean**
+:::
+
+::: card-body
+
+- Discuss first: what are the crucial steps when cleaning tabular data?
+- Use the agent to inspect the provided code: check row counts around joins, hunt missing values, standardise team/city names, dates, and keys.
+- Produce clean tables in a new `/data_cleaned` folder.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🔗 **3. Join, aggregate & investigate**
+:::
+
+::: card-body
+
+Quick refresher: [Joining Tables Guide](../da-knowledge/joining-tables.qmd).
+
+1. **Join** — *"Join the hotels and cities data. How many hotels are in each province?"*
+2. **Aggregate** — *"What's the average occupancy rate by city? Show a table sorted highest to lowest."*
+3. **Investigate** — *"Which 5-star hotels have the lowest average daily rate? Something seems off — investigate."*
+
+**Tips:** if something looks wrong, ask *"Why did that happen?"* or *"Check the row counts."* Ask to see intermediate steps: *"Show me the data after the join, before aggregating."* Then **open a created table manually** and look into it — how would you test and debug it yourself?
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+✨ **4. The power move — generate new data**
+:::
+
+::: card-body
+
+One of the most useful CLI capabilities is generating realistic synthetic data. (The Austrian Hotels dataset itself was generated by an earlier Claude!)
+
+```
+I want to create a new CSV file called hotel_bookings.csv that shows what
+percentage of each hotel's bookings come from different channels (Direct,
+Booking.com, Expedia, HRS, Travel Agent). Percentages must sum to 100% per
+hotel; 5-star hotels skew to Direct (35–45%), 3-star to OTAs (Booking.com 40%+);
+add a commission rate (Direct = 0%, OTAs = 10–18%). Write Python code that uses
+hotels_modified.csv as input, run it, and show me a summary.
+```
+
+Then **verify**: do percentages sum to 100? Are the patterns realistic? Can you join it back to hotels? Be more specific to get realistic patterns. Brainstorm one more join table of your own (weather by city/month, staff by hotel, nearby attractions by city…) and generate it.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📋 **5. Set conventions — write `CLAUDE.md` / `agents.md`**
+:::
+
+::: card-body
+
+Create a project instruction file (style, data standards, analysis preferences — see the intro example). Re-run one analysis prompt and **notice how the behaviour changes** now that conventions are automatic.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🤖 **6. Build a skill**
+:::
+
+::: card-body
+
+Create `.claude/skills/clean-hotels-data/SKILL.md`:
+
+```markdown
+---
+name: clean-hotels-data
+description: Clean and validate Austrian Hotels data for analysis.
+---
+
+Run the Austrian Hotels cleaning pipeline:
+1. Check missing values in `data/hotels_raw.csv`
+2. Run the cleaning script
+3. Verify output dimensions in `data/hotels_clean.csv`
+4. Generate a short data-quality report
+```
+
+Now typing `/clean-hotels-data` runs the workflow consistently. What other repetitive tasks could become skills?
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+✅ **7. Write tests (guardrails)**
+:::
+
+::: card-body
+
+Ask the CLI to generate and run ~5 tests for the cleaning pipeline:
+
+- `hotel_id` is unique in the cleaned table
+- key fields not null (`hotel_id`, `city_id`, `date`)
+- `city_id` values exist in the city lookup table (foreign key)
+- `occupancy_rate` between `0` and `100`
+- row count within an expected range after cleaning/joining
+
+Review one **failing** test together, fix the underlying cause, and rerun. Prefer tests that return the failing rows so you can inspect those exact rows first.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🌿 **8. Git + a peek at autonomy**
+:::
+
+::: card-body
+
+- *"Create a branch `hotels-robustness-checks`, run the robustness checks, and prepare a summary of changes."* Then inspect the diff and explain every changed file to a partner.
+- *"Look at the git history for the cleaning script. Why did we change the outlier threshold?"* — the agent reads commit messages and diffs.
+- **Autonomy, carefully.** A non-interactive run looks like:
+
+```bash
+claude -p "Run the /clean-hotels-data skill and the robustness checks, then summarize changed files"
+```
+
+Apply the safety protocol: right branch, written success criterion, `git diff` after, tests after. Only on familiar, verified pipelines — never on new code or shared resources.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+📄 **9. Document**
+:::
+
+::: card-body
+
+Write a `README` / `DATA.md`: each table, its source, schema, and known issues. This is what lets someone else (or future you) rerun the whole thing.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Operation tips
+
+- **Use git-based projects.** CLI tools are file-based, so git gives safer iteration and easy rollbacks.
+- **A reliable three-step loop:** *Inventory* ("What files are here?") → *Plan* ("What steps should we run?") → *Execute and verify*.
+- **Read error messages before re-prompting** — often the agent fixes errors itself if you just let it run.
+
+**Bottom line — CLI shines for:** complex multi-file pipelines (`raw → clean → analysis → exhibits`), reproducible workflows others can run, large datasets/documents needing context, and iterative analysis where the AI tests and debugs autonomously. **IDE/chat is still better for:** quick one-off questions, exploratory methodology conversations, and moments when you want tight control over each step.
+
+------------------------------------------------------------------------
+
+## Discussion (50 min)
+
+- What failed **silently** — looked fine but was wrong? How did you catch it (or not)?
+- Which test caught the most? Which two tests would you add to your own pipeline first?
+- How did `agents.md` / skills change the AI's behaviour?
+- What did you learn from generating synthetic data — and where could it mislead?
+- When is autonomous execution appropriate vs risky in a research context? How do you balance speed with verification?
+
+------------------------------------------------------------------------
+
+## Delivery
+
+::::: {.week-card .card}
+::: card-header
+📦 **What to hand in (Sunday 23:55)**
+:::
+
+::: card-body
+
+- **Fixed repo** with: a `CLAUDE.md`/`agents.md`, cleaned data in `/data_cleaned`, at least one AI-generated join table (with a note on how you verified it), a passing test suite (with a note on the failing test you fixed), the `/clean-hotels-data` skill, and a `README`/`DATA.md`.
+- **A short note**: the most important bug you found and how you caught it; plus one sentence on how the CLI workflow felt different from Copilot/chat.
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Knowledge Base & resources
+
+- [Designing Larger Analytics Projects](../da-knowledge/designing-projects.qmd) · [Reproducible Research](../da-knowledge/reproducible-research.qmd)
+- [Documentation Fundamentals](../da-knowledge/documentation-readme.qmd) · [Joining Data Tables](../da-knowledge/joining-tables.qmd)
+- [Austrian Hotels case study](../case-studies/austria-hotels/index.qmd) · [Terminal Basics](../da-knowledge/terminal-basics.qmd) · [Installing AI CLI Tools](../da-knowledge/install-cli.qmd)
+- [Claude Code common workflows](https://docs.anthropic.com/en/docs/claude-code/common-workflows) · [settings & memory](https://docs.anthropic.com/en/docs/claude-code/settings)
+- [Short showcase of what's possible now (15 min, must-watch)](https://www.youtube.com/watch?v=hiISl558JGE)

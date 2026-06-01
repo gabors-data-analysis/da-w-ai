@@ -74,8 +74,8 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 
 ### Consequence of AI
 
-How NLP was killed by Transformers/ LLMs in [Quant magazine 2025 April](https://www.quantamagazine.org/when-chatgpt-broke-an-entire-field-an-oral-history-20250430/?)
-
+* How NLP was killed by Transformers/ LLMs in [Quant magazine 2025 April](https://www.quantamagazine.org/when-chatgpt-broke-an-entire-field-an-oral-history-20250430/?)
+* Mental effect of agentic AI by Lars Face: [Agentic Coding is a Trap](https://larsfaye.com/articles/agentic-coding-is-a-trap)
 
 ### Blogs, newsletters
 
