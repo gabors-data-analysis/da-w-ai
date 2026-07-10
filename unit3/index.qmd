@@ -35,7 +35,7 @@ The whole session runs on one continuous case study — the **Austrian Hotels** 
 
 ::: card-body
 
-- ☐ **Tech** — confirm **Claude Code** runs (from Week 1). New to the terminal? Skim [Terminal Basics](../da-knowledge/terminal-basics.qmd). The workflow transfers to Gemini CLI / Codex CLI, but we demo Claude Code.
+- ☐ **Tech** — confirm **Claude Code** runs (from Week 1). New to the terminal? Skim [Terminal Basics](../da-knowledge/terminal-basics.qmd). The workflow transfers to Codex / Copilot CLI / Gemini CLI, but we demo Claude Code.
 - ☐ **Python** — Claude Code runs Python for you, so it must be installed and on PATH (`python --version`). Install the basics:
 
 ::: {.panel-tabset}

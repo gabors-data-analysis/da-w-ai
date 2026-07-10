@@ -1,9 +1,9 @@
 ---
-title: "Which AI model shall we chose?"
-date: "2026-03-06"
+title: "Which AI model shall we choose?"
+date: "2026-07-10"
 ---
 
-In what follows, here is my personal take as of `date:2026-03-06`.
+In what follows, here is my personal take as of `date:2026-07-10`.
 
 
 ## Basics
@@ -12,7 +12,7 @@ Generative AI based on Large Language Models (genAI) is a powerful tool with a s
 
 ### Leading models
 
-* As of now the leading (state of the art, SOTA) models are Google's Gemini (3.0), OpenAI's ChatGPT (5.4), and Anthropic's Claude Opus (4.6.)
+* As of now the leading (state of the art, SOTA) models are Google's Gemini (3), OpenAI's GPT (5.5), and Anthropic's Claude (Opus 4.8 and the Claude 5 family).
 * Other key model is [Mistral AI](https://mistral.ai/) but there are several others
 * Open source -- open weights models are also quite good, [Kimi (K2.5)](https://www.kimi.com/ai-models/kimi-k2-5), an open weight model, is quite good and free. Deepseek, Qwen the other leading models. Think of them as SOTA 4-9 months ago 
 

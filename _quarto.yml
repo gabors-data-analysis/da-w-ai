@@ -123,6 +123,8 @@ website:
                 href: da-knowledge/reproducible-research.qmd
               - text: "Documentation Fundamentals"
                 href: da-knowledge/documentation-readme.qmd
+              - text: "Knowledge Bases for Agents"
+                href: da-knowledge/knowledge-bases-agents.qmd
               - text: "Joining Data Tables"
                 href: da-knowledge/joining-tables.qmd
               - text: "NLP Basics — Text as Data"

@@ -1,0 +1,153 @@
+---
+title: "Knowledge Bases for Agents"
+subtitle: "Metadata as Code and the Open Knowledge Format"
+date: "2026-06-19"
+---
+
+## Why This Matters Now
+
+A README is written for a person reading top to bottom. An AI agent works
+differently: it lands in your project cold, needs to find the one table relevant
+to the question, and wants to load *only that* — not your entire 400-line data
+description. As we hand more of our analysis to agentic tools like Claude Code,
+the way we document data starts to matter for machines as much as for humans.
+
+The good news: the same plain-markdown habits that make documentation good for
+people also make it navigable for agents — if you add a little structure. This
+page introduces **metadata as code** and a lightweight convention built on it,
+the **Open Knowledge Format (OKF)**.
+
+This builds directly on [Documentation Fundamentals](documentation-readme.qmd) —
+read that first if you haven't.
+
+## Metadata as Code
+
+"Metadata as code" means your documentation about the data lives **in the
+repository, in plain text, under version control** — right next to the code and
+data it describes. Not in a separate wiki, not in a vendor's catalog UI, not in a
+shared drive that drifts out of date.
+
+The benefits mirror those of code itself:
+
+| Property | What you get |
+|----------|--------------|
+| **Version controlled** | Documentation changes are tracked in git alongside data changes |
+| **Diffable** | You can see exactly what changed in a table description and when |
+| **Portable** | Move the repo, the knowledge comes with it — no lock-in |
+| **Readable by both** | Same file serves a human (renders nicely) and an agent (parses cleanly) |
+
+## The Open Knowledge Format
+
+[OKF](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) is
+an open, vendor-neutral convention published by Google Cloud in 2026. Strip away
+the cloud framing and it is deliberately tiny — the whole spec fits on a page:
+
+1. A **directory of markdown files**, one per "concept" — a table, a dataset, a
+   metric. The file path *is* the concept's name.
+2. Each file opens with **YAML frontmatter**: a small block of structured fields.
+   Only `type:` is required; everything else is optional but queryable.
+3. Concepts **link to each other with ordinary markdown links**, forming a
+   knowledge graph richer than the folder tree.
+4. Optional `index.md` files let an agent navigate in progressively, and `log.md`
+   files record change history.
+
+That's it. No SDK, no database, no runtime. It works with the text editor, git,
+and AI tools you already use. The bet — voiced by Andrej Karpathy — is that the
+tedious cross-reference bookkeeping that makes humans abandon wikis is exactly
+what LLMs do tirelessly.
+
+### What a concept file looks like
+
+Here is a single table from a football dataset, documented OKF-style:
+
+```markdown
+---
+type: Table
+title: matches
+description: One row per match — the core fact table for 2024/25.
+resource: ../data/matches.csv
+tags: [football, fact-table]
+updated: 2026-06-19
+---
+
+# matches
+
+Core fact table. 1,752 rows across the top-5 leagues.
+
+## Schema
+| Column | Type | Coverage | Notes |
+|--------|------|----------|-------|
+| `match_id`  | string | 100%  | Deterministic ID |
+| `home_xg`   | float  | 99.9% | Expected goals (Understat) |
+| `referee`   | string | 22%   | Only EPL has referee data |
+
+## Joins
+- `match_id` → [match_stats](match_stats.md) (1:2, perfect)
+- `match_id` → [lineups](lineups.md) (1:~31, perfect)
+```
+
+Two things to notice. The **frontmatter** is filterable: an agent can ask "show me
+every `type: Table` updated this month" without reading the bodies. And the
+**foreign key is written as a link** — `match_id → [lineups](lineups.md)` — so the
+agent follows join paths the way you follow hyperlinks.
+
+### The frontmatter fields
+
+| Field | Required? | Use |
+|-------|-----------|-----|
+| `type` | **Yes** | `Dataset`, `Table`, `Metric`, `Concept`, … |
+| `title` | No | Human label |
+| `description` | No | One sentence the agent reads first |
+| `resource` | No | Path or URL to the thing described (the CSV, the dashboard) |
+| `tags` | No | Flat list for grouping |
+| `updated` | No | `YYYY-MM-DD` |
+
+## A README vs. an OKF Bundle
+
+These are complements, not competitors. A useful way to see the difference:
+
+| | README / single doc | OKF bundle |
+|---|---|---|
+| **Audience** | Human reading start to finish | Agent fetching one slice |
+| **Shape** | One file, narrative | Many files, one per concept |
+| **Relationships** | Described in prose | Encoded as markdown links |
+| **Best for** | Project overview, setup, the "why" | Rich relational datasets with many tables |
+
+The honest guidance: **don't convert everything.** A one-off script or a single
+CSV needs a good README, not a bundle. The payoff of OKF appears when you have a
+genuinely relational dataset — several tables with foreign keys — that an agent
+will query repeatedly over time. For that case, splitting a long data description
+into linked per-table files means the agent loads only what it needs and can walk
+the joins.
+
+## Maintaining It with AI
+
+This is where it becomes practical rather than aspirational. Keeping cross-
+references current is exactly the chore that kills hand-maintained documentation —
+and exactly what an agent is good at. A workable loop:
+
+1. **Generate the first draft** — point Claude Code at your data folder and ask it
+   to draft one concept file per table, with schema and inferred join paths.
+2. **Verify against the data** — the non-negotiable step. Check that column types,
+   coverage percentages, and especially the join keys are *real*, not plausible
+   inventions. (See the verification discipline in
+   [Documentation Fundamentals](documentation-readme.qmd).)
+3. **Let the agent maintain it** — when the data changes, ask the agent to update
+   the affected files and fix every cross-reference in one pass.
+
+The first draft is cheap; the verification is where your judgment earns its keep.
+An agent will happily write `coverage: 100%` for a column that is half empty.
+
+## Try It
+
+A complete worked example — the seven-table European football dataset converted
+into an OKF bundle — accompanies this course's data-linking material. Open it and
+notice how each table file links to the ones it joins, and how the top-level
+`index.md` carries the whole join map.
+
+## Further Reading
+
+- [Open Knowledge Format spec & samples](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) — the one-page spec, plus sample bundles (GA4, Stack Overflow)
+- Google Cloud, [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) — the announcement
+- [Documentation Fundamentals](documentation-readme.qmd) — READMEs and codebooks, the human-facing counterpart
+- [Joining Data Tables](joining-tables.qmd) — why foreign keys are worth documenting carefully

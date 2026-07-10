@@ -8,14 +8,14 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 ## AI & LLM fundamentals
 
 - [LLM Glossary](../da-knowledge/technical-terms-page.qmd) — technical terms used in lectures and class.
-- [Which AI to use](../da-knowledge/which-ai.qmd) — January 2026 comparison of major models and tools.
+- [Which AI to use](../da-knowledge/which-ai.qmd) — July 2026 comparison of major models and tools.
 - [Beyond the course](../da-knowledge/beyond.qmd) — curated videos, papers and further reading. Updated regularly.
 
 ## Setting up AI tools
 
 - [AI Coding Prep](../da-knowledge/ai-coding-prep.qmd) — before-Week-1 prep: tools, environment, prompting habits for code.
 - [Terminal Basics](../da-knowledge/terminal-basics.qmd) — essential shell commands for CLI work.
-- [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Gemini CLI, Codex CLI, OpenCode.
+- [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Codex CLI, GitHub Copilot CLI, Gemini CLI.
 - [VS Code + Copilot setup](../da-knowledge/vscode-setup.qmd) — IDE + AI assistant.
 
 ## Working with APIs

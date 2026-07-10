@@ -1,6 +1,6 @@
 ---
 title: "Installing AI CLI Tools"
-subtitle: "Claude Code, Gemini CLI, and Codex CLI"
+subtitle: "Claude Code, Codex CLI, GitHub Copilot CLI, and Gemini CLI"
 ---
 
 ## Choose Your Tool
@@ -15,8 +15,9 @@ All these CLI tools let you work with AI directly in your terminal. Pick one to 
 | Tool | Provider | Model | Pricing |
 |------|----------|-------|---------|
 | **Claude Code** | Anthropic | Claude | Claude Pro/Max ($20+/mo) or Console |
+| **Codex CLI** | OpenAI | GPT-5 family | ChatGPT Plus/Pro ($20+/mo) |
+| **Copilot CLI** | GitHub | Multiple (Claude, GPT) | Copilot (~$10/mo, **free for students/teachers**) |
 | **Gemini CLI** | Google | Gemini | Free tier + paid plans |
-| **Codex CLI** | OpenAI | GPT-4o | ChatGPT Plus/Pro ($20+/mo) |
 
 
 ---
@@ -236,6 +237,12 @@ OpenAI's command-line coding tool.
 
 ### Windows
 
+PowerShell:
+```
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+Or with npm:
 ```
 npm install -g @openai/codex
 ```
@@ -243,16 +250,18 @@ npm install -g @openai/codex
 ### Mac
 
 ```
-npm install -g @openai/codex
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
 ```
 
-Or with Homebrew:
-```
-brew install openai/tap/codex
-```
+Or: `npm install -g @openai/codex` / `brew install openai/tap/codex`
 
 ### Linux
 
+```
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+Or with npm:
 ```
 npm install -g @openai/codex
 ```
@@ -273,6 +282,58 @@ codex
 - **OpenAI API key** (alternative option)
 
 **More details:** [Codex CLI Documentation](https://developers.openai.com/codex/cli/)
+
+---
+
+## GitHub Copilot CLI
+
+GitHub's terminal coding agent — the same agent that powers Copilot in VS Code. **Free for verified students and teachers** via the [GitHub Student Developer Pack](https://education.github.com/pack).
+
+### Install
+
+::: {.panel-tabset}
+
+### Windows
+
+```
+winget install GitHub.Copilot
+```
+
+Or with npm (needs Node.js 22+):
+```
+npm install -g @github/copilot
+```
+
+### Mac
+
+```
+brew install --cask copilot-cli
+```
+
+Or with npm (needs Node.js 22+):
+```
+npm install -g @github/copilot
+```
+
+### Linux
+
+```
+npm install -g @github/copilot
+```
+
+:::
+
+### Use
+
+Navigate to your project folder and start:
+```
+cd /path/to/your/project
+copilot
+```
+
+**First time**: You'll be prompted to sign in via browser with the GitHub account that has your Copilot access.
+
+**More details:** [Copilot CLI Documentation](https://docs.github.com/en/copilot/how-tos/copilot-cli)
 
 ---
 

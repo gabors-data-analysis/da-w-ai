@@ -19,7 +19,7 @@ As AI becomes more and more powerful, it is also important to provide a platform
 
 The course is **eight 200-minute sessions** — a five-week core course plus a three-session capstone:
 
-- **Week 1 — LLMs & Setup.** The one front-facing week: what LLMs are, the model-vs-harness distinction, closed vs open-weights models, and getting a working environment running on the two course harnesses.
+- **Week 1 — LLMs & Setup.** The one front-facing week: what LLMs are, context windows and document sharing, free vs paid subscriptions, the model-vs-harness distinction, closed vs open-weights models — and getting a working harness (desktop + CLI) running.
 - **Weeks 2–3 — Core Data Analysis.** Use AI on tasks students mostly *can* do unaided: a reproducible raw-data-to-report pipeline, then reviewing and debugging AI's work with instruction files, skills, and tests.
 - **Weeks 4–5 — Research with AI.** AI as a research companion: causal identification (controls, instruments, difference-in-differences) and text-as-data with LLM APIs.
 - **Capstone (3 sessions).** A team project that pushes students into work they have **never done before**: production-style **web scraping**, **text-as-data classification using LLM APIs**, and **modern causal econometrics** (difference-in-differences with staggered treatment, event-study designs). The whole point is that AI makes this newly accessible — and the course makes students actually do it.
@@ -102,7 +102,7 @@ Important to note for assignments:
 
 **Week 1: LLMs, Harnesses & Setup**
 
-What LLMs are and how the magic happens — a non-technical intro. The model-vs-harness distinction, closed/frontier vs open-weights models, and the two course harnesses (Claude Code in terminal and desktop, VS Code + GitHub Copilot). Get a working environment running. See also [which AI model to use](da-knowledge/which-ai.html).
+What LLMs are and how the magic happens — a non-technical intro that starts from the free chat box. Context windows and what happens when you share documents, free vs paid subscriptions and when to upgrade, and the harness idea: coding agents (Claude Code, Codex, GitHub Copilot) that read whole folders, run code, and use tools. Get one running — desktop app and CLI — and close with OpenRouter and open-weights models on your own machine. See also [which AI model to use](da-knowledge/which-ai.html).
 
 [Content](unit1/)
 

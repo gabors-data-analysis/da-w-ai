@@ -8,7 +8,7 @@ The course is eight 200-minute sessions: a five-week core course plus a three-se
 
 ## Week 1: LLMs, Harnesses & Setup
 
-What LLMs are and how to work with them; the model-vs-harness distinction; closed/frontier vs open-weights models; the two course harnesses (Claude Code in terminal and desktop, VS Code + GitHub Copilot). Set up a working environment.
+Starting from the free chat box: what LLMs are, context windows and what happens when you share documents, free vs paid subscriptions and when to upgrade, and the harness idea — coding agents (Claude Code, Codex, GitHub Copilot) that read whole folders, run code, and use tools. Set up a working harness (desktop app + CLI); close with OpenRouter and local open-weights models.
 
 **Which AI?** See [my take on current models](../da-knowledge/which-ai.html).
 

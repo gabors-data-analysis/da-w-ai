@@ -22,6 +22,8 @@ The full pipeline with AI: understand → document → download → clean → jo
 
 This is the first core-analysis week. You meet a genuinely messy, 600-column raw file, use AI to *understand and document* it, then run the whole pipeline — from that raw file to a finished short report. Two lessons live in the room: how to **face an unfamiliar dataset** with AI as a research assistant, and the contrast between an undirected *"vibe report"* and a carefully directed, analysis-quality one.
 
+It is also your **first full working session inside a harness**. Instead of copy-pasting through a chat window, you drive Claude Code (or Codex / Copilot) through the whole pipeline: it reads the codebook and samples from your project folder, writes and runs the scripts, and saves real outputs to disk. Learning to *steer* that loop — plan, instruct, watch, verify — is as much the point of today as the analysis itself.
+
 ------------------------------------------------------------------------
 
 ## Before you come to class (30–60 min)
@@ -33,7 +35,7 @@ This is the first core-analysis week. You meet a genuinely messy, 600-column raw
 
 ::: card-body
 
-- ☐ **Tech** — confirm Claude Code **and** VS Code + Copilot still run (from Week 1). Be able to run Python/R from a terminal.
+- ☐ **Tech** — confirm your harness from Week 1 still runs (Claude Code desktop **and** CLI — or Codex / Copilot). Be able to run Python/R from a terminal: the harness writes the scripts, but *your* machine executes them.
 - ☐ **Packages** — install once:
 
 ::: {.panel-tabset}
@@ -106,6 +108,29 @@ Habits that pay off all term (fuller checklist in [AI Coding Prep](../da-knowled
 
 ::::: {.week-card .card}
 ::: card-header
+🛠️ **Driving the harness — how to actually work in Claude Code today**
+:::
+
+::: card-body
+
+The prompting habits above apply in any chat. Working *in a harness* adds a workflow of its own. Today's session is built around it:
+
+1. **Launch where the work is.** Make one project folder (`wvs-project/`), put the codebook PDF and the 2,000-row sample in it, `cd` there, run `claude`. The folder *is* the shared workspace — no uploading; the agent reads what it needs.
+2. **Plan before code.** Start big tasks with *"Don't write code yet — propose a plan"* (in Claude Code, `Shift+Tab` toggles plan mode). Approve or edit the plan, *then* let it execute. This one habit prevents most runaway sessions.
+3. **Ask for scripts, not answers.** *"Write `01_download.py` that fetches the WVS file, then run it"* beats *"download the data"*. Scripts on disk are what make your pipeline reproducible; a chat answer evaporates. By day's end you want a numbered set: `01_download` → `02_clean` → `03_aggregate` → `04_join` → `05_report`.
+4. **Don't let the big file near the context window.** The agent should *never* "read" the 180 MB CSV — it should **peek at it with code** (`head`, shapes, dtypes, value counts). If you see it trying to open the whole file, stop it and say so. Codebook + samples in context; full data only through code.
+5. **Make it verify — then verify yourself.** After every step: *"Print row counts before and after. Show 5 random rows. Do the country codes look right?"* Then open the output CSV yourself. The agent checking its own work is good; you spot-checking it is non-negotiable.
+6. **Watch the permission prompts.** The harness asks before running commands or editing files. Read them — that's you staying in charge. Reading files and running your analysis scripts: approve freely. Installs, deletions, anything network-facing: think first.
+7. **One phase, one session.** When you finish a phase (say, cleaning), start a fresh session (`/clear`) and open with a one-line recap: *"Cleaned data is in `data_clean/wvs.csv`, one row per respondent; now let's aggregate to countries."* A short restated context beats a bloated window.
+8. **Checkpoint with git.** `git init` at the start; ask the agent to commit after each working stage (*"commit with a message describing the cleaning step"*). Cheap insurance and a readable history of your decisions. Week 3 builds this into a full discipline (instruction files, skills, tests).
+
+**If something goes sideways:** press `Esc` to interrupt; ask *"what did you just change?"*; use `git diff` to see exactly what happened. You're never more than one commit away from safety.
+
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
 🧭 **Facing an unfamiliar dataset: discovery & documentation**
 :::
 
@@ -151,7 +176,9 @@ Work at your own pace. Tasks 1–8 are core; 9–10 are stretch. Verify after ev
 
 **1. Discover without AI first (5 min).** Open the [2,000-row sample](../case-studies/VWS/data/WVS_random_subset2000.csv) and the codebook. Jot down what you can tell *unaided*, and a first guess at a research question (a `y` and an `x`). This sharpens what AI is actually adding.
 
-**2. Understand with AI.** Upload the codebook + sample. Ask: how many countries? what years? what do `Q1`–`Q89` cover (which sections)? what do negative values (−1…−5) mean? Then **test it**: *"Explain the difference between Q6 and Q7 in simple terms."* *Check:* you can name 5 Q-variables and what they measure.
+**2. Understand with AI.** Put the codebook PDF and the sample CSV in your project folder and launch the harness there — then just ask; it reads both itself. Ask: how many countries? what years? what do `Q1`–`Q89` cover (which sections)? what do negative values (−1…−5) mean? Then **test it**: *"Explain the difference between Q6 and Q7 in simple terms."* *Check:* you can name 5 Q-variables and what they measure.
+
+  *Harness hint:* a 400-page codebook is exactly what the harness is for — it can search the PDF for the pages about a specific variable instead of stuffing the whole thing into context. Ask *"where in the codebook is Q57 defined? Quote the exact wording."* Quoting forces it to actually look.
 
 **3. Write a mini data dictionary / README.** For the variables you'll use, document name, meaning, scale, and missing codes. Iterate it with AI, but verify every technical detail. *Check:* a teammate could pick up your `DATA.md` and know what each column is.
 
@@ -165,15 +192,21 @@ Work at your own pace. Tasks 1–8 are core; 9–10 are stretch. Verify after ev
 
 ::: card-body
 
-**4. Download from code.** Fetch the WVS Wave 7 CSV from OSF (`https://osf.io/36dgb/download`) — write a script, don't click. *Check:* 97,220 rows × 613 columns.
+**4. Download from code.** Fetch the WVS Wave 7 CSV from OSF (`https://osf.io/36dgb/download`) — write a script, don't click. In the harness: *"Write `01_download.py` (or `.R`) that downloads the WVS file to `data_raw/`, run it, and confirm the file size and shape."* *Check:* 97,220 rows × 613 columns.
+
+  *Harness hint:* from here on, the agent must work on the full file **through code only** — shapes, dtypes, value counts — never by reading it into context. If it stalls or tries, tell it explicitly: *"don't read the CSV, inspect it with pandas."*
 
 **5. Pick a topic & variables.** Choose one concept (trust, gender equality, happiness, tolerance) and 3–6 related Q-items. Decide your x-variable: GDP per capita PPP. *Check:* a short list with a sentence on why these items belong together.
 
 **6. Clean & build a composite.** Keep identifiers (`B_COUNTRY_ALPHA`, `A_YEAR`, `A_WAVE`), weight (`W_WEIGHT`), your Q-items, demographics (`Q260` sex, `Q262` age, `Q275` education). Filter to Wave 7, recode negatives to missing, **z-score each item and average into one index** (handles the different scales). *Check:* composite has mean ≈ 0, sensible spread.
 
+  *Harness hint:* this is the step where silent errors live (a −2 treated as a real value will poison the index). Ask the agent to **prove** the recode: *"Show the value counts of Q57 before and after recoding, side by side."* And make it a script (`02_clean.py`), not throwaway session code — you'll rerun it.
+
 **7. Aggregate.** Group by country (and year); mean composite + respondent count. *Check:* ~66 country-year rows.
 
 **8. Get GDP & join.** Pull World Bank indicators for 2017–2023; **left-join** onto your country panel. Save the merged CSV.
+
+  *Harness hint:* joins are where row counts lie. Before accepting the result, ask: *"How many rows before and after the join? Which countries failed to match, and why?"* (Country-code mismatches — `GBR` vs `UK` — are the classic.) Make it list the unmatched rows, not just count them.
 
 | Indicator | World Bank code |
 |---|---|
@@ -195,6 +228,8 @@ Work at your own pace. Tasks 1–8 are core; 9–10 are stretch. Verify after ev
 
 **9. The directed report.** Produce a short report: a scatter of your composite vs **log** GDP per capita (label a few countries, non-causal title) + a 2–3 sentence interpretation. Constrain it: 3–5 exhibits, ~700 words.
 
+  *Harness hint:* ask for a **rendered artifact**, not chat text: *"Create `report.qmd` (or a notebook) with the scatter, the table, and the text; render it to HTML."* Then iterate on the file: *"labels overlap in the bottom-left — fix"*, *"the title implies causality — soften it."* Editing a real document beats regenerating chat answers.
+
 **10. Composite vs single item (stretch).** Redo the scatter with one raw Q-item; put side by side; explain why averaging gives a cleaner signal.
 
 :::
@@ -209,6 +244,7 @@ Work at your own pace. Tasks 1–8 are core; 9–10 are stretch. Verify after ev
 ## Discussion (50 min)
 
 - Score the vibe report (1–10): length, is the question well defined, are exhibits informative and well labelled, is the text honest about what it shows?
+- **The harness itself:** what did you approve without reading? Did plan mode change what got built? When did you interrupt, and what had gone wrong by then? How does driving an agent differ from prompting a chat?
 - **Discovery & docs:** Was there any benefit to looking at the data *without* AI first? What was AI's biggest contribution? How did the first result compare to the version after a few iterations?
 - Where did AI's understanding of the codebook break down — and how did your "test" prompt catch it?
 - Which task did AI help with most? Where did you have to correct it?
