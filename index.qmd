@@ -15,6 +15,8 @@ As AI becomes more and more powerful, it is also important to provide a platform
 
 **This is the 2026 Summer edition release**
 
+*Last updated: 2026-07-10*
+
 ### Structure
 
 The course is **eight 200-minute sessions** — a five-week core course plus a three-session capstone:
