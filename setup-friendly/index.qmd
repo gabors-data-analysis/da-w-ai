@@ -1,0 +1,404 @@
+---
+title: "Start Here — Agentic AI for Social Scientists"
+subtitle: "A friendly, step-by-step setup: from chatbot to an AI agent that works in your folders"
+date: "2026-11-06"
+resources:
+  - starter/**
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Start Here — Agentic AI for Social Scientists
+:::
+
+::: {.hero-subtitle}
+You have used ChatGPT or Claude in a browser, mostly for text. This page takes you, one step at a time, to an AI agent that works with the files on your own computer: your data, your PDFs, your Word drafts
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Who this page is for
+
+This page is for social scientists who have used AI as a chatbot, mostly to write, edit or summarize text, and have never used Python or R. Seniority does not matter, and neither does your field.
+
+Two reactions are common when people first hear about AI agents.
+
+*"This is for programmers."* It is not. You will not type a single command. You write instructions in plain language, the way you would brief a research assistant. Even installing Python is done by the agent, which explains each step before taking it. If you can follow a recipe, you can follow this page.
+
+*"I don't need this."* Maybe so. Plenty of excellent research was done without it. This page does not try to argue the point. It lets you find out for yourself, on your own material, at the cost of an afternoon and one month of subscription. You stay the author: you decide what to keep, and nothing is changed without your approval.
+
+We use one tool: **Claude Code, inside the Claude desktop app**. It works on Windows, Mac and Linux. Other companies offer similar agents, and what you learn here carries over. But while learning, one tool is enough.
+
+The whole page takes about **one to two hours**. If something fails, nothing is broken. Read the troubleshooting section at the end, or simply ask Claude what went wrong.
+
+::: {.callout-note}
+## What you will have at the end
+
+- ☐ The Claude desktop app, with the **Code** tab working
+- ☐ A project folder that the agent can read and write
+- ☐ Python installed, set up by the agent for you
+- ☐ A Markdown reader for the files the agent writes
+- ☐ A routine for working on Word documents with the agent, with every change visible as tracked changes
+- ☐ An `AGENTS.md` file with standing instructions for the agent
+- ☐ Two **skills**: one to log analytical decisions, one to read PDFs reliably
+- ☐ One small, real analysis done, with numbers you checked yourself
+:::
+
+------------------------------------------------------------------------
+
+## What is an AI agent?
+
+**A chatbot** is a conversation in a browser. You bring material to it (paste text, upload a file), it answers, and you copy the answer back into Word. It cannot see your computer. It knows only what you pasted or uploaded in that conversation.
+
+**An agent** is the same AI model, given three things a chatbot does not have. First, access to **one folder** on your computer that you choose. Second, the ability to **act** in that folder: open files, write and run small programs, save new files. Third, a **loop**: it takes a step, looks at the result, and decides the next step, until the task is done or it needs you.
+
+The loop is what makes the difference. Say you ask: *"Make a chart of turnout by age group from survey.csv."* A chatbot needs you to upload the file, and it may guess at what the columns mean. The agent:
+
+1. opens the file and sees that the age variable is called `age_cat`, not `age`;
+2. writes a short program and runs it;
+3. hits an error because some respondents have age coded as "refused", reads the error, and tells you how it proposes to handle those rows;
+4. runs the program again, opens the chart to check that it looks right, and saves it in `output/`.
+
+You see every step. In the beginning it asks your permission before each one.
+
+A useful way to think about it: a very fast research assistant, sitting at your computer, who has read a great deal but is new to your project. It needs clear instructions and it makes mistakes, sometimes confidently. So your job shifts from doing each step to **deciding, instructing and checking**. The checking does not go away. It becomes the most important part of the work.
+
+------------------------------------------------------------------------
+
+## What you need
+
+- **A paid Claude plan.** Claude Code needs at least **Claude Pro** (about \$20/month; [pricing](https://claude.com/pricing)). The free plan does not include it. You can cancel any time. If your university has a Claude Team or Enterprise plan, that works too. Ask your IT office.
+- **A computer** running Windows 10/11, macOS, or Linux (Ubuntu or Debian).
+- **Permission to install software.** On a university-managed laptop you may need IT to approve installs. Try first; ask if blocked.
+
+------------------------------------------------------------------------
+
+## Step 1 — Install the Claude desktop app
+
+::: {.panel-tabset}
+#### Windows
+1. Download the installer: [Claude for Windows](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect). (On a Surface or other ARM laptop, use the [ARM64 installer](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect).)
+2. Run the downloaded file. If Windows shows a blue "Windows protected your PC" box, click **More info → Run anyway**.
+3. Open **Claude** from the Start menu and sign in with your Claude account.
+
+#### Mac
+1. Download the installer: [Claude for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect). It works on both Intel and Apple Silicon Macs.
+2. Open the downloaded `.dmg` file and drag **Claude** into **Applications**.
+3. Open Claude from Applications (or press `Cmd+Space`, type *Claude*) and sign in.
+
+#### Linux
+The desktop app for Linux is in beta, for Ubuntu and Debian. Follow the install steps on the official page: [Claude Desktop on Linux](https://code.claude.com/docs/en/desktop-linux). Then start Claude from your application launcher and sign in.
+
+On another distribution, use the terminal version of Claude Code: [install guide](https://code.claude.com/docs/en/quickstart). Everything on this page still applies; you type the same prompts in the terminal.
+:::
+
+**Then open the Code tab.** At the top of the left sidebar you see tabs such as *Chat* and *Code*. Click **Code**. (If you see only icons, hover over them to read their names.) If it asks you to upgrade, your plan does not include Claude Code yet.
+
+::: {.callout-tip}
+The **Chat** tab is the chatbot you know. The **Code** tab is the agent. Despite the name, it is not only for programmers. It is the tab for any work on files in a folder, including text.
+:::
+
+------------------------------------------------------------------------
+
+## Step 2 — Make a project folder
+
+The agent works inside **one folder** at a time. Everything for a project lives there: data, code, notes, drafts, outputs. It is good practice to start a new folder for each project.
+
+1. In your **Documents** folder, create a folder called `ai-projects`, and inside it a folder called `first-project`.
+2. Keep folder and file names short, without spaces or accents (`first-project`, not `My First Project (ÁÉ)`). Programs handle plain names better.
+3. Make file extensions visible. You will see files ending in `.md`, `.csv`, `.py` and `.docx`, and it helps to know which is which.
+    - *Windows:* in File Explorer, click **View → Show → File name extensions**.
+    - *Mac:* in Finder, open **Finder → Settings → Advanced** and tick **Show all filename extensions**.
+
+**Open the folder in Claude.** In the Code tab, look at the row of controls under the prompt box. Click the first control (the environment) and choose the top entry under **Local**. Then click the folder control next to it, choose **Open folder…** and pick `first-project`.
+
+::: {.callout-warning}
+## What not to put in the folder (yet)
+The agent sends what it reads to Anthropic's servers to process it. Do not put confidential material (identifiable survey responses, health records, anything under a data-use agreement, unpublished work of others) in a project folder until you have checked your data agreement. Also check the privacy settings of your Claude account, which say whether your conversations may be used to improve future models. For learning, public data and your own drafts are fine.
+:::
+
+------------------------------------------------------------------------
+
+## Step 3 — Your first conversation with the agent
+
+Find the **permission mode** control in the row under the prompt box and set it to **Manual**. In Manual mode the agent asks before it creates or changes any file and before it runs anything. It is slower, but you see exactly what it does. Stay in Manual for your first week.
+
+Now type this into the prompt box and press Enter:
+
+> *Hi. I am new to this. What can you see in this folder? Then create a file called `hello.md` with three sentences about what you can do for a social scientist.*
+
+Watch what happens. The agent looks at the folder (it is empty), then asks permission to create a file. When it asks, read what it wants to do. If you do not understand it, click no and ask: *"What does this do? Explain in one sentence."*
+
+A few more things to try now:
+
+- Click the file name `hello.md` in the chat. It opens in a pane inside the app.
+- Type a follow-up: *"Make it two sentences and less formal."* Note that the agent edits the file. It does not just answer in chat.
+- To stop the agent in the middle of something, click the stop button. You can also type a correction while it works.
+
+------------------------------------------------------------------------
+
+## Step 4 — Let the agent set up Python
+
+This is the most technical step, and you do not have to understand it. It usually takes five to ten minutes, and your part is mostly reading and clicking *Yes*.
+
+Why Python at all, if you want to work with text? Because the agent uses small Python programs as its tools: to read Word and PDF files properly, to convert between formats, to handle a dataset of any size, to draw charts. It is free, works on every computer, and AI models write it very well.
+
+Copy this prompt into the agent:
+
+``` text
+I have never used Python. Please set up Python for this project folder.
+
+- Use uv (a modern Python installer) to install Python and create an
+  environment for this project only. Do not change anything else on my
+  computer without asking.
+- Before each command, tell me in one sentence what it does.
+- Install these packages: pandas, matplotlib, openpyxl, pyreadstat,
+  pymupdf, python-docx, pypandoc-binary, requests.
+- Test it: write a short script code/00_test.py that makes a simple bar chart
+  of five made-up numbers and saves it as output/test_chart.png. Run it.
+- Finally write docs/SETUP-NOTES.md: what you installed, where it lives,
+  how to run a script, and how to undo all of it.
+```
+
+What the packages are for, in one line each: **pandas** works with data tables, **matplotlib** draws charts, **openpyxl** reads Excel files, **pyreadstat** reads Stata and SPSS files, **pymupdf** reads PDFs, **python-docx** reads and edits Word files, **pypandoc-binary** converts between Markdown and Word, **requests** downloads data from the web.
+
+**When it worked:** you can open `output/test_chart.png` and see a bar chart. Keep `SETUP-NOTES.md`. When something breaks in three months, that file is the first thing to show the agent.
+
+Already working in Stata or R? Keep using them for your own analysis. The agent can write and run Stata do-files and R scripts too, if you ask it to. For everything on this page, Python is the path.
+
+::: {.callout-tip collapse="true"}
+## If something goes wrong here (click to open)
+
+- **Windows:** if the agent reports that it needs **Git**, install [Git for Windows](https://git-scm.com/downloads/win) with all default options, close and reopen the Claude app, and ask the agent to continue.
+- **Mac:** a window may pop up asking to install **command line developer tools**. Click Install. It takes a few minutes. Then tell the agent to continue.
+- **"Command not found" right after installing:** close the Claude app fully and open it again. New programs are often only found after a restart.
+- In every case, paste the error message into the chat and ask: *"What went wrong? Explain simply, then fix it."*
+:::
+
+------------------------------------------------------------------------
+
+## Step 5 — A Markdown reader: Typora
+
+The agent writes its notes, memos and plans in **Markdown**: plain text files ending in `.md`. A few symbols do the formatting: `# Title` makes a heading, `**word**` makes **bold**, `- item` makes a list. Markdown is the native language of AI tools. The agent reads and writes it perfectly, and the files open on any computer, forever.
+
+In a plain text editor you see the symbols. To read Markdown comfortably, install **[Typora](https://typora.io/)**. It shows the formatted text, the way Word does, and you can edit it the same way. It runs on Windows, Mac and Linux. It costs about \$15 once, after a free trial.
+
+1. Download and install Typora from [typora.io](https://typora.io/).
+2. Open your `hello.md` from Step 3 in Typora (right-click the file → **Open with** → Typora). It should look like a normal formatted document.
+3. Make Typora the default program for `.md` files, so a double-click opens it.
+
+::: {.callout-note}
+**If you write code, or plan to,** use [VS Code](https://code.visualstudio.com/) instead (free). It shows Markdown with a preview, and it is also where you read the agent's Python, R or Stata code. We use it in the main course.
+:::
+
+------------------------------------------------------------------------
+
+## Step 6 — Working on Word documents
+
+Most of your writing lives in Word, and so does your coauthors'. The agent can read Word files, comment on them, edit them and produce new ones. The routine below keeps you in control: **the agent never touches your original, and you see every change it made as tracked changes in Word.**
+
+**Getting started.** Copy a Word document you know well into your project folder, in a subfolder `docs/` (a paper draft, a grant proposal, a referee report you wrote). Use something that is not confidential.
+
+### Ask for comments, not changes
+
+The safest first use. Nothing is edited.
+
+``` text
+Read docs/draft.docx. Do not change it.
+Give me the ten most important comments on the argument, structure and
+clarity, most important first. For each, say which section or paragraph
+it refers to. Save the list as docs/draft_comments.md.
+```
+
+Open the comments in Typora. Some will be useful, some generic, a few wrong. That ratio tells you a lot about how to use the agent.
+
+### Ask for edits, then review them as tracked changes
+
+``` text
+Make a copy of docs/draft.docx called docs/draft_v2.docx. In the copy only:
+fix grammar and typos, and split sentences longer than 40 words.
+Do not change the argument, the citations or the numbers.
+Keep all formatting, footnotes and comments.
+When done, list the kinds of changes you made.
+```
+
+Then let Word show you exactly what changed:
+
+1. Open Word (the desktop program; Word in the browser cannot compare). On the **Review** tab, click **Compare**, then **Compare…** on Windows or **Compare Documents** on Mac.
+2. As *Original document*, choose `draft.docx`. As *Revised document*, choose `draft_v2.docx`.
+3. Word opens a new document with every change of the agent as a **tracked change**. Accept or reject them one by one, as you would with a coauthor.
+
+This is a standard Word feature, so there is nothing new to learn. It is also a good habit for checking: if the agent changed something you did not ask for, you will see it.
+
+### Write in Markdown, finish in Word
+
+For new text (a memo, a section, a report), it is good practice to draft and revise in Markdown with the agent, and convert to Word only at the end. The agent works best with plain text, and its changes are easy to follow there.
+
+``` text
+Convert docs/memo.md to docs/memo.docx.
+Use docs/my-template.docx for the styles (fonts, headings, margins).
+```
+
+For `my-template.docx`, take any Word file whose look you like (your university's template, a past paper) and put it in `docs/`. The agent copies its styles, not its text.
+
+### Margin comments
+
+You can also ask: *"Put your comments as Word comments in the margin of docs/draft_v2.docx."* This usually works. If the result looks odd, go back to the list of comments in a Markdown file, which always works.
+
+------------------------------------------------------------------------
+
+## Step 7 — Give the agent standing instructions: AGENTS.md
+
+Each session with the agent starts from zero. It does not remember yesterday. So we write down, once, what it should always know: who you are, how you like to work, what it must never do. This file is called **`AGENTS.md`** and sits in the project folder. The agent reads it at the start of every session.
+
+I prepared a starter file based on how I work with agents. Ask the agent to fetch it and set up the folders:
+
+``` text
+Download this file exactly (use a download command, do not retype it) and
+save it as AGENTS.md in this folder:
+https://gabors-data-analysis.com/ai-course/setup-friendly/starter/AGENTS.md
+
+Then create the folders it describes (data/raw, data/clean, code, output, docs)
+and summarize the instructions for me in five bullet points.
+```
+
+Then **open `AGENTS.md` in Typora and edit the "About me" section**: your field, what you work on, anything the agent should know about you. It is your file.
+
+::: {.callout-note collapse="true"}
+## What is in the starter AGENTS.md (click to open)
+
+```` markdown
+{{< include starter/AGENTS.md >}}
+````
+:::
+
+The main rules, in short: show a plan before longer tasks; do the smallest thing that answers the request; never delete files (move them to `_old/`); never overwrite your Word files or raw data; never invent numbers or references; say where every number comes from; check results by hand; log analytical decisions.
+
+It is good practice to grow this file slowly. **When the agent makes the same mistake twice, add one line to `AGENTS.md`.** After a month it will reflect how you work, and that is worth more than any template.
+
+------------------------------------------------------------------------
+
+## Step 8 — Add two skills
+
+A **skill** is a recipe the agent follows for one type of task. It is a Markdown file called `SKILL.md` in its own folder. The agent sees a short description of each skill and uses it when the task matches. You can also call a skill by name: type `/` and its name in the prompt box.
+
+Here are two to start with:
+
+- **`decision-log`** keeps a file `DECISIONS.md` with every analytical choice: which observations were dropped, how a variable was defined, which method. For each choice it records the alternatives and the basis (evidence, convention, your instruction, or just a default). You read this log *before* you trust the results.
+- **`read-pdf`** makes the agent extract a PDF's text into a `.txt` file first and work from that, citing page numbers. This avoids the most common failure with PDFs: answering from a partly read document without telling you.
+
+::: {.callout-note collapse="true"}
+## The decision-log skill (click to open)
+
+```` markdown
+{{< include starter/skills/decision-log/SKILL.md >}}
+````
+:::
+
+::: {.callout-note collapse="true"}
+## The read-pdf skill (click to open)
+
+```` markdown
+{{< include starter/skills/read-pdf/SKILL.md >}}
+````
+:::
+
+Install them with this prompt:
+
+``` text
+Download these two files exactly (use a download command, do not retype them):
+https://gabors-data-analysis.com/ai-course/setup-friendly/starter/skills/decision-log/SKILL.md
+https://gabors-data-analysis.com/ai-course/setup-friendly/starter/skills/read-pdf/SKILL.md
+
+Save them as .claude/skills/decision-log/SKILL.md and
+.claude/skills/read-pdf/SKILL.md inside this project folder.
+Then tell me in two sentences what each skill does.
+```
+
+Note the dot in `.claude`. Folders starting with a dot are hidden by default, so you may not see it in Explorer or Finder. That is normal. Start a new session (the **+** or *New session* button) and type `/` to check that both skills show up.
+
+**Try the PDF skill.** Put a paper you know well into the folder, then ask: *"Use the read-pdf skill on [file name]. What is the research question, the data, the main result? Give page numbers."* Check one of the page numbers yourself. Then try the harder question: *"What are the three weakest points of this paper?"* and judge the answer as a referee would.
+
+------------------------------------------------------------------------
+
+## Step 9 — A first real task with data
+
+Now everything comes together. Start a new session. This time, before you send the prompt, switch the permission mode to **Plan**. In Plan mode the agent only thinks and proposes; it changes nothing until you agree.
+
+``` text
+Using the World Bank's open data (its API, no key needed), get for all
+EU countries for 2023:
+- female labour force participation rate (% of women 15+)
+- GDP per capita, PPP
+
+Save the raw download in data/raw, write the code in code/, and make
+one scatter plot (GDP per capita on the x axis, participation on the y axis,
+with country labels) saved in output/. Then write a half-page memo in
+docs/memo.md: what the chart shows, and three caveats.
+Keep the decision log as you go.
+```
+
+Read the plan. If something looks off, say so in plain words. When you are happy, switch back to **Manual** and tell it to go ahead.
+
+**Then check it. This is your job, not the agent's.**
+
+1. Open the chart. Does it look plausible? Are the countries where you expected?
+2. Pick **two countries** and look their numbers up yourself on [data.worldbank.org](https://data.worldbank.org/). Do they match the CSV?
+3. Read `DECISIONS.md`. Which countries were missing for 2023, and what did the agent do about it? Did it use a different year, drop them, or tell you?
+4. Read the memo. Does it say "effect" or "causes" anywhere? It shouldn't. A cross-country scatter shows an association.
+
+If you find a mistake, tell the agent what you found, and add a line to `AGENTS.md` if it is the kind of mistake that could happen again. Finally, ask for the memo as a Word file (Step 6).
+
+------------------------------------------------------------------------
+
+## Habits that make it work
+
+These are the habits I rely on every day. None is technical.
+
+1. **Plan first, then act.** For anything longer than a few minutes, use Plan mode or ask for a plan. Fixing a plan costs one sentence. Fixing finished work costs an afternoon.
+2. **Small steps, then stop and look.** Ask for one thing, check it, then ask for the next. An agent left running on a vague task produces a lot of plausible-looking work that you then have to read.
+3. **Check the numbers.** The agent can be confidently wrong. Compare a few values with the source by hand, every time. A smaller result you checked beats a larger one you did not.
+4. **Never let it delete or overwrite.** Raw data and your original documents stay untouched; old files go to `_old/`. Then every mistake can be undone.
+5. **One session per task.** Long sessions get muddled, just like long chats. When you switch to a new task, start a new session. What matters across sessions goes in `AGENTS.md`, `DECISIONS.md` or a notes file.
+6. **Ask it to explain.** "Why did you do that?", "What does this line do?", "What could go wrong here?" are all good questions. You are responsible for the work, so you need to understand it.
+
+------------------------------------------------------------------------
+
+## Troubleshooting
+
+| Problem | What to do |
+|---|---|
+| The Code tab asks me to upgrade | Claude Code needs a Pro plan or higher. A free account only has Chat |
+| The Code tab shows a sign-in prompt or a 403 error | Complete the sign-in in the browser, then quit and restart the app. Still failing: see the [official troubleshooting](https://code.claude.com/docs/en/desktop#troubleshooting) |
+| The agent cannot see my files | Check the folder control under the prompt box: is the right folder open? |
+| Python, Git or a package "not found" after installing | Quit the Claude app fully and start it again |
+| Word Compare shows changes everywhere | The agent probably rebuilt the whole document. Ask it to start again from a fresh copy and change only the text, keeping everything else as it was |
+| The agent seems stuck, or keeps doing the wrong thing | Click stop. Say plainly what you want. If the session is long, start a new one |
+| It made a mess of my files | Ask: *"List every file you created or changed in this session."* Then ask it to move the unwanted ones to `_old/` |
+| An error I don't understand | Paste it in and ask: *"Explain this error simply, then fix it."* This works far more often than you would expect |
+
+------------------------------------------------------------------------
+
+## A short glossary
+
+- **Agent:** an AI model that can act on your computer (read files, run code, save results) in a loop until a task is done.
+- **Harness:** a word you will hear later. It means the program around the model that gives it those abilities. Claude Code is one.
+- **Session:** one conversation with the agent. Each starts fresh.
+- **Context window:** what the model can see at once. Long sessions fill it up and quality drops.
+- **Terminal:** a text window for typing commands. The agent uses one behind the scenes; you don't have to.
+- **Environment (Python):** a project's own copy of Python and its packages, kept in the `.venv` folder, so projects don't interfere with each other.
+- **Markdown (`.md`):** plain text with light formatting symbols. The common language of humans and agents.
+- **`AGENTS.md`:** standing instructions for the agent, read at the start of every session.
+- **Skill:** a recipe file the agent follows for one type of task.
+
+------------------------------------------------------------------------
+
+## Where to go next
+
+- [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
+- [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.
+- [Glossary of LLM terms](../da-knowledge/technical-terms-page.qmd) · [Which AI model](../da-knowledge/which-ai.qmd) · [Terminal Basics](../da-knowledge/terminal-basics.qmd), if you get curious
+- [Claude Code desktop documentation](https://code.claude.com/docs/en/desktop) · [Skills](https://code.claude.com/docs/en/skills) · [AGENTS.md and CLAUDE.md](https://code.claude.com/docs/en/memory)

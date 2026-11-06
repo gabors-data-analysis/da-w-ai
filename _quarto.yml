@@ -36,6 +36,11 @@ website:
     style: "docked"
     collapse-level: 3
     contents:
+      - section: "Start here"
+        contents:
+          - text: "Friendly setup for social scientists"
+            href: setup-friendly/index.qmd
+
       - section: "Core course"
         contents:
           - text: "Week 1: LLMs, Harnesses & Setup"
