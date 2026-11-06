@@ -259,7 +259,7 @@ I prepared a starter file based on how I work with agents. Ask the agent to fetc
 ``` text
 Download this file exactly (use a download command, do not retype it) and
 save it as AGENTS.md in this folder:
-https://gabors-data-analysis.com/ai-course/setup-friendly/starter/AGENTS.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/setup-friendly/starter/AGENTS.md
 
 Then create the folders it describes (data/raw, data/clean, code, output, docs)
 and summarize the instructions for me in five bullet points.
@@ -310,8 +310,8 @@ Install them with this prompt:
 
 ``` text
 Download these two files exactly (use a download command, do not retype them):
-https://gabors-data-analysis.com/ai-course/setup-friendly/starter/skills/decision-log/SKILL.md
-https://gabors-data-analysis.com/ai-course/setup-friendly/starter/skills/read-pdf/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/setup-friendly/starter/skills/decision-log/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/setup-friendly/starter/skills/read-pdf/SKILL.md
 
 Save them as .claude/skills/decision-log/SKILL.md and
 .claude/skills/read-pdf/SKILL.md inside this project folder.
