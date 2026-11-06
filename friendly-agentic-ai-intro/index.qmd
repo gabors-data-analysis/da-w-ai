@@ -1,0 +1,116 @@
+---
+title: "Friendly Introduction to Agentic AI for Social Scientists"
+subtitle: "A mini course: from chatbot to an AI agent that works with your data, PDFs and Word drafts"
+date: "2026-11-06"
+aliases:
+  - ../setup-friendly/index.html
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-title}
+Friendly Introduction to Agentic AI for Social Scientists
+:::
+
+::: {.hero-subtitle}
+You have used ChatGPT or Claude in a browser, mostly for text. This mini course takes you, one step at a time, to an AI agent that works with the files on your own computer: your data, your PDFs, your Word drafts
+:::
+::::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Who this course is for
+
+This mini course is for social scientists who have used AI as a chatbot, mostly to write, edit or summarize text, and have never used Python or R. Seniority does not matter, and neither does your field.
+
+Two reactions are common when people first hear about AI agents.
+
+*"This is for programmers."* It is not. You will not type a single command. You write instructions in plain language, the way you would brief a research assistant. Even installing Python is done by the agent, which explains each step before taking it. If you can follow a recipe, you can follow this course.
+
+*"I don't need this."* Maybe so. Plenty of excellent research was done without it. This course does not try to argue the point. It lets you find out for yourself, on your own material, at the cost of an afternoon and one month of subscription. You stay the author: you decide what to keep, and nothing is changed without your approval.
+
+We use one tool: **Claude Code, inside the Claude desktop app**. It works on Windows, Mac and Linux. Other companies offer similar agents, and what you learn here carries over. But while learning, one tool is enough.
+
+------------------------------------------------------------------------
+
+## What is an AI agent?
+
+**A chatbot** is a conversation in a browser. You bring material to it (paste text, upload a file), it answers, and you copy the answer back into Word. It cannot see your computer. It knows only what you pasted or uploaded in that conversation.
+
+**An agent** is the same AI model, given three things a chatbot does not have. First, access to **one folder** on your computer that you choose. Second, the ability to **act** in that folder: open files, write and run small programs, save new files. Third, a **loop**: it takes a step, looks at the result, and decides the next step, until the task is done or it needs you.
+
+The loop is what makes the difference. Say you ask: *"Make a chart of turnout by age group from survey.csv."* A chatbot needs you to upload the file, and it may guess at what the columns mean. The agent:
+
+1. opens the file and sees that the age variable is called `age_cat`, not `age`;
+2. writes a short program and runs it;
+3. hits an error because some respondents have age coded as "refused", reads the error, and tells you how it proposes to handle those rows;
+4. runs the program again, opens the chart to check that it looks right, and saves it in `output/`.
+
+You see every step. In the beginning it asks your permission before each one.
+
+A useful way to think about it: a very fast research assistant, sitting at your computer, who has read a great deal but is new to your project. It needs clear instructions and it makes mistakes, sometimes confidently. So your job shifts from doing each step to **deciding, instructing and checking**. The checking does not go away. It becomes the most important part of the work.
+
+------------------------------------------------------------------------
+
+## What you need
+
+- **A paid Claude plan.** Claude Code needs at least **Claude Pro** (about \$20/month; [pricing](https://claude.com/pricing)). The free plan does not include it. You can cancel any time. If your university has a Claude Team or Enterprise plan, that works too. Ask your IT office.
+- **A computer** running Windows 10/11, macOS, or Linux (Ubuntu or Debian).
+- **Permission to install software.** On a university-managed laptop you may need IT to approve installs. Try first; ask if blocked.
+
+------------------------------------------------------------------------
+
+## The course: two parts, about an hour each
+
+If something fails along the way, nothing is broken. Each part has a troubleshooting section, and you can always ask the agent itself what went wrong.
+
+::::: {.week-card .card}
+::: card-header
+🛠️ **[Part 1 — Setup](setup.qmd)** · steps 1–5 · about an hour
+:::
+
+::: card-body
+Install the Claude desktop app, make a project folder, have a first conversation with the agent, let it set up Python for you, and install a reader for the Markdown files it writes.
+
+**At the end you have:** the Code tab working, a project folder the agent can read and write, Python installed, and Typora for reading `.md` files.
+
+**[Start Part 1 →](setup.qmd)**
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🚶 **[Part 2 — First steps](first-steps.qmd)** · steps 6–9 · about an hour
+:::
+
+::: card-body
+Work on a Word document with the agent and review its edits as tracked changes. Give the agent standing instructions in `AGENTS.md`, add two skills (a decision log and reliable PDF reading), and do a first small analysis whose numbers you check yourself.
+
+**At the end you have:** a routine for Word documents, an `AGENTS.md` file, two skills, and one real task done.
+
+**[Start Part 2 →](first-steps.qmd)**
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## A short glossary
+
+- **Agent:** an AI model that can act on your computer (read files, run code, save results) in a loop until a task is done.
+- **Harness:** a word you will hear later. It means the program around the model that gives it those abilities. Claude Code is one.
+- **Session:** one conversation with the agent. Each starts fresh.
+- **Context window:** what the model can see at once. Long sessions fill it up and quality drops.
+- **Terminal:** a text window for typing commands. The agent uses one behind the scenes; you don't have to.
+- **Environment (Python):** a project's own copy of Python and its packages, kept in the `.venv` folder, so projects don't interfere with each other.
+- **Markdown (`.md`):** plain text with light formatting symbols. The common language of humans and agents.
+
+
+------------------------------------------------------------------------
+
+## Where to go next
+
+After the two parts, the main course continues from here:
+
+- [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
+- [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.

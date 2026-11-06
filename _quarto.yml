@@ -36,10 +36,14 @@ website:
     style: "docked"
     collapse-level: 3
     contents:
-      - section: "Start here"
+      - section: "Friendly Intro to Agentic AI"
         contents:
-          - text: "Friendly setup for social scientists"
-            href: setup-friendly/index.qmd
+          - text: "Course overview"
+            href: friendly-agentic-ai-intro/index.qmd
+          - text: "Part 1: Setup"
+            href: friendly-agentic-ai-intro/setup.qmd
+          - text: "Part 2: First steps"
+            href: friendly-agentic-ai-intro/first-steps.qmd
 
       - section: "Core course"
         contents:
