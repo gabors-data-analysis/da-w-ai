@@ -61,7 +61,7 @@ A useful way to think about it: a very fast research assistant, sitting at your 
 
 ------------------------------------------------------------------------
 
-## The course: two parts, about an hour each
+## The course: two hands-on parts and a live demo
 
 If something fails along the way, nothing is broken. Each part has a troubleshooting section, and you can always ask the agent itself what went wrong.
 
@@ -93,6 +93,16 @@ Work on a Word document with the agent and review its edits as tracked changes. 
 :::
 :::::
 
+::::: {.week-card .card}
+::: card-header
+🎬 **[Part 3 — Live demo: how to write a paper in one hour](live-demo.qmd)**
+:::
+
+::: card-body
+Coming soon.
+:::
+:::::
+
 ------------------------------------------------------------------------
 
 ## A short glossary
@@ -110,7 +120,7 @@ Work on a Word document with the agent and review its edits as tracked changes. 
 
 ## Where to go next
 
-After the two parts, the main course continues from here:
+After the course, the main course continues from here:
 
 - [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
 - [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.
