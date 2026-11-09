@@ -20,4 +20,4 @@ Coming soon
 
 This page is a placeholder. The material for the live demo will be added here.
 
-Part of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). Before this part, do [Part 1 — Setup](setup.qmd), [Part 2 — First steps](first-steps.qmd) and [Part 3 — Checking the agent's work](checking-work.qmd).
+Part of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). Before this part, do [Part 1 — Setup](setup.qmd), [Part 2 — First steps](first-steps.qmd) and [Part 3 — Staying in charge](checking-work.qmd).

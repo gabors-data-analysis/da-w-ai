@@ -24,7 +24,7 @@ Your agent is set up. Now put it to work: on your Word drafts, on a PDF you know
 
 This is Part 2 of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have done [Part 1 — Setup](setup.qmd): the Claude desktop app works, your `first-project` folder is open in the **Code** tab in **Manual** mode, Python is set up, and Typora opens `.md` files.
 
-Part 2 takes about an hour. The step numbers continue from Part 1.
+Part 2 takes about an hour.
 
 ::: {.callout-note}
 ## What you will have at the end
@@ -37,7 +37,7 @@ Part 2 takes about an hour. The step numbers continue from Part 1.
 
 ------------------------------------------------------------------------
 
-## Step 6 — Working on Word documents
+## Step 2.1 — Working on Word documents
 
 Most of your writing lives in Word, and so does your coauthors'. The agent can read Word files, comment on them, edit them and produce new ones. The routine below keeps you in control: **the agent never touches your original, and you see every change it made as tracked changes in Word.**
 
@@ -91,7 +91,7 @@ You can also ask: *"Put your comments as Word comments in the margin of docs/dra
 
 ------------------------------------------------------------------------
 
-## Step 7 — Give the agent standing instructions: AGENTS.md
+## Step 2.2 — Give the agent standing instructions: AGENTS.md
 
 Each session with the agent starts from zero. It does not remember yesterday. So we write down, once, what it should always know: who you are, how you like to work, what it must never do. This file is called **`AGENTS.md`** and sits in the project folder. The agent reads it at the start of every session.
 
@@ -122,7 +122,7 @@ It is good practice to grow this file slowly. **When the agent makes the same mi
 
 ------------------------------------------------------------------------
 
-## Step 8 — Add two skills
+## Step 2.3 — Add two skills
 
 A **skill** is a recipe the agent follows for one type of task. It is a Markdown file called `SKILL.md` in its own folder. The agent sees a short description of each skill and uses it when the task matches. You can also call a skill by name: type `/` and its name in the prompt box.
 
@@ -165,7 +165,7 @@ Note the dot in `.claude`. Folders starting with a dot are hidden by default, so
 
 ------------------------------------------------------------------------
 
-## Step 9 — A first real task with data
+## Step 2.4 — A first real task with data
 
 Now everything comes together. Start a new session. This time, before you send the prompt, switch the permission mode to **Plan**. In Plan mode the agent only thinks and proposes; it changes nothing until you agree.
 
@@ -191,7 +191,7 @@ Read the plan. If something looks off, say so in plain words. When you are happy
 3. Read `DECISIONS.md`. Which countries were missing for 2023, and what did the agent do about it? Did it use a different year, drop them, or tell you?
 4. Read the memo. Does it say "effect" or "causes" anywhere? It shouldn't. A cross-country scatter shows an association.
 
-If you find a mistake, tell the agent what you found, and add a line to `AGENTS.md` if it is the kind of mistake that could happen again. Finally, ask for the memo as a Word file (Step 6).
+If you find a mistake, tell the agent what you found, and add a line to `AGENTS.md` if it is the kind of mistake that could happen again. Finally, ask for the memo as a Word file (Step 2.1).
 
 ------------------------------------------------------------------------
 
@@ -224,7 +224,7 @@ More setup problems are in [Part 1](setup.qmd#troubleshooting), and a short glos
 
 ## Where to go next
 
-- [Part 3 — Checking the agent's work](checking-work.qmd): keep the agent inside its folder, see what it did, and build checks into the work.
+- [Part 3 — Staying in charge](checking-work.qmd): trust, verification and control. Keep the agent inside its folder, see what it did, and build checks into the work.
 - [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
 - [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.
 - [Glossary of LLM terms](../da-knowledge/technical-terms-page.qmd) · [Which AI model](../da-knowledge/which-ai.qmd) · [Terminal Basics](../da-knowledge/terminal-basics.qmd), if you get curious

@@ -1,5 +1,5 @@
 ---
-title: "Part 3 — Checking the Agent's Work"
+title: "Part 3 — Staying in Charge: Checking the Agent's Work"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
 date: "2026-11-09"
 ---
@@ -7,11 +7,11 @@ date: "2026-11-09"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-title}
-Part 3 — Checking the Agent's Work
+Part 3 — Staying in Charge
 :::
 
 ::: {.hero-subtitle}
-How to keep the agent inside its folder, see what it actually did, and build checks into the work from the start
+Trust, verification and control: how to set the agent's limits, see what it actually did, and stand behind work you did not do with your own hands
 :::
 ::::::
 :::::::
@@ -22,12 +22,20 @@ How to keep the agent inside its folder, see what it actually did, and build che
 
 This is Part 3 of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have done [Part 1 — Setup](setup.qmd) and [Part 2 — First steps](first-steps.qmd), so you have a project folder with `AGENTS.md`, the decision-log skill, and a first analysis.
 
-After the first real task, two questions come up almost every time. A colleague put them like this:
+## Who is in charge here?
 
-1. *Do I need to do anything to be sure the agent only changes things in the one folder I gave it?*
-2. *The agent works behind the scenes, but I want to see the details, for example the code. What is the best way? Ask it to save the code? Plan at the start which outputs should check each step? Or tell it what to check, and have it report only when there is a problem, or when it made a decision I did not specify?*
+After the first real task, the same worries come up, in some form, with almost everyone. They are worth taking seriously.
 
-These are the right questions. They are about auditing: being able to stand behind work you did not do with your own hands. This part answers them in four steps. It takes about an hour, best done on the World Bank task from Step 9.
+- **Control.** *It does things on my computer. What stops it from touching files it should not?*
+- **Visibility.** *It works behind the scenes. How do I see what it actually did, the code included?*
+- **Judgment.** *It makes choices along the way. How do I know which ones, and which it made without asking me?*
+- **Trust.** *Its results look convincing. How can I put my name on them?*
+
+Behind these sits a bigger unease: if the agent does the work, where is my part in it? Is this the robots taking over, one folder at a time?
+
+Our answer is no, but not automatically. The agent is a tool that acts, and a tool that acts needs supervision, the way a research assistant does. The supervision is your part: you set the limits, you decide what must be true before you accept a result, you read what it did, and you decide what goes out under your name. None of this needs coding skills. It needs the habits a careful researcher already has, applied to a new kind of assistant.
+
+This part turns the four worries into four steps: **limits** (3.1), **visibility** (3.2), **checks and decisions** (3.3), and **independent review** (3.4). It takes about an hour, best done on the World Bank task from Step 2.4.
 
 ::: {.callout-note}
 ## What you will have at the end of Part 3
@@ -41,16 +49,16 @@ These are the right questions. They are about auditing: being able to stand behi
 
 ------------------------------------------------------------------------
 
-## Step 10 — Keep the agent in its folder
+## Step 3.1 — Keep the agent in its folder
 
-**The short answer.** In **Manual** mode, the agent asks you before it reads or changes any file outside the project folder. So for files, the folder is a real boundary, and you are asked whenever it wants to cross it.
+**Files: the folder is a boundary.** In **Manual** mode, the agent asks you before it reads or changes any file outside the project folder. So for files, the folder is a real boundary, and you are asked whenever it wants to cross it.
 
-**The one gap is commands.** To run code, the agent runs commands, and a command you approve can reach anywhere on your computer that you can. The safeguard here is you: in Manual mode every command waits for your approval. That is why we stay in Manual mode at the beginning.
+**Commands: the one gap.** To run code, the agent runs commands, and a command you approve can reach anywhere on your computer that you can. The safeguard here is you: in Manual mode every command waits for your approval. That is why we stay in Manual mode at the beginning.
 
 Four habits close the gap in practice:
 
 1. **Read the paths in each command before you approve it.** If you see a folder that is not your project (`C:\Users\you\Desktop`, `~/Documents/other-project`, a drive letter you don't recognize), click no and ask: *"Why do you need to go outside the project folder?"*
-2. **Know the legitimate exceptions.** Installing Python in Step 4 puts tools in your user folder, and downloading data in Step 9 reaches the web. These are expected, and the agent tells you before it does them.
+2. **Know the legitimate exceptions.** Installing Python in Step 1.4 puts tools in your user folder, and downloading data in Step 2.4 reaches the web. These are expected, and the agent tells you before it does them.
 3. **Work on copies.** Put copies of your data and documents in the project folder; the originals stay where they are. Then even a bad mistake costs nothing.
 4. **Write it into `AGENTS.md`.** Add this line under "Safety with my files":
 
@@ -67,7 +75,7 @@ On Mac and Linux, Claude Code can also enforce the folder boundary at the level 
 
 ------------------------------------------------------------------------
 
-## Step 11 — See what it did
+## Step 3.2 — See what it did
 
 The agent does not have to work behind the scenes. There are three windows into its work, and it is good practice to use all three.
 
@@ -88,9 +96,9 @@ You do not need to read Python to use this. Click a script name in the chat to o
 
 ------------------------------------------------------------------------
 
-## Step 12 — Decide the checks before the work
+## Step 3.3 — Decide the checks before the work
 
-Back to the colleague's second question: save the code, plan the checks in advance, or report only problems? The answer is all three, in this order.
+How much should you check, and when? Save the code, plan checks in advance, or ask to hear only about problems? The answer is all three, in this order.
 
 **First, before the work: agree on what must be true.** In Plan mode, ask the agent to propose checks for each step. For social science data, the usual ones are:
 
@@ -105,7 +113,7 @@ You know your data, so add your own. These are the checks a good research assist
 
 **Second, during the work: checks go into the code.** Written in the scripts, they run every time, not just once. After each run, the agent saves one short table with every check and a pass or fail.
 
-**Third, after the work: report by exception, with two kinds of exception.** A failed check means stop and tell me. And any choice you did not specify goes into `DECISIONS.md`, marked `needs-review`. This is what the decision-log skill from Step 8 is for.
+**Third, after the work: report by exception, with two kinds of exception.** A failed check means stop and tell me. And any choice you did not specify goes into `DECISIONS.md`, marked `needs-review`. This is what the decision-log skill from Step 2.3 is for.
 
 Here is the prompt. Use it at the start of a task, in Plan mode:
 
@@ -119,16 +127,16 @@ If a check fails, stop and tell me.
 Any choice I did not specify goes into DECISIONS.md, marked needs-review.
 ```
 
-**Try it** on the World Bank task from Step 9: start a new session and ask the agent to add checks to the existing scripts, using the prompt above.
+**Try it** on the World Bank task from Step 2.4: start a new session and ask the agent to add checks to the existing scripts, using the prompt above.
 
 ::: {.callout-warning}
 ## Report by exception is not enough on its own
-"No problems found" from the agent is not evidence that there are no problems. It only means the checks you agreed on passed. So keep doing the hand check from Step 9: pick two or three numbers and compare them with the source yourself. It takes five minutes, and it is the one check that does not depend on the agent.
+"No problems found" from the agent is not evidence that there are no problems. It only means the checks you agreed on passed. So keep doing the hand check from Step 2.4: pick two or three numbers and compare them with the source yourself. It takes five minutes, and it is the one check that does not depend on the agent.
 :::
 
 ------------------------------------------------------------------------
 
-## Step 13 — A second pair of eyes
+## Step 3.4 — A second pair of eyes
 
 The session that did the work is not the best judge of it. It remembers its own reasoning and tends to defend it. A **new session** has none of that history. It reads the files the way a coauthor would.
 

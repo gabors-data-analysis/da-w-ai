@@ -44,7 +44,7 @@ website:
             href: friendly-agentic-ai-intro/setup.qmd
           - text: "Part 2: First steps"
             href: friendly-agentic-ai-intro/first-steps.qmd
-          - text: "Part 3: Checking the work"
+          - text: "Part 3: Staying in charge"
             href: friendly-agentic-ai-intro/checking-work.qmd
           - text: "Part 4: Live demo"
             href: friendly-agentic-ai-intro/live-demo.qmd

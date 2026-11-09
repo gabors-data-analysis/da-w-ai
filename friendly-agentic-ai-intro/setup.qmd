@@ -35,7 +35,7 @@ Part 1 takes about an hour. If something fails, nothing is broken. Read the trou
 
 ------------------------------------------------------------------------
 
-## Step 1 — Install the Claude desktop app
+## Step 1.1 — Install the Claude desktop app
 
 ::: {.panel-tabset}
 #### Windows
@@ -62,7 +62,7 @@ The **Chat** tab is the chatbot you know. The **Code** tab is the agent. Despite
 
 ------------------------------------------------------------------------
 
-## Step 2 — Make a project folder
+## Step 1.2 — Make a project folder
 
 The agent works inside **one folder** at a time. Everything for a project lives there: data, code, notes, drafts, outputs. It is good practice to start a new folder for each project.
 
@@ -81,7 +81,7 @@ The agent sends what it reads to Anthropic's servers to process it. Do not put c
 
 ------------------------------------------------------------------------
 
-## Step 3 — Your first conversation with the agent
+## Step 1.3 — Your first conversation with the agent
 
 Find the **permission mode** control in the row under the prompt box and set it to **Manual**. In Manual mode the agent asks before it creates or changes any file and before it runs anything. It is slower, but you see exactly what it does. Stay in Manual for your first week.
 
@@ -99,7 +99,7 @@ A few more things to try now:
 
 ------------------------------------------------------------------------
 
-## Step 4 — Let the agent set up Python
+## Step 1.4 — Let the agent set up Python
 
 This is the most technical step, and you do not have to understand it. It usually takes five to ten minutes, and your part is mostly reading and clicking *Yes*.
 
@@ -139,14 +139,14 @@ Already working in Stata or R? Keep using them for your own analysis. The agent 
 
 ------------------------------------------------------------------------
 
-## Step 5 — A Markdown reader: Typora
+## Step 1.5 — A Markdown reader: Typora
 
 The agent writes its notes, memos and plans in **Markdown**: plain text files ending in `.md`. A few symbols do the formatting: `# Title` makes a heading, `**word**` makes **bold**, `- item` makes a list. Markdown is the native language of AI tools. The agent reads and writes it perfectly, and the files open on any computer, forever.
 
 In a plain text editor you see the symbols. To read Markdown comfortably, install **[Typora](https://typora.io/)**. It shows the formatted text, the way Word does, and you can edit it the same way. It runs on Windows, Mac and Linux. It costs about \$15 once, after a free trial.
 
 1. Download and install Typora from [typora.io](https://typora.io/).
-2. Open your `hello.md` from Step 3 in Typora (right-click the file → **Open with** → Typora). It should look like a normal formatted document.
+2. Open your `hello.md` from Step 1.3 in Typora (right-click the file → **Open with** → Typora). It should look like a normal formatted document.
 3. Make Typora the default program for `.md` files, so a double-click opens it.
 
 ::: {.callout-note}
