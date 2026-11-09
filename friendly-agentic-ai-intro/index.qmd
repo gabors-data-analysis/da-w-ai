@@ -61,7 +61,7 @@ A useful way to think about it: a very fast research assistant, sitting at your 
 
 ------------------------------------------------------------------------
 
-## The course: two hands-on parts and a live demo
+## The course: three hands-on parts and a live demo
 
 If something fails along the way, nothing is broken. Each part has a troubleshooting section, and you can always ask the agent itself what went wrong.
 
@@ -95,7 +95,21 @@ Work on a Word document with the agent and review its edits as tracked changes. 
 
 ::::: {.week-card .card}
 ::: card-header
-🎬 **[Part 3 — Live demo: how to write a paper in one hour](live-demo.qmd)**
+🔍 **[Part 3 — Checking the agent's work](checking-work.qmd)** · steps 10–13 · about an hour
+:::
+
+::: card-body
+Keep the agent inside its folder, see exactly what it did (its scripts, its changes, every step), agree on checks before the work starts, and have a fresh session review the result.
+
+**At the end you have:** checks built into your code with a pass/fail table, a review routine, and a few new lines in `AGENTS.md`.
+
+**[Start Part 3 →](checking-work.qmd)**
+:::
+:::::
+
+::::: {.week-card .card}
+::: card-header
+🎬 **[Part 4 — Live demo: how to write a paper in one hour](live-demo.qmd)**
 :::
 
 ::: card-body

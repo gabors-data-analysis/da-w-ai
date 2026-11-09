@@ -224,7 +224,7 @@ More setup problems are in [Part 1](setup.qmd#troubleshooting), and a short glos
 
 ## Where to go next
 
-- [Part 3 — Live demo: how to write a paper in one hour](live-demo.qmd), the last part of this mini course.
+- [Part 3 — Checking the agent's work](checking-work.qmd): keep the agent inside its folder, see what it did, and build checks into the work.
 - [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
 - [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.
 - [Glossary of LLM terms](../da-knowledge/technical-terms-page.qmd) · [Which AI model](../da-knowledge/which-ai.qmd) · [Terminal Basics](../da-knowledge/terminal-basics.qmd), if you get curious
