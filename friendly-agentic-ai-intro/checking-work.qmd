@@ -1,5 +1,5 @@
 ---
-title: "Part 3 — Staying in Charge: Checking the Agent's Work"
+title: "Part 3 — Staying in Charge"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
 date: "2026-11-09"
 ---
@@ -11,7 +11,7 @@ Part 3 — Staying in Charge
 :::
 
 ::: {.hero-subtitle}
-Trust, verification and control: how to set the agent's limits, see what it actually did, and stand behind work you did not do with your own hands
+Trust, verification and control: set the agent's limits, see what it did, and stand behind work you did not do with your own hands
 :::
 ::::::
 :::::::
@@ -20,29 +20,16 @@ Trust, verification and control: how to set the agent's limits, see what it actu
 
 ## Before you start
 
-This is Part 3 of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have done [Part 1 — Setup](setup.qmd) and [Part 2 — First steps](first-steps.qmd), so you have a project folder with `AGENTS.md`, the decision-log skill, and a first analysis.
+This is Part 3 of [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have finished [Part 1](setup.qmd) and [Part 2](first-steps.qmd): a project folder with `AGENTS.md`, the decision-log skill and a first analysis.
 
-## Who is in charge here?
-
-After the first real task, the same worries come up, in some form, with almost everyone. They are worth taking seriously.
-
-- **Control.** *It does things on my computer. What stops it from touching files it should not?*
-- **Visibility.** *It works behind the scenes. How do I see what it actually did, the code included?*
-- **Judgment.** *It makes choices along the way. How do I know which ones, and which it made without asking me?*
-- **Trust.** *Its results look convincing. How can I put my name on them?*
-
-Behind these sits a bigger unease: if the agent does the work, where is my part in it? Is this the robots taking over, one folder at a time?
-
-Our answer is no, but not automatically. The agent is a tool that acts, and a tool that acts needs supervision, the way a research assistant does. The supervision is your part: you set the limits, you decide what must be true before you accept a result, you read what it did, and you decide what goes out under your name. None of this needs coding skills. It needs the habits a careful researcher already has, applied to a new kind of assistant.
-
-This part turns the four worries into four steps: **limits** (3.1), **visibility** (3.2), **checks and decisions** (3.3), and **independent review** (3.4). It takes about an hour, best done on the World Bank task from Step 2.4.
+It takes about an hour, best done on the World Bank task from Step 2.4.
 
 ::: {.callout-note}
-## What you will have at the end of Part 3
+## What you will have at the end
 
 - ☐ A clear picture of what the agent can and cannot touch on your computer
 - ☐ Raw data that is read-only by file setting, not only by instruction
-- ☐ Three ways to see what it did: the scripts, the changes, and every step it took
+- ☐ Three ways to see what the agent did: its scripts, its changes, and every step it took
 - ☐ Checks written into the code, with a pass/fail table after each run
 - ☐ A routine for having the work reviewed by a fresh session
 - ☐ A few new lines in your `AGENTS.md`
@@ -50,18 +37,35 @@ This part turns the four worries into four steps: **limits** (3.1), **visibility
 
 ------------------------------------------------------------------------
 
+## Who is in charge here?
+
+After the first real task, almost everyone has the same worries. They deserve a serious answer.
+
+- **Control.** *It does things on my computer. What stops it from touching files it should not?*
+- **Visibility.** *It works behind the scenes. How do I see what it actually did, the code included?*
+- **Judgment.** *It makes choices along the way. Which ones did it make without asking me?*
+- **Trust.** *Its results look convincing. How can I put my name on them?*
+
+Behind these sits a bigger unease: if the agent does the work, where is my part? Is this the robots taking over, one folder at a time?
+
+No, but not automatically. An agent is a tool that acts, and a tool that acts needs supervision, like a research assistant. That supervision is your part: you set the limits, decide what must be true before you accept a result, read what it did, and decide what goes out under your name. It needs no coding, only the habits of a careful researcher.
+
+The four steps below answer the four worries: **limits** (3.1), **visibility** (3.2), **checks and decisions** (3.3) and **independent review** (3.4).
+
+------------------------------------------------------------------------
+
 ## Step 3.1 — Keep the agent in its folder
 
-**Files: the folder is a boundary.** In **Manual** mode, the agent asks you before it reads or changes any file outside the project folder. So for files, the folder is a real boundary, and you are asked whenever it wants to cross it.
+**Files: the folder is a boundary.** In Manual mode, the agent asks before it reads or changes any file outside the project folder.
 
-**Commands: the one gap.** To run code, the agent runs commands, and a command you approve can reach anywhere on your computer that you can. The safeguard here is you: in Manual mode every command waits for your approval. That is why we stay in Manual mode at the beginning.
+**Commands: the one gap.** To run code, the agent runs commands, and an approved command can reach anything you can. The safeguard is you: in Manual mode, every command waits for your OK.
 
-Four habits close the gap in practice:
+Four habits close the gap:
 
-1. **Read the paths in each command before you approve it.** If you see a folder that is not your project (`C:\Users\you\Desktop`, `~/Documents/other-project`, a drive letter you don't recognize), click no and ask: *"Why do you need to go outside the project folder?"*
-2. **Know the legitimate exceptions.** Installing Python in Step 1.4 puts tools in your user folder, and downloading data in Step 2.4 reaches the web. These are expected, and the agent tells you before it does them.
-3. **Work on copies, and lock the raw data.** Put copies of your data and documents in the project folder; the originals stay where they are. And make the raw data read-only (see the box below). Then even a bad mistake costs nothing.
-4. **Write it into `AGENTS.md`.** Add this line under "Safety with my files":
+1. **Read the paths before you approve a command.** A folder outside your project (`C:\Users\you\Desktop`, `~/Documents/other-project`, an unfamiliar drive)? Click no and ask: *"Why do you need to go outside the project folder?"*
+2. **Know the expected exceptions.** Installing Python (Step 1.4) puts tools in your user folder, and downloading data (Step 2.4) reaches the web. The agent tells you before it does either.
+3. **Work on copies, and lock the raw data.** Put copies in the project folder and keep the originals where they are. Make the raw data read-only (box below). Then even a bad mistake costs nothing.
+4. **Put it in `AGENTS.md`**, under "Safety with my files":
 
 ``` text
 - Work only inside this project folder. If a step needs anything outside it,
@@ -70,31 +74,31 @@ Four habits close the gap in practice:
 
 ::: {.callout-important}
 ## Raw data is read-only. Always.
-Your `AGENTS.md` already tells the agent never to change `data/raw/`. But an instruction can be misread or forgotten in a long session. A file setting cannot. So make the raw files themselves read-only. Ask the agent:
+Your `AGENTS.md` tells the agent never to change `data/raw/`. But an instruction can be misread or forgotten in a long session; a file setting cannot. So make the raw files read-only. Ask the agent:
 
 ``` text
 Make every file in data/raw read-only. Then try to write to one of them,
 show me that it fails, and tell me how I could undo the setting.
 ```
 
-You can also do it by hand. *Windows:* right-click the file → **Properties** → tick **Read-only**. *Mac:* select the file → **File → Get Info** → tick **Locked**.
+Or do it by hand. *Windows:* right-click the file → **Properties** → tick **Read-only**. *Mac:* select the file → **File → Get Info** → tick **Locked**.
 
-Now, to overwrite raw data, the agent would first have to change the setting. That takes a command, and in Manual mode a command waits for your approval.
+To overwrite raw data, the agent would now first have to change the setting. That takes a command, and in Manual mode a command waits for your OK.
 :::
 
 ::: {.callout-note collapse="true"}
 ## For the technically curious: the sandbox (click to open)
 
-On Mac and Linux, Claude Code can also enforce the folder boundary at the level of the operating system, so even an approved command cannot write outside the project. This is called the **sandbox**, and it is off by default. It does not work on Windows directly. You do not need it for this course; the [sandboxing documentation](https://code.claude.com/docs/en/sandboxing) explains it if you are interested.
+On Mac and Linux, Claude Code can also enforce the folder boundary through the operating system, so even an approved command cannot write outside the project. This **sandbox** is off by default and does not run on Windows directly. You do not need it here; see the [sandboxing documentation](https://code.claude.com/docs/en/sandboxing) if you are curious.
 :::
 
 ------------------------------------------------------------------------
 
 ## Step 3.2 — See what it did
 
-The agent does not have to work behind the scenes. There are three windows into its work, and it is good practice to use all three.
+The agent does not have to work behind the scenes. Use all three windows into its work.
 
-**1. The scripts.** Every data step should live in a script file in `code/`, so you can read it and rerun it. Your `AGENTS.md` already asks for numbered scripts. Add two lines that close the loopholes:
+**1. The scripts.** Every data step should live in a script in `code/`, which you can read and rerun. Your `AGENTS.md` already asks for numbered scripts. Add two lines to close the loopholes:
 
 ``` text
 - Do every step that reads, changes or creates data in a script in code/,
@@ -103,34 +107,34 @@ The agent does not have to work behind the scenes. There are three windows into 
   what it does, and what it writes.
 ```
 
-You do not need to read Python to use this. Click a script name in the chat to open it, then ask: *"Explain code/02_clean.py to me paragraph by paragraph, in plain language, as you would to a colleague who does not code."* Then ask about anything that sounds like a choice: *"Why drop those rows? What else could you have done?"*
+You do not need to read Python. Click a script in the chat to open it, and ask: *"Explain code/02_clean.py paragraph by paragraph, in plain language, for a colleague who does not code."* Then ask about anything that sounds like a choice: *"Why drop those rows? What else could you have done?"*
 
-**2. The changes.** After the agent edits files, a **Changes** card appears with line counts such as `+12 -1`. Click it to open the **diff view**: every changed file, with removed lines in red and added lines in green. To comment on a line, hover over it, click the **+** next to the line number, and type. Send your comments together (**Ctrl+Enter** on Windows, **Cmd+Enter** on Mac), and the agent revises.
+**2. The changes.** After the agent edits files, a **Changes** card shows line counts such as `+12 -1`. Click it for the **diff view**: each changed file, with removed lines in red and added lines in green. To comment on a line, hover over it, click the **+** next to the line number, and type. Send all comments with **Ctrl+Enter** (Windows) or **Cmd+Enter** (Mac), and the agent revises.
 
-**3. The steps.** By default the conversation shows each action as a short summary. To see every file it read and every command it ran, switch the **Transcript view** to **Verbose**: press **Ctrl+O** (it cycles through the views), or use the menu next to the session title. Use this when something surprises you and you want to know how the agent got there.
+**3. The steps.** The conversation normally shows each action as a short summary. To see every file read and every command run, switch the **Transcript view** to **Verbose**: press **Ctrl+O** to cycle through the views, or use the menu next to the session title. This helps when something surprises you.
 
 ------------------------------------------------------------------------
 
 ## Step 3.3 — Decide the checks before the work
 
-How much should you check, and when? Save the code, plan checks in advance, or ask to hear only about problems? The answer is all three, in this order.
+Save the code, plan checks in advance, or hear only about problems? All three, in this order.
 
-**First, before the work: agree on what must be true.** In Plan mode, ask the agent to propose checks for each step. For social science data, the usual ones are:
+**Before the work: agree on what must be true.** In Plan mode, ask the agent to propose checks for each step. For social science data, the usual ones are:
 
-- the number of observations after each step (how many respondents, countries, years);
+- the number of observations after each step (respondents, countries, years);
 - no duplicate IDs where there should be one row per person or country-year;
 - after a merge: how many rows matched, and how many did not, from each side;
 - values in a plausible range (age 18–99, shares between 0 and 100);
 - missing values per key variable;
 - totals that should match a published table.
 
-You know your data, so add your own. These are the checks a good research assistant would run anyway; here you make them explicit.
+Add your own; you know the data. A good research assistant runs these checks anyway. Here they become explicit.
 
-**Second, during the work: checks go into the code.** Written in the scripts, they run every time, not just once. After each run, the agent saves one short table with every check and a pass or fail.
+**During the work: checks go into the code**, so they run every time. After each run, the agent saves a short table with a pass or fail for each check.
 
-**Third, after the work: report by exception, with two kinds of exception.** A failed check means stop and tell me. And any choice you did not specify goes into `DECISIONS.md`, marked `needs-review`. This is what the decision-log skill from Step 2.3 is for.
+**After the work: report by exception.** There are two kinds of exception. A failed check means stop and tell me. Any choice you did not specify goes into `DECISIONS.md`, marked `needs-review`; this is what the decision-log skill from Step 2.3 does.
 
-Here is the prompt. Use it at the start of a task, in Plan mode:
+The prompt, for the start of a task, in Plan mode:
 
 ``` text
 Before you start, propose the checks that should hold after each step:
@@ -142,18 +146,18 @@ If a check fails, stop and tell me.
 Any choice I did not specify goes into DECISIONS.md, marked needs-review.
 ```
 
-**Try it** on the World Bank task from Step 2.4: start a new session and ask the agent to add checks to the existing scripts, using the prompt above.
+**Try it** on the World Bank task: in a new session, ask the agent to add checks to the existing scripts.
 
 ::: {.callout-warning}
 ## Report by exception is not enough on its own
-"No problems found" from the agent is not evidence that there are no problems. It only means the checks you agreed on passed. So keep doing the hand check from Step 2.4: pick two or three numbers and compare them with the source yourself. It takes five minutes, and it is the one check that does not depend on the agent.
+"No problems found" only means the agreed checks passed. Keep the hand check from Step 2.4: compare two or three numbers with the source yourself. It takes five minutes, and it is the one check that does not depend on the agent.
 :::
 
 ------------------------------------------------------------------------
 
 ## Step 3.4 — A second pair of eyes
 
-The session that did the work is not the best judge of it. It remembers its own reasoning and tends to defend it. A **new session** has none of that history. It reads the files the way a coauthor would.
+The session that did the work is not its best judge: it remembers its own reasoning and tends to defend it. A **new session** has no such history and reads the files as a coauthor would.
 
 When a piece of work is done, start a new session and send:
 
@@ -165,23 +169,23 @@ already saved? Then list anything that looks wrong, untested or
 undocumented, most serious first. Do not change any files.
 ```
 
-Read the review the way you read a referee report: some points are serious, some are noise. Take the serious ones back to the agent, in a new session, one at a time.
+Read the review like a referee report: some points matter, some are noise. Take the serious ones back to the agent, one at a time, each in a new session.
 
 ------------------------------------------------------------------------
 
 ## Worth the setup: version control
 
-Everything above works without extra tools. One more tool is worth setting up once you work with the agent regularly: **version control**, usually **Git** together with **GitHub**. Git keeps a history of your project folder. Each time you *commit*, it saves a snapshot of every file with a one-line note on what changed. GitHub keeps a private copy of that history online.
+The steps above need no extra tools. Once you use the agent regularly, one more is worth setting up: **version control**, usually **Git** with **GitHub**. Git keeps a history of your project folder: each *commit* saves a snapshot of every file with a one-line note on what changed. GitHub keeps a private copy of that history online.
 
-For checking the agent's work, this adds two things the steps above do not give you. First, you see what changed across sessions and days, not only in the current session: every line the agent added or removed since the last commit, file by file. Second, every mistake can be undone: you go back to the last version that worked. That makes it cheap to let the agent try things.
+It adds two things. First, you see what changed across sessions and days, line by line, not only within one session. Second, every mistake can be undone by going back to the last version that worked, which makes it cheap to let the agent try things.
 
-The price is about an hour of setup and one new habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history in a window, so you do not need the terminal. How to set it up and use it: [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github).
+The price is about an hour of setup and one habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history without the terminal. Setup and daily use: [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github).
 
 ------------------------------------------------------------------------
 
 ## The new lines for AGENTS.md, in one place
 
-Copy these into your `AGENTS.md` (or ask the agent to add them):
+Copy these into your `AGENTS.md`, or ask the agent to add them:
 
 ``` text
 ## Checking
@@ -207,7 +211,11 @@ If you set up Git, add two more:
 
 ------------------------------------------------------------------------
 
-## Where to go next
+## What comes next
 
-- [Part 4 — Live demo: how to write a paper in one hour](live-demo.qmd), the last part of this mini course.
-- Back to the [course overview](index.qmd).
+Part 4 is a live demo: how to write a paper in one hour.
+
+::: {.callout-tip}
+## Continue with Part 4
+**[Part 4 — Live Demo →](live-demo.qmd)**
+:::

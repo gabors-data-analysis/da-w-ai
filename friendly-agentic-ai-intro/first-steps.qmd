@@ -1,7 +1,7 @@
 ---
-title: "Part 2 — First Steps with an AI Agent"
+title: "Part 2 — First Steps"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-06"
+date: "2026-11-09"
 resources:
   - starter/**
 ---
@@ -9,11 +9,11 @@ resources:
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-title}
-Part 2 — First Steps with an AI Agent
+Part 2 — First Steps
 :::
 
 ::: {.hero-subtitle}
-Your agent is set up. Now put it to work: on your Word drafts, on a PDF you know well, and on a small analysis whose numbers you check yourself
+Put the agent to work on your Word drafts, a PDF you know well, and a small analysis whose numbers you check yourself
 :::
 ::::::
 :::::::
@@ -22,30 +22,30 @@ Your agent is set up. Now put it to work: on your Word drafts, on a PDF you know
 
 ## Before you start
 
-This is Part 2 of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have done [Part 1 — Setup](setup.qmd): the Claude desktop app works, your `first-project` folder is open in the **Code** tab in **Manual** mode, Python is set up, and Typora opens `.md` files.
+This is Part 2 of [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have finished [Part 1 — Setup](setup.qmd): the app works, `first-project` is open in the Code tab in **Manual** mode, Python is set up, and Typora opens `.md` files.
 
-Part 2 takes about an hour.
+It takes about an hour.
 
 ::: {.callout-note}
 ## What you will have at the end
 
-- ☐ A routine for working on Word documents with the agent, with every change visible as tracked changes
+- ☐ A routine for working on Word documents, with every change visible as a tracked change
 - ☐ An `AGENTS.md` file with standing instructions for the agent
 - ☐ Two **skills**: one to log analytical decisions, one to read PDFs reliably
-- ☐ One small, real analysis done, with numbers you checked yourself
+- ☐ One small, real analysis, with numbers you checked yourself
 :::
 
 ------------------------------------------------------------------------
 
 ## Step 2.1 — Working on Word documents
 
-Most of your writing lives in Word, and so does your coauthors'. The agent can read Word files, comment on them, edit them and produce new ones. The routine below keeps you in control: **the agent never touches your original, and you see every change it made as tracked changes in Word.**
+Most of your writing, and your coauthors', lives in Word. The agent can read, comment on, edit and create Word files. The routine below keeps you in control: **the agent never touches your original, and you see each change as a tracked change in Word.**
 
-**Getting started.** Copy a Word document you know well into your project folder, in a subfolder `docs/` (a paper draft, a grant proposal, a referee report you wrote). Use something that is not confidential.
+**Get ready.** Copy a Word document you know well (a draft, a proposal, a referee report) into a `docs/` subfolder. Pick one that is not confidential.
 
 ### Ask for comments, not changes
 
-The safest first use. Nothing is edited.
+The safest start: nothing is edited.
 
 ``` text
 Read docs/draft.docx. Do not change it.
@@ -54,7 +54,7 @@ clarity, most important first. For each, say which section or paragraph
 it refers to. Save the list as docs/draft_comments.md.
 ```
 
-Open the comments in Typora. Some will be useful, some generic, a few wrong. That ratio tells you a lot about how to use the agent.
+Open the list in Typora. Some comments will be useful, some generic, a few wrong. That mix tells you a lot about how to use the agent.
 
 ### Ask for edits, then review them as tracked changes
 
@@ -66,36 +66,36 @@ Keep all formatting, footnotes and comments.
 When done, list the kinds of changes you made.
 ```
 
-Then let Word show you exactly what changed:
+Then let Word show what changed:
 
-1. Open Word (the desktop program; Word in the browser cannot compare). On the **Review** tab, click **Compare**, then **Compare…** on Windows or **Compare Documents** on Mac.
+1. In desktop Word (the browser version cannot compare), go to the **Review** tab, click **Compare**, then **Compare…** (Windows) or **Compare Documents** (Mac).
 2. As *Original document*, choose `draft.docx`. As *Revised document*, choose `draft_v2.docx`.
-3. Word opens a new document with every change of the agent as a **tracked change**. Accept or reject them one by one, as you would with a coauthor.
+3. Word opens a new document with each change as a **tracked change**. Accept or reject them as you would a coauthor's.
 
-This is a standard Word feature, so there is nothing new to learn. It is also a good habit for checking: if the agent changed something you did not ask for, you will see it.
+There is nothing new to learn, and it shows any change you did not ask for.
 
 ### Write in Markdown, finish in Word
 
-For new text (a memo, a section, a report), it is good practice to draft and revise in Markdown with the agent, and convert to Word only at the end. The agent works best with plain text, and its changes are easy to follow there.
+For new text (a memo, a section, a report), draft and revise in Markdown with the agent, and convert to Word at the end. The agent works best in plain text, and its changes are easier to follow there.
 
 ``` text
 Convert docs/memo.md to docs/memo.docx.
 Use docs/my-template.docx for the styles (fonts, headings, margins).
 ```
 
-For `my-template.docx`, take any Word file whose look you like (your university's template, a past paper) and put it in `docs/`. The agent copies its styles, not its text.
+For `my-template.docx`, use any Word file whose look you like (your university template, a past paper). The agent copies its styles, not its text.
 
 ### Margin comments
 
-You can also ask: *"Put your comments as Word comments in the margin of docs/draft_v2.docx."* This usually works. If the result looks odd, go back to the list of comments in a Markdown file, which always works.
+You can also ask: *"Put your comments as Word comments in the margin of docs/draft_v2.docx."* This usually works. If the result looks odd, use the list in Markdown instead.
 
 ------------------------------------------------------------------------
 
 ## Step 2.2 — Give the agent standing instructions: AGENTS.md
 
-Each session with the agent starts from zero. It does not remember yesterday. So we write down, once, what it should always know: who you are, how you like to work, what it must never do. This file is called **`AGENTS.md`** and sits in the project folder. The agent reads it at the start of every session.
+Each session starts from zero: the agent does not remember yesterday. So write down once what it should always know: who you are, how you work, what it must never do. This file, **`AGENTS.md`**, sits in the project folder, and the agent reads it at the start of every session.
 
-I prepared a starter file based on how I work with agents. Ask the agent to fetch it and set up the folders:
+We prepared a starter file based on how we work with agents. Ask the agent to fetch it and create the folders:
 
 ``` text
 Download this file exactly (use a download command, do not retype it) and
@@ -106,7 +106,7 @@ Then create the folders it describes (data/raw, data/clean, code, output, docs)
 and summarize the instructions for me in five bullet points.
 ```
 
-Then **open `AGENTS.md` in Typora and edit the "About me" section**: your field, what you work on, anything the agent should know about you. It is your file.
+Then open `AGENTS.md` in Typora and **edit the "About me" section**. It is your file.
 
 ::: {.callout-note collapse="true"}
 ## What is in the starter AGENTS.md (click to open)
@@ -116,20 +116,20 @@ Then **open `AGENTS.md` in Typora and edit the "About me" section**: your field,
 ````
 :::
 
-The main rules, in short: show a plan before longer tasks; do the smallest thing that answers the request; never delete files (move them to `_old/`); never overwrite your Word files or raw data; never invent numbers or references; say where every number comes from; check results by hand; log analytical decisions.
+In short, it says: plan before longer tasks; do the smallest thing that answers the request; never delete (move files to `_old/`); never overwrite raw data or your Word files; never invent numbers or references; say where each number comes from; check results by hand; log analytical decisions.
 
-It is good practice to grow this file slowly. **When the agent makes the same mistake twice, add one line to `AGENTS.md`.** After a month it will reflect how you work, and that is worth more than any template.
+Grow the file slowly. **When the agent makes the same mistake twice, add one line.** After a month it will fit how you work better than any template.
 
 ------------------------------------------------------------------------
 
 ## Step 2.3 — Add two skills
 
-A **skill** is a recipe the agent follows for one type of task. It is a Markdown file called `SKILL.md` in its own folder. The agent sees a short description of each skill and uses it when the task matches. You can also call a skill by name: type `/` and its name in the prompt box.
+A **skill** is a recipe for one type of task: a Markdown file called `SKILL.md` in its own folder. The agent uses a skill when the task matches its description, or when you type `/` and its name.
 
-Here are two to start with:
+Two to start with:
 
-- **`decision-log`** keeps a file `DECISIONS.md` with every analytical choice: which observations were dropped, how a variable was defined, which method. For each choice it records the alternatives and the basis (evidence, convention, your instruction, or just a default). You read this log *before* you trust the results.
-- **`read-pdf`** makes the agent extract a PDF's text into a `.txt` file first and work from that, citing page numbers. This avoids the most common failure with PDFs: answering from a partly read document without telling you.
+- **`decision-log`** records every analytical choice in `DECISIONS.md`: dropped observations, variable definitions, methods. For each, it notes the alternatives and the basis (evidence, convention, your instruction, or just a default). Read it *before* you trust the results.
+- **`read-pdf`** makes the agent extract a PDF's text to a `.txt` file first and work from that, citing page numbers. This prevents the most common PDF failure: answering from a partly read document without saying so.
 
 ::: {.callout-note collapse="true"}
 ## The decision-log skill (click to open)
@@ -159,15 +159,15 @@ Save them as .claude/skills/decision-log/SKILL.md and
 Then tell me in two sentences what each skill does.
 ```
 
-Note the dot in `.claude`. Folders starting with a dot are hidden by default, so you may not see it in Explorer or Finder. That is normal. Start a new session (the **+** or *New session* button) and type `/` to check that both skills show up.
+Folders starting with a dot, like `.claude`, are hidden by default, so you may not see it in Explorer or Finder. Start a new session (**+** or *New session*) and type `/`: both skills should show up.
 
-**Try the PDF skill.** Put a paper you know well into the folder, then ask: *"Use the read-pdf skill on [file name]. What is the research question, the data, the main result? Give page numbers."* Check one of the page numbers yourself. Then try the harder question: *"What are the three weakest points of this paper?"* and judge the answer as a referee would.
+**Try the PDF skill** on a paper you know well: *"Use the read-pdf skill on [file name]. What is the research question, the data, the main result? Give page numbers."* Check one page number yourself. Then ask *"What are the three weakest points of this paper?"* and judge the answer as a referee would.
 
 ------------------------------------------------------------------------
 
 ## Step 2.4 — A first real task with data
 
-Now everything comes together. Start a new session. This time, before you send the prompt, switch the permission mode to **Plan**. In Plan mode the agent only thinks and proposes; it changes nothing until you agree.
+Now it all comes together. Start a new session and, before you send the prompt, switch the permission mode to **Plan**. In Plan mode the agent proposes but changes nothing until you agree.
 
 ``` text
 Using the World Bank's open data (its API, no key needed), get for all
@@ -182,29 +182,29 @@ docs/memo.md: what the chart shows, and three caveats.
 Keep the decision log as you go.
 ```
 
-Read the plan. If something looks off, say so in plain words. When you are happy, switch back to **Manual** and tell it to go ahead.
+Read the plan, and say plainly if something looks off. When you are happy, switch back to **Manual** and tell it to go ahead.
 
 **Then check it. This is your job, not the agent's.**
 
-1. Open the chart. Does it look plausible? Are the countries where you expected?
-2. Pick **two countries** and look their numbers up yourself on [data.worldbank.org](https://data.worldbank.org/). Do they match the CSV?
-3. Read `DECISIONS.md`. Which countries were missing for 2023, and what did the agent do about it? Did it use a different year, drop them, or tell you?
-4. Read the memo. Does it say "effect" or "causes" anywhere? It shouldn't. A cross-country scatter shows an association.
+1. Open the chart. Are the countries where you expected?
+2. Pick **two countries** and look up their numbers on [data.worldbank.org](https://data.worldbank.org/). Do they match the CSV?
+3. Read `DECISIONS.md`. Which countries had no 2023 data, and what did the agent do: use another year, drop them, or ask you?
+4. Read the memo. Does it say "effect" or "causes"? It shouldn't: a cross-country scatter shows an association.
 
-If you find a mistake, tell the agent what you found, and add a line to `AGENTS.md` if it is the kind of mistake that could happen again. Finally, ask for the memo as a Word file (Step 2.1).
+If you find a mistake, tell the agent, and add a line to `AGENTS.md` if it could happen again. Finally, ask for the memo as a Word file (Step 2.1).
 
 ------------------------------------------------------------------------
 
 ## Habits that make it work
 
-These are the habits I rely on every day. None is technical.
+None of these is technical.
 
-1. **Plan first, then act.** For anything longer than a few minutes, use Plan mode or ask for a plan. Fixing a plan costs one sentence. Fixing finished work costs an afternoon.
-2. **Small steps, then stop and look.** Ask for one thing, check it, then ask for the next. An agent left running on a vague task produces a lot of plausible-looking work that you then have to read.
-3. **Check the numbers.** The agent can be confidently wrong. Compare a few values with the source by hand, every time. A smaller result you checked beats a larger one you did not.
-4. **Never let it delete or overwrite.** Raw data and your original documents stay untouched; old files go to `_old/`. Then every mistake can be undone.
-5. **One session per task.** Long sessions get muddled, just like long chats. When you switch to a new task, start a new session. What matters across sessions goes in `AGENTS.md`, `DECISIONS.md` or a notes file.
-6. **Ask it to explain.** "Why did you do that?", "What does this line do?", "What could go wrong here?" are all good questions. You are responsible for the work, so you need to understand it.
+1. **Plan first.** For anything longer than a few minutes, use Plan mode. Fixing a plan costs a sentence; fixing finished work costs an afternoon.
+2. **Small steps.** Ask for one thing, check it, then ask for the next. An agent running on a vague task produces plausible-looking work that you then have to read.
+3. **Check the numbers.** Compare a few values with the source by hand, every time. A smaller result you checked beats a larger one you did not.
+4. **Never let it delete or overwrite.** Raw data and original documents stay untouched; old files go to `_old/`. Then every mistake can be undone.
+5. **One session per task.** Long sessions get muddled. Start a new one for each task; what must carry over goes in `AGENTS.md`, `DECISIONS.md` or a notes file.
+6. **Ask it to explain.** "Why did you do that?" "What could go wrong here?" You are responsible for the work, so you need to understand it.
 
 ------------------------------------------------------------------------
 
@@ -212,20 +212,21 @@ These are the habits I rely on every day. None is technical.
 
 | Problem | What to do |
 |---|---|
-| Word Compare shows changes everywhere | The agent probably rebuilt the whole document. Ask it to start again from a fresh copy and change only the text, keeping everything else as it was |
-| The skills don't show up when I type `/` | Start a new session. Skills are loaded when a session starts |
-| The agent seems stuck, or keeps doing the wrong thing | Click stop. Say plainly what you want. If the session is long, start a new one |
+| Word Compare shows changes everywhere | The agent probably rebuilt the whole document. Ask it to start again from a fresh copy and change only the text |
+| The skills don't show up when I type `/` | Start a new session. Skills load when a session starts |
+| The agent seems stuck, or keeps doing the wrong thing | Click stop and say plainly what you want. If the session is long, start a new one |
 | It made a mess of my files | Ask: *"List every file you created or changed in this session."* Then ask it to move the unwanted ones to `_old/` |
-| An error I don't understand | Paste it in and ask: *"Explain this error simply, then fix it."* This works far more often than you would expect |
+| An error I don't understand | Paste it in and ask: *"Explain this error simply, then fix it."* |
 
-More setup problems are in [Part 1](setup.qmd#troubleshooting), and a short glossary is on the [course page](index.qmd#a-short-glossary).
+More setup problems: [Part 1](setup.qmd#troubleshooting). Unfamiliar terms: the [glossary](index.qmd#a-short-glossary) on the course page.
 
 ------------------------------------------------------------------------
 
-## Where to go next
+## What comes next
 
-- [Part 3 — Staying in charge](checking-work.qmd): trust, verification and control. Keep the agent inside its folder, see what it did, and build checks into the work.
-- [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
-- [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.
-- [Glossary of LLM terms](../da-knowledge/technical-terms-page.qmd) · [Which AI model](../da-knowledge/which-ai.qmd) · [Terminal Basics](../da-knowledge/terminal-basics.qmd), if you get curious
-- [Claude Code desktop documentation](https://code.claude.com/docs/en/desktop) · [Skills](https://code.claude.com/docs/en/skills) · [AGENTS.md and CLAUDE.md](https://code.claude.com/docs/en/memory)
+Part 3 is about staying in charge. Keep the agent in its folder, see what it did, and build checks into the work.
+
+::: {.callout-tip}
+## Continue with Part 3
+**[Part 3 — Staying in Charge →](checking-work.qmd)**
+:::

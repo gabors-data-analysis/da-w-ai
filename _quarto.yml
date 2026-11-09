@@ -38,15 +38,15 @@ website:
     contents:
       - section: "Friendly Intro to Agentic AI"
         contents:
-          - text: "Course overview"
+          - text: "Course Overview"
             href: friendly-agentic-ai-intro/index.qmd
           - text: "Part 1: Setup"
             href: friendly-agentic-ai-intro/setup.qmd
-          - text: "Part 2: First steps"
+          - text: "Part 2: First Steps"
             href: friendly-agentic-ai-intro/first-steps.qmd
-          - text: "Part 3: Staying in charge"
+          - text: "Part 3: Staying in Charge"
             href: friendly-agentic-ai-intro/checking-work.qmd
-          - text: "Part 4: Live demo"
+          - text: "Part 4: Live Demo"
             href: friendly-agentic-ai-intro/live-demo.qmd
 
       - section: "Core course"

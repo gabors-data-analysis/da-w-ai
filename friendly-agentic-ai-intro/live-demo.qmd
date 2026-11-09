@@ -1,7 +1,7 @@
 ---
 title: "Part 4 — Live Demo: How to Write a Paper in One Hour"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-06"
+date: "2026-11-09"
 ---
 
 ::::::: {.hero-section}
@@ -20,4 +20,4 @@ Coming soon
 
 This page is a placeholder. The material for the live demo will be added here.
 
-Part of the mini course [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). Before this part, do [Part 1 — Setup](setup.qmd), [Part 2 — First steps](first-steps.qmd) and [Part 3 — Staying in charge](checking-work.qmd).
+This is Part 4 of [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). Before it, do [Part 1 — Setup](setup.qmd), [Part 2 — First Steps](first-steps.qmd) and [Part 3 — Staying in Charge](checking-work.qmd).

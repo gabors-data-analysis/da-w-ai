@@ -1,7 +1,7 @@
 ---
 title: "Friendly Introduction to Agentic AI for Social Scientists"
 subtitle: "A mini course: from chatbot to an AI agent that works with your data, PDFs and Word drafts"
-date: "2026-11-06"
+date: "2026-11-09"
 aliases:
   - ../setup-friendly/index.html
 ---
@@ -13,7 +13,7 @@ Friendly Introduction to Agentic AI for Social Scientists
 :::
 
 ::: {.hero-subtitle}
-You have used ChatGPT or Claude in a browser, mostly for text. This mini course takes you, one step at a time, to an AI agent that works with the files on your own computer: your data, your PDFs, your Word drafts
+You have used ChatGPT or Claude in a browser, mostly for text. This mini course takes you, step by step, to an AI agent that works with the files on your computer: your data, your PDFs, your Word drafts
 :::
 ::::::
 :::::::
@@ -22,48 +22,48 @@ You have used ChatGPT or Claude in a browser, mostly for text. This mini course 
 
 ## Who this course is for
 
-This mini course is for social scientists who have used AI as a chatbot, mostly to write, edit or summarize text, and have never used Python or R. Seniority does not matter, and neither does your field.
+Social scientists who have used AI as a chatbot, mostly for text, and have never used Python or R. Seniority and field do not matter.
 
-Two reactions are common when people first hear about AI agents.
+Two reactions are common.
 
-*"This is for programmers."* It is not. You will not type a single command. You write instructions in plain language, the way you would brief a research assistant. Even installing Python is done by the agent, which explains each step before taking it. If you can follow a recipe, you can follow this course.
+*"This is for programmers."* It is not. You will not type a single command. You give instructions in plain language, as you would to a research assistant. Even Python is installed by the agent, which explains each step first.
 
-*"I don't need this."* Maybe so. Plenty of excellent research was done without it. This course does not try to argue the point. It lets you find out for yourself, on your own material, at the cost of an afternoon and one month of subscription. You stay the author: you decide what to keep, and nothing is changed without your approval.
+*"I don't need this."* Maybe so. This course does not argue the point. It lets you find out on your own material, for the cost of an afternoon and one month of subscription. You stay the author: nothing changes without your approval.
 
-We use one tool: **Claude Code, inside the Claude desktop app**. It works on Windows, Mac and Linux. Other companies offer similar agents, and what you learn here carries over. But while learning, one tool is enough.
+We use one tool: **Claude Code, in the Claude desktop app**, on Windows, Mac or Linux. Similar agents exist, and what you learn carries over. While learning, one tool is enough.
 
 ------------------------------------------------------------------------
 
 ## What is an AI agent?
 
-**A chatbot** is a conversation in a browser. You bring material to it (paste text, upload a file), it answers, and you copy the answer back into Word. It cannot see your computer. It knows only what you pasted or uploaded in that conversation.
+**A chatbot** is a conversation in a browser. You paste text or upload a file, it answers, and you copy the answer back. It knows only what you gave it in that conversation.
 
-**An agent** is the same AI model, given three things a chatbot does not have. First, access to **one folder** on your computer that you choose. Second, the ability to **act** in that folder: open files, write and run small programs, save new files. Third, a **loop**: it takes a step, looks at the result, and decides the next step, until the task is done or it needs you.
+**An agent** is the same AI model with three additions. First, access to **one folder** on your computer that you choose. Second, the ability to **act** there: open files, write and run small programs, save files. Third, a **loop**: it takes a step, looks at the result, and decides the next one, until the task is done or it needs you.
 
-The loop is what makes the difference. Say you ask: *"Make a chart of turnout by age group from survey.csv."* A chatbot needs you to upload the file, and it may guess at what the columns mean. The agent:
+The loop makes the difference. Ask for *"a chart of turnout by age group from survey.csv"*. A chatbot needs the file uploaded and may guess what the columns mean. The agent:
 
-1. opens the file and sees that the age variable is called `age_cat`, not `age`;
+1. opens the file and sees that age is called `age_cat`, not `age`;
 2. writes a short program and runs it;
-3. hits an error because some respondents have age coded as "refused", reads the error, and tells you how it proposes to handle those rows;
-4. runs the program again, opens the chart to check that it looks right, and saves it in `output/`.
+3. hits an error because some ages are coded "refused", and asks you how to handle them;
+4. runs it again, opens the chart to check it, and saves it in `output/`.
 
-You see every step. In the beginning it asks your permission before each one.
+You see every step, and at first it asks your permission before each one.
 
-A useful way to think about it: a very fast research assistant, sitting at your computer, who has read a great deal but is new to your project. It needs clear instructions and it makes mistakes, sometimes confidently. So your job shifts from doing each step to **deciding, instructing and checking**. The checking does not go away. It becomes the most important part of the work.
+Think of a very fast research assistant at your computer: well read, new to your project, and sometimes confidently wrong. Your job shifts from doing each step to **deciding, instructing and checking**. Checking becomes the most important part.
 
 ------------------------------------------------------------------------
 
 ## What you need
 
-- **A paid Claude plan.** Claude Code needs at least **Claude Pro** (about \$20/month; [pricing](https://claude.com/pricing)). The free plan does not include it. You can cancel any time. If your university has a Claude Team or Enterprise plan, that works too. Ask your IT office.
-- **A computer** running Windows 10/11, macOS, or Linux (Ubuntu or Debian).
-- **Permission to install software.** On a university-managed laptop you may need IT to approve installs. Try first; ask if blocked.
+- **A paid Claude plan.** Claude Code needs **Claude Pro** or higher (about \$20/month, cancel any time; [pricing](https://claude.com/pricing)). A university Claude Team or Enterprise plan also works.
+- **A computer** with Windows 10/11, macOS, or Linux (Ubuntu or Debian).
+- **Permission to install software.** University laptops may need IT approval. Try first; ask if blocked.
 
 ------------------------------------------------------------------------
 
-## The course: three hands-on parts and a live demo
+## The course
 
-If something fails along the way, nothing is broken. Each part has a troubleshooting section, and you can always ask the agent itself what went wrong.
+Three hands-on parts, about an hour each, and a live demo. If something fails, nothing is broken: check the troubleshooting table, or ask the agent what went wrong.
 
 ::::: {.week-card .card}
 ::: card-header
@@ -71,9 +71,9 @@ If something fails along the way, nothing is broken. Each part has a troubleshoo
 :::
 
 ::: card-body
-Install the Claude desktop app, make a project folder, have a first conversation with the agent, let it set up Python for you, and install a reader for the Markdown files it writes.
+Install the app, make a project folder, meet the agent, let it set up Python, and install a Markdown reader.
 
-**At the end you have:** the Code tab working, a project folder the agent can read and write, Python installed, and Typora for reading `.md` files.
+**You end with:** a working Code tab, a project folder, Python, and Typora.
 
 **[Start Part 1 →](setup.qmd)**
 :::
@@ -81,13 +81,13 @@ Install the Claude desktop app, make a project folder, have a first conversation
 
 ::::: {.week-card .card}
 ::: card-header
-🚶 **[Part 2 — First steps](first-steps.qmd)** · steps 2.1–2.4 · about an hour
+🚶 **[Part 2 — First Steps](first-steps.qmd)** · steps 2.1–2.4 · about an hour
 :::
 
 ::: card-body
-Work on a Word document with the agent and review its edits as tracked changes. Give the agent standing instructions in `AGENTS.md`, add two skills (a decision log and reliable PDF reading), and do a first small analysis whose numbers you check yourself.
+Edit a Word document and review the edits as tracked changes. Give the agent standing instructions in `AGENTS.md`, add two skills, and do a first small analysis.
 
-**At the end you have:** a routine for Word documents, an `AGENTS.md` file, two skills, and one real task done.
+**You end with:** a routine for Word documents, an `AGENTS.md` file, two skills, and one analysis you checked yourself.
 
 **[Start Part 2 →](first-steps.qmd)**
 :::
@@ -95,13 +95,13 @@ Work on a Word document with the agent and review its edits as tracked changes. 
 
 ::::: {.week-card .card}
 ::: card-header
-🔍 **[Part 3 — Staying in charge: checking the agent's work](checking-work.qmd)** · steps 3.1–3.4 · about an hour
+🔍 **[Part 3 — Staying in Charge](checking-work.qmd)** · steps 3.1–3.4 · about an hour
 :::
 
 ::: card-body
-Trust, verification and control. Keep the agent inside its folder, see exactly what it did (its scripts, its changes, every step), agree on checks before the work starts, and have a fresh session review the result.
+Trust, verification and control. Keep the agent in its folder, lock the raw data, see what it did, build checks into the work, and have a fresh session review it.
 
-**At the end you have:** checks built into your code with a pass/fail table, a review routine, and a few new lines in `AGENTS.md`.
+**You end with:** read-only raw data, checks with a pass/fail table, a review routine, and new lines in `AGENTS.md`.
 
 **[Start Part 3 →](checking-work.qmd)**
 :::
@@ -109,7 +109,7 @@ Trust, verification and control. Keep the agent inside its folder, see exactly w
 
 ::::: {.week-card .card}
 ::: card-header
-🎬 **[Part 4 — Live demo: how to write a paper in one hour](live-demo.qmd)**
+🎬 **[Part 4 — Live Demo: How to Write a Paper in One Hour](live-demo.qmd)**
 :::
 
 ::: card-body
@@ -121,20 +121,21 @@ Coming soon.
 
 ## A short glossary
 
-- **Agent:** an AI model that can act on your computer (read files, run code, save results) in a loop until a task is done.
-- **Harness:** a word you will hear later. It means the program around the model that gives it those abilities. Claude Code is one.
+- **Agent:** an AI model that acts on your computer (reads files, runs code, saves results) in a loop until a task is done.
+- **Harness:** a word you will hear later: the program around the model that gives it these abilities. Claude Code is one.
 - **Session:** one conversation with the agent. Each starts fresh.
-- **Context window:** what the model can see at once. Long sessions fill it up and quality drops.
+- **Context window:** what the model can see at once. Long sessions fill it up, and quality drops.
 - **Terminal:** a text window for typing commands. The agent uses one behind the scenes; you don't have to.
-- **Environment (Python):** a project's own copy of Python and its packages, kept in the `.venv` folder, so projects don't interfere with each other.
-- **Markdown (`.md`):** plain text with light formatting symbols. The common language of humans and agents.
-
+- **Environment (Python):** a project's own copy of Python and its packages, kept in the `.venv` folder.
+- **Markdown (`.md`):** plain text with a few formatting symbols. The common language of people and agents.
+- **`AGENTS.md`:** standing instructions the agent reads at the start of every session.
+- **Skill:** a recipe file the agent follows for one type of task.
 
 ------------------------------------------------------------------------
 
 ## Where to go next
 
-After the course, the main course continues from here:
-
 - [Week 1 — LLMs, Harnesses & Setup](../unit1/index.qmd): what is behind the chat box, and other agents.
 - [Week 2 — From Raw Data to Report](../unit2/index.qmd): a full analysis project with an agent.
+- [Glossary of LLM terms](../da-knowledge/technical-terms-page.qmd) · [Which AI model](../da-knowledge/which-ai.qmd) · [Terminal Basics](../da-knowledge/terminal-basics.qmd)
+- Claude Code documentation: [desktop app](https://code.claude.com/docs/en/desktop) · [skills](https://code.claude.com/docs/en/skills) · [AGENTS.md and CLAUDE.md](https://code.claude.com/docs/en/memory)
