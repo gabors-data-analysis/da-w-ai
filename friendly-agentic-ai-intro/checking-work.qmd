@@ -181,6 +181,39 @@ It adds two things. First, you see what changed across sessions and days, line b
 
 The price is about an hour of setup and one habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history without the terminal. Setup and daily use: [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github).
 
+::: {.callout-tip}
+## Let the agent run Git, with you deciding each step
+
+Once Git is set up, you can run it entirely through the agent. You read and decide; it types.
+
+**1. Review before you commit.** Ask for a summary first, and commit only when it matches what you wanted:
+
+``` text
+Summarize, in plain language, what changed since the last commit:
+which files, and what changed in each. Propose a one-line commit message.
+Do not commit yet.
+```
+
+If the summary lists something you did not ask for, ask about it before you go on.
+
+**2. Commit and push.** When the summary is right:
+
+``` text
+Commit with that message, then push to GitHub.
+```
+
+**3. Undo.** If a step turns out wrong, even days later:
+
+``` text
+Revert the last commit, keeping the history. First tell me what this
+will undo, and wait for my OK.
+```
+
+A *revert* adds a new commit that undoes an old one, so the record of what happened stays complete. This fits the `AGENTS.md` rule below: never rewrite or delete Git history.
+
+You can also ask about the past: *"What changed since Monday, and why?"*
+:::
+
 ------------------------------------------------------------------------
 
 ## The new lines for AGENTS.md, in one place
