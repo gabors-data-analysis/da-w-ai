@@ -97,6 +97,55 @@ The second is boring on purpose — boring is what reproduces.
 
 ------------------------------------------------------------------------
 
+## Version control with Git and GitHub
+
+**Git** keeps a history of a project folder. Each time you *commit*, Git saves a snapshot of every file, with a one-line note on what changed. **GitHub** keeps a copy of that history online, private unless you choose otherwise, and shows it in the browser. You can also use Git on its own, without GitHub.
+
+It takes an hour to set up and a new habit to learn. For work with AI agents, we think it is worth it, for four reasons.
+
+1. **You see exactly what changed.** The agent edits many files quickly. With Git, every change since the last commit is listed line by line: what was removed, what was added, in which file. Nothing changes silently.
+2. **Every mistake can be undone.** If the agent breaks something, go back to the last commit that worked. This makes it cheap to let the agent try things.
+3. **You get a record of the work.** The list of commits shows what was done and when. Agents write good commit notes, and they can read the history too: *"What changed since Monday, and why?"*
+4. **Backup and coauthors.** The copy on GitHub survives a lost laptop, and a coauthor can see the same history.
+
+### Setting it up
+
+1. **Create a GitHub account** at [github.com](https://github.com). Students and teachers should also claim the [GitHub Student Pack](https://education.github.com/pack).
+2. **Install Git.**
+    - *Windows:* [Git for Windows](https://git-scm.com/downloads/win), with all default options.
+    - *Mac:* open Terminal and type `git --version`. If Git is missing, the Mac offers to install it (the "command line developer tools"). Click Install.
+    - *Linux:* usually installed already; otherwise `sudo apt install git`.
+3. **Install [GitHub Desktop](https://desktop.github.com/)** (Windows and Mac) and sign in with your GitHub account. It shows the history and the changes in a window, so you do not need the terminal.
+4. **Turn the project folder into a repository.** Ask the agent:
+
+    ``` text
+    Make this folder a Git repository. Add a .gitignore that excludes data/,
+    .venv/ and output/. Then make a first commit with a short message.
+    ```
+
+5. **Publish it.** In GitHub Desktop, choose **File → Add local repository** and pick the folder. Then click **Publish repository** and keep **Keep this code private** ticked.
+
+### Using it day to day
+
+- **Commit after each step that works.** Ask the agent: *"Commit with a short message describing what changed."* Small commits are easier to read and to undo.
+- **Look at the changes.** In GitHub Desktop, the **Changes** tab shows everything changed since the last commit; the **History** tab shows each past commit and what it changed.
+- **Undo.** Uncommitted changes you don't want: right-click the file in **Changes** → **Discard changes**. A whole commit: right-click it in **History** → **Revert changes in commit**. Or ask the agent: *"Go back to the last commit that worked, and tell me what that undoes."*
+- **Push to GitHub.** Click **Push origin** to send your commits to the online copy, for example at the end of the day.
+
+Add these rules to your `AGENTS.md`, so that the agent does not commit or push on its own:
+
+``` text
+- Commit only when I ask. Never push to GitHub without asking.
+- Never rewrite or delete Git history.
+```
+
+::: {.callout-warning}
+## Data usually stays out of Git
+Keep data files out of the repository (that is what the `.gitignore` above does). There are three reasons. Confidential data should not go online, even to a private repository, unless your data agreement allows it. GitHub refuses files larger than 100 MB. And raw data never changes, so it does not need a history. Back it up separately, and keep it read-only.
+:::
+
+------------------------------------------------------------------------
+
 ## Tools, in one place
 
 A quick map of what each tool is good for. You don't need all of these.

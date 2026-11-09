@@ -41,6 +41,7 @@ This part turns the four worries into four steps: **limits** (3.1), **visibility
 ## What you will have at the end of Part 3
 
 - ☐ A clear picture of what the agent can and cannot touch on your computer
+- ☐ Raw data that is read-only by file setting, not only by instruction
 - ☐ Three ways to see what it did: the scripts, the changes, and every step it took
 - ☐ Checks written into the code, with a pass/fail table after each run
 - ☐ A routine for having the work reviewed by a fresh session
@@ -59,13 +60,27 @@ Four habits close the gap in practice:
 
 1. **Read the paths in each command before you approve it.** If you see a folder that is not your project (`C:\Users\you\Desktop`, `~/Documents/other-project`, a drive letter you don't recognize), click no and ask: *"Why do you need to go outside the project folder?"*
 2. **Know the legitimate exceptions.** Installing Python in Step 1.4 puts tools in your user folder, and downloading data in Step 2.4 reaches the web. These are expected, and the agent tells you before it does them.
-3. **Work on copies.** Put copies of your data and documents in the project folder; the originals stay where they are. Then even a bad mistake costs nothing.
+3. **Work on copies, and lock the raw data.** Put copies of your data and documents in the project folder; the originals stay where they are. And make the raw data read-only (see the box below). Then even a bad mistake costs nothing.
 4. **Write it into `AGENTS.md`.** Add this line under "Safety with my files":
 
 ``` text
 - Work only inside this project folder. If a step needs anything outside it,
   stop, tell me what and why, and wait for my OK.
 ```
+
+::: {.callout-important}
+## Raw data is read-only. Always.
+Your `AGENTS.md` already tells the agent never to change `data/raw/`. But an instruction can be misread or forgotten in a long session. A file setting cannot. So make the raw files themselves read-only. Ask the agent:
+
+``` text
+Make every file in data/raw read-only. Then try to write to one of them,
+show me that it fails, and tell me how I could undo the setting.
+```
+
+You can also do it by hand. *Windows:* right-click the file → **Properties** → tick **Read-only**. *Mac:* select the file → **File → Get Info** → tick **Locked**.
+
+Now, to overwrite raw data, the agent would first have to change the setting. That takes a command, and in Manual mode a command waits for your approval.
+:::
 
 ::: {.callout-note collapse="true"}
 ## For the technically curious: the sandbox (click to open)
@@ -154,6 +169,16 @@ Read the review the way you read a referee report: some points are serious, some
 
 ------------------------------------------------------------------------
 
+## Worth the setup: version control
+
+Everything above works without extra tools. One more tool is worth setting up once you work with the agent regularly: **version control**, usually **Git** together with **GitHub**. Git keeps a history of your project folder. Each time you *commit*, it saves a snapshot of every file with a one-line note on what changed. GitHub keeps a private copy of that history online.
+
+For checking the agent's work, this adds two things the steps above do not give you. First, you see what changed across sessions and days, not only in the current session: every line the agent added or removed since the last commit, file by file. Second, every mistake can be undone: you go back to the last version that worked. That makes it cheap to let the agent try things.
+
+The price is about an hour of setup and one new habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history in a window, so you do not need the terminal. How to set it up and use it: [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github).
+
+------------------------------------------------------------------------
+
 ## The new lines for AGENTS.md, in one place
 
 Copy these into your `AGENTS.md` (or ask the agent to add them):
@@ -171,6 +196,13 @@ Copy these into your `AGENTS.md` (or ask the agent to add them):
   ranges, missing values). After each run, save all checks with pass/fail
   in output/checks.md. If a check fails, stop and tell me.
 - Any choice I did not specify goes into DECISIONS.md, marked needs-review.
+```
+
+If you set up Git, add two more:
+
+``` text
+- Commit only when I ask. Never push to GitHub without asking.
+- Never rewrite or delete Git history.
 ```
 
 ------------------------------------------------------------------------
