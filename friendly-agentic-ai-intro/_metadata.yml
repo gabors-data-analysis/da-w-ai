@@ -1,0 +1,5 @@
+# Applies to every page in this folder: the look of the mini course.
+css: friendly.css
+body-classes: friendly
+toc-title: "On this page"
+code-tools: false

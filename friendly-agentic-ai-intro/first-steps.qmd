@@ -1,30 +1,38 @@
 ---
-title: "Part 2 — First Steps"
+title: "Part 2: First Steps"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-09"
+date: "2026-11-10"
 resources:
   - starter/**
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
+::: {.hero-eyebrow}
+Part 2 of 4 · about an hour
+:::
+
 ::: {.hero-title}
-Part 2 — First Steps
+First Steps
 :::
 
 ::: {.hero-subtitle}
-Put the agent to work on your Word drafts, a PDF you know well, and a small analysis whose numbers you check yourself
+Put the agent to work on what you know: a Word draft, a pile of readings, and a small dataset whose numbers you check yourself
 :::
 ::::::
 :::::::
 
-------------------------------------------------------------------------
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd){.here} [[3]{.n} Staying in charge](checking-work.qmd) [[4]{.n} A paper in 50 minutes](live-demo.qmd)
+:::
 
-## Before you start
+## What do we do in this part?
 
-This is Part 2 of [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). It assumes you have finished [Part 1 — Setup](setup.qmd): the app works, `first-project` is open in the Code tab in **Manual** mode, Python is set up, and Typora opens `.md` files.
+In this part the agent works on three things from your everyday work: a draft in Word, a handful of papers in PDF, and a small public dataset. There is a reason for this choice. **You can judge the agent's work only where you know the answer.** On a draft you wrote and on papers you have read, you will see at once what is useful, what is generic and what is wrong.
 
-It takes about an hour.
+Between the first and the second task, we give the agent two things that make it more reliable: standing instructions, and two skills.
+
+We assume you have finished [Part 1](setup.qmd): the app works, `first-project` is open in the Code tab in **Manual** mode, Python is set up, and Typora opens `.md` files.
 
 ::: {.callout-note}
 ## What you will have at the end
@@ -32,79 +40,77 @@ It takes about an hour.
 - ☐ A routine for working on Word documents, with every change visible as a tracked change
 - ☐ An `AGENTS.md` file with standing instructions for the agent
 - ☐ Two **skills**: one to log analytical decisions, one to read PDFs reliably
-- ☐ One small, real analysis, with numbers you checked yourself
+- ☐ A table of readings, with quotes you verified on the page
+- ☐ One small analysis, with numbers you checked yourself
 :::
 
-------------------------------------------------------------------------
-
-## Step 2.1 — Working on Word documents
+## [2.1]{.step-no} Work on a Word document {#step-2-1}
 
 Most of your writing, and your coauthors', lives in Word. The agent can read, comment on, edit and create Word files. The routine below keeps you in control: **the agent never touches your original, and you see each change as a tracked change in Word.**
 
-**Get ready.** Copy a Word document you know well (a draft, a proposal, a referee report) into a `docs/` subfolder. Pick one that is not confidential.
+To get ready, copy a Word document you know well (a draft, a proposal, a referee report) into a `docs/` subfolder. Pick one that is not confidential.
 
 ### Ask for comments, not changes
 
-The safest start: nothing is edited.
+This is the safest start, because nothing is edited.
 
-``` text
+::: {.prompt}
+``` default
 Read docs/draft.docx. Do not change it.
-Give me the ten most important comments on the argument, structure and
-clarity, most important first. For each, say which section or paragraph
-it refers to. Save the list as docs/draft_comments.md.
+Give me the ten most important comments on the argument, structure and clarity, most important first. For each, say which section or paragraph it refers to. Save the list as docs/draft_comments.md.
 ```
+:::
 
-Open the list in Typora. Some comments will be useful, some generic, a few wrong. That mix tells you a lot about how to use the agent.
+Open the list in Typora. Some comments will be useful, some generic, and a few wrong. That mix tells you a lot about how to use the agent.
 
 ### Ask for edits, then review them as tracked changes
 
-``` text
-Make a copy of docs/draft.docx called docs/draft_v2.docx. In the copy only:
-fix grammar and typos, and split sentences longer than 40 words.
-Do not change the argument, the citations or the numbers.
-Keep all formatting, footnotes and comments.
+::: {.prompt}
+``` default
+Make a copy of docs/draft.docx called docs/draft_v2.docx. In the copy only: fix grammar and typos, and split sentences longer than 40 words.
+Do not change the argument, the citations or the numbers. Keep all formatting, footnotes and comments.
 When done, list the kinds of changes you made.
 ```
+:::
 
-Then let Word show what changed:
+Then let Word show what changed.
 
-1. In desktop Word (the browser version cannot compare), go to the **Review** tab, click **Compare**, then **Compare…** (Windows) or **Compare Documents** (Mac).
+1. In desktop Word (the browser version can't compare), go to the **Review** tab, click **Compare**, then **Compare…** (Windows) or **Compare Documents** (Mac).
 2. As *Original document*, choose `draft.docx`. As *Revised document*, choose `draft_v2.docx`.
 3. Word opens a new document with each change as a **tracked change**. Accept or reject them as you would a coauthor's.
 
-There is nothing new to learn, and it shows any change you did not ask for.
+This is the Word review you already use. Also, the comparison shows every change, including the ones you didn't ask for.
 
 ### Write in Markdown, finish in Word
 
-For new text (a memo, a section, a report), draft and revise in Markdown with the agent, and convert to Word at the end. The agent works best in plain text, and its changes are easier to follow there.
+For new text (a memo, a section, a report), we advise drafting and revising in Markdown with the agent, and converting to Word at the end. The agent works best in plain text, and its changes are easier to follow there.
 
-``` text
-Convert docs/memo.md to docs/memo.docx.
-Use docs/my-template.docx for the styles (fonts, headings, margins).
+::: {.prompt}
+``` default
+Convert docs/memo.md to docs/memo.docx. Use docs/my-template.docx for the styles (fonts, headings, margins).
 ```
+:::
 
-For `my-template.docx`, use any Word file whose look you like (your university template, a past paper). The agent copies its styles, not its text.
+For `my-template.docx`, use any Word file whose look you like, such as your university template or a past paper. The agent copies its styles, not its text.
 
-### Margin comments
+### Comments in the margin
 
 You can also ask: *"Put your comments as Word comments in the margin of docs/draft_v2.docx."* This usually works. If the result looks odd, use the list in Markdown instead.
 
-------------------------------------------------------------------------
+## [2.2]{.step-no} Give the agent standing instructions: AGENTS.md {#step-2-2}
 
-## Step 2.2 — Give the agent standing instructions: AGENTS.md
+Each session starts from zero: the agent doesn't remember yesterday. So it is good practice to write down once what it should always know: who you are, how you work, and what it must never do. This file is called **`AGENTS.md`**. It sits in the project folder, and the agent reads it at the start of every session.
 
-Each session starts from zero: the agent does not remember yesterday. So write down once what it should always know: who you are, how you work, what it must never do. This file, **`AGENTS.md`**, sits in the project folder, and the agent reads it at the start of every session.
+We prepared a starter file based on how we work with agents. Ask the agent to fetch it and to create the folders:
 
-We prepared a starter file based on how we work with agents. Ask the agent to fetch it and create the folders:
-
-``` text
-Download this file exactly (use a download command, do not retype it) and
-save it as AGENTS.md in this folder:
+::: {.prompt}
+``` default
+Download this file exactly (use a download command, do not retype it) and save it as AGENTS.md in this folder:
 https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/AGENTS.md
 
-Then create the folders it describes (data/raw, data/clean, code, output, docs)
-and summarize the instructions for me in five bullet points.
+Then create the folders it describes (data/raw, data/clean, code, output, docs) and summarize the instructions for me in five bullet points.
 ```
+:::
 
 Then open `AGENTS.md` in Typora and **edit the "About me" section**. It is your file.
 
@@ -116,20 +122,19 @@ Then open `AGENTS.md` in Typora and **edit the "About me" section**. It is your 
 ````
 :::
 
-In short, it says: plan before longer tasks; do the smallest thing that answers the request; never delete (move files to `_old/`); never overwrite raw data or your Word files; never invent numbers or references; say where each number comes from; check results by hand; log analytical decisions.
+What does it say? Plan before longer tasks. Do the smallest thing that answers the request. Never delete: move files to `_old/`. Never overwrite raw data or your Word files. Never invent numbers or references, and say where each number comes from. Check results by hand. Log analytical decisions.
 
 Grow the file slowly. **When the agent makes the same mistake twice, add one line.** After a month it will fit how you work better than any template.
 
-------------------------------------------------------------------------
+## [2.3]{.step-no} Add two skills {#step-2-3}
 
-## Step 2.3 — Add two skills
+**A skill** is a recipe for one type of task: a Markdown file called `SKILL.md` in its own folder. The agent uses a skill when the task matches its description, or when you type `/` and its name.
 
-A **skill** is a recipe for one type of task: a Markdown file called `SKILL.md` in its own folder. The agent uses a skill when the task matches its description, or when you type `/` and its name.
+We start with two.
 
-Two to start with:
+**`decision-log`** records every analytical choice in a file called `DECISIONS.md`: dropped observations, variable definitions, methods. For each choice it notes the alternatives and the basis: evidence, convention, your instruction, or just a default. Read this file *before* you trust the results.
 
-- **`decision-log`** records every analytical choice in `DECISIONS.md`: dropped observations, variable definitions, methods. For each, it notes the alternatives and the basis (evidence, convention, your instruction, or just a default). Read it *before* you trust the results.
-- **`read-pdf`** makes the agent extract a PDF's text to a `.txt` file first and work from that, citing page numbers. This prevents the most common PDF failure: answering from a partly read document without saying so.
+**`read-pdf`** makes the agent extract a PDF's text to a `.txt` file first and work from that, with page numbers. This prevents the most common failure with PDFs: answering from a partly read document without saying so.
 
 ::: {.callout-note collapse="true"}
 ## The decision-log skill (click to open)
@@ -149,64 +154,98 @@ Two to start with:
 
 Install them with this prompt:
 
-``` text
+::: {.prompt}
+``` default
 Download these two files exactly (use a download command, do not retype them):
 https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/decision-log/SKILL.md
 https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/read-pdf/SKILL.md
 
-Save them as .claude/skills/decision-log/SKILL.md and
-.claude/skills/read-pdf/SKILL.md inside this project folder.
-Then tell me in two sentences what each skill does.
+Save them as .claude/skills/decision-log/SKILL.md and .claude/skills/read-pdf/SKILL.md inside this project folder. Then tell me in two sentences what each skill does.
 ```
+:::
 
-Folders starting with a dot, like `.claude`, are hidden by default, so you may not see it in Explorer or Finder. Start a new session (**+** or *New session*) and type `/`: both skills should show up.
+Folders starting with a dot, like `.claude`, are hidden by default, so you may not see it in Explorer or Finder.
 
-**Try the PDF skill** on a paper you know well: *"Use the read-pdf skill on [file name]. What is the research question, the data, the main result? Give page numbers."* Check one page number yourself. Then ask *"What are the three weakest points of this paper?"* and judge the answer as a referee would.
+::: {.check}
+**It worked if** you start a new session (**+** or *New session*), type `/`, and both skills show up in the list.
+:::
 
-------------------------------------------------------------------------
+## [2.4]{.step-no} Read a pile of papers {#step-2-4}
 
-## Step 2.4 — A first real task with data
+Every project starts with reading, and reading is where a chatbot was already of some help. The agent adds two things. It works through a whole folder of papers in one go, and it leaves behind a table that you can check, line by line.
 
-Now it all comes together. Start a new session and, before you send the prompt, switch the permission mode to **Plan**. In Plan mode the agent proposes but changes nothing until you agree.
+To get ready, make a folder `docs/readings/` and copy five to ten PDFs into it. Choose papers you know well. Start a new session and send:
 
-``` text
-Using the World Bank's open data (its API, no key needed), get for all
-EU countries for 2023:
-- female labour force participation rate (% of women 15+)
-- GDP per capita, PPP
+::: {.prompt}
+``` default
+Use the read-pdf skill on every PDF in docs/readings/.
+Then make a table with one row per paper: authors and year, research question, data or material, method, main finding. For each item, give the page number where you found it.
+For each paper, add one sentence quoted word for word that states the main finding, with its page number.
+If a paper does not state something, write "not stated". Do not guess, and do not use what you know about the paper from elsewhere.
+Save the table as docs/readings.md.
+```
+:::
 
-Save the raw download in data/raw, write the code in code/, and make
-one scatter plot (GDP per capita on the x axis, participation on the y axis,
-with country labels) saved in output/. Then write a half-page memo in
-docs/memo.md: what the chart shows, and three caveats.
+Then check it. Open `docs/readings.md` in Typora and do three things.
+
+1. Pick **two papers**. Open each PDF at the page given, and search for the quoted sentence (`Ctrl+F`, or `Cmd+F` on a Mac). Is it there, word for word?
+2. Read the row of the paper you know best. Is this how you would summarize it to a colleague?
+3. Look at one "not stated". Is it really not in the paper?
+
+Why the fuss about quotes? Summarizing is what these models do best, and the table will look convincing. The typical mistake is a different one: a paraphrase presented as a quote, or a finding that comes from the model's general knowledge and not from the file. A page number and a word-for-word quote make both mistakes easy to catch. In a published paper, a quote that doesn't exist is the kind of error that readers remember.
+
+Now ask a question across the papers: *"Which of these papers disagree with each other, and on what? Give page numbers."* Judge the answer as you would judge a memo from a research assistant.
+
+::: {.callout-tip}
+## Interviews, field notes, open-ended answers
+The same routine works on your own qualitative material: transcripts, field notes, open-ended survey answers. Ask for themes, each with word-for-word quotes, the file name and the line. But note that such material is usually confidential. Check your consent forms and your data agreement before any of it goes into the folder (Step 1.2).
+:::
+
+## [2.5]{.step-no} Do a first task with data {#step-2-5}
+
+Now it all comes together. Our question is simple: in EU countries where more women work, do women also hold more seats in parliament?
+
+Start a new session and, before you send the prompt, switch the permission mode to **Plan**. In Plan mode the agent proposes but changes nothing until you agree.
+
+::: {.prompt}
+``` default
+Using the World Bank's open data (its API, no key needed), get for all EU countries for 2023:
+- the share of seats held by women in the national parliament (%)
+- the female labor force participation rate (% of women aged 15 and over)
+
+Save the raw download in data/raw, write the code in code/, and make one scatter plot (participation on the x axis, seats in parliament on the y axis, with country labels) saved in output/.
+Then write a half-page memo in docs/memo.md: what the chart shows, and three caveats.
 Keep the decision log as you go.
 ```
+:::
 
-Read the plan, and say plainly if something looks off. When you are happy, switch back to **Manual** and tell it to go ahead.
+Read the plan, and say plainly if something looks off. When you are happy with it, switch back to **Manual** and tell the agent to go ahead.
 
 **Then check it. This is your job, not the agent's.**
 
-1. Open the chart. Are the countries where you expected?
-2. Pick **two countries** and look up their numbers on [data.worldbank.org](https://data.worldbank.org/). Do they match the CSV?
-3. Read `DECISIONS.md`. Which countries had no 2023 data, and what did the agent do: use another year, drop them, or ask you?
-4. Read the memo. Does it say "effect" or "causes"? It shouldn't: a cross-country scatter shows an association.
+1. Open the chart. Are the countries where you expected them to be?
+2. Pick **two countries** and look up their numbers on [data.worldbank.org](https://data.worldbank.org/). Do they match the CSV file in `data/raw`?
+3. Read `DECISIONS.md`. The World Bank has more than one measure of labor force participation. Which one did the agent pick, and did it tell you? Which countries had no 2023 data, and what did it do about them?
+4. Read the memo. Does it say "effect" or "causes"? It shouldn't. A scatter plot of 27 countries shows an association.
 
 If you find a mistake, tell the agent, and add a line to `AGENTS.md` if it could happen again. Finally, ask for the memo as a Word file (Step 2.1).
 
-------------------------------------------------------------------------
+Note what happened in check 3. The agent made a choice that you didn't know existed. Nothing is wrong with that, as long as the choice is written down and you read it.
 
-## Habits that make it work
+## What habits make it work?
 
-None of these is technical.
+These habits are not technical. They are what you would ask of a careful research assistant, and of yourself.
 
-1. **Plan first.** For anything longer than a few minutes, use Plan mode. Fixing a plan costs a sentence; fixing finished work costs an afternoon.
+::: {.callout-note}
+## Six habits
+
+1. **Plan first.** For anything longer than a few minutes, use Plan mode. It is much cheaper to fix a plan than to fix finished work.
 2. **Small steps.** Ask for one thing, check it, then ask for the next. An agent running on a vague task produces plausible-looking work that you then have to read.
-3. **Check the numbers.** Compare a few values with the source by hand, every time. A smaller result you checked beats a larger one you did not.
-4. **Never let it delete or overwrite.** Raw data and original documents stay untouched; old files go to `_old/`. Then every mistake can be undone.
-5. **One session per task.** Long sessions get muddled. Start a new one for each task; what must carry over goes in `AGENTS.md`, `DECISIONS.md` or a notes file.
+3. **Check against the source.** Compare a few numbers and a few quotes with the source by hand, every time.
+4. **Never let it delete or overwrite.** Raw data and original documents stay untouched, and old files go to `_old/`. Then every mistake can be undone.
+5. **One session per task.** Long sessions get muddled. Start a new one for each task. What must carry over goes in `AGENTS.md`, `DECISIONS.md` or a notes file.
 6. **Ask it to explain.** "Why did you do that?" "What could go wrong here?" You are responsible for the work, so you need to understand it.
-
-------------------------------------------------------------------------
+:::
 
 ## Troubleshooting
 
@@ -214,19 +253,17 @@ None of these is technical.
 |---|---|
 | Word Compare shows changes everywhere | The agent probably rebuilt the whole document. Ask it to start again from a fresh copy and change only the text |
 | The skills don't show up when I type `/` | Start a new session. Skills load when a session starts |
+| A PDF comes out as nonsense, or nearly empty | It is probably a scan. Tell the agent, and the read-pdf skill reads those pages as images. Check such papers with extra care |
 | The agent seems stuck, or keeps doing the wrong thing | Click stop and say plainly what you want. If the session is long, start a new one |
 | It made a mess of my files | Ask: *"List every file you created or changed in this session."* Then ask it to move the unwanted ones to `_old/` |
 | An error I don't understand | Paste it in and ask: *"Explain this error simply, then fix it."* |
 
-More setup problems: [Part 1](setup.qmd#troubleshooting). Unfamiliar terms: the [glossary](index.qmd#a-short-glossary) on the course page.
+More setup problems: [Part 1](setup.qmd#troubleshooting). Unfamiliar terms: the [glossary](index.qmd#a-short-glossary) in the overview.
 
-------------------------------------------------------------------------
+## What comes next?
 
-## What comes next
+You now have an agent that has worked on your text, your readings and a dataset. You have also seen it make choices you didn't ask for. Part 3 is about that: how to set its limits, see what it did, and build the checks into the work.
 
-Part 3 is about staying in charge. Keep the agent in its folder, see what it did, and build checks into the work.
-
-::: {.callout-tip}
-## Continue with Part 3
-**[Part 3 — Staying in Charge →](checking-work.qmd)**
+::: {.next-part}
+[Continue with Part 3: Staying in Charge →](checking-work.qmd)
 :::

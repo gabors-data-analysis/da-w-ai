@@ -1,0 +1,548 @@
+/* Look of the "Friendly Introduction to Agentic AI" mini course.
+   Paper, ink and one warm accent. Everything is scoped to body.friendly,
+   so the rest of the site keeps its own style. */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+body.friendly {
+  --paper: #fbf7ee;
+  --card: #fffdf8;
+  --ink: #23283a;
+  --ink-soft: #5a5f6e;
+  --line: #e6dcc8;
+  --clay: #b4502e;
+  --clay-soft: #f7e6dc;
+  --moss: #3e6b55;
+  --moss-soft: #e4eee7;
+  --honey: #d9a441;
+  --honey-soft: #fbf1d6;
+  --navy: #2f4370;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --display: "Fraunces", "Source Serif 4", Georgia, serif;
+  --sans: "Source Sans Pro", "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ---------- text ---------- */
+
+body.friendly main.content {
+  font-family: var(--serif);
+  font-size: 1.09rem;
+  line-height: 1.68;
+}
+
+body.friendly main.content p,
+body.friendly main.content li {
+  max-width: 44rem;
+}
+
+body.friendly main.content a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--honey);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+body.friendly main.content a:hover {
+  color: var(--clay);
+  text-decoration-color: var(--clay);
+}
+
+body.friendly main.content h2,
+body.friendly main.content h3,
+body.friendly main.content h4 {
+  font-family: var(--display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+body.friendly main.content h2 {
+  font-size: 1.75rem;
+  margin-top: 3.2rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--line);
+}
+
+body.friendly main.content h3 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+}
+
+body.friendly main.content strong {
+  font-weight: 600;
+}
+
+body.friendly main.content :not(pre) > code {
+  background: #f1e9d8;
+  color: #4a3a2a;
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+  font-size: 0.86em;
+}
+
+/* the default title block is replaced by the cover below */
+body.friendly #title-block-header {
+  display: none;
+}
+
+/* ---------- cover (top of each page) ---------- */
+
+body.friendly .hero-section {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--clay);
+  border-radius: 4px 4px 14px 14px;
+  padding: 2.4rem 2.2rem 2.2rem;
+  margin: 0.5rem 0 1.4rem;
+  box-shadow: 0 10px 24px -18px rgba(60, 40, 10, 0.35);
+}
+
+body.friendly .hero-section .container {
+  padding: 0;
+  max-width: 46rem;
+  margin: 0;
+}
+
+body.friendly .hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin-bottom: 0.9rem;
+}
+
+body.friendly .hero-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4.2vw, 2.9rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.9rem;
+  color: var(--ink);
+}
+
+body.friendly .hero-subtitle {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  opacity: 1;
+}
+
+/* ---------- course map: where am I ---------- */
+
+body.friendly .course-map p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: none;
+  margin: 0 0 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+
+body.friendly main.content .course-map a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.85rem 0.32rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+body.friendly main.content .course-map a:hover {
+  border-color: var(--clay);
+  color: var(--clay);
+}
+
+body.friendly main.content .course-map a.here {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+body.friendly .course-map .n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--clay-soft);
+  color: var(--clay);
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+body.friendly .course-map a.here .n {
+  background: var(--honey);
+  color: var(--ink);
+}
+
+/* ---------- numbered steps ---------- */
+
+body.friendly main.content h2 .step-no {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #fff;
+  background: var(--clay);
+  border-radius: 999px;
+  padding: 0.12rem 0.7rem;
+  margin-right: 0.6rem;
+  vertical-align: 0.28em;
+}
+
+body.friendly #TOC .step-no {
+  color: var(--clay);
+  font-weight: 600;
+  margin-right: 0.15rem;
+}
+
+/* ---------- prompt cards ---------- */
+
+body.friendly .prompt {
+  margin: 1.5rem 0 1.7rem;
+  max-width: 46rem;
+}
+
+body.friendly .prompt::before {
+  content: "Prompt · copy and paste";
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--clay);
+  padding: 0.3rem 0.75rem;
+  border-radius: 7px 7px 0 0;
+}
+
+/* files and file fragments (starter files, AGENTS.md lines) */
+body.friendly main.content div.sourceCode {
+  background: #f6efe0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+body.friendly main.content div.sourceCode pre {
+  border: 0;
+  background: transparent;
+  padding: 0.85rem 1rem;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+body.friendly main.content div.sourceCode pre code {
+  white-space: pre-wrap;
+  font-size: 0.86rem;
+  color: #3b3327;
+}
+
+/* prompts: a note card, not a code box */
+body.friendly main.content .prompt div.sourceCode {
+  margin: 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--clay);
+  border-radius: 0 9px 9px 9px;
+  box-shadow: 0 8px 18px -16px rgba(60, 40, 10, 0.4);
+}
+
+body.friendly main.content .prompt div.sourceCode pre {
+  padding: 1rem 2.8rem 1rem 1.15rem;
+}
+
+body.friendly main.content .prompt div.sourceCode pre code {
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ---------- "it worked if" ---------- */
+
+body.friendly .check {
+  background: var(--moss-soft);
+  border-left: 4px solid var(--moss);
+  border-radius: 0 9px 9px 0;
+  padding: 0.85rem 1.1rem 0.85rem 2.7rem;
+  margin: 1.4rem 0;
+  max-width: 46rem;
+  position: relative;
+}
+
+body.friendly .check::before {
+  content: "✓";
+  position: absolute;
+  left: 0.95rem;
+  top: 0.75rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--moss);
+}
+
+body.friendly .check p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- callouts ---------- */
+
+body.friendly .callout {
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 0 9px 9px 0;
+  background: var(--card);
+  max-width: 46rem;
+  font-size: 1rem;
+}
+
+body.friendly .callout .callout-header {
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+body.friendly .callout.callout-note {
+  border-left-color: var(--honey);
+}
+body.friendly .callout.callout-note .callout-header {
+  background: var(--honey-soft);
+}
+body.friendly .callout.callout-tip {
+  border-left-color: var(--moss);
+}
+body.friendly .callout.callout-tip .callout-header {
+  background: var(--moss-soft);
+}
+body.friendly .callout.callout-warning,
+body.friendly .callout.callout-important {
+  border-left-color: var(--clay);
+}
+body.friendly .callout.callout-warning .callout-header,
+body.friendly .callout.callout-important .callout-header {
+  background: var(--clay-soft);
+}
+
+body.friendly .callout .callout-body li {
+  max-width: none;
+}
+
+/* ---------- the four parts (overview page) ---------- */
+
+body.friendly .part-card {
+  display: grid;
+  grid-template-columns: 4.6rem 1fr;
+  gap: 0 1.3rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.3rem 1.5rem 1.1rem 1.2rem;
+  margin: 1.1rem 0;
+  max-width: 48rem;
+  box-shadow: 0 10px 22px -20px rgba(60, 40, 10, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+body.friendly .part-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -18px rgba(60, 40, 10, 0.5);
+}
+
+body.friendly .part-no {
+  font-family: var(--display);
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--clay);
+  text-align: center;
+  border-right: 1px solid var(--line);
+  padding-top: 0.2rem;
+}
+
+body.friendly .part-no p {
+  margin: 0;
+}
+
+body.friendly .part-body p {
+  margin-bottom: 0.55rem;
+}
+
+body.friendly .part-title {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+body.friendly main.content .part-title a {
+  color: var(--ink);
+}
+
+body.friendly .part-meta {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- what an agent can do (overview page) ---------- */
+
+body.friendly .uses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 0.9rem;
+  margin: 1.4rem 0 1.6rem;
+  max-width: 50rem;
+}
+
+body.friendly .use {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--honey);
+  border-radius: 4px 4px 10px 10px;
+  padding: 0.9rem 1rem 0.3rem;
+  font-size: 0.99rem;
+  line-height: 1.5;
+}
+
+/* ---------- figure ---------- */
+
+body.friendly .agent-figure {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1rem 0.4rem;
+  margin: 1.6rem 0;
+  max-width: 48rem;
+}
+
+body.friendly .agent-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body.friendly .agent-figure figcaption {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.3rem 0.4rem;
+}
+
+/* ---------- tables ---------- */
+
+body.friendly main.content table {
+  font-size: 0.98rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+
+body.friendly main.content table th {
+  font-family: var(--sans);
+  background: #f3ead8;
+  border-bottom: 2px solid var(--line);
+}
+
+body.friendly main.content table td,
+body.friendly main.content table th {
+  padding: 0.6rem 0.8rem;
+  border-color: var(--line);
+}
+
+/* ---------- next-part button ---------- */
+
+body.friendly .next-part p {
+  margin: 2.2rem 0 1rem;
+  max-width: none;
+}
+
+body.friendly main.content .next-part a {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  color: #fff;
+  background: var(--clay);
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 10px 18px -12px rgba(120, 50, 20, 0.7);
+}
+
+body.friendly main.content .next-part a:hover {
+  background: #9a4226;
+  color: #fff;
+}
+
+/* ---------- site chrome, lightly tinted ---------- */
+
+body.friendly #quarto-sidebar,
+body.friendly .sidebar.sidebar-navigation.docked,
+body.friendly #quarto-margin-sidebar {
+  background: transparent;
+}
+
+body.friendly #TOC {
+  font-family: var(--sans);
+}
+
+body.friendly #TOC .nav-link.active {
+  color: var(--clay);
+  border-left-color: var(--clay);
+}
+
+body.friendly .panel-tabset .nav-tabs .nav-link {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+body.friendly .panel-tabset .nav-tabs .nav-link.active {
+  color: var(--clay);
+  background: var(--card);
+  border-color: var(--line) var(--line) var(--card);
+}
+
+body.friendly .panel-tabset .tab-content {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 9px 9px;
+  padding: 1rem 1.2rem 0.4rem;
+}
+
+@media (max-width: 600px) {
+  body.friendly .hero-section {
+    padding: 1.6rem 1.2rem 1.4rem;
+  }
+  body.friendly .part-card {
+    grid-template-columns: 3rem 1fr;
+    gap: 0 0.9rem;
+    padding: 1rem;
+  }
+  body.friendly .part-no {
+    font-size: 2.4rem;
+  }
+}
+
+/* On a phone the chatbot/agent diagram would shrink to unreadable text:
+   keep it at a legible size and let it scroll sideways. */
+@media (max-width: 600px) {
+  body.friendly .agent-figure { overflow-x: auto; }
+  body.friendly .agent-figure svg { width: 600px; max-width: none; }
+}

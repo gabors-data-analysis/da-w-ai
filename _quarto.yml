@@ -46,7 +46,7 @@ website:
             href: friendly-agentic-ai-intro/first-steps.qmd
           - text: "Part 3: Staying in Charge"
             href: friendly-agentic-ai-intro/checking-work.qmd
-          - text: "Part 4: Live Demo"
+          - text: "Part 4: A Paper in 50 Minutes"
             href: friendly-agentic-ai-intro/live-demo.qmd
 
       - section: "Core course"

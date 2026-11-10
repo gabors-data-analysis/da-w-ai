@@ -1,23 +1,84 @@
 ---
-title: "Part 4 — Live Demo: How to Write a Paper in One Hour"
+title: "Part 4: A Paper in 50 Minutes"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-09"
+date: "2026-11-10"
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
+::: {.hero-eyebrow}
+Part 4 of 4 · live demo, then homework
+:::
+
 ::: {.hero-title}
-Part 4 — Live Demo: How to Write a Paper in One Hour
+A Paper in 50 Minutes
 :::
 
 ::: {.hero-subtitle}
-Coming soon
+One prompt, one short empirical paper and a slide deck. Then your part: study what the agent left behind
 :::
 ::::::
 :::::::
 
-------------------------------------------------------------------------
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} Staying in charge](checking-work.qmd) [[4]{.n} A paper in 50 minutes](live-demo.qmd){.here}
+:::
 
-This page is a placeholder. The material for the live demo will be added here.
+## What happens in this part?
 
-This is Part 4 of [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). Before it, do [Part 1 — Setup](setup.qmd), [Part 2 — First Steps](first-steps.qmd) and [Part 3 — Staying in Charge](checking-work.qmd).
+In Parts 1 to 3 we went step by step: one task, one check, then the next task. Here we do the opposite. We give the agent a single prompt, and it runs a whole project, from the question and the data to a short paper and a slide deck. We watch it together, live, for 50 minutes.
+
+This part has two halves. First we run the demo. Then you take the project folder home and study what the agent produced, piece by piece.
+
+::: {.callout-note}
+## The prompt and the project folder
+We will post both here after the session: the prompt exactly as we gave it, and the complete project folder as the agent left it.
+:::
+
+## What is a 50-minute paper worth?
+
+What you will see looks like a paper: a question, data, tables, charts, a conclusion. But it is a first draft, made in under an hour, and nobody has checked it yet. Don't judge it as a finished paper, and don't take its results at face value.
+
+The point of the demo is the process: how far the agent gets on its own, and how much work is left for you before your name could go on the result.
+
+Note what the agent doesn't bring, too. The question comes from us. So does the judgment on whether the answer is interesting, and whether it is right.
+
+## What should you watch during the demo?
+
+Four things are worth following as the agent works.
+
+**The plan.** Before it touches anything, the agent proposes a plan. Is it the plan you would have made?
+
+**The choices.** Each time the agent picks a sample, a definition or a method, ask yourself whether you would have picked the same.
+
+**The checks.** Does it test its own work, as in Step 3.3? What does it do when a check fails?
+
+**The files.** Follow what gets written where: data, code, outputs, the decision log, the paper.
+
+## Your homework: read the project as a referee would
+
+Download the project folder and open it in the Code tab, in Manual mode (Step 1.2). Then go through what the agent left behind. We advise this order. Your own agent can help along the way: ask it to explain any file in plain language (Step 3.2).
+
+1. **The prompt.** Read it again, slowly. What did it specify, and what did it leave open? Everything left open is a choice the agent had to make.
+2. **The paper.** Read it as a referee. Mark three claims you would question.
+3. **The decision log.** Open `DECISIONS.md`. Which choices were the agent's own? Which would you have made differently, and could any of them change the main result?
+4. **The code and the checks.** You don't need to read the code line by line. Read the comment at the top of each script, look at which checks were run, and ask your agent to explain one script.
+5. **The slide deck.** Compare it with the paper. Does it make the same claims, with the same numbers?
+6. **The skills and the instructions.** Look at `AGENTS.md` and the skills the agent used. Which rules shaped the work? Which would you copy into your own project?
+7. **One number, traced back.** Pick one number from the abstract. Find it in a table, then in the script that made the table, then in the raw data.
+
+::: {.check}
+**You are done when** you can write half a page, as a referee would: what the paper claims, what you checked, and what would have to change before you put your name on it.
+:::
+
+## And then?
+
+Try it on your own question. Take the prompt, replace the topic with one from your field, and run it in a new project folder. Use what you learned in Part 3: Manual mode, read-only raw data, checks agreed in advance, and a review in a fresh session.
+
+The first attempt won't be a paper you can submit. But you will see, on a question you know well, what the agent does well and where it needs you.
+
+For more to read and watch, see the [useful links](index.qmd#useful-links) in the overview.
+
+::: {.next-part}
+[Back to the overview →](index.qmd)
+:::

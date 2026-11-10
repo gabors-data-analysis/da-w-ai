@@ -1,13 +1,17 @@
 ---
-title: "Part 1 — Setup"
+title: "Part 1: Setup"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-09"
+date: "2026-11-10"
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
+::: {.hero-eyebrow}
+Part 1 of 4 · about an hour
+:::
+
 ::: {.hero-title}
-Part 1 — Setup
+Setup
 :::
 
 ::: {.hero-subtitle}
@@ -16,13 +20,17 @@ Install the Claude desktop app, make a project folder, meet the agent, and let i
 ::::::
 :::::::
 
-------------------------------------------------------------------------
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd){.here} [[2]{.n} First steps](first-steps.qmd) [[3]{.n} Staying in charge](checking-work.qmd) [[4]{.n} A paper in 50 minutes](live-demo.qmd)
+:::
 
-## Before you start
+## What do we do in this part?
 
-This is Part 1 of [Friendly Introduction to Agentic AI for Social Scientists](index.qmd). New here? Read the course page first: it explains what an agent is and what you need.
+Before a new research assistant can help, they need a desk, access to the right files, and the tools of the job. The agent is no different. In this part we install the app, make a folder for the agent to work in, have a first conversation with it, and let it install its own tools.
 
-It takes about an hour. If something fails, nothing is broken: see the troubleshooting table at the end, or ask the agent.
+New here? Read the [overview](index.qmd) first: it explains what an agent is and what you need.
+
+This part takes about an hour. The agent explains each step before it takes it, and you approve. If something fails, nothing is broken. See the [troubleshooting table](#troubleshooting) at the end, or ask the agent what went wrong.
 
 ::: {.callout-note}
 ## What you will have at the end
@@ -33,9 +41,7 @@ It takes about an hour. If something fails, nothing is broken: see the troublesh
 - ☐ A Markdown reader for the files the agent writes
 :::
 
-------------------------------------------------------------------------
-
-## Step 1.1 — Install the Claude desktop app
+## [1.1]{.step-no} Install the Claude desktop app {#step-1-1}
 
 ::: {.panel-tabset}
 #### Windows
@@ -51,20 +57,19 @@ It takes about an hour. If something fails, nothing is broken: see the troublesh
 #### Linux
 The desktop app for Linux is in beta, for Ubuntu and Debian. Follow the steps on the official page: [Claude Desktop on Linux](https://code.claude.com/docs/en/desktop-linux). Then start Claude from your application launcher and sign in.
 
-On another distribution, use the terminal version of Claude Code: [install guide](https://code.claude.com/docs/en/quickstart). The rest of this course still applies; you type the same prompts in the terminal.
+On another distribution, use the terminal version of Claude Code: [install guide](https://code.claude.com/docs/en/quickstart). The rest of this course still applies. You type the same prompts in the terminal.
 :::
 
-**Then open the Code tab** at the top of the left sidebar (hover over the icons if you see no names). If it asks you to upgrade, your plan does not include Claude Code.
+**Then open the Code tab** at the top of the left sidebar (hover over the icons if you see no names). If it asks you to upgrade, your plan doesn't include Claude Code.
 
 ::: {.callout-tip}
-The **Chat** tab is the chatbot you know; the **Code** tab is the agent. Despite the name, Code is for any work on files in a folder, text included.
+## Chat or Code?
+The **Chat** tab is the chatbot you know. The **Code** tab is the agent. Don't let the name mislead you: Code is for any work on files in a folder, text included.
 :::
 
-------------------------------------------------------------------------
+## [1.2]{.step-no} Make a project folder {#step-1-2}
 
-## Step 1.2 — Make a project folder
-
-The agent works inside **one folder**. Everything for a project lives there: data, code, notes, drafts, outputs. Use a new folder for each project.
+The agent works inside **one folder**. Think of it as the desk you give to a new research assistant: what is on the desk, they can read and work on. What is not, they can't. Everything for a project lives there: data, code, notes, drafts, outputs. It is good practice to use a new folder for each project.
 
 1. In your **Documents** folder, create a folder called `ai-projects`, and inside it a folder called `first-project`.
 2. Use short names without spaces or accents (`first-project`, not `My First Project (ÁÉ)`). Programs handle plain names better.
@@ -76,57 +81,58 @@ The agent works inside **one folder**. Everything for a project lives there: dat
 
 ::: {.callout-warning}
 ## What not to put in the folder (yet)
-The agent sends what it reads to Anthropic's servers. Keep confidential material out (identifiable survey data, health records, anything under a data-use agreement, other people's unpublished work) until you have checked your data agreement. Also check your Claude account's privacy settings, which control whether your conversations may be used to train future models. For learning, public data and your own drafts are fine.
+The agent sends what it reads to Anthropic's servers. So keep confidential material out of the folder until you have checked your data agreement: interview recordings and transcripts, identifiable survey data, health records, anything under a data-use agreement, other people's unpublished work. Also check your Claude account's privacy settings, which control whether your conversations may be used to train future models. For learning, public data and your own drafts are fine.
 :::
 
-------------------------------------------------------------------------
+## [1.3]{.step-no} Have a first conversation with the agent {#step-1-3}
 
-## Step 1.3 — Your first conversation with the agent
-
-Set the **permission mode** (in the row under the prompt box) to **Manual**. The agent then asks before it creates or changes any file and before it runs anything. It is slower, but you see everything. Stay in Manual for your first week.
+Set the **permission mode** (in the row under the prompt box) to **Manual**. The agent then asks before it creates or changes any file and before it runs anything. True, this is slower. But you see everything, and that is what we want at the start. We advise staying in Manual for your first week.
 
 Type this and press Enter:
 
-> *Hi. I am new to this. What can you see in this folder? Then create a file called `hello.md` with three sentences about what you can do for a social scientist.*
+::: {.prompt}
+``` default
+Hi. I am new to this. What can you see in this folder? Then create a file called hello.md with three sentences about what you can do for a social scientist.
+```
+:::
 
 The agent looks at the folder (it is empty), then asks to create a file. Read what it wants to do. If it is unclear, click no and ask: *"What does this do? Explain in one sentence."*
 
-Then try:
+Then try three things.
 
 - Click `hello.md` in the chat. It opens inside the app.
 - Ask: *"Make it two sentences and less formal."* The agent edits the file, not just the chat.
 - Click the stop button to interrupt it. You can also type a correction while it works.
 
-------------------------------------------------------------------------
+Note the second one. With a chatbot, you would get a new version in the conversation and copy it over. Here the file itself changed.
 
-## Step 1.4 — Let the agent set up Python
+## [1.4]{.step-no} Let the agent set up Python {#step-1-4}
 
-This is the most technical step, and you need not understand it. It takes five to ten minutes; you mostly read and click *Yes*.
+This is the most technical step of the course, and you don't need to follow the details. It takes five to ten minutes. Read the one-sentence explanation before each command, then approve.
 
-Why Python, if you work with text? The agent uses small Python programs as its tools: to read Word and PDF files, convert formats, handle large datasets and draw charts. Python is free, runs everywhere, and AI models write it well.
+**Why Python, if you work with text?** The agent uses small Python programs as its tools: to read Word and PDF files, to convert formats, to handle large datasets and to draw charts. Python is free, it runs on every computer, and AI models write it well. You won't write any of it yourself.
 
 Copy this prompt into the agent:
 
-``` text
+::: {.prompt}
+``` default
 I have never used Python. Please set up Python for this project folder.
 
-- Use uv (a modern Python installer) to install Python and create an
-  environment for this project only. Do not change anything else on my
-  computer without asking.
+- Use uv (a modern Python installer) to install Python and create an environment for this project only. Do not change anything else on my computer without asking.
 - Before each command, tell me in one sentence what it does.
-- Install these packages: pandas, matplotlib, openpyxl, pyreadstat,
-  pymupdf, python-docx, pypandoc-binary, requests.
-- Test it: write a short script code/00_test.py that makes a simple bar chart
-  of five made-up numbers and saves it as output/test_chart.png. Run it.
-- Finally write docs/SETUP-NOTES.md: what you installed, where it lives,
-  how to run a script, and how to undo all of it.
+- Install these packages: pandas, matplotlib, openpyxl, pyreadstat, pymupdf, python-docx, pypandoc-binary, requests.
+- Test it: write a short script code/00_test.py that makes a simple bar chart of five made-up numbers and saves it as output/test_chart.png. Run it.
+- Finally write docs/SETUP-NOTES.md: what you installed, where it lives, how to run a script, and how to undo all of it.
 ```
+:::
 
-What the packages do: **pandas** handles data tables, **matplotlib** draws charts, **openpyxl** reads Excel, **pyreadstat** reads Stata and SPSS files, **pymupdf** reads PDFs, **python-docx** reads and edits Word files, **pypandoc-binary** converts between Markdown and Word, **requests** downloads data from the web.
+What do the packages do? **pandas** handles data tables, **matplotlib** draws charts, **openpyxl** reads Excel, **pyreadstat** reads Stata and SPSS files, **pymupdf** reads PDFs, **python-docx** reads and edits Word files, **pypandoc-binary** converts between Markdown and Word, and **requests** downloads data from the web.
 
-**It worked if** `output/test_chart.png` shows a bar chart. Keep `SETUP-NOTES.md`: when something breaks months later, show it to the agent first.
+::: {.check}
+**It worked if** `output/test_chart.png` shows a bar chart. Keep `docs/SETUP-NOTES.md`: when something breaks months later, show it to the agent first.
+:::
 
-Already use Stata or R? Keep using them; the agent can write and run do-files and R scripts too. For this course, Python is the path.
+Already use Stata or R? Keep using them. The agent can write and run do-files and R scripts, too. For this course, Python is the path.
 
 ::: {.callout-tip collapse="true"}
 ## If something goes wrong here (click to open)
@@ -137,11 +143,9 @@ Already use Stata or R? Keep using them; the agent can write and run do-files an
 - In every case, paste the error into the chat and ask: *"What went wrong? Explain simply, then fix it."*
 :::
 
-------------------------------------------------------------------------
+## [1.5]{.step-no} Install a Markdown reader: Typora {#step-1-5}
 
-## Step 1.5 — A Markdown reader: Typora
-
-The agent writes notes, memos and plans in **Markdown**: plain text files ending in `.md`, where a few symbols do the formatting (`# Title` for a heading, `**word**` for **bold**, `- item` for a list). Agents read and write it perfectly, and the files open on any computer.
+The agent writes its notes, memos and plans in **Markdown**: plain text files ending in `.md`, where a few symbols do the formatting (`# Title` for a heading, `**word**` for **bold**, `- item` for a list). Agents read and write it very well, and the files open on any computer.
 
 To read Markdown as formatted text, install **[Typora](https://typora.io/)**. It looks and edits like Word, runs on Windows, Mac and Linux, and costs about \$15 once, after a free trial.
 
@@ -150,10 +154,9 @@ To read Markdown as formatted text, install **[Typora](https://typora.io/)**. It
 3. Make Typora the default program for `.md` files, so a double-click opens it.
 
 ::: {.callout-note}
-**If you write code, or plan to,** use [VS Code](https://code.visualstudio.com/) instead (free). It previews Markdown and also shows the agent's Python, R or Stata code. The main course uses it.
+## If you write code, or plan to
+Use [VS Code](https://code.visualstudio.com/) instead (free). It previews Markdown and also shows the agent's Python, R or Stata code. The main course uses it.
 :::
-
-------------------------------------------------------------------------
 
 ## Troubleshooting
 
@@ -161,26 +164,23 @@ To read Markdown as formatted text, install **[Typora](https://typora.io/)**. It
 |---|---|
 | The Code tab asks me to upgrade | Claude Code needs a Pro plan or higher. A free account only has Chat |
 | The Code tab shows a sign-in prompt or a 403 error | Finish the sign-in in the browser, then quit and restart the app. Still failing: see the [official troubleshooting](https://code.claude.com/docs/en/desktop#troubleshooting) |
-| The agent cannot see my files | Check the folder control under the prompt box: is the right folder open? |
+| The agent can't see my files | Check the folder control under the prompt box: is the right folder open? |
 | Python, Git or a package "not found" after installing | Quit the Claude app fully and start it again |
 | An error I don't understand | Paste it in and ask: *"Explain this error simply, then fix it."* This works more often than you would expect |
 
-Unfamiliar terms? See the [glossary](index.qmd#a-short-glossary) on the course page.
+Unfamiliar terms? See the [glossary](index.qmd#a-short-glossary) in the overview.
 
-------------------------------------------------------------------------
+## Are you ready for Part 2?
 
-## You are ready
+Before we move on, check that you have:
 
-Check that you have:
+- ☐ the Claude desktop app open, with the **Code** tab working;
+- ☐ the `first-project` folder open in the Code tab, in **Manual** mode;
+- ☐ `output/test_chart.png` (Python works) and `docs/SETUP-NOTES.md`;
+- ☐ Typora opening `.md` files.
 
-- ☐ the Claude desktop app open, with the **Code** tab working
-- ☐ the `first-project` folder open in the Code tab, in **Manual** mode
-- ☐ `output/test_chart.png` (Python works) and `docs/SETUP-NOTES.md`
-- ☐ Typora opening `.md` files
+Setup is done. In Part 2 we put the agent to work: on a Word draft, on a pile of readings, and on a small dataset.
 
-Next: Word documents, standing instructions for the agent, and a first real task with data.
-
-::: {.callout-tip}
-## Continue with Part 2
-**[Part 2 — First Steps →](first-steps.qmd)**
+::: {.next-part}
+[Continue with Part 2: First Steps →](first-steps.qmd)
 :::
