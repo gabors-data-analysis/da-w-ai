@@ -1,71 +1,428 @@
 /*-- scss:defaults --*/
 
-// Viridis color palette
-$viridis-dark: #440154;
-$viridis-purple: #481567;
-$viridis-blue: #3b528b;
-$viridis-teal: #21918c;
-$viridis-green: #5dc863;
-$viridis-yellow: #fde725;
+// The look of the whole site, borrowed from the painted posters of the
+// course: night background, amber title lettering, an ember glow, teal on
+// the screen. The friendly intro adds its own components in
+// friendly-agentic-ai-intro/friendly.css.
 
-// Bootstrap overrides
-$primary: $viridis-blue;
-$secondary: $viridis-teal;
-$link-color: $viridis-blue;
+$night: #15120f;
+$dusk: #1c3331;
+$cream: #f6e9c6;
+$screen: #fbf3d6;
+$amber: #f2a51c;
+$amber-soft: #fdf0cc;
+$ember: #c8431c;
+$ember-soft: #fbe3d8;
+$teal: #1b7f7a;
+$teal-soft: #dcefed;
+$teal-dark: #14615d;
+$ink: #1f1b16;
+$ink-soft: #5d564c;
+$card: #fbf8ef;
+$line: #e3dccb;
+
+// Bootstrap and Quarto overrides
+$body-bg: #ffffff;
+$body-color: $ink;
+$primary: $teal-dark;
+$secondary: $ink-soft;
+$link-color: $teal-dark;
+
+$navbar-bg: $night;
+$navbar-fg: $cream;
+$navbar-hl: $amber;
+
+$sidebar-fg: $ink-soft;
+$sidebar-hl: $ember;
+$toc-active-border: $ember;
+
+$callout-color-note: $amber;
+$callout-color-tip: $teal;
+$callout-color-important: $ember;
+$callout-color-warning: $ember;
+$callout-color-caution: $ember;
+
+$code-color: #3d3220;
+$code-bg: #f4eeda;
+$code-block-bg: $card;
+$code-block-border-color: $line;
+
+$table-border-color: $line;
 
 /*-- scss:rules --*/
 
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+:root {
+  --paper: #ffffff;
+  --card: #{$card};
+  --ink: #{$ink};
+  --ink-soft: #{$ink-soft};
+  --line: #{$line};
+  --night: #{$night};
+  --dusk: #{$dusk};
+  --cream: #{$cream};
+  --screen: #{$screen};
+  --amber: #{$amber};
+  --amber-soft: #{$amber-soft};
+  --ember: #{$ember};
+  --ember-soft: #{$ember-soft};
+  --teal: #{$teal};
+  --teal-soft: #{$teal-soft};
+  --link: #{$teal-dark};
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --display: "Alegreya", "Source Serif 4", Georgia, serif;
+  --sans: "Source Sans Pro", "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ---------- text ---------- */
+
+main.content {
+  font-family: var(--serif);
+  font-size: 1.07rem;
+  line-height: 1.66;
+}
+
+main.content a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+main.content a:hover {
+  color: var(--ember);
+  text-decoration-color: var(--ember);
+}
+
+main.content h1,
+main.content h2,
+main.content h3,
+main.content h4,
+#title-block-header .title {
+  font-family: var(--display);
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* a short amber bar under each section title */
+main.content h2 {
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 0;
+  background: linear-gradient(var(--amber), var(--amber)) left bottom / 3.4rem 4px no-repeat;
+}
+
+main.content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+main.content strong {
+  font-weight: 600;
+}
+
+/* ---------- cover: a small poster at the top of a page ---------- */
+
 .hero-section {
-  background: linear-gradient(135deg, $viridis-dark 0%, $viridis-blue 100%);
-  color: white;
-  padding: 3rem 0;
-  margin-bottom: 2rem;
+  background:
+    radial-gradient(ellipse at 88% 115%, rgba(226, 110, 28, 0.6), rgba(226, 110, 28, 0) 58%),
+    linear-gradient(165deg, var(--dusk) 0%, var(--night) 68%);
+  color: var(--cream);
+  border-radius: 6px;
+  padding: 2.6rem 2.4rem 2.4rem;
+  margin: 0.5rem 0 1.6rem;
+  box-shadow:
+    inset 0 0 0 7px var(--night),
+    inset 0 0 0 8px rgba(242, 165, 28, 0.5),
+    0 14px 26px -18px rgba(20, 15, 10, 0.7);
+}
+
+.hero-section .container {
+  padding: 0;
+  max-width: 46rem;
+  margin: 0;
+}
+
+.hero-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.85;
+  margin-bottom: 0.9rem;
 }
 
 .hero-title {
-  font-size: 2.5rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
+  font-family: var(--display);
+  font-size: clamp(1.75rem, 3.9vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+  color: var(--amber);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45), 0 0 26px rgba(242, 140, 28, 0.28);
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  line-height: 1.5;
+  color: var(--cream);
 }
 
+.hero-section a {
+  color: var(--amber);
+}
+
+/* the cover carries the title, so the default title block would repeat it */
+body:has(.hero-section) #title-block-header {
+  display: none;
+}
+
+/* ---------- cards (pre-class checklists, tasks) ---------- */
+
 .week-card {
-  border: none;
-  border-left: 4px solid $viridis-teal;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--amber);
+  border-radius: 4px 4px 10px 10px;
+  box-shadow: 0 10px 22px -20px rgba(20, 15, 10, 0.45);
   margin-bottom: 1.5rem;
+  transition: box-shadow 0.15s ease;
 }
 
 .week-card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -18px rgba(20, 15, 10, 0.5);
+}
+
+.week-card .card-header {
+  font-family: var(--sans);
+  background: var(--amber-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.week-card .card-body li {
+  max-width: none;
 }
 
 .slideshow-link {
-  background: $viridis-purple;
-  color: white;
+  background: var(--night);
+  color: var(--amber);
   padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  border-radius: 8px;
   text-decoration: none;
   display: inline-block;
   margin: 0.5rem 0;
+  font-family: var(--sans);
+  font-weight: 700;
 }
 
 .slideshow-link:hover {
-  background: darken($viridis-purple, 10%);
-  color: white;
+  background: var(--amber);
+  color: var(--night);
   text-decoration: none;
 }
 
 .assignment-badge {
-  background: $viridis-green;
-  color: white;
+  background: var(--teal);
+  color: #fff;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-size: 0.875rem;
   text-decoration: none;
+}
+
+/* ---------- callouts, code, tables ---------- */
+
+.callout {
+  border-radius: 0 9px 9px 0;
+}
+
+.callout .callout-header,
+.callout .callout-title-container {
+  font-family: var(--sans);
+  font-weight: 700;
+}
+
+main.content div.sourceCode {
+  border-radius: 8px;
+}
+
+main.content table th {
+  font-family: var(--sans);
+  background: #f4eeda;
+}
+
+/* ---------- site chrome ---------- */
+
+.navbar-title,
+.navbar .navbar-brand {
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
+  color: var(--ember) !important;
+  border-left-color: var(--ember);
+}
+
+.sidebar-section > .sidebar-item-container .sidebar-item-text {
+  font-weight: 600;
+}
+
+/* ---------- home page: the four parts ---------- */
+
+.hub {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin: 1.6rem 0 2rem;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px -20px rgba(20, 15, 10, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -18px rgba(20, 15, 10, 0.5);
+}
+
+/* the two courses get a poster band on top; the two references a thin bar */
+.hub-band {
+  background:
+    radial-gradient(ellipse at 88% 120%, rgba(226, 110, 28, 0.55), rgba(226, 110, 28, 0) 60%),
+    linear-gradient(165deg, var(--dusk) 0%, var(--night) 70%);
+  padding: 1.1rem 1.3rem 1rem;
+}
+
+.hub-band p {
+  margin: 0;
+}
+
+.hub-kind {
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.85;
+}
+
+.hub-title {
+  font-family: var(--display);
+  font-size: 1.55rem;
+  font-weight: 900;
+  line-height: 1.12;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-top: 0.35rem;
+}
+
+main.content .hub-band .hub-title a {
+  color: var(--amber);
+  text-decoration: none;
+}
+
+.hub-card.ref {
+  border-top: 4px solid var(--amber);
+}
+
+.hub-card.ref .hub-band {
+  background: none;
+  padding-bottom: 0;
+}
+
+.hub-card.ref .hub-kind {
+  color: var(--ink-soft);
+}
+
+.hub-card.ref .hub-title {
+  font-size: 1.35rem;
+}
+
+main.content .hub-card.ref .hub-title a {
+  color: var(--ink);
+}
+
+.hub-body {
+  padding: 0.9rem 1.3rem 0.4rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.hub-body p {
+  margin-bottom: 0.6rem;
+}
+
+.hub-meta {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.hub-go {
+  padding: 0 1.3rem 1.1rem;
+}
+
+.hub-go p {
+  margin: 0;
+}
+
+main.content .hub-go a {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--night);
+  background: var(--amber);
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+main.content .hub-go a:hover {
+  background: var(--night);
+  color: var(--amber);
+}
+
+main.content .hub-card.ref .hub-go a {
+  background: transparent;
+  color: var(--link);
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 2px;
+}
+
+.poster-figure img {
+  border-radius: 8px;
+  box-shadow: 0 14px 26px -18px rgba(20, 15, 10, 0.7);
+}
+
+@media (max-width: 700px) {
+  .hub {
+    grid-template-columns: 1fr;
+  }
+  .hero-section {
+    padding: 1.6rem 1.2rem 1.4rem;
+  }
 }

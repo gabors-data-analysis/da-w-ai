@@ -16,26 +16,65 @@ project:
     - "!week10/"
 
 website:
-  title: "Doing Data Analysis with AI"
-  description: "A short course by Gábor Békés"
+  title: "Gábor's AI Courses"
+  description: "Courses on data analysis and research with AI, by Gábor Békés"
   site-url: "https://gabors-data-analysis.com/ai-course"
   
   navbar:
-    title: "DA with AI"
+    title: "Gábor's AI Courses"
     left:
       - href: index.qmd
         text: Home
       - href: navbar/weeks.qmd
-        text: Course Content
-      - href: navbar/assignments.qmd
-        text: Assignments
+        text: Data Analysis with AI
+      - href: friendly-agentic-ai-intro/index.qmd
+        text: Friendly Intro
       - href: navbar/resources.qmd
         text: Knowledge Base
+      - href: case-studies/index.qmd
+        text: Case Studies
 
   sidebar:
     style: "docked"
     collapse-level: 3
     contents:
+      - section: "Data Analysis with AI"
+        contents:
+          - text: "Course Overview"
+            href: navbar/weeks.qmd
+          - text: "Assignments"
+            href: navbar/assignments.qmd
+          - section: "Core course"
+            contents:
+              - text: "Week 1: LLMs, Harnesses & Setup"
+                href: unit1/index.qmd
+              - text: "Week 2: From Raw Data to Report"
+                href: unit2/index.qmd
+              - text: "Week 3: Data Wrangling & Debugging"
+                href: unit3/index.qmd
+              - text: "Week 4: Econometrics with AI"
+                href: unit4/index.qmd
+              - text: "Week 5: Text as Data"
+                href: unit5/index.qmd
+
+          - section: "Capstone"
+            contents:
+              - text: "Project Description"
+                href: capstone/index.qmd
+              - text: "Session 1: Data Collection"
+                href: project01/index.qmd
+              - text: "Session 2: Text to Expectations"
+                href: project02/index.qmd
+              - text: "Session 3: DiD & Presentation"
+                href: project03/index.qmd
+
+          - section: "Slideshows"
+            contents:
+              - text: "Key concepts"
+                href: https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-01-llm-course.html
+              - text: "Prompting, Context"
+                href: https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html
+
       - section: "Friendly Intro to Agentic AI"
         contents:
           - text: "Course Overview"
@@ -48,45 +87,6 @@ website:
             href: friendly-agentic-ai-intro/checking-work.qmd
           - text: "Part 4: A Paper in 50 Minutes"
             href: friendly-agentic-ai-intro/live-demo.qmd
-
-      - section: "Core course"
-        contents:
-          - text: "Week 1: LLMs, Harnesses & Setup"
-            href: unit1/index.qmd
-          - text: "Week 2: From Raw Data to Report"
-            href: unit2/index.qmd
-          - text: "Week 3: Data Wrangling & Debugging"
-            href: unit3/index.qmd
-          - text: "Week 4: Econometrics with AI"
-            href: unit4/index.qmd
-          - text: "Week 5: Text as Data"
-            href: unit5/index.qmd
-
-      - section: "Capstone Project"
-        contents:
-          - text: "Project Description"
-            href: capstone/index.qmd
-          - text: "Session 1: Data Collection"
-            href: project01/index.qmd
-          - text: "Session 2: Text to Expectations"
-            href: project02/index.qmd
-          - text: "Session 3: DiD & Presentation"
-            href: project03/index.qmd
-
-      - section: "Case Studies"
-        contents:
-          - text: "World Values Survey"
-            href: case-studies/VWS/index.qmd
-          - text: "Austrian Hotels"
-            href: case-studies/austria-hotels/index.qmd
-          - text: "Football Interviews"
-            href: case-studies/interviews/index.qmd
-          - text: "US Earnings (CPS)"
-            href: case-studies/earnings/index.qmd
-          - text: "Employee Commits"
-            href: case-studies/employee_commits/index.qmd
-          - text: "Common Support (R)"
-            href: case-studies/common-support-r/index.qmd
 
       - section: "Knowledge Base"
         contents:
@@ -149,14 +149,22 @@ website:
               - text: "PDF Guide"
                 href: da-knowledge/pdf-guide.qmd
 
-
-      - section: "Slideshows"
+      - section: "Case Studies"
         contents:
-          - text: "Key concepts"
-            href: https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-01-llm-course.html
-          - text: "Prompting, Context"
-            href: https://gabors-data-analysis.com/courses/da-w-ai-2025/da-w-ai-02-prompting.html
-
+          - text: "Overview"
+            href: case-studies/index.qmd
+          - text: "World Values Survey"
+            href: case-studies/VWS/index.qmd
+          - text: "Austrian Hotels"
+            href: case-studies/austria-hotels/index.qmd
+          - text: "Football Interviews"
+            href: case-studies/interviews/index.qmd
+          - text: "US Earnings (CPS)"
+            href: case-studies/earnings/index.qmd
+          - text: "Employee Commits"
+            href: case-studies/employee_commits/index.qmd
+          - text: "Common Support (R)"
+            href: case-studies/common-support-r/index.qmd
 
 format:
   html:

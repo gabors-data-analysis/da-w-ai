@@ -33,13 +33,13 @@ format:
             max-width: 400px;
             padding: 10px 15px;
             font-size: 16px;
-            border: 2px solid #21918c;
+            border: 2px solid #1b7f7a;
             border-radius: 8px;
             outline: none;
           }
           #glossary-search:focus {
-            border-color: #3b528b;
-            box-shadow: 0 0 5px rgba(59, 82, 139, 0.3);
+            border-color: #14615d;
+            box-shadow: 0 0 5px rgba(20, 97, 93, 0.3);
           }
           .search-hint {
             font-size: 0.85em;
@@ -50,12 +50,12 @@ format:
           .term-section {
             margin-bottom: 1.5em;
             padding: 15px;
-            border-left: 3px solid #21918c;
+            border-left: 3px solid #1b7f7a;
             background: #f8f9fa;
             border-radius: 0 8px 8px 0;
           }
           .term-section h2 {
-            color: #3b528b;
+            color: #14615d;
             margin-top: 0;
             font-size: 1.3em;
           }
@@ -64,24 +64,24 @@ format:
           }
           /* Category headers */
           h1 {
-            color: #3b528b;
-            border-bottom: 2px solid #21918c;
+            color: #14615d;
+            border-bottom: 2px solid #1b7f7a;
             padding-bottom: 10px;
             margin-top: 2em;
           }
           /* Links */
           a {
-            color: #21918c;
+            color: #1b7f7a;
           }
           a:hover {
-            color: #3b528b;
+            color: #14615d;
           }
           /* Quick reference table */
           table {
             width: 100%;
           }
           th {
-            background: #3b528b;
+            background: #14615d;
             color: white;
           }
           /* No results message */
