@@ -49,62 +49,62 @@ Let's start with what you know. **A chatbot** is a conversation in a browser. Yo
 <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A chatbot exchanges text with you and cannot reach your files. An agent takes a task from you, then reads, runs and saves in your project folder in a loop, and comes back with questions and results.">
   <defs>
     <marker id="fa-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#5a5f6e"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#5d564c"/>
     </marker>
-    <marker id="fa-arrow-clay" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#b4502e"/>
+    <marker id="fa-arrow-ember" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c8431c"/>
     </marker>
   </defs>
-  <g font-family="'Source Sans Pro','Source Sans 3',system-ui,sans-serif" font-size="13" fill="#5a5f6e" text-anchor="middle">
+  <g font-family="'Source Sans Pro','Source Sans 3',system-ui,sans-serif" font-size="13" fill="#5d564c" text-anchor="middle">
 
     <!-- row 1: chatbot -->
-    <text x="18" y="66" text-anchor="start" font-family="Fraunces,Georgia,serif" font-size="21" font-weight="600" fill="#23283a">Chatbot</text>
+    <text x="18" y="66" text-anchor="start" font-family="Alegreya,Georgia,serif" font-size="21" font-weight="600" fill="#1f1b16">Chatbot</text>
     <text x="18" y="86" text-anchor="start">what you know</text>
 
-    <rect x="170" y="38" width="100" height="64" rx="10" fill="#fffdf8" stroke="#23283a" stroke-width="1.5"/>
-    <text x="220" y="75" font-size="15" font-weight="600" fill="#23283a">You</text>
+    <rect x="170" y="38" width="100" height="64" rx="10" fill="#fbf8ef" stroke="#1f1b16" stroke-width="1.5"/>
+    <text x="220" y="75" font-size="15" font-weight="600" fill="#1f1b16">You</text>
 
-    <rect x="390" y="38" width="130" height="64" rx="10" fill="#fffdf8" stroke="#23283a" stroke-width="1.5"/>
-    <text x="455" y="68" font-size="15" font-weight="600" fill="#23283a">Chatbot</text>
+    <rect x="390" y="38" width="130" height="64" rx="10" fill="#fbf8ef" stroke="#1f1b16" stroke-width="1.5"/>
+    <text x="455" y="68" font-size="15" font-weight="600" fill="#1f1b16">Chatbot</text>
     <text x="455" y="87">in a browser</text>
 
     <rect x="640" y="38" width="110" height="64" rx="10" fill="none" stroke="#b9b2a2" stroke-width="1.5" stroke-dasharray="5 4"/>
     <text x="695" y="75" font-size="15" fill="#8d8778">Your files</text>
 
     <text x="330" y="50">paste a text in</text>
-    <line x1="278" y1="60" x2="382" y2="60" stroke="#5a5f6e" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
-    <line x1="382" y1="82" x2="278" y2="82" stroke="#5a5f6e" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
+    <line x1="278" y1="60" x2="382" y2="60" stroke="#5d564c" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
+    <line x1="382" y1="82" x2="278" y2="82" stroke="#5d564c" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
     <text x="330" y="102">copy the answer out</text>
 
     <text x="580" y="75" fill="#8d8778">out of reach</text>
 
-    <line x1="18" y1="140" x2="750" y2="140" stroke="#e6dcc8" stroke-width="1"/>
+    <line x1="18" y1="140" x2="750" y2="140" stroke="#e3dccb" stroke-width="1"/>
 
     <!-- row 2: agent -->
-    <text x="18" y="216" text-anchor="start" font-family="Fraunces,Georgia,serif" font-size="21" font-weight="600" fill="#23283a">Agent</text>
+    <text x="18" y="216" text-anchor="start" font-family="Alegreya,Georgia,serif" font-size="21" font-weight="600" fill="#1f1b16">Agent</text>
     <text x="18" y="236" text-anchor="start">what this course adds</text>
 
-    <rect x="170" y="188" width="100" height="64" rx="10" fill="#fffdf8" stroke="#23283a" stroke-width="1.5"/>
-    <text x="220" y="225" font-size="15" font-weight="600" fill="#23283a">You</text>
+    <rect x="170" y="188" width="100" height="64" rx="10" fill="#fbf8ef" stroke="#1f1b16" stroke-width="1.5"/>
+    <text x="220" y="225" font-size="15" font-weight="600" fill="#1f1b16">You</text>
 
-    <rect x="390" y="188" width="130" height="64" rx="10" fill="#b4502e" stroke="#b4502e" stroke-width="1.5"/>
+    <rect x="390" y="188" width="130" height="64" rx="10" fill="#c8431c" stroke="#c8431c" stroke-width="1.5"/>
     <text x="455" y="218" font-size="15" font-weight="600" fill="#ffffff">Agent</text>
-    <text x="455" y="237" fill="#fbe9df">on your computer</text>
+    <text x="455" y="237" fill="#fbe3d8">on your computer</text>
 
-    <rect x="640" y="188" width="110" height="64" rx="10" fill="#fbf1d6" stroke="#23283a" stroke-width="1.5"/>
-    <text x="695" y="218" font-size="15" font-weight="600" fill="#23283a">One folder</text>
+    <rect x="640" y="188" width="110" height="64" rx="10" fill="#fdf0cc" stroke="#1f1b16" stroke-width="1.5"/>
+    <text x="695" y="218" font-size="15" font-weight="600" fill="#1f1b16">One folder</text>
     <text x="695" y="237">that you choose</text>
 
     <text x="330" y="200">a task, your OK</text>
-    <line x1="278" y1="210" x2="382" y2="210" stroke="#5a5f6e" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
-    <line x1="382" y1="232" x2="278" y2="232" stroke="#5a5f6e" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
+    <line x1="278" y1="210" x2="382" y2="210" stroke="#5d564c" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
+    <line x1="382" y1="232" x2="278" y2="232" stroke="#5d564c" stroke-width="1.5" marker-end="url(#fa-arrow)"/>
     <text x="330" y="252">questions, results</text>
 
-    <text x="580" y="200" fill="#b4502e">reads, runs, saves</text>
-    <line x1="528" y1="210" x2="632" y2="210" stroke="#b4502e" stroke-width="1.5" marker-end="url(#fa-arrow-clay)"/>
-    <line x1="632" y1="232" x2="528" y2="232" stroke="#b4502e" stroke-width="1.5" marker-end="url(#fa-arrow-clay)"/>
-    <text x="580" y="252" fill="#b4502e">looks at the result</text>
-    <text x="580" y="280" fill="#b4502e" font-weight="600">again and again, until done</text>
+    <text x="580" y="200" fill="#c8431c">reads, runs, saves</text>
+    <line x1="528" y1="210" x2="632" y2="210" stroke="#c8431c" stroke-width="1.5" marker-end="url(#fa-arrow-ember)"/>
+    <line x1="632" y1="232" x2="528" y2="232" stroke="#c8431c" stroke-width="1.5" marker-end="url(#fa-arrow-ember)"/>
+    <text x="580" y="252" fill="#c8431c">looks at the result</text>
+    <text x="580" y="280" fill="#c8431c" font-weight="600">again and again, until done</text>
   </g>
 </svg>
 <figcaption>The model is the same. The difference is where it works and what it is allowed to do.</figcaption>

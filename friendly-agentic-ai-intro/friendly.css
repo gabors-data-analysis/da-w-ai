@@ -1,24 +1,29 @@
 /* Look of the "Friendly Introduction to Agentic AI" mini course.
-   Paper, ink and one warm accent. Everything is scoped to body.friendly,
-   so the rest of the site keeps its own style. */
+   Borrowed from the painted posters of the main course: night background,
+   amber title lettering, an ember glow, teal on the screen.
+   Everything is scoped to body.friendly, so the rest of the site keeps its own style. */
 
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
 
 body.friendly {
-  --paper: #fbf7ee;
-  --card: #fffdf8;
-  --ink: #23283a;
-  --ink-soft: #5a5f6e;
-  --line: #e6dcc8;
-  --clay: #b4502e;
-  --clay-soft: #f7e6dc;
-  --moss: #3e6b55;
-  --moss-soft: #e4eee7;
-  --honey: #d9a441;
-  --honey-soft: #fbf1d6;
-  --navy: #2f4370;
+  --paper: #ffffff;
+  --card: #fbf8ef;
+  --ink: #1f1b16;
+  --ink-soft: #5d564c;
+  --line: #e3dccb;
+  --night: #15120f;
+  --dusk: #1c3331;
+  --cream: #f6e9c6;
+  --screen: #fbf3d6;
+  --amber: #f2a51c;
+  --amber-soft: #fdf0cc;
+  --ember: #c8431c;
+  --ember-soft: #fbe3d8;
+  --teal: #1b7f7a;
+  --teal-soft: #dcefed;
+  --link: #14615d;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --display: "Fraunces", "Source Serif 4", Georgia, serif;
+  --display: "Alegreya", "Source Serif 4", Georgia, serif;
   --sans: "Source Sans Pro", "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   background: var(--paper);
@@ -39,36 +44,39 @@ body.friendly main.content li {
 }
 
 body.friendly main.content a {
-  color: var(--navy);
+  color: var(--link);
   text-decoration: underline;
-  text-decoration-color: var(--honey);
+  text-decoration-color: var(--amber);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
 
 body.friendly main.content a:hover {
-  color: var(--clay);
-  text-decoration-color: var(--clay);
+  color: var(--ember);
+  text-decoration-color: var(--ember);
 }
 
 body.friendly main.content h2,
 body.friendly main.content h3,
 body.friendly main.content h4 {
   font-family: var(--display);
-  font-weight: 600;
+  font-weight: 800;
   color: var(--ink);
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 
+/* a short amber bar under each section title */
 body.friendly main.content h2 {
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   margin-top: 3.2rem;
-  padding-bottom: 0.45rem;
-  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.6rem;
+  border-bottom: 0;
+  background: linear-gradient(var(--amber), var(--amber)) left bottom / 3.4rem 4px no-repeat;
 }
 
 body.friendly main.content h3 {
-  font-size: 1.25rem;
+  font-size: 1.32rem;
+  font-weight: 700;
   margin-top: 2rem;
 }
 
@@ -77,8 +85,8 @@ body.friendly main.content strong {
 }
 
 body.friendly main.content :not(pre) > code {
-  background: #f1e9d8;
-  color: #4a3a2a;
+  background: #f4eeda;
+  color: #3d3220;
   border-radius: 4px;
   padding: 0.08em 0.35em;
   font-size: 0.86em;
@@ -91,15 +99,20 @@ body.friendly #title-block-header {
 
 /* ---------- cover (top of each page) ---------- */
 
+/* a poster: night sky, a warm glow from the lower right, a thin amber frame */
 body.friendly .hero-section {
-  background: var(--card);
-  color: var(--ink);
-  border: 1px solid var(--line);
-  border-top: 6px solid var(--clay);
-  border-radius: 4px 4px 14px 14px;
-  padding: 2.4rem 2.2rem 2.2rem;
+  background:
+    radial-gradient(ellipse at 88% 115%, rgba(226, 110, 28, 0.6), rgba(226, 110, 28, 0) 58%),
+    linear-gradient(165deg, var(--dusk) 0%, var(--night) 68%);
+  color: var(--cream);
+  border: 0;
+  border-radius: 6px;
+  padding: 2.6rem 2.4rem 2.4rem;
   margin: 0.5rem 0 1.4rem;
-  box-shadow: 0 10px 24px -18px rgba(60, 40, 10, 0.35);
+  box-shadow:
+    inset 0 0 0 7px var(--night),
+    inset 0 0 0 8px rgba(242, 165, 28, 0.5),
+    0 14px 26px -18px rgba(20, 15, 10, 0.7);
 }
 
 body.friendly .hero-section .container {
@@ -112,27 +125,30 @@ body.friendly .hero-eyebrow {
   font-family: var(--sans);
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--clay);
+  color: var(--cream);
+  opacity: 0.85;
   margin-bottom: 0.9rem;
 }
 
 body.friendly .hero-title {
   font-family: var(--display);
-  font-size: clamp(2rem, 4.2vw, 2.9rem);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3.9vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   margin-bottom: 0.9rem;
-  color: var(--ink);
+  color: var(--amber);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.45), 0 0 26px rgba(242, 140, 28, 0.28);
 }
 
 body.friendly .hero-subtitle {
   font-family: var(--serif);
   font-size: 1.2rem;
   line-height: 1.5;
-  color: var(--ink-soft);
+  color: var(--cream);
   opacity: 1;
 }
 
@@ -161,14 +177,14 @@ body.friendly main.content .course-map a {
 }
 
 body.friendly main.content .course-map a:hover {
-  border-color: var(--clay);
-  color: var(--clay);
+  border-color: var(--ember);
+  color: var(--ember);
 }
 
 body.friendly main.content .course-map a.here {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #fff;
+  background: var(--night);
+  border-color: var(--night);
+  color: var(--cream);
 }
 
 body.friendly .course-map .n {
@@ -178,15 +194,15 @@ body.friendly .course-map .n {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
-  background: var(--clay-soft);
-  color: var(--clay);
+  background: var(--amber-soft);
+  color: var(--ink);
   font-weight: 700;
   font-size: 0.82rem;
 }
 
 body.friendly .course-map a.here .n {
-  background: var(--honey);
-  color: var(--ink);
+  background: var(--amber);
+  color: var(--night);
 }
 
 /* ---------- numbered steps ---------- */
@@ -194,19 +210,19 @@ body.friendly .course-map a.here .n {
 body.friendly main.content h2 .step-no {
   display: inline-block;
   font-family: var(--display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: #fff;
-  background: var(--clay);
-  border-radius: 999px;
-  padding: 0.12rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--amber);
+  background: var(--night);
+  border-radius: 6px;
+  padding: 0.1rem 0.6rem;
   margin-right: 0.6rem;
   vertical-align: 0.28em;
 }
 
 body.friendly #TOC .step-no {
-  color: var(--clay);
+  color: var(--ember);
   font-weight: 600;
   margin-right: 0.15rem;
 }
@@ -226,15 +242,15 @@ body.friendly .prompt::before {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #fff;
-  background: var(--clay);
+  color: var(--amber);
+  background: var(--night);
   padding: 0.3rem 0.75rem;
   border-radius: 7px 7px 0 0;
 }
 
 /* files and file fragments (starter files, AGENTS.md lines) */
 body.friendly main.content div.sourceCode {
-  background: #f6efe0;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 8px;
 }
@@ -254,14 +270,13 @@ body.friendly main.content div.sourceCode pre code {
   color: #3b3327;
 }
 
-/* prompts: a note card, not a code box */
+/* prompts: the cream screen of the poster's monitor, not a code box */
 body.friendly main.content .prompt div.sourceCode {
   margin: 0;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--clay);
-  border-radius: 0 9px 9px 9px;
-  box-shadow: 0 8px 18px -16px rgba(60, 40, 10, 0.4);
+  background: var(--screen);
+  border: 2px solid var(--night);
+  border-radius: 0 10px 10px 10px;
+  box-shadow: 0 8px 18px -16px rgba(20, 15, 10, 0.6);
 }
 
 body.friendly main.content .prompt div.sourceCode pre {
@@ -278,8 +293,8 @@ body.friendly main.content .prompt div.sourceCode pre code {
 /* ---------- "it worked if" ---------- */
 
 body.friendly .check {
-  background: var(--moss-soft);
-  border-left: 4px solid var(--moss);
+  background: var(--teal-soft);
+  border-left: 4px solid var(--teal);
   border-radius: 0 9px 9px 0;
   padding: 0.85rem 1.1rem 0.85rem 2.7rem;
   margin: 1.4rem 0;
@@ -295,7 +310,7 @@ body.friendly .check::before {
   font-family: var(--sans);
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--moss);
+  color: var(--teal);
 }
 
 body.friendly .check p:last-child {
@@ -319,24 +334,24 @@ body.friendly .callout .callout-header {
 }
 
 body.friendly .callout.callout-note {
-  border-left-color: var(--honey);
+  border-left-color: var(--amber);
 }
 body.friendly .callout.callout-note .callout-header {
-  background: var(--honey-soft);
+  background: var(--amber-soft);
 }
 body.friendly .callout.callout-tip {
-  border-left-color: var(--moss);
+  border-left-color: var(--teal);
 }
 body.friendly .callout.callout-tip .callout-header {
-  background: var(--moss-soft);
+  background: var(--teal-soft);
 }
 body.friendly .callout.callout-warning,
 body.friendly .callout.callout-important {
-  border-left-color: var(--clay);
+  border-left-color: var(--ember);
 }
 body.friendly .callout.callout-warning .callout-header,
 body.friendly .callout.callout-important .callout-header {
-  background: var(--clay-soft);
+  background: var(--ember-soft);
 }
 
 body.friendly .callout .callout-body li {
@@ -366,13 +381,15 @@ body.friendly .part-card:hover {
 
 body.friendly .part-no {
   font-family: var(--display);
-  font-size: 3.4rem;
-  font-weight: 600;
+  font-size: 3.2rem;
+  font-weight: 900;
   line-height: 1;
-  color: var(--clay);
+  color: var(--amber);
+  background: linear-gradient(165deg, var(--dusk), var(--night) 75%);
+  border-radius: 9px;
   text-align: center;
-  border-right: 1px solid var(--line);
-  padding-top: 0.2rem;
+  align-self: start;
+  padding: 0.75rem 0 0.9rem;
 }
 
 body.friendly .part-no p {
@@ -385,8 +402,8 @@ body.friendly .part-body p {
 
 body.friendly .part-title {
   font-family: var(--display);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.45rem;
+  font-weight: 800;
 }
 
 body.friendly main.content .part-title a {
@@ -414,7 +431,7 @@ body.friendly .uses {
 body.friendly .use {
   background: var(--card);
   border: 1px solid var(--line);
-  border-top: 3px solid var(--honey);
+  border-top: 3px solid var(--amber);
   border-radius: 4px 4px 10px 10px;
   padding: 0.9rem 1rem 0.3rem;
   font-size: 0.99rem;
@@ -455,7 +472,7 @@ body.friendly main.content table {
 
 body.friendly main.content table th {
   font-family: var(--sans);
-  background: #f3ead8;
+  background: #f4eeda;
   border-bottom: 2px solid var(--line);
 }
 
@@ -476,17 +493,17 @@ body.friendly main.content .next-part a {
   display: inline-block;
   font-family: var(--sans);
   font-weight: 700;
-  color: #fff;
-  background: var(--clay);
+  color: var(--night);
+  background: var(--amber);
   padding: 0.7rem 1.3rem;
-  border-radius: 999px;
+  border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 10px 18px -12px rgba(120, 50, 20, 0.7);
+  box-shadow: 0 10px 18px -12px rgba(20, 15, 10, 0.7);
 }
 
 body.friendly main.content .next-part a:hover {
-  background: #9a4226;
-  color: #fff;
+  background: var(--night);
+  color: var(--amber);
 }
 
 /* ---------- site chrome, lightly tinted ---------- */
@@ -502,8 +519,8 @@ body.friendly #TOC {
 }
 
 body.friendly #TOC .nav-link.active {
-  color: var(--clay);
-  border-left-color: var(--clay);
+  color: var(--ember);
+  border-left-color: var(--ember);
 }
 
 body.friendly .panel-tabset .nav-tabs .nav-link {
@@ -513,7 +530,7 @@ body.friendly .panel-tabset .nav-tabs .nav-link {
 }
 
 body.friendly .panel-tabset .nav-tabs .nav-link.active {
-  color: var(--clay);
+  color: var(--ember);
   background: var(--card);
   border-color: var(--line) var(--line) var(--card);
 }
@@ -545,4 +562,11 @@ body.friendly .panel-tabset .tab-content {
 @media (max-width: 600px) {
   body.friendly .agent-figure { overflow-x: auto; }
   body.friendly .agent-figure svg { width: 600px; max-width: none; }
+}
+
+/* the site theme colours the active entries with !important */
+body.friendly .sidebar nav[role="doc-toc"] ul > li > a.active,
+body.friendly .sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
+  color: var(--ember) !important;
+  border-left-color: var(--ember);
 }
