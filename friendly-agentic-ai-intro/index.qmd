@@ -122,6 +122,8 @@ You see every step, and at first it asks your permission before each one.
 
 It helps to think of the agent as a very fast research assistant sitting at your computer. It has read a lot, but it is new to your project, and it can be wrong with confidence. Hence your job shifts from doing each step to instructing the agent and checking its work. Checking matters most.
 
+One more point changes how you use it. The model behind the agent is not a database. It doesn't look facts up in its memory, it reconstructs them, so a reference, a number or a date it "remembers" can be wrong. It is much stronger at working with material you put in front of it. So working with an agent is largely about designing its context: you provide the grounding material (your readings, your data, your notes) and the tools to search and compute, and you ask it to work from those rather than from memory. A table of readings built from the PDFs in your folder can be checked line by line. One built from what the model recalls cannot.
+
 ## What can it do for a social scientist?
 
 Here are a few tasks that fit an agent well. None of them needs you to write code.
@@ -263,6 +265,7 @@ Many people have written about agents for researchers. These are the ones we fin
 
 - Paul Goldsmith-Pinkham, [Claude Code for Applied Economists](https://markusacademy.substack.com/p/claude-code-for-applied-economists). Eight video episodes, from getting started to verification.
 - Scott Cunningham, [Claude Code Changed How I Work](https://causalinf.substack.com/p/claude-code-changed-how-i-work-part). A long series on empirical research with an agent. Some posts are for subscribers.
+- Anton Korinek, [AI Agents for Economic Research](https://www.genaiforecon.org/JEL-2025-Aug-AIAgents.pdf) (August 2025). The latest in his series in the *Journal of Economic Literature* on using AI in economic research.
 - Mihail Velikov, [AI in Business & Economic Research](https://velikov-mihail.github.io/ai-econ-wiki/). One-page summaries of more than 180 guides and papers.
 
 **Background reading**

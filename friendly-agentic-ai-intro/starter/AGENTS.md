@@ -18,6 +18,8 @@ When the agent makes the same mistake twice, add a line here.
 - Work in small steps. Stop at natural break points and tell me what you did and what is left.
 - If my request is unclear, ask one question rather than guessing.
 - When you finish, say what you did not do or could not check.
+- Keep `status.md` up to date: what is done, what is open, what comes next.
+  Update it at the end of each task. When I say "continue", read it first.
 
 ## Safety with my files
 

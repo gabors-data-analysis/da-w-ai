@@ -85,6 +85,13 @@ This is the Word review you already use. Also, the comparison shows every change
 
 For new text (a memo, a section, a report), we advise drafting and revising in Markdown with the agent, and converting to Word at the end. The agent works best in plain text, and its changes are easier to follow there.
 
+::: {.callout-tip}
+## Try it: what the agent sees
+Right-click a Word file and open it with Notepad (on Windows). What you see is unreadable: a `.docx` is a packed bundle of files. Before the agent can work with it, it has to unpack and convert it, which costs time and loses some structure. Now open a Markdown file the same way: it reads just as it does in Typora. On a Mac, or on any computer, you can ask the agent instead: *"Show me the first 20 lines of docs/draft.docx exactly as stored on disk, without converting it."*
+
+The idea comes from Simon Martin's slides [Jump-starting AI agents](https://github.com/simonmartinecon/jumpstart-ai).
+:::
+
 ::: {.prompt}
 ``` default
 Convert docs/memo.md to docs/memo.docx. Use docs/my-template.docx for the styles (fonts, headings, margins).
@@ -122,7 +129,7 @@ Then open `AGENTS.md` in Typora and **edit the "About me" section**. It is your 
 ````
 :::
 
-What does it say? Plan before longer tasks. Do the smallest thing that answers the request. Never delete: move files to `_old/`. Never overwrite raw data or your Word files. Never invent numbers or references, and say where each number comes from. Check results by hand. Log analytical decisions.
+What does it say? Plan before longer tasks. Do the smallest thing that answers the request. Never delete: move files to `_old/`. Never overwrite raw data or your Word files. Never invent numbers or references, and say where each number comes from. Check results by hand. Log analytical decisions. Keep a short progress note, `status.md`, so the next session can pick up where this one stopped.
 
 Grow the file slowly. **When the agent makes the same mistake twice, add one line.** After a month it will fit how you work better than any template.
 
@@ -243,7 +250,7 @@ These habits are not technical. They are what you would ask of a careful researc
 2. **Small steps.** Ask for one thing, check it, then ask for the next. An agent running on a vague task produces plausible-looking work that you then have to read.
 3. **Check against the source.** Compare a few numbers and a few quotes with the source by hand, every time.
 4. **Never let it delete or overwrite.** Raw data and original documents stay untouched, and old files go to `_old/`. Then every mistake can be undone.
-5. **One session per task.** Long sessions get muddled. Start a new one for each task. What must carry over goes in `AGENTS.md`, `DECISIONS.md` or a notes file.
+5. **One session per task.** Long sessions get muddled. Start a new one for each task. What must carry over goes in a file: standing rules in `AGENTS.md`, analytical choices in `DECISIONS.md`, and where the work stands in `status.md`. End a session with *"Update status.md."* Start the next with *"Read status.md and continue where we left off."*
 6. **Ask it to explain.** "Why did you do that?" "What could go wrong here?" You are responsible for the work, so you need to understand it.
 :::
 

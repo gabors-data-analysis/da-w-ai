@@ -77,6 +77,40 @@ Try it on your own question. Take the prompt, replace the topic with one from yo
 
 The first attempt won't be a paper you can submit. But you will see, on a question you know well, what the agent does well and where it needs you.
 
+## Write in your own voice
+
+Out of the box, the agent writes generic prose: smooth, correct, and not like you, nor like the papers in your field. Readers notice. The fix is the same as everywhere in this course: give it grounding material.
+
+Put one or two of your own papers in `docs/samples/`, as PDFs or Word files: the agent converts them to text first, with the read-pdf skill from Step 2.3 for PDFs. Then start a new session and send:
+
+::: {.prompt}
+``` default
+Read the papers in docs/samples/. Write a short note in docs/my-voice.md on how I write: sentence length, how I state results and caveats, words I use and words I avoid, with two or three short examples from the samples. Then add a line to AGENTS.md saying that any text you write for me should follow docs/my-voice.md.
+```
+:::
+
+Read `docs/my-voice.md` and correct it: it is a description of you, so you are the judge. For the conventions of your field (notation, how results are stated), point the agent to the papers in `docs/readings/` in the same way. We will turn this into a proper skill later.
+
+## Beyond: what to use it for next
+
+Once the routines of Parts 2 and 3 feel normal, try the agent on work that is not analysis. Two ideas we like, both adapted from Simon Martin's [Jump-starting AI agents](https://github.com/simonmartinecon/jumpstart-ai):
+
+**A sparring partner.** Test an argument before you take it to colleagues or start writing it up. The agent often spots what you missed, such as a clash with an earlier section.
+
+::: {.prompt}
+``` default
+I think Section 5 of docs/draft.md should be reframed as follows: [your idea]. Assess this critically against the rest of the draft and the papers in docs/readings/. List the weakest points first.
+```
+:::
+
+**Admin.** Progress reports, applications, forms: tasks where the information exists in your files but has to be pulled together.
+
+::: {.prompt}
+``` default
+Draft the progress report from the documents in docs/funding/. Follow the structure of docs/funding/report-template.docx. Write it in Markdown first, and mark anything you could not find in the documents with TODO.
+```
+:::
+
 For more to read and watch, see the [useful links](index.qmd#useful-links) in the overview.
 
 ::: {.next-part}
