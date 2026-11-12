@@ -71,11 +71,18 @@ The **Chat** tab is the chatbot you know. The **Code** tab is the agent. Don't l
 
 The agent works inside **one folder**. Think of it as the desk you give to a new research assistant: what is on the desk, they can read and work on. What is not, they can't. Everything for a project lives there: data, code, notes, drafts, outputs. It is good practice to use a new folder for each project.
 
-1. In your **Documents** folder, create a folder called `ai-projects`, and inside it a folder called `first-project`.
+1. In your **Documents** folder, or in your Dropbox (see the box below), create a folder called `ai-projects`, and inside it a folder called `first-project`.
 2. Use short names without spaces or accents (`first-project`, not `My First Project (ÁÉ)`). Programs handle plain names better.
 3. Show file extensions, so you can tell `.md`, `.csv`, `.py` and `.docx` files apart.
     - *Windows:* in File Explorer, click **View → Show → File name extensions**.
     - *Mac:* in Finder, open **Finder → Settings → Advanced** and tick **Show all filename extensions**.
+
+::: {.callout-tip}
+## Put the folder in Dropbox
+If you use Dropbox, OneDrive or Google Drive, it is good practice to create `ai-projects` there rather than in Documents. These services keep earlier versions of each file. So you can go back in time: if the agent spoils a file, open its version history and restore yesterday's version. How far back you can go depends on your plan.
+
+Git and GitHub do the same job more precisely, with a saved snapshot after each step that works. They take some setup. See [Is version control worth the setup?](checking-work.qmd#worth-the-setup-version-control) in Part 3.
+:::
 
 **Open the folder in Claude.** In the Code tab, find the row of controls under the prompt box. Click the first one (the environment) and choose the top entry under **Local**. Then click the folder control next to it, choose **Open folder…** and pick `first-project`.
 
