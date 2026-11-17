@@ -203,6 +203,8 @@ The agent writes its notes, memos and plans in **Markdown**: plain text files en
 
 To read Markdown as formatted text, install **[Typora](https://typora.io/)**. It looks and edits like Word, runs on Windows, Mac and Linux, and costs about \$15 once, after a free trial.
 
+A free alternative is **[Zettlr](https://zettlr.com/)**, made for academic writing. It is open source, runs on Windows, Mac and Linux, and exports to Word.
+
 1. Download and install Typora from [typora.io](https://typora.io/).
 2. Open `hello.md` from Step 1.3 in Typora (right-click the file → **Open with** → Typora). It should look like a formatted document.
 3. Make Typora the default program for `.md` files, so a double-click opens it.
