@@ -6,6 +6,7 @@ aliases:
   - checking-work.html
 resources:
   - starter/**
+  - assets/first-steps-in-a-minute.html
 ---
 
 ::::::: {.hero-section}
@@ -33,6 +34,13 @@ One small project, from a pile of papers to a reviewed memo, and how to stay in 
 We run one small project from start to finish. The question: **do big events change when babies are born?** Newspapers love the story of a baby boom nine months after a big match or a blackout. Researchers in sociology, demography, medicine and economics have checked it, and they don't all agree.
 
 We prepared six papers on this question. The agent collects them, makes an extract of each, answers your questions about them, and writes a one-page memo. You review the memo the way you review a colleague's draft, with comments on a PDF, and the agent revises it. At the end, a short task with data.
+
+::: {.film}
+```{=html}
+<iframe src="assets/first-steps-in-a-minute.html" title="First steps in about a minute: an animation of the six steps" loading="lazy" allowfullscreen></iframe>
+```
+The six steps in about a minute. No sound. [Open it full screen](assets/first-steps-in-a-minute.html){target="_blank"}
+:::
 
 Two ideas run through the whole part.
 

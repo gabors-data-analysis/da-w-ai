@@ -2,6 +2,8 @@
 title: "Part 1: Setup"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
 date: "2026-11-10"
+resources:
+  - assets/setup-in-a-minute.html
 ---
 
 ::::::: {.hero-section}
@@ -29,6 +31,13 @@ Install the Claude desktop app, make a project folder, meet the agent, and let i
 Before a new research assistant can help, they need a desk, access to the right files, and the tools of the job. The agent is no different. In this part we install the app, make a folder for the agent to work in, have a first conversation with it, and let it install its own tools.
 
 New here? Read the [overview](index.qmd) first: it explains what an agent is and what you need.
+
+::: {.film}
+```{=html}
+<iframe src="assets/setup-in-a-minute.html" title="Setup in one minute: an animation of the five steps" loading="lazy" allowfullscreen></iframe>
+```
+The five steps in one minute. No sound. [Open it full screen](assets/setup-in-a-minute.html){target="_blank"}
+:::
 
 This part takes about an hour. The agent explains each step before it takes it, and you approve. If something fails, nothing is broken. See the [troubleshooting table](#troubleshooting) at the end, or ask the agent what went wrong.
 

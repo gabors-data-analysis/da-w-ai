@@ -484,3 +484,28 @@ body.friendly .when.later {
   background: var(--teal-soft);
   border-color: var(--teal-soft);
 }
+
+/* ---------- animation embedded in a page ---------- */
+
+body.friendly .film {
+  margin: 1.6rem 0;
+  max-width: 48rem;
+}
+
+body.friendly .film iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1280 / 780;
+  border: 0;
+  border-radius: 8px;
+  background: var(--night);
+  box-shadow: 0 14px 26px -18px rgba(20, 15, 10, 0.7);
+}
+
+body.friendly .film p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0.5rem 0 0;
+  max-width: none;
+}

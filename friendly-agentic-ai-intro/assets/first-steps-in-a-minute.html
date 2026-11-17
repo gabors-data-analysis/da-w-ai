@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First steps in about a minute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800;900&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  /* A 70-second animation of the six steps of Part 2.
+     Same design as setup-in-a-minute.html: one SVG, one clock (t in seconds),
+     and render(t) sets every moving part, so the film can be paused, scrubbed,
+     or stepped frame by frame (window.seek(t)) to record it as a video. */
+  html, body { margin: 0; height: 100%; background: #15120f; }
+  .film { position: relative; width: 100%; max-width: calc(100vh * 1280 / 780); margin: 0 auto; aspect-ratio: 1280 / 780; }
+  svg { display: block; width: 100%; height: 92.308%; cursor: pointer; }
+  .bar { height: 7.692%; display: flex; align-items: center; gap: 1.2vw; padding: 0 1.4vw; box-sizing: border-box;
+         background: #15120f; border-top: 1px solid rgba(242, 165, 28, .35); font: 600 1.5vw "Source Sans 3", system-ui, sans-serif; color: #f6e9c6; }
+  .bar button { font: inherit; color: #15120f; background: #f2a51c; border: 0; border-radius: .5vw; padding: .45vw 1.1vw; cursor: pointer; min-width: 7.5vw; }
+  .bar button:hover { background: #f6e9c6; }
+  .bar input { flex: 1; accent-color: #f2a51c; }
+  .bar span { min-width: 6vw; text-align: right; font-variant-numeric: tabular-nums; opacity: .8; }
+  .big { position: absolute; left: 50%; top: 73%; transform: translate(-50%, -50%); font: 700 2.2vw "Source Sans 3", system-ui, sans-serif;
+         color: #15120f; background: #f2a51c; border: 0; border-radius: .7vw; padding: .8vw 2vw; cursor: pointer; box-shadow: 0 .6vw 1.6vw rgba(0,0,0,.5); }
+  .big:hover { background: #f6e9c6; }
+  .big[hidden] { display: none; }
+
+  text { font-family: "Source Sans 3", system-ui, sans-serif; }
+  .eyebrow { font-weight: 600; font-size: 17px; letter-spacing: .16em; fill: #f6e9c6; opacity: .8; }
+  .title { font-family: "Alegreya", Georgia, serif; font-weight: 900; font-size: 46px; fill: #f2a51c; letter-spacing: .01em; }
+  .cap { font-family: "Source Serif 4", Georgia, serif; font-size: 28px; fill: #f6e9c6; text-anchor: middle; }
+  .ui { font-size: 21px; fill: #1f1b16; }
+  .cream { fill: #f6e9c6; }
+  .soft { fill: #5d564c; }
+  .mono, .mono text { font-family: Consolas, "Courier New", monospace; }
+  .b { font-weight: 700; }
+  .lab { font-size: 23px; font-weight: 600; fill: #f6e9c6; text-anchor: middle; }
+  .file { font-family: Consolas, "Courier New", monospace; font-size: 17px; fill: #f6e9c6; opacity: .75; text-anchor: middle; }
+</style>
+</head>
+<body>
+<div class="film">
+<svg id="stage" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="An animation of the six steps of Part 2: set the ground rules, collect the papers, make an extract of each, ask them questions, write and review a memo, and a first task with data.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#1c3331"/><stop offset=".7" stop-color="#15120f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.9" cy="1.12" r="0.7">
+      <stop offset="0" stop-color="#e26e1c" stop-opacity=".6"/><stop offset="1" stop-color="#e26e1c" stop-opacity="0"/>
+    </radialGradient>
+    <g id="bot">
+      <line x1="45" y1="2" x2="45" y2="16" stroke="#15120f" stroke-width="3"/>
+      <circle cx="45" cy="3" r="5" fill="#f2a51c"/>
+      <rect x="8" y="14" width="74" height="58" rx="16" fill="#4a6770" stroke="#15120f" stroke-width="3"/>
+      <circle cx="30" cy="40" r="14" fill="#f2a51c" opacity=".28"/><circle cx="60" cy="40" r="14" fill="#f2a51c" opacity=".28"/>
+      <circle cx="30" cy="40" r="8.5" fill="#f2a51c"/><circle cx="60" cy="40" r="8.5" fill="#f2a51c"/>
+      <circle cx="30" cy="40" r="3.5" fill="#fff3c4"/><circle cx="60" cy="40" r="3.5" fill="#fff3c4"/>
+      <rect x="32" y="57" width="26" height="5" rx="2.5" fill="#15120f" opacity=".6"/>
+    </g>
+    <path id="tick" d="M0 9 L7 16 L19 2" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <rect x="14" y="14" width="1252" height="692" fill="none" stroke="#f2a51c" stroke-opacity=".45"/>
+
+  <g id="hdr">
+    <text x="64" y="66" class="eyebrow">PART 2 · FIRST STEPS</text>
+    <text x="1216" y="66" class="eyebrow" text-anchor="end">FRIENDLY INTRODUCTION TO AGENTIC AI</text>
+  </g>
+
+  <!-- 0: title -->
+  <g id="s0">
+    <text x="640" y="230" class="eyebrow" text-anchor="middle" style="font-size:20px">FRIENDLY INTRODUCTION TO AGENTIC AI · PART 2</text>
+    <text x="640" y="372" text-anchor="middle" class="title" style="font-size:138px">FIRST STEPS</text>
+    <text x="640" y="446" class="cap" style="font-size:34px">One small project, and how to stay in charge</text>
+  </g>
+
+  <!-- 1: ground rules -->
+  <g id="s1">
+    <text x="64" y="128" class="title">2.1&#160;&#160;SET THE GROUND RULES</text>
+    <g id="s1card">
+      <rect x="150" y="184" width="470" height="368" rx="14" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <text x="178" y="230" class="mono b" style="font-size:24px;fill:#1f1b16">AGENTS.md</text>
+      <line x1="178" y1="246" x2="592" y2="246" stroke="#e3dccb" stroke-width="2"/>
+      <g id="s1r0"><use id="s1t0" href="#tick" x="178" y="272" stroke="#1b7f7a"/><text x="214" y="290" class="ui">Plan before longer tasks</text></g>
+      <g id="s1r1"><use id="s1t1" href="#tick" x="178" y="326" stroke="#1b7f7a"/><text x="214" y="344" class="ui">Never delete, never change my originals</text></g>
+      <g id="s1r2"><use id="s1t2" href="#tick" x="178" y="380" stroke="#1b7f7a"/><text x="214" y="398" class="ui">Work from the files, not from memory</text></g>
+      <g id="s1r3"><use id="s1t3" href="#tick" x="178" y="434" stroke="#1b7f7a"/><text x="214" y="452" class="ui">Quote word for word, with the page</text></g>
+      <g id="s1r4"><use id="s1t4" href="#tick" x="178" y="488" stroke="#1b7f7a"/><text x="214" y="506" class="ui">Ask before leaving the project folder</text></g>
+    </g>
+    <use id="s1bot" href="#bot" transform="translate(862 196) scale(1.7)"/>
+    <text id="s1sk" x="938" y="392" class="cream" text-anchor="middle" style="font-size:21px">Two skills: recipes for one kind of task</text>
+    <g id="s1c0"><rect x="728" y="414" width="190" height="54" rx="27" fill="#f2a51c"/><text x="823" y="448" text-anchor="middle" style="font-size:21px;font-weight:700;fill:#15120f">read-pdf</text></g>
+    <g id="s1c1"><rect x="938" y="414" width="212" height="54" rx="27" fill="#f2a51c"/><text x="1044" y="448" text-anchor="middle" style="font-size:21px;font-weight:700;fill:#15120f">decision-log</text></g>
+    <text x="640" y="596" class="cap">Write down once what the agent should always know.</text>
+    <text x="640" y="632" class="cap">It reads the file at the start of every session.</text>
+  </g>
+
+  <!-- 2: collect the papers -->
+  <g id="s2">
+    <text x="64" y="128" class="title">2.2&#160;&#160;COLLECT THE PAPERS</text>
+    <g id="s2desk">
+      <rect x="420" y="204" width="440" height="316" rx="18" fill="#fbf3d6" fill-opacity=".08" stroke="#f2a51c" stroke-width="4" stroke-dasharray="14 10"/>
+      <rect x="444" y="180" width="216" height="46" rx="10" fill="#f2a51c"/>
+      <text x="552" y="210" text-anchor="middle" style="font-size:22px;font-weight:700;fill:#15120f">docs/readings</text>
+    </g>
+    <g id="s2cards"></g>
+    <g id="s2note" class="cream" text-anchor="middle" style="font-size:23px">
+      <text x="1050" y="320">Is each file</text><text x="1050" y="352">really a PDF?</text>
+    </g>
+    <g id="s2ok">
+      <use id="s2okt" href="#tick" x="992" y="392" stroke="#f2a51c"/>
+      <text x="1024" y="410" class="cream b" style="font-size:22px">now it is</text>
+    </g>
+    <g id="s2src">
+      <rect x="110" y="286" width="250" height="176" rx="12" fill="#1f1b16" stroke="#f6e9c6" stroke-opacity=".4"/>
+      <text x="132" y="322" class="mono cream b" style="font-size:20px">SOURCES.md</text>
+      <g class="cream" style="font-size:18px;opacity:.85">
+        <text x="132" y="358">file name</text><text x="132" y="384">DOI</text><text x="132" y="410">where from, and when</text><text x="132" y="436">licence</text>
+      </g>
+    </g>
+    <text x="640" y="596" class="cap">The agent downloads six papers and checks each file.</text>
+    <text x="640" y="632" class="cap">It keeps a list of where each one came from.</text>
+  </g>
+
+  <!-- 3: extracts -->
+  <g id="s3">
+    <text x="64" y="128" class="title">2.3&#160;&#160;MAKE AN EXTRACT OF EACH PAPER</text>
+    <g id="s3page">
+      <rect x="150" y="184" width="380" height="368" rx="12" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <rect x="180" y="212" width="220" height="14" rx="3" fill="#1f1b16"/>
+      <rect id="s3hl" x="172" y="366" width="338" height="28" rx="5" fill="#f2a51c" fill-opacity=".6"/>
+      <rect x="440" y="508" width="66" height="28" rx="14" fill="#15120f"/>
+      <text x="473" y="528" text-anchor="middle" class="cream b" style="font-size:16px">p. 7</text>
+    </g>
+    <g id="s3arr" stroke="#f2a51c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <line x1="552" y1="330" x2="626" y2="330"/><path d="M610 314 L628 330 L610 346"/>
+    </g>
+    <g id="s3ext">
+      <rect x="650" y="184" width="480" height="368" rx="12" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <text x="680" y="238" style="font-family:Alegreya,Georgia,serif;font-weight:800;font-size:36px;fill:#1f1b16">Extract</text>
+      <g class="soft" style="font-size:18px">
+        <text x="680" y="284">Question</text><text x="680" y="318">Data</text><text x="680" y="352">Method</text><text x="680" y="386">Finding</text>
+      </g>
+      <g fill="#b9b2a2">
+        <rect x="780" y="274" width="300" height="9" rx="4"/><rect x="780" y="308" width="250" height="9" rx="4"/><rect x="780" y="342" width="310" height="9" rx="4"/><rect x="780" y="376" width="270" height="9" rx="4"/>
+      </g>
+      <g id="s3q">
+        <rect x="680" y="412" width="420" height="116" rx="10" fill="#fdf0cc" stroke="#f2a51c" stroke-width="2"/>
+        <g style="font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:21px;fill:#1f1b16">
+          <text x="700" y="450">“One sentence from the paper,</text><text x="700" y="480">word for word.”</text>
+        </g>
+        <rect x="1012" y="486" width="70" height="28" rx="14" fill="#c8431c"/>
+        <text x="1047" y="506" text-anchor="middle" style="font-size:16px;font-weight:700;fill:#fff">p. 7</text>
+      </g>
+    </g>
+    <rect id="s3ring1" x="166" y="360" width="350" height="40" rx="9" fill="none" stroke="#c8431c" stroke-width="4"/>
+    <rect id="s3ring2" x="674" y="406" width="432" height="128" rx="13" fill="none" stroke="#c8431c" stroke-width="4"/>
+    <g id="s3ok">
+      <circle cx="590" cy="440" r="32" fill="#1b7f7a" stroke="#15120f" stroke-width="3"/>
+      <use id="s3okt" href="#tick" x="580" y="431" stroke="#fff"/>
+    </g>
+    <text x="640" y="596" class="cap">One extract per paper, with a quote and its page number.</text>
+    <text x="640" y="632" class="cap">You check two quotes against the PDF yourself.</text>
+  </g>
+
+  <!-- 4: ask the papers -->
+  <g id="s4">
+    <text x="64" y="128" class="title">2.4&#160;&#160;ASK THE PAPERS QUESTIONS</text>
+    <rect x="200" y="178" width="880" height="376" rx="18" fill="#15120f" stroke="#f2a51c" stroke-opacity=".5"/>
+    <rect x="212" y="190" width="856" height="352" rx="10" fill="#fbf3d6"/>
+    <g id="s4q1">
+      <rect x="640" y="206" width="404" height="50" rx="14" fill="#1f1b16"/>
+      <text id="s4type1" x="660" y="238" class="cream" style="font-size:20px"></text>
+    </g>
+    <g id="s4a1">
+      <use href="#bot" transform="translate(232 270) scale(.6)"/>
+      <rect x="296" y="270" width="560" height="92" rx="14" fill="#fff" stroke="#e3dccb"/>
+      <text x="316" y="302" class="ui" style="font-size:20px">Grouped by finding. Each claim has its page:</text>
+      <g fill="#dcefed"><rect x="316" y="318" width="92" height="30" rx="15"/><rect x="420" y="318" width="92" height="30" rx="15"/><rect x="524" y="318" width="92" height="30" rx="15"/></g>
+      <g text-anchor="middle" style="font-size:16px;font-weight:700;fill:#14615d"><text x="362" y="339">p. 9</text><text x="466" y="339">p. 630</text><text x="570" y="339">p. 1140</text></g>
+    </g>
+    <g id="s4q2">
+      <rect x="560" y="382" width="484" height="50" rx="14" fill="#1f1b16"/>
+      <text id="s4type2" x="580" y="414" class="cream" style="font-size:20px"></text>
+    </g>
+    <g id="s4a2">
+      <use href="#bot" transform="translate(232 452) scale(.6)"/>
+      <rect x="296" y="452" width="290" height="56" rx="14" fill="#fff" stroke="#c8431c" stroke-width="3"/>
+      <text x="318" y="488" class="ui b" style="font-size:22px">Not in the files.</text>
+    </g>
+    <text x="640" y="596" class="cap">Answers come from the papers in the folder, with pages,</text>
+    <text x="640" y="632" class="cap">not from what the model remembers.</text>
+  </g>
+
+  <!-- 5: write, review, revise -->
+  <g id="s5">
+    <text x="64" y="128" class="title">2.5&#160;&#160;WRITE, REVIEW, REVISE</text>
+    <g id="s5a">
+      <rect x="130" y="190" width="280" height="290" rx="12" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <rect x="154" y="216" width="140" height="14" rx="3" fill="#1f1b16"/>
+      <use href="#bot" transform="translate(336 196) scale(.62)"/>
+      <text x="270" y="518" class="lab">The agent drafts</text>
+      <text x="270" y="546" class="file">memo.docx</text>
+    </g>
+    <g id="s5ar1" stroke="#f2a51c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <line x1="424" y1="440" x2="484" y2="440"/><path d="M470 426 L486 440 L470 454"/>
+    </g>
+    <g id="s5b">
+      <rect x="500" y="190" width="280" height="290" rx="12" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <rect x="524" y="216" width="140" height="14" rx="3" fill="#1f1b16"/>
+      <rect id="s5h0" x="518" y="297" width="244" height="24" rx="4" fill="#f2a51c" fill-opacity=".6"/>
+      <rect id="s5h1" x="518" y="375" width="244" height="24" rx="4" fill="#f2a51c" fill-opacity=".6"/>
+      <text x="640" y="518" class="lab">You comment</text>
+      <text x="640" y="546" class="file">memo_reviewed.pdf</text>
+    </g>
+    <g id="s5bub0"><rect x="704" y="250" width="110" height="36" rx="9" fill="#c8431c"/><text x="759" y="274" text-anchor="middle" style="font-size:17px;font-weight:700;fill:#fff">clumsy</text></g>
+    <g id="s5bub1"><rect x="704" y="328" width="110" height="36" rx="9" fill="#c8431c"/><text x="759" y="352" text-anchor="middle" style="font-size:17px;font-weight:700;fill:#fff">source?</text></g>
+    <g id="s5ar2" stroke="#f2a51c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <line x1="794" y1="440" x2="854" y2="440"/><path d="M840 426 L856 440 L840 454"/>
+    </g>
+    <g id="s5c">
+      <rect x="870" y="190" width="280" height="290" rx="12" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <rect x="894" y="216" width="140" height="14" rx="3" fill="#1f1b16"/>
+      <use href="#bot" transform="translate(1076 196) scale(.62)"/>
+      <text x="1010" y="518" class="lab">The agent revises</text>
+      <text x="1010" y="546" class="file">memo_v2.docx</text>
+    </g>
+    <text x="640" y="596" class="cap">You comment on the PDF, as on a colleague's draft.</text>
+    <text x="640" y="632" class="cap">The agent fixes the language, and asks you about the content.</text>
+  </g>
+
+  <!-- 6: data -->
+  <g id="s6">
+    <text x="64" y="128" class="title">2.6&#160;&#160;A FIRST TASK WITH DATA</text>
+    <g id="s6chart">
+      <rect x="150" y="188" width="440" height="350" rx="12" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <line x1="204" y1="216" x2="204" y2="486" stroke="#1f1b16" stroke-width="2"/><line x1="204" y1="486" x2="562" y2="486" stroke="#1f1b16" stroke-width="2"/>
+      <text x="383" y="518" text-anchor="middle" class="soft" style="font-size:17px">women who work</text>
+      <text x="180" y="351" text-anchor="middle" class="soft" style="font-size:17px" transform="rotate(-90 180 351)">seats in parliament</text>
+      <g id="s6dots" fill="#1b7f7a"></g>
+    </g>
+    <g id="s6dec">
+      <rect x="690" y="188" width="440" height="350" rx="12" fill="#1f1b16" stroke="#f6e9c6" stroke-opacity=".4"/>
+      <text x="718" y="234" class="mono cream b" style="font-size:22px">DECISIONS.md</text>
+      <g id="s6r0"><text x="718" y="290" class="cream" style="font-size:20px">Which measure of participation?</text><rect x="718" y="302" width="128" height="26" rx="13" fill="#f2a51c"/><text x="782" y="320" text-anchor="middle" style="font-size:14px;font-weight:700;fill:#15120f">needs review</text></g>
+      <g id="s6r1"><text x="718" y="372" class="cream" style="font-size:20px">Countries with no 2023 data?</text><rect x="718" y="384" width="128" height="26" rx="13" fill="#f2a51c"/><text x="782" y="402" text-anchor="middle" style="font-size:14px;font-weight:700;fill:#15120f">needs review</text></g>
+      <g id="s6r2"><text x="718" y="454" class="cream" style="font-size:20px">Which countries get a label?</text><rect x="718" y="466" width="128" height="26" rx="13" fill="#f2a51c"/><text x="782" y="484" text-anchor="middle" style="font-size:14px;font-weight:700;fill:#15120f">needs review</text></g>
+    </g>
+    <text x="640" y="596" class="cap">The agent makes choices you didn't know existed.</text>
+    <text x="640" y="632" class="cap">It writes them down. Read them before you trust the result.</text>
+  </g>
+
+  <!-- 7: staying in charge -->
+  <g id="s7">
+    <text x="640" y="206" text-anchor="middle" class="title" style="font-size:68px">YOU STAY IN CHARGE</text>
+    <use id="s7bot" href="#bot" transform="translate(176 292) scale(1.9)"/>
+    <g class="cream" style="font-size:27px">
+      <g id="s7r0"><use id="s7t0" href="#tick" x="432" y="268" stroke="#f2a51c"/><text x="474" y="287"><tspan class="b">Limits:</tspan> one folder, and it asks first</text></g>
+      <g id="s7r1"><use id="s7t1" href="#tick" x="432" y="322" stroke="#f2a51c"/><text x="474" y="341"><tspan class="b">Visibility:</tspan> you see what it changed</text></g>
+      <g id="s7r2"><use id="s7t2" href="#tick" x="432" y="376" stroke="#f2a51c"/><text x="474" y="395"><tspan class="b">Checks:</tspan> agreed before the work</text></g>
+      <g id="s7r3"><use id="s7t3" href="#tick" x="432" y="430" stroke="#f2a51c"/><text x="474" y="449"><tspan class="b">The final say:</tspan> yours</text></g>
+    </g>
+    <g id="s7cta">
+      <rect x="400" y="500" width="480" height="62" rx="10" fill="#f2a51c"/>
+      <text x="640" y="540" text-anchor="middle" style="font-size:25px;font-weight:700;fill:#15120f">Next: Part 3 · A Paper in 50 Minutes</text>
+    </g>
+  </g>
+
+  <!-- where we are: one dot per step -->
+  <g id="dots" stroke="#f2a51c" stroke-width="2">
+    <circle id="d1" cx="540" cy="676" r="7"/><circle id="d2" cx="580" cy="676" r="7"/><circle id="d3" cx="620" cy="676" r="7"/><circle id="d4" cx="660" cy="676" r="7"/><circle id="d5" cx="700" cy="676" r="7"/><circle id="d6" cx="740" cy="676" r="7"/>
+  </g>
+</svg>
+<div class="bar">
+  <button id="play" type="button">Play</button>
+  <input id="scrub" type="range" min="0" max="72" step="0.05" value="0" aria-label="Position in the animation">
+  <span id="time">0:00 / 1:12</span>
+</div>
+<button id="big" class="big" type="button">▶ Play · 70 seconds</button>
+</div>
+
+<script>
+(function () {
+  const D = 72;                                   // length in seconds
+  const SCENES = [[0, 4.5], [4.5, 13.5], [13.5, 23], [23, 33], [33, 45], [45, 57], [57, 64.5], [64.5, 72]];
+  const NS = 'http://www.w3.org/2000/svg';
+  const $ = id => document.getElementById(id);
+  const mk = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+  const clamp = x => Math.max(0, Math.min(1, x));
+  const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+  const lin = (t, a, b) => clamp((t - a) / (b - a));
+  const p = (t, a, b) => ease(lin(t, a, b));     // eased progress from a to b
+  const op = (id, v) => { $(id).style.opacity = v; };
+  const tf = (id, v) => { $(id).setAttribute('transform', v); };
+  const pop = (id, cx, cy, s) => tf(id, `translate(${cx} ${cy}) scale(${s}) translate(${-cx} ${-cy})`);
+  const tick = (id, v) => { $(id).style.strokeDashoffset = 1 - v; };
+  const Q1 = 'Which papers find more births?';
+  const Q2 = 'And Argentina, after the 2022 World Cup?';
+
+  // ---- repeated shapes are drawn once, here ----
+  // grey bars that stand for lines of text
+  function lines(parent, x, y0, step, widths, fill) {
+    widths.forEach((w, i) => mk('rect', { x, y: y0 + i * step, width: w, height: 8, rx: 4, fill: fill || '#b9b2a2' }, parent));
+  }
+  lines($('s3page'), 180, 256, 30, [320, 300, 320, 280, 320, 310, 320, 260, 300]);
+  const MEMO = [232, 220, 232, 200, 232, 226, 180];
+  lines($('s5a'), 154, 254, 26, MEMO);
+  lines($('s5b'), 524, 254, 26, MEMO);
+  lines($('s5c'), 894, 254, 26, MEMO);
+  // in the revised memo, the two lines that changed
+  mk('rect', { id: 's5g0', x: 894, y: 306, width: 232, height: 8, rx: 4, fill: '#1b7f7a' }, $('s5c'));
+  mk('rect', { id: 's5g1', x: 894, y: 384, width: 214, height: 8, rx: 4, fill: '#1b7f7a' }, $('s5c'));
+
+  // six papers in the folder; the fifth first arrives as a web page
+  const SLOTS = [];
+  for (let i = 0; i < 6; i++) {
+    const x = [478, 598, 718][i % 3], y = [244, 378][Math.floor(i / 3)];
+    SLOTS.push([x, y]);
+    const g = mk('g', { id: 's2p' + i }, $('s2cards'));
+    mk('rect', { width: 84, height: 106, rx: 8, fill: '#fbf3d6', stroke: '#15120f', 'stroke-width': 2.5 }, g);
+    mk('rect', { x: 8, y: 8, width: 38, height: 19, rx: 4, fill: '#c8431c' }, g);
+    const lab = mk('text', { x: 27, y: 22, 'text-anchor': 'middle', style: 'font-size:12px;font-weight:700;fill:#fff' }, g);
+    lab.textContent = 'PDF';
+    [46, 62, 78].forEach((yy, k) => mk('line', { x1: 12, y1: yy, x2: [72, 64, 70][k], y2: yy, stroke: '#5d564c', 'stroke-width': 4, 'stroke-linecap': 'round' }, g));
+    if (i === 4) {
+      const bad = mk('g', { id: 's2bad' }, g);
+      mk('rect', { width: 84, height: 106, rx: 8, fill: '#c8431c', stroke: '#15120f', 'stroke-width': 2.5 }, bad);
+      const t1 = mk('text', { x: 42, y: 50, 'text-anchor': 'middle', style: 'font-size:17px;font-weight:700;fill:#fff' }, bad); t1.textContent = 'web';
+      const t2 = mk('text', { x: 42, y: 72, 'text-anchor': 'middle', style: 'font-size:17px;font-weight:700;fill:#fff' }, bad); t2.textContent = 'page?';
+    }
+  }
+  // a loose cloud of countries: an association, not a line
+  const CLOUD = [[232, 430], [250, 376], [272, 452], [300, 348], [322, 440], [346, 300], [362, 402], [390, 330], [412, 420], [434, 288], [456, 372], [482, 262], [506, 342], [532, 300]];
+  CLOUD.forEach(([cx, cy], i) => mk('circle', { id: 's6d' + i, cx, cy, r: 8 }, $('s6dots')));
+
+  function render(t) {
+    // scenes fade in and out one after the other
+    SCENES.forEach(([a, b], i) => {
+      let v;
+      if (i === 0) v = 1 - p(t, b - .5, b);
+      else if (i === SCENES.length - 1) v = p(t, a, a + .6);
+      else v = Math.min(p(t, a, a + .6), 1 - p(t, b - .5, b));
+      const g = $('s' + i);
+      g.style.opacity = v;
+      g.style.display = v <= 0 ? 'none' : '';
+    });
+    op('hdr', p(t, 4.5, 5.1));
+    op('dots', p(t, 4.5, 5.1));
+    let cur = SCENES.findIndex(([a, b]) => t >= a && t < b);
+    if (cur < 0) cur = 7;
+    for (let i = 1; i <= 6; i++) $('d' + i).setAttribute('fill', i <= cur ? '#f2a51c' : 'none');
+
+    // 1: the rules appear one by one, then the two skills
+    op('s1card', p(t, 4.9, 5.6));
+    op('s1bot', p(t, 5.2, 6));
+    for (let i = 0; i < 5; i++) {
+      op('s1r' + i, p(t, 5.8 + i * .8, 6.2 + i * .8));
+      tick('s1t' + i, p(t, 6.1 + i * .8, 6.4 + i * .8));
+    }
+    op('s1sk', p(t, 10, 10.5));
+    const c0 = p(t, 10.3, 10.8), c1 = p(t, 10.8, 11.3);
+    op('s1c0', c0); pop('s1c0', 823, 441, .7 + .3 * c0);
+    op('s1c1', c1); pop('s1c1', 1044, 441, .7 + .3 * c1);
+
+    // 2: six papers land in the folder; one is a web page, and gets replaced
+    op('s2desk', p(t, 13.9, 14.6));
+    SLOTS.forEach(([x, y], i) => {
+      const v = p(t, 14.8 + i * .55, 15.4 + i * .55);
+      op('s2p' + i, v);
+      tf('s2p' + i, `translate(${x} ${y - (1 - v) * 120})`);
+    });
+    op('s2note', p(t, 18.2, 18.8));
+    op('s2bad', 1 - p(t, 19.4, 20));
+    op('s2ok', p(t, 20.1, 20.6));
+    tick('s2okt', p(t, 20.2, 20.6));
+    op('s2src', p(t, 20.9, 21.6));
+
+    // 3: from the page to the extract; then the quote is checked against the page
+    op('s3page', p(t, 23.4, 24.1));
+    op('s3arr', p(t, 24.4, 24.9));
+    op('s3ext', p(t, 24.6, 25.3));
+    op('s3q', p(t, 26, 26.7));
+    op('s3hl', p(t, 26.6, 27.3));
+    const ring = p(t, 28.4, 28.8) * (1 - p(t, 29.5, 29.9)) * (.55 + .45 * Math.cos((t - 28.4) * 9));
+    op('s3ring1', ring); op('s3ring2', ring);
+    const ok = p(t, 29.9, 30.5);
+    op('s3ok', ok); pop('s3ok', 590, 440, .5 + .5 * ok);
+    tick('s3okt', p(t, 30.3, 30.7));
+
+    // 4: a question the papers answer, and one they cannot
+    op('s4q1', p(t, 33.6, 34));
+    $('s4type1').textContent = Q1.slice(0, Math.round(lin(t, 34, 35.8) * Q1.length));
+    op('s4a1', p(t, 36.4, 37.1));
+    op('s4q2', p(t, 38.2, 38.6));
+    $('s4type2').textContent = Q2.slice(0, Math.round(lin(t, 38.6, 41) * Q2.length));
+    op('s4a2', p(t, 41.8, 42.5));
+
+    // 5: draft, comments, revision
+    op('s5a', p(t, 45.4, 46.1));
+    op('s5ar1', p(t, 47.2, 47.7));
+    op('s5b', p(t, 47.5, 48.2));
+    op('s5h0', p(t, 48.8, 49.2));
+    const b0 = p(t, 49, 49.5); op('s5bub0', b0); pop('s5bub0', 759, 268, .6 + .4 * b0);
+    op('s5h1', p(t, 49.8, 50.2));
+    const b1 = p(t, 50, 50.5); op('s5bub1', b1); pop('s5bub1', 759, 346, .6 + .4 * b1);
+    op('s5ar2', p(t, 51.4, 51.9));
+    op('s5c', p(t, 51.7, 52.4));
+    op('s5g0', p(t, 53, 53.5));
+    op('s5g1', p(t, 53.6, 54.1));
+
+    // 6: a chart, and the choices behind it
+    op('s6chart', p(t, 57.4, 58.1));
+    CLOUD.forEach(([cx, cy], i) => {
+      const v = p(t, 58.3 + i * .12, 58.7 + i * .12);
+      op('s6d' + i, v); $('s6d' + i).setAttribute('r', 8 * v);
+    });
+    op('s6dec', p(t, 59.6, 60.3));
+    for (let i = 0; i < 3; i++) op('s6r' + i, p(t, 60.5 + i * .7, 61 + i * .7));
+
+    // 7: the four controls
+    op('s7bot', p(t, 65, 65.8));
+    for (let i = 0; i < 4; i++) {
+      op('s7r' + i, p(t, 65.3 + i * .7, 65.8 + i * .7));
+      tick('s7t' + i, p(t, 65.7 + i * .7, 66.1 + i * .7));
+    }
+    op('s7cta', p(t, 68.6, 69.4));
+  }
+
+  // ---- clock and controls ----
+  let t = 0, playing = false, last = 0;
+  const playBtn = $('play'), big = $('big'), scrub = $('scrub'), time = $('time');
+  const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+
+  function ui() {
+    scrub.value = t;
+    time.textContent = mmss(t) + ' / ' + mmss(D);
+    playBtn.textContent = playing ? 'Pause' : (t >= D ? 'Replay' : 'Play');
+    big.hidden = playing || t > 0;      // only on the title card; later the bar has Play and Replay
+  }
+  function frame(now) {
+    if (!playing) return;
+    t = Math.min(D, t + (now - last) / 1000);
+    last = now;
+    if (t >= D) playing = false;
+    render(t); ui();
+    if (playing) requestAnimationFrame(frame);
+  }
+  function play() {
+    if (t >= D) t = 0;
+    playing = true; last = performance.now(); ui();
+    requestAnimationFrame(frame);
+  }
+  function toggle() { if (playing) { playing = false; ui(); } else play(); }
+
+  playBtn.addEventListener('click', toggle);
+  big.addEventListener('click', toggle);
+  $('stage').addEventListener('click', toggle);
+  scrub.addEventListener('input', () => { playing = false; t = +scrub.value; render(t); ui(); });
+  document.addEventListener('keydown', e => { if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); toggle(); } });
+
+  // for recording frame by frame: window.seek(seconds)
+  window.seek = s => { playing = false; t = clamp(s / D) * D; render(t); ui(); return t; };
+
+  render(0); ui();
+  if (new URLSearchParams(location.search).has('autoplay')) play();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup in one minute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700;800;900&family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  /* A one-minute animation of the five setup steps.
+     Everything is drawn in one SVG and driven by a single clock, t in seconds:
+     render(t) sets every moving part, so the film can be paused, scrubbed, or
+     stepped frame by frame (window.seek(t)) to record it as a video. */
+  html, body { margin: 0; height: 100%; background: #15120f; }
+  .film { position: relative; width: 100%; max-width: calc(100vh * 1280 / 780); margin: 0 auto; aspect-ratio: 1280 / 780; }
+  svg { display: block; width: 100%; height: 92.308%; cursor: pointer; }
+  .bar { height: 7.692%; display: flex; align-items: center; gap: 1.2vw; padding: 0 1.4vw; box-sizing: border-box;
+         background: #15120f; border-top: 1px solid rgba(242, 165, 28, .35); font: 600 1.5vw "Source Sans 3", system-ui, sans-serif; color: #f6e9c6; }
+  .bar button { font: inherit; color: #15120f; background: #f2a51c; border: 0; border-radius: .5vw; padding: .45vw 1.1vw; cursor: pointer; min-width: 7.5vw; }
+  .bar button:hover { background: #f6e9c6; }
+  .bar input { flex: 1; accent-color: #f2a51c; }
+  .bar span { min-width: 6vw; text-align: right; font-variant-numeric: tabular-nums; opacity: .8; }
+  .big { position: absolute; left: 50%; top: 73%; transform: translate(-50%, -50%); font: 700 2.2vw "Source Sans 3", system-ui, sans-serif;
+         color: #15120f; background: #f2a51c; border: 0; border-radius: .7vw; padding: .8vw 2vw; cursor: pointer; box-shadow: 0 .6vw 1.6vw rgba(0,0,0,.5); }
+  .big:hover { background: #f6e9c6; }
+  .big[hidden] { display: none; }
+
+  text { font-family: "Source Sans 3", system-ui, sans-serif; }
+  .eyebrow { font-weight: 600; font-size: 17px; letter-spacing: .16em; fill: #f6e9c6; opacity: .8; }
+  .title { font-family: "Alegreya", Georgia, serif; font-weight: 900; font-size: 46px; fill: #f2a51c; letter-spacing: .01em; }
+  .cap { font-family: "Source Serif 4", Georgia, serif; font-size: 28px; fill: #f6e9c6; text-anchor: middle; }
+  .ui { font-size: 21px; fill: #1f1b16; }
+  .cream { fill: #f6e9c6; }
+  .soft { fill: #5d564c; }
+  .mono, .mono text { font-family: Consolas, "Courier New", monospace; }
+  .b { font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="film">
+<svg id="stage" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="A one-minute animation of the five setup steps: install the app, make a project folder, have a first conversation, let the agent set up Python, and install a Markdown reader.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#1c3331"/><stop offset=".7" stop-color="#15120f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.9" cy="1.12" r="0.7">
+      <stop offset="0" stop-color="#e26e1c" stop-opacity=".6"/><stop offset="1" stop-color="#e26e1c" stop-opacity="0"/>
+    </radialGradient>
+    <!-- the agent: a small robot with glowing eyes, as on the course poster -->
+    <g id="bot">
+      <line x1="45" y1="2" x2="45" y2="16" stroke="#15120f" stroke-width="3"/>
+      <circle cx="45" cy="3" r="5" fill="#f2a51c"/>
+      <rect x="8" y="14" width="74" height="58" rx="16" fill="#4a6770" stroke="#15120f" stroke-width="3"/>
+      <circle cx="30" cy="40" r="14" fill="#f2a51c" opacity=".28"/><circle cx="60" cy="40" r="14" fill="#f2a51c" opacity=".28"/>
+      <circle cx="30" cy="40" r="8.5" fill="#f2a51c"/><circle cx="60" cy="40" r="8.5" fill="#f2a51c"/>
+      <circle cx="30" cy="40" r="3.5" fill="#fff3c4"/><circle cx="60" cy="40" r="3.5" fill="#fff3c4"/>
+      <rect x="32" y="57" width="26" height="5" rx="2.5" fill="#15120f" opacity=".6"/>
+    </g>
+    <path id="tick" d="M0 9 L7 16 L19 2" fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"/>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <rect x="14" y="14" width="1252" height="692" fill="none" stroke="#f2a51c" stroke-opacity=".45"/>
+
+  <g id="hdr">
+    <text x="64" y="66" class="eyebrow">PART 1 · SETUP</text>
+    <text x="1216" y="66" class="eyebrow" text-anchor="end">FRIENDLY INTRODUCTION TO AGENTIC AI</text>
+  </g>
+
+  <!-- 0: title -->
+  <g id="s0">
+    <text x="640" y="230" class="eyebrow" text-anchor="middle" style="font-size:20px">FRIENDLY INTRODUCTION TO AGENTIC AI · PART 1</text>
+    <text x="640" y="380" text-anchor="middle" class="title" style="font-size:170px">SETUP</text>
+    <text x="640" y="452" class="cap" style="font-size:34px">Five steps, about an hour</text>
+  </g>
+
+  <!-- 1: install the app -->
+  <g id="s1">
+    <text x="64" y="128" class="title">1.1&#160;&#160;INSTALL THE APP</text>
+    <g id="s1win">
+      <rect x="320" y="176" width="640" height="372" rx="18" fill="#15120f" stroke="#f2a51c" stroke-opacity=".5"/>
+      <rect x="332" y="188" width="616" height="348" rx="10" fill="#fbf3d6"/>
+      <circle cx="354" cy="208" r="5.5" fill="#c8431c"/><circle cx="374" cy="208" r="5.5" fill="#f2a51c"/><circle cx="394" cy="208" r="5.5" fill="#1b7f7a"/>
+      <text x="640" y="214" text-anchor="middle" class="soft" style="font-size:16px">Claude</text>
+      <rect x="356" y="232" width="252" height="46" rx="23" fill="#f4eeda" stroke="#e3dccb"/>
+      <rect id="s1hl" x="360" y="236" width="120" height="38" rx="19" fill="#f2a51c"/>
+      <text x="420" y="262" text-anchor="middle" class="ui b">Chat</text>
+      <text x="544" y="262" text-anchor="middle" class="ui b">Code</text>
+      <g id="s1chat">
+        <rect x="356" y="304" width="300" height="42" rx="12" fill="#efe3bd"/>
+        <rect x="560" y="360" width="364" height="42" rx="12" fill="#e3dccb"/>
+        <rect x="356" y="416" width="240" height="42" rx="12" fill="#efe3bd"/>
+        <text x="356" y="500" class="soft" style="font-size:19px">A conversation in a window</text>
+      </g>
+      <g id="s1code">
+        <rect x="356" y="296" width="200" height="220" rx="10" fill="#f4eeda" stroke="#e3dccb"/>
+        <text x="374" y="332" class="ui b" style="font-size:18px">first-project</text>
+        <text x="390" y="366" class="soft" style="font-size:18px">docs</text>
+        <text x="390" y="396" class="soft" style="font-size:18px">data</text>
+        <text x="390" y="426" class="soft" style="font-size:18px">output</text>
+        <use href="#bot" transform="translate(690 306) scale(1.25)"/>
+        <rect x="576" y="456" width="348" height="60" rx="10" fill="#fff" stroke="#15120f" stroke-width="2"/>
+        <text x="596" y="493" class="soft" style="font-size:19px">Describe a task…</text>
+      </g>
+      <text id="s1lab" x="626" y="263" style="font-size:21px;font-weight:700;fill:#c8431c">← this is the agent</text>
+    </g>
+    <text x="640" y="596" class="cap">Chat is the chatbot you know.</text>
+    <text x="640" y="632" class="cap">Code is the agent. It works on files, text included.</text>
+  </g>
+
+  <!-- 2: project folder -->
+  <g id="s2">
+    <text x="64" y="128" class="title">1.2&#160;&#160;MAKE A PROJECT FOLDER</text>
+    <g id="s2out">
+      <g fill="#f6e9c6" fill-opacity=".1" stroke="#f6e9c6" stroke-opacity=".4">
+        <rect x="110" y="226" width="230" height="62" rx="10"/><rect x="110" y="312" width="230" height="62" rx="10"/><rect x="110" y="398" width="230" height="62" rx="10"/>
+        <rect x="940" y="226" width="230" height="62" rx="10"/><rect x="940" y="312" width="230" height="62" rx="10"/><rect x="940" y="398" width="230" height="62" rx="10"/>
+      </g>
+      <g class="cream" style="font-size:21px" text-anchor="middle">
+        <text x="225" y="264">Desktop</text><text x="225" y="350">Photos</text><text x="225" y="436">Other projects</text>
+        <text x="1055" y="264">Email</text><text x="1055" y="350">Downloads</text><text x="1055" y="436">Private files</text>
+      </g>
+    </g>
+    <g id="s2note" class="cream" style="font-size:19px" text-anchor="middle">
+      <text x="225" y="500">outside: it asks first</text><text x="1055" y="500">outside: it asks first</text>
+    </g>
+    <g id="s2desk">
+      <rect x="420" y="214" width="440" height="280" rx="18" fill="#fbf3d6" fill-opacity=".08" stroke="#f2a51c" stroke-width="4" stroke-dasharray="14 10"/>
+      <rect x="444" y="190" width="216" height="46" rx="10" fill="#f2a51c"/>
+      <text x="552" y="220" text-anchor="middle" style="font-size:22px;font-weight:700;fill:#15120f">first-project</text>
+    </g>
+    <use id="s2bot" href="#bot"/>
+    <text id="s2lab" x="640" y="448" text-anchor="middle" class="cream" style="font-size:25px;font-weight:600">The agent's desk</text>
+    <text x="640" y="596" class="cap">The agent works in one folder that you choose.</text>
+    <text x="640" y="632" class="cap">Like the desk you give to a new research assistant.</text>
+  </g>
+
+  <!-- 3: first conversation -->
+  <g id="s3">
+    <text x="64" y="128" class="title">1.3&#160;&#160;A FIRST CONVERSATION</text>
+    <rect x="110" y="182" width="620" height="366" rx="18" fill="#15120f" stroke="#f2a51c" stroke-opacity=".5"/>
+    <rect x="122" y="194" width="596" height="342" rx="10" fill="#fbf3d6"/>
+    <g id="s3me">
+      <rect x="262" y="216" width="436" height="56" rx="14" fill="#1f1b16"/>
+      <text id="s3type" x="282" y="251" class="cream" style="font-size:21px"></text>
+    </g>
+    <g id="s3ans">
+      <use href="#bot" transform="translate(140 296) scale(.62)"/>
+      <rect x="206" y="296" width="430" height="88" rx="14" fill="#fff" stroke="#e3dccb"/>
+      <text x="226" y="332" class="ui">The folder is empty.</text>
+      <text x="226" y="362" class="ui">May I create <tspan class="b">hello.md</tspan>?</text>
+    </g>
+    <g id="s3btn">
+      <rect id="s3yes" x="226" y="408" width="124" height="50" rx="10" fill="#f2a51c"/>
+      <text x="288" y="440" text-anchor="middle" class="ui b" style="font-size:22px">Yes</text>
+      <rect x="366" y="408" width="124" height="50" rx="10" fill="none" stroke="#15120f" stroke-width="2"/>
+      <text x="428" y="440" text-anchor="middle" class="ui b" style="font-size:22px">No</text>
+    </g>
+    <circle id="s3ring" cx="288" cy="433" r="10" fill="none" stroke="#c8431c" stroke-width="4"/>
+    <rect x="800" y="232" width="360" height="262" rx="16" fill="#fbf3d6" fill-opacity=".08" stroke="#f2a51c" stroke-width="4" stroke-dasharray="14 10"/>
+    <rect x="822" y="208" width="200" height="44" rx="10" fill="#f2a51c"/>
+    <text x="922" y="237" text-anchor="middle" style="font-size:21px;font-weight:700;fill:#15120f">first-project</text>
+    <g id="s3file">
+      <rect x="912" y="288" width="136" height="124" rx="10" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <g stroke="#5d564c" stroke-width="5" stroke-linecap="round"><line x1="932" y1="318" x2="1000" y2="318"/><line x1="932" y1="344" x2="1028" y2="344"/><line x1="932" y1="368" x2="1016" y2="368"/></g>
+      <text x="980" y="446" text-anchor="middle" class="cream b" style="font-size:21px">hello.md</text>
+    </g>
+    <path id="s3cur" d="M0 0 L0 24 L7 18 L11 28 L16 26 L12 16 L21 16 Z" fill="#fff" stroke="#15120f" stroke-width="2" stroke-linejoin="round"/>
+    <text x="640" y="596" class="cap">It asks before it acts. You click yes or no.</text>
+    <text x="640" y="632" class="cap">And a no is always safe.</text>
+  </g>
+
+  <!-- 4: Python -->
+  <g id="s4">
+    <text x="64" y="128" class="title">1.4&#160;&#160;THE AGENT SETS UP PYTHON</text>
+    <g class="cream" style="font-size:25px">
+      <g id="s4r0"><circle cx="150" cy="246" r="19" fill="none" stroke="#f6e9c6" stroke-opacity=".5" stroke-width="2"/><use id="s4t0" href="#tick" x="140" y="237" stroke="#f2a51c"/><text x="190" y="255">Install Python</text></g>
+      <g id="s4r1"><circle cx="150" cy="312" r="19" fill="none" stroke="#f6e9c6" stroke-opacity=".5" stroke-width="2"/><use id="s4t1" href="#tick" x="140" y="303" stroke="#f2a51c"/><text x="190" y="321">Add the tools it needs for Word, PDF and charts</text></g>
+      <g id="s4r2"><circle cx="150" cy="378" r="19" fill="none" stroke="#f6e9c6" stroke-opacity=".5" stroke-width="2"/><use id="s4t2" href="#tick" x="140" y="369" stroke="#f2a51c"/><text x="190" y="387">Run a test: draw a small chart</text></g>
+      <g id="s4r3"><circle cx="150" cy="444" r="19" fill="none" stroke="#f6e9c6" stroke-opacity=".5" stroke-width="2"/><use id="s4t3" href="#tick" x="140" y="435" stroke="#f2a51c"/><text x="190" y="453">Write down how to undo it all</text></g>
+    </g>
+    <g id="s4chart">
+      <rect x="800" y="206" width="360" height="270" rx="14" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <line x1="838" y1="234" x2="838" y2="440" stroke="#1f1b16" stroke-width="2"/><line x1="838" y1="440" x2="1128" y2="440" stroke="#1f1b16" stroke-width="2"/>
+      <g fill="#1b7f7a">
+        <rect id="s4b0" x="858" width="38"/><rect id="s4b1" x="912" width="38"/><rect id="s4b2" x="966" width="38"/><rect id="s4b3" x="1020" width="38"/><rect id="s4b4" x="1074" width="38"/>
+      </g>
+    </g>
+    <text id="s4lab" x="980" y="510" text-anchor="middle" class="cream mono" style="font-size:19px">output/test_chart.png</text>
+    <text x="640" y="596" class="cap">It explains each command in one sentence, and you approve.</text>
+    <text x="640" y="632" class="cap">You don't write any code.</text>
+  </g>
+
+  <!-- 5: Markdown reader -->
+  <g id="s5">
+    <text x="64" y="128" class="title">1.5&#160;&#160;A READER FOR ITS NOTES</text>
+    <g id="s5raw">
+      <text x="130" y="200" class="cream" style="font-size:19px">hello.md, as stored</text>
+      <rect x="130" y="214" width="440" height="280" rx="14" fill="#1f1b16" stroke="#f6e9c6" stroke-opacity=".4"/>
+      <g class="cream mono" style="font-size:22px">
+        <text x="158" y="272"># Hello</text>
+        <text x="158" y="326">I can **read**, **write**</text>
+        <text x="158" y="358">and **check**:</text>
+        <text x="158" y="410">- your papers</text>
+        <text x="158" y="444">- your drafts</text>
+      </g>
+    </g>
+    <g id="s5arr" stroke="#f2a51c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <line x1="596" y1="354" x2="680" y2="354"/><path d="M664 338 L682 354 L664 370"/>
+    </g>
+    <g id="s5doc">
+      <text x="710" y="200" class="cream" style="font-size:19px">the same file, in a Markdown reader</text>
+      <rect x="710" y="214" width="440" height="280" rx="14" fill="#fbf3d6" stroke="#15120f" stroke-width="3"/>
+      <text x="740" y="284" style="font-family:Alegreya,Georgia,serif;font-weight:800;font-size:44px;fill:#1f1b16">Hello</text>
+      <g style="font-family:'Source Serif 4',Georgia,serif;font-size:24px;fill:#1f1b16">
+        <text x="740" y="336">I can <tspan class="b">read</tspan>, <tspan class="b">write</tspan> and <tspan class="b">check</tspan>:</text>
+        <text x="756" y="390">•&#160;&#160;your papers</text>
+        <text x="756" y="426">•&#160;&#160;your drafts</text>
+      </g>
+    </g>
+    <text x="640" y="596" class="cap">The agent writes its notes in Markdown:</text>
+    <text x="640" y="632" class="cap">plain text that reads like a document.</text>
+  </g>
+
+  <!-- 6: done -->
+  <g id="s6">
+    <text x="640" y="206" text-anchor="middle" class="title" style="font-size:72px">SETUP IS DONE</text>
+    <use id="s6bot" href="#bot" transform="translate(196 292) scale(1.9)"/>
+    <g class="cream" style="font-size:27px">
+      <g id="s6r0"><use id="s6t0" href="#tick" x="452" y="268" stroke="#f2a51c"/><text x="494" y="287">The Claude app, with the Code tab</text></g>
+      <g id="s6r1"><use id="s6t1" href="#tick" x="452" y="322" stroke="#f2a51c"/><text x="494" y="341">A project folder</text></g>
+      <g id="s6r2"><use id="s6t2" href="#tick" x="452" y="376" stroke="#f2a51c"/><text x="494" y="395">Python, set up by the agent</text></g>
+      <g id="s6r3"><use id="s6t3" href="#tick" x="452" y="430" stroke="#f2a51c"/><text x="494" y="449">A reader for the agent's notes</text></g>
+    </g>
+    <g id="s6cta">
+      <rect x="440" y="500" width="400" height="62" rx="10" fill="#f2a51c"/>
+      <text x="640" y="540" text-anchor="middle" style="font-size:25px;font-weight:700;fill:#15120f">Next: Part 2 · First Steps</text>
+    </g>
+  </g>
+
+  <!-- where we are: one dot per step -->
+  <g id="dots" stroke="#f2a51c" stroke-width="2">
+    <circle id="d1" cx="560" cy="676" r="7"/><circle id="d2" cx="600" cy="676" r="7"/><circle id="d3" cx="640" cy="676" r="7"/><circle id="d4" cx="680" cy="676" r="7"/><circle id="d5" cx="720" cy="676" r="7"/>
+  </g>
+</svg>
+<div class="bar">
+  <button id="play" type="button">Play</button>
+  <input id="scrub" type="range" min="0" max="60" step="0.05" value="0" aria-label="Position in the animation">
+  <span id="time">0:00 / 1:00</span>
+</div>
+<button id="big" class="big" type="button">▶ Play · 1 minute</button>
+</div>
+
+<script>
+(function () {
+  const D = 60;                                   // length in seconds
+  const SCENES = [[0, 4.5], [4.5, 13], [13, 22.5], [22.5, 34], [34, 44], [44, 52], [52, 60]];
+  const $ = id => document.getElementById(id);
+  const clamp = x => Math.max(0, Math.min(1, x));
+  const ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+  const lin = (t, a, b) => clamp((t - a) / (b - a));
+  const p = (t, a, b) => ease(lin(t, a, b));     // eased progress from a to b
+  const op = (id, v) => { $(id).style.opacity = v; };
+  const tf = (id, v) => { $(id).setAttribute('transform', v); };
+  const pop = (id, cx, cy, s) => tf(id, `translate(${cx} ${cy}) scale(${s}) translate(${-cx} ${-cy})`);
+  const tick = (id, v) => { $(id).style.strokeDashoffset = 1 - v; };
+  const TYPED = 'Hi. What can you see in this folder?';
+  const BARS = [92, 150, 112, 186, 134];
+
+  function render(t) {
+    // scenes fade in and out one after the other
+    SCENES.forEach(([a, b], i) => {
+      let v;
+      if (i === 0) v = 1 - p(t, b - .5, b);
+      else if (i === SCENES.length - 1) v = p(t, a, a + .6);
+      else v = Math.min(p(t, a, a + .6), 1 - p(t, b - .5, b));
+      const g = $('s' + i);
+      g.style.opacity = v;
+      g.style.display = v <= 0 ? 'none' : '';
+    });
+    op('hdr', p(t, 4.5, 5.1));
+    op('dots', p(t, 4.5, 5.1));
+    let cur = SCENES.findIndex(([a, b]) => t >= a && t < b);
+    if (cur < 0) cur = 6;
+    for (let i = 1; i <= 5; i++) $('d' + i).setAttribute('fill', i <= cur ? '#f2a51c' : 'none');
+
+    // 1: the window comes in, then the highlight moves from Chat to Code
+    op('s1win', p(t, 4.9, 5.7));
+    tf('s1win', `translate(0 ${(1 - p(t, 4.9, 5.7)) * 30})`);
+    $('s1hl').setAttribute('x', 360 + 124 * p(t, 8, 8.8));
+    op('s1chat', 1 - p(t, 8, 8.7));
+    op('s1code', p(t, 8.5, 9.3));
+    op('s1lab', p(t, 9.3, 9.9));
+
+    // 2: the folder is the desk; everything else moves out of reach
+    op('s2desk', p(t, 13.6, 14.4));
+    op('s2out', p(t, 13.6, 14.4) * (1 - .62 * p(t, 16.6, 17.6)));
+    op('s2note', p(t, 17.2, 18));
+    const b2 = p(t, 15, 15.9);
+    op('s2bot', b2);
+    tf('s2bot', `translate(${583} ${276 - (1 - b2) * 60}) scale(1.25)`);
+    op('s2lab', p(t, 15.7, 16.4));
+
+    // 3: a typed request, a question back, a click on Yes, a new file
+    op('s3me', p(t, 23.1, 23.5));
+    $('s3type').textContent = TYPED.slice(0, Math.round(lin(t, 23.5, 26.1) * TYPED.length));
+    op('s3ans', p(t, 26.7, 27.4));
+    op('s3btn', p(t, 27.7, 28.3));
+    const c = p(t, 28.5, 29.7);
+    op('s3cur', p(t, 28.3, 28.6) * (1 - p(t, 31.2, 31.8)));
+    tf('s3cur', `translate(${600 - 304 * c} ${500 - 66 * c})`);
+    const r = lin(t, 29.9, 30.6);
+    $('s3ring').setAttribute('r', 10 + 44 * r);
+    op('s3ring', r > 0 && r < 1 ? 1 - r : 0);
+    $('s3yes').setAttribute('fill', t > 29.9 && t < 30.3 ? '#c8431c' : '#f2a51c');
+    const f = p(t, 30.4, 31.1);
+    op('s3file', f);
+    pop('s3file', 980, 360, .6 + .4 * f);
+
+    // 4: four steps ticked off, and a test chart
+    for (let i = 0; i < 4; i++) {
+      op('s4r' + i, p(t, 34.8 + i * 1.5, 35.3 + i * 1.5));
+      tick('s4t' + i, p(t, 35.5 + i * 1.5, 35.9 + i * 1.5));
+    }
+    op('s4chart', p(t, 37.6, 38.3));
+    BARS.forEach((h, i) => {
+      const g = p(t, 38.3 + i * .15, 39.2 + i * .15) * h;
+      $('s4b' + i).setAttribute('y', 440 - g);
+      $('s4b' + i).setAttribute('height', g);
+    });
+    op('s4lab', p(t, 39.6, 40.2));
+
+    // 5: the same file, raw and formatted
+    op('s5raw', p(t, 44.6, 45.3));
+    op('s5arr', p(t, 45.9, 46.5));
+    op('s5doc', p(t, 46.3, 47.1));
+
+    // 6: the checklist
+    op('s6bot', p(t, 52.6, 53.4));
+    for (let i = 0; i < 4; i++) {
+      op('s6r' + i, p(t, 52.9 + i * .7, 53.4 + i * .7));
+      tick('s6t' + i, p(t, 53.3 + i * .7, 53.7 + i * .7));
+    }
+    op('s6cta', p(t, 56.2, 57));
+  }
+
+  // ---- clock and controls ----
+  let t = 0, playing = false, last = 0;
+  const playBtn = $('play'), big = $('big'), scrub = $('scrub'), time = $('time');
+  const mmss = s => Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
+
+  function ui() {
+    scrub.value = t;
+    time.textContent = mmss(t) + ' / ' + mmss(D);
+    playBtn.textContent = playing ? 'Pause' : (t >= D ? 'Replay' : 'Play');
+    big.hidden = playing || t > 0;      // only on the title card; later the bar has Play and Replay
+  }
+  function frame(now) {
+    if (!playing) return;
+    t = Math.min(D, t + (now - last) / 1000);
+    last = now;
+    if (t >= D) playing = false;
+    render(t); ui();
+    if (playing) requestAnimationFrame(frame);
+  }
+  function play() {
+    if (t >= D) t = 0;
+    playing = true; last = performance.now(); ui();
+    requestAnimationFrame(frame);
+  }
+  function toggle() { if (playing) { playing = false; ui(); } else play(); }
+
+  playBtn.addEventListener('click', toggle);
+  big.addEventListener('click', toggle);
+  $('stage').addEventListener('click', toggle);
+  scrub.addEventListener('input', () => { playing = false; t = +scrub.value; render(t); ui(); });
+  document.addEventListener('keydown', e => { if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); toggle(); } });
+
+  // for recording frame by frame: window.seek(seconds)
+  window.seek = s => { playing = false; t = clamp(s / D) * D; render(t); ui(); return t; };
+
+  render(0); ui();
+  if (new URLSearchParams(location.search).has('autoplay')) play();
+})();
+</script>
+</body>
+</html>
