@@ -74,3 +74,6 @@ CLAUDE.md
 **/*.quarto_ipynb
 /case-studies/earnings/exhibits
 /case-studies/earnings/report
+
+# Demo runs for Part 3 live in their own repositories (e.g. gabors-data-analysis/world-cup-births-demo)
+friendly-agentic-ai-intro/demo-*/

@@ -26,6 +26,8 @@ From a chatbot that polishes your text to an AI agent that works with your files
 [[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd)
 :::
 
+*Version 0.6 · 17 November 2026*
+
 ## Who is this course for?
 
 You are a social scientist: a sociologist, a political scientist, an anthropologist, an economist. You have used ChatGPT or Claude in a browser, mostly to improve a text or as a better search engine. You haven't used it for the actual work of your field, and you may never have written a line of code. This course is for you. Seniority doesn't matter.

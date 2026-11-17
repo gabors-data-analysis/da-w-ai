@@ -134,7 +134,7 @@ Git and GitHub do the same job more precisely, with a saved snapshot after each 
 
 ::: {.callout-warning}
 ## What not to put in the folder (yet)
-The agent sends what it reads to Anthropic's servers. So keep confidential material out of the folder until you have checked your data agreement: interview recordings and transcripts, identifiable survey data, health records, anything under a data-use agreement, other people's unpublished work. Also check your Claude account's privacy settings, which control whether your conversations may be used to train future models. For learning, public data and your own drafts are fine.
+The agent sends what it reads to Anthropic's servers. So keep confidential material out of the folder until you have checked your data agreement: interview recordings and transcripts, identifiable survey data, health records, anything under a data-use agreement, other people's unpublished work. In the EU, the GDPR applies: interview transcripts and survey answers about people who can be identified are personal data, even when names are replaced by codes, and sending them to an AI company needs a legal basis and safeguards. Only fully and irreversibly anonymised data falls outside it. Ask your university's data protection officer before using such material, and see the European Commission's [What is personal data?](https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en). Also check your Claude account's privacy settings, which control whether your conversations may be used to train future models. For learning, public data and your own drafts are fine.
 :::
 
 ## [1.3]{.step-no} Have a first conversation with the agent {#step-1-3}

@@ -34,7 +34,7 @@ This part has two halves. First we start the agent and, while it works, we look 
 
 ::: {.callout-note}
 ## The project folder
-We will post the complete project folder here after the session, as the agent left it.
+The complete project folder, as the agent left it, will be at [github.com/gabors-data-analysis/world-cup-births-demo](https://github.com/gabors-data-analysis/world-cup-births-demo) after the session. You can read every file there in the browser: the paper, the slides, the decision memo, the code and the data. To work with it, download it with the green **Code** button, then **Download ZIP**.
 :::
 
 ## What is in the prompt?
