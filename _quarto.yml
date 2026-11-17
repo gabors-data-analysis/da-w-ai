@@ -83,10 +83,10 @@ website:
             href: friendly-agentic-ai-intro/setup.qmd
           - text: "Part 2: First Steps"
             href: friendly-agentic-ai-intro/first-steps.qmd
-          - text: "Part 3: Staying in Charge"
-            href: friendly-agentic-ai-intro/checking-work.qmd
-          - text: "Part 4: A Paper in 50 Minutes"
+          - text: "Part 3: A Paper in 50 Minutes"
             href: friendly-agentic-ai-intro/live-demo.qmd
+          - text: "Part 4: After the Course"
+            href: friendly-agentic-ai-intro/after-the-course.qmd
 
       - section: "Knowledge Base"
         contents:

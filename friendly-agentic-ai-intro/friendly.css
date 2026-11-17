@@ -426,3 +426,61 @@ body.friendly .sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
   color: var(--ember) !important;
   border-left-color: var(--ember);
 }
+
+/* ---------- "staying in charge" box at the end of each step ---------- */
+
+body.friendly .in-charge {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--night);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.2rem 0.4rem;
+  margin: 1.6rem 0 1.2rem;
+  max-width: 46rem;
+  font-size: 1rem;
+}
+
+body.friendly .in-charge > p:first-child strong {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--night);
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+}
+
+body.friendly .in-charge p {
+  max-width: none;
+}
+
+/* ---------- "when" tag under a step heading: before class / in class / after class ---------- */
+
+body.friendly .when {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.75rem;
+}
+
+body.friendly .when.play {
+  color: var(--night);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+body.friendly .when.later {
+  color: var(--teal);
+  background: var(--teal-soft);
+  border-color: var(--teal-soft);
+}

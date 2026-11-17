@@ -21,7 +21,7 @@ Install the Claude desktop app, make a project folder, meet the agent, and let i
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd){.here} [[2]{.n} First steps](first-steps.qmd) [[3]{.n} Staying in charge](checking-work.qmd) [[4]{.n} A paper in 50 minutes](live-demo.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd){.here} [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd)
 :::
 
 ## What do we do in this part?
@@ -31,6 +31,19 @@ Before a new research assistant can help, they need a desk, access to the right 
 New here? Read the [overview](index.qmd) first: it explains what an agent is and what you need.
 
 This part takes about an hour. The agent explains each step before it takes it, and you approve. If something fails, nothing is broken. See the [troubleshooting table](#troubleshooting) at the end, or ask the agent what went wrong.
+
+::: {.callout-tip}
+## Worried you will break something?
+Many people are, and it is a good instinct. Here is why you can relax.
+
+- **Nothing happens without your click.** In Manual mode the agent asks before it changes a file or runs anything. When in doubt, click no. Nothing bad follows from a no.
+- **It works in one folder you choose.** Your other files are outside it. If a request ever names another folder, click no and ask why.
+- **Start with copies.** Put copies of your files in the project folder and keep the originals where they are. In the worst case, you delete the folder and start again.
+- **You can stop it at any time.** The stop button interrupts it mid-step.
+- **You can ask before you approve.** *"What does this do? Is it safe? Can it be undone?"* The agent answers in plain language.
+- **You can't run up a bill.** Pro has a fixed monthly price. When you reach the usage limit, the agent pauses until the limit resets, unless you choose to buy extra usage.
+- **Even the Python setup can be undone.** The agent writes down what it installed and how to remove all of it (Step 1.4).
+:::
 
 ::: {.callout-note}
 ## What you will have at the end
@@ -42,6 +55,17 @@ This part takes about an hour. The agent explains each step before it takes it, 
 :::
 
 ## [1.1]{.step-no} Install the Claude desktop app {#step-1-1}
+
+::: {.callout-note}
+## Which plan do I need?
+
+The free Claude plan has no agent. For this course you need **Claude Pro**: \$20 a month, or \$17 a month paid for a year. You can cancel any time, so one month is enough to try. Prices as of November 2026; see [claude.com/pricing](https://claude.com/pricing).
+
+- **Usage limits.** Every plan has a limit that resets every five hours, and a weekly one. Long sessions, large files and the strongest models use it up faster. When you hit it, you wait until it resets. Pro is enough for this course and for light regular use.
+- **More usage.** **Max** (\$100 a month) gives five times the usage of Pro, and **Ultra** (\$200) more still. Move up only when you keep hitting the limit.
+- **Through your university.** Ask whether it has a Claude **Team** or **Enterprise** plan. These include the agent, and conversations on them are not used to train models. On Pro and Max, training is a setting you choose in your account's privacy settings.
+- **The alternatives** cost about the same: ChatGPT Plus (\$20) includes OpenAI's Codex, and Google AI Pro (about \$20) raises the limits of Antigravity, which also has a free tier. See the box below.
+:::
 
 ::: {.panel-tabset}
 #### Windows
@@ -67,6 +91,28 @@ On another distribution, use the terminal version of Claude Code: [install guide
 The **Chat** tab is the chatbot you know. The **Code** tab is the agent. Don't let the name mislead you: Code is for any work on files in a folder, text included.
 :::
 
+::: {.callout-note collapse="true"}
+## Using Codex or Antigravity instead? (click to open)
+
+Two agents work much like Claude Code. Most of this course carries over: the project folder, `AGENTS.md`, planning first, small steps, and checking.
+
+**Codex, by OpenAI.** The closest alternative. It comes with a ChatGPT plan (Plus or higher).
+
+1. Download the Codex app from [openai.com/codex](https://openai.com/codex/). On Windows it comes from the Microsoft Store.
+2. Sign in with your ChatGPT account.
+3. Open your project folder, and start with the setting that asks before every action.
+4. Codex reads `AGENTS.md` by itself, so our starter file works as it is. Skills live in a different folder: ask Codex where to put them.
+
+**Antigravity, by Google.** It runs Google's Gemini models. It is free to start, with weekly limits; Google AI Pro raises them. It looks more like a programmer's editor than a chat window.
+
+1. Download it from [antigravity.google](https://antigravity.google/) (Mac, Windows, Linux).
+2. Sign in with your Google account.
+3. Open your project folder, and choose the setting where the agent asks for your review before it acts.
+4. Ask the agent to read `AGENTS.md` at the start of each session, or copy its rules into the tool's own rules.
+
+In both, the prompts of this course work as they are. The menus and the names of the settings differ, and they change often. When in doubt, ask the agent itself: *"How do I make you ask before every action?"*
+:::
+
 ## [1.2]{.step-no} Make a project folder {#step-1-2}
 
 The agent works inside **one folder**. Think of it as the desk you give to a new research assistant: what is on the desk, they can read and work on. What is not, they can't. Everything for a project lives there: data, code, notes, drafts, outputs. It is good practice to use a new folder for each project.
@@ -81,7 +127,7 @@ The agent works inside **one folder**. Think of it as the desk you give to a new
 ## Put the folder in Dropbox
 If you use Dropbox, OneDrive or Google Drive, it is good practice to create `ai-projects` there rather than in Documents. These services keep earlier versions of each file. So you can go back in time: if the agent spoils a file, open its version history and restore yesterday's version. How far back you can go depends on your plan.
 
-Git and GitHub do the same job more precisely, with a saved snapshot after each step that works. They take some setup. See [Is version control worth the setup?](checking-work.qmd#worth-the-setup-version-control) in Part 3.
+Git and GitHub do the same job more precisely, with a saved snapshot after each step that works. They take some setup. See [How do I keep a history of every change?](after-the-course.qmd#how-do-i-keep-a-history-of-every-change) in Part 4.
 :::
 
 **Open the folder in Claude.** In the Code tab, find the row of controls under the prompt box. Click the first one (the environment) and choose the top entry under **Local**. Then click the folder control next to it, choose **Open folder…** and pick `first-project`.
@@ -105,10 +151,11 @@ Hi. I am new to this. What can you see in this folder? Then create a file called
 
 The agent looks at the folder (it is empty), then asks to create a file. Read what it wants to do. If it is unclear, click no and ask: *"What does this do? Explain in one sentence."*
 
-Then try three things.
+Then try four things.
 
 - Click `hello.md` in the chat. It opens inside the app.
 - Ask: *"Make it two sentences and less formal."* The agent edits the file, not just the chat.
+- The next time it asks to change the file, click no, on purpose. Nothing changes, and the agent waits for your instruction.
 - Click the stop button to interrupt it. You can also type a correction while it works.
 
 Note the second one. With a chatbot, you would get a new version in the conversation and copy it over. Here the file itself changed.
@@ -186,7 +233,7 @@ Before we move on, check that you have:
 - ☐ `output/test_chart.png` (Python works) and `docs/SETUP-NOTES.md`;
 - ☐ Typora opening `.md` files.
 
-Setup is done. In Part 2 we put the agent to work: on a Word draft, on a pile of readings, and on a small dataset.
+Setup is done. In Part 2 we put the agent to work on a small project: a pile of papers, a memo you review, and a little data.
 
 ::: {.next-part}
 [Continue with Part 2: First Steps →](first-steps.qmd)

@@ -1,13 +1,13 @@
 ---
-title: "Part 4: A Paper in 50 Minutes"
+title: "Part 3: A Paper in 50 Minutes"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-10"
+date: "2026-11-13"
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 4 of 4 · live demo, then homework
+Part 3 of 4 · live demo, then homework
 :::
 
 ::: {.hero-title}
@@ -15,25 +15,66 @@ A Paper in 50 Minutes
 :::
 
 ::: {.hero-subtitle}
-One prompt, one short empirical paper and a slide deck. Then your part: study what the agent left behind
+One prompt, a short empirical paper and a slide deck. Then your part: study what the agent left behind, as a referee would
 :::
 ::::::
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} Staying in charge](checking-work.qmd) [[4]{.n} A paper in 50 minutes](live-demo.qmd){.here}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd){.here} [[4]{.n} After the course](after-the-course.qmd)
 :::
 
 ## What happens in this part?
 
-In Parts 1 to 3 we went step by step: one task, one check, then the next task. Here we do the opposite. We give the agent a single prompt, and it runs a whole project, from the question and the data to a short paper and a slide deck. We watch it together, live, for 50 minutes.
+In Part 2 we went step by step: one task, one check, then the next task. Here we do the opposite. We give the agent a single prompt, and it runs a whole project, from the question and the data to a short paper and a slide deck.
 
-This part has two halves. First we run the demo. Then you take the project folder home and study what the agent produced, piece by piece.
+The question is close to the one in Part 2: **does the World Cup change the number of births?** In Part 2 you read what researchers found about big events and births. The agent was told to ignore that literature and build its own design. So you come to its paper as a referee who has done the reading.
+
+This part has two halves. First we start the agent and, while it works, we look at the ingredients: the prompt, the rules, the folder, the skills. Then you take the project folder home and study what it produced.
 
 ::: {.callout-note}
-## The prompt and the project folder
-We will post both here after the session: the prompt exactly as we gave it, and the complete project folder as the agent left it.
+## The project folder
+We will post the complete project folder here after the session, as the agent left it.
 :::
+
+## What is in the prompt?
+
+Here is the prompt, exactly as we gave it, typos included.
+
+```` default
+Does the World Cup affect fertility? Let us write an economics paper that investigates the causal effect of football world cups on birth rates. The paper should be interesting for behavioural and labor economists. This could be mean thinking about how world cups are an allegory for something more general. Make sure we think about key mechanism(s).
+
+1. Setup: Use /newproject to set up the folder.
+2. Data: Find fertility data around the globe. Collect multiple sources from many many countries. Find football world cup data.
+3: Methods: Use well designed econometrics and credible identification strategies.
+4. Review: Use \blindspot to check what you have done, make a review if necessary. Use \referee2 to check.
+5. Exhibits: Make beatiful graphs and tables as exhbits -- you'll use them in a presentation and in a paper.
+6. Output1: Write an academic paper I can submit to a journal like JEBO. It should be 10-15 pages + references. It should have 8-15 references. \bibcheck
+7. Output2: Use \beautiful_deck to turn paper into slides.
+8. Decisions_md: create an internal memo that is a list with all key decisions you made, could be about story, mechanisms, identification strategy, model specification, data use and so on. When (if) relevant the file should include debates among your agents, disagreements, and how a decision was reached .
+
+There may be papers, dissertations, blogposts on this. Disregard them, don't read them, don't cite them at this initial stage.
+````
+
+Note what it specifies: a question, an audience, eight steps in order, the outputs, and a log of decisions. Note also what it leaves open: which data, which countries, which years, which method. Each of those is a choice the agent has to make on its own.
+
+## What are the ingredients?
+
+The prompt is short because most of the work is set up elsewhere. Four ingredients do the rest.
+
+**The rules file.** The project has a `CLAUDE.md`: Claude Code's own name for the same kind of file as your `AGENTS.md`. It holds the research rules: identification first, raw data is never changed, every dataset gets a source and a date, every number in the paper comes from a script, report null results plainly, and never invent data or references.
+
+**The folder structure.** Separate folders for raw and clean data, code, outputs, the paper, the slides, notes and progress logs. It is the structure of your `first-project`, a bit larger. A clear structure helps the agent as much as it helps you.
+
+**The skills.** The prompt calls five skills that we wrote for our own research. You don't have them, and you don't need them to follow the demo. Each is a recipe, like `read-pdf` in Step 2.1, only longer.
+
+- `/newproject` sets up the folder, the rules file and a README.
+- `/blindspot` looks at the results with fresh eyes, for problems hiding in plain sight and for things that were missed.
+- `/referee2` audits the work as a second referee would: it replicates the analysis in another language and checks the econometrics.
+- `/bibcheck` checks every reference: that the DOI opens and that author, title, journal and year belong to the same paper.
+- `/beautiful_deck` turns the paper into a slide deck.
+
+**The logs.** A decision memo with every key choice, and progress logs that let a new session continue where the last one stopped. These are the `DECISIONS.md` and `status.md` of Part 2, at a larger scale.
 
 ## What is a 50-minute paper worth?
 
@@ -51,68 +92,33 @@ Four things are worth following as the agent works.
 
 **The choices.** Each time the agent picks a sample, a definition or a method, ask yourself whether you would have picked the same.
 
-**The checks.** Does it test its own work, as in Step 3.3? What does it do when a check fails?
+**The checks.** Does it test its own work, as in Step 2.3? What does it do when a check fails?
 
-**The files.** Follow what gets written where: data, code, outputs, the decision log, the paper.
+**The files.** Follow what gets written where: data, code, outputs, the decision memo, the paper.
 
 ## Your homework: read the project as a referee would
 
-Download the project folder and open it in the Code tab, in Manual mode (Step 1.2). Then go through what the agent left behind. We advise this order. Your own agent can help along the way: ask it to explain any file in plain language (Step 3.2).
+Download the project folder and open it in the Code tab, in Manual mode. Then go through what the agent left behind. We advise this order. Your own agent can help along the way: ask it to explain any file in plain language.
 
 1. **The prompt.** Read it again, slowly. What did it specify, and what did it leave open? Everything left open is a choice the agent had to make.
 2. **The paper.** Read it as a referee. Mark three claims you would question.
-3. **The decision log.** Open `DECISIONS.md`. Which choices were the agent's own? Which would you have made differently, and could any of them change the main result?
-4. **The code and the checks.** You don't need to read the code line by line. Read the comment at the top of each script, look at which checks were run, and ask your agent to explain one script.
-5. **The slide deck.** Compare it with the paper. Does it make the same claims, with the same numbers?
-6. **The skills and the instructions.** Look at `AGENTS.md` and the skills the agent used. Which rules shaped the work? Which would you copy into your own project?
-7. **One number, traced back.** Pick one number from the abstract. Find it in a table, then in the script that made the table, then in the raw data.
+3. **The literature.** Compare the paper's main finding with your extracts from Step 2.3. Does it agree with the papers you read? Where it differs, can you see why: other countries, other years, another kind of event, another method?
+4. **The decision memo.** Which choices were the agent's own? Which would you have made differently, and could any of them change the main result?
+5. **The code and the checks.** You don't need to read the code line by line. Read the comment at the top of each script, look at which checks were run, and ask your agent to explain one script.
+6. **The slide deck.** Compare it with the paper. Does it make the same claims, with the same numbers?
+7. **The rules and the skills.** Look at `CLAUDE.md` and the reviews that `/blindspot` and `/referee2` wrote. Which rules shaped the work? Which would you copy into your own `AGENTS.md`?
+8. **One number, traced back.** Pick one number from the abstract. Find it in a table, then in the script that made the table, then in the raw data.
 
 ::: {.check}
-**You are done when** you can write half a page, as a referee would: what the paper claims, what you checked, and what would have to change before you put your name on it.
+**You are done when** you can write half a page, as a referee would: what the paper claims, how it squares with the literature, what you checked, and what would have to change before you put your name on it.
 :::
 
 ## And then?
 
-Try it on your own question. Take the prompt, replace the topic with one from your field, and run it in a new project folder. Use what you learned in Part 3: Manual mode, read-only raw data, checks agreed in advance, and a review in a fresh session.
+Try it on your own question. Take the prompt, replace the topic with one from your field, drop the skills you don't have, and run it in a new project folder. Use the routines of Part 2: Manual mode, read-only originals, checks agreed in advance, and a review in a fresh session.
 
 The first attempt won't be a paper you can submit. But you will see, on a question you know well, what the agent does well and where it needs you.
 
-## Write in your own voice
-
-Out of the box, the agent writes generic prose: smooth, correct, and not like you, nor like the papers in your field. Readers notice. The fix is the same as everywhere in this course: give it grounding material.
-
-Put one or two of your own papers in `docs/samples/`, as PDFs or Word files: the agent converts them to text first, with the read-pdf skill from Step 2.3 for PDFs. Then start a new session and send:
-
-::: {.prompt}
-``` default
-Read the papers in docs/samples/. Write a short note in docs/my-voice.md on how I write: sentence length, how I state results and caveats, words I use and words I avoid, with two or three short examples from the samples. Then add a line to AGENTS.md saying that any text you write for me should follow docs/my-voice.md.
-```
-:::
-
-Read `docs/my-voice.md` and correct it: it is a description of you, so you are the judge. For the conventions of your field (notation, how results are stated), point the agent to the papers in `docs/readings/` in the same way. We will turn this into a proper skill later.
-
-## Beyond: what to use it for next
-
-Once the routines of Parts 2 and 3 feel normal, try the agent on work that is not analysis. Two ideas we like, both adapted from Simon Martin's [Jump-starting AI agents](https://github.com/simonmartinecon/jumpstart-ai):
-
-**A sparring partner.** Test an argument before you take it to colleagues or start writing it up. The agent often spots what you missed, such as a clash with an earlier section.
-
-::: {.prompt}
-``` default
-I think Section 5 of docs/draft.md should be reframed as follows: [your idea]. Assess this critically against the rest of the draft and the papers in docs/readings/. List the weakest points first.
-```
-:::
-
-**Admin.** Progress reports, applications, forms: tasks where the information exists in your files but has to be pulled together.
-
-::: {.prompt}
-``` default
-Draft the progress report from the documents in docs/funding/. Follow the structure of docs/funding/report-template.docx. Write it in Markdown first, and mark anything you could not find in the documents with TODO.
-```
-:::
-
-For more to read and watch, see the [useful links](index.qmd#useful-links) in the overview.
-
 ::: {.next-part}
-[Back to the overview →](index.qmd)
+[Continue with Part 4: After the Course →](after-the-course.qmd)
 :::

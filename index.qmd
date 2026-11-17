@@ -58,7 +58,7 @@ Mini course · four parts
 ::::::
 
 :::::: {.hub-body}
-For social scientists who have used AI as a chatbot, to polish a text or to search. We set up an AI agent, put it to work on a Word draft, a pile of readings and a small dataset, learn how to stay in charge, and watch it write a paper in 50 minutes.
+For social scientists who have used AI as a chatbot, to polish a text or to search. We set up an AI agent, run a small project with it, from a pile of papers to a memo you review, learn to stay in charge, and watch it write a paper in 50 minutes.
 
 ::: {.hub-meta}
 No coding needed · Claude desktop app

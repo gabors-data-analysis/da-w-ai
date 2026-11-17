@@ -23,6 +23,8 @@ When the agent makes the same mistake twice, add a line here.
 
 ## Safety with my files
 
+- Work only inside this project folder. If a step needs anything outside it, stop,
+  tell me what and why, and wait for my OK.
 - Never delete files. If something should go, move it to `_old/` and tell me.
 - Never change anything in `data/raw/`. Raw data stays as it arrived.
 - Never overwrite a Word, Excel or PDF file I gave you. Save your changes as a new
@@ -38,6 +40,16 @@ When the agent makes the same mistake twice, add a line here.
 - Check your own results: count rows before and after each step, and compare a few
   values by hand with the source.
 - Log analytical choices in `DECISIONS.md` (see the `decision-log` skill).
+- Do every step that reads, changes or creates data in a script in `code/`, never as a
+  one-off command. Start each script with a short comment in plain language: what it
+  reads, what it does, and what it writes.
+
+## Sources and quotes
+
+- Work from the files in this folder, not from memory. If the answer is not in the
+  files, say "not in the files".
+- Every quote must be word for word from a file in this folder, with the file name and page.
+- Every reference must be a file in this folder or have a DOI that opens.
 
 ## Folders and files
 
@@ -45,6 +57,8 @@ When the agent makes the same mistake twice, add a line here.
 - `data/clean/` cleaned data, produced by code
 - `code/` scripts, numbered in the order they run: `01_get_data.py`, `02_clean.py`, ...
 - `output/` figures (PNG) and tables
+- `docs/readings/` papers as PDFs, with their extracted text; never edit the PDFs
+- `docs/extracts/` one Markdown summary per paper
 - `docs/` notes, memos and drafts. Write new text in Markdown (`.md`);
   convert to Word only when I ask.
 - Every result must be reproducible: running the scripts in order rebuilds all outputs.

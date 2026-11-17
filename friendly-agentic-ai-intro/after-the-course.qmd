@@ -1,0 +1,170 @@
+---
+title: "Part 4: After the Course"
+subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
+date: "2026-11-13"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-eyebrow}
+Part 4 of 4 · at your own pace
+:::
+
+::: {.hero-title}
+After the Course
+:::
+
+::: {.hero-subtitle}
+Ideas for the weeks after: a better AGENTS.md, your own voice and your own skills, a history of every change, and new uses
+:::
+::::::
+:::::::
+
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd){.here}
+:::
+
+## How to use this part?
+
+This part is a menu, not a sequence. Use the agent on your own work for a few weeks first, with the routines of Part 2. Then come back and pick what you need. Each section stands on its own.
+
+## How do I grow my AGENTS.md?
+
+The starter file is a beginning. The rule for growing it is simple: **when the agent makes the same mistake twice, add one line.** After a month it will fit how you work better than any template.
+
+When your projects involve data, these lines are worth adding:
+
+``` default
+- Put checks in the code (row counts, duplicate IDs, merge matches, value ranges, missing values). After each run, save all checks with pass/fail in output/checks.md. If a check fails, stop and tell me.
+- Any choice I did not specify goes into DECISIONS.md, marked needs-review.
+```
+
+And keep it short. A long file is read less carefully, by the agent too. Once a year, ask: *"Which lines in AGENTS.md are out of date, or say the same thing twice?"*
+
+## How do I make it write like me?
+
+Out of the box, the agent writes generic prose: smooth, correct, and not like you, nor like the papers in your field. Readers notice. The fix is the same as everywhere in this course: give it grounding material.
+
+Put one or two of your own papers in `docs/samples/`, as PDFs or Word files: the agent converts them to text first, with the read-pdf skill for PDFs. Then start a new session and send:
+
+::: {.prompt}
+``` default
+Read the papers in docs/samples/. Write a short note in docs/my-voice.md on how I write: sentence length, how I state results and caveats, words I use and words I avoid, with two or three short examples from the samples. Then add a line to AGENTS.md saying that any text you write for me should follow docs/my-voice.md.
+```
+:::
+
+Read `docs/my-voice.md` and correct it: it is a description of you, so you are the judge. For the conventions of your field (notation, how results are stated), point the agent to the papers in `docs/readings/` in the same way.
+
+## How do I write my own skills?
+
+A skill is a recipe for one type of task. You have used two (Step 2.1), and seen five more in the demo (Part 3). The best candidates for your own skills are routines you have repeated two or three times, such as the review loop of Step 2.5.
+
+You don't have to write a skill yourself. Ask the agent, at the end of a session where a routine worked well:
+
+::: {.prompt}
+``` default
+We just went through a routine that worked: reading my comments from a PDF, sorting them into language and content, fixing the language, and asking me about the content one at a time. Write it as a skill in .claude/skills/pdf-comments/SKILL.md, following the format of the read-pdf skill. Keep it under one page.
+```
+:::
+
+Then read it, as you would read instructions you give to a new research assistant. Your `my-voice.md` from the section above is another good candidate: *"Turn docs/my-voice.md into a skill called my-voice."*
+
+To see how others write skills, browse Anthropic's public collection at [github.com/anthropics/skills](https://github.com/anthropics/skills). Read a skill before you install it: it is a set of instructions your agent will follow.
+
+## How do I keep a history of every change?
+
+There are two ways, a simple one and a precise one.
+
+**The simple one: a cloud folder.** If your project folder is in Dropbox, OneDrive or Google Drive (Step 1.2), you can already go back in time: each file has a version history.
+
+**The precise one: version control**, usually **Git** with **GitHub**. Git keeps a history of your project folder: each *commit* saves a snapshot of every file, with a one-line note on what changed. GitHub keeps a private copy of that history online. It adds two things. First, you see what changed across sessions and days, line by line. Second, every mistake can be undone by going back to the last version that worked. This makes it cheap to let the agent try things.
+
+The price is about an hour of setup and one habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history without the terminal. For setup and daily use, see [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github).
+
+::: {.callout-tip}
+## Let the agent run Git, with you deciding each step
+
+Once Git is set up, you can run it entirely through the agent. You read and decide, and the agent does the typing.
+
+**1. Review before you commit.** Ask for a summary first, and commit only when it matches what you wanted:
+
+::: {.prompt}
+``` default
+Summarize, in plain language, what changed since the last commit: which files, and what changed in each. Propose a one-line commit message. Do not commit yet.
+```
+:::
+
+If the summary lists something you didn't ask for, ask about it before you go on.
+
+**2. Commit and push.** When the summary is right:
+
+::: {.prompt}
+``` default
+Commit with that message, then push to GitHub.
+```
+:::
+
+**3. Undo.** If a step turns out wrong, even days later:
+
+::: {.prompt}
+``` default
+Revert the last commit, keeping the history. First tell me what this will undo, and wait for my OK.
+```
+:::
+
+A *revert* adds a new commit that undoes an old one, so the record of what happened stays complete. You can also ask about the past: *"What changed since Monday, and why?"*
+:::
+
+If you set up Git, add two lines to `AGENTS.md`:
+
+``` default
+- Commit only when I ask. Never push to GitHub without asking.
+- Never rewrite or delete Git history.
+```
+
+## How do I get a proper review of a project?
+
+In Step 2.5 a fresh session reviewed the memo. For a project with data and code, the review goes further: the reviewer reruns everything from scratch. When a piece of work is done, start a new session and send:
+
+::: {.prompt}
+``` default
+You are reviewing work that someone else did in this folder.
+Read AGENTS.md, DECISIONS.md and the scripts in code/.
+Rerun all scripts from scratch, in order. Do the outputs match the ones already saved?
+Then list anything that looks wrong, untested or undocumented, most serious first. Do not change any files.
+```
+:::
+
+Read the review as you would read a referee report: some points matter, some are noise. Take the serious ones back to the agent, one at a time, each in a new session.
+
+::: {.callout-note collapse="true"}
+## For the technically curious: the sandbox (click to open)
+
+On Mac and Linux, Claude Code can also enforce the folder boundary through the operating system, so even an approved command can't write outside the project. This **sandbox** is off by default and doesn't run on Windows directly. See the [sandboxing documentation](https://code.claude.com/docs/en/sandboxing) if you are curious.
+:::
+
+## What else can I use it for?
+
+Once the routines of Part 2 feel normal, try the agent on work that is not analysis. Two ideas we like, both adapted from Simon Martin's [Jump-starting AI agents](https://github.com/simonmartinecon/jumpstart-ai):
+
+**A sparring partner.** Test an argument before you take it to colleagues or start writing it up. The agent often spots what you missed, such as a clash with an earlier section.
+
+::: {.prompt}
+``` default
+I think Section 5 of docs/draft.md should be reframed as follows: [your idea]. Assess this critically against the rest of the draft and the papers in docs/readings/. List the weakest points first.
+```
+:::
+
+**Admin.** Progress reports, applications, forms: tasks where the information exists in your files but has to be pulled together.
+
+::: {.prompt}
+``` default
+Draft the progress report from the documents in docs/funding/. Follow the structure of docs/funding/report-template.docx. Write it in Markdown first, and mark anything you could not find in the documents with TODO.
+```
+:::
+
+For more to read and watch, see the [useful links](index.qmd#useful-links) in the overview.
+
+::: {.next-part}
+[Back to the overview →](index.qmd)
+:::
