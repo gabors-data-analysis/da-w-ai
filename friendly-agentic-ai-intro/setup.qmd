@@ -259,7 +259,7 @@ Two more points matter for researchers.
 - **Long sessions.** What the model can see at once is limited, and a long session fills it up. Start a new session for each task. Part 2 shows how to carry over what matters.
 :::
 
-Want to use models from other companies? See [Part 5](go-further.qmd). For a comparison of the main models, see [Which AI model](../da-knowledge/which-ai.qmd) in the knowledge base.
+Want to use models from other companies, such as cheaper open-weights models? See [Part 5](go-further.qmd#step-5-2). For a comparison of the main models, see [Which AI model](../da-knowledge/which-ai.qmd) in the knowledge base.
 
 ## Troubleshooting
 

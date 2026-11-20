@@ -1,7 +1,7 @@
 ---
 title: "Friendly Introduction to Agentic AI for Social Scientists"
 subtitle: "A mini course: from a chatbot that polishes your text to an AI agent that works with your files"
-date: "2026-11-10"
+date: "2026-11-20"
 aliases:
   - ../setup-friendly/index.html
 ---
@@ -26,7 +26,7 @@ From a chatbot that polishes your text to an AI agent that works with your files
 [[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
 :::
 
-*Version 0.6 · 17 November 2026*
+*Version 0.7 · 20 November 2026*
 
 ## Who is this course for?
 

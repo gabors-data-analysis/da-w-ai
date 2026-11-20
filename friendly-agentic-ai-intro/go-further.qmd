@@ -80,6 +80,20 @@ Two of them show the range.
 
 Why bother, if you have Claude? Because cheap changes what you can try. You can run a task on five hundred documents, or run the same task five times, without watching a usage limit. And you learn which of your tasks need the strongest model, and which don't.
 
+### Which kind of model for which task?
+
+We find it useful to think of three kinds of model. Each has its use.
+
+| Kind | Example | Use it for |
+|---|---|---|
+| **Cheap open-weights** | DeepSeek V4.1 Flash | Simple tasks repeated many times: sorting texts into categories, pulling a few facts out of each document |
+| **Very good** | Claude Opus 5.5 | Most research work: extracts with quotes, a memo, a data task |
+| **State of the art** | Claude Fable 5.2 | The hardest and longest tasks: a whole project from one prompt, as in [Part 3](live-demo.qmd), or the review of a finished paper |
+
+There is a fourth option, too. **High-end open-weights** models, such as Kimi K3.1 Pro, cost about half as much as Claude Opus 5.5. Where one of them does a task well enough, it saves money.
+
+Which kind fits which task is not fixed. It depends on the task, on your field and on how costly a mistake would be, and it changes with every new model. So we advise you to experiment: run the same task with two or three models, and compare the results. The ideas under *What to try* below show how.
+
 ### Connect a model
 
 1. **Subscribe.** Go to the [OpenCode console](https://opencode.ai/console), sign in, and subscribe to **Go**. Then copy your **API key**. The key is a password for your subscription: don't share it, and don't save it in a project folder.
