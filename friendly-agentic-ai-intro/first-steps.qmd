@@ -12,7 +12,7 @@ resources:
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 2 of 4 · an hour in class, an hour after
+Part 2 of 5 · an hour in class, an hour after
 :::
 
 ::: {.hero-title}
@@ -26,7 +26,7 @@ One small project, from a pile of papers to a reviewed memo, and how to stay in 
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd){.here} [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd){.here} [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
 :::
 
 ## What do we do in this part?

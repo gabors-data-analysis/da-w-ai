@@ -51,6 +51,7 @@ A 7–8B model runs on a modern laptop; 70B+ models need a serious GPU or hosted
 
 ## See also
 
+- [Running AI on your own computer](run-ai-locally.qmd) — step-by-step setup, for a top laptop and for an ordinary one.
 - [Which AI model](which-ai.qmd) — the broader model landscape and recommendations.
 - [Open-code tools](open-code-tools.qmd) — open-source harnesses you can point at these models.
 - [Glossary of LLM terms](technical-terms-page.qmd)

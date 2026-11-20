@@ -9,7 +9,7 @@ aliases:
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-A mini course in four parts
+A mini course in five parts
 :::
 
 ::: {.hero-title}
@@ -23,7 +23,7 @@ From a chatbot that polishes your text to an AI agent that works with your files
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd)
+[[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
 :::
 
 *Version 0.6 · 17 November 2026*
@@ -166,7 +166,7 @@ Each of these problems has a routine that handles it, and you already know most 
 
 ## How is the course organized?
 
-The course has four parts. The first two are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration, followed by homework. The fourth is for later, when you use the agent on your own work. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
+The course has five parts. The first two are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration, followed by homework. The last two are for later: the fourth when you use the agent on your own work, the fifth when you want to try other models. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
 
 ::::: {.part-card}
 ::: {.part-no}
@@ -240,6 +240,24 @@ A menu for the weeks after: a better `AGENTS.md`, making the agent write like yo
 ::::
 :::::
 
+::::: {.part-card}
+::: {.part-no}
+5
+:::
+
+:::: {.part-body}
+::: {.part-meta}
+Steps 5.1–5.2 · for self-study
+:::
+
+[[Go Further](go-further.qmd)]{.part-title}
+
+Two steps beyond the course. Use an app that works with any model, so you don't depend on one provider. Then use cheap open-weights models to experiment: a large corpus, repeated runs, a cheap worker with a strong reviewer.
+
+**You end with** a sense of which tasks need the strongest model, and which don't.
+::::
+:::::
+
 ::: {.callout-tip}
 ## Taking this as a two-hour workshop?
 
@@ -247,7 +265,7 @@ A menu for the weeks after: a better `AGENTS.md`, making the agent write like yo
 
 **In the session (two hours):** at the start we give the agent the World Cup prompt of Part 3, and it works in the background. The first hour is Part 2: we explain a few ideas, you work on Steps 2.2 to 2.4 on your own laptop, and we end with a short debrief. The second hour is Part 3: the ingredients of the prompt, and what the agent produced.
 
-**After the session (homework):** Steps 2.5 and 2.6 of Part 2, and the referee homework of Part 3 on the project folder we share. Part 4 is for the weeks after.
+**After the session (homework):** Steps 2.5 and 2.6 of Part 2, and the referee homework of Part 3 on the project folder we share. Parts 4 and 5 are for the weeks after.
 :::
 
 ## A short glossary

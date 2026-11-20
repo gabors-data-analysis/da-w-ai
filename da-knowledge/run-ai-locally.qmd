@@ -1,0 +1,149 @@
+---
+title: "Running AI on your own computer"
+subtitle: "Two use cases: a good model on a top laptop, a simple model on an ordinary one"
+date: "2026-11-20"
+---
+
+An open-weights model can run on your own computer. Then nothing is sent to a company's servers, and the model works with the Wi-Fi switched off. This page shows how to set it up, and what to expect from it. For the background on open-weights models, see [Open-weights and local models](open-weights-models.qmd).
+
+Why would we want this? There are three reasons.
+
+- **Confidentiality.** Interview transcripts, identifiable survey answers, health or HR records, anything under a data agreement that forbids sending it to a third party.
+- **Reproducibility.** A downloaded model doesn't change. The same file gives a referee the same model two years later.
+- **Independence.** No subscription, no usage limit, no provider that can retire the model.
+
+True, it has a price. A model that fits on a laptop is weaker and slower than the hosted models. How much weaker depends on the laptop, and this is why we separate two use cases.
+
+| | Use case 1: a good model | Use case 2: a simple model |
+|---|---|---|
+| Computer | A top laptop, about \$6–8 thousand, with 64–128 GB of memory the model can use | An ordinary good laptop with 16–32 GB of memory |
+| Models | 20 to 120 billion parameters | 4 to 9 billion parameters |
+| Good for | Agent work on files: extracts with quotes, coding text, small data analysis | One narrow task per document: classify, extract a few fields, replace names |
+| How to use it | As an agent, with OpenCode | Mostly from a script, in batches. As an agent only for small tasks |
+
+## What decides what you can run?
+
+Three things matter, and they compete for the same memory.
+
+**Memory.** The model has to fit into memory that the graphics processor can use. On a Mac with Apple silicon, this is the ordinary memory of the computer, which is why Macs with a lot of memory are popular for this. On a Windows or Linux laptop, it is the memory of the graphics card, which is often only 8 to 16 GB even on an expensive machine. If the model doesn't fit, part of it runs on the main processor, and it gets much slower. As a rule of thumb from practice, plan for the size of the model file plus several gigabytes.
+
+**Model size.** A model's size is given in billions of parameters, such as `8b` or `30b`. Larger models are better and need more memory. The files you download are compressed versions (*quantized*, usually to four bits per parameter), which costs a little quality and saves a lot of memory.
+
+**Context length.** This is how much text the model can see at once, measured in tokens (a token is about three quarters of a word). A long context needs extra memory on top of the model. An agent needs a long one: the OpenCode documentation asks for at least 64,000 tokens. Ollama's default is much shorter, so we have to raise it.
+
+## Setup, for both use cases
+
+We use [Ollama](https://ollama.com/download), a free program that downloads open-weights models and runs them. It works on Windows, Mac and Linux.
+
+**1. Install Ollama**, from [ollama.com/download](https://ollama.com/download).
+
+**2. Download a model.** In a terminal:
+
+```bash
+ollama pull qwen3:8b
+```
+
+Which model? See the two use cases below. Choose one marked **tools** in the [Ollama library](https://ollama.com/library): an agent can't work without that.
+
+**3. Raise the context length.** In the Ollama app, open **Settings** and set the context length to 64k. Or set it when starting Ollama from a terminal:
+
+```bash
+OLLAMA_CONTEXT_LENGTH=64000 ollama serve
+```
+
+On Windows, quit Ollama first, set `OLLAMA_CONTEXT_LENGTH` under *Edit environment variables for your account*, and start Ollama again.
+
+**4. Switch off the cloud.** Ollama also offers models that run on its own servers. Their names end in `:cloud` or `-cloud`. For confidential material, rule them out: set the environment variable `OLLAMA_NO_CLOUD=1`, or add `"disable_ollama_cloud": true` to the file `~/.ollama/server.json`, and restart Ollama.
+
+**5. Check that the model fits.** Start a chat with `ollama run qwen3:8b`, ask something, and in a second terminal type:
+
+```bash
+ollama ps
+```
+
+The `PROCESSOR` column should say `100% GPU`. A split such as `48%/52% CPU/GPU` means the model doesn't fit into the graphics memory. It will work, but slowly. Choose a smaller model or a shorter context.
+
+**6. Test it offline.** Switch off the Wi-Fi and ask the model a question. If it answers, the model is on your computer, and your text stays there.
+
+## Use case 1: a good model on a top laptop
+
+With 64 to 128 GB of memory that the model can use, we can run models that are good enough for real agent work. They are behind the best hosted models, but they can plan a task of several steps, call tools, and work through a folder of documents.
+
+| Model | Download | Context | Memory to plan for |
+|---|---|---|---|
+| `qwen3:30b` | 19 GB | 256K | 32 GB or more |
+| `gemma4:31b` | 19–20 GB | 256K | 32 GB or more |
+| `qwen3.5:35b` | 22 GB | 256K | 48 GB or more |
+| `gpt-oss:120b` | 65 GB | 128K | 96 GB or more |
+| `qwen3.5:122b` | 81 GB | 256K | 128 GB |
+
+Sizes and context lengths are from the Ollama library on 20 November 2026. The last column is our rule of thumb, not a tested figure. The list changes every few months, so check the library for newer models.
+
+**Use it as an agent.** [OpenCode](https://opencode.ai/) is an open-source agent application that works with local models. With Ollama running, one command starts it with a local model:
+
+```bash
+ollama launch opencode
+```
+
+Or start OpenCode as usual, type `/models`, and choose the local model listed under Ollama. Your `AGENTS.md` and your skills work as they are. For the setup of OpenCode and its permission settings, see [Part 5 of the friendly introduction](../friendly-agentic-ai-intro/go-further.qmd).
+
+What should we expect? The agent is slower than a hosted one, and the fan will run. It makes more mistakes on long tasks, so keep the steps small: one paper, one script, one table at a time. And keep the checks of [Part 2](../friendly-agentic-ai-intro/first-steps.qmd): quotes found on the page, a random sample read by hand.
+
+## Use case 2: a simple model on an ordinary laptop
+
+With 16 to 32 GB of memory, we can run small models. They are not good agents: with a 64k context they are slow, and they lose the thread on tasks of many steps. But they do one narrow thing per document quite well, and for confidential text that is often all we need.
+
+| Model | Download | Context | Memory to plan for |
+|---|---|---|---|
+| `qwen3:4b` | 2.5 GB | 256K | 8 GB or more |
+| `qwen3:8b` | 5.2 GB | 40K | 16 GB |
+| `qwen3.5:9b` | 6.6–7.6 GB | 256K | 16 GB |
+| `gemma4:e4b` | 6.6–9.5 GB | 128K | 16 GB |
+| `gpt-oss:20b` | 14 GB | 128K | 24–32 GB |
+
+**Use it from a script, in batches.** The reliable way to use a small model is not as an agent. A short script sends one document at a time with the same instruction, and writes one row per document. Then each call is short, a long context is not needed, and a failure affects one row only.
+
+Ollama speaks the same API as the hosted models, at `http://localhost:11434/v1`. So a script written for a hosted model needs two changes: the address and the model name.
+
+```python
+from openai import OpenAI
+
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")  # the key is not checked
+
+answer = client.chat.completions.create(
+    model="qwen3:8b",
+    messages=[
+        {"role": "system", "content": "Classify the answer into one of: work, family, health, other. Reply with the category only."},
+        {"role": "user", "content": "I had to stop working when my mother got ill."},
+    ],
+    temperature=0,
+)
+print(answer.choices[0].message.content)
+```
+
+You don't have to write this yourself. Ask your usual agent, which may be a hosted one, to write the script, and show it only made-up examples. Then run the script yourself, on the real data, with the local model. The confidential text never leaves the laptop. For the basics of such scripts, see [LLM APIs in Python](llm-api-python.qmd).
+
+Three tasks that suit a small local model:
+
+- **Coding open-ended answers** into a fixed set of categories, with the words that justify the choice quoted exactly.
+- **Pulling a few facts out of each document**: a date, a place, an amount, yes or no.
+- **Replacing names with codes** (`[PERSON_1]`, `[PLACE_2]`), with the list of replacements saved in a separate key file.
+
+For each, check a random sample of 20 rows by hand, as you would with a human coder. Run the script a second time and look at the rows where the two runs disagree.
+
+::: {.callout-warning}
+## Local is not the same as allowed
+
+A local model solves one problem: your material is not sent to a company. Your other duties stay as they were: what participants consented to, where the files may be stored, who may see them. Replacing names with codes is not anonymisation in the sense of the GDPR: as long as the key file exists, or a person can be recognized from the context, the text is still personal data. When in doubt, ask your data protection officer.
+:::
+
+## Other tools
+
+- **[LM Studio](https://lmstudio.ai/)** does the same job as Ollama, with windows and buttons and a model browser. Its local address is `http://127.0.0.1:1234/v1`, and OpenCode can use it too.
+- **Hosted open-weights models** are the middle way when the laptop is too small and the material is not confidential. See [Part 5 of the friendly introduction](../friendly-agentic-ai-intro/go-further.qmd).
+
+## See also
+
+- [Open-weights and local models](open-weights-models.qmd): what they are and when they are worth it.
+- [Open-code tools and harnesses](open-code-tools.qmd): open-source agent applications.
+- [LLM APIs in Python](llm-api-python.qmd): calling a model from a script.

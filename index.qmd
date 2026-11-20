@@ -49,7 +49,7 @@ Graduate students, analysts, researchers · Python or R
 ::::::: {.hub-card}
 :::::: {.hub-band}
 ::: {.hub-kind}
-Mini course · four parts
+Mini course · five parts
 :::
 
 ::: {.hub-title}

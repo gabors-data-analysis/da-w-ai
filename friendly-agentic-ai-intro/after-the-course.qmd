@@ -7,7 +7,7 @@ date: "2026-11-13"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 4 of 4 · at your own pace
+Part 4 of 5 · at your own pace
 :::
 
 ::: {.hero-title}
@@ -21,7 +21,7 @@ Ideas for the weeks after: a better AGENTS.md, your own voice and your own skill
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd){.here}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd){.here} [[5]{.n} Go further](go-further.qmd)
 :::
 
 ## How to use this part?
@@ -166,5 +166,5 @@ Draft the progress report from the documents in docs/funding/. Follow the struct
 For more to read and watch, see the [useful links](index.qmd#useful-links) in the overview.
 
 ::: {.next-part}
-[Back to the overview →](index.qmd)
+[Continue with Part 5: Go Further →](go-further.qmd)
 :::

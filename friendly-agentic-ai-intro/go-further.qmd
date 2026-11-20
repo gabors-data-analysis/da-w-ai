@@ -1,0 +1,142 @@
+---
+title: "Part 5: Go Further"
+subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
+date: "2026-11-20"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-eyebrow}
+Part 5 of 5 · for self-study
+:::
+
+::: {.hero-title}
+Go Further
+:::
+
+::: {.hero-subtitle}
+Free yourself from one provider, and use cheap models to experiment: bigger tasks, repeated runs, and a sense of what each model can do
+:::
+::::::
+:::::::
+
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd){.here}
+:::
+
+## What is this part?
+
+[Part 4](after-the-course.qmd) is about making the agent fit the way you work. This part is about trying new things, on your own and at your own pace. It has two steps.
+
+1. **Use an app that works with any model.** This frees you from a single provider.
+2. **Use cheap models to experiment.** Open-weights models cost a fraction of the top models, and some of them are very good.
+
+We will add more over time.
+
+## [5.1]{.step-no} Use an app that works with any model {#step-5-1}
+
+In this course the agent was Claude Code. It has two parts, and it helps to tell them apart.
+
+- **The desktop application** is the program on your computer that reads files, runs commands and asks for your permission. In the AI community these applications are called *harnesses*.
+- **The model** is the AI behind it, which does the thinking.
+
+So far both came from one company: the Claude app works with Anthropic's models only. But the two can be separated. **[OpenCode](https://opencode.ai/)** is an open-source application that works much like Claude Code, and it works with models from many providers. You choose the model from a menu.
+
+Why does this matter? Because providers change. Prices go up, usage limits get tighter, a model you rely on is retired, or your university signs a contract with another company. If your app works with any model, you switch the model and keep everything else: your project folders, your `AGENTS.md`, your skills and your habits.
+
+### Set up the app
+
+It takes about ten minutes. What you built in this course carries over: OpenCode reads the `AGENTS.md` in your project folder, and it finds the skills in `.claude/skills/` by itself.
+
+1. **Install the desktop app.** The download links for Windows, Mac and Linux are on the first page of the [OpenCode documentation](https://opencode.ai/docs/). There is also a terminal version, which works the same way.
+2. **Open a copy of your project.** Make a copy of `first-project`, call it `first-project-opencode`, and open that folder. Then the two applications can't get in each other's way, and you can compare their results side by side.
+3. **Make it ask first.** OpenCode is more permissive than Claude Code in Manual mode: it may change files and run commands without asking. To get the behaviour you know, save a file called `opencode.jsonc` in the project folder, with this content:
+
+``` default
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permissions": [
+    { "action": "edit", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "external_directory", "resource": "*", "effect": "ask" }
+  ]
+}
+```
+
+The three lines say: ask before changing a file, ask before running a command, and ask before touching anything outside the project folder.
+
+OpenCode also has the two ways of working you know. They are called agents here: **Build** does the work, and **Plan** proposes without changing your files. In the terminal version, **Shift+Tab** switches between them.
+
+The app needs a model before it can do anything. That is the next step.
+
+## [5.2]{.step-no} Use cheap models to experiment {#step-5-2}
+
+Many strong models are **open-weights**: their makers publish the trained model, so any company can run it and sell access to it. Competition keeps the price low. **OpenCode Go** is a subscription that bundles a set of such models for \$10 a month (November 2026).
+
+Two of them show the range.
+
+- **Kimi K3.1 Pro** is a high-end open-weights model. Its list price per unit of text is about half that of Claude Opus 5.5 (November 2026). Use it for work that needs a strong model.
+- **DeepSeek V4.1 Flash** is a small, fast and very cheap model. It is not among the strongest, but it is good enough for many simple tasks. Use it for volume.
+
+Why bother, if you have Claude? Because cheap changes what you can try. You can run a task on five hundred documents, or run the same task five times, without watching a usage limit. And you learn which of your tasks need the strongest model, and which don't.
+
+### Connect a model
+
+1. **Subscribe.** Go to the [OpenCode console](https://opencode.ai/console), sign in, and subscribe to **Go**. Then copy your **API key**. The key is a password for your subscription: don't share it, and don't save it in a project folder.
+2. **Connect.** In OpenCode, type `/connect`, choose **OpenCode Go**, and paste your API key.
+3. **Choose the model.** Type `/models` and choose **DeepSeek V4.1 Flash** to start with. You can change it at any time, in the middle of a project too. The list of models changes often, so the names may differ when you read this.
+
+Then test the whole setup:
+
+::: {.prompt}
+``` default
+Read AGENTS.md and tell me in five bullet points what it asks of you. Then create a file called hello-opencode.md with one sentence in it.
+```
+:::
+
+::: {.check}
+**It worked if** the summary matches your `AGENTS.md`, and the agent asks for your OK before it creates the file. If it creates the file without asking, the setting of Step 5.1 did not take effect: ask the agent *"Where do you read your permission settings from?"* and see the [permissions documentation](https://opencode.ai/docs/permissions/).
+:::
+
+::: {.callout-warning}
+## Before you put research material into it
+
+Check where your text goes, as in [Step 1.2](setup.qmd#step-1-2). With OpenCode Go, each model has its own rules. The [OpenCode Go page](https://opencode.ai/docs/go/) has a table: how long each model's provider keeps your text, and which models are offered in exchange for the right to train on what you send. Avoid those for anything that is not public. By default, paid models that train on your data are blocked, and processing is limited to Europe and the United States. Read the table before you start, and note that the list changes. For personal data, the GDPR applies here too.
+:::
+
+::: {.callout-note}
+## Limits
+Go has a monthly allowance. In any five hours you can use up to a fifth of it, and in any week up to half. If you hit a limit, you wait until it resets.
+:::
+
+### What to try
+
+**One task, three models.** In `first-project-opencode`, run [Step 2.3](first-steps.qmd#step-2-3) again with the same prompt, once with DeepSeek V4.1 Flash and once with Kimi K3.1 Pro, each into its own folder. Then compare them with the extracts Claude made, paper by paper. Do the quotes check out on the page? Is "not stated" used honestly? Is the method described correctly? You will find that the cheapest model is fine for some tasks and not for others. That is worth knowing before you choose a model for a real project.
+
+**A large corpus.** This is where a cheap model earns its place. Take a few hundred documents: the abstracts of a journal over ten years, speeches from a parliament's open data, or open-ended answers from a survey of your own. Ask for one row per document.
+
+::: {.prompt}
+``` default
+In data/raw/corpus/ there are several hundred text files. For each file, write one row to data/clean/corpus.csv with: file name, year, main topic (one of the categories in docs/categories.md), and one sentence quoted word for word that supports the topic.
+Work in batches of 20 files. After each batch, update status.md with how many files are done. If a file cannot be read or does not fit any category, write "unclear" and go on. Never skip a file silently.
+At the end, tell me how many rows you wrote and how many files are in the folder.
+```
+:::
+
+Then check it as you would check a research assistant's coding. Ask for a random sample of 20 rows, read those 20 documents yourself, and count how many rows you agree with. Eighteen out of twenty is a different result from twelve out of twenty, and only the count tells you which one you have.
+
+**One task, three runs.** A model doesn't give the same answer every time. With a cheap model you can afford to find out how much that matters. Run the classification above three times, into three files, and ask the agent to list the documents where the three runs disagree. Those are the ambiguous cases, and they are the ones to read yourself.
+
+**A cheap worker, a strong reviewer.** Let the cheap model do the bulk, such as extracts of two hundred papers. Then switch to a strong model, Kimi K3.1 Pro in OpenCode or Claude in the Claude app, and ask for a review of a sample, as in [Step 2.5](first-steps.qmd#step-2-5): *"Check 15 randomly chosen extracts against their papers. List anything wrong or unsupported, most serious first."* This is how many research teams work with human assistants, too.
+
+## Want to go to the next level?
+
+Check out [how to run AI on your own computer](../da-knowledge/run-ai-locally.qmd). An open-weights model can run on your laptop, so nothing is sent to anyone. This is the way around the limit of [Step 1.2](setup.qmd#step-1-2), where we asked you to keep confidential material out of the folder. That page is in the knowledge base, and it is more technical than this course.
+
+## To read more
+
+In the knowledge base: [Open-code tools and harnesses](../da-knowledge/open-code-tools.qmd) and [Open-weights and local models](../da-knowledge/open-weights-models.qmd).
+
+::: {.next-part}
+[Back to the overview →](index.qmd)
+:::

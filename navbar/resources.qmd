@@ -9,6 +9,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 
 - [LLM Glossary](../da-knowledge/technical-terms-page.qmd) — technical terms used in lectures and class.
 - [Which AI to use](../da-knowledge/which-ai.qmd) — July 2026 comparison of major models and tools.
+- [Running AI on your own computer](../da-knowledge/run-ai-locally.qmd) — a good model on a top laptop, a simple model on an ordinary one.
 - [Beyond the course](../da-knowledge/beyond.qmd) — curated videos, papers and further reading. Updated regularly.
 
 ## Setting up AI tools

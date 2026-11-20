@@ -87,6 +87,8 @@ website:
             href: friendly-agentic-ai-intro/live-demo.qmd
           - text: "Part 4: After the Course"
             href: friendly-agentic-ai-intro/after-the-course.qmd
+          - text: "Part 5: Go Further"
+            href: friendly-agentic-ai-intro/go-further.qmd
 
       - section: "Knowledge Base"
         contents:
@@ -100,6 +102,8 @@ website:
                 href: da-knowledge/which-ai.qmd
               - text: "Open-weights & local models"
                 href: da-knowledge/open-weights-models.qmd
+              - text: "Running AI on your computer"
+                href: da-knowledge/run-ai-locally.qmd
               - text: "Open-code tools & harnesses"
                 href: da-knowledge/open-code-tools.qmd
               - text: "Learn More"
