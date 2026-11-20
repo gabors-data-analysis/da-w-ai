@@ -148,7 +148,7 @@ The agent sends what it reads to Anthropic's servers. So keep confidential mater
 
 ## [1.3]{.step-no} Have a first conversation with the agent {#step-1-3}
 
-Set the **permission mode** (in the row under the prompt box) to **Manual**. The agent then asks before it creates or changes any file and before it runs anything. True, this is slower. But you see everything, and that is what we want at the start. We advise staying in Manual for your first week.
+Set the **permission mode** (in the row under the prompt box) to **Manual**. The agent then asks before it creates or changes any file and before it runs anything. True, this is slower. But you see everything, and that is what we want at the start. We advise staying in Manual for your first week. Next to the permission mode is the model picker. Leave the default for now: we come back to it in [Which model should you use?](#which-model)
 
 Type this and press Enter:
 
@@ -222,6 +222,44 @@ A free alternative is **[Zettlr](https://zettlr.com/)**, made for academic writi
 ## If you write code, or plan to
 Use [VS Code](https://code.visualstudio.com/) instead (free). It previews Markdown and also shows the agent's Python, R or Stata code. The main course uses it.
 :::
+
+## Which model should you use? {#which-model}
+
+The Claude app offers several models, and they differ in strength, speed and price. You choose in the **model picker**, toward the right end of the row under the prompt box. You can change the model in the middle of a session, too.
+
+Our advice is simple. **Start with the default, and change only when you have a reason.**
+
+| Model | What it is | Use it for | Price |
+|---|---|---|---|
+| **Opus** (5.5) | The default. A strong model for work that needs reasoning | Almost everything in this course: extracts, the memo, the data task | 1 |
+| **Sonnet** (5.5) | Faster and lighter | Routine work with a clear instruction: reformatting, tidying files, simple edits | about half |
+| **Haiku** (5.5) | The smallest and fastest | One simple step repeated many times, such as sorting short texts into categories | a small fraction |
+| **Fable** (5.2) | The strongest model, and the slowest | The hardest and longest tasks: a whole project from one prompt, as in [Part 3](live-demo.qmd), or the review of a finished paper | about twice |
+
+The price column compares Anthropic's list prices per unit of text with Opus (November 2026). With a subscription you don't pay per task, but the price shows up in another way: the stronger the model, the faster you reach your usage limit. Fable is special. On the Pro plan it is paid from usage credits, and on Max it is included up to half of your weekly limit. Model names and versions change every few months, so the picker may show newer ones.
+
+When should you change?
+
+- **Go up to Fable** when the task is long and has many steps, or when the default got the same thing wrong twice.
+- **Go down to Sonnet or Haiku** when you keep hitting your usage limit, or when the task is simple and you repeat it many times.
+
+Two more points matter for researchers.
+
+**A stronger model is not a substitute for checking.** Every model can misquote a paper or drop observations without saying so. The checks of [Part 2](first-steps.qmd) apply to all of them.
+
+**Write down which model you used.** Models are replaced and retired, and the same prompt gives a different result with another model. For anything you may publish, note the model and the date, for example in `DECISIONS.md`. You would do the same for the version of a statistical package.
+
+::: {.callout-note}
+## Other settings worth knowing
+
+- **Effort.** In the model picker, under **Effort**, you set how hard the model thinks before it answers: low, medium, high, xhigh (extra high) or max. The default is medium. Lower is faster and uses less of your limit. We suggest medium for this course, and high for work where a mistake is costly, such as the data task or a review. Max is rarely worth it.
+- **Thinking.** The current models always think before they answer, and there is no switch for it. To read the thinking, set the **Transcript view** to **Thinking**.
+- **The usage ring.** Next to the model picker, a small ring shows how much of your plan's usage you have used. Click it for the details.
+- **Permission mode.** Manual for now (Step 1.3). For what to choose later, see [Step 2.1](first-steps.qmd#step-2-1).
+- **Long sessions.** What the model can see at once is limited, and a long session fills it up. Start a new session for each task. Part 2 shows how to carry over what matters.
+:::
+
+Want to use models from other companies? See [Part 5](go-further.qmd). For a comparison of the main models, see [Which AI model](../da-knowledge/which-ai.qmd) in the knowledge base.
 
 ## Troubleshooting
 
