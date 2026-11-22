@@ -9,6 +9,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 
 - [LLM Glossary](../da-knowledge/technical-terms-page.qmd) — technical terms used in lectures and class.
 - [Which AI to use](../da-knowledge/which-ai.qmd) — November 2026 comparison of major models and tools.
+- [Choosing a model with evidence](../da-knowledge/choosing-a-model.qmd) — benchmarks, leaderboards and a 100-row test of your own.
 - [Open-weights & local models](../da-knowledge/open-weights-models.qmd) — models you can download and run yourself.
 - [Running AI on your own computer](../da-knowledge/run-ai-locally.qmd) — a good model on a top laptop, a simple model on an ordinary one.
 - [Open-code tools & harnesses](../da-knowledge/open-code-tools.qmd) — open-source agents that work with many models.

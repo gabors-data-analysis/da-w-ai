@@ -1,0 +1,161 @@
+---
+title: "Choosing a model with evidence"
+subtitle: "Benchmarks, leaderboards and your own test"
+date: "2026-11-22"
+---
+
+Checked on 22 November 2026. Prices and model names change every few months, so check the sources at the end before you rely on a number.
+
+Say we have 40,000 open-ended answers to the survey question *"Why did you leave your last job?"*, and we want each coded into one of five categories. At today's list prices, this costs about \$320 with Claude Opus 5.5 and about \$8 with OpenAI's gpt-6-luna (the calculation is below). Is the cheap model good enough? No leaderboard can tell us, because no leaderboard has seen our categories. This page shows how to find out with a small test of our own.
+
+[Which AI model shall we choose?](which-ai.qmd) gives an opinion on the leading models. [Calling LLM APIs from Python](llm-api-python.qmd) advises using "the smallest model that passes your benchmark on real data". This page is the how-to for that benchmark.
+
+## What do public leaderboards measure?
+
+There are many leaderboards. Four are worth knowing, and each answers a different question.
+
+| Site | What it measures | How |
+|---|---|---|
+| [Artificial Analysis](https://artificialanalysis.ai/) | General ability, plus price, speed and cost per task | Runs nine evaluations itself, under the same conditions for every model, and combines them into an Intelligence Index |
+| [Arena](https://arena.ai/) (formerly LMArena) | Which answer people prefer | Users vote between the answers of two anonymous models, and the votes are turned into a score |
+| [SWE-bench](https://www.swebench.com/) | Fixing real software bugs | The model gets a code base and an issue from GitHub, and has to write a patch that fixes it |
+| [OpenRouter](https://openrouter.ai/models) | Not a benchmark: prices | Lists the price of the same model at each company that runs it |
+
+Artificial Analysis also shows that "the model" is not one thing. Claude Opus 5.5 scores 35 at low effort and 58 at maximum effort, and the cost of one index task goes from \$0.98 to \$10.04. So when we compare models, we compare a model at a given effort setting.
+
+Arena scores come from a Bradley-Terry model, a regression on who won each pairwise vote. Voters tend to like longer, nicely formatted answers, so Arena adds answer length and formatting to the regression ("style control"). Even so, a vote says which answer a person liked, not which answer was correct.
+
+## What do they miss?
+
+They are a good way to draw up a shortlist. But there are three reasons why a high score may not carry over to our task.
+
+**First, contamination.** If the test questions were in the training data, the score measures memory. In February 2026 OpenAI stopped reporting results on SWE-bench Verified, the 500-problem version of SWE-bench that many launch announcements used. All models it tested could reproduce the original human-written fix for some problems. It also found a second flaw: at least 59.4% of the problems it audited had tests that rejected correct solutions. This is also why Artificial Analysis now bases 60% of its index on private test sets or held-out answers.
+
+**Second, task mismatch.** A coding or science benchmark says little about sorting survey answers into our codebook, or pulling the founding year out of company reports. Our categories have their own gray zones: is "my mother got ill and I had to care for her" a family reason or a health reason? Only our own rows test that.
+
+**Third, who ran the numbers.** Launch announcements report benchmarks the vendor picked, run with the vendor's settings. Independent runs, like those of Artificial Analysis, are better. They are still someone else's task.
+
+Prices need checking too. On OpenRouter, the input price of Kimi K3.1 Pro ranges from \$0.24 to \$4.40 per million tokens, depending on the company that runs it. For DeepSeek V4.1 Flash the range is \$0.05 to \$1.50. The cheapest provider may have other drawbacks, such as where your text is processed.
+
+## How do we test a model on our own task?
+
+The idea is the same as checking a research assistant's coding: we label a sample ourselves and count how often the model agrees. It takes an afternoon, and the steps below use the survey example.
+
+### Step 1: Label 100 rows by hand
+
+Draw 100 answers at random and code them yourself, with the codebook you will give the model. Random matters: a sample of the easy cases flatters every model. If you can, ask a colleague to code 30 of them too. Where the two of you disagree, the codebook is unclear, and no model will do better than you on those rows.
+
+Save the result as `validation.csv` with three columns: `id`, `text`, `label`. Keep these rows out of the prompt. If the model sees them as examples, the test is contaminated in the same way as SWE-bench.
+
+### Step 2: Pick three or four candidates
+
+Choose one from each kind: a very good closed model, a mid-priced one, a cheap one, and an open-weights one. Give all of them the same prompt and the same effort setting. Through OpenRouter, one script can call all of them, with one key. Create the key on openrouter.ai, add a few dollars of credit, and save it as the environment variable `OPENROUTER_API_KEY`, as shown in [Calling LLM APIs from Python](llm-api-python.qmd).
+
+### Step 3: Run each model twice on the same rows
+
+```python
+import os, datetime
+import pandas as pd
+from openai import OpenAI
+
+client = OpenAI(base_url="https://openrouter.ai/api/v1",
+                api_key=os.environ["OPENROUTER_API_KEY"])
+
+MODELS = ["anthropic/claude-opus-5.5", "openai/gpt-6.2-sol",
+          "deepseek/deepseek-v4.1-flash", "openai/gpt-6-luna"]
+PROMPT = open("prompt_v1.txt").read()   # instruction + codebook
+val = pd.read_csv("validation.csv")     # id, text, label
+
+rows = []
+for model in MODELS:
+    for run in [1, 2]:
+        for r in val.itertuples():
+            resp = client.responses.create(model=model, input=[
+                {"role": "system", "content": PROMPT},
+                {"role": "user", "content": r.text}])
+            rows.append({"id": r.id, "model": model, "run": run,
+                         "pred": resp.output_text.strip().lower(),
+                         "in_tok": resp.usage.input_tokens,
+                         "out_tok": resp.usage.output_tokens,
+                         "date": datetime.date.today().isoformat()})
+
+res = pd.DataFrame(rows).merge(val, on="id")
+res["correct"] = res["pred"] == res["label"].str.strip().str.lower()
+print(res[res["run"] == 1].groupby("model")["correct"].mean())
+```
+
+Four models, two runs and 100 rows make 800 calls, which cost a few dollars at most. The response also reports how many tokens each call used. Save those too, and compute the cost from them rather than from a guess. In R, the `ellmer` package does the same job with `chat_openrouter()`.
+
+### Step 4: Compare accuracy, stability and cost
+
+Here is what the comparison could look like. The prices are real list prices on 22 November 2026. The accuracy figures are made up, to show how to read such a table.
+
+::: {.callout-warning}
+## Illustrative: prices are real, accuracy is made up
+
+| Model | Price per million tokens, in / out | Cost per 1,000 rows | Accuracy | Same label on re-run | Weakest category |
+|---|---|---|---|---|---|
+| `anthropic/claude-opus-5.5` | \$4 / \$20 | \$8.00 | 95% | 99% | 91% |
+| `openai/gpt-6.2-sol` | \$2 / \$10 | \$4.00 | 94% | 98% | 85% |
+| `deepseek/deepseek-v4.1-flash` | \$0.30 / \$1.20 | \$0.54 | 91% | 95% | 83% |
+| `openai/gpt-6-luna` | \$0.10 / \$0.50 | \$0.20 | 90% | 93% | 54% |
+
+Prices from Anthropic and OpenAI, and from DeepSeek's own API at peak hours (off-peak is half). Cost per 1,000 rows assumes 1,000 input tokens per row (instruction, codebook and answer) and 200 output tokens (label, short quote, some thinking). "Weakest category" is the share of correctly coded answers in the category where the model does worst.
+:::
+
+How do we read this? It is good practice to write down what "good enough" means before looking at the results. Say we decide on at least 90% overall and at least 80% in every category. Then three models pass, and the cheapest of them is DeepSeek V4.1 Flash. For 40,000 answers it costs about \$22, against \$320 with Claude Opus 5.5. gpt-6-luna is cheaper still, and its overall accuracy looks fine. But it gets only 7 of the 13 health answers right, so it fails.
+
+Two cautions about the numbers. With 100 rows, one row is one percentage point. At 90% accuracy the standard error is about 3 points, so 95% against 94% is no evidence of a difference. Compare models on the same rows, and look at the rows where one is right and the other is wrong. Also, the cost column depends on tokens, and the same text is a different number of tokens for different models. Anthropic, for instance, says the tokenizer of its newer models produces about 30% more tokens for the same text than the earlier one. This is another reason to compute cost from the token counts your own run reports.
+
+### Step 5: Read the errors, not just the score
+
+A cross-table of true and predicted labels, `pd.crosstab(res["label"], res["pred"])` for each model, shows where the errors go. This matters more than the overall score. Errors spread evenly across categories add noise. Errors that pile up in one category bias the shares we report: in the table above, gpt-6-luna could understate the share of people who left for health reasons by almost half. Then read the wrong rows themselves. Some will be the model's fault, and some will show that the codebook needs a sharper rule. If you sharpen the codebook, test the new version on 50 fresh rows: the rows you tuned it on now flatter it.
+
+### Step 6: Check stability
+
+A model doesn't always give the same answer to the same question. The column "Same label on re-run" compares run 1 with run 2:
+
+```python
+wide = res.pivot_table(index=["model", "id"], columns="run",
+                       values="pred", aggfunc="first")
+print((wide[1] == wide[2]).groupby("model").mean())
+```
+
+The rows where the two runs disagree are usually the ambiguous ones, and they are the ones to read yourself. A model that changes 7 labels out of 100 between runs makes our results hard to reproduce, whatever its accuracy.
+
+## What about agent and coding work?
+
+Agent work is harder to score row by row, but a smaller version of the same test works. Give two models the same small task, each in its own copy of the project folder. For example: *"Read firms.csv and sales.csv, merge them on firm ID, and report how many rows did not match."* Decide the checks before you start. Does the script run? Is the number of unmatched rows the one you computed yourself? Did the agent ask before changing files? How long did it take? An application that works with many models, such as OpenCode, makes the switch easy. [Part 5 of the friendly introduction](../friendly-agentic-ai-intro/go-further.qmd) has the setup and more tasks to compare.
+
+One run of an agent task is a small sample. If the two models differ only a little, run the task again before drawing a conclusion.
+
+## Record what you used
+
+Models are retired, and model names don't always point to the same model. From 1 December 2026, Google will route all API requests for `gemini-2.5-pro` to Gemini 3.8 Flash. DeepSeek's API name `deepseek-flash` is currently served by DeepSeek-V4.1-Flash-1017, and will move on to a newer version at some point. OpenRouter has aliases such as `~openai/gpt-sol-latest`, which follow the newest model.
+
+So save, next to the results:
+
+- the exact model ID (`deepseek/deepseek-v4.1-flash`, not "DeepSeek") and the provider,
+- the date of the run,
+- the effort setting and the prompt version,
+- the validation result: accuracy, weakest category, agreement between runs.
+
+Keep `validation.csv` and the script. When a model is retired, or a cheaper one appears, rerunning the test takes minutes. For a frozen model that never changes, see [Open-weights and local models](open-weights-models.qmd) and [Running AI on your own computer](run-ai-locally.qmd).
+
+## See also
+
+- [Which AI model shall we choose?](which-ai.qmd): an opinion on the leading models.
+- [Calling LLM APIs from Python](llm-api-python.qmd): the basics of the script used here.
+- [Open-weights and local models](open-weights-models.qmd): what they are and when they are worth it.
+- [Part 5 of the friendly introduction](../friendly-agentic-ai-intro/go-further.qmd): cheap models, and one task run with several models.
+
+## Sources
+
+- Artificial Analysis, [Intelligence Index v5](https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5) (27 October 2026) and [intelligence benchmarking methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking).
+- Arena, [FAQ](https://arena.ai/faq), [How it works](https://arena.ai/how-it-works) and [Disentangling style and substance](https://arena.ai/blog/style-control/).
+- SWE-bench, [leaderboards](https://www.swebench.com/) and [overview](https://www.swebench.com/SWE-bench/).
+- OpenAI, [Why we no longer evaluate SWE-bench Verified](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/) (23 February 2026).
+- Prices: [Anthropic](https://platform.claude.com/docs/en/about-claude/pricing), [OpenAI](https://developers.openai.com/api/docs/pricing) and [OpenAI models](https://developers.openai.com/api/docs/models), [Google AI Studio](https://aistudio.google.com/docs/pricing), [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing).
+- OpenRouter: [quickstart](https://openrouter.ai/docs/quickstart), [Kimi K3.1 Pro](https://openrouter.ai/moonshotai/kimi-k3.1-pro), [DeepSeek V4.1 Flash](https://openrouter.ai/deepseek/deepseek-v4.1-flash).
+- DeepSeek open weights on [Hugging Face](https://huggingface.co/deepseek-ai).
+- [ellmer reference](https://ellmer.tidyverse.org/reference/index.html) for R.

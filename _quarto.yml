@@ -102,6 +102,8 @@ website:
                 href: da-knowledge/technical-terms-page.qmd
               - text: "Which AI model"
                 href: da-knowledge/which-ai.qmd
+              - text: "Choosing a model with evidence"
+                href: da-knowledge/choosing-a-model.qmd
               - text: "Open-weights & local models"
                 href: da-knowledge/open-weights-models.qmd
               - text: "Running AI on your computer"

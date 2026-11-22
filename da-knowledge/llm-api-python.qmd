@@ -57,7 +57,7 @@ If you prefer a local `.env` file during development, load it with `python-doten
 
 For API work, the right default is usually the **smallest model that passes your benchmark on real data**. Use smaller models for classification, extraction, tagging, and other short structured tasks; move to a larger model only if you see clear failures on edge cases, messy instructions, or harder reasoning. In practice, compare models on four things:
 
-- **quality**: does it get your labels or extraction right on 20 to 50 real examples?
+- **quality**: does it get your labels or extraction right on about 100 real examples (see [Choosing a model with evidence](choosing-a-model.qmd))?
 - **cost**: how expensive are the input and output tokens at your expected scale?
 - **latency**: is it fast enough for a loop, app, or batch job?
 - **context window**: can it fit the documents, examples, or schema you want to send?
