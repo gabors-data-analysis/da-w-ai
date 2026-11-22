@@ -20,6 +20,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 - [Terminal Basics](../da-knowledge/terminal-basics.qmd) — essential shell commands for CLI work.
 - [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Codex CLI, GitHub Copilot CLI, Antigravity CLI.
 - [VS Code + Copilot setup](../da-knowledge/vscode-setup.qmd) — IDE + AI assistant.
+- [Git for working with agents](../da-knowledge/git-for-agents.qmd) — commit before the agent starts, read the diff, keep it or undo it.
 
 ## Working with APIs
 

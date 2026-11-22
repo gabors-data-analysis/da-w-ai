@@ -1,0 +1,186 @@
+---
+title: "Git for working with agents"
+subtitle: "Commit before the agent starts, read the diff after, keep it or undo it"
+date: "2026-11-22"
+---
+
+Suppose we ask an agent to fix the date variable in our cleaning script. It does that, and while it is there, it also renames two columns, changes a filter in another script and rewrites part of the README. Ten minutes later the regression table has 312 fewer observations. Which of these changes did it? With Git, we can see every changed line, and go back with one command. Without Git, we have to remember.
+
+This page goes deeper than the short section [How do I keep a history of every change?](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-keep-a-history-of-every-change) in the friendly introduction. For installing Git and GitHub Desktop, see [Version control with Git and GitHub](ai-coding-prep.qmd#version-control-with-git-and-github). The commands here work the same for R and Python projects, in any terminal (see [Terminal Basics](terminal-basics.qmd)).
+
+Checked against official documentation on 22 November 2026.
+
+## Why does Git matter more with an agent?
+
+When we edit code ourselves, we change one thing at a time and we know what we changed. An agent changes many files in one go, quickly, and sometimes more than we asked for. Its summary at the end describes what it meant to do, not necessarily what it did. The **diff** is the record of what it actually did: every line removed and every line added, file by file.
+
+Git also makes it cheap to say no. If a change is wrong, we throw it away and ask again, and nothing is lost. This makes it easier to let the agent try things.
+
+## What is the minimum we need to know?
+
+Five ideas and a handful of commands are enough for most projects.
+
+| Idea | What it is | Command |
+|---|---|---|
+| **Repository** (repo) | A project folder whose history Git keeps | `git init` (once) |
+| **Commit** | A saved snapshot of all files, with a one-line note. `git add -A` first marks all changes for the snapshot (*staging*) | `git add -A` then `git commit -m "note"` |
+| **Diff** | The changes between two versions, line by line | `git diff` |
+| **Log** | The list of past commits, newest first | `git log` |
+| **Restore / revert** | Go back: throw away uncommitted changes, or undo a commit | `git restore`, `git revert` |
+
+Two more commands we use all the time: `git status` lists the files that changed since the last commit, and `git diff --stat` shows how many lines changed in each file. Look at `--stat` first. A one-line fix that touched 400 lines in six files deserves a question.
+
+Older tutorials use `git checkout` for both going back and switching branches. Git now has two separate commands for these, `git restore` and `git switch`, and we use those here.
+
+## What is the routine for one agent task?
+
+**1. Commit before the agent starts.** We want a clean starting point, so everything the agent does shows up as its change. If `git status` says there is nothing to commit, we are already clean.
+
+```bash
+git status
+git add -A
+git commit -m "Before agent: fix date variable"
+```
+
+**2. Give the task.** One task per round. Small tasks give small diffs, and small diffs get read.
+
+**3. Read the diff.** Start with the list of files, then read the lines.
+
+```bash
+git status
+git diff --stat
+git diff
+```
+
+Ask three questions. Did it change only the files it should have? Is there anything we didn't ask for? Do the outputs still look right after rerunning the code?
+
+**4. Keep it or undo it.** If the change is good, commit it with a note on what changed. If not, throw it away (see [What do I do when it goes wrong?](#what-do-i-do-when-it-goes-wrong)) and ask again with a better prompt.
+
+## Can the agent do the Git steps for me?
+
+Yes. An agent that runs terminal commands can run Git too, and agents write good commit notes. The friendly introduction has three prompts for reviewing, committing and reverting ([Let the agent run Git](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-keep-a-history-of-every-change)). A few more we use:
+
+::: {.prompt}
+``` default
+Before you start, run git status. If there are uncommitted changes, stop and tell me.
+```
+:::
+
+::: {.prompt}
+``` default
+Show me git diff --stat, then explain the change in code/clean.R line by line. Flag anything that changes the number of observations.
+```
+:::
+
+::: {.prompt}
+``` default
+Which commits since Monday touched code/regressions.R? For each, one line on what it changed.
+```
+:::
+
+The agent can summarize the diff for us, and it helps. But the summary is written by the same agent that made the change. It is good practice to read the diff ourselves, at least for the files that produce numbers we will report.
+
+## Where can I see the diff without the terminal?
+
+Three tools show the same diff in a window, with removed lines in red and added lines in green.
+
+- **GitHub Desktop.** The **Changes** tab lists every file changed since the last commit. Click a file to see its diff. The **History** tab shows past commits and what each changed. Type a note in **Summary** and click **Commit to main** (the button names the current branch).
+- **VS Code.** Open the **Source Control** view with `Ctrl+Shift+G` (`⌃⇧G` on Mac). Changed files are listed under **Changes**. Select one to open its diff. The **Source Control Graph** shows the history, and the **Timeline** view in the Explorer shows the history of one file.
+- **The Claude desktop app.** After Claude changes files, click the line counts (such as `+12 -1`) in the **Changes** card, or select **Changes**, to see the diff file by file. Hover over a line and click the **+** next to its number to leave a comment. Claude reads the comments, makes the changes, and shows them as a new diff.
+
+## When should I use a branch?
+
+A **branch** is a parallel line of history. We use one when the agent tries something we may not keep: a new specification, a different way to clean the data, a large rewrite of a script. The main line stays as it was until we decide.
+
+```bash
+git switch -c try-new-spec     # create the branch and move to it
+# ... the agent works, we commit as usual ...
+git switch main                # back to the main line, untouched
+git merge try-new-spec         # keep the experiment
+```
+
+If we don't want the experiment, we switch back to `main` and leave the branch alone. In GitHub Desktop, click **Current Branch**, then **New Branch**. To bring an experiment into the main line, switch to `main`, click **Current Branch**, then **Choose a branch to merge into main**.
+
+The Claude desktop app can go one step further. In a Git repository, turn on **Worktree** before starting a session, and the session works in a separate copy of the project folder (a *worktree*) on its own branch, so our main folder stays untouched. Commit what we want to keep before archiving the session: uncommitted changes in a worktree can be lost.
+
+## What should never go into Git?
+
+Two things: confidential data and secrets. Git remembers everything, so a file that was committed once stays in the history even after we delete it. A file called `.gitignore` in the project folder lists what Git should skip. A starting point for an R or Python project:
+
+```default
+# data: kept out of Git
+data/
+*.dta
+*.sav
+
+# secrets
+.env
+.Renviron
+
+# environments and caches
+.venv/
+renv/library/
+__pycache__/
+.Rhistory
+.RData
+```
+
+Python users usually keep API keys in `.env`, and R users in `.Renviron`, which R reads at startup. Both must be in `.gitignore` before the first commit. GitHub keeps official templates for many languages at [github.com/github/gitignore](https://github.com/github/gitignore).
+
+Note that `.gitignore` doesn't affect files Git already tracks. To stop tracking one, run `git rm --cached data/survey.csv`, then add the rule. If a key has already reached GitHub, removing the file is not enough. Revoke the key at the provider and create a new one (see [How to get an API key](get-ai-api-key.qmd)).
+
+Why keep data out, even in a private repository? Raw data doesn't change, so it doesn't need a history. Data agreements often forbid copies on third-party servers. And GitHub blocks files larger than 100 MiB. Back up data separately and to commit the code that produces the clean data instead (see [Reproducible Research](reproducible-research.qmd)).
+
+## Why put the repository on GitHub?
+
+Git works on our own computer. **GitHub** keeps a copy of the repository online, private unless we choose otherwise. This copy survives a lost laptop, and a coauthor can see the same history. We send our commits there with `git push`, or **Push origin** in GitHub Desktop, for example at the end of each day. Setup takes a few minutes and is described in [Version control with Git and GitHub](ai-coding-prep.qmd#version-control-with-git-and-github).
+
+## What do I do when it goes wrong?
+
+It depends on whether the bad change was committed. Here are the cases, from the most common.
+
+**The agent's last change is not committed yet.** Throw away the changes to tracked files:
+
+```bash
+git restore .
+```
+
+If we already ran `git add`, use `git restore --staged --worktree .` instead. Neither deletes new files the agent created, and `git status` still lists them. Delete them by hand, or ask the agent to. In GitHub Desktop, select the files in **Changes** and choose **Discard Changes**. Discarded changes go to the Trash, so they can still be recovered. In VS Code, right-click the file under **Changes** and choose **Discard Changes**.
+
+**We are still in the Claude Code session.** Claude Code saves a checkpoint before each prompt. Type `/rewind`, or press `Esc` twice, pick the prompt, and choose **Restore code**. This is fast, but it doesn't undo changes made by shell commands the agent ran, and it is no replacement for Git.
+
+**The bad change is already committed.** Undo the last commit with a new commit that reverses it:
+
+```bash
+git revert --no-edit HEAD
+```
+
+`HEAD` means the last commit, and `--no-edit` keeps Git from opening a text editor. The history keeps both the mistake and the undo, so nothing is lost. In GitHub Desktop, right-click the commit in **History** and choose **Revert Changes in Commit**.
+
+**We want yesterday's version back.** Find the commit with `git log` (it shows the date of each commit) or in the **History** tab, and copy its short ID, such as `a1b2c3d`. To get back one file:
+
+```bash
+git restore --source a1b2c3d code/clean.R
+```
+
+To get back every tracked file as it was, use `git restore --source a1b2c3d .` and commit the result.
+
+::: {.callout-warning}
+## Avoid commands that rewrite history
+
+Agents sometimes suggest `git reset --hard` or `git push --force`. These change or delete history, and work can be lost for good. Before any Git command that undoes something, ask the agent what it will undo and wait. The two lines for `AGENTS.md` in the [friendly introduction](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-keep-a-history-of-every-change) make this the default.
+:::
+
+## See also
+
+- [Version control with Git and GitHub](ai-coding-prep.qmd#version-control-with-git-and-github): installing Git and GitHub Desktop, first repository.
+- [Reproducible Research](reproducible-research.qmd): what belongs in a repository and what doesn't.
+- [VS Code + Python or R + GitHub Copilot Setup](vscode-setup.qmd): the editor with the Source Control view.
+
+## Sources
+
+- Git documentation: [git restore](https://git-scm.com/docs/git-restore), [git switch](https://git-scm.com/docs/git-switch), and "Reset, restore and revert" in [git](https://git-scm.com/docs/git).
+- GitHub Docs: [Committing and reviewing changes in GitHub Desktop](https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop), [Managing branches](https://docs.github.com/en/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), [Syncing your branch](https://docs.github.com/en/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop), [Reverting a commit](https://docs.github.com/en/desktop/managing-commits/reverting-a-commit-in-github-desktop), [Ignoring files](https://docs.github.com/en/get-started/git-basics/ignoring-files), [About large files on GitHub](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
+- VS Code documentation: [Source control overview](https://code.visualstudio.com/docs/sourcecontrol/overview), [Staging, commits and undo](https://code.visualstudio.com/docs/sourcecontrol/staging-commits).
+- Claude Code documentation: [Checkpointing](https://code.claude.com/docs/en/checkpointing), [Desktop app](https://code.claude.com/docs/en/desktop).
+- R documentation: [Startup](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html) (the `.Renviron` file).

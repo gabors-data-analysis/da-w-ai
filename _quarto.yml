@@ -120,6 +120,8 @@ website:
                 href: da-knowledge/install-cli.qmd
               - text: "VS Code + Copilot Setup"
                 href: da-knowledge/vscode-setup.qmd
+              - text: "Git for working with agents"
+                href: da-knowledge/git-for-agents.qmd
           - section: "Working with APIs"
             contents:
               - text: "Get AI API keys"
