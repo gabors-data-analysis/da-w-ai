@@ -40,6 +40,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 - [Designing larger analytics projects with AI](../da-knowledge/designing-projects.qmd) — mindsets, self-interview, `agents.md`, SKILLS, the three kinds of tests.
 - [Reproducible research pipelines](../da-knowledge/reproducible-research.qmd) — best practices for building repeatable workflows with Python, Bash, and Make.
 - [Documentation and READMEs](../da-knowledge/documentation-readme.qmd) — what good documentation looks like.
+- [Decision logs, reviewing and disclosing AI use](../da-knowledge/decision-logs.qmd) — DECISIONS.md, checks before you trust results, and an AI-use statement.
 - [Knowledge bases for agents](../da-knowledge/knowledge-bases-agents.qmd) — giving an agent the material it should work from.
 - [Joining data tables](../da-knowledge/joining-tables.qmd) — keys, joins, pitfalls.
 - [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality.

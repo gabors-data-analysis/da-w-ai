@@ -1,0 +1,186 @@
+---
+title: "Decision logs, reviewing agent work, and disclosing AI use"
+subtitle: "Write down the choices, check before you trust, and say what the AI did"
+date: "2026-11-22"
+---
+
+Ask an agent to clean a survey and run a wage regression, and twenty minutes later it has made a dozen choices for you. It dropped duplicate IDs, kept the respondents with a missing wage out of the sample, used log wages, trimmed the top 1 percent, and picked a type of standard error. Each choice may be fine. But you didn't make them, and most of them are not visible in the results. This page is about three habits that keep such work under control: a log of decisions, a review before you trust the outputs, and a record of what the AI did, for yourself and for the journal.
+
+Policies checked on 22 November 2026.
+
+## Part 1: The decision log
+
+### Why keep a decision log?
+
+An agent doesn't stop to ask about every choice. If it did, we couldn't work with it. So it decides, quietly, and moves on: which rows to keep, how to merge two tables, what to do with missing values, which estimator options to use, what goes into the main chart. Reading the code finds some of these choices, slowly. A decision log puts all of them in one file.
+
+The file is called `DECISIONS.md` and sits in the project folder. Every analytical choice gets an entry: what the decision point was, what alternatives there were, how it was decided, and why. It is good practice to log a choice when a reasonable analyst could have chosen differently and the choice could change the results or how we read them. Mechanical steps with no real alternative don't need an entry.
+
+If you followed the [friendly introduction](../friendly-agentic-ai-intro/first-steps.qmd#step-2-1), you already have the `decision-log` skill, which keeps this file in the format of the examples below.
+
+### What goes into an entry?
+
+The most useful field is the **basis**: who or what decided. Four answers cover most cases.
+
+| Basis | Meaning |
+|---|---|
+| `user` | You decided. Give the date. |
+| `evidence` | The data decided: a check was run, and the entry names the numbers or the file. |
+| `convention` | Common practice in the field. Name the source. |
+| `default` | The agent chose, for convenience, and nothing was tested. Look at these first. |
+
+Each entry also has a **status**: `needs-review` (you haven't looked at it yet), `provisional` (fine to make progress, to revisit later), or `decided`. Entries are numbered D1, D2, ... and never deleted. A reversed decision gets a new entry, and the old one is marked `superseded by Dn`.
+
+Here are two entries as they might look in a project on a school survey. The numbers are made up for illustration.
+
+``` markdown
+## D3 - Duplicate respondent IDs
+- **Decision point:** 214 student IDs appear twice in the 6,480-row survey file.
+- **Chosen:** For the 201 pairs with identical answers, keep one row (re-submitted
+  forms). The 13 pairs with different answers are kept aside in
+  data/clean/dup_conflicts.csv and left out of the sample for now.
+- **Alternatives:** keep the first interview of each pair; keep the last; drop all
+  428 rows (loses 214 students, 3% of the sample, for no reason in most pairs).
+- **Basis:** evidence (output/checks.md: 201 of 214 pairs identical on all items).
+- **Affects:** all tables; 13 students. Easy to reverse.
+- **Status:** needs-review. The 13 conflicting pairs need a look at the field notes.
+
+## D7 - Standard errors clustered by school
+- **Decision point:** The tutoring program was assigned to whole schools (48 schools),
+  so test scores of students in the same school are likely correlated.
+- **Chosen:** Standard errors clustered at the school level in all regressions.
+- **Alternatives:** HC1 standard errors (allow for heteroskedasticity but not for
+  correlation within schools, so likely too small); clustering by class (treatment
+  does not vary within school); wild cluster bootstrap (worth adding as a check,
+  since 48 clusters is not many).
+- **Basis:** user (YYYY-MM-DD), following the convention of clustering at the level
+  where treatment is assigned.
+- **Affects:** standard errors and confidence intervals in Tables 2-4; not the estimates.
+- **Status:** decided.
+```
+
+Note what the first entry does. The agent found a problem, solved the easy part with evidence, and left the hard part to us, marked `needs-review`. This is the behavior we want.
+
+### How do I make the agent keep it?
+
+Add one line to `AGENTS.md`, the file of standing instructions the agent reads at the start of every session:
+
+``` default
+- Any choice I did not specify goes into DECISIONS.md, marked needs-review.
+```
+
+The starter `AGENTS.md` of the friendly introduction already points to the `decision-log` skill. For more lines worth adding, see [How do I grow my AGENTS.md?](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-grow-my-agents.md)
+
+Then review the log at natural break points, say after cleaning and after the first estimates. Ask: *"List the needs-review and default decisions in DECISIONS.md, starting with those that most results depend on."* Go through them one by one, and change the status to `decided` when you agree.
+
+## Part 2: Reviewing agent work before trusting outputs
+
+### Why read the log before the results?
+
+Once you have seen a nice coefficient, you judge every choice by whether it keeps the coefficient nice. That's human. So read `DECISIONS.md` first, while you don't know yet which choice helps. You did exactly this in [Step 2.6](../friendly-agentic-ai-intro/first-steps.qmd#step-2-6) of the friendly introduction.
+
+### What checks should be in the code?
+
+Checks that live only in a chat are gone tomorrow. Checks in the code run every time. It is good practice to have the agent write them into the scripts, and to save the results to a file after each run:
+
+``` default
+- Put checks in the code (row counts, duplicate IDs, merge matches, value ranges, missing values). After each run, save all checks with pass/fail in output/checks.md. If a check fails, stop and tell me.
+```
+
+A check is one line in either language. In Python, `assert df["student_id"].is_unique`. In R, `stopifnot(!anyDuplicated(df$student_id))`. The file then reads like this:
+
+``` markdown
+| Check                               | Expected | Found | Result |
+|-------------------------------------|----------|-------|--------|
+| Rows after import                   | 6,480    | 6,480 | pass   |
+| Duplicate student IDs after D3      | 0        | 0     | pass   |
+| Students matched to school register | >= 98%   | 96.1% | FAIL   |
+| Test score range                    | 0-100    | 0-100 | pass   |
+| Share missing in parental income    | < 10%    | 23.4% | FAIL   |
+```
+
+The two failures are not bugs to make go away. Each needs a decision, and so a log entry. For the different kinds of tests in a larger project, see [Three kinds of tests](designing-projects.qmd#three-kinds-of-tests).
+
+### Which numbers should I recompute myself?
+
+Pick two or three numbers a reader will remember: the sample size, the mean of the outcome, the main estimate. Recompute them without the agent's code, from the clean data, in a few lines of your own or in a spreadsheet. If your number matches, you have checked the whole chain behind it. If it doesn't, you have found something worth an hour.
+
+### Should another agent review the work?
+
+Yes, for anything that matters. The session that did the work remembers its own reasoning and tends to defend it. A fresh session doesn't. Use the review prompt in [How do I get a proper review of a project?](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-get-a-proper-review-of-a-project), which reruns everything from scratch. To focus on the choices, add: *"For each decision in DECISIONS.md with basis default, say whether a reasonable alternative could change the main result."* A reviewer running on another provider's model, for example Codex reviewing work done in Claude Code, is less likely to share the same blind spots.
+
+### What are the red flags?
+
+- The number of rows changes between steps, and no log entry explains it.
+- A check was edited, or a threshold loosened, in the same session in which it failed.
+- A whole-table `dropna()` or `na.omit()`, or missing values filled with zero.
+- Error handling that hides errors: a `try` with nothing in the `except`, or an R `tryCatch()` that returns `NULL`.
+- A number in the text or a table that no script produces.
+- A result much larger or much cleaner than in the literature.
+- "Done, all tests pass", with no `checks.md` to show it.
+
+## Part 3: Recording and disclosing AI use
+
+### What should I record about the model?
+
+Write down which tool, which model, which version, when, and with which settings. Models are retired fast. Claude Opus 4, released in May 2025, was retired from the Claude API on 15 June 2026. Claude Sonnet 4.5, released in September 2025, is retired on 30 November 2026. OpenAI publishes a similar list. Once a model is retired, nobody can rerun your prompts on it, and the same prompt on its successor may give a different answer.
+
+In Claude Code, `/model` shows the model in use, `/effort status` shows the effort level, and `claude --version` gives the version of the app. In other tools, the model menu shows the model. The [setup page](../friendly-agentic-ai-intro/setup.qmd) suggests noting the model and date in `DECISIONS.md`. For a longer project, a short table in `docs/ai-use.md` works better:
+
+``` markdown
+| Date       | Task            | Tool (version)      | Model           | Settings       | Transcript                   |
+|------------|-----------------|---------------------|-----------------|----------------|------------------------------|
+| 2026-11-22 | Cleaning, D1-D9 | Claude Code (x.y.z) | claude-opus-5-5 | effort: medium | logs/2026-11-22-cleaning.txt |
+```
+
+### Should I keep the prompts?
+
+Keep the ones behind results you will report. In Claude Code, `/export logs/2026-11-22-cleaning.txt` saves the current conversation as a text file. Elsevier, for example, asks authors to keep a record of which tool and model was used and how. A transcript may contain your data, so store it where the data may be stored.
+
+When the model is part of the method, the prompt is part of the code. If a script sends 5,000 open-ended answers to a model to classify them, the prompt, the model name and the settings belong in `code/`, and later in the paper's appendix. See [LLM APIs in Python](llm-api-python.qmd).
+
+### What do journals and funders require?
+
+Policies differ in detail, but they agree on three points. An AI tool can't be an author. The authors are responsible for everything AI produced. And AI use has to be disclosed, although where and how much differs.
+
+| Who | What they ask |
+|---|---|
+| **AEA** ([AER editorial policy](https://www.aeaweb.org/journals/aer/editorial-policy)) | If AI was used to prepare the manuscript, including drafting or editing text, describe it briefly during the submission process. Authors are solely accountable for AI outputs and must fact-check them. |
+| **Science journals** | Note AI use in the cover letter and in the methods or acknowledgments. Code that changes functionality, data generation or analysis: methods section, with model name and version. Drafting or translating text: acknowledgments, with model name and version. Language editing and literature searches: no declaration. AI-generated images only with the editors' permission. |
+| **Elsevier** | A section titled *Declaration of generative AI and AI-assisted technologies in the manuscript preparation process*, just before the references. AI used in the research, including for code: Methods section, with the name of the model, version and developer. Basic grammar and spelling checks need no declaration. |
+| **Springer Nature** | An AI declaration in the manuscript: the AI system, the purpose, and how much it contributed. For analytical uses (data analysis, statistical modeling, qualitative coding), also the validation steps. |
+| **ERC** (funder) | Applicants may get input from AI, but this doesn't relieve them of full and sole authorship responsibility. The ERC's position statement doesn't ask for a disclosure. |
+
+The pattern, then: AI in the analysis or the code goes in the methods section, AI help with writing goes in a declaration or the acknowledgments, and polishing the language is sometimes exempt. Journals of the same publisher can differ, so read the author guidelines of your journal before you submit. For a thesis, check your university's rules and ask your supervisor.
+
+### How do I write an AI-use statement?
+
+Say which tool and model, when, for what, how you checked it, and who is responsible. A statement like this is easy to shorten for a submission form:
+
+``` default
+AI use statement. We used Claude Code (Anthropic) with the model Claude Opus 5.5
+(claude-opus-5-5) between 3 and 21 November 2026 to write and debug the Python code
+for data cleaning and estimation, and to edit the language of Sections 1 and 5.
+All analytical choices made with the tool are listed in DECISIONS.md in the
+replication package. We checked the code with automated tests, recomputed the main
+estimates in Table 2 independently, and reviewed and edited all text. We take full
+responsibility for the content of this paper.
+```
+
+Then move each part where your journal wants it: the analysis part to the methods section, the writing part to the declaration or the acknowledgments. The log and the checks file belong in the replication package, next to the README. See [Documentation fundamentals](documentation-readme.qmd).
+
+## See also
+
+- [Part 2 of the friendly introduction](../friendly-agentic-ai-intro/first-steps.qmd): the decision log and checks in a first project.
+- [Part 4 of the friendly introduction](../friendly-agentic-ai-intro/after-the-course.qmd): growing `AGENTS.md`, and a full project review.
+- [Designing larger projects with AI](designing-projects.qmd): plans, `AGENTS.md`, skills and tests.
+
+## Sources
+
+- American Economic Association, [AER editorial policy](https://www.aeaweb.org/journals/aer/editorial-policy), section on the use of artificial intelligence.
+- Science journals, [Editorial policies](https://www.science.org/content/page/science-journals-editorial-policies) and [Guidelines for AI usage](https://www.science.org/cms/asset/90bfdd0e-1aa3-474a-8421-041efd87cb4e/sept26_science_journals_guidelines_ai_use.pdf) (September 2026).
+- Elsevier, [Generative AI policies for journals](https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals) (updated June 2026).
+- Springer Nature, [AI in manuscript preparation](https://www.springernature.com/gp/policies/editorial-policies/ai-manuscript-preparation), [AI in research practice](https://www.springernature.com/gp/policies/editorial-policies/using-ai-in-research), and the [Nature Portfolio AI policy](https://www.nature.com/nature-portfolio/editorial-policies/ai).
+- European Research Council, [Current position of the ERC Scientific Council on AI](https://erc.europa.eu/news-events/news/current-position-erc-scientific-council-ai) (updated 25 March 2026).
+- Anthropic, [Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations); OpenAI, [Deprecations](https://developers.openai.com/api/docs/deprecations).
+- Claude Code documentation, [Model configuration](https://code.claude.com/docs/en/model-config) and [Commands](https://code.claude.com/docs/en/commands).
