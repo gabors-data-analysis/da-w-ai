@@ -131,7 +131,7 @@ hotel_id | name     | review_id | rating
 3        | Fuschl   | 106       | 4.5
 ```
 
-**Watch out:** Hotel information is now duplicated. If you calculate `mean(stars)` without thinking, you'll weight hotels with more reviews more heavily.
+**Watch out:** Hotel information is now duplicated. If you calculate a hotel-level average (say, star rating) on this table without thinking, you'll weight hotels with more reviews more heavily.
 
 ---
 
@@ -315,7 +315,7 @@ drop _merge
 
 * Check for issues
 count  // Rows after
-misstab  // Check missing values (requires misstab package)
+misstable summarize  // Check missing values (built-in)
 ```
 
 **Stata notes:**

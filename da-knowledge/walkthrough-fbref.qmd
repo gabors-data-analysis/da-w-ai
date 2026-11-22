@@ -4,9 +4,11 @@ title: "Walkthrough: Using `soccerdata` to Fetch Arsenal's 2023–24 Match Stats
 
 Below is a simple, step-by-step recipe for pulling Arsenal's match-by-match team statistics for the 2023–24 Premier League season from FBref, using the `soccerdata` Python client library. You never write raw HTTP requests—`soccerdata` handles those for you.
 
+Note (2026): FBref has no official API. `soccerdata` downloads and parses FBref's web pages, and because FBref now blocks bots it drives a real browser and waits between requests. Since January 2026 FBref no longer shows Opta's advanced stats (xG, progressive passes, shot-creating actions); results, tables and basic stats remain.
+
 ```
 # 1. Install and import the library
-#    Wraps FBref's REST API in Python methods.
+#    Scrapes FBref's web pages and returns pandas tables.
 #    pip install soccerdata
 import soccerdata as sd
 
@@ -25,10 +27,10 @@ print(arsenal_stats.head())
 ### What just happened?
 
 - **Abstraction over HTTP**  
-  The `FBref` class builds the correct URLs, attaches any required headers or API keys, sends HTTP GET requests to FBref's endpoints, and handles pagination and retries automatically.
+  The `FBref` class builds the correct page URLs, fetches the pages (through a browser, because of FBref's bot protection), waits between requests to respect FBref's rate limit, and caches pages locally.
 
 - **Automatic data parsing**  
-  JSON responses from FBref are converted into a pandas DataFrame for you—no manual `json.loads()` or DataFrame construction needed.
+  The HTML tables on FBref's pages are parsed into a pandas DataFrame for you—no manual parsing or DataFrame construction needed.
 
 - **Error handling & reliability**  
   Common HTTP errors (e.g., timeouts, 404 Not Found) are wrapped in clear exceptions. Transient failures can trigger automatic retries, so your analysis code stays focused on insights, not networking glitches.
@@ -36,7 +38,7 @@ print(arsenal_stats.head())
 - **Idiomatic, Pythonic interface**  
   The library returns native Python objects (DataFrames, lists, dictionaries) and uses familiar method names, making the API feel intuitive and concise rather than a tangle of raw HTTP mechanics.
 
-Under the hood, `soccerdata` still uses an HTTP client (like `requests`) to interact with the REST API. But by encapsulating all networking, authentication, and JSON-handling logic in a single `read_team_match_stats()` call, it lets you:
+Under the hood, `soccerdata` still uses an HTTP client (like `requests`) to download FBref's pages. But by encapsulating all networking, rate limiting and HTML parsing in a single `read_team_match_stats()` call, it lets you:
 
 1. **Write clean, declarative code**  
 2. **Develop faster with fewer bugs**  
@@ -53,7 +55,7 @@ library(worldfootballR)
 
 # 2. Get Arsenal match results from the Premier League 2023/24
 arsenal_matches <- fb_team_match_results(
-  team_url = "https://fbref.com/en/squads/18bb7c10/Arsenal-Stats")
+  team_url = "https://fbref.com/en/squads/18bb7c10/2023-2024/Arsenal-Stats")
 
 # 3. Inspect the data
 head(arsenal_matches)

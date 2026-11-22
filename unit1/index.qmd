@@ -35,7 +35,7 @@ This is the one lecture-heavy week. Everything after this is hands-on.
 
 ::: card-body
 
-- ☐ **Accounts** — create (free) accounts at [claude.ai](https://claude.ai) and [chatgpt.com](https://chatgpt.com) if you don't have them. If you are a student, claim the free **GitHub Student Developer Pack** at [education.github.com](https://education.github.com/pack) — it includes GitHub Copilot Pro at no cost.
+- ☐ **Accounts** — create (free) accounts at [claude.ai](https://claude.ai) and [chatgpt.com](https://chatgpt.com) if you don't have them. If you are a student, claim the free **GitHub Student Developer Pack** at [education.github.com](https://education.github.com/pack) — it includes the free **Copilot Student** plan.
 - ☐ **One paid plan** — for this course you need *one* \$20-tier subscription that includes a coding agent: **Claude Pro** (recommended — the course demos use Claude Code) or **ChatGPT Plus** (includes Codex). Students with the GitHub pack can alternatively rely on Copilot. Details and comparison below — read that section first if unsure.
 - ☐ **Install VS Code** — from [code.visualstudio.com](https://code.visualstudio.com/). Even if you use another editor, we use it in class.
 - ☐ **Read** — [Which AI model](../da-knowledge/which-ai.qmd). That's the only required reading.
@@ -219,7 +219,7 @@ Then close and reopen the terminal.
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
-Or: `brew install claude`
+Or: `brew install --cask claude-code`
 
 #### Linux
 ```bash

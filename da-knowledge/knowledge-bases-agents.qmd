@@ -38,9 +38,10 @@ The benefits mirror those of code itself:
 
 ## The Open Knowledge Format
 
-[OKF](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) is
-an open, vendor-neutral convention published by Google Cloud in 2026. Strip away
-the cloud framing and it is deliberately tiny — the whole spec fits on a page:
+[OKF](https://github.com/open-knowledge-format/open-knowledge-format) is
+an open, vendor-neutral convention first published by Google Cloud in 2026 (now at
+version 0.3, in its own repository). Strip away the cloud framing and the core is
+deliberately tiny:
 
 1. A **directory of markdown files**, one per "concept" — a table, a dataset, a
    metric. The file path *is* the concept's name.
@@ -100,7 +101,8 @@ agent follows join paths the way you follow hyperlinks.
 | `description` | No | One sentence the agent reads first |
 | `resource` | No | Path or URL to the thing described (the CSV, the dashboard) |
 | `tags` | No | Flat list for grouping |
-| `updated` | No | `YYYY-MM-DD` |
+| `generated` | No | Who wrote it and when, e.g. `{ by: "human:yourname", at: "2026-06-19T00:00:00Z" }` |
+| `verified` | No | Who checked it against the data, and when (same `{ by, at }` form) |
 
 ## A README vs. an OKF Bundle
 
@@ -140,14 +142,13 @@ An agent will happily write `coverage: 100%` for a column that is half empty.
 
 ## Try It
 
-A complete worked example — the seven-table European football dataset converted
-into an OKF bundle — accompanies this course's data-linking material. Open it and
+For worked examples, browse the [sample bundles](https://github.com/open-knowledge-format/open-knowledge-format/tree/main/bundles) in the OKF repository. Open one and
 notice how each table file links to the ones it joins, and how the top-level
 `index.md` carries the whole join map.
 
 ## Further Reading
 
-- [Open Knowledge Format spec & samples](https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf) — the one-page spec, plus sample bundles (GA4, Stack Overflow)
+- [Open Knowledge Format spec & samples](https://github.com/open-knowledge-format/open-knowledge-format) — the spec, plus sample bundles (GA4, Stack Overflow, Bitcoin, retail)
 - Google Cloud, [How the Open Knowledge Format can improve data sharing](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing) — the announcement
 - [Documentation Fundamentals](documentation-readme.qmd) — READMEs and codebooks, the human-facing counterpart
 - [Joining Data Tables](joining-tables.qmd) — why foreign keys are worth documenting carefully

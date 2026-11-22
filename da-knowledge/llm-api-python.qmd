@@ -1,6 +1,6 @@
 ---
 title: "Calling LLM APIs from Python"
-date: "2026-04-17"
+date: "2026-11-22"
 ---
 
 This page is about the **Python workflow** for using large language models through APIs: load a key, send text, get output back, and turn that output into data. It assumes you already know the basic idea of an API and already have access to at least one provider.
@@ -72,7 +72,7 @@ from openai import OpenAI
 client = OpenAI()  # reads OPENAI_API_KEY
 
 response = client.responses.create(
-    model="gpt-5.4-mini",
+    model="gpt-6-luna",
     input="In one sentence, explain what panel data is."
 )
 
@@ -100,7 +100,7 @@ SYSTEM_PROMPT = (
     "Reply with exactly one label: positive, neutral, or negative."
 )
 
-def classify_text(text, model="gpt-5.4-mini", retries=3):
+def classify_text(text, model="gpt-6-luna", retries=3):
     for attempt in range(retries):
         try:
             response = client.responses.create(
@@ -165,7 +165,7 @@ class SentimentResult(BaseModel):
     short_reason: str
 
 response = client.responses.parse(
-    model="gpt-5.4-mini",
+    model="gpt-6-luna",
     input=[
         {
             "role": "system",
@@ -238,8 +238,8 @@ APIs change quickly. If an example stops working, check the provider docs first:
 
 - [OpenAI quickstart](https://developers.openai.com/api/docs/quickstart)
 - [OpenAI models](https://developers.openai.com/api/docs/models)
-- [OpenAI pricing](https://openai.com/api/pricing/)
-- [OpenAI Responses API reference](https://platform.openai.com/docs/api-reference/responses/create?lang=python)
+- [OpenAI pricing](https://developers.openai.com/api/docs/pricing)
+- [OpenAI Responses API reference](https://developers.openai.com/api/reference/resources/responses/methods/create)
 - [Anthropic choosing a model](https://platform.claude.com/docs/en/about-claude/models/choosing-a-model)
-- [Anthropic models overview](https://platform.claude.com/docs/en/about-claude/models/overview)
+- [Anthropic models overview](https://platform.claude.com/docs/en/models/overview)
 - [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing)

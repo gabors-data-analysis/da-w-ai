@@ -7,7 +7,7 @@ subtitle: "What you need to know to use Claude Code"
 
 A **terminal** (also called command line, shell, or console) is a text-based interface to your computer. Instead of clicking icons, you type commands.
 
-Why does this matter for Claude Code? Claude Code runs in the terminal. It reads your files, runs code, and shows results - all through text commands.
+Why does this matter for Claude Code? The terminal version of Claude Code runs there (the desktop app does not need the terminal). It reads your files, runs code, and shows results - all through text commands.
 
 **Don't worry:** You don't need to become a terminal expert. Just learn the basics below.
 

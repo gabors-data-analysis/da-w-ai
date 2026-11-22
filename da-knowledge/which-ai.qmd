@@ -12,9 +12,9 @@ Generative AI based on Large Language Models (genAI) is a powerful tool with a s
 
 ### Leading models
 
-* As of now the leading (state of the art, SOTA) models are Google's Gemini (3), OpenAI's GPT (5.5), and Anthropic's Claude (Opus 4.8 and the Claude 5 family).
+* As of now the leading (state of the art, SOTA) models are Google's Gemini (4), OpenAI's GPT (6), and Anthropic's Claude (the Claude 5 family: Fable 5.2, Opus 5.5).
 * Other key model is [Mistral AI](https://mistral.ai/) but there are several others
-* Open source -- open weights models are also quite good, [Kimi (K2.5)](https://www.kimi.com/ai-models/kimi-k2-5), an open weight model, is quite good and free. Deepseek, Qwen the other leading models. Think of them as SOTA 4-9 months ago 
+* Open source -- open weights models are also quite good, [Kimi (K3)](https://www.kimi.com/ai-models/kimi-k3), an open weight model, is quite good and free. Deepseek, Qwen the other leading models. Think of them as SOTA 4-9 months ago 
 
 
 ### Paid vs free of leading providers
@@ -25,7 +25,7 @@ Generative AI based on Large Language Models (genAI) is a powerful tool with a s
 
 ### Thinking
 
-* Each model have faster (cheaper) and thinking (more expensive) variants, such as Sonnet and Opus for Claude, Thinking and Instant for ChatGPT. In addition you can have extended thinking 
+* Each model have faster (cheaper) and stronger (more expensive) models, such as Haiku, Sonnet and Opus for Claude. In addition you can set how hard the model thinks: effort (low to max) in Claude, reasoning levels from Instant to Extra High in ChatGPT 
 * For data analysis work, the thinking variants are recommended.
 * All major models have deep research 
 
@@ -62,12 +62,12 @@ For data-analysis projects, my current recommended approach is: paid Claude.
 
 ## For data analysis workspaces -- comparison 
 
-*Last update: 16 Jan 2026*
+*Last update: 22 Nov 2026*
 
 | Workspace | 2026 Key Features |
 |:---|:---|
 | **Anthropic Claude Artifacts** | • Creates **interactive applications** (tutors, calculators) within the output window.<br>• Real-time iteration on complex document structures. |
-| **OpenAI ChatGPT Canvas** | • Advanced frontier models with contextual persistence for tone and style.<br>• Inline editing with granular control over specific sections. |
+| **OpenAI ChatGPT writing blocks** (Canvas retired 2026) | • Writing and code blocks inside the chat, with a full-screen editor for long documents.<br>• Inline editing with granular control over specific sections. |
 | **Google NotebookLM** | • **Interactive Audio Overviews** with user interruption and questioning.<br>• Grounded citations linked directly to uploaded source segments. |
 | **Perplexity Pages** | • Multi-source synthesis using live web retrieval.<br>• Inline citation and consistency checking against sources. |
 
@@ -97,9 +97,9 @@ For data-analysis projects, my current recommended approach is: paid Claude.
 | Workspace | 2026 Key Features for Developers |
 |:---|:---|
 | **Anthropic Claude Code** | • Native **VS Code extension** with agent-style workflows and inline diffs.<br>• Supports complex multi-file edits and testing assistance. |
-| **GitHub Copilot** | • Uses **Extensions** to interact with external dev tools (Azure, Slack, Jira).<br>• Deep context from local and remote repositories. |
+| **GitHub Copilot** | • Uses **MCP servers** to interact with external dev tools (Azure, Slack, Jira).<br>• Deep context from local and remote repositories. |
 | **Cursor** | • AI-first editor with awareness of project-wide dependencies.<br>• Strong support for iterative refactors across files. |
-| **Windsurf (Codeium)** | • **Cascade mode** for orchestrating large-scale refactors.<br>• Robust free tier for students and individual users. |
+| **Devin Desktop (formerly Windsurf)** | • Agent mode for orchestrating large-scale refactors.<br>• Free tier for students and individual users. |
 
 **Security note:** SOC2 compliance is common; strict zero-retention guarantees typically apply to enterprise or explicitly configured accounts.
 

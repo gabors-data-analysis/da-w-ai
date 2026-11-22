@@ -16,7 +16,7 @@ We intentionally stop **before sentiment analysis and embeddings** — those bui
 
 ## The running example
 
-Everything below uses the same short Reuters excerpt — a post-match quote from Manchester United manager Ruben Amorim after a 2-2 draw at Nottingham Forest on 1 November 2025:
+Everything below uses the same short Reuters excerpt — a post-match quote from then Manchester United manager Ruben Amorim (sacked in January 2026) after a 2-2 draw at Nottingham Forest on 1 November 2025:
 
 > "We lost control of the game for five minutes. But my feeling is that the players tried, really tried. They tried during the week and they tried today. In the past, if we had this kind of bad five minutes and we suffered two goals, we didn't recover. Today is a different feeling."
 
@@ -390,6 +390,6 @@ The LLM replaces the middle of the pipeline. The choices at the edges — what g
 ## Further reading
 
 - [Speech and Language Processing (Jurafsky & Martin)](https://web.stanford.edu/~jurafsky/slp3/) — the standard NLP textbook, free online.
-- [scikit-learn: Working with text data](https://scikit-learn.org/stable/tutorial/text_analytics/working_with_text_data.html)
+- [scikit-learn: Text feature extraction](https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction)
 - [spaCy 101](https://spacy.io/usage/spacy-101) — modern tokenization and linguistic features.
 - [Hugging Face Tokenizers](https://huggingface.co/docs/tokenizers) — if you're curious about the sub-word tokenizers that LLMs use.

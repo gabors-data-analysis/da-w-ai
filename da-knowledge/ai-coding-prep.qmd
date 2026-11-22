@@ -14,8 +14,7 @@ If you have already used Copilot/Cursor on a real project and you know what "giv
 **Required**
 
 - A working **Python or R** setup you've used before. Stata is fine for the early weeks of the course but the capstone is realistically Python or R.
-- A **ChatGPT** account (free tier is fine for Week 1).
-- A **Claude** account (free tier is fine).
+- A **ChatGPT** account and a **Claude** account. For the coding agent you need one paid plan (Claude Pro, or ChatGPT Plus for Codex); see [Week 1](../unit1/index.qmd).
 
 **Strongly recommended**
 
@@ -25,7 +24,7 @@ If you have already used Copilot/Cursor on a real project and you know what "giv
 **Optional**
 
 - [Cursor](https://www.cursor.com/) — AI-first editor; some students prefer it to VS Code.
-- An AI CLI (Claude Code, Codex). You'll install one of these in Week 4 — see [Installing AI CLI Tools](install-cli.qmd) when you get there. No need to do it now.
+- An AI coding agent (Claude Code, Codex, or Copilot). You install one in Week 1 — see [Installing AI CLI Tools](install-cli.qmd).
 
 ------------------------------------------------------------------------
 
@@ -67,7 +66,7 @@ A short list. The course will reinforce all of these, but the earlier you intern
 **Define defaults once, reuse them.**
 
 - In ChatGPT Custom Instructions or a Claude Project: language, library preferences, comment style, OS.
-- In Cursor/Claude Code: a `CLAUDE.md` or rules file at the repo root (Week 5).
+- In Cursor/Claude Code: a `CLAUDE.md` or rules file at the repo root (Week 3).
 
 ------------------------------------------------------------------------
 
@@ -154,9 +153,9 @@ A quick map of what each tool is good for. You don't need all of these.
 |---|---|---|
 | **ChatGPT** (Canvas, Advanced Data Analysis) | Quick exploration, data uploads, chart drafts | "Code Interpreter" runs Python in-browser |
 | **Claude Projects + Artifacts** | Carrying a codebook / data dictionary across many turns | Used heavily in Week 2 |
-| **GitHub Copilot** | Inline completion in your editor | Works in VS Code, RStudio (via extension), JupyterLab |
+| **GitHub Copilot** | Inline completion in your editor | Works in VS Code and RStudio (built in) |
 | **Cursor** | AI-first editor with whole-repo context | Some students prefer it to VS Code + Copilot |
-| **Claude Code / Codex** (CLI) | Agentic work on a real repo | Introduced in Week 4 — install then |
+| **Claude Code / Codex** (CLI) | Agentic work on a real repo | Installed in Week 1 |
 
 ------------------------------------------------------------------------
 

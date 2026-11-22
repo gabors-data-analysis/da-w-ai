@@ -10,7 +10,7 @@ Most of this course uses **frontier closed models** (Claude, GPT, Gemini) throug
 
 | | Closed / frontier | Open-weights |
 |---|---|---|
-| Examples | Claude Opus, GPT-5, Gemini 3 | Llama, Qwen, Mistral, DeepSeek, Kimi |
+| Examples | Claude Opus, GPT-6, Gemini 4 | Llama, Qwen, Mistral, DeepSeek, Kimi |
 | How you use it | API or app, you rent it per token | Download the weights, run on your own (or rented) hardware |
 | Capability | State of the art | Roughly SOTA-minus-(4–9 months) |
 | Cost | Per-token, ongoing | Hardware/electricity, or cheap hosted inference |

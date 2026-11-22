@@ -25,7 +25,7 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 
 
 -  Ethan Mollick "Co-Intelligence: Living and Working with AI"  [Penguin Random House 2024](https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/)
-- Anton Korinek "Generative AI for Economic Research: Use Cases and Implications for Economists," [Journal of Economic Literature 61(4) December 2024 Update 1–74](https://doi.org/10.1257/jel.20231736)
+- Anton Korinek "Generative AI for Economic Research: Use Cases and Implications for Economists," [Journal of Economic Literature 61(4) 2023, 1281–1317; latest update "AI Agents for Economic Research", August 2025](https://www.aeaweb.org/articles?id=10.1257/jel.20231736)
 
 ### Important reviews
 
@@ -59,14 +59,13 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 
 ## New methods and tools
 
-* Best video series on introduction to neural networks and LLMs. [3blue1brown youtube playlist] (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 7 times 20-30mins videos, from zero to conversational understanding
+* Best video series on introduction to neural networks and LLMs. [3blue1brown youtube playlist](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi) 7 times 20-30mins videos, from zero to conversational understanding
 * Very usefil video on [skills](https://www.youtube.com/watch?v=MMpaPV3KMFI) and Claude's skill creator. 
-* Agents -- [Google's seminar on agents at work](https://cloudonair.withgoogle.com/events/gemini-at-work-deep-dives ) -- requires registration
 
 ## Claude Code and CLIs
 
 ### Intro videos and use
-- [Getting started with Claude Code 2.0](https://www.youtube.com/watch?v=6eBSHbLKuN0) -- great 30 mins intro by Anthropic's dev
+- [Mastering Claude Code in 30 minutes](https://www.youtube.com/watch?v=6eBSHbLKuN0) -- great 30 mins intro by Anthropic's dev
 - [Sankalp on Claude Code -- list](https://sankalp.bearblog.dev/my-experience-with-claude-code-20-and-how-to-get-better-at-using-coding-agents/) -- great collection of links and ideas
 
 
@@ -84,7 +83,7 @@ Gábor's collection of recommended readings, listening. Wide variety from practi
 * Ethan Mollick substack: [One useful thing](https://www.oneusefulthing.org/)
 * [Alpha Signal](https://alphasignal.ai/)  newsletter
 * How [Andrej Karpathy](https://x.com/karpathy/status/1915581920022585597) is adopting AI assisted coding.
-* Blog by Anthropic [Claude explains](https://www.anthropic.com/claude-explains) -- cool collection on ideas for coding with Claude
+* Anthropic's [Claude Code best practices](https://code.claude.com/docs/en/best-practices) -- ideas for coding with Claude
 
 ### Video Resources on AI
 

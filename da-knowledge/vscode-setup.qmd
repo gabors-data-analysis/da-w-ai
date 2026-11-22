@@ -247,7 +247,7 @@ Run with `Cmd+Enter` in an R terminal.
 
 Official docs:
 
- - <a href="https://code.visualstudio.com/docs/copilot/setup" target="_blank">Set up GitHub Copilot in VS Code</a>
+ - <a href="https://code.visualstudio.com/docs/setup/copilot" target="_blank">Set up GitHub Copilot in VS Code</a>
  - <a href="https://docs.github.com/en/copilot/get-started/plans" target="_blank">GitHub Copilot plans</a>
 
 1. Open VS Code
@@ -258,16 +258,16 @@ Official docs:
 
 ### Student note
 
-If you are a verified student, apply for the free student Copilot Pro plan ("student plus" upgrade).
+If you are a verified student, apply for the free **Copilot Student** plan.
 
-Quick quota diff (checked February 17, 2026):
+Quick quota diff (checked November 22, 2026):
 
-- **Copilot Free:** 2,000 code completions/month, 50 chat messages/month, and 50 premium requests/month
-- **Student plan (Copilot Pro at $0):** unlimited code completions, unlimited chat interactions in IDE/CLI/mobile, and 300 premium requests/month
+- **Copilot Free:** 2,000 code completions/month and a small monthly allowance of AI credits
+- **Copilot Student ($0):** a larger monthly allowance of AI credits, agents included. On both plans Copilot picks the model for you (no manual model choice)
 
 If you are eligible, this is a large jump in included usage, so it is worth applying early.
 
- - <a href="https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro" target="_blank">Get free access to Copilot Pro (students/teachers/maintainers)</a>
+ - <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students" target="_blank">Set up Copilot Student (verified students)</a>
 
 ---
 

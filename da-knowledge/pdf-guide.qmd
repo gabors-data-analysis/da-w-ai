@@ -196,7 +196,7 @@ Notebook UIs also offer Export/Download-as-PDF actions, but menu labels vary by 
 
 ## Option 6: Python + fpdf2 (no LaTeX needed)
 
-**Requires:** Python 3.10+ (pandas, matplotlib, fpdf2)
+**Requires:** Python 3.11+ (pandas, matplotlib, fpdf2)
 
 A pure-Python option that produces text and figures in a PDF without any LaTeX or pandoc install. Limited typographic control but zero external dependencies.
 
@@ -252,6 +252,6 @@ pdf.output("report.pdf")
 
 - **Already have Quarto?** Use Option 1. It's the simplest end-to-end workflow.
 - **Already have R?** Use Option 2. Install `tinytex` for LaTeX and you're set.
-- **Only have Python + LaTeX?** Use Option 3 (this is what we used for the earnings report).
+- **Only have Python + LaTeX?** Use Option 3.
 - **Have Python but no LaTeX?** Use Option 6 (`fpdf2`) for a quick PDF, or Option 4/5 with `--to html` as a fallback.
 - **Want to avoid installing anything heavy?** Use Quarto with `format: typst` (Option 1) or `fpdf2` (Option 6) — neither needs LaTeX.

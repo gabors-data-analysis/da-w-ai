@@ -164,7 +164,7 @@ This glossary provides brief definitions of key technical terms used throughout 
 
 The basic unit of text that LLMs process. 
 
-- Roughly 4 characters or ¾ of a word in English
+- Roughly 4 characters or ¾ of a word in English (varies by model: Claude's newer tokenizer counts about half a word per token)
 - "Hello world" ≈ 2 tokens
 - Pricing and limits are measured in tokens
 :::
@@ -320,7 +320,7 @@ A model specifically trained to "think" before responding.
 A mode where the model explicitly reasons through problems.
 
 - Some platforms expose reasoning summaries, others keep internal reasoning hidden
-- Configurable thinking "budget"
+- Configurable thinking "budget" on older models; newer ones (e.g. Claude 5) decide how much to think, steered by the effort setting
 - Trade-off: higher latency and cost
 :::
 
@@ -362,7 +362,7 @@ A process where AI acts across multiple steps with tool use.
 An open standard for connecting AI to external tools and data.
 
 - "USB-C for AI applications"
-- Developed by Anthropic, adopted broadly
+- Developed by Anthropic, now run by the Agentic AI Foundation (Linux Foundation), adopted broadly
 - Enables secure access to files, databases, APIs
 
 [Learn more: MCP documentation](https://modelcontextprotocol.io/)
@@ -449,7 +449,7 @@ These terms are platform-specific. Learn the ones that match the tools you actua
 ::: {.term-section}
 ## Skills (Claude)
 
-Reusable, modular instruction packages in Claude.
+Reusable, modular instruction packages, first in Claude, now an open standard ([Agent Skills](https://agentskills.io)) used by ChatGPT, GitHub Copilot, Cursor and others.
 
 - Pre-defined workflows and behaviors
 - Shareable across conversations
@@ -459,7 +459,7 @@ Reusable, modular instruction packages in Claude.
 ::: {.term-section}
 ## Gems (Gemini)
 
-Custom AI assistants in Gemini Advanced.
+Custom AI assistants in the Gemini app, free for all users. Being replaced by Gemini skills from November 2026.
 
 - User-defined personas and instructions
 - Persistent across conversations
@@ -481,7 +481,7 @@ Workspaces with shared context across conversations.
 
 Interactive workspaces for editing AI-generated content.
 
-- ChatGPT Canvas, Claude Artifacts
+- ChatGPT writing blocks (Canvas until 2026), Claude Artifacts
 - Side-by-side editing
 - Good for code and documents
 :::
@@ -493,9 +493,10 @@ Interactive workspaces for editing AI-generated content.
 
 A parameter controlling randomness in model outputs.
 
-- 0 = deterministic (same input → same output)
+- 0 = least random (close to, but not guaranteed, the same output)
 - 1 = default, balanced creativity
 - Higher = more random/creative
+- Some newer models (e.g. Claude Opus 5.5) no longer accept a temperature setting
 
 **Practical tip:** For empirical analysis and reproducible outputs, start low-to-default (often 0 to 1, platform-dependent).
 :::
@@ -541,6 +542,7 @@ A convention for providing project context to Claude Code.
 - Markdown file in project root
 - Contains: file descriptions, conventions, current task
 - Automatically read by Claude Code CLI
+- Other agents (Codex, Copilot, OpenCode) read the same kind of file, named AGENTS.md
 :::
 
 ::: {.term-section}
@@ -618,9 +620,9 @@ Storing and reusing processed prompts to reduce cost.
 
 **Documentation**
 
-- [Anthropic Glossary](https://docs.anthropic.com/en/docs/glossary)
-- [OpenAI Documentation](https://platform.openai.com/docs)
-- [Google AI for Developers](https://ai.google.dev/)
+- [Anthropic Glossary](https://platform.claude.com/docs/en/about-claude/glossary)
+- [OpenAI Documentation](https://developers.openai.com/api/docs)
+- [Google AI Studio docs](https://aistudio.google.com/docs)
 - [MCP Documentation](https://modelcontextprotocol.io/)
 - [GitHub Agentic Workflows Glossary](https://github.github.com/gh-aw/reference/glossary/)
 

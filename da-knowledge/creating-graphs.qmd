@@ -149,11 +149,11 @@ For me, it turns out that it needed some adjustments after several iterations to
 
 ```{{python}}
 
-import matplotlib.cm as cm
+import matplotlib
 from matplotlib.colors import to_hex
 
 # Get viridis colors
-viridis = cm.get_cmap("viridis", 2)
+viridis = matplotlib.colormaps["viridis"].resampled(2)
 color_male = to_hex(viridis(0.1))
 color_female = to_hex(viridis(0.8))
 
@@ -251,10 +251,10 @@ x_m, y_m, l_m, u_m = bootstrap_loess(reg_data, 'Male', 'age', 'resid')
 x_f, y_f, l_f, u_f = bootstrap_loess(reg_data, 'Female', 'age', 'resid')
 
 # Colors and footnote
-import matplotlib.cm as cm
+import matplotlib
 from matplotlib.colors import to_hex
 
-viridis = cm.get_cmap("viridis", 2)
+viridis = matplotlib.colormaps["viridis"].resampled(2)
 color_male = to_hex(viridis(0.1))
 color_female = to_hex(viridis(0.8))
 
@@ -326,7 +326,7 @@ Now we are talking:
 Many other options. Two extremes. 
 
 * Describe age. In a graph. (Hint: think about binsize)
-* Create an interesting and well-done scatterplot (turn o3 on or use Claude Sonnet) 
+* Create an interesting and well-done scatterplot (use a thinking model in ChatGPT, or Claude Opus/Sonnet)
 
 ## Now with Claude
 

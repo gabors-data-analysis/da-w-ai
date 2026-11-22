@@ -8,15 +8,17 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 ## AI & LLM fundamentals
 
 - [LLM Glossary](../da-knowledge/technical-terms-page.qmd) — technical terms used in lectures and class.
-- [Which AI to use](../da-knowledge/which-ai.qmd) — July 2026 comparison of major models and tools.
+- [Which AI to use](../da-knowledge/which-ai.qmd) — November 2026 comparison of major models and tools.
+- [Open-weights & local models](../da-knowledge/open-weights-models.qmd) — models you can download and run yourself.
 - [Running AI on your own computer](../da-knowledge/run-ai-locally.qmd) — a good model on a top laptop, a simple model on an ordinary one.
+- [Open-code tools & harnesses](../da-knowledge/open-code-tools.qmd) — open-source agents that work with many models.
 - [Beyond the course](../da-knowledge/beyond.qmd) — curated videos, papers and further reading. Updated regularly.
 
 ## Setting up AI tools
 
 - [AI Coding Prep](../da-knowledge/ai-coding-prep.qmd) — before-Week-1 prep: tools, environment, prompting habits for code.
 - [Terminal Basics](../da-knowledge/terminal-basics.qmd) — essential shell commands for CLI work.
-- [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Codex CLI, GitHub Copilot CLI, Gemini CLI.
+- [Installing AI CLI Tools](../da-knowledge/install-cli.qmd) — Claude Code, Codex CLI, GitHub Copilot CLI, Antigravity CLI.
 - [VS Code + Copilot setup](../da-knowledge/vscode-setup.qmd) — IDE + AI assistant.
 
 ## Working with APIs
@@ -33,10 +35,11 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 - [Designing larger analytics projects with AI](../da-knowledge/designing-projects.qmd) — mindsets, self-interview, `agents.md`, SKILLS, the three kinds of tests.
 - [Reproducible research pipelines](../da-knowledge/reproducible-research.qmd) — best practices for building repeatable workflows with Python, Bash, and Make.
 - [Documentation and READMEs](../da-knowledge/documentation-readme.qmd) — what good documentation looks like.
+- [Knowledge bases for agents](../da-knowledge/knowledge-bases-agents.qmd) — giving an agent the material it should work from.
 - [Joining data tables](../da-knowledge/joining-tables.qmd) — keys, joins, pitfalls.
-- [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality (R example).
+- [Creating graphs](../da-knowledge/creating-graphs.qmd) — iterative refinement from basic to publication quality.
 - [NLP basics — text as data](../da-knowledge/nlp-basics.qmd) — classical pipeline (tokens, BoW, TF-IDF) and where LLMs slot in.
-- [PDF guide](../da-knowledge/pdf-guide.qmd) — working with PDFs.
+- [PDF guide](../da-knowledge/pdf-guide.qmd) — options for turning your analysis into a PDF report.
 - [Good report ideas](../da-knowledge/ideas-good-report.qmd) — what separates a solid report from a weak one.
 
 ## Case studies

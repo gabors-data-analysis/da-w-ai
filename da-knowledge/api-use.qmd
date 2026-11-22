@@ -46,7 +46,7 @@ Why use APIs as a data analyst? Here are some key benefits:
 * **Scalability:** APIs let you process *large volumes* of data quickly. You can automate requests in code, so analyzing 10,000 texts or more becomes feasible. Instead of manually working with each piece of data, you let a server handle the heavy lifting.
 * **Access to Powerful Tools:** Many companies provide APIs for advanced services like sentiment analysis, language translation, image recognition, or data storage. As a data analyst, you can tap into these **pre-built models and services** without having to develop them from scratch.
 * **Time and Effort Savings:** Using an API, you can perform complex tasks with just a simple request. This saves you the time of writing extensive code or doing repetitive work. For example, rather than writing your own sentiment analysis algorithm, you can send text to an API and get sentiment results immediately.
-* **Integration of Data Sources:** APIs allow different software and datasets to integrate. You can pull data from different sources (e.g. Twitter’s API for tweets, a weather API for climate data) directly into your analysis pipeline. This **marries data from multiple sources** seamlessly.
+* **Integration of Data Sources:** APIs allow different software and datasets to integrate. You can pull data from different sources (e.g. Reddit’s API for posts, a weather API for climate data) directly into your analysis pipeline. This **marries data from multiple sources** seamlessly.
 * **Consistency and Reliability:** When you use a well-established API, you benefit from a service that’s been tested and optimized. The API will handle errors, edge cases, and updates, so you get consistent results. It’s like outsourcing a task to an expert – you trust the API to do its job correctly.
 
 ## API Keys and Authentication
@@ -73,9 +73,9 @@ import os, requests
 resp = requests.post(
     "https://api.openai.com/v1/responses",
     headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
-    json={"model": "gpt-4o-mini", "input": "Is this review positive or negative?"},
+    json={"model": "gpt-6-luna", "input": "Is this review positive or negative?"},
 )
-text = resp.json()["output"][0]["content"][0]["text"]
+text = next(o for o in resp.json()["output"] if o["type"] == "message")["content"][0]["text"]
 ```
 
 Now the client-library version. Same task, but the library handles the URL, the auth header, and the JSON for you:
@@ -85,7 +85,7 @@ from openai import OpenAI
 
 client = OpenAI()  # picks up OPENAI_API_KEY from your environment
 resp = client.responses.create(
-    model="gpt-4o-mini",
+    model="gpt-6-luna",
     input="Is this review positive or negative?",
 )
 text = resp.output_text
@@ -95,11 +95,11 @@ The two versions hit the same endpoint and get the same answer. The library vers
 
 A few practical notes:
 
-- Major services have official Python libraries: **`openai`**, **`anthropic`** for LLMs; **`google-cloud-*`**, **`boto3`** (AWS), **`azure-*`** for cloud platforms; **`tweepy`** (X/Twitter), **`praw`** (Reddit), **`yfinance`**, **`fredapi`** for data sources.
+- Major services have Python libraries (official or community-maintained): **`openai`**, **`anthropic`** for LLMs; **`google-cloud-*`**, **`boto3`** (AWS), **`azure-*`** for cloud platforms; **`tweepy`** (X/Twitter), **`praw`** (Reddit), **`yfinance`**, **`fredapi`** for data sources.
 - You install them with `pip install <name>`. They use your API key from an environment variable so you never hard-code it.
 - When no client library exists, fall back to **`requests`** and call the HTTP endpoint directly. The result is the same; you just write a few more lines.
 
-For a worked LLM example end-to-end (loading a key, sending text, structured output, batching), see [Calling LLM APIs from Python](llm-api-python.html).
+For a worked LLM example end-to-end (loading a key, sending text, structured output), see [Calling LLM APIs from Python](llm-api-python.html).
 
 ## Get an API
 

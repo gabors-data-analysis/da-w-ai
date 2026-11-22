@@ -17,19 +17,18 @@ We'll show two options: World Bank and FRED
 
 ---
 
-#### **Python (using `wbdata` or `pandas-datareader`):**
+#### **Python (using `wbdata`):**
 
 ```python
 import wbdata
 import pandas as pd
-from datetime import datetime
 
 # Set countries and indicator
 countries = ['USA', 'HUN', 'DEU']
 indicator = {'NY.GDP.PCAP.KD': 'GDP_per_capita'}
 
 # Get data
-df = wbdata.get_dataframe(indicator, country=countries, data_date=datetime(2021, 1, 1))
+df = wbdata.get_dataframe(indicator, country=countries, date="2021")
 print(df.head())
 ```
 
@@ -42,8 +41,8 @@ install.packages("wbstats")
 library(wbstats)
 
 # Set indicator and countries
-gdp_data <- wb(indicator = "NY.GDP.PCAP.KD", country = c("US", "HU", "DE"),
-               startdate = 2021, enddate = 2021)
+gdp_data <- wb_data(indicator = "NY.GDP.PCAP.KD", country = c("US", "HU", "DE"),
+               start_date = 2021, end_date = 2021)
 
 head(gdp_data)
 ```
@@ -61,14 +60,14 @@ head(gdp_data)
 ### 🔑 Get API Key
 
 1. Sign up at [https://fred.stlouisfed.org/](https://fred.stlouisfed.org/)
-2. Go to your [account settings](https://fredaccount.stlouisfed.org/apikey) to get your API key.
+2. Go to your [account settings](https://fredaccount.stlouisfed.org/apikeys) to get your API key.
 3. Copy your API key, you'll need it with code
 
 ---
 
-### ✅ Example: U.S. GDP per capita (`A939RC0Q052SBEA`)
+### ✅ Example: U.S. GDP per capita, current dollars (`A939RC0Q052SBEA`)
 
-Details at [FRED site](https://fred.stlouisfed.org/series/A939RX0Q048SBEA)
+Details at [FRED site](https://fred.stlouisfed.org/series/A939RC0Q052SBEA)
 
 ---
 

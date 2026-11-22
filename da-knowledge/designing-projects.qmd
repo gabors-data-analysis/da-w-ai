@@ -69,7 +69,7 @@ Keep the Q&A in the repo as `PLAN.md` and reference it from your instructions fi
 
 ::: card-body
 
-Each CLI coding agent starts a fresh context window per session. Some (like Claude Code) also build an auto-memory across sessions, but the most reliable way to carry conventions forward is to write them down explicitly. Create a file at the repo root — `CLAUDE.md` (Claude Code), `AGENTS.md` (Codex), or `GEMINI.md` (Gemini CLI). Each tool reads its own file automatically at the start of every session.
+Each CLI coding agent starts a fresh context window per session. Some (like Claude Code) also build an auto-memory across sessions, but the most reliable way to carry conventions forward is to write them down explicitly. Create a file at the repo root — `CLAUDE.md` (Claude Code), `AGENTS.md` (Codex and others), or `GEMINI.md` (Gemini CLI). Each tool reads its own file automatically at the start of every session. Claude Code also reads `AGENTS.md` when there is no `CLAUDE.md`, so one `AGENTS.md` now covers most tools.
 
 This file is **project-specific**. It describes how *this* project is organised and what is non-negotiable inside it.
 
@@ -121,7 +121,7 @@ In practice, a skill is a directory with a `SKILL.md` file that tells the AI *ho
 
 **Then update them on the go.** The first version of `scrape-match-data` will be rough; after the second or third source you'll know what edge cases matter, and the skill improves. A mature skill is one you've used on three different projects without editing.
 
-**You don't have to write skills from scratch.** Most CLI tools ship with a built-in skill creator skills. Describe what the skill should do, and the tool generates the directory structure and `SKILL.md` for you. Start there and refine.
+**You don't have to write skills from scratch.** Codex ships with a built-in `skill-creator` skill; in Claude Code, install the official `skill-creator` plugin (`/plugin install skill-creator@claude-plugins-official`). Describe what the skill should do, and the tool generates the directory structure and `SKILL.md` for you. Start there and refine.
 
 **Rule of thumb — where does this rule go?**
 

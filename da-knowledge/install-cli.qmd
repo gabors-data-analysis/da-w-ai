@@ -1,6 +1,6 @@
 ---
 title: "Installing AI CLI Tools"
-subtitle: "Claude Code, Codex CLI, GitHub Copilot CLI, and Gemini CLI"
+subtitle: "Claude Code, Codex CLI, GitHub Copilot CLI, and Antigravity CLI"
 ---
 
 ## Choose Your Tool
@@ -15,9 +15,9 @@ All these CLI tools let you work with AI directly in your terminal. Pick one to 
 | Tool | Provider | Model | Pricing |
 |------|----------|-------|---------|
 | **Claude Code** | Anthropic | Claude | Claude Pro/Max ($20+/mo) or Console |
-| **Codex CLI** | OpenAI | GPT-5 family | ChatGPT Plus/Pro ($20+/mo) |
-| **Copilot CLI** | GitHub | Multiple (Claude, GPT) | Copilot (~$10/mo, **free for students/teachers**) |
-| **Gemini CLI** | Google | Gemini | Free tier + paid plans |
+| **Codex CLI** | OpenAI | GPT models | ChatGPT Plus ($20/mo) or higher |
+| **Copilot CLI** | GitHub | Multiple (Claude, GPT); on Free and Student plans Copilot picks the model | Copilot (~$10/mo, **free for students/teachers**) |
+| **Antigravity CLI** | Google | Gemini | Free tier + Google AI Pro |
 
 
 ---
@@ -28,7 +28,7 @@ Before installing any CLI tool, you need:
 
 ### 1. Node.js
 
-Most CLI tools require Node.js. Check if you have it:
+You only need Node.js if you install a tool with `npm` (Copilot CLI via npm needs Node.js 22 or later). The recommended installers below do not need it. Check if you have it:
 
 ::: {.panel-tabset}
 
@@ -130,7 +130,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 Or with Homebrew:
 ```
-brew install claude
+brew install --cask claude-code
 ```
 
 ### Linux
@@ -150,7 +150,7 @@ claude
 ```
 
 **First time**: You'll be prompted to log in via browser. You need one of:
-- **Claude Pro, Max, Teams, or Enterprise** subscription (recommended)
+- **Claude Pro, Max, Ultra, Team, or Enterprise** subscription (recommended; the free plan does not include Claude Code)
 - **Claude Console** account (API access with pre-paid credits)
 
 **After login**: Type your requests naturally like "what does this project do?" or "add a hello world function to the main file."
@@ -169,7 +169,7 @@ claude
 ### Requirements
 
 - **Claude account** — Sign up at [claude.ai](https://claude.ai) if you don't have one
-- **Subscription or Console credits** — Claude Pro/Max/Teams/Enterprise or a Claude Console account with credits
+- **Subscription or Console credits** — Claude Pro/Max/Ultra/Team/Enterprise or a Claude Console account with credits
 - **Internet connection** — Claude runs in the cloud
 
 ### Troubleshooting
@@ -180,9 +180,9 @@ claude
 
 ---
 
-## Gemini CLI
+## Antigravity CLI
 
-Google's CLI for Gemini models.
+Google's terminal agent for Gemini models. It replaced Gemini CLI for individual users in June 2026.
 
 ### Install
 
@@ -190,20 +190,21 @@ Google's CLI for Gemini models.
 
 ### Windows
 
+PowerShell:
 ```
-npm install -g @google/gemini-cli
+irm https://antigravity.google/cli/install.ps1 | iex
 ```
 
 ### Mac
 
 ```
-npm install -g @google/gemini-cli
+curl -fsSL https://antigravity.google/cli/install.sh | bash
 ```
 
 ### Linux
 
 ```
-npm install -g @google/gemini-cli
+curl -fsSL https://antigravity.google/cli/install.sh | bash
 ```
 
 :::
@@ -213,17 +214,12 @@ npm install -g @google/gemini-cli
 Navigate to your project folder and start:
 ```
 cd /path/to/your/project
-gemini
+agy
 ```
 
-**First time**: You'll be prompted to select **Login with Google** and authenticate via browser with your Google account.
+**First time**: You'll be prompted to sign in with your Google account. There is a free tier; Google AI Pro raises the limits.
 
-**Account options**:
-
-- Individual Google accounts (free tier + paid Google AI Pro/Ultra)
-- Organization accounts (company, school, or Google Workspace)
-
-**More details:** [Gemini CLI Documentation](https://geminicli.com/docs/get-started/installation/)
+**More details:** [Antigravity CLI Documentation](https://antigravity.google/docs/install?tab=cli)
 
 ---
 
@@ -281,7 +277,7 @@ codex
 - **ChatGPT account** (Plus, Pro, Business, Edu, or Enterprise) - recommended
 - **OpenAI API key** (alternative option)
 
-**More details:** [Codex CLI Documentation](https://developers.openai.com/codex/cli/)
+**More details:** [Codex CLI Documentation](https://learn.chatgpt.com/docs/codex/cli)
 
 ---
 
@@ -303,6 +299,8 @@ Or with npm (needs Node.js 22+):
 ```
 npm install -g @github/copilot
 ```
+
+On Windows, Copilot CLI needs PowerShell 6 or later (Windows ships with 5.1).
 
 ### Mac
 
