@@ -1,0 +1,232 @@
+---
+title: "Running LLM jobs at scale"
+subtitle: "Batch, caching and cost control when a model reads thousands of texts"
+date: "2026-11-22"
+---
+
+Prices and API details checked on 22 November 2026.
+
+Say we have 20,000 open-ended survey answers, and we want each one coded into one of twelve categories. [Calling LLM APIs from Python](llm-api-python.qmd) showed how to classify one text, then ten. This page is the next step: running the same call 20,000 times at a cost we know in advance, and keeping every result. The order of work we suggest is this: estimate the cost, run a pilot, then run the full job as a batch, with caching and a log.
+
+## How much will the job cost?
+
+The arithmetic is simple. Cost = documents × (input tokens per document × input price + output tokens per document × output price). Prices are quoted per million tokens.
+
+Input tokens per document are the instructions (the codebook) plus the text itself. Output tokens are the answer plus the model's thinking. Note that the current small models think before answering by default, and the thinking is billed as output tokens even when we never see it. Lowering the effort setting cuts it.
+
+Don't guess the input length, count it. Anthropic's token counting endpoint is free:
+
+```python
+import anthropic
+
+# CODEBOOK: the codebook as one string; df: a data frame with columns id and text
+client = anthropic.Anthropic()
+n = client.messages.count_tokens(
+    model="claude-haiku-5-5",
+    system=CODEBOOK,
+    messages=[{"role": "user", "content": df["text"].iloc[0]}],
+)
+print(n.input_tokens)
+```
+
+Let's work through the example. The codebook is 1,500 tokens, an average answer is 150 tokens, and we assume 100 output tokens per answer. Over 20,000 answers, that is 33 million input tokens and 2 million output tokens.
+
+| Model | Price per million tokens (input / output) | Standard | Batch | Standard, codebook cached |
+|---|---|---|---|---|
+| `claude-haiku-5-5` | \$0.10 / \$0.50 | \$4.30 | \$2.15 | \$1.60 |
+| `gpt-6-luna` | \$0.10 / \$0.50 | \$4.30 | \$2.15 | about \$1.60 |
+| `claude-sonnet-5-5` | \$2 / \$10 | \$86 | \$43 | \$29 |
+| `claude-opus-5-5` | \$4 / \$20 | \$172 | \$86 | \$58 |
+
+Two things stand out. The large model costs 40 times as much as the small one for the same job. And the two discounts, batch and caching, cut the bill by half and by about two thirds. They can also be combined. The weakest number in the table is the 100 output tokens, because thinking varies by task. The pilot replaces it with a measured one.
+
+
+
+## Why start with a pilot of 50 to 100 documents?
+
+A pilot tells us two things before we spend real money: whether the labels are right, and what a document actually costs.
+
+It is good practice to draw a random sample of 100 documents and code them ourselves before looking at any model output. Then we run the model on the same 100, compare the two sets of labels, and read every disagreement. Most disagreements point to a vague category in the codebook. We fix the wording and rerun on the same 100. When we are happy, we check the final codebook on 50 fresh documents that played no role in the tuning, as we would hold out a test sample.
+
+The pilot also gives us measured tokens. Every response reports `usage.input_tokens` and `usage.output_tokens`, so we can redo the cost estimate with real averages. The whole pilot costs a few cents. This is also the moment to compare a small and a large model on the same 100 documents, as described in [Choosing a model with evidence](choosing-a-model.qmd).
+
+## What is a batch API, and when should we use it?
+
+A batch API takes all our requests in one go, processes them when the provider has spare capacity, and returns the results later at half the price. No one waits for 20,000 survey codes in real time, so for this kind of job the batch is the natural default.
+
+| | Anthropic Message Batches | OpenAI Batch API |
+|---|---|---|
+| Discount | 50% | 50% |
+| Turnaround | Most within 1 hour, at most 24 hours | Within 24 hours, often faster |
+| Size limit | 100,000 requests or 256 MB | 50,000 requests, 200 MB input file |
+| Results kept | 29 days | 30 days by default |
+
+Results may come back in a different order than we sent them, so each request carries a `custom_id` and we match on it. With Anthropic, we send a list of requests and keep the batch ID:
+
+```python
+from anthropic.types.message_create_params import MessageCreateParamsNonStreaming
+from anthropic.types.messages.batch_create_params import Request
+
+requests = [
+    Request(
+        custom_id=f"r{row.id}",
+        params=MessageCreateParamsNonStreaming(
+            model="claude-haiku-5-5",
+            max_tokens=1024,                    # thinking counts toward this
+            output_config={"effort": "low"},
+            system=[{"type": "text", "text": CODEBOOK,
+                     "cache_control": {"type": "ephemeral", "ttl": "1h"}}],
+            messages=[{"role": "user", "content": row.text}],
+        ),
+    )
+    for row in df.itertuples()
+]
+batch = client.messages.batches.create(requests=requests)
+open("batch_id.txt", "w").write(batch.id)  # needed to collect the results later
+```
+
+Later, maybe after lunch, we collect the results:
+
+```python
+import pandas as pd
+batch_id = open("batch_id.txt").read()
+batch = client.messages.batches.retrieve(batch_id)
+if batch.processing_status == "ended":
+    rows = []
+    for r in client.messages.batches.results(batch_id):
+        if r.result.type == "succeeded":
+            msg = r.result.message
+            text = next((b.text for b in msg.content if b.type == "text"), "")
+            rows.append({"custom_id": r.custom_id, "label": text.strip(), "model": msg.model})
+        else:  # errored, canceled or expired: send these again
+            rows.append({"custom_id": r.custom_id, "label": None, "status": r.result.type})
+    pd.DataFrame(rows).to_csv("batch_results.csv", index=False)
+```
+
+With OpenAI, we write the requests to a JSONL file (plain text, one request per line), upload it, and point the batch at the Responses endpoint:
+
+```python
+import json
+from openai import OpenAI
+
+client = OpenAI()
+with open("batch_input.jsonl", "w") as f:
+    for row in df.itertuples():
+        f.write(json.dumps({"custom_id": f"r{row.id}", "method": "POST", "url": "/v1/responses",
+                            "body": {"model": "gpt-6-luna", "instructions": CODEBOOK,
+                                     "input": row.text, "reasoning": {"effort": "low"}}}) + "\n")
+
+batch_file = client.files.create(file=open("batch_input.jsonl", "rb"), purpose="batch")
+batch = client.batches.create(input_file_id=batch_file.id, endpoint="/v1/responses",
+                              completion_window="24h")
+open("batch_id_openai.txt", "w").write(batch.id)  # needed to collect the results later
+
+# later, also in a new session
+import pandas as pd
+batch = client.batches.retrieve(open("batch_id_openai.txt").read())
+if batch.status == "completed":
+    results = []
+    for line in client.files.content(batch.output_file_id).text.splitlines():
+        r = json.loads(line)
+        body = r["response"]["body"]
+        text = next(c["text"] for item in body["output"] if item["type"] == "message"
+                    for c in item["content"] if c["type"] == "output_text")
+        results.append({"custom_id": r["custom_id"], "label": text.strip()})
+    pd.DataFrame(results).to_csv("batch_results.csv", index=False)
+```
+
+Failed requests go to a separate file, found through `batch.error_file_id`.
+
+## How does prompt caching cut the cost of a long codebook?
+
+Every one of our 20,000 requests starts with the same 1,500-token codebook. With prompt caching, the provider keeps that processed beginning for a while, and the next request that starts with exactly the same text reads it from the cache at a fraction of the input price. The rule that follows: fixed text first, the document last.
+
+With Anthropic we mark the end of the fixed part with `cache_control`, as in the batch code above. A cache read costs 0.1 times the base input price on Claude Haiku 5.5, and 0.05 times on Claude Sonnet 5.5 and Claude Opus 5.5. Writing to the cache costs 1.25 times the base price for the default 5-minute lifetime, and 2 times for the 1-hour option. The current models cache prompts of 512 tokens or more. A shorter prompt is simply not cached, with no error. Inside a batch, cache hits are best effort, and the documentation suggests the 1-hour cache there. Check `usage.cache_read_input_tokens` in the pilot: if it stays at zero, the cache is not working.
+
+With OpenAI, caching is automatic for prompts of at least 1,024 tokens on recent models, cached input costs 0.1 times the normal rate on most models, and `usage.input_tokens_details.cached_tokens` shows what was read from the cache.
+
+## What happens when we hit a rate limit?
+
+Providers cap how much we can send per minute: requests, input tokens and output tokens. Above the cap, the API returns error 429. Both Python packages, `anthropic` and `openai`, retry such errors automatically, twice by default, with growing pauses. For a long loop we can raise this with `anthropic.Anthropic(max_retries=5)` or `OpenAI(max_retries=5)`. With Anthropic, tokens read from the cache don't count toward the input-token limit. A sudden jump in traffic can also trigger a 429, so start a big loop slowly rather than all at once.
+
+Batch jobs have their own, separate limits, which is one more reason to prefer them for large jobs. Note that not every error is worth retrying. A 400 means the request itself is wrong, and a 429 that says the monthly spend cap is reached will keep failing until the cap is raised or the next month starts.
+
+## How do we make sure a crash doesn't lose work?
+
+When we run requests one by one, each result should go to disk the moment it arrives, one line per document. If the script stops after 12,000 documents, because of a dropped connection or a laptop lid, we restart it, it reads the file, and it skips what is done.
+
+```python
+import anthropic, datetime, hashlib, json, os
+
+client = anthropic.Anthropic(max_retries=5)
+PROMPT_VERSION = hashlib.sha256(CODEBOOK.encode()).hexdigest()[:8]
+OUT = "labels.jsonl"
+
+done = set()
+if os.path.exists(OUT):
+    with open(OUT) as f:
+        done = {json.loads(line)["id"] for line in f}
+
+with open(OUT, "a") as f:
+    for row in df.itertuples():
+        if row.id in done:
+            continue
+        msg = client.messages.create(
+            model="claude-haiku-5-5", max_tokens=1024, output_config={"effort": "low"},
+            system=[{"type": "text", "text": CODEBOOK, "cache_control": {"type": "ephemeral"}}],
+            messages=[{"role": "user", "content": row.text}],
+        )
+        f.write(json.dumps({
+            "id": row.id,
+            "label": next((b.text for b in msg.content if b.type == "text"), "").strip(),
+            "stop_reason": msg.stop_reason,          # "max_tokens" means the answer was cut off
+            "model": msg.model, "prompt_version": PROMPT_VERSION,
+            "date": datetime.date.today().isoformat(),
+            "input_tokens": msg.usage.input_tokens,
+            "cache_read_tokens": msg.usage.cache_read_input_tokens,
+            "output_tokens": msg.usage.output_tokens,
+        }) + "\n")
+        f.flush()
+```
+
+For a batch, the equivalent is to save the batch ID to a file right after creating it. The results wait on the provider's side for about a month.
+
+## How do we keep the results reproducible?
+
+Each row in the file above carries the exact model ID returned by the API, the date, and a prompt version. The version is a short hash of the codebook text, so any change to the wording gives a new version. Keep the codebook in its own file under git, next to the script.
+
+Why bother? Hosted models are retired. OpenAI's `gpt-4o-mini` shuts down on 14 January 2027, with `gpt-6-luna` as the suggested replacement. A referee who asks for a rerun in two years may get a different model, and the log is what tells us which model produced the numbers in the paper. If exact reruns matter, a downloaded local model is the safer choice. See [Reproducible research](reproducible-research.qmd) for the wider workflow.
+
+## How do we stop a runaway bill?
+
+Set a spend limit before the full run, not after. In the Claude Console, under [Spend limits](https://platform.claude.com/settings/spend-limits), we can set a monthly limit below our tier's cap. Above it, requests fail with an error instead of costing money. We can also give the project its own workspace with its own limit. OpenAI offers a spend alert, which only sends a notification, and a hard spend limit, which stops requests, for the whole organization or for one project.
+
+Also watch the first thousand documents. If the tokens per document are far above the pilot's numbers, stop and find out why.
+
+## When is a cheap model or a local model the better choice?
+
+For classification into fixed categories, or for pulling a few fields out of each text, a small model is usually enough. Anthropic itself positions Claude Haiku 5.5 for high-volume work such as classification and extraction. A larger model earns its price when the categories need judgment, when the documents are long and subtle, or when the pilot shows clear errors that a better prompt doesn't fix. We decide on the pilot numbers.
+
+A local model is the better choice when the texts are confidential, when exact reruns matter, or when there is no budget for a per-token bill. The price is time: a laptop is much slower than a hosted model. The script barely changes, and checkpointing matters even more for runs that take a whole night. See [Running AI on your own computer](run-ai-locally.qmd).
+
+## What about R?
+
+The [ellmer](https://ellmer.tidyverse.org/) package has `batch_chat()`, which sends prompts through the batch APIs of OpenAI, Anthropic, Google Gemini and Groq. It saves the state of the job in a JSON file, so we can stop R and rerun the same line later to pick up the results. `batch_chat_text()` returns the answers as a character vector, and `batch_chat_structured()` returns structured data, by default as a data frame. The package marks these functions as experimental. For requests that should come back right away, `parallel_chat()` sends several at a time.
+
+```r
+library(ellmer)
+chat <- chat_anthropic(model = "claude-haiku-5-5", system_prompt = codebook)
+labels <- batch_chat_text(chat = chat, prompts = as.list(df$text), path = "labels-batch.json")
+```
+
+## See also
+
+- [Calling LLM APIs from Python](llm-api-python.qmd): the first calls and the helper function this page builds on.
+- [Introduction to APIs](api-use.qmd) and [Supplementary information for APIs](api-advanced.qmd).
+- [Running AI on your own computer](run-ai-locally.qmd): local models for confidential text.
+
+## Sources
+
+- Anthropic: [Pricing](https://platform.claude.com/docs/en/about-claude/pricing), [Batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing), [Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching), [Token counting](https://platform.claude.com/docs/en/build-with-claude/token-counting), [Rate limits and spend limits](https://platform.claude.com/docs/en/api/rate-limits), [Errors](https://platform.claude.com/docs/en/api/errors), [Effort](https://platform.claude.com/docs/en/build-with-claude/effort), [Thinking](https://platform.claude.com/docs/en/build-with-claude/thinking)
+- OpenAI: [Pricing](https://developers.openai.com/api/docs/pricing), [Batch API](https://developers.openai.com/api/docs/guides/batch), [Prompt caching](https://developers.openai.com/api/docs/guides/prompt-caching), [Rate limits](https://developers.openai.com/api/docs/guides/rate-limits), [Reasoning models](https://developers.openai.com/api/docs/guides/reasoning), [Deprecations](https://developers.openai.com/api/docs/deprecations), [Python SDK retries](https://github.com/openai/openai-python#retries)
+- ellmer: [batch_chat()](https://ellmer.tidyverse.org/reference/batch_chat.html), [parallel_chat()](https://ellmer.tidyverse.org/reference/parallel_chat.html), [chat_anthropic()](https://ellmer.tidyverse.org/reference/chat_anthropic.html)

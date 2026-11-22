@@ -136,6 +136,8 @@ website:
                 href: da-knowledge/api-use.qmd
               - text: "LLM APIs in Python"
                 href: da-knowledge/llm-api-python.qmd
+              - text: "Running LLM jobs at scale"
+                href: da-knowledge/llm-jobs-at-scale.qmd
               - text: "APIs — Under the hood"
                 href: da-knowledge/api-advanced.qmd
               - text: "Walkthrough: World Bank + FRED"
