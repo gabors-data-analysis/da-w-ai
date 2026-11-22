@@ -1,7 +1,7 @@
 ---
 title: "Friendly Introduction to Agentic AI for Social Scientists"
 subtitle: "A mini course: from a chatbot that polishes your text to an AI agent that works with your files"
-date: "2026-11-20"
+date: "2026-11-22"
 aliases:
   - ../setup-friendly/index.html
 ---
@@ -9,7 +9,7 @@ aliases:
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-A mini course in five parts
+A mini course in six parts
 :::
 
 ::: {.hero-title}
@@ -23,10 +23,10 @@ From a chatbot that polishes your text to an AI agent that works with your files
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
+[[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
-*Version 0.7 · 20 November 2026*
+*Version 0.8 · 22 November 2026*
 
 ## Who is this course for?
 
@@ -166,7 +166,7 @@ Each of these problems has a routine that handles it, and you already know most 
 
 ## How is the course organized?
 
-The course has five parts. The first two are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration, followed by homework. The last two are for later: the fourth when you use the agent on your own work, the fifth when you want to try other models. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
+The course has six parts. The first two are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration, followed by homework. Parts 4 and 5 are for later: the fourth when you use the agent on your own work, the fifth when you want to try other models. The sixth is a short list of links on where social science research may be heading. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
 
 ::::: {.part-card}
 ::: {.part-no}
@@ -258,6 +258,24 @@ Two steps beyond the course. Use an app that works with any model, so you don't 
 ::::
 :::::
 
+::::: {.part-card}
+::: {.part-no}
+6
+:::
+
+:::: {.part-body}
+::: {.part-meta}
+Links · updated as they come
+:::
+
+[[AI in Science](ai-in-science.qmd)]{.part-title}
+
+A few links that peek into the future of social science fields: economics, political science, survey research, psychology. Each comes with a two- or three-sentence summary.
+
+**You end with** a sense of where research in your field may be heading.
+::::
+:::::
+
 ::: {.callout-tip}
 ## Taking this as a two-hour workshop?
 
@@ -265,7 +283,7 @@ Two steps beyond the course. Use an app that works with any model, so you don't 
 
 **In the session (two hours):** at the start we give the agent the World Cup prompt of Part 3, and it works in the background. The first hour is Part 2: we explain a few ideas, you work on Steps 2.2 to 2.4 on your own laptop, and we end with a short debrief. The second hour is Part 3: the ingredients of the prompt, and what the agent produced.
 
-**After the session (homework):** Steps 2.5 and 2.6 of Part 2, and the referee homework of Part 3 on the project folder we share. Parts 4 and 5 are for the weeks after.
+**After the session (homework):** Steps 2.5 and 2.6 of Part 2, and the referee homework of Part 3 on the project folder we share. Parts 4 to 6 are for the weeks after.
 :::
 
 ## A short glossary

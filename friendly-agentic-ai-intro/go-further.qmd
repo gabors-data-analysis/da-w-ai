@@ -7,7 +7,7 @@ date: "2026-11-20"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 5 of 5 · for self-study
+Part 5 of 6 · for self-study
 :::
 
 ::: {.hero-title}
@@ -21,7 +21,7 @@ Free yourself from one provider, and use cheap models to experiment: bigger task
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd){.here}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd){.here} [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
 ## What is this part?
@@ -152,5 +152,5 @@ Check out [how to run AI on your own computer](../da-knowledge/run-ai-locally.qm
 In the knowledge base: [Open-code tools and harnesses](../da-knowledge/open-code-tools.qmd) and [Open-weights and local models](../da-knowledge/open-weights-models.qmd).
 
 ::: {.next-part}
-[Back to the overview →](index.qmd)
+[Continue with Part 6: AI in Science →](ai-in-science.qmd)
 :::

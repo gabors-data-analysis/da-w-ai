@@ -7,7 +7,7 @@ date: "2026-11-13"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 3 of 5 · live demo, then homework
+Part 3 of 6 · live demo, then homework
 :::
 
 ::: {.hero-title}
@@ -21,7 +21,7 @@ One prompt, a short empirical paper and a slide deck. Then your part: study what
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd){.here} [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd){.here} [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
 ## What happens in this part?

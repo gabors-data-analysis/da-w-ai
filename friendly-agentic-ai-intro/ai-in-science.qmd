@@ -1,5 +1,5 @@
 ---
-title: "AI in Science"
+title: "Part 6: AI in Science"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
 date: "2026-11-22"
 ---
@@ -7,7 +7,7 @@ date: "2026-11-22"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Extra · frontier research bits
+Part 6 of 6 · links, updated as they come
 :::
 
 ::: {.hero-title}
@@ -15,16 +15,16 @@ AI in Science
 :::
 
 ::: {.hero-subtitle}
-What AI is doing to research in maths and the social sciences, in short notes with a link to the source
+A few links that peek into the future of social science fields
 :::
 ::::::
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd){.here}
 :::
 
-Each bit is two or three sentences and a link. Newest first. I add new ones as I come across them.
+Lots of new research uses AI as a tool. This part is not a list of those. Here I share a few links that peek into the future of social science fields: pieces on what AI may do to the work of economists, political scientists, survey researchers and psychologists. I am picky, and add new ones only when they change how I think about a field. Each comes with two or three sentences, newest first.
 
 ## Maths, and economics next?
 
@@ -65,3 +65,11 @@ Kenneth Benoit and coauthors asked LLMs to place political parties on six policy
 Marcel Binz and colleagues fine-tuned an open-weight model (Llama 3.1 70B) on Psych-101: 160 psychology experiments, 60,092 participants and 10.7 million choices. The resulting model, Centaur, predicts the choices of new participants better than the standard cognitive models, also in task variants and domains it was not trained on.
 
 [A foundation model to predict and capture human cognition](https://doi.org/10.1038/s41586-025-09215-4)
+
+---
+
+For what an agent can do for your own research today, see [What can it do for a social scientist?](index.qmd#what-can-it-do-for-a-social-scientist)
+
+::: {.next-part}
+[Back to the overview →](index.qmd)
+:::

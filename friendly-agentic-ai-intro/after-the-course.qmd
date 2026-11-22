@@ -7,7 +7,7 @@ date: "2026-11-13"
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 4 of 5 · at your own pace
+Part 4 of 6 · at your own pace
 :::
 
 ::: {.hero-title}
@@ -21,7 +21,7 @@ Ideas for the weeks after: a better AGENTS.md, your own voice and your own skill
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd){.here} [[5]{.n} Go further](go-further.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd){.here} [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
 ## How to use this part?
