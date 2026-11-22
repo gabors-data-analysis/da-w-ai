@@ -105,10 +105,10 @@ The **Chat** tab is the chatbot you know. The **Code** tab is the agent. Don't l
 
 Two agents work much like Claude Code. Most of this course carries over: the project folder, `AGENTS.md`, planning first, small steps, and checking.
 
-**Codex, by OpenAI.** The closest alternative. It comes with a ChatGPT plan (Plus or higher).
+**Codex, by OpenAI.** The closest alternative. It comes with every ChatGPT plan: Free and Go include limited use, Plus and higher give more.
 
-1. Download the Codex app from [openai.com/codex](https://openai.com/codex/). On Windows it comes from the Microsoft Store.
-2. Sign in with your ChatGPT account.
+1. Install the ChatGPT desktop app, which now includes Codex. OpenAI's [instructions](https://learn.chatgpt.com/codex/app) have the download links. On Windows it comes from the Microsoft Store.
+2. Sign in with your ChatGPT account and open Codex.
 3. Open your project folder, and start with the setting that asks before every action.
 4. Codex reads `AGENTS.md` by itself, so our starter file works as it is. Skills live in a different folder: ask Codex where to put them.
 
