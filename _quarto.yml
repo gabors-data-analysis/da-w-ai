@@ -118,6 +118,8 @@ website:
                 href: da-knowledge/ai-coding-prep.qmd
               - text: "Terminal Basics"
                 href: da-knowledge/terminal-basics.qmd
+              - text: "Where to run your agent"
+                href: da-knowledge/where-to-run-agent.qmd
               - text: "Installing AI CLI Tools"
                 href: da-knowledge/install-cli.qmd
               - text: "VS Code + Copilot Setup"

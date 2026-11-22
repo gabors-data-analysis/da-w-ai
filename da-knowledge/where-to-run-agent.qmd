@@ -1,0 +1,123 @@
+---
+title: "Where to run your agent"
+subtitle: "Desktop, terminal, web or editor: the same agent in four places"
+date: "2026-11-22"
+---
+
+Claude Code is one agent, but we can open it in four places: a desktop app, the terminal, a web browser, and a code editor such as VS Code. The model is the same in all four, and so are the instructions it follows. What differs is where the work happens, what we see while it works, and what we need to install. This page helps us choose. It covers Claude Code in detail, and Codex, GitHub Copilot and Google Antigravity briefly, since they come in the same forms.
+
+Checked against official documentation on 22 November 2026. These products change every few months, so check the sources at the end before relying on a detail.
+
+The documentation calls each of these places a *surface*.
+
+## What is the desktop app?
+
+The Claude app has a **Code** tab, and that tab is Claude Code with windows and buttons. We type in a prompt box and approve or refuse each step with a click. When the agent changes a file, a diff view shows what was added and removed, line by line. This is the surface the [friendly introduction](../friendly-agentic-ai-intro/setup.qmd) uses, and its Part 1 walks through the installation.
+
+**What we need.** A paid Claude plan: Pro, Max, Ultra, Team or Enterprise. The app includes Claude Code, so there is nothing else to install and no terminal to open. It runs on macOS (Intel and Apple Silicon) and Windows (x64 and ARM64). On Ubuntu and Debian it is in beta.
+
+**What it is good for.** Starting out, and any work where we want to see each change before it happens. We can run several sessions side by side, and there is an optional terminal pane for the rare moment we want one. The same app can also start a session in the cloud: in the environment selector, **Local** means our computer, **Cloud** means a machine run by Anthropic.
+
+**Limits.** Console credits are not enough here: the app needs a subscription. And we can't run the app from a script; for that we need the terminal version.
+
+## What is the terminal version?
+
+Here Claude Code is a command. We open a terminal, move to the project folder and type `claude`. The conversation happens in the terminal window, as text. The documentation calls it the full-featured version.
+
+**What we need.** A paid Claude plan, or a Claude Console account with prepaid credits (the Console is Anthropic's pay-per-use account for developers; see [How to get an API key](get-ai-api-key.qmd)). It installs with one command on Mac, Windows and Linux: see [Installing AI CLI tools](install-cli.qmd). On Windows, the documentation recommends installing [Git for Windows](https://git-scm.com/downloads/win) as well. We also need some comfort with the command line: moving between folders, reading an error message. If that is new, read [Terminal basics](terminal-basics.qmd) first.
+
+**What it is good for.** Three things the other surfaces do less well. First, it has every command; the editor extension has only a subset. Second, it can be scripted: `claude -p "..."` runs one instruction and exits, so it fits into a script or a pipeline. Third, it runs on Linux, so it also runs on a server we log into, such as a university computing cluster, next to data that is too large to copy to a laptop.
+
+**Limits.** Changes are shown as text, not in a diff window, which takes some getting used to. When we want the visual view, typing `/desktop` moves the current session into the desktop app (on macOS and x64 Windows, with a Claude subscription).
+
+## What is the editor version?
+
+Claude Code also comes as an extension for VS Code and as a plugin for JetBrains editors such as PyCharm and IntelliJ IDEA. It opens in a panel next to our code files. In VS Code, a proposed change appears as a side-by-side comparison that we accept or reject, and a plan opens as a Markdown document we can comment on before the agent starts.
+
+**What we need.** A paid Claude plan or a Console account. VS Code 1.94 or later. The VS Code extension brings what its panel needs, but to type `claude` in VS Code's own terminal we install the terminal version too. The same extension installs in Cursor. The JetBrains plugin needs the terminal version installed separately. In an editor without an extension, such as RStudio, we can run the terminal version in the editor's terminal.
+
+**What it is good for.** Work where we read and write code ourselves, next to the agent: we see the script, the agent's change to it and the output in one window. For setting up VS Code with Python or R, see [VS Code setup](vscode-setup.qmd).
+
+**Limits.** Not every command of the terminal version is in the extension. The documentation suggests running `claude` in the editor's terminal for the missing ones.
+
+## What is the web version, and what runs in the cloud?
+
+At [claude.ai/code](https://claude.ai/code), or in the **Code** tab of the Claude mobile app, Claude Code runs in a *cloud session*. The work does not happen on our computer. It happens on a virtual machine that Anthropic manages. The machine copies our project from GitHub, works on that copy, and sends its changes back to GitHub on a separate *branch* (see [Git for agents](git-for-agents.qmd#when-should-i-use-a-branch)). We review them and, if we like them, open a *pull request*: a proposal to merge the branch into the main version.
+
+**What we need.** A Pro, Max, Ultra or Team plan, or an Enterprise seat that includes Claude Code. A GitHub account connected to Claude, and the project in a GitHub repository. Nothing to install. Cloud sessions count toward the plan's usage limits, with no separate charge for the machine.
+
+**What it is good for.** Long tasks we want to start and check on later: the session keeps running when we close the laptop. Several tasks at once, each in its own session. And work from a phone or a borrowed computer.
+
+**Limits.** The cloud machine sees only what is in the repository. It can't see the files on our laptop, our Dropbox folder, or data we keep out of git. Its internet access is limited by default. Cloning and pull requests work with GitHub; other hosts work only partly. A session that sits idle for a while stops, and reopening it starts a fresh machine with the conversation restored.
+
+We can move work between cloud and local. From the terminal, `claude --cloud "task"` starts a cloud session on the current repository (push local commits first, since the cloud clones from GitHub), and `claude --teleport` pulls a cloud session back into the terminal. The desktop app can send a local session to the cloud from its **Open in** menu.
+
+## How do the four compare?
+
+"Paid plan" means Pro, Max, Ultra, Team or Enterprise. The free Claude plan has no Claude Code on any surface.
+
+| | Desktop app | Terminal | Editor | Web / cloud |
+|---|---|---|---|---|
+| Where it runs | Our computer | Our computer, or a server we log into | Our computer | A machine run by Anthropic |
+| What it works on | The folder we open | The folder we start it in | The folder open in the editor | A copy of a GitHub repository |
+| Plan | Paid plan | Paid plan or Console credits | Paid plan or Console credits | Paid plan |
+| Install | The Claude app | One command | An extension (JetBrains also needs the terminal version) | None |
+| Systems | Mac, Windows; Linux in beta | Mac, Windows, Linux | Where VS Code or JetBrains runs | A desktop browser, or the Claude mobile app |
+| How we see changes | Diff view, click to approve | Text in the terminal | Side-by-side diffs in the editor | Diff view, then a pull request |
+| Good for | Starting out; reviewing each step | Scripts, servers, every feature | Coding alongside the agent | Long or parallel tasks on repositories without confidential data |
+
+## What about Codex, Copilot and Antigravity?
+
+The other agents come in similar forms. The names differ, and so do the plans.
+
+| | Desktop | Terminal | Editor | Cloud |
+|---|---|---|---|---|
+| **Codex** (OpenAI) | The ChatGPT desktop app, where Codex runs (Mac, Windows; Linux has its own guide) | `codex` | Extension for VS Code, Cursor and Windsurf; in JetBrains through AI Chat | Codex cloud, from ChatGPT; works on repositories from a connected GitHub or GitLab account. Plus or higher |
+| **GitHub Copilot** | The GitHub Copilot app (Mac, Windows, Linux), on all Copilot plans | `copilot`, on all Copilot plans | VS Code, Visual Studio, JetBrains, Eclipse, Xcode | The cloud agent on GitHub.com: works only on GitHub repositories, in a temporary environment GitHub manages, and returns a pull request |
+| **Antigravity** (Google) | The Antigravity app (Mac, Windows, Linux) | `agy`, which replaced Gemini CLI for individual users in June 2026 | Extensions for VS Code, JetBrains and other editors, plus the Antigravity IDE | Remote agents, also in the browser at antigravity.google.com, with connected GitHub repositories. Google AI Pro or Ultra on a personal account, not the free tier; still rolling out |
+
+For students, GitHub has a free **Copilot Student** plan, which includes the terminal version and agents. See [VS Code setup](vscode-setup.qmd#student-note) for how to apply.
+
+## Does our setup carry over between surfaces?
+
+Mostly, yes. Say we start a project in the desktop app, and a month later we open the same folder in the terminal. The agent finds the same files, and it reads the same instructions: Claude Code reads the project's `CLAUDE.md` on every surface. If the project has an `AGENTS.md` and no `CLAUDE.md`, Claude Code reads `AGENTS.md` instead. Codex reads `AGENTS.md` too, and the Antigravity CLI reads both `AGENTS.md` and `GEMINI.md`. Skills in the project's `.claude/skills/` folder come along with the folder, and personal skills in `~/.claude/skills/` work in both the desktop app and the terminal.
+
+It is good practice to keep the instructions in the project folder, not in our heads or in a chat history. Then switching surfaces, or switching agents, costs almost nothing.
+
+There is one exception. A cloud session sees only what is committed to the repository and pushed to GitHub. An instructions file that lives only on our laptop doesn't reach it. So commit `CLAUDE.md` or `AGENTS.md` and push it. For a gentle start with git, see [Git for agents](git-for-agents.qmd).
+
+## Which one should we use?
+
+In this course, we start with the **desktop app**. It needs no terminal, it shows every change before it happens, and the [friendly introduction](../friendly-agentic-ai-intro/setup.qmd) is built around it.
+
+Later, once we write code ourselves, the **editor** version is the natural next step: the agent works in the same window as our scripts. The **terminal** version is worth learning when we want to script the agent or run it on a server. Nothing is lost by moving, since the project folder and its instructions come along.
+
+We use the **cloud** for repositories that hold no confidential data: a public replication package, course material, a package we develop. It is the best surface for long tasks we don't want to watch. It needs GitHub, but most code projects belong there anyway.
+
+::: {.callout-warning}
+## Cloud sessions and confidential data
+
+On every surface, the agent sends what it reads to Anthropic's servers, as Part 1 of the [friendly introduction](../friendly-agentic-ai-intro/setup.qmd#step-1-2) explains. The local surfaces at least keep our files on our computer. A cloud session goes further: it puts a copy of the whole repository on a remote machine, and its changes are pushed to GitHub. So keep interview transcripts, identifiable survey data and anything under a data-use agreement out of any repository we use with cloud sessions, even a private one. Check the data agreement before using any surface with such material. For what providers keep and what the GDPR asks, see [AI and your data](ai-and-your-data.qmd). For data that must not leave the computer at all, see [Running AI on your own computer](run-ai-locally.qmd).
+:::
+
+## See also
+
+- [Installing AI CLI tools](install-cli.qmd): install commands for the terminal versions.
+- [VS Code setup](vscode-setup.qmd): VS Code with Python or R, and GitHub Copilot.
+- [Terminal basics](terminal-basics.qmd): the command line for beginners.
+- [Running AI on your own computer](run-ai-locally.qmd): for confidential material.
+
+## Sources
+
+- Anthropic, Claude Code overview: [code.claude.com/docs/en/overview](https://code.claude.com/docs/en/overview)
+- Anthropic, Claude Code desktop app: [code.claude.com/docs/en/desktop](https://code.claude.com/docs/en/desktop)
+- Anthropic, Claude Code in VS Code: [code.claude.com/docs/en/vs-code](https://code.claude.com/docs/en/vs-code)
+- Anthropic, Claude Code in JetBrains: [code.claude.com/docs/en/jetbrains](https://code.claude.com/docs/en/jetbrains)
+- Anthropic, Use Claude Code in the cloud: [code.claude.com/docs/en/claude-code-on-the-web](https://code.claude.com/docs/en/claude-code-on-the-web)
+- Anthropic, How Claude remembers your project (CLAUDE.md and AGENTS.md): [code.claude.com/docs/en/memory](https://code.claude.com/docs/en/memory)
+- OpenAI, Codex documentation (app, CLI, IDE extension, cloud, AGENTS.md, pricing): [learn.chatgpt.com/docs](https://learn.chatgpt.com/docs/codex/cli)
+- GitHub, Copilot plans: [docs.github.com/en/copilot/get-started/plans](https://docs.github.com/en/copilot/get-started/plans)
+- GitHub, GitHub Copilot app: [docs.github.com/en/copilot/concepts/agents/github-copilot-app](https://docs.github.com/en/copilot/concepts/agents/github-copilot-app)
+- GitHub, Copilot cloud agent: [docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent](https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent)
+- Google, Antigravity documentation (app, CLI, IDE extensions, remote agents, plans): [antigravity.google/docs](https://antigravity.google/docs/getting-started)
+- Google for Developers blog, Transitioning Gemini CLI to Antigravity CLI: [developers.googleblog.com](https://developers.googleblog.com/en/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
