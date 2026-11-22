@@ -89,6 +89,8 @@ website:
             href: friendly-agentic-ai-intro/after-the-course.qmd
           - text: "Part 5: Go Further"
             href: friendly-agentic-ai-intro/go-further.qmd
+          - text: "Extra: AI in Science"
+            href: friendly-agentic-ai-intro/ai-in-science.qmd
 
       - section: "Knowledge Base"
         contents:

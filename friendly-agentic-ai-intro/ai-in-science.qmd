@@ -1,0 +1,67 @@
+---
+title: "AI in Science"
+subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
+date: "2026-11-22"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-eyebrow}
+Extra · frontier research bits
+:::
+
+::: {.hero-title}
+AI in Science
+:::
+
+::: {.hero-subtitle}
+What AI is doing to research in maths and the social sciences, in short notes with a link to the source
+:::
+::::::
+:::::::
+
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd)
+:::
+
+Each bit is two or three sentences and a link. Newest first. I add new ones as I come across them.
+
+## Maths, and economics next?
+
+*The Economist, Free Exchange column · 19 November 2026*
+
+After AI models solved hundreds of open problems in mathematics, economists are asking whether their field is next. Ben Golub, a theorist at Northwestern, expects less angst than among mathematicians. But AI already cuts the cost of producing research, and the open question is whether it will also erode the human advantage in ideas.
+
+[AI is swallowing maths. Is economics next?](https://www.economist.com/finance-and-economics/2026/11/19/ai-is-swallowing-maths-is-economics-next) (paywall)
+
+## Economics: whole papers written by an agent
+
+*Jason Furman · August–November 2026*
+
+Jason Furman built a system, Paperwright, that takes a one-line topic and has Claude write an economics paper with no human in the loop: the question, the literature, the data, the analysis, a simulated referee round, and a replication package. Seven papers are posted so far, from the UK minimum wage to data centers and electricity prices. Furman asks readers to treat them as experiments: nobody edited or checked them.
+
+[AI-Generated Economics Papers: An Experiment](https://jasonfurman.org/research/ai-papers/)
+
+## Survey research: AI respondents are not a poll
+
+*Pew Research Center · 30 September 2026*
+
+Pew rebuilt three waves of its American Trends Panel with AI "digital twins" of the real respondents. Across nearly 300 questions, the synthetic answers missed the human ones by 12 percentage points on average, and by more for Republicans (16) and Black adults (15). The AI respondents were also about four times less likely to say "not sure", and the errors were hard to predict.
+
+[Can AI Stand In for Human Survey-Takers? Not Really](https://www.pewresearch.org/data-labs/2026/09/30/can-ai-stand-in-for-human-survey-takers-not-really/)
+
+## Political science: party positions from texts
+
+*American Journal of Political Science · 2026*
+
+Kenneth Benoit and coauthors asked LLMs to place political parties on six policy dimensions, such as economic policy, immigration and European integration. Averaged across models, the scores correlate 0.87–0.92 with expert surveys, close to how well two expert surveys agree with each other. Open-weight models (DeepSeek, Llama, Gemma) gave similar results. The weak spot was decentralization, where party manifestos tend to stay vague.
+
+[Using large language models to analyze political texts through natural language understanding](https://doi.org/10.1111/ajps.70050) · [authors' summary](https://ajps.org/2026/03/24/using-large-language-models-to-analyze-political-texts-through-natural-language-understanding/)
+
+## Psychology: one model of human choices
+
+*Nature · July 2025*
+
+Marcel Binz and colleagues fine-tuned an open-weight model (Llama 3.1 70B) on Psych-101: 160 psychology experiments, 60,092 participants and 10.7 million choices. The resulting model, Centaur, predicts the choices of new participants better than the standard cognitive models, also in task variants and domains it was not trained on.
+
+[A foundation model to predict and capture human cognition](https://doi.org/10.1038/s41586-025-09215-4)
