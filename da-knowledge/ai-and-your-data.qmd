@@ -1,0 +1,140 @@
+---
+title: "AI and your data"
+subtitle: "Privacy, the GDPR and the EU AI Act for researchers who use AI tools"
+date: "2026-11-22"
+---
+
+What happens to an interview transcript once an agent has read it? Where does it go, who keeps it, and for how long? This page answers these questions for the tools used in this course, and then turns to the two European laws that matter: the GDPR and the AI Act.
+
+Checked against official sources on 22 November 2026. Plans, settings and retention periods change every few months, so check the provider's page before you rely on a detail.
+
+::: {.callout-important}
+## Not legal advice
+This page helps you ask the right questions. It is not legal advice. Your university's rules, your ethics approval and your data agreement come first. When they say something different from this page, they win.
+:::
+
+## What happens to what I type?
+
+An agent runs on your laptop, but the model doesn't. To answer, Claude Code sends your prompts and the model's outputs to Anthropic's servers, and so does every other hosted agent. This includes the content of every file the agent opens. So if the agent reads `interviews/anna.docx`, the text of that file leaves your computer.
+
+Two questions decide what happens next. Is the material used to train future models? And how long is it kept? The answers depend on the plan more than on the company.
+
+| Plan | Used for training? | How long is it kept? |
+|---|---|---|
+| Claude Free, Pro, Max, Ultra | Only if the model-improvement setting is on | With the setting on: up to 5 years. With it off: 30 days for Claude Code sessions; chats until you delete them, then up to 30 days |
+| Claude Team, Enterprise, API | No, unless the organization opts in | API: deleted within 30 days. Enterprise can set its own period. Zero retention is available to qualified Enterprise accounts |
+| ChatGPT personal plans | Yes, unless you switch it off | Temporary chats: a copy may be kept for up to 30 days |
+| ChatGPT Business, Enterprise, Edu, API | No, by default | API: up to 30 days. Enterprise: set by the admin, deleted chats removed within 30 days |
+| Gemini app, personal Google account | Yes, unless you switch it off | With history off, about two months. History is deleted after 18 months by default |
+| Gemini in a qualifying Google Workspace edition (work accounts) | No, unless you allow it | Set by the admin: 3, 18 or 36 months, 18 by default |
+| GitHub Copilot Free, Pro, Pro+, Max | Yes since 24 April 2026, unless you switch it off | Not covered here |
+| GitHub Copilot Business, Enterprise | No | Not covered here |
+
+Note that Google's Workspace promise excludes Gemini for Education, so a university Google account may follow other terms. Ask your IT department which ones.
+
+Three exceptions are worth knowing. First, feedback. When you click thumbs up or down, Anthropic keeps that conversation for 5 years, and on OpenAI's personal plans the whole conversation may be used for training even if you opted out. Second, flagged content. If Anthropic's safety systems flag a chat, the inputs and outputs are kept for up to 2 years. Third, human review. On a personal Google account, a subset of Gemini chats is read by human reviewers, and reviewed chats are kept for up to three years, even if you delete them.
+
+There is also a copy on your own computer. Claude Code stores session transcripts as plain text under `~/.claude/projects/`, by default for 30 days, so that you can resume a session. Sessions started in the Claude desktop app are exempt from that limit by default. So a confidential file the agent read is now also in a transcript on your laptop.
+
+## How do I switch training off?
+
+On a personal plan, check this setting on the first day, and again each term. Don't assume it is off.
+
+- **Claude:** open [claude.ai/settings/data-privacy-controls](https://claude.ai/settings/data-privacy-controls) (Settings, then Privacy) and switch off the toggle that lets Anthropic use your chats to improve its models. It covers Claude Code on the same account.
+- **ChatGPT:** Settings, then Data controls, then switch off **Improve the model for everyone**. On a personal account, the same choice applies to Codex.
+- **Gemini:** in **Gemini History**, switch off the control that lets Google use your chats to train its models.
+- **GitHub Copilot:** click your profile picture, then **Copilot settings**, and set **Allow GitHub to use my data for AI model training** to **Disabled**.
+
+Switching off works for new conversations only. What has already gone into training stays in the models trained on it.
+
+Note that switching off training doesn't make a personal plan fit for personal data. The material is still sent and stored, and you have no contract with the provider about it. We come back to this under the GDPR.
+
+## What should never go into a folder the agent can read?
+
+The agent works in one folder (see [Step 1.2 of the friendly introduction](../friendly-agentic-ai-intro/setup.qmd#step-1-2)), and it may open any file in it. So the safe rule is simple: if a file must not leave your computer, it must not be in the folder.
+
+- **The key file** that links codes to names, and anything else that turns pseudonymized data back into named people.
+- **Raw interview recordings and transcripts**, unless your consent forms and your data protection officer allow a cloud service.
+- **Survey or register microdata under a data-use agreement** that forbids sharing with third parties. Data from a statistical office's secure research room almost always falls here.
+- **Health records and other sensitive categories** (see below).
+- **Passwords, API keys and `.env` files.**
+- **Other people's unpublished work**, such as a manuscript you referee.
+
+Keep such material in a sibling folder, outside the project, and let the agent work on a cleaned extract or on made-up data with the same structure. The agent can write the script on the made-up data, and you run it on the real data yourself. In Claude Code, a `deny` rule under `permissions` in `.claude/settings.json` (for example `"Read(./.env)"`) adds a second safeguard, but the folder boundary comes first.
+
+## When should I use a local model instead?
+
+When the material can't go to a third party at all, a model on your own computer is the clean solution. Nothing is sent anywhere, and the model works with the Wi-Fi switched off. See [Running AI on your computer](run-ai-locally.qmd) for the setup, and [Open-weights and local models](open-weights-models.qmd) for the background.
+
+A laptop model is weaker than the hosted ones, but for one narrow task per document, such as coding open answers or replacing names with codes, it is often enough. The middle way is an institutional plan, such as Claude Team or Enterprise, or ChatGPT Edu or Enterprise, with a data processing agreement in place. Ask your IT department whether your university has one.
+
+## What does the GDPR ask of me?
+
+**Is it personal data?** The GDPR covers any information about an identified or identifiable living person. Take an interview transcript where we replaced every name with a code, and kept the key file. This is pseudonymized data, and it is still personal data. The same holds for survey microdata where a 47-year-old female mayor in a village of 800 people can be recognized without any name. Only data that is anonymized irreversibly, so that nobody can be identified any more, falls outside the GDPR.
+
+**What is the legal basis?** Every use of personal data needs a legal basis. In research, it is usually consent or a task in the public interest, and your institution decides which one. Then check what your consent form says. If participants agreed that the research team will analyze their answers, sending them to a US AI company may not be covered.
+
+**Is it sensitive?** Health, ethnic origin, political opinions, religious beliefs, trade union membership, sexual orientation, and genetic and biometric data are special categories. They need an extra condition. The GDPR has one for scientific research, but only with safeguards, and your institution has to set those up.
+
+**Is there a data processing agreement?** When an AI company processes personal data on your behalf, it is a *processor*, and the GDPR requires a contract with it. Anthropic's data processing addendum, with the EU standard contractual clauses, is automatically part of its Commercial Terms, which cover Team, Enterprise and the API. It does not cover the consumer plans. OpenAI offers a data processing agreement for ChatGPT Business, Enterprise and the API, which the organization has to sign. A Pro account you pay for yourself has no such contract with your university. This is the practical reason why personal plans are ruled out for personal data, whatever the training setting.
+
+**Does the data leave the EU?** Most providers are US companies. A transfer outside the EU needs either an adequacy decision or safeguards such as standard contractual clauses. The adequacy decision for the US, adopted on 10 July 2023, covers only companies certified under the EU-US Data Privacy Framework. So ask which of the two your provider relies on. Your data protection officer will know where to look.
+
+## Does the EU AI Act apply to me?
+
+Mostly, it doesn't add much. The AI Act puts most duties on *providers*, the companies that build and sell AI systems. A researcher who uses Claude or ChatGPT for analysis is a *deployer*, and a deployer of an ordinary, not high-risk, system has few obligations.
+
+Two exemptions are often quoted, and neither helps as much as it seems. The research exemption covers AI systems developed and put into service for the sole purpose of scientific research, such as a classifier we train for a project. It doesn't cover a general tool like Claude. The exemption for personal, non-professional use doesn't cover research either, because research is our job.
+
+What does apply?
+
+- **AI literacy.** Deployers have to take measures to support the AI literacy of their staff. In practice, this is a task for your university, and a course like this one is part of it.
+- **Transparency.** Text generated by AI and published to inform the public on matters of public interest has to be disclosed as AI-generated. The exception is text that went through human review or editorial control, with a person or organization holding editorial responsibility. A policy brief that we reviewed and sign falls under the exception, as we read it. Deep fakes (image, audio or video) always have to be disclosed. Journals and funders have their own disclosure rules, and these apply anyway.
+- **High-risk uses.** If you build or use an AI system that grades students, decides on admission, or screens job applicants, it is high-risk, and heavy obligations follow. Analyzing data for a paper is not one of these uses.
+
+The transparency rules apply from 2 August 2026. The rules for high-risk uses, such as education and employment, start on 2 December 2027, after an amendment in July 2026 moved them. Older guides that give 2 August 2026 for high-risk systems are out of date.
+
+## What should I bring to my data protection officer?
+
+Before a project with personal or confidential data, it is good practice to send a short note to your data protection officer, your ethics board, or the data provider. These are the questions to answer in it.
+
+- Which tool and which plan? Is the account the institution's or your own?
+- Is model training switched off, and how long does the provider keep the data?
+- Is there a data processing agreement that covers this tool? How are transfers outside the EU covered?
+- What exactly will the agent read? Are direct identifiers removed, and where is the key file kept?
+- Does the data include special categories, such as health or political opinions?
+- Do the consent forms or the data-use agreement allow processing by a cloud AI service? If not, will you use a local model?
+- Where do outputs and local session transcripts go, and when are they deleted?
+- Who checks the AI's output before it is used or published?
+
+Keep the answer with the project, for example in `DECISIONS.md` or in the data management plan. When a referee or a data provider asks two years later, you will have it.
+
+## See also
+
+- [Running AI on your computer](run-ai-locally.qmd): local models for confidential material.
+- [Open-weights and local models](open-weights-models.qmd): what they are and when they are worth it.
+- [Which AI model](which-ai.qmd): a comparison of the main models and tools.
+
+## Sources
+
+- Anthropic, How long do you store my data? (consumer): <https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data>
+- Anthropic, How do I change my model improvement privacy settings?: <https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings>
+- Anthropic, How long do you store my organization's data?: <https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data>
+- Anthropic, How do I view and sign your data processing addendum?: <https://privacy.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa>
+- Anthropic, Data processing addendum: <https://www.anthropic.com/legal/data-processing-addendum>
+- Claude Code docs, Data usage: <https://code.claude.com/docs/en/data-usage>
+- Claude Code docs, Settings: <https://code.claude.com/docs/en/settings>
+- OpenAI, How your data is used to improve model performance: <https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance>
+- OpenAI, Temporary chat in ChatGPT: <https://help.openai.com/en/articles/8914046-temporary-chat-in-chatgpt>
+- OpenAI, Enterprise privacy: <https://openai.com/enterprise-privacy/>
+- Google, Gemini Apps Privacy Hub: <https://support.google.com/gemini/answer/13594961>
+- Google, Generative AI in Google Workspace Privacy Hub: <https://knowledge.workspace.google.com/admin/gemini/generative-ai-in-google-workspace-privacy-hub>
+- GitHub, Managing Copilot policies as an individual subscriber: <https://docs.github.com/copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber>
+- European Commission, What is personal data?: <https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en>
+- European Commission, Legal grounds for processing data: <https://commission.europa.eu/law/law-topic/data-protection/information-business-and-organisations/legal-grounds-processing-data_en>
+- European Commission, Adequacy decisions: <https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/adequacy-decisions_en>
+- European Commission, EU-US data transfers: <https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en>
+- European Commission, Standard contractual clauses: <https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en>
+- GDPR, Regulation (EU) 2016/679: <https://eur-lex.europa.eu/eli/reg/2016/679/oj>
+- European Commission, AI Act (regulatory framework and timeline): <https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai>
+- AI Act Service Desk, Article 2, Article 4, Article 50 and Annex III (consolidated text as at 27 July 2026): <https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-2>, <https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-4>, <https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-50>, <https://ai-act-service-desk.ec.europa.eu/en/ai-act/annex-3>

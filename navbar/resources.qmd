@@ -12,6 +12,7 @@ This is the course's **knowledge base**: standalone pages you can come back to d
 - [Open-weights & local models](../da-knowledge/open-weights-models.qmd) — models you can download and run yourself.
 - [Running AI on your own computer](../da-knowledge/run-ai-locally.qmd) — a good model on a top laptop, a simple model on an ordinary one.
 - [Open-code tools & harnesses](../da-knowledge/open-code-tools.qmd) — open-source agents that work with many models.
+- [AI and your data](../da-knowledge/ai-and-your-data.qmd) — what providers keep, the GDPR and the EU AI Act for researchers.
 - [Beyond the course](../da-knowledge/beyond.qmd) — curated videos, papers and further reading. Updated regularly.
 
 ## Setting up AI tools

@@ -108,6 +108,8 @@ website:
                 href: da-knowledge/run-ai-locally.qmd
               - text: "Open-code tools & harnesses"
                 href: da-knowledge/open-code-tools.qmd
+              - text: "AI and your data"
+                href: da-knowledge/ai-and-your-data.qmd
               - text: "Learn More"
                 href: da-knowledge/beyond.qmd
           - section: "Setting up AI tools"
