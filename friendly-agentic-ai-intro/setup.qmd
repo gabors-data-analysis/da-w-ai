@@ -195,7 +195,41 @@ What do the packages do? **pandas** handles data tables, **matplotlib** draws ch
 **It worked if** `output/test_chart.png` shows a bar chart. Keep `docs/SETUP-NOTES.md`: when something breaks months later, show it to the agent first.
 :::
 
-Already use Stata or R? Keep using them. The agent can write and run do-files and R scripts, too. For this course, Python is the path.
+Already use Stata or R? Keep using them for your analysis: the agent can write and run do-files and R scripts, too. But do this step anyway, because the agent needs Python for its own tools.
+
+:::: {.callout-tip collapse="true"}
+## Already use R and RStudio? (click to open)
+
+Keep them. You only need to decide which language does what.
+
+**Python stays, as the agent's toolkit.** The skills of Part 2 read PDF and Word files with Python, and so does the review loop of Step 2.5. So do Step 1.4 as written. Python lives in the project's `.venv` folder and doesn't touch your R setup.
+
+**R does the analysis.** Change one line in `AGENTS.md`. Replace
+
+``` default
+- Use Python for code, unless I ask for R or Stata.
+```
+
+with
+
+``` default
+- Use R for data analysis, tables and charts. Use Python only for reading and converting PDF and Word files.
+```
+
+**Make sure the agent finds R.** The agent doesn't work through RStudio. It runs R scripts with `Rscript`, the command-line version of R. On Windows, R is often not on the system path, and then the agent can't find it. Ask once:
+
+::: {.prompt}
+``` default
+Find Rscript on this computer and tell me which version of R it is. Add its full path to AGENTS.md. Then write code/00_test.R that makes a bar chart of five made-up numbers, saves it as output/test_chart_r.png, and run it.
+```
+:::
+
+**Keep RStudio as your editor.** Open the agent's `.R` scripts in RStudio, run them line by line and change them as you always do. If you change a script, tell the agent, so it knows your version is the one that counts.
+
+**Optional: renv.** If you use `renv`, R's way of keeping a separate set of packages for each project, ask the agent to set it up for this folder. It does for R what `.venv` does for Python.
+
+The data task of Step 2.6 then comes out in R.
+::::
 
 ::: {.callout-tip collapse="true"}
 ## If something goes wrong here (click to open)
