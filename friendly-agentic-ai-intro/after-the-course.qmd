@@ -1,13 +1,13 @@
 ---
 title: "Part 4: After the Course"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-13"
+date: "2026-11-27"
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 4 of 6 · at your own pace
+Part 4 of 6 · the weeks after, step by step
 :::
 
 ::: {.hero-title}
@@ -15,22 +15,74 @@ After the Course
 :::
 
 ::: {.hero-subtitle}
-Ideas for the weeks after: a better AGENTS.md, your own voice and your own skills, a history of every change, and new uses
+You are home, with a working agent, referee notes and a better prompt. What to do next, in order: finish what is open, make the rules and the skills yours, and run a project of your own
 :::
 ::::::
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd){.here} [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[A]{.n} Assignment](assignment.qmd) [[4]{.n} After the course](after-the-course.qmd){.here} [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
-## How to use this part?
+## What do we do in this part?
 
-This part is a menu, not a sequence. Use the agent on your own work for a few weeks first, with the routines of Part 2. Then come back and pick what you need. Each section stands on its own.
+The session is over. You have a working agent, a small project of your own from Part 2, and the World Cup project with its assignment. What should you do with them?
 
-## How do I grow my AGENTS.md?
+This part is a path through the next few weeks, and it stays with the case study. First you finish what is open. Then you turn what you learned from the World Cup paper into rules and skills of your own. At the end you run the same kind of project on a question from your own field, and review it.
 
-The starter file is a beginning. The rule for growing it is simple: **when the agent makes the same mistake twice, add one line.** After a month it will fit how you work better than any template.
+Follow the steps in order. The times are our estimates.
+
+| When | Step | Time |
+|---|---|---|
+| **The first week** | [4.1](#step-4-1) Finish what is open | about four hours in all |
+| **The second week** | [4.2](#step-4-2) Grow your `AGENTS.md` | half an hour |
+| | [4.3](#step-4-3) Make the skills yours | about an hour |
+| | [4.4](#step-4-4) Keep a history of every change | ten minutes, or an hour with Git |
+| **When you have a free afternoon** | [4.5](#step-4-5) Run your prompt on your own question | an afternoon |
+| | [4.6](#step-4-6) Review your own project | about an hour |
+
+::: {.callout-note}
+## What you will have at the end
+
+- ☐ A finished first project and a finished assignment
+- ☐ An `AGENTS.md` with a few rules of your own
+- ☐ One skill you changed, and one you wrote
+- ☐ A first draft on a question from your own field, with a review of it
+:::
+
+## [4.1]{.step-no} Finish what is open {#step-4-1}
+
+[The first week]{.when .later}
+
+Two things are open after the session.
+
+**Your first project.** In class we got as far as Step 2.4. Two steps of Part 2 are left.
+
+- **[Step 2.5](first-steps.qmd#step-2-5): the memo, your review, the revision.** Do this one first. A draft, comments on paper, a revision: it is the loop you will use most in your own work.
+- **[Step 2.6](first-steps.qmd#step-2-6): a first task with data.** This is a separate assignment, on a new question. If you don't work with data, you may skip it.
+
+Open `first-project` in the Code tab and start a new session. The agent doesn't remember the class, so begin with: *"Read status.md and tell me where we left off."*
+
+**The [Assignment](assignment.qmd).** You read the World Cup project as a referee would, and you rewrite its prompt with skills.
+
+::: {.check}
+**You are done when** you have `docs/memo_v2.docx` in `first-project`, and your referee notes and `prompt_v2.md` in the World Cup project folder.
+:::
+
+## [4.2]{.step-no} Grow your AGENTS.md {#step-4-2}
+
+[The second week]{.when .later}
+
+A skill is a routine you call when you need it. A rule in `AGENTS.md` holds always. Some of what you found as a referee belongs there.
+
+Open your referee notes from the assignment next to your `AGENTS.md`. For each problem, ask: would a standing rule have prevented it? Add two or three rules, in your own words. For example:
+
+``` default
+- Every reference has a DOI or a link that you opened. If you cannot open it, mark the reference as unverified.
+- Before you estimate anything, show me the design and wait for my OK.
+```
+
+From here on the rule for growing the file is simple. **When the agent makes the same mistake twice, add one line.** After a month it will fit how you work better than any template.
 
 When your projects involve data, these lines are worth adding:
 
@@ -39,27 +91,25 @@ When your projects involve data, these lines are worth adding:
 - Any choice I did not specify goes into DECISIONS.md, marked needs-review.
 ```
 
-And keep it short. A long file is read less carefully, by the agent too. Once a year, ask: *"Which lines in AGENTS.md are out of date, or say the same thing twice?"*
+And keep the file short. A long file is read less carefully, by the agent too. Once a year, ask: *"Which lines in AGENTS.md are out of date, or say the same thing twice?"*
 
-## How do I make it write like me?
+## [4.3]{.step-no} Make the skills yours {#step-4-3}
 
-Out of the box, the agent writes generic prose: smooth, correct, and not like you, nor like the papers in your field. Readers notice. The fix is the same as everywhere in this course: give it grounding material.
+[The second week]{.when .later}
 
-Put one or two of your own papers in `docs/samples/`, as PDFs or Word files: the agent converts them to text first, with the read-pdf skill for PDFs. Then start a new session and send:
+The eight skills you have are short on purpose. They are a beginning, and they were written by economists. Now develop them further.
+
+**Change one.** Pick the skill that is closest to your own work. Each skill ends with ideas under *Develop it further*. Ask the agent to propose changes, and decide yourself:
 
 ::: {.prompt}
 ``` default
-Read the papers in docs/samples/. Write a short note in docs/my-voice.md on how I write: sentence length, how I state results and caveats, words I use and words I avoid, with two or three short examples from the samples. Then add a line to AGENTS.md saying that any text you write for me should follow docs/my-voice.md.
+Read .claude/skills/referee/SKILL.md. I work in [your field], mostly with [your kind of data or sources]. Propose three additions that a referee in my field would expect. Show me the changes and wait for my OK before you save anything. Keep the skill under two pages.
 ```
 :::
 
-Read `docs/my-voice.md` and correct it: it is a description of you, so you are the judge. For the conventions of your field (notation, how results are stated), point the agent to the papers in `docs/readings/` in the same way.
+Then try it: run the changed skill on the World Cup project, and see whether the report got better.
 
-## How do I write my own skills?
-
-A skill is a recipe for one type of task. You have used two (Step 2.1), and seen five more in the demo (Part 3). The best candidates for your own skills are routines you have repeated two or three times, such as the review loop of Step 2.5.
-
-You don't have to write a skill yourself. Ask the agent, at the end of a session where a routine worked well:
+**Write one.** The best candidates are routines you have repeated two or three times, such as the review loop of Step 2.5. You don't have to write it yourself. At the end of a session where the routine worked well, ask:
 
 ::: {.prompt}
 ``` default
@@ -67,22 +117,28 @@ We just went through a routine that worked: reading my comments from a PDF, sort
 ```
 :::
 
-Then read it, as you would read instructions you give to a new research assistant. Your `my-voice.md` from the section above is another good candidate: *"Turn docs/my-voice.md into a skill called my-voice."*
+Then read it, as you would read instructions you give to a new research assistant.
 
-To see how others write skills, browse Anthropic's public collection at [github.com/anthropics/skills](https://github.com/anthropics/skills). Read a skill before you install it: it is a set of instructions your agent will follow.
+**Look at what others wrote.** Scott Cunningham's [MixtapeTools](https://github.com/scunning1975/MixtapeTools) has the fuller originals of five of our skills. Anthropic keeps a public collection at [github.com/anthropics/skills](https://github.com/anthropics/skills), and Neal Caren has a set for sociological research (see the [useful links](index.qmd#useful-links)). Read a skill before you install it, whoever wrote it: it is a set of instructions that your agent will follow.
 
-## How do I keep a history of every change?
+::: {.check}
+**You are done when** one skill has a check from your own field, and `/pdf-comments` shows up when you type `/` in a new session.
+:::
 
-There are two ways, a simple one and a precise one.
+## [4.4]{.step-no} Keep a history of every change {#step-4-4}
 
-**The simple one: a cloud folder.** If your project folder is in Dropbox, OneDrive or Google Drive (Step 1.2), you can already go back in time: each file has a version history.
+[The second week]{.when .later}
+
+In the next step the agent will work for a long time and write many files. Before that, make sure you can go back. There are two ways, a simple one and a precise one.
+
+**The simple one: a cloud folder.** If your project folder is in Dropbox, OneDrive or Google Drive (Step 1.2), you can already go back in time: each file has a version history. If it is not there yet, move `ai-projects` there now. For most of us this is enough.
 
 **The precise one: version control**, usually **Git** with **GitHub**. Git keeps a history of your project folder: each *commit* saves a snapshot of every file, with a one-line note on what changed. GitHub keeps a private copy of that history online. It adds two things. First, you see what changed across sessions and days, line by line. Second, every mistake can be undone by going back to the last version that worked. This makes it cheap to let the agent try things.
 
-The price is about an hour of setup and one habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history without the terminal. For setup and daily use, see [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github).
+The price is about an hour of setup and one habit: commit after each step that works. The agent does most of the typing, and GitHub Desktop shows the history without the terminal. For setup, see [Version control with Git and GitHub](../da-knowledge/ai-coding-prep.qmd#version-control-with-git-and-github). For daily use, see [Git for working with agents](../da-knowledge/git-for-agents.qmd).
 
-::: {.callout-tip}
-## Let the agent run Git, with you deciding each step
+::: {.callout-tip collapse="true"}
+## Let the agent run Git, with you deciding each step (click to open)
 
 Once Git is set up, you can run it entirely through the agent. You read and decide, and the agent does the typing.
 
@@ -113,7 +169,6 @@ Revert the last commit, keeping the history. First tell me what this will undo, 
 :::
 
 A *revert* adds a new commit that undoes an old one, so the record of what happened stays complete. You can also ask about the past: *"What changed since Monday, and why?"*
-:::
 
 If you set up Git, add two lines to `AGENTS.md`:
 
@@ -121,10 +176,41 @@ If you set up Git, add two lines to `AGENTS.md`:
 - Commit only when I ask. Never push to GitHub without asking.
 - Never rewrite or delete Git history.
 ```
+:::
 
-## How do I get a proper review of a project?
+## [4.5]{.step-no} Run your prompt on your own question {#step-4-5}
 
-In Step 2.5 a fresh session reviewed the memo. For a project with data and code, the review goes further: the reviewer reruns everything from scratch. When a piece of work is done, start a new session and send:
+[When you have a free afternoon]{.when .later}
+
+Now do what the demo did, on a question you know well. That is the point of choosing your own field: you can judge the result.
+
+**Choose the question.** It should be one that open data can answer: official statistics, a public survey, a published replication package. Keep confidential data out of it (Step 1.2).
+
+**Prepare the folder.** Make a new folder in `ai-projects`. Copy your `AGENTS.md` and the `.claude` folder with your skills into it. Put the three or four papers you know best on the question into `docs/readings/`.
+
+**Adapt your prompt.** Start from `prompt_v2.md`, the prompt you wrote in the assignment. Change three things.
+
+1. **The question and the audience.** Yours, in one or two sentences, for readers in your field.
+2. **The literature.** In the demo the agent was told to ignore the literature. Here it should use the papers you gave it, as in Part 2: *"The papers in docs/readings/ are the ones I know. Use the read-pdf skill, and cite them with pages."*
+3. **The size.** A first run can be smaller: 8 to 10 pages, three to five charts and tables.
+
+Keep the stop after the design. The design is the decision that matters most, and it is yours.
+
+**Run it.** Start in **Plan** mode and read the plan, as in Step 2.3. For the run itself, Manual mode means a click for every file. The rule of Step 2.1 fits better here: **Accept edits**, so the agent is free inside the project folder and asks for everything else. Then watch the four things of [Part 3](live-demo.qmd#what-should-you-watch-during-the-demo): the plan, the choices, the checks and the files.
+
+A long task uses up your usage limit faster than anything in Part 2. If the agent pauses at the limit, nothing is lost: the files are in the folder, and `status.md` says where the work stands. For the choice of model on long tasks, see [Which model should you use?](setup.qmd#which-model)
+
+::: {.check}
+**It worked if** the folder has a paper, the scripts that made every number in it, and a `DECISIONS.md` you can read. It doesn't have to be a good paper yet.
+:::
+
+The first attempt won't be a paper you can submit. But you will see, on a question you know well, what the agent does well and where it needs you.
+
+## [4.6]{.step-no} Review your own project {#step-4-6}
+
+[When you have a free afternoon]{.when .later}
+
+In Step 2.5 a fresh session reviewed the memo. For a project with data and code, the review goes further: the reviewer reruns everything from scratch. Start a new session and send:
 
 ::: {.prompt}
 ``` default
@@ -135,35 +221,23 @@ Then list anything that looks wrong, untested or undocumented, most serious firs
 ```
 :::
 
+This is what the `referee` skill does, in more steps. If you installed the skills, type `/referee` in the new session instead, and then `/ref-check` and `/paper-check`.
+
 Read the review as you would read a referee report: some points matter, some are noise. Take the serious ones back to the agent, one at a time, each in a new session.
 
-::: {.callout-note collapse="true"}
-## For the technically curious: the sandbox (click to open)
+Then be the referee yourself. Go through the eight questions of the [Assignment](assignment.qmd#task-1), this time on your own paper. You know this literature and these data better than the agent does, so you will find more than you found in the World Cup paper.
 
-On Mac and Linux, Claude Code can also enforce the folder boundary through the operating system, so even an approved command can't write outside the project. This **sandbox** is off by default and doesn't run on Windows directly. See the [sandboxing documentation](https://code.claude.com/docs/en/sandboxing) if you are curious.
+Finally, write down how the work was made: which model, on which date, and what you checked by hand. You will need it when you describe the use of AI in a paper. See [Decision logs, reviewing agent work, and disclosing AI use](../da-knowledge/decision-logs.qmd) in the knowledge base.
+
+::: {.check}
+**You are done when** you can say, for your own draft, what you said for the World Cup paper: what it claims, what you checked, and what would have to change before you put your name on it.
 :::
 
-## What else can I use it for?
+## Where are you now?
 
-Once the routines of Part 2 feel normal, try the agent on work that is not analysis. Two ideas we like, both adapted from Simon Martin's [Jump-starting AI agents](https://github.com/simonmartinecon/jumpstart-ai):
+You have run a project in small steps (Part 2), watched one run from a single prompt (Part 3), refereed it and improved its prompt (the Assignment), and run one of your own with a review (this part). That is the whole routine. From here on it is practice, on your own questions.
 
-**A sparring partner.** Test an argument before you take it to colleagues or start writing it up. The agent often spots what you missed, such as a clash with an earlier section.
-
-::: {.prompt}
-``` default
-I think Section 5 of docs/draft.md should be reframed as follows: [your idea]. Assess this critically against the rest of the draft and the papers in docs/readings/. List the weakest points first.
-```
-:::
-
-**Admin.** Progress reports, applications, forms: tasks where the information exists in your files but has to be pulled together.
-
-::: {.prompt}
-``` default
-Draft the progress report from the documents in docs/funding/. Follow the structure of docs/funding/report-template.docx. Write it in Markdown first, and mark anything you could not find in the documents with TODO.
-```
-:::
-
-For more to read and watch, see the [useful links](index.qmd#useful-links) in the overview.
+[Part 5](go-further.qmd) is different. It has no steps. It is broader advice for the time when the agent is part of your work: other things to use it for, and how to choose your tools.
 
 ::: {.next-part}
 [Continue with Part 5: Go Further →](go-further.qmd)

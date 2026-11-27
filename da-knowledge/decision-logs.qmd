@@ -69,7 +69,7 @@ Add one line to `AGENTS.md`, the file of standing instructions the agent reads a
 - Any choice I did not specify goes into DECISIONS.md, marked needs-review.
 ```
 
-The starter `AGENTS.md` of the friendly introduction already points to the `decision-log` skill. For more lines worth adding, see [How do I grow my AGENTS.md?](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-grow-my-agents.md)
+The starter `AGENTS.md` of the friendly introduction already points to the `decision-log` skill. For more lines worth adding, see [Step 4.2 of the friendly introduction](../friendly-agentic-ai-intro/after-the-course.qmd#step-4-2)
 
 Then review the log at natural break points, say after cleaning and after the first estimates. Ask: *"List the needs-review and default decisions in DECISIONS.md, starting with those that most results depend on."* Go through them one by one, and change the status to `decided` when you agree.
 
@@ -107,7 +107,7 @@ Pick two or three numbers a reader will remember: the sample size, the mean of t
 
 ### Should another agent review the work?
 
-Yes, for anything that matters. The session that did the work remembers its own reasoning and tends to defend it. A fresh session doesn't. Use the review prompt in [How do I get a proper review of a project?](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-get-a-proper-review-of-a-project), which reruns everything from scratch. To focus on the choices, add: *"For each decision in DECISIONS.md with basis default, say whether a reasonable alternative could change the main result."* A reviewer running on another provider's model, for example Codex reviewing work done in Claude Code, is less likely to share the same blind spots.
+Yes, for anything that matters. The session that did the work remembers its own reasoning and tends to defend it. A fresh session doesn't. Use the review prompt in [Step 4.6 of the friendly introduction](../friendly-agentic-ai-intro/after-the-course.qmd#step-4-6), which reruns everything from scratch. To focus on the choices, add: *"For each decision in DECISIONS.md with basis default, say whether a reasonable alternative could change the main result."* A reviewer running on another provider's model, for example Codex reviewing work done in Claude Code, is less likely to share the same blind spots.
 
 ### What are the red flags?
 

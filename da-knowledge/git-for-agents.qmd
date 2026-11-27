@@ -6,7 +6,7 @@ date: "2026-11-22"
 
 Suppose we ask an agent to fix the date variable in our cleaning script. It does that, and while it is there, it also renames two columns, changes a filter in another script and rewrites part of the README. Ten minutes later the regression table has 312 fewer observations. Which of these changes did it? With Git, we can see every changed line, and go back with one command. Without Git, we have to remember.
 
-This page goes deeper than the short section [How do I keep a history of every change?](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-keep-a-history-of-every-change) in the friendly introduction. For installing Git and GitHub Desktop, see [Version control with Git and GitHub](ai-coding-prep.qmd#version-control-with-git-and-github). The commands here work the same for R and Python projects, in any terminal (see [Terminal Basics](terminal-basics.qmd)).
+This page goes deeper than the short [Step 4.4: Keep a history of every change](../friendly-agentic-ai-intro/after-the-course.qmd#step-4-4) in the friendly introduction. For installing Git and GitHub Desktop, see [Version control with Git and GitHub](ai-coding-prep.qmd#version-control-with-git-and-github). The commands here work the same for R and Python projects, in any terminal (see [Terminal Basics](terminal-basics.qmd)).
 
 Checked against official documentation on 22 November 2026.
 
@@ -58,7 +58,7 @@ Ask three questions. Did it change only the files it should have? Is there anyth
 
 ## Can the agent do the Git steps for me?
 
-Yes. An agent that runs terminal commands can run Git too, and agents write good commit notes. The friendly introduction has three prompts for reviewing, committing and reverting ([Let the agent run Git](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-keep-a-history-of-every-change)). A few more we use:
+Yes. An agent that runs terminal commands can run Git too, and agents write good commit notes. The friendly introduction has three prompts for reviewing, committing and reverting ([Let the agent run Git](../friendly-agentic-ai-intro/after-the-course.qmd#step-4-4)). A few more we use:
 
 ::: {.prompt}
 ``` default
@@ -168,7 +168,7 @@ To get back every tracked file as it was, use `git restore --source a1b2c3d .` a
 ::: {.callout-warning}
 ## Avoid commands that rewrite history
 
-Agents sometimes suggest `git reset --hard` or `git push --force`. These change or delete history, and work can be lost for good. Before any Git command that undoes something, ask the agent what it will undo and wait. The two lines for `AGENTS.md` in the [friendly introduction](../friendly-agentic-ai-intro/after-the-course.qmd#how-do-i-keep-a-history-of-every-change) make this the default.
+Agents sometimes suggest `git reset --hard` or `git push --force`. These change or delete history, and work can be lost for good. Before any Git command that undoes something, ask the agent what it will undo and wait. The two lines for `AGENTS.md` in the [friendly introduction](../friendly-agentic-ai-intro/after-the-course.qmd#step-4-4) make this the default.
 :::
 
 ## See also

@@ -21,7 +21,7 @@ A few links that peek into the future of social science fields
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd){.here}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[A]{.n} Assignment](assignment.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd){.here}
 :::
 
 Lots of new research uses AI as a tool. This part is not a list of those. Here I share a few links that peek into the future of social science fields: pieces on what AI may do to the work of economists, political scientists, survey researchers and psychologists. I am picky, and add new ones only when they change how I think about a field. Each comes with two or three sentences, newest first.

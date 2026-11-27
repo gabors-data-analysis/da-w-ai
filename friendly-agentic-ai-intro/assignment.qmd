@@ -1,0 +1,168 @@
+---
+title: "Assignment: Referee the Paper, Improve the Prompt"
+subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
+date: "2026-11-27"
+---
+
+::::::: {.hero-section}
+:::::: {.container}
+::: {.hero-eyebrow}
+Assignment · after the session
+:::
+
+::: {.hero-title}
+Referee the Paper, Improve the Prompt
+:::
+
+::: {.hero-subtitle}
+Two tasks on the World Cup project: read what the agent left behind as a referee would, then rewrite the prompt with skills so that the next run is better
+:::
+::::::
+:::::::
+
+::: {.course-map}
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[A]{.n} Assignment](assignment.qmd){.here} [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
+:::
+
+## What is the assignment?
+
+In [Part 3](live-demo.qmd) the agent wrote a paper from a single prompt. The prompt was bare: no rules file, no skills, no review. The assignment has two tasks on that project.
+
+| Task | What | Time |
+|---|---|---|
+| [A.1](#task-1) | Read the project as a referee would | about two hours |
+| [A.2](#task-2) | Improve the prompt with skills | about an hour |
+
+The two belong together. In the first task you find what is wrong or unchecked in the paper. In the second you change the prompt so that the agent would catch those things itself.
+
+::: {.callout-note}
+## What you will have at the end
+
+- ☐ Half a page of referee notes on the World Cup paper
+- ☐ Six more skills in your folder, each of which you have read
+- ☐ A rewritten prompt, `prompt_v2.md`, that uses them
+:::
+
+**Before you start.** Put the project folder we shared into `ai-projects`, next to `first-project`. Open it in the Code tab, in **Manual** mode.
+
+## [A.1]{.step-no} Read the project as a referee would {#task-1}
+
+The agent wrote the paper in under an hour, and nobody has checked it. You are the first reader, and you have done the reading: the six papers of Part 2.
+
+Start with a map of the folder:
+
+::: {.prompt}
+``` default
+I am going to referee the paper in this folder. Do not change any files.
+Give me a one-page map: which file is the paper, which script made each table and chart, where the raw data is and where it came from, and which files record the choices that were made.
+```
+:::
+
+Then go through what the agent left behind. We advise this order. Your agent can help along the way: ask it to explain any file in plain language.
+
+1. **The prompt.** Read it again, slowly. What did it specify, and what did it leave open? Everything left open is a choice the agent had to make.
+2. **The paper.** Read it as a referee. Mark three claims you would question.
+3. **The literature.** Compare the paper's main finding with your extracts from Step 2.3. Does it agree with the papers you read? Where it differs, can you see why: other countries, other years, another kind of event, another method?
+4. **The decisions memo.** Which choices were the agent's own? Which would you have made differently, and could any of them change the main result? Look for the points that the agent itself marked for review.
+5. **The code and the checks.** You don't need to read the code line by line. Read the comment at the top of each script, look at which checks were run, and ask your agent to explain one script.
+6. **The slide deck.** Compare it with the paper. Does it make the same claims, with the same numbers?
+7. **The references.** Pick three references and look them up. Does each exist, with these authors, in this journal and year?
+8. **One number, traced back.** Pick one number from the abstract. Find it in a table, then in the script that made the table, then in the raw data.
+
+::: {.check}
+**You are done when** you can write half a page, as a referee would: what the paper claims, how it squares with the literature, what you checked, and what would have to change before you put your name on it.
+:::
+
+Save your notes as `docs/referee-notes.md` in the project folder. You will need them in the next task.
+
+## [A.2]{.step-no} Improve the prompt with skills {#task-2}
+
+Look at your referee notes. Some of what you found is a matter of judgment, and it stays your job. But some of it is routine: verifying the references, comparing the numbers in the text with the tables, rerunning the code. The prompt asked for none of these. A referee should not have to do them. The prompt could have asked.
+
+It could do so in long paragraphs. A **skill** is the better way: you write the routine down once, and the prompt calls it by name. In Part 2 you used two skills. Here are six more.
+
+### Download the skills
+
+| Skill | What it does | Based on |
+|---|---|---|
+| [new-project](https://github.com/gabors-data-analysis/da-w-ai/blob/main/friendly-agentic-ai-intro/starter/skills/new-project/SKILL.md) | Sets up the project folder, a README and a status note | Scott Cunningham's `/newproject` |
+| [blindspot](https://github.com/gabors-data-analysis/da-w-ai/blob/main/friendly-agentic-ai-intro/starter/skills/blindspot/SKILL.md) | A fresh look at the results before they are interpreted | Scott Cunningham's `/blindspot` |
+| [referee](https://github.com/gabors-data-analysis/da-w-ai/blob/main/friendly-agentic-ai-intro/starter/skills/referee/SKILL.md) | Reruns a finished project and files a referee report | Scott Cunningham's `/referee2` |
+| [ref-check](https://github.com/gabors-data-analysis/da-w-ai/blob/main/friendly-agentic-ai-intro/starter/skills/ref-check/SKILL.md) | Checks that every reference exists and is correct | `/bibcheck`, in our version |
+| [paper-check](https://github.com/gabors-data-analysis/da-w-ai/blob/main/friendly-agentic-ai-intro/starter/skills/paper-check/SKILL.md) | Finds where a draft contradicts itself or its own tables | our own `paper-check` |
+| [deck](https://github.com/gabors-data-analysis/da-w-ai/blob/main/friendly-agentic-ai-intro/starter/skills/deck/SKILL.md) | Turns a paper into a slide deck | Scott Cunningham's `/beautiful_deck` |
+
+All of them, with the two from Part 2, are in [one folder on GitHub](https://github.com/gabors-data-analysis/da-w-ai/tree/main/friendly-agentic-ai-intro/starter/skills). The fuller originals by Scott Cunningham are in his [MixtapeTools](https://github.com/scunning1975/MixtapeTools).
+
+One prompt downloads them:
+
+::: {.prompt}
+``` default
+Download these six files exactly (use a download command, do not retype them). Each is called SKILL.md. Save each as .claude/skills/<name>/SKILL.md in this folder, where <name> is the folder name in the link.
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/new-project/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/blindspot/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/referee/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/ref-check/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/paper-check/SKILL.md
+https://raw.githubusercontent.com/gabors-data-analysis/da-w-ai/main/friendly-agentic-ai-intro/starter/skills/deck/SKILL.md
+Then list the six skills with one line on what each does.
+```
+:::
+
+::: {.check}
+**It worked if** you start a new session, type `/`, and the six skills show up in the list.
+:::
+
+### Read them
+
+Each skill is about a page of plain text, and it is good practice to read a skill before you use it: it is a set of instructions that your agent will follow. Open them in Typora, or on GitHub with the links above.
+
+Every skill starts with a short header between two lines of `---`. The `name` is what you type after `/`. The `description` tells the agent when to use the skill on its own. The rest is the recipe.
+
+As you read, keep your referee notes next to you. For each problem you found, ask: is there a skill that would have caught it?
+
+### Rewrite the prompt
+
+The original prompt is in the project folder, as `initial_prompt.md`. Write a new version and save it as `prompt_v2.md`.
+
+- **Keep the question and the nine tasks.** Change how the tasks are done, not what the paper is about.
+- **Call a skill where it fits**, by typing `/` and its name, as in *"Then run /ref-check on the references."* A skill replaces a paragraph of instructions, so the prompt should not get much longer.
+- **Decide the order.** When should the fresh look at the results come: before or after the paper is written? Who should run the referee: the session that did the work, or a new one?
+- **Add a stop** where you want the agent to wait for you. The original had none.
+
+Write it yourself first. Then ask your agent to comment: *"Read initial_prompt.md and prompt_v2.md, and the skills in .claude/skills/. What does my version still leave unchecked? Do not rewrite it."*
+
+::: {.check}
+**You are done when** `prompt_v2.md` calls at least four skills, and for each you can say what it adds that the original prompt did not ask for.
+:::
+
+::: {.callout-note collapse="true"}
+## One possible version (click to open, after you wrote yours)
+
+The *about* part is unchanged. These are the tasks.
+
+``` default
+1. Setup: Use /new-project in the current folder.
+2. Data: Find fertility across countries. Find football world cup data. Save raw data.
+3. Methods: Use well designed econometrics and credible identification strategies. Make sure we think about key mechanism(s). Use /decision-log for every choice. Then show me the design and wait for my OK.
+4. Exhibits: Make beautiful graphs and tables as exhibits. When the first results are there, run /blindspot before you write anything, and deal with what it flags.
+5. You can use Python or R. Just ensure nice human readable codebase. Install python / R packages when needed.
+6. Output1: Write an academic paper. It should be 10-15 pages + references. It should have 8-15 references. Then run /ref-check on the references and /paper-check on the draft, and fix what they find.
+7. Output2: Use /deck to turn the paper into slides. Create a PDF slide deck.
+8. Review: At the end, hand the folder to a fresh reviewer (a subagent that has not seen the work) and let it run /referee. Keep its report in the folder, and tell me what it found.
+9. There may be papers, dissertations, blogposts on this exact task. Disregard them, don't read them, don't cite them at this initial stage.
+```
+
+It is one version among many, and we have not polished it. Note three things. The long description of the decisions memo is gone: `/decision-log` covers it. There is one stop, after the design. And the referee is a fresh reviewer, because the session that wrote the paper is not its best judge (Step 2.5).
+:::
+
+### If you want to go on
+
+- **Run it.** Make a new folder, copy `prompt_v2.md` and the `.claude` folder into it, and run the prompt. Then compare the new paper with the one we shared. Did the skills change the result, or only how well it is checked? This takes an afternoon and a good part of your usage limit.
+- **Improve a skill.** The skills are short on purpose. Each one ends with ideas under *Develop it further*. Pick the skill that is closest to your own work, and add one check that your field needs.
+
+Both come back in [Part 4](after-the-course.qmd), where you run a project on a question of your own.
+
+::: {.next-part}
+[Continue with Part 4: After the Course →](after-the-course.qmd)
+:::

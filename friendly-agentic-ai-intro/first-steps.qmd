@@ -1,7 +1,7 @@
 ---
 title: "Part 2: First Steps"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-13"
+date: "2026-11-27"
 aliases:
   - checking-work.html
 resources:
@@ -26,7 +26,7 @@ One small project, from a pile of papers to a reviewed memo, and how to stay in 
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd){.here} [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd){.here} [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[A]{.n} Assignment](assignment.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
 ## What do we do in this part?
@@ -44,7 +44,7 @@ The six steps in about a minute. No sound. [Open it full screen](assets/first-st
 
 Two ideas run through the whole part.
 
-**The agent works from material in the folder, not from memory.** A table of readings built from the PDFs in your folder can be checked line by line. One built from what the model recalls cannot. See [What is an AI agent?](index.qmd#what-is-an-ai-agent) in the overview.
+**The agent works from material in the folder, not from memory.** The overview explains why, in [What is an AI agent?](index.qmd#what-is-an-ai-agent)
 
 **You stay in charge.** An agent is a tool that acts, and a tool that acts needs supervision, just as a research assistant does. So each step ends with a short box on staying in charge: how to set its limits, see what it did, agree the checks, and keep the final say. None of this needs coding. It needs the habits of a careful researcher.
 
@@ -58,9 +58,9 @@ The class takes an hour. We explain a few ideas, then you work on your own lapto
 |---|---|---|
 | **Before class** | Part 1, and [Step 2.1](#step-2-1): the ground rules | about an hour, at home |
 | **In class: we explain** | [The project, the files, permissions, staying in charge](#in-class-what-we-explain) | 15 minutes |
-| **In class: playtime** | [Steps 2.2 to 2.4](#playtime): collect the papers, make extracts, ask them questions | 35 minutes |
+| **In class: playtime** | [Steps 2.2 to 2.4](#playtime): collect the six papers, make extracts, ask them questions | 35 minutes |
 | **In class: debrief** | [What worked, what didn't](#debrief) | 10 minutes |
-| **After class** | [Steps 2.5 and 2.6](#after-class): the memo and its review, a task with data | about an hour |
+| **After class** | [Steps 2.5 and 2.6](#after-class): the memo and its review, and a separate assignment with data | about an hour |
 
 If you work through this part on your own, simply follow the steps in order.
 
@@ -187,7 +187,7 @@ Finally, make the PDFs read-only.
 ```
 :::
 
-Then let the agent search on its own, with a tighter rule:
+**If you have time.** The next prompt is slower, and it can wait until after class. Let the agent search on its own, with a tighter rule:
 
 ::: {.prompt}
 ``` default
@@ -198,7 +198,7 @@ Add them to docs/readings/SOURCES.md, marked "found by the agent". If you cannot
 :::
 
 ::: {.check}
-**It worked if** the six papers open as papers in your PDF reader, `SOURCES.md` lists them, and the DOIs of the three new papers open on the right pages. Check those three yourself: open each DOI in your browser.
+**It worked if** the six papers open as papers in your PDF reader, and `SOURCES.md` lists them. If you ran the search, check the three new papers yourself: open each DOI in your browser and see that it leads to that paper.
 :::
 
 Why the check that each file is really a PDF? When we prepared this pack, two of the downloads "succeeded" but saved a web page instead of a paper: one asked to enable JavaScript, the other said *Oh no!*. Both files were called `.pdf`. An agent that doesn't check would happily summarize them.
@@ -296,7 +296,7 @@ Ten minutes, together. Three questions.
 
 ## After class: Steps 2.5 and 2.6 {#after-class}
 
-About an hour, at your own pace. Step 2.5 is the loop of every paper: a draft, comments, a revision. Step 2.6 is for those who work with data.
+About an hour, at your own pace. Step 2.5 finishes the project of this part. Step 2.6 is a separate assignment, on a new question, for those who work with data. Both are also the first step of [Part 4](after-the-course.qmd), the guide to the weeks after.
 
 ## [2.5]{.step-no} Write the memo, review it, revise it {#step-2-5}
 
@@ -364,9 +364,9 @@ For anything that matters, add a second pair of eyes. The session that wrote a t
 
 ## [2.6]{.step-no} A first task with data {#step-2-6}
 
-[After class]{.when .later}
+[After class · a separate assignment]{.when .later}
 
-Now the agent works with numbers. Our question is simple: in EU countries where more women work, do women also hold more seats in parliament? If you don't work with data, you may skip this step. Part 3 shows data work at a much larger scale.
+This is a separate assignment. It leaves the papers behind: a new question, and numbers this time. The question is simple: in EU countries where more women work, do women also hold more seats in parliament? If you don't work with data, you may skip this step. Part 3 shows data work at a much larger scale.
 
 Start a new session and, before you send the prompt, switch the permission mode to **Plan**.
 
@@ -408,8 +408,8 @@ Four ways of staying in charge, each tied to a step.
 | | What it means | Where |
 |---|---|---|
 | **Limits** | The agent works in one folder, asks before it acts, and never changes your originals | Steps 2.1, 2.2 |
-| **Visibility** | You can see every file it changed and every step it took | Step 2.2 |
-| **Checks** | You agree the checks before the work, and you check a few things by hand | Steps 2.3, 2.6 |
+| **Visibility** | You can see every file it changed, every step it took and every choice it made | Steps 2.2, 2.6 |
+| **Checks** | You agree the checks before the work, you say where answers must come from, and you check a few things by hand | Steps 2.3, 2.4, 2.6 |
 | **The final say** | The agent does the mechanical part; you decide the content | Step 2.5 |
 
 ::: {.callout-note}

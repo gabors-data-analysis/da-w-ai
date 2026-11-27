@@ -1,13 +1,13 @@
 ---
 title: "Part 5: Go Further"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-20"
+date: "2026-11-27"
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 5 of 6 · for self-study
+Part 5 of 6 · broader advice, for self-study
 :::
 
 ::: {.hero-title}
@@ -15,36 +15,80 @@ Go Further
 :::
 
 ::: {.hero-subtitle}
-Free yourself from one provider, and use cheap models to experiment: bigger tasks, repeated runs, and a sense of what each model can do
+Beyond the case study: more kinds of work, a voice of your own, freedom from one provider, and a model that fits the task
 :::
 ::::::
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd){.here} [[6]{.n} AI in science](ai-in-science.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[A]{.n} Assignment](assignment.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd){.here} [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
 ## What is this part?
 
-[Part 4](after-the-course.qmd) is about making the agent fit the way you work. This part is about trying new things, on your own and at your own pace. It has two steps.
+Parts 1 to 4 were a guided path around one case study. This part is different. It collects broader advice for the time when the agent is part of your work: what else to use it for, and how to choose your tools. There are no steps to follow and nothing to finish. Read what is relevant to you, and skip the rest.
 
-1. **Use an app that works with any model.** This frees you from a single provider.
-2. **Use cheap models to experiment.** Open-weights models cost a fraction of the top models, and some of them are very good.
+- [What else can I use it for?](#other-uses)
+- [How do I make it write like me?](#my-voice)
+- [Should I depend on one provider?](#any-model)
+- [Which model for which task?](#which-model-for-which-task)
+- [What about confidential material?](#confidential)
 
 We will add more over time.
 
-## [5.1]{.step-no} Use an app that works with any model {#step-5-1}
+## What else can I use it for? {#other-uses}
+
+Once the routines of Part 2 feel normal, try the agent on work that is not analysis. Which tasks are worth trying? Two questions help. Is the material in files that the agent can read? And can you check the result in less time than the work would take you? If the answer to both is yes, try it.
+
+Two uses we like, both adapted from Simon Martin's [Jump-starting AI agents](https://github.com/simonmartinecon/jumpstart-ai):
+
+**A sparring partner.** Test an argument before you take it to colleagues or start writing it up. The agent often spots what you missed, such as a clash with an earlier section.
+
+::: {.prompt}
+``` default
+I think Section 5 of docs/draft.md should be reframed as follows: [your idea]. Assess this critically against the rest of the draft and the papers in docs/readings/. List the weakest points first.
+```
+:::
+
+**Admin.** Progress reports, applications, forms: tasks where the information exists in your files but has to be pulled together.
+
+::: {.prompt}
+``` default
+Draft the progress report from the documents in docs/funding/. Follow the structure of docs/funding/report-template.docx. Write it in Markdown first, and mark anything you could not find in the documents with TODO.
+```
+:::
+
+For more ideas, see the [useful links](index.qmd#useful-links) in the overview. The first group there is for people who don't code.
+
+## How do I make it write like me? {#my-voice}
+
+Out of the box, the agent writes generic prose: smooth, correct, and not like you, nor like the papers in your field. Readers notice. The fix is the same as everywhere in this course: give it grounding material.
+
+Put one or two of your own papers in `docs/samples/`, as PDFs or Word files. Then start a new session and send:
+
+::: {.prompt}
+``` default
+Read the papers in docs/samples/. Write a short note in docs/my-voice.md on how I write: sentence length, how I state results and caveats, words I use and words I avoid, with two or three short examples from the samples. Then add a line to AGENTS.md saying that any text you write for me should follow docs/my-voice.md.
+```
+:::
+
+Read `docs/my-voice.md` and correct it: it is a description of you, so you are the judge. For the conventions of your field (notation, how results are stated), point the agent to the papers in `docs/readings/` in the same way. When the note has settled, it is a good candidate for a skill (Step 4.3): *"Turn docs/my-voice.md into a skill called my-voice."*
+
+## Should I depend on one provider? {#any-model}
 
 In this course the agent was Claude Code. It has two parts, and it helps to tell them apart.
 
 - **The desktop application** is the program on your computer that reads files, runs commands and asks for your permission. In the AI community these applications are called *harnesses*.
 - **The model** is the AI behind it, which does the thinking.
 
-So far both came from one company: the Claude app works with Anthropic's models only. But the two can be separated. **[OpenCode](https://opencode.ai/)** is an open-source application that works much like Claude Code, and it works with models from many providers. You choose the model from a menu.
+So far both came from one company: the Claude app works with Anthropic's models only. But the two parts can be separated. **[OpenCode](https://opencode.ai/)** is an open-source application that works much like Claude Code, and it works with models from many providers. You choose the model from a menu.
 
 Why does this matter? Because providers change. Prices go up, usage limits get tighter, a model you rely on is retired, or your university signs a contract with another company. If your app works with any model, you switch the model and keep everything else: your project folders, your `AGENTS.md`, your skills and your habits.
 
-### Set up the app
+You don't have to switch now. Our advice is more modest: keep what you build in plain files, as this course did, so that it is not tied to one company. And try a second app once, so you know the way.
+
+:::: {.callout-note collapse="true"}
+## Setting up OpenCode (click to open)
 
 It takes about ten minutes. What you built in this course carries over: OpenCode reads the `AGENTS.md` in your project folder, and it finds the skills in `.claude/skills/` by itself.
 
@@ -67,20 +111,12 @@ The three lines say: ask before changing a file, ask before running a command, a
 
 OpenCode also has the two ways of working you know. They are called agents here: **Build** does the work, and **Plan** proposes without changing your files. In the terminal version, **Shift+Tab** switches between them.
 
-The app needs a model before it can do anything. That is the next step.
+The app needs a model before it can do anything. See the box in the next section.
+::::
 
-## [5.2]{.step-no} Use cheap models to experiment {#step-5-2}
+## Which model for which task? {#which-model-for-which-task}
 
-Many strong models are **open-weights**: their makers publish the trained model, so any company can run it and sell access to it. Competition keeps the price low. **OpenCode Go** is a subscription that bundles a set of such models for \$10 a month (November 2026).
-
-Two of them show the range.
-
-- **Kimi K3.1 Pro** is a high-end open-weights model. Its list price per unit of text is about half that of Claude Opus 5.5 (November 2026). Use it for work that needs a strong model.
-- **DeepSeek V4.1 Flash** is a small, fast and very cheap model. It is not among the strongest, but it is good enough for many simple tasks. Use it for volume.
-
-Why bother, if you have Claude? Because cheap changes what you can try. You can run a task on five hundred documents, or run the same task five times, without watching a usage limit. And you learn which of your tasks need the strongest model, and which don't.
-
-### Which kind of model for which task?
+In [Part 1](setup.qmd#which-model) the choice was among Anthropic's models. With an app that works with any model, the choice is wider. Many strong models are **open-weights**: their makers publish the trained model, so any company can run it and sell access to it. Competition keeps the price low.
 
 We find it useful to think of three kinds of model. Each has its use.
 
@@ -90,11 +126,16 @@ We find it useful to think of three kinds of model. Each has its use.
 | **Very good** | Claude Opus 5.5 | Most research work: extracts with quotes, a memo, a data task |
 | **State of the art** | Claude Fable 5.2 | The hardest and longest tasks: a whole project from one prompt, as in [Part 3](live-demo.qmd), or the review of a finished paper |
 
-There is a fourth option, too. **High-end open-weights** models, such as Kimi K3.1 Pro, cost about half as much as Claude Opus 5.5. Where one of them does a task well enough, it saves money.
+There is a fourth option, too. **High-end open-weights** models, such as Kimi K3.1 Pro, cost about half as much as Claude Opus 5.5 at list prices (November 2026). Where one of them does a task well enough, it saves money.
 
-Which kind fits which task is not fixed. It depends on the task, on your field and on how costly a mistake would be, and it changes with every new model. So we advise you to experiment: run the same task with two or three models, and compare the results. The ideas under *What to try* below show how.
+Which kind fits which task is not fixed. It depends on the task, on your field and on how costly a mistake would be, and it changes with every new model. So we advise you to experiment: run the same task with two or three models, and compare the results.
 
-### Connect a model
+Why bother with cheap models, if you have Claude? Because cheap changes what you can try. You can run a task on five hundred documents, or run the same task five times, without watching a usage limit. And you learn which of your tasks need the strongest model, and which don't.
+
+:::: {.callout-note collapse="true"}
+## Connecting cheap models through OpenCode Go (click to open)
+
+**OpenCode Go** is a subscription that bundles a set of open-weights models for \$10 a month (November 2026). Kimi K3.1 Pro and DeepSeek V4.1 Flash are both in it.
 
 1. **Subscribe.** Go to the [OpenCode console](https://opencode.ai/console), sign in, and subscribe to **Go**. Then copy your **API key**. The key is a password for your subscription: don't share it, and don't save it in a project folder.
 2. **Connect.** In OpenCode, type `/connect`, choose **OpenCode Go**, and paste your API key.
@@ -109,23 +150,21 @@ Read AGENTS.md and tell me in five bullet points what it asks of you. Then creat
 :::
 
 ::: {.check}
-**It worked if** the summary matches your `AGENTS.md`, and the agent asks for your OK before it creates the file. If it creates the file without asking, the setting of Step 5.1 did not take effect: ask the agent *"Where do you read your permission settings from?"* and see the [permissions documentation](https://opencode.ai/docs/permissions/).
+**It worked if** the summary matches your `AGENTS.md`, and the agent asks for your OK before it creates the file. If it creates the file without asking, the permission setting did not take effect: ask the agent *"Where do you read your permission settings from?"* and see the [permissions documentation](https://opencode.ai/docs/permissions/).
 :::
 
+**Limits.** Go has a monthly allowance. In any five hours you can use up to a fifth of it, and in any week up to half. If you hit a limit, you wait until it resets.
+::::
+
 ::: {.callout-warning}
-## Before you put research material into it
+## Before you put research material into another model
 
 Check where your text goes, as in [Step 1.2](setup.qmd#step-1-2). With OpenCode Go, each model has its own rules. The [OpenCode Go page](https://opencode.ai/docs/go/) has a table: how long each model's provider keeps your text, and which models are offered in exchange for the right to train on what you send. Avoid those for anything that is not public. By default, paid models that train on your data are blocked, and processing is limited to Europe and the United States. Read the table before you start, and note that the list changes. For personal data, the GDPR applies here too.
 :::
 
-::: {.callout-note}
-## Limits
-Go has a monthly allowance. In any five hours you can use up to a fifth of it, and in any week up to half. If you hit a limit, you wait until it resets.
-:::
+### Four experiments worth running
 
-### What to try
-
-**One task, three models.** In `first-project-opencode`, run [Step 2.3](first-steps.qmd#step-2-3) again with the same prompt, once with DeepSeek V4.1 Flash and once with Kimi K3.1 Pro, each into its own folder. Then compare them with the extracts Claude made, paper by paper. Do the quotes check out on the page? Is "not stated" used honestly? Is the method described correctly? You will find that the cheapest model is fine for some tasks and not for others. That is worth knowing before you choose a model for a real project.
+**One task, three models.** In a copy of `first-project`, run [Step 2.3](first-steps.qmd#step-2-3) again with the same prompt, once with DeepSeek V4.1 Flash and once with Kimi K3.1 Pro, each into its own folder. Then compare them with the extracts Claude made, paper by paper. Do the quotes check out on the page? Is "not stated" used honestly? Is the method described correctly? You will find that the cheapest model is fine for some tasks and not for others. That is worth knowing before you choose a model for a real project.
 
 **A large corpus.** This is where a cheap model earns its place. Take a few hundred documents: the abstracts of a journal over ten years, speeches from a parliament's open data, or open-ended answers from a survey of your own. Ask for one row per document.
 
@@ -143,13 +182,29 @@ Then check it as you would check a research assistant's coding. Ask for a random
 
 **A cheap worker, a strong reviewer.** Let the cheap model do the bulk, such as extracts of two hundred papers. Then switch to a strong model, Kimi K3.1 Pro in OpenCode or Claude in the Claude app, and ask for a review of a sample, as in [Step 2.5](first-steps.qmd#step-2-5): *"Check 15 randomly chosen extracts against their papers. List anything wrong or unsupported, most serious first."* This is how many research teams work with human assistants, too.
 
-## Want to go to the next level?
+For a more careful way to compare models on your own task, see [Choosing a model with evidence](../da-knowledge/choosing-a-model.qmd) in the knowledge base.
 
-Check out [how to run AI on your own computer](../da-knowledge/run-ai-locally.qmd). An open-weights model can run on your laptop, so nothing is sent to anyone. This is the way around the limit of [Step 1.2](setup.qmd#step-1-2), where we asked you to keep confidential material out of the folder. That page is in the knowledge base, and it is more technical than this course.
+## What about confidential material? {#confidential}
+
+In [Step 1.2](setup.qmd#step-1-2) we asked you to keep confidential material out of the folder. There are two ways forward, and neither is a shortcut.
+
+**An agreement that covers it.** Your university may have a plan or an agreement with a provider that covers such material. This is a question for your data protection officer, not for the agent. See [AI and your data](../da-knowledge/ai-and-your-data.qmd).
+
+**A model on your own computer.** An open-weights model can run on your laptop, so nothing is sent to anyone. It is weaker and slower than the hosted models, and how much weaker depends on the laptop. See [Running AI on your own computer](../da-knowledge/run-ai-locally.qmd). That page is in the knowledge base, and it is more technical than this course.
 
 ## To read more
 
-In the knowledge base: [Open-code tools and harnesses](../da-knowledge/open-code-tools.qmd) and [Open-weights and local models](../da-knowledge/open-weights-models.qmd).
+In the knowledge base:
+
+- [Where to run your agent](../da-knowledge/where-to-run-agent.qmd): desktop app, terminal, web or editor.
+- [Open-code tools](../da-knowledge/open-code-tools.qmd) and [Open-weights and local models](../da-knowledge/open-weights-models.qmd).
+- [Choosing a model with evidence](../da-knowledge/choosing-a-model.qmd) and [Running LLM jobs at scale](../da-knowledge/llm-jobs-at-scale.qmd).
+
+::: {.callout-note collapse="true"}
+## For the technically curious: the sandbox (click to open)
+
+On Mac and Linux, Claude Code can also enforce the folder boundary through the operating system, so even an approved command can't write outside the project. This **sandbox** is off by default and doesn't run on Windows directly. See the [sandboxing documentation](https://code.claude.com/docs/en/sandboxing) if you are curious.
+:::
 
 ::: {.next-part}
 [Continue with Part 6: AI in Science →](ai-in-science.qmd)

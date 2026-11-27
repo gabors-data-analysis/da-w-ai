@@ -1,7 +1,7 @@
 ---
 title: "Friendly Introduction to Agentic AI for Social Scientists"
 subtitle: "A mini course: from a chatbot that polishes your text to an AI agent that works with your files"
-date: "2026-11-22"
+date: "2026-11-27"
 aliases:
   - ../setup-friendly/index.html
 ---
@@ -23,10 +23,10 @@ From a chatbot that polishes your text to an AI agent that works with your files
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
+[[⌂]{.n} Overview](index.qmd){.here} [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd) [[A]{.n} Assignment](assignment.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
-*Version 0.8 · 22 November 2026*
+*Version 0.9 · 27 November 2026*
 
 ## Who is this course for?
 
@@ -36,15 +36,15 @@ When I say you should **experiment** with agentic AI, I hear two typical reactio
 
 *"This is for coders."* It isn't. You won't type a single command. You give instructions in plain language, as you would to a research assistant. Even the technical setup is done by the agent, which explains each step before it takes it.
 
-*"I don't need this."* Maybe. The course lets you find out on your own material. You remain in charge, and can decide how much to delegate. You will see what an agent can do and how to supervise. At least, get a glimpse. 
+*"I don't need this."* Maybe. The course lets you find out on your own material. You remain in charge, and you decide how much to delegate. You will see what an agent can do and how to supervise it. At the very least, you get a glimpse.
 
-We use one tool: **Claude Code, in the Claude desktop app**, on Windows, Mac or Linux. Codex by OpenAI is the most similar,  what you learn here carries over fully. Antigravity and Google Gemini is also similar, and there are open weight model alternatives that are close. But when learning, one tool is enough.
+We use one tool: **Claude Code, in the Claude desktop app**, on Windows, Mac or Linux. Codex by OpenAI is the most similar, and what you learn here carries over fully. Antigravity, with Google's Gemini, is also similar, and there are close alternatives that run open-weights models. But when learning, one tool is enough.
 
 ## What is an AI agent?
 
-Let's start with what you know. **A chatbot** is a conversation in a browser. You paste in a text or upload a file, it answers, and you copy the answer back into your document. It knows only what you gave it in that conversation. It mostly relies on info it "remembers" from its training, which can be wrong. It cannot read your files, run code, or save results.
+Let's start with what you know. **A chatbot** is a conversation in a browser. You paste in a text or upload a file, it answers, and you copy the answer back into your document. It knows only what you gave it in that conversation. It mostly relies on information it "remembers" from its training, which can be wrong. It cannot read your files, run code, or save results.
 
-**An agent** is the same AI model with four additions. First, it has access to **folder(s)** on your computer: the ones you allow. Second, it can **act** there: open files, write and run program code, save results. Third, it works in a **loop**: it takes a step, looks at the result and decides on the next one, until the task is done or it needs you. Fourth, it can **use tools**, open a browser, or call other programs such as Microsoft Word. 
+**An agent** is the same AI model with four additions. First, it has access to **folders** on your computer: the ones you allow. Second, it can **act** there: open files, write and run program code, save results. Third, it works in a **loop**: it takes a step, looks at the result and decides on the next one, until the task is done or it needs you. Fourth, it can **use tools**: open a browser, or call other programs such as Microsoft Word.
 
 ```{=html}
 <figure class="agent-figure">
@@ -126,7 +126,7 @@ It helps to **think of the agent as a very fast research assistant sitting at yo
 
 One more point changes how you use it. The model behind the agent is not a database. It doesn't look facts up in its memory, it reconstructs them, so a reference, a number or a date it "remembers" can be wrong. It is much stronger at working with material you put in front of it. So working with an agent is largely about designing its context: you provide the grounding material (your readings, your data, your notes) and the tools to search and compute, and you ask it to work from those rather than from memory. A table of readings built from the PDFs in your folder can be checked line by line. One built from what the model recalls cannot.
 
-Indeed, the right habit is to make it write code that may be directly run, make it write notes that can be directly searched . 
+Indeed, the right habit is to make it write code that can be run directly, and notes that can be searched directly.
 
 ## What can it do for a social scientist?
 
@@ -134,7 +134,7 @@ Here are a few tasks that fit an agent well. None of them needs you to write cod
 
 :::: {.uses}
 ::: {.use}
-**Hundreds of historical notes, OCR-d in PDF** Many large PDFs in a folder become first plain text that can later be searched and transformed into a data table
+**Hundreds of historical notes, as OCR-ed PDFs.** Many large PDFs in a folder first become plain text, which can then be searched and turned into a data table.
 :::
 
 ::: {.use}
@@ -142,15 +142,15 @@ Here are a few tasks that fit an agent well. None of them needs you to write cod
 :::
 
 ::: {.use}
-**Paper review.** Detailed review of a draft, with agent(s) that checks the numbers, the references, and the argument. It will read literature and place your work in it. Suggest journals. 
+**Paper review.** A detailed review of a draft, with agents that check the numbers, the references and the argument. The agent reads the literature, places your work in it, and suggests journals.
 :::
 
 ::: {.use}
-**Data Analysis.** Download data, clean it, run regressions, make tables and charts, and write a first pass data description report. You check the code and the results.
+**Data analysis.** The agent downloads data, cleans it, runs regressions, makes tables and charts, and writes a first-pass report that describes the data. You check the code and the results.
 :::
 
 ::: {.use}
-**Prototype.** Think of an idea. Get AI do the first pass: literature, data, code, and a draft. You can decide if it's worth your time to continue.
+**Prototype.** You have an idea. The agent does the first pass: literature, data, code and a draft. Then you decide whether it is worth your time to continue.
 :::
 ::::
 
@@ -158,15 +158,37 @@ The agent has limits, too. First, the agent makes mistakes, and it makes them in
 
 Each of these problems has a routine that handles it, and you already know most of them from supervising research assistants and refereeing papers. Part 2 builds them into every step.
 
+## Worried you will break something?
+
+Many people are, and it is a good instinct. Here is why you can relax.
+
+- **Nothing happens without your click.** In Manual mode, where we start, the agent asks before it changes a file or runs anything. When in doubt, click no. Nothing bad follows from a no.
+- **It works in one folder you choose.** Your other files are outside it. If a request ever names another folder, click no and ask why.
+- **Start with copies.** Put copies of your files in the project folder and keep the originals where they are. In the worst case, you delete the folder and start again.
+- **You can stop it at any time.** The stop button interrupts it mid-step.
+- **You can ask before you approve.** *"What does this do? Is it safe? Can it be undone?"* The agent answers in plain language.
+- **You can't run up a bill.** Pro has a fixed monthly price. When you reach the usage limit, the agent pauses until the limit resets, unless you choose to buy extra usage.
+- **Even the Python setup can be undone.** The agent writes down what it installed and how to remove all of it ([Step 1.4](setup.qmd#step-1-4)).
+
 ## What do you need?
 
-- **A paid Claude plan.** Claude Code needs **Claude Pro** or higher (about \$20 a month, cancel any time; see [pricing](https://claude.com/pricing)). A university Claude Team or Enterprise plan also works. **ChatGPT Plus** includes OpenAI's Codex, the closest alternative. Antigravity, with Google's Gemini, is similar. See [Which plan do I need?](setup.qmd#step-1-1) 
+- **A paid Claude plan.** Claude Code needs **Claude Pro** or higher (about \$20 a month, cancel any time; see [pricing](https://claude.com/pricing)). A university Claude Team or Enterprise plan also works. **ChatGPT Plus** includes OpenAI's Codex, the closest alternative. Antigravity, with Google's Gemini, is similar. See [Which plan do I need?](setup.qmd#step-1-1)
 - **A computer** with Windows 10 or 11, macOS, or Linux (Ubuntu or Debian).
 - **Permission to install software.** A university laptop may need IT approval. Try first, and ask if you are blocked.
 
 ## How is the course organized?
 
-The course has six parts. The first two are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration, followed by homework. Parts 4 and 5 are for later: the fourth when you use the agent on your own work, the fifth when you want to try other models. The sixth is a short list of links on where social science research may be heading. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
+The course has six parts and an assignment. The first two parts are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration. The assignment follows it: you read the agent's paper as a referee would, and you improve its prompt with skills. The fourth part is a guide to the weeks after: you make the rules and the skills yours, and you run a project on a question of your own. The fifth is broader advice for later, on other uses and other models. The sixth is a short list of links on where social science research may be heading. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
+
+::: {.callout-tip}
+## Taking this as a two-hour workshop?
+
+**Before the session (at home, about an hour):** Part 1, and Step 2.1.
+
+**In the session (two hours):** at the start we give the agent the World Cup prompt of Part 3, and it works in the background. The first hour is Part 2: we explain a few ideas, you work on Steps 2.2 to 2.4 on your own laptop, and we end with a short debrief. The second hour is Part 3: the prompt, what it leaves out, and what the agent produced.
+
+**After the session (homework):** Steps 2.5 and 2.6 of Part 2, and the [Assignment](assignment.qmd) on the World Cup project folder we share. Part 4 is for the weeks after, and Parts 5 and 6 for later.
+:::
 
 ::::: {.part-card}
 ::: {.part-no}
@@ -211,14 +233,32 @@ One small project on one question: do big events change when babies are born? Th
 
 :::: {.part-body}
 ::: {.part-meta}
-Live demo · then homework
+Live demo
 :::
 
 [[A Paper in 50 Minutes](live-demo.qmd)]{.part-title}
 
-We give the agent a single prompt, "Does the World Cup affect fertility?", and watch it produce a short empirical paper and a slide deck. Then comes your part: go home and study what it left behind, from the paper and the deck to the decision memo, the code and the skills it used.
+We give the agent a single prompt, "Does the World Cup affect fertility?", and watch it produce a short empirical paper and a slide deck. While it works, we look at the prompt: what it asks for, and what it leaves out.
 
-**You end with** a view of a whole project, and practice in reading an agent's work as a referee would.
+**You end with** a view of a whole project, from one prompt to a paper.
+::::
+:::::
+
+::::: {.part-card}
+::: {.part-no}
+A
+:::
+
+:::: {.part-body}
+::: {.part-meta}
+Tasks A.1–A.2 · after the session
+:::
+
+[[Assignment](assignment.qmd)]{.part-title}
+
+Two tasks on the World Cup project. Read what the agent left behind as a referee would: the paper, the decisions memo, the code, the references. Then download six more skills and rewrite the prompt with them, so that the next run checks itself.
+
+**You end with** referee notes on the agent's paper, and a better prompt.
 ::::
 :::::
 
@@ -229,14 +269,14 @@ We give the agent a single prompt, "Does the World Cup affect fertility?", and w
 
 :::: {.part-body}
 ::: {.part-meta}
-At your own pace
+Steps 4.1–4.6 · the weeks after
 :::
 
 [[After the Course](after-the-course.qmd)]{.part-title}
 
-A menu for the weeks after: a better `AGENTS.md`, making the agent write like you, your own skills, a history of every change with Git, and new uses.
+You are home. What next? A guided path that stays with the World Cup project: finish what is open, turn what you found as a referee into rules and skills of your own, then run your improved prompt on your own question and review the result.
 
-**You end with** an agent set up for the way you work.
+**You end with** rules and skills that fit your work, and a first draft on a question from your own field.
 ::::
 :::::
 
@@ -247,14 +287,14 @@ A menu for the weeks after: a better `AGENTS.md`, making the agent write like yo
 
 :::: {.part-body}
 ::: {.part-meta}
-Steps 5.1–5.2 · for self-study
+Broader advice · for self-study
 :::
 
 [[Go Further](go-further.qmd)]{.part-title}
 
-Two steps beyond the course. Use an app that works with any model, so you don't depend on one provider. Then use cheap open-weights models to experiment: a large corpus, repeated runs, a cheap worker with a strong reviewer.
+No steps here, only advice for the time when the agent is part of your work: other things to use it for, making it write like you, an app that works with any model, and which model fits which task.
 
-**You end with** a sense of which tasks need the strongest model, and which don't.
+**You end with** a sense of what else to try, and of which tasks need the strongest model.
 ::::
 :::::
 
@@ -275,16 +315,6 @@ A few links that peek into the future of social science fields: economics, polit
 **You end with** a sense of where research in your field may be heading.
 ::::
 :::::
-
-::: {.callout-tip}
-## Taking this as a two-hour workshop?
-
-**Before the session (at home, about an hour):** Part 1, and Step 2.1.
-
-**In the session (two hours):** at the start we give the agent the World Cup prompt of Part 3, and it works in the background. The first hour is Part 2: we explain a few ideas, you work on Steps 2.2 to 2.4 on your own laptop, and we end with a short debrief. The second hour is Part 3: the ingredients of the prompt, and what the agent produced.
-
-**After the session (homework):** Steps 2.5 and 2.6 of Part 2, and the referee homework of Part 3 on the project folder we share. Parts 4 to 6 are for the weeks after.
-:::
 
 ## A short glossary
 

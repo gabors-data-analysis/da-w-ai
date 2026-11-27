@@ -1,13 +1,13 @@
 ---
 title: "Part 3: A Paper in 50 Minutes"
 subtitle: "Friendly Introduction to Agentic AI for Social Scientists"
-date: "2026-11-13"
+date: "2026-11-27"
 ---
 
 ::::::: {.hero-section}
 :::::: {.container}
 ::: {.hero-eyebrow}
-Part 3 of 6 · live demo, then homework
+Part 3 of 6 · live demo
 :::
 
 ::: {.hero-title}
@@ -15,13 +15,13 @@ A Paper in 50 Minutes
 :::
 
 ::: {.hero-subtitle}
-One prompt, a short empirical paper and a slide deck. Then your part: study what the agent left behind, as a referee would
+One prompt, a short empirical paper and a slide deck. While the agent works, we look at the prompt: what it asks for, and what it leaves out
 :::
 ::::::
 :::::::
 
 ::: {.course-map}
-[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd){.here} [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
+[[⌂]{.n} Overview](index.qmd) [[1]{.n} Setup](setup.qmd) [[2]{.n} First steps](first-steps.qmd) [[3]{.n} A paper in 50 minutes](live-demo.qmd){.here} [[A]{.n} Assignment](assignment.qmd) [[4]{.n} After the course](after-the-course.qmd) [[5]{.n} Go further](go-further.qmd) [[6]{.n} AI in science](ai-in-science.qmd)
 :::
 
 ## What happens in this part?
@@ -30,11 +30,11 @@ In Part 2 we went step by step: one task, one check, then the next task. Here we
 
 The question is close to the one in Part 2: **does the World Cup change the number of births?** In Part 2 you read what researchers found about big events and births. The agent was told to ignore that literature and build its own design. So you come to its paper as a referee who has done the reading.
 
-This part has two halves. First we start the agent and, while it works, we look at the ingredients: the prompt, the rules, the folder, the skills. Then you take the project folder home and study what it produced.
+We start the agent and, while it works, we look at the prompt: what it asks for, and what it leaves out. Your own part comes after the session, in the [Assignment](assignment.qmd).
 
 ::: {.callout-note}
 ## The project folder
-The complete project folder, as the agent left it, will be at [github.com/gabors-data-analysis/world-cup-births-demo](https://github.com/gabors-data-analysis/world-cup-births-demo) after the session. You can read every file there in the browser: the paper, the slides, the decision memo, the code and the data. To work with it, download it with the green **Code** button, then **Download ZIP**.
+We share the complete project folder, as the agent left it, with the participants after the session: the paper, the slides, the decision memo, the code and the data. You will work with it in the [Assignment](assignment.qmd).
 :::
 
 ## What is in the prompt?
@@ -42,39 +42,50 @@ The complete project folder, as the agent left it, will be at [github.com/gabors
 Here is the prompt, exactly as we gave it, typos included.
 
 ```` default
-Does the World Cup affect fertility? Let us write an economics paper that investigates the causal effect of football world cups on birth rates. The paper should be interesting for behavioural and labor economists. This could be mean thinking about how world cups are an allegory for something more general. Make sure we think about key mechanism(s).
+## about
 
-1. Setup: Use /newproject to set up the folder.
-2. Data: Find fertility data around the globe. Collect multiple sources from many many countries. Find football world cup data.
-3: Methods: Use well designed econometrics and credible identification strategies.
-4. Review: Use \blindspot to check what you have done, make a review if necessary. Use \referee2 to check.
-5. Exhibits: Make beatiful graphs and tables as exhbits -- you'll use them in a presentation and in a paper.
-6. Output1: Write an academic paper I can submit to a journal like JEBO. It should be 10-15 pages + references. It should have 8-15 references. \bibcheck
-7. Output2: Use \beautiful_deck to turn paper into slides.
-8. Decisions_md: create an internal memo that is a list with all key decisions you made, could be about story, mechanisms, identification strategy, model specification, data use and so on. When (if) relevant the file should include debates among your agents, disagreements, and how a decision was reached .
+Does the World Cup affect fertility? 
 
-There may be papers, dissertations, blogposts on this. Disregard them, don't read them, don't cite them at this initial stage.
+Let us write an economics paper that investigates the causal effect of football world cups on birth rates. 
+
+The paper should target an economics journal. But make it digestible for other social scientists especially in terms of the context and contribution. 
+
+Maybe frame it such that  world cups are an allegory for something more general. 
+
+## tasks
+
+1. Setup: Use current folder to set up folder structure. 
+2. Data: Find fertility across countries. Find football world cup data. save raw data. 
+3. Methods: Use well designed econometrics and credible identification strategies. Make sure we think about key mechanism(s). 
+4. Exhibits: Make beatiful graphs and tables as exhbits -- you'll use them in a presentation and in a paper. 
+5. You can use Python or R. Just ensure nice human readable codebase. Install python / R packages when needed. 
+6. Output1: Write an academic paper. It should be 10-15 pages + references. It should have 8-15 references. 
+7. Output2: Turn paper into slides. Create PDF slide deck.  
+8. Decisions_md: create an internal memo that is a list with all key decisions you made, could be about story, mechanisms, identification strategy, model specification, data use and so on. When (if) relevant the file should include debates among your agents, disagreements, and how a decision was reached.
+9. There may be papers, dissertations, blogposts on this exact task. Disregard them, don't read them, don't cite them at this initial stage. You can collect them, store them, just don't use or build on them.
 ````
 
-Note what it specifies: a question, an audience, eight steps in order, the outputs, and a log of decisions. Note also what it leaves open: which data, which countries, which years, which method. Each of those is a choice the agent has to make on its own.
+Note what it specifies: a question, an audience, nine tasks, the outputs, and a memo of decisions. Note also what it leaves open: which data, which countries, which years, which method. Each of those is a choice the agent has to make on its own.
 
-## What are the ingredients?
+Some of the tasks do the work of rules. *Save raw data* keeps the originals. *Human readable codebase* asks for code you can follow. The decisions memo is the `DECISIONS.md` of Part 2. And the last task tells the agent to ignore the existing literature, so that the design is its own.
 
-The prompt is short because most of the work is set up elsewhere. Four ingredients do the rest.
+## What is not in the prompt?
 
-**The rules file.** The project has a `CLAUDE.md`: Claude Code's own name for the same kind of file as your `AGENTS.md`. It holds the research rules: identification first, raw data is never changed, every dataset gets a source and a date, every number in the paper comes from a script, report null results plainly, and never invent data or references.
+In Part 2 the agent worked with standing rules (`AGENTS.md`) and with skills. Here we left both out, to see what a bare prompt gives. The agent starts in an empty folder: there is no rules file, and the prompt calls no skill.
 
-**The folder structure.** Separate folders for raw and clean data, code, outputs, the paper, the slides, notes and progress logs. It is the structure of your `first-project`, a bit larger. A clear structure helps the agent as much as it helps you.
+Three things are missing, and it is worth noticing them before the agent starts.
 
-**The skills.** The prompt calls five skills that we wrote for our own research. You don't have them, and you don't need them to follow the demo. Each is a recipe, like `read-pdf` in Step 2.1, only longer.
+**A stop.** The prompt never says "show me the plan and wait". The agent chooses the data, the sample and the method, and goes on.
 
-- `/newproject` sets up the folder, the rules file and a README.
-- `/blindspot` looks at the results with fresh eyes, for problems hiding in plain sight and for things that were missed.
-- `/referee2` audits the work as a second referee would: it replicates the analysis in another language and checks the econometrics.
-- `/bibcheck` checks every reference: that the DOI opens and that author, title, journal and year belong to the same paper.
-- `/beautiful_deck` turns the paper into a slide deck.
+**A review.** Nobody reads the results with fresh eyes before the paper is written, and nobody reruns the code after it. In Step 2.5 we asked a new session to review a one-page memo. Here a whole paper gets no review.
 
-**The logs.** A decision memo with every key choice, and progress logs that let a new session continue where the last one stopped. These are the `DECISIONS.md` and `status.md` of Part 2, at a larger scale.
+**A check of the references.** The prompt asks for 8 to 15 references, and it does not ask the agent to verify any of them.
+
+True, the agent may do some of this on its own. But what a prompt doesn't ask for, you can't count on. In the [Assignment](assignment.qmd) you will put these pieces back, with skills.
+
+## What does the agent leave behind?
+
+A project folder, in the structure it chose: the raw and the cleaned data, the scripts, the charts and tables, the paper, the slide deck, the decisions memo and a README. It is close to the structure of your `first-project`, a bit larger. Follow how it fills up during the demo.
 
 ## What is a 50-minute paper worth?
 
@@ -96,29 +107,10 @@ Four things are worth following as the agent works.
 
 **The files.** Follow what gets written where: data, code, outputs, the decision memo, the paper.
 
-## Your homework: read the project as a referee would
+## What comes next?
 
-Download the project folder and open it in the Code tab, in Manual mode. Then go through what the agent left behind. We advise this order. Your own agent can help along the way: ask it to explain any file in plain language.
-
-1. **The prompt.** Read it again, slowly. What did it specify, and what did it leave open? Everything left open is a choice the agent had to make.
-2. **The paper.** Read it as a referee. Mark three claims you would question.
-3. **The literature.** Compare the paper's main finding with your extracts from Step 2.3. Does it agree with the papers you read? Where it differs, can you see why: other countries, other years, another kind of event, another method?
-4. **The decision memo.** Which choices were the agent's own? Which would you have made differently, and could any of them change the main result?
-5. **The code and the checks.** You don't need to read the code line by line. Read the comment at the top of each script, look at which checks were run, and ask your agent to explain one script.
-6. **The slide deck.** Compare it with the paper. Does it make the same claims, with the same numbers?
-7. **The rules and the skills.** Look at `CLAUDE.md` and the reviews that `/blindspot` and `/referee2` wrote. Which rules shaped the work? Which would you copy into your own `AGENTS.md`?
-8. **One number, traced back.** Pick one number from the abstract. Find it in a table, then in the script that made the table, then in the raw data.
-
-::: {.check}
-**You are done when** you can write half a page, as a referee would: what the paper claims, how it squares with the literature, what you checked, and what would have to change before you put your name on it.
-:::
-
-## And then?
-
-Try it on your own question. Take the prompt, replace the topic with one from your field, drop the skills you don't have, and run it in a new project folder. Use the routines of Part 2: Manual mode, read-only originals, checks agreed in advance, and a review in a fresh session.
-
-The first attempt won't be a paper you can submit. But you will see, on a question you know well, what the agent does well and where it needs you.
+The demo ends when the agent stops. Your part starts there, at home, with the [Assignment](assignment.qmd). First you read the project folder as a referee would. Then you improve the prompt with skills, so that the next run gets the stop, the review and the reference check that this one did not have.
 
 ::: {.next-part}
-[Continue with Part 4: After the Course →](after-the-course.qmd)
+[Continue with the Assignment →](assignment.qmd)
 :::
