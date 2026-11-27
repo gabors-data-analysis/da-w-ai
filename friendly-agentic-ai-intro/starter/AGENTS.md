@@ -29,8 +29,8 @@ When the agent makes the same mistake twice, add a line here.
 - Never change anything in `data/raw/`. Raw data stays as it arrived.
 - Never overwrite a Word, Excel or PDF file I gave you. Save your changes as a new
   file with `_v2` (or the next number) at the end of the name.
-- Install Python packages only inside this project's environment (`.venv`).
-  Ask before installing anything for the whole computer.
+- Install Python packages only in this project's environment (`.venv`, or where
+  `docs/SETUP-NOTES.md` says it is). Ask before installing anything for the whole computer.
 - Do not upload my files or data to any website or online service.
 
 ## Data and numbers

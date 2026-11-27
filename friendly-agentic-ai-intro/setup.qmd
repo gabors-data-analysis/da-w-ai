@@ -233,11 +233,22 @@ Copy this prompt into the agent:
 I have never used Python. Please set up Python for this project folder.
 
 - Use uv (a modern Python installer) to install Python and create an environment for this project only. Do not change anything else on my computer without asking.
+- If this folder is in Dropbox, OneDrive or Google Drive, keep the environment outside it, and tell me where you put it.
 - Before each command, tell me in one sentence what it does.
 - Install these packages: pandas, matplotlib, openpyxl, pyreadstat, pymupdf, python-docx, pypandoc-binary, requests.
 - Test it: write a short script code/00_test.py that makes a simple bar chart of five made-up numbers and saves it as output/test_chart.png. Run it.
 - Finally write docs/SETUP-NOTES.md: what you installed, where it lives, how to run a script, and how to undo all of it.
 ```
+:::
+
+::: {.callout-note}
+## Python goes outside the folder, and that is fine
+
+Python is a program, like Word or Typora. Like any program, it is installed on your computer, not in your project folder. So in this step the agent will ask to write outside `first-project`, for example into a folder of your user account. That is expected. Read the one-sentence explanation, and click **Allow once** for each step of the installation.
+
+If your project folder is in Dropbox, OneDrive or Google Drive, the agent will also propose to keep the project's *environment* outside it. The environment is the project's own set of Python add-ons: thousands of small files. Syncing them slows the cloud service down and can break the environment. Accept this proposal too. Your own files, the data, code and notes, stay in the project folder, and `docs/SETUP-NOTES.md` records where everything else went.
+
+This is the one time we expect the agent to work outside the folder. Later, a request to go outside it deserves a question ([Step 2.1](first-steps.qmd#step-2-1)).
 :::
 
 What do the packages do? **pandas** handles data tables, **matplotlib** draws charts, **openpyxl** reads Excel, **pyreadstat** reads Stata and SPSS files, **pymupdf** reads PDFs, **python-docx** reads and edits Word files, **pypandoc-binary** converts between Markdown and Word, and **requests** downloads data from the web.
@@ -262,7 +273,7 @@ Already use Stata or R? Keep using them for your analysis: the agent can write a
 
 Keep them. You only need to decide which language does what.
 
-**Python stays, as the agent's toolkit.** The skills of Part 2 read PDF and Word files with Python, and so does the review loop of Step 2.5. So do Step 1.4 as written. Python lives in the project's `.venv` folder and doesn't touch your R setup.
+**Python stays, as the agent's toolkit.** The skills of Part 2 read PDF and Word files with Python, and so does the review loop of Step 2.5. So do Step 1.4 as written. Python lives in its own environment and doesn't touch your R setup.
 
 **R does the analysis.** Change one line in `AGENTS.md`. Replace
 
@@ -286,7 +297,7 @@ Find Rscript on this computer and tell me which version of R it is. Add its full
 
 **Keep RStudio as your editor.** Open the agent's `.R` scripts in RStudio, run them line by line and change them as you always do. If you change a script, tell the agent, so it knows your version is the one that counts.
 
-**Optional: renv.** If you use `renv`, R's way of keeping a separate set of packages for each project, ask the agent to set it up for this folder. It does for R what `.venv` does for Python.
+**Optional: renv.** If you use `renv`, R's way of keeping a separate set of packages for each project, ask the agent to set it up for this folder. It does for R what the environment of Step 1.4 does for Python.
 
 The data task of Step 2.6 then comes out in R.
 ::::

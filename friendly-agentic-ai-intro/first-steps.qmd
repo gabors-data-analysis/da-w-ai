@@ -132,7 +132,7 @@ In short, `AGENTS.md` says: plan before longer tasks, do the smallest thing that
 ::: {.in-charge}
 **Staying in charge: set the limits**
 
-The folder is a boundary. In Manual mode the agent asks before it reads or changes any file outside the project folder, and before it runs any command. Commands are the one gap: an approved command can reach anything you can. So read the paths before you allow a step. Do you see a folder outside your project, such as `C:\Users\you\Desktop` or `~/Documents/other-project`? Click **Deny** and ask: *"Why do you need to go outside the project folder?"*
+The folder is a boundary. In Manual mode the agent asks before it reads or changes any file outside the project folder, and before it runs any command. Commands are the one gap: an approved command can reach anything you can. So read the paths before you allow a step. Do you see a folder outside your project, such as `C:\Users\you\Desktop` or `~/Documents/other-project`? Click **Deny** and ask: *"Why do you need to go outside the project folder?"* Installing a program, as in Step 1.4, is the exception.
 
 `AGENTS.md` adds a rule on top: work only inside this folder, and ask before going outside it.
 

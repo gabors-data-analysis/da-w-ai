@@ -327,7 +327,7 @@ A few links that peek into the future of social science fields: economics, polit
 - **`AGENTS.md`:** your standing instructions, which the agent reads at the start of every session.
 - **Skill:** a recipe file the agent follows for one type of task.
 - **Terminal:** a text window for typing commands. The agent uses one behind the scenes. You don't have to.
-- **Environment (Python):** a project's own copy of Python and its add-ons, kept in the `.venv` folder.
+- **Environment:** a word with two meanings in this course. In the app, it is *where* the agent works: on this computer, or elsewhere (Step 1.2). For Python, it is a project's own set of add-ons, usually in a folder called `.venv` (Step 1.4).
 - **Harness:** a word you will hear later. It is the program around the model that gives it these abilities. Claude Code is one.
 
 ## Useful links
