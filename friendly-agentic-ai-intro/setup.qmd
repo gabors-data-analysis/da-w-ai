@@ -84,7 +84,7 @@ The download page is [claude.com/download](https://claude.com/download). The lin
 
 ::: {.panel-tabset}
 #### Windows
-1. Download the installer: [Claude for Windows](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect). (On a Surface or other ARM laptop, use the [ARM64 installer](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect).)
+1. Download the installer: [Claude for Windows](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect). (Some newer Windows laptops need a different installer. If **Settings → System → About** says *ARM-based processor*, use [this one](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect).)
 2. Run the downloaded file. If Windows shows a blue "Windows protected your PC" box, click **More info → Run anyway**.
 3. Open **Claude** from the Start menu and sign in with your Claude account.
 
@@ -116,7 +116,7 @@ Two agents work much like Claude Code. Most of this course carries over: the pro
 1. Install the ChatGPT desktop app, which now includes Codex. OpenAI's [instructions](https://learn.chatgpt.com/codex/app) have the download links. On Windows it comes from the Microsoft Store.
 2. Sign in with your ChatGPT account and open Codex.
 3. Open your project folder, and start with the setting that asks before every action.
-4. Codex reads `AGENTS.md` by itself, so our starter file works as it is. Skills live in a different folder: ask Codex where to put them.
+4. Codex reads `AGENTS.md` by itself, so our starter file works as it is. Codex keeps skills in a different folder: ask Codex where to put them.
 
 **Antigravity, by Google.** It runs Google's Gemini models. It is free to start, with weekly limits; Google AI Pro raises them. It looks more like a programmer's editor than a chat window.
 
@@ -130,13 +130,15 @@ In both, the prompts of this course work as they are. The menus and the names of
 
 ## [1.2]{.step-no} Make a project folder {#step-1-2}
 
-The agent works inside **one folder**. Think of it as the desk you give to a new research assistant: what is on the desk, they can read and work on. What is not, they can't. Everything for a project lives there: data, code, notes, drafts, outputs. It is good practice to use a new folder for each project.
+The agent works inside **one folder**. Think of it as the desk you give to a new research assistant: what is on the desk, they can read and work on. What is not, they can't. Everything for a project goes there: data, code, notes, drafts, outputs. It is good practice to use a new folder for each project.
 
 1. In your **Documents** folder, or in your Dropbox (see the box below), create a folder called `ai-projects`, and inside it a folder called `first-project`.
 2. Use short names without spaces or accents (`first-project`, not `My First Project (ÁÉ)`). Programs handle plain names better.
-3. Show file extensions, so you can tell `.md`, `.csv`, `.py` and `.docx` files apart.
+3. Show file extensions: the letters after the dot in a file name, which tell you the type of the file (`.docx` is Word, `.md` is Markdown, `.csv` is a data table, `.py` is a Python script).
     - *Windows:* in File Explorer, click **View → Show → File name extensions**.
     - *Mac:* in Finder, open **Finder → Settings → Advanced** and tick **Show all filename extensions**.
+
+The address of a file or folder on your computer is called its **path**. It lists the folders you go through to reach it, for example `C:\Users\anna\Documents\ai-projects\first-project` on Windows, or `/Users/anna/Documents/ai-projects/first-project` on a Mac. You will see paths in the agent's questions: they tell you where it wants to read or write.
 
 ::: {.callout-tip}
 ## Put the folder in Dropbox
@@ -148,7 +150,7 @@ Git and GitHub do the same job more precisely, with a saved snapshot after each 
 **Open the folder in Claude.** In the Code tab, look at the row of controls under the prompt box. Your screen should look roughly like this.
 
 ::: {.ui-shot}
-![The Code tab, ready to start. Under the prompt box, from the left: the environment (*This computer*) and the folder. On the right: the model picker, which shows the model and its effort (*Opus 5.5*, *Medium*), then the permission mode and the usage ring.](assets/claude1.png){fig-alt="The Claude Code tab with an empty prompt box. Under it, on the left, a control reading This computer and a folder control; on the right, the model Opus 5.5, the effort Medium, the permission mode and a small usage ring. A Choose environment button is in the middle of the screen."}
+![The Code tab, ready to start. Under the prompt box, from the left: the environment (*This computer*) and the folder. On the right: the model picker, which shows the model and its effort, how hard it thinks (*Opus 5.5*, *Medium*; leave both as they are), then the permission mode and the usage ring.](assets/claude1.png){fig-alt="The Claude Code tab with an empty prompt box. Under it, on the left, a control reading This computer and a folder control; on the right, the model Opus 5.5, the effort Medium, the permission mode and a small usage ring. A Choose environment button is in the middle of the screen."}
 :::
 
 Two controls on the left matter now.
@@ -164,14 +166,14 @@ If the middle of the screen says **Choose environment**, or the app asks you to 
 
 1. Keep the **Local** tab: the agent works on your computer. The other tabs are for running it in the cloud or on another computer, or for reaching it from elsewhere. We don't need them.
 2. Give the environment a **Name**, such as `first-project`.
-3. Under **Folders**, click **+ Add** and pick your `first-project` folder. *Not a Git repository* next to it is fine: Git comes later, if at all ([Step 4.4](after-the-course.qmd#step-4-4)).
+3. Under **Folders**, click **+ Add** and pick your `first-project` folder. *Not a Git repository* next to it is fine. Git is a tool that keeps a history of a folder, and the label only says that you don't use it. It comes later, if at all ([Step 4.4](after-the-course.qmd#step-4-4)).
 4. Leave **Environment variables** alone, and click **Create environment**.
 
 Then check the row under the prompt box: it should show your folder, or the environment you just created with your folder in it. If it shows another folder, click it and choose yours. Still lost? Ask the AI, as the box at the top of this page shows.
 
 ::: {.callout-warning}
 ## What not to put in the folder (yet)
-The agent sends what it reads to Anthropic's servers. So keep confidential material out of the folder until you have checked your data agreement: interview recordings and transcripts, identifiable survey data, health records, anything under a data-use agreement, other people's unpublished work.
+The agent sends what it reads to the servers of Anthropic, the company that makes Claude. So keep confidential material out of the folder until you have checked your data agreement: interview recordings and transcripts, identifiable survey data, health records, anything under a data-use agreement, other people's unpublished work.
 
 In the EU, the GDPR applies: interview transcripts and survey answers about people who can be identified are personal data, even when names are replaced by codes, and sending them to an AI company needs a legal basis and safeguards. Only fully and irreversibly anonymised data falls outside it. Ask your university's data protection officer before using such material, and see the European Commission's [What is personal data?](https://commission.europa.eu/law/law-topic/data-protection/reform/what-personal-data_en).
 
@@ -193,7 +195,7 @@ Leave **Bypass permissions** alone: it switches off the questions altogether.
 
 The choice is yours, and you can change it at any time, in the middle of a session too. We advise **Manual** for this course and for your first week. True, it is slower. But you see every step, and you learn what the agent does. Later, Auto saves a lot of clicks. Its check cuts the questions, but the [documentation](https://code.claude.com/docs/en/permission-modes) says plainly that it does not guarantee safety. So go back to Manual when the work matters.
 
-Next to the permission mode is the model picker. Leave the default for now: we come back to it in [Which model should you use?](#which-model)
+Next to the permission mode is the model picker. Leave the model that is already selected: we come back to it in [Which model should you use?](#which-model)
 
 Type this and press Enter:
 
@@ -222,9 +224,9 @@ Note the second one. With a chatbot, you would get a new version in the conversa
 
 ## [1.4]{.step-no} Let the agent set up Python {#step-1-4}
 
-This is the most technical step of the course, and you don't need to follow the details. It takes five to ten minutes. Read the one-sentence explanation before each command, then click **Allow once**.
+This is the most technical step of the course, and you don't need to follow the details. It takes five to ten minutes. The agent works by running *commands*: one-line instructions to the computer, such as "install Python". Read the one-sentence explanation before each command, then click **Allow once**.
 
-**Why Python, if you work with text?** The agent uses small Python programs as its tools: to read Word and PDF files, to convert formats, to handle large datasets and to draw charts. Python is free, it runs on every computer, and AI models write it well. You won't write any of it yourself.
+**Why Python, if you work with text?** The agent writes small Python programs and uses them as its tools. Such a program is called a **script**: a text file of instructions that the computer carries out, one after the other. The agent uses scripts to read Word and PDF files, to convert formats, to handle large datasets and to draw charts. Python is free, it runs on every computer, and AI models write it well. You won't write any of it yourself.
 
 Copy this prompt into the agent:
 
@@ -237,7 +239,7 @@ I have never used Python. Please set up Python for this project folder.
 - Before each command, tell me in one sentence what it does.
 - Install these packages: pandas, matplotlib, openpyxl, pyreadstat, pymupdf, python-docx, pypandoc-binary, requests.
 - Test it: write a short script code/00_test.py that makes a simple bar chart of five made-up numbers and saves it as output/test_chart.png. Run it.
-- Finally write docs/SETUP-NOTES.md: what you installed, where it lives, how to run a script, and how to undo all of it.
+- Finally write docs/SETUP-NOTES.md: what you installed, where it is, how to run a script, and how to undo all of it.
 ```
 :::
 
@@ -246,12 +248,12 @@ I have never used Python. Please set up Python for this project folder.
 
 Python is a program, like Word or Typora. Like any program, it is installed on your computer, not in your project folder. So in this step the agent will ask to write outside `first-project`, for example into a folder of your user account. That is expected. Read the one-sentence explanation, and click **Allow once** for each step of the installation.
 
-If your project folder is in Dropbox, OneDrive or Google Drive, the agent will also propose to keep the project's *environment* outside it. The environment is the project's own set of Python add-ons: thousands of small files. Syncing them slows the cloud service down and can break the environment. Accept this proposal too. Your own files, the data, code and notes, stay in the project folder, and `docs/SETUP-NOTES.md` records where everything else went.
+If your project folder is in Dropbox, OneDrive or Google Drive, the agent will also propose to keep the project's *environment* outside it. The environment is the project's own set of Python add-ons: thousands of small files. Copying them to the cloud again and again slows the service down, and can break the environment. Accept this proposal too. Your own files, the data, code and notes, stay in the project folder, and `docs/SETUP-NOTES.md` records where everything else went.
 
 This is the one time we expect the agent to work outside the folder. Later, a request to go outside it deserves a question ([Step 2.1](first-steps.qmd#step-2-1)).
 :::
 
-What do the packages do? **pandas** handles data tables, **matplotlib** draws charts, **openpyxl** reads Excel, **pyreadstat** reads Stata and SPSS files, **pymupdf** reads PDFs, **python-docx** reads and edits Word files, **pypandoc-binary** converts between Markdown and Word, and **requests** downloads data from the web.
+A *package* is a free add-on that gives Python one more ability. What do these do? **pandas** handles data tables, **matplotlib** draws charts, **openpyxl** reads Excel, **pyreadstat** reads Stata and SPSS files, **pymupdf** reads PDFs, **python-docx** reads and edits Word files, **pypandoc-binary** converts between Markdown and Word, and **requests** downloads data from the web.
 
 ::: {.check}
 **It worked if** `output/test_chart.png` shows a bar chart. Keep `docs/SETUP-NOTES.md`: when something breaks months later, show it to the agent first.
@@ -260,8 +262,8 @@ What do the packages do? **pandas** handles data tables, **matplotlib** draws ch
 ::: {.callout-tip collapse="true"}
 ## If something goes wrong here (click to open)
 
-- **Windows:** if the agent says it needs **Git**, install [Git for Windows](https://git-scm.com/downloads/win) with the default options, restart the Claude app, and ask the agent to continue.
-- **Mac:** a window may ask to install **command line developer tools**. Click Install, wait a few minutes, then tell the agent to continue.
+- **Windows:** if the agent says it needs **Git**, install [Git for Windows](https://git-scm.com/downloads/win), accepting the options the installer suggests, restart the Claude app, and ask the agent to continue.
+- **Mac:** a window may ask to install **command line developer tools**. These are free tools from Apple that the installation needs, and they are safe to install. Click Install, wait a few minutes, then tell the agent to continue.
 - **"Command not found" right after an install:** quit the Claude app fully and open it again.
 - In every case, paste the error into the chat and ask: *"What went wrong? Explain simply, then fix it."*
 :::
@@ -273,7 +275,7 @@ Already use Stata or R? Keep using them for your analysis: the agent can write a
 
 Keep them. You only need to decide which language does what.
 
-**Python stays, as the agent's toolkit.** The skills of Part 2 read PDF and Word files with Python, and so does the review loop of Step 2.5. So do Step 1.4 as written. Python lives in its own environment and doesn't touch your R setup.
+**Python stays, because the agent uses it as a tool.** The skills of Part 2 read PDF and Word files with Python, and so does the review loop of Step 2.5. So do Step 1.4 as written. Python is kept in its own environment, apart from R, and changes nothing in your R setup.
 
 **R does the analysis.** Change one line in `AGENTS.md`. Replace
 
@@ -287,7 +289,7 @@ with
 - Use R for data analysis, tables and charts. Use Python only for reading and converting PDF and Word files.
 ```
 
-**Make sure the agent finds R.** The agent doesn't work through RStudio. It runs R scripts with `Rscript`, the command-line version of R. On Windows, R is often not on the system path, and then the agent can't find it. Ask once:
+**Make sure the agent finds R.** The agent doesn't work through RStudio. It runs R scripts with `Rscript`, a part of R that runs a script without opening a window. On Windows, other programs are often not told where R is installed, and then the agent can't find it. Ask once:
 
 ::: {.prompt}
 ``` default
@@ -311,8 +313,12 @@ To read Markdown as formatted text, install **[Typora](https://typora.io/)**. It
 A free alternative is **[Zettlr](https://zettlr.com/)**, made for academic writing. It is open source, runs on Windows, Mac and Linux, and exports to Word.
 
 1. Download and install Typora from [typora.io](https://typora.io/).
-2. Open `hello.md` from Step 1.3 in Typora (right-click the file → **Open with** → Typora). It should look like a formatted document.
-3. Make Typora the default program for `.md` files, so a double-click opens it.
+2. **Open Typora once**, from the Start menu or from Applications, then close it. Until it has been opened once, your computer may not offer it for `.md` files.
+3. Open `hello.md` from Step 1.3 in Typora: right-click the file, then **Open with** → Typora. It should look like a formatted document.
+4. Make Typora the program that opens `.md` files, so a double-click is enough.
+    - *Windows:* right-click the file, **Open with** → **Choose another app**, pick Typora, and click **Always**.
+    - *Mac:* right-click the file, **Get Info**, choose Typora under **Open with**, and click **Change All**.
+    - Or ask the agent: *"Help me make Typora the program that opens .md files."*
 
 ::: {.callout-note}
 ## If you write code, or plan to
@@ -334,7 +340,7 @@ Our advice is simple. **Start with the default, and change only when you have a 
 | **Haiku** (5.5) | The smallest and fastest | One simple step repeated many times, such as sorting short texts into categories | a small fraction |
 | **Fable** (5.2) | The strongest model, and the slowest | The hardest and longest tasks: a whole project from one prompt, as in [Part 3](live-demo.qmd), or the review of a finished paper | about twice |
 
-The price column compares Anthropic's list prices per unit of text with Opus (November 2026). With a subscription you don't pay per task, but the price shows up in another way: the stronger the model, the faster you reach your usage limit. Fable is special. On the Pro plan it is paid from usage credits, and on Max it is included up to half of your weekly limit. Model names and versions change every few months, so the picker may show newer ones.
+The price column compares Anthropic's list prices per unit of text with Opus (November 2026). With a subscription you don't pay per task, but the price shows up in another way: the stronger the model, the faster you reach your usage limit. Fable is special. On the Pro plan it is not part of your usage limit: it is paid from usage credits, extra usage you pay for separately. On Max it is included up to half of your weekly limit. You don't need Fable for this course. Model names and versions change every few months, so the picker may show newer ones.
 
 When should you change?
 
@@ -357,7 +363,7 @@ Two more points matter for researchers.
 - **Long sessions.** What the model can see at once is limited, and a long session fills it up. Start a new session for each task. Part 2 shows how to carry over what matters.
 :::
 
-Want to use models from other companies, such as cheaper open-weights models? See [Part 5](go-further.qmd#which-model-for-which-task). For a comparison of the main models, see [Which AI model](../da-knowledge/which-ai.qmd) in the knowledge base.
+Want to use models from other companies, such as cheaper models that anyone may download and run (*open-weights* models)? See [Part 5](go-further.qmd#which-model-for-which-task). For a comparison of the main models, see [Which AI model](../da-knowledge/which-ai.qmd) in the knowledge base.
 
 ## Troubleshooting
 

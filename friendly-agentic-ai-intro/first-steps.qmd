@@ -83,7 +83,7 @@ Each session starts from zero: the agent doesn't remember yesterday. So it is go
 The second tool is a **skill**: a recipe for one type of task, written as a Markdown file called `SKILL.md` in its own folder. The agent uses a skill when the task matches its description, or when you type `/` and its name. We start with two.
 
 - **`read-pdf`** makes the agent extract a PDF's text to a `.txt` file first and work from that, with page numbers. This prevents the most common failure with PDFs: answering from a partly read document without saying so.
-- **`decision-log`** records every analytical choice in a file called `DECISIONS.md`: dropped observations, variable definitions, methods. For each choice it notes the alternatives and the basis: evidence, convention, your instruction, or just a default.
+- **`decision-log`** records every analytical choice in a file called `DECISIONS.md`: cases left out, how variables are defined, which methods are used. For each choice it notes the alternatives and the basis: evidence, convention, your instruction, or simply the usual choice, made without a particular reason.
 
 We prepared both, and a starter `AGENTS.md`. One prompt sets everything up:
 
@@ -132,7 +132,7 @@ In short, `AGENTS.md` says: plan before longer tasks, do the smallest thing that
 ::: {.in-charge}
 **Staying in charge: set the limits**
 
-The folder is a boundary. In Manual mode the agent asks before it reads or changes any file outside the project folder, and before it runs any command. Commands are the one gap: an approved command can reach anything you can. So read the paths before you allow a step. Do you see a folder outside your project, such as `C:\Users\you\Desktop` or `~/Documents/other-project`? Click **Deny** and ask: *"Why do you need to go outside the project folder?"* Installing a program, as in Step 1.4, is the exception.
+The folder is a boundary. In Manual mode the agent asks before it reads or changes any file outside the project folder, and before it runs any command. Commands are the one gap: an approved command can reach anything you can. So read the paths before you allow a step. Do you see a folder outside your project, such as `C:\Users\you\Desktop` or `/Users/you/Documents/other-project`? Click **Deny** and ask: *"Why do you need to go outside the project folder?"* Installing a program, as in Step 1.4, is the exception.
 
 `AGENTS.md` adds a rule on top: work only inside this folder, and ask before going outside it.
 
@@ -198,7 +198,7 @@ Add them to docs/readings/SOURCES.md, marked "found by the agent". If you cannot
 :::
 
 ::: {.check}
-**It worked if** the six papers open as papers in your PDF reader, and `SOURCES.md` lists them. If you ran the search, check the three new papers yourself: open each DOI in your browser and see that it leads to that paper.
+**It worked if** the six papers open as papers in your PDF reader, and `SOURCES.md` lists them. If you ran the search, check the three new papers yourself: open each DOI (the paper's permanent ID, such as `10.1007/s00148-008-0219-2`) by typing `https://doi.org/` followed by the DOI into your browser, and see that it leads to that paper.
 :::
 
 Why the check that each file is really a PDF? When we prepared this pack, two of the downloads "succeeded" but saved a web page instead of a paper: one asked to enable JavaScript, the other said *Oh no!*. Both files were called `.pdf`. An agent that doesn't check would happily summarize them.
@@ -239,9 +239,9 @@ Why the fuss about quotes? Summarizing is what these models do best, and the tab
 ::: {.in-charge}
 **Staying in charge: agree the checks before the work**
 
-For work with text, three checks cover most mistakes: every quote is found word for word at the page given, every reference is a file in the folder or has a DOI that opens, and every number matches the table it comes from. For data, the checks are counts of observations, duplicates, value ranges and missing values (Step 2.6).
+For work with text, three checks cover most mistakes: every quote is found word for word at the page given, every reference is a file in the folder or has a DOI that opens, and every number matches the table it comes from. For data, the checks are how many cases there are, whether any appear twice, whether the values are plausible, and which are missing (Step 2.6).
 
-Then let the agent report by exception: it runs the agreed checks and tells you only about failures. But "no problems found" means only that the agreed checks passed. Keep your own hand check of two quotes. It takes five minutes, and it is the one check that doesn't depend on the agent.
+Then the agent can report only what fails: it runs the agreed checks and tells you about the failures. But "no problems found" means only that the agreed checks passed. Keep your own hand check of two quotes. It takes five minutes, and it is the one check that doesn't depend on the agent.
 :::
 
 ## [2.4]{.step-no} Ask the papers questions {#step-2-4}
@@ -367,6 +367,8 @@ For anything that matters, add a second pair of eyes. The session that wrote a t
 [After class · a separate assignment]{.when .later}
 
 This is a separate assignment. It leaves the papers behind: a new question, and numbers this time. The question is simple: in EU countries where more women work, do women also hold more seats in parliament? If you don't work with data, you may skip this step. Part 3 shows data work at a much larger scale.
+
+The agent gets the data from the World Bank's *API*: a way for a program to fetch data straight from a website. Some APIs ask for a key, a kind of password. The World Bank's does not.
 
 Start a new session and, before you send the prompt, switch the permission mode to **Plan**.
 

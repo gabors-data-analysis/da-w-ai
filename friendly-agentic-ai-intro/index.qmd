@@ -38,11 +38,11 @@ When I say you should **experiment** with agentic AI, I hear two typical reactio
 
 *"I don't need this."* Maybe. The course lets you find out on your own material. You remain in charge, and you decide how much to delegate. You will see what an agent can do and how to supervise it. At the very least, you get a glimpse.
 
-We use one tool: **Claude Code, in the Claude desktop app**, on Windows, Mac or Linux. Codex by OpenAI is the most similar, and what you learn here carries over fully. Antigravity, with Google's Gemini, is also similar, and there are close alternatives that run open-weights models. But when learning, one tool is enough.
+We use one tool: **Claude Code, in the Claude desktop app**, on Windows, Mac or Linux. Codex by OpenAI is the most similar, and what you learn here carries over fully. Antigravity, with Google's Gemini, is also similar, and there are close alternatives that run free models, which anyone may download. But when learning, one tool is enough.
 
 ## What is an AI agent?
 
-Let's start with what you know. **A chatbot** is a conversation in a browser. You paste in a text or upload a file, it answers, and you copy the answer back into your document. It knows only what you gave it in that conversation. It mostly relies on information it "remembers" from its training, which can be wrong. It cannot read your files, run code, or save results.
+Let's start with what you know. **A chatbot** is a conversation in a browser. You paste in a text or upload a file, it answers, and you copy the answer back into your document. It knows only what you gave it in that conversation. It mostly relies on information it "remembers" from its training, which can be wrong. It cannot read your files, run a program, or save results.
 
 **An agent** is the same AI model with four additions. First, it has access to **folders** on your computer: the ones you allow. Second, it can **act** there: open files, write and run program code, save results. Third, it works in a **loop**: it takes a step, looks at the result and decides on the next one, until the task is done or it needs you. Fourth, it can **use tools**: open a browser, or call other programs such as Microsoft Word.
 
@@ -113,7 +113,7 @@ Let's start with what you know. **A chatbot** is a conversation in a browser. Yo
 </figure>
 ```
 
-The loop makes the difference. Suppose you ask for *a chart of turnout by age group from survey.csv*. A chatbot needs the file uploaded and may guess what the columns mean. The agent does the following:
+The loop makes the difference. Suppose you ask for *a chart of turnout by age group from survey.csv*, a data table with one row per respondent. A chatbot needs the file uploaded and may guess what the columns mean. The agent does the following:
 
 1. it opens the file and sees that age is called `age_cat`, not `age`;
 2. it writes a short program and runs it;
@@ -124,9 +124,9 @@ You see every step, and at first it asks your permission before each one.
 
 It helps to **think of the agent as a very fast research assistant sitting at your computer**. It has read a lot, but it is new to your project, and it can be wrong with confidence. Hence your job shifts from doing each step to instructing the agent and checking its work. Checking matters most.
 
-One more point changes how you use it. The model behind the agent is not a database. It doesn't look facts up in its memory, it reconstructs them, so a reference, a number or a date it "remembers" can be wrong. It is much stronger at working with material you put in front of it. So working with an agent is largely about designing its context: you provide the grounding material (your readings, your data, your notes) and the tools to search and compute, and you ask it to work from those rather than from memory. A table of readings built from the PDFs in your folder can be checked line by line. One built from what the model recalls cannot.
+One more point changes how you use it. The model behind the agent is not a database. It doesn't look facts up in its memory, it reconstructs them, so a reference, a number or a date it "remembers" can be wrong. It is much stronger at working with material you put in front of it. So working with an agent is largely about choosing what it works from: you give it the material (your readings, your data, your notes) and the means to search and compute, and you ask it to work from those rather than from memory. A table of readings built from the PDFs in your folder can be checked line by line. One built from what the model recalls cannot.
 
-Indeed, the right habit is to make it write code that can be run directly, and notes that can be searched directly.
+So the right habit is to let it do counts and calculations with a small program that it saves and can run again, not in its head, and to keep its notes in files you can search.
 
 ## What can it do for a social scientist?
 
@@ -134,7 +134,7 @@ Here are a few tasks that fit an agent well. None of them needs you to write cod
 
 :::: {.uses}
 ::: {.use}
-**Hundreds of historical notes, as OCR-ed PDFs.** Many large PDFs in a folder first become plain text, which can then be searched and turned into a data table.
+**Hundreds of historical notes, scanned as PDFs.** Many large PDFs in a folder first become plain text, which can then be searched and turned into a data table.
 :::
 
 ::: {.use}
@@ -146,7 +146,7 @@ Here are a few tasks that fit an agent well. None of them needs you to write cod
 :::
 
 ::: {.use}
-**Data analysis.** The agent downloads data, cleans it, runs regressions, makes tables and charts, and writes a first-pass report that describes the data. You check the code and the results.
+**Data analysis.** The agent downloads data, cleans it, runs statistical models, makes tables and charts, and writes a first-pass report that describes the data. You check the code and the results.
 :::
 
 ::: {.use}
@@ -154,7 +154,7 @@ Here are a few tasks that fit an agent well. None of them needs you to write cod
 :::
 ::::
 
-The agent has limits, too. First, the agent makes mistakes, and it makes them in fluent, confident prose. It may misread a variable, drop observations without telling you, or hand you a paraphrase in quotation marks. Second, it doesn't know the judgment calls of your field: which cases belong in the sample, or what a concept means in your literature. Third, what it reads is sent to the company's servers, so confidential material needs care.
+The agent has limits, too. First, the agent makes mistakes, and it makes them in fluent, confident prose. It may misread a variable, leave out cases (rows of the data) without telling you, or hand you a paraphrase in quotation marks. Second, it doesn't know the judgment calls of your field: which cases belong in the sample, or what a concept means in your literature. Third, what it reads is sent to the company's servers, so confidential material needs care.
 
 Each of these problems has a routine that handles it, and you already know most of them from supervising research assistants and refereeing papers. Part 2 builds them into every step.
 
@@ -168,7 +168,7 @@ Many people are, and it is a good instinct. Here is why you can relax.
 - **You can stop it at any time.** The stop button interrupts it mid-step.
 - **You can ask before you allow.** *"What does this do? Is it safe? Can it be undone?"* The agent answers in plain language.
 - **You can't run up a bill.** Pro has a fixed monthly price. When you reach the usage limit, the agent pauses until the limit resets, unless you choose to buy extra usage.
-- **Even the Python setup can be undone.** The agent writes down what it installed and how to remove all of it ([Step 1.4](setup.qmd#step-1-4)).
+- **Even the setup of Python can be undone.** Python is a free programming language that the agent uses as a tool. The agent writes down what it installed and how to remove all of it ([Step 1.4](setup.qmd#step-1-4)).
 
 ## What do you need?
 
@@ -178,7 +178,7 @@ Many people are, and it is a good instinct. Here is why you can relax.
 
 ## How is the course organized?
 
-The course has six parts and an assignment. The first two parts are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration. The assignment follows it: you read the agent's paper as a referee would, and you improve its prompt with skills. The fourth part is a guide to the weeks after: you make the rules and the skills yours, and you run a project on a question of your own. The fifth is broader advice for later, on other uses and other models. The sixth is a short list of links on where social science research may be heading. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
+The course has six parts and an assignment. The first two parts are hands-on: setup takes about an hour, the first project about two. The third is a live demonstration. The assignment follows it: you read the agent's paper as a referee would, and you improve its prompt with skills: recipe files the agent follows for one type of task. The fourth part is a guide to the weeks after: you make the rules and the skills yours, and you run a project on a question of your own. The fifth is broader advice for later, on other uses and other models. The sixth is a short list of links on where social science research may be heading. If something fails along the way, nothing is broken: check the troubleshooting table of that part, or ask the agent what went wrong.
 
 ::: {.callout-tip}
 ## Taking this as a two-hour workshop?
@@ -324,6 +324,9 @@ A few links that peek into the future of social science fields: economics, polit
 - **Context window:** what the model can see at once. Long sessions fill it up, and quality drops.
 - **Permission mode:** how much the agent may do without asking you. We start with *Manual*: it asks every time. Later many people use *Auto*.
 - **Markdown (`.md`):** plain text with a few formatting symbols. It is the common language of people and agents.
+- **Path:** the address of a file or folder on your computer, such as `C:\Users\anna\Documents\ai-projects`.
+- **Script:** a text file of instructions that the computer carries out, one after the other. The agent writes scripts in Python or R.
+- **Command:** a one-line instruction to the computer, such as "install Python".
 - **`AGENTS.md`:** your standing instructions, which the agent reads at the start of every session.
 - **Skill:** a recipe file the agent follows for one type of task.
 - **Terminal:** a text window for typing commands. The agent uses one behind the scenes. You don't have to.
