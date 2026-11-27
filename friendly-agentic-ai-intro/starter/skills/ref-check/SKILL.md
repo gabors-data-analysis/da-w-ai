@@ -15,7 +15,7 @@ reference from scratch, and it never overwrites the author's list.
    Count the entries and tell the user the number. Above 30, ask before you go on.
 2. **Check one entry at a time.** Do not skim the whole list. For each entry:
    - find its DOI, or a stable link at the publisher or a repository;
-   - open the link and read the page;
+   - open the publisher's page, or look the DOI up in a registry such as Crossref;
    - compare authors, title, journal or publisher, year, volume and pages.
 3. **Classify each entry.**
    - `clean`: everything matches.
@@ -25,9 +25,13 @@ reference from scratch, and it never overwrites the author's list.
      helped to write, such an entry may be invented: say so plainly.
 4. **Check the text against the list.** Every citation in the text has an entry, and
    every entry is cited at least once.
-5. **Write the report** to `docs/reviews/ref-check_<date>.md`: the counts, then one
-   line for each corrected or unverifiable entry. Add a corrected copy of the reference
-   list as a new file. The author decides what goes into the paper.
+5. **Check what the text says about each reference.** A reference can be real and still
+   be cited for something it does not say. Compare the sentence that cites it with the
+   paper's abstract, and mark it `supported`, `not supported` or `claim not checked`.
+6. **Write the report** to `docs/reviews/ref-check_<date>.md`: the counts, how you
+   checked (publisher's page or registry), then one line for each entry that is
+   corrected, unverifiable or not supported. Add a corrected copy of the reference list
+   as a new file. The author decides what goes into the paper.
 
 ## Develop it further
 

@@ -11,6 +11,7 @@ skill.
 
 Read the whole document once before you flag anything. Many findings are of the kind
 "the abstract and Section 4 disagree", and you only see those with the whole text in view.
+Read the current version: if you work from a text copy of a PDF, make a fresh copy first.
 
 ## The checks
 
@@ -21,9 +22,13 @@ Read the whole document once before you flag anything. Many findings are of the 
 3. **References inside the document.** Every table and figure is mentioned in the text,
    and every mention points to an exhibit that exists. Every citation has an entry in
    the reference list.
-4. **Signs, units and wording.** Higher or lower, percent or percentage points. Does the
-   text say "effect" where the design shows an association?
+4. **Signs, units and wording.** Higher or lower, percent or percentage points, a share
+   or a percent. A negative number next to "lower" or "fell" is a double negative. Does
+   the text say "effect" where the design shows an association?
 5. **Leftovers.** `TODO`, `??`, `XXX`, empty brackets, a note to self.
+6. **Paper and slides.** If there is a slide deck, it makes the same claims with the
+   same numbers. If the deck does not exist yet, say so, and run this check again when
+   it does.
 
 ## How to report
 

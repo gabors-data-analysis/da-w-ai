@@ -57,6 +57,9 @@ The **Basis** field matters most. Be honest about it:
 1. Write the entry when the decision is made, not at the end.
 2. If a decision drops a lot of data, changes the main finding, or is hard to undo,
    mark it `needs-review` and tell the user in plain words before going on.
-3. If a decision is reversed, add a new entry and mark the old one `superseded by Dn`.
-4. When the user asks to review the log, list first the `default` and `provisional`
+3. When a rule drops observations, say what it removed: how many rows, and which units
+   by name when they are few (a country, a year, a school). A reader should not have to
+   find out from the code that one country is missing.
+4. If a decision is reversed, add a new entry and mark the old one `superseded by Dn`.
+5. When the user asks to review the log, list first the `default` and `provisional`
    decisions that many results depend on.

@@ -10,7 +10,8 @@ and by the agent. This skill sets it up the same way every time.
 
 ## Steps
 
-1. **Name.** If the user gave no project name, ask for one. Use lowercase and hyphens,
+1. **Name.** If the user gave no project name, ask for one. If they are away, take it
+   from the research question and say which name you chose. Use lowercase and hyphens,
    no spaces or accents.
 2. **Folders.** Create these in the current project folder. Do not touch files that are
    already there.
@@ -22,10 +23,12 @@ and by the agent. This skill sets it up the same way every time.
    - `docs/reviews/` reports written by the review skills
    - `paper/` and `slides/` the final outputs
 3. **Rules.** If the folder has no `AGENTS.md`, say so and ask the user where their own
-   `AGENTS.md` is, so you can copy it. Do not write rules for them.
+   `AGENTS.md` is, so you can copy it. Do not write rules for them. If they are away,
+   go on without one and note it in `status.md`.
 4. **README.md.** Project title, the research question in one paragraph, the folder tree
-   with one line per folder, and three empty sections: *Status*, *Data sources*,
-   *How to reproduce*.
+   with one line per folder, and four empty sections: *Status*, *Data sources* (where
+   from, and the download date), *Software* (programs and package versions) and
+   *How to reproduce* (the scripts, in the order they run).
 5. **status.md.** Today's date, what was set up, and the next steps as a checklist.
 6. **DECISIONS.md.** An empty log with its header (see the `decision-log` skill).
 7. **Report.** Show the folder tree and tell the user what to fill in first: the

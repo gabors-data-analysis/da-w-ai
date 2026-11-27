@@ -26,12 +26,16 @@ of the `referee` skill.
      groups, signs of a mechanism, a pattern in the descriptive statistics.
    - **Is a strength being undersold?** A simple test that would answer the main
      objection. A figure that would make the case better than a table.
-3. **Mark each finding** DONE (explained) or FLAG (no clean explanation yet).
+3. **Mark each finding** DONE (explained) or FLAG (no clean explanation yet). For each
+   FLAG, name the cheapest check that could settle it.
 4. **Write the report** to `docs/reviews/blindspot_<date>.md`: the four questions with
    their findings, then one ruling.
    - CLEAR: go on to interpretation.
    - CONDITIONAL: go on, and state the open questions in the text.
    - HOLD: do not interpret until the flagged problems are resolved.
+5. **Close the flags.** When the author has acted, add one line under each FLAG: settled
+   by which check, or still open. Mentioning a problem in the paper does not settle it.
+   A flag that is still open goes to the `referee` as a question.
 
 Change no files other than the report.
 
