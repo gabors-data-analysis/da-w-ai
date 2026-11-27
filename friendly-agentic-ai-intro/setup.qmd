@@ -39,7 +39,24 @@ New here? Read the [overview](index.qmd) first: it explains what an agent is and
 The five steps in one minute. No sound. [Open it full screen](assets/setup-in-a-minute.html){target="_blank"}
 :::
 
-This part takes about an hour. The agent explains each step before it takes it, and you approve. If something fails, nothing is broken. See the [troubleshooting table](#troubleshooting) at the end, or ask the agent what went wrong. Worried you will break something? The overview explains [why you can relax](index.qmd#worried-you-will-break-something).
+This part takes about an hour. The agent explains each step before it takes it, and you allow it. If something fails, nothing is broken. See the [troubleshooting table](#troubleshooting) at the end, or ask the agent what went wrong. Worried you will break something? The overview explains [why you can relax](index.qmd#worried-you-will-break-something).
+
+:::: {.callout-note}
+## Lost, or the screen looks different? Ask the AI
+
+The Claude app gets a new version every few weeks, and the screens change with it. A button may have a new name, or sit somewhere else than in our text and pictures. Nothing is wrong when that happens, and you have not missed a step. What you do stays the same: open the app, choose a folder, talk to the agent.
+
+Whenever you are lost, ask the AI, and give it this page. Copy the address of the page, paste it into the prompt box, and ask your question. For example:
+
+::: {.prompt}
+``` default
+I am following this course: https://gabors-data-analysis.com/ai-course/friendly-agentic-ai-intro/setup.html
+I am at Step 1.2. I am not sure how to set the folder I want to work in. Read the page, then tell me step by step what to click. If my app looks different from the page, check the current Claude Code documentation.
+```
+:::
+
+The agent asks your permission to open the page: click **Allow once**. If the agent isn't running yet, ask the same in the **Chat** tab. The official [desktop app documentation](https://code.claude.com/docs/en/desktop) has the details.
+::::
 
 ::: {.callout-note}
 ## What you will have at the end
@@ -63,6 +80,8 @@ The free Claude plan has no agent. For this course you need **Claude Pro**: \$20
 - **The alternatives** cost about the same: ChatGPT Plus (\$20) includes OpenAI's Codex, and Google AI Pro (about \$20) raises the limits of Antigravity, which also has a free tier. See the box below.
 :::
 
+The download page is [claude.com/download](https://claude.com/download). The links below lead to the same installers.
+
 ::: {.panel-tabset}
 #### Windows
 1. Download the installer: [Claude for Windows](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect). (On a Surface or other ARM laptop, use the [ARM64 installer](https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect).)
@@ -75,12 +94,12 @@ The free Claude plan has no agent. For this course you need **Claude Pro**: \$20
 3. Open Claude from Applications (or press `Cmd+Space`, type *Claude*) and sign in.
 
 #### Linux
-The desktop app for Linux is in beta, for Ubuntu and Debian. Follow the steps on the official page: [Claude Desktop on Linux](https://code.claude.com/docs/en/desktop-linux). Then start Claude from your application launcher and sign in.
+The desktop app for Linux is in beta, for Ubuntu 22.04 or later and Debian 12 or later. Follow the steps on the official page: [Claude Desktop on Linux](https://code.claude.com/docs/en/desktop-linux). Then start Claude from your application launcher and sign in.
 
 On another distribution, use the terminal version of Claude Code: [install guide](https://code.claude.com/docs/en/quickstart). The rest of this course still applies. You type the same prompts in the terminal.
 :::
 
-**Then open the Code tab** at the top of the left sidebar (hover over the icons if you see no names). If it asks you to upgrade, your plan doesn't include Claude Code.
+**Then open the Code tab.** Its place has moved between versions of the app: look at the top of the window, or at the top of the left sidebar. If it asks you to upgrade, your plan doesn't include Claude Code.
 
 ::: {.callout-tip}
 ## Chat or Code?
@@ -126,7 +145,29 @@ If you use Dropbox, OneDrive or Google Drive, it is good practice to create `ai-
 Git and GitHub do the same job more precisely, with a saved snapshot after each step that works. They take some setup. See [Step 4.4](after-the-course.qmd#step-4-4) in Part 4.
 :::
 
-**Open the folder in Claude.** In the Code tab, find the row of controls under the prompt box. Click the first one (the environment) and choose the top entry under **Local**. Then click the folder control next to it, choose **Open folder…** and pick `first-project`.
+**Open the folder in Claude.** In the Code tab, look at the row of controls under the prompt box. Your screen should look roughly like this.
+
+::: {.ui-shot}
+![The Code tab, ready to start. Under the prompt box, from the left: the environment (*This computer*) and the folder. On the right: the model picker, which shows the model and its effort (*Opus 5.5*, *Medium*), then the permission mode and the usage ring.](assets/claude1.png){fig-alt="The Claude Code tab with an empty prompt box. Under it, on the left, a control reading This computer and a folder control; on the right, the model Opus 5.5, the effort Medium, the permission mode and a small usage ring. A Choose environment button is in the middle of the screen."}
+:::
+
+Two controls on the left matter now.
+
+- **The environment** says *where* the agent works. Choose **This computer**: the agent then works on your own laptop, with your own files.
+- **The folder** says *which* folder it works in. Choose `first-project`.
+
+If the middle of the screen says **Choose environment**, or the app asks you to set up a new environment, a window like this one opens:
+
+::: {.ui-shot}
+![Setting up an environment: keep the Local tab, give it a name, add your project folder, and create it.](assets/claude2.png){fig-alt="The New environment window, with the tabs Local, Cloud, SSH and Remote Control. Local is selected. Below it are a Name field, a Folders list with an Add button, an Environment variables row, and the buttons Cancel and Create environment."}
+:::
+
+1. Keep the **Local** tab: the agent works on your computer. The other tabs are for running it in the cloud or on another computer, or for reaching it from elsewhere. We don't need them.
+2. Give the environment a **Name**, such as `first-project`.
+3. Under **Folders**, click **+ Add** and pick your `first-project` folder. *Not a Git repository* next to it is fine: Git comes later, if at all ([Step 4.4](after-the-course.qmd#step-4-4)).
+4. Leave **Environment variables** alone, and click **Create environment**.
+
+Then check the row under the prompt box: it should show your folder, or the environment you just created with your folder in it. If it shows another folder, click it and choose yours. Still lost? Ask the AI, as the box at the top of this page shows.
 
 ::: {.callout-warning}
 ## What not to put in the folder (yet)
@@ -139,7 +180,20 @@ Also check your Claude account's privacy settings, which control whether your co
 
 ## [1.3]{.step-no} Have a first conversation with the agent {#step-1-3}
 
-Set the **permission mode** (in the row under the prompt box) to **Manual**. The agent then asks before it creates or changes any file and before it runs anything. True, this is slower. But you see everything, and that is what we want at the start. We advise staying in Manual for your first week. Next to the permission mode is the model picker. Leave the default for now: we come back to it in [Which model should you use?](#which-model)
+**Choose the permission mode.** The permission mode, in the row under the prompt box, sets how much the agent may do without asking you. Your app may start in any of them, so check it before your first message. Four matter for us.
+
+| Mode | What the agent does without asking | When to use it |
+|---|---|---|
+| **Manual** | Nothing. It asks before it changes a file and before it runs a command | When you start, and whenever the work matters: confidential material, the only copy of a file, anything hard to undo |
+| **Accept edits** | Creates and edits files in the project folder. It still asks before other commands | Routine work in a folder you know |
+| **Plan** | Reads and explores, then proposes a plan. It changes nothing | Before a longer task ([Step 2.3](first-steps.qmd#step-2-3)) |
+| **Auto** | Works without routine questions. A background check stops actions it judges risky, such as ones that go beyond your request | Once you know how the agent works. Many experienced users work in Auto most of the time |
+
+Leave **Bypass permissions** alone: it switches off the questions altogether.
+
+The choice is yours, and you can change it at any time, in the middle of a session too. We advise **Manual** for this course and for your first week. True, it is slower. But you see every step, and you learn what the agent does. Later, Auto saves a lot of clicks. Its check cuts the questions, but the [documentation](https://code.claude.com/docs/en/permission-modes) says plainly that it does not guarantee safety. So go back to Manual when the work matters.
+
+Next to the permission mode is the model picker. Leave the default for now: we come back to it in [Which model should you use?](#which-model)
 
 Type this and press Enter:
 
@@ -149,20 +203,26 @@ Hi. I am new to this. What can you see in this folder? Then create a file called
 ```
 :::
 
-The agent looks at the folder (it is empty), then asks to create a file. Read what it wants to do. If it is unclear, click no and ask: *"What does this do? Explain in one sentence."*
+The agent looks at the folder (it is empty), then asks to create a file. A box shows what it wants to do, with two buttons: **Deny** and **Always allow**. A third choice, **Allow once**, is hidden: click the small arrow next to the buttons to see it.
+
+- **Allow once** lets the agent take this one step. Use it in this course: you see every step.
+- **Always allow** lets it take this kind of step from now on without asking. Keep it for steps you have seen many times and trust.
+- **Deny** stops the step. Nothing changes, and the agent waits for your instruction. When in doubt, deny.
+
+Read what it wants to do. If it is unclear, click **Deny** and ask: *"What does this do? Explain in one sentence."*
 
 Then try four things.
 
 - Click `hello.md` in the chat. It opens inside the app.
 - Ask: *"Make it two sentences and less formal."* The agent edits the file, not just the chat.
-- The next time it asks to change the file, click no, on purpose. Nothing changes, and the agent waits for your instruction.
+- The next time it asks to change the file, click **Deny**, on purpose. Nothing changes, and the agent waits for your instruction.
 - Click the stop button to interrupt it. You can also type a correction while it works.
 
 Note the second one. With a chatbot, you would get a new version in the conversation and copy it over. Here the file itself changed.
 
 ## [1.4]{.step-no} Let the agent set up Python {#step-1-4}
 
-This is the most technical step of the course, and you don't need to follow the details. It takes five to ten minutes. Read the one-sentence explanation before each command, then approve.
+This is the most technical step of the course, and you don't need to follow the details. It takes five to ten minutes. Read the one-sentence explanation before each command, then click **Allow once**.
 
 **Why Python, if you work with text?** The agent uses small Python programs as its tools: to read Word and PDF files, to convert formats, to handle large datasets and to draw charts. Python is free, it runs on every computer, and AI models write it well. You won't write any of it yourself.
 
@@ -281,8 +341,8 @@ Two more points matter for researchers.
 
 - **Effort.** In the model picker, under **Effort**, you set how hard the model thinks before it answers: low, medium, high, xhigh (extra high) or max. The default is medium. Lower is faster and uses less of your limit. We suggest medium for this course, and high for work where a mistake is costly, such as the data task or a review. Max is rarely worth it.
 - **Thinking.** The current models always think before they answer, and there is no switch for it. To read the thinking, set the **Transcript view** to **Thinking**.
-- **The usage ring.** Next to the model picker, a small ring shows how much of your plan's usage you have used. Click it for the details.
-- **Permission mode.** Manual for now (Step 1.3). For what to choose later, see [Step 2.1](first-steps.qmd#step-2-1).
+- **The usage ring.** At the right end of the row, a small ring shows how much of your plan's usage you have used. Click it for the details.
+- **Permission mode.** Manual for now ([Step 1.3](#step-1-3)). For what to choose later, see [Step 2.1](first-steps.qmd#step-2-1).
 - **Long sessions.** What the model can see at once is limited, and a long session fills it up. Start a new session for each task. Part 2 shows how to carry over what matters.
 :::
 
@@ -293,8 +353,9 @@ Want to use models from other companies, such as cheaper open-weights models? Se
 | Problem | What to do |
 |---|---|
 | The Code tab asks me to upgrade | Claude Code needs a Pro plan or higher. A free account only has Chat |
-| The Code tab shows a sign-in prompt or a 403 error | Finish the sign-in in the browser, then quit and restart the app. Still failing: see the [official troubleshooting](https://code.claude.com/docs/en/desktop#troubleshooting) |
-| The agent can't see my files | Check the folder control under the prompt box: is the right folder open? |
+| The Code tab shows a sign-in prompt or a 403 error | Sign out and back in from the app menu: this fixes it most often. If not, quit the app fully and start it again. Still failing: see the [official troubleshooting](https://code.claude.com/docs/en/desktop#troubleshooting) |
+| The agent can't see my files | Check the two controls under the prompt box: the environment should say *This computer*, and the folder should be yours |
+| My screen doesn't look like the course | The app has changed since we wrote this. Ask the agent, or the Chat tab, to check the current documentation (see [Lost, or the screen looks different?](#what-do-we-do-in-this-part)) |
 | Python, Git or a package "not found" after installing | Quit the Claude app fully and start it again |
 | An error I don't understand | Paste it in and ask: *"Explain this error simply, then fix it."* This works more often than you would expect |
 

@@ -153,12 +153,12 @@
       <text x="226" y="362" class="ui">May I create <tspan class="b">hello.md</tspan>?</text>
     </g>
     <g id="s3btn">
-      <rect id="s3yes" x="226" y="408" width="124" height="50" rx="10" fill="#f2a51c"/>
-      <text x="288" y="440" text-anchor="middle" class="ui b" style="font-size:22px">Yes</text>
-      <rect x="366" y="408" width="124" height="50" rx="10" fill="none" stroke="#15120f" stroke-width="2"/>
-      <text x="428" y="440" text-anchor="middle" class="ui b" style="font-size:22px">No</text>
+      <rect id="s3yes" x="226" y="408" width="150" height="50" rx="10" fill="#f2a51c"/>
+      <text x="301" y="440" text-anchor="middle" class="ui b" style="font-size:22px">Allow once</text>
+      <rect x="392" y="408" width="110" height="50" rx="10" fill="none" stroke="#15120f" stroke-width="2"/>
+      <text x="447" y="440" text-anchor="middle" class="ui b" style="font-size:22px">Deny</text>
     </g>
-    <circle id="s3ring" cx="288" cy="433" r="10" fill="none" stroke="#c8431c" stroke-width="4"/>
+    <circle id="s3ring" cx="301" cy="433" r="10" fill="none" stroke="#c8431c" stroke-width="4"/>
     <rect x="800" y="232" width="360" height="262" rx="16" fill="#fbf3d6" fill-opacity=".08" stroke="#f2a51c" stroke-width="4" stroke-dasharray="14 10"/>
     <rect x="822" y="208" width="200" height="44" rx="10" fill="#f2a51c"/>
     <text x="922" y="237" text-anchor="middle" style="font-size:21px;font-weight:700;fill:#15120f">first-project</text>
@@ -168,8 +168,8 @@
       <text x="980" y="446" text-anchor="middle" class="cream b" style="font-size:21px">hello.md</text>
     </g>
     <path id="s3cur" d="M0 0 L0 24 L7 18 L11 28 L16 26 L12 16 L21 16 Z" fill="#fff" stroke="#15120f" stroke-width="2" stroke-linejoin="round"/>
-    <text x="640" y="596" class="cap">It asks before it acts. You click yes or no.</text>
-    <text x="640" y="632" class="cap">And a no is always safe.</text>
+    <text x="640" y="596" class="cap">It asks before it acts. You allow it once, or deny.</text>
+    <text x="640" y="632" class="cap">And a deny is always safe.</text>
   </g>
 
   <!-- 4: Python -->
@@ -189,7 +189,7 @@
       </g>
     </g>
     <text id="s4lab" x="980" y="510" text-anchor="middle" class="cream mono" style="font-size:19px">output/test_chart.png</text>
-    <text x="640" y="596" class="cap">It explains each command in one sentence, and you approve.</text>
+    <text x="640" y="596" class="cap">It explains each command in one sentence, and you allow it.</text>
     <text x="640" y="632" class="cap">You don't write any code.</text>
   </g>
 
@@ -303,14 +303,14 @@
     tf('s2bot', `translate(${583} ${276 - (1 - b2) * 60}) scale(1.25)`);
     op('s2lab', p(t, 15.7, 16.4));
 
-    // 3: a typed request, a question back, a click on Yes, a new file
+    // 3: a typed request, a question back, a click on Allow once, a new file
     op('s3me', p(t, 23.1, 23.5));
     $('s3type').textContent = TYPED.slice(0, Math.round(lin(t, 23.5, 26.1) * TYPED.length));
     op('s3ans', p(t, 26.7, 27.4));
     op('s3btn', p(t, 27.7, 28.3));
     const c = p(t, 28.5, 29.7);
     op('s3cur', p(t, 28.3, 28.6) * (1 - p(t, 31.2, 31.8)));
-    tf('s3cur', `translate(${600 - 304 * c} ${500 - 66 * c})`);
+    tf('s3cur', `translate(${600 - 291 * c} ${500 - 66 * c})`);
     const r = lin(t, 29.9, 30.6);
     $('s3ring').setAttribute('r', 10 + 44 * r);
     op('s3ring', r > 0 && r < 1 ? 1 - r : 0);

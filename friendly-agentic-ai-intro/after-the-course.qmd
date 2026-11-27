@@ -196,7 +196,7 @@ Now do what the demo did, on a question you know well. That is the point of choo
 
 Keep the stop after the design. The design is the decision that matters most, and it is yours.
 
-**Run it.** Start in **Plan** mode and read the plan, as in Step 2.3. For the run itself, Manual mode means a click for every file. The rule of Step 2.1 fits better here: **Accept edits**, so the agent is free inside the project folder and asks for everything else. Then watch the four things of [Part 3](live-demo.qmd#what-should-you-watch-during-the-demo): the plan, the choices, the checks and the files.
+**Run it.** Start in **Plan** mode and read the plan, as in Step 2.3. For the run itself, Manual mode means a click for every file. **Accept edits** or **Auto** fits better here ([Step 2.1](first-steps.qmd#step-2-1)), as long as the folder holds nothing confidential. Then watch the four things of [Part 3](live-demo.qmd#what-should-you-watch-during-the-demo): the plan, the choices, the checks and the files.
 
 A long task uses up your usage limit faster than anything in Part 2. If the agent pauses at the limit, nothing is lost: the files are in the folder, and `status.md` says where the work stands. For the choice of model on long tasks, see [Which model should you use?](setup.qmd#which-model)
 

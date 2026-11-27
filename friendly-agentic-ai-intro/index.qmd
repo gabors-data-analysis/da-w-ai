@@ -162,11 +162,11 @@ Each of these problems has a routine that handles it, and you already know most 
 
 Many people are, and it is a good instinct. Here is why you can relax.
 
-- **Nothing happens without your click.** In Manual mode, where we start, the agent asks before it changes a file or runs anything. When in doubt, click no. Nothing bad follows from a no.
-- **It works in one folder you choose.** Your other files are outside it. If a request ever names another folder, click no and ask why.
+- **Nothing happens without your click.** In Manual mode, where we start, the agent asks before it changes a file or runs anything. When in doubt, click **Deny**. Nothing bad follows from a deny.
+- **It works in one folder you choose.** Your other files are outside it. If a request ever names another folder, click **Deny** and ask why.
 - **Start with copies.** Put copies of your files in the project folder and keep the originals where they are. In the worst case, you delete the folder and start again.
 - **You can stop it at any time.** The stop button interrupts it mid-step.
-- **You can ask before you approve.** *"What does this do? Is it safe? Can it be undone?"* The agent answers in plain language.
+- **You can ask before you allow.** *"What does this do? Is it safe? Can it be undone?"* The agent answers in plain language.
 - **You can't run up a bill.** Pro has a fixed monthly price. When you reach the usage limit, the agent pauses until the limit resets, unless you choose to buy extra usage.
 - **Even the Python setup can be undone.** The agent writes down what it installed and how to remove all of it ([Step 1.4](setup.qmd#step-1-4)).
 
@@ -322,7 +322,7 @@ A few links that peek into the future of social science fields: economics, polit
 - **Prompt:** the instruction you type for the agent. In this course, prompts to copy come in boxes.
 - **Session:** one conversation with the agent. Each session starts fresh.
 - **Context window:** what the model can see at once. Long sessions fill it up, and quality drops.
-- **Permission mode:** how much the agent may do without asking you. We start with *Manual*: it asks every time.
+- **Permission mode:** how much the agent may do without asking you. We start with *Manual*: it asks every time. Later many people use *Auto*.
 - **Markdown (`.md`):** plain text with a few formatting symbols. It is the common language of people and agents.
 - **`AGENTS.md`:** your standing instructions, which the agent reads at the start of every session.
 - **Skill:** a recipe file the agent follows for one type of task.
